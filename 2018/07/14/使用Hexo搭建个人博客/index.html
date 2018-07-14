@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Aaron&#39;s horizon">
 <meta property="og:description" content="一、Git 在GitHub注册个人账号，并跟随向导创建Repository。 安装Git。 创建SSH KEY1234git config --global user.name &quot;username&quot;git config --global user.email &quot;usermail&quot;git config --global --listssh-keygen -t rsa -C &quot;usermail&quot;  #">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-14T04:53:12.077Z">
+<meta property="og:updated_time" content="2018-07-14T07:21:00.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Hexo搭建个人博客">
 <meta name="twitter:description" content="一、Git 在GitHub注册个人账号，并跟随向导创建Repository。 安装Git。 创建SSH KEY1234git config --global user.name &quot;username&quot;git config --global user.email &quot;usermail&quot;git config --global --listssh-keygen -t rsa -C &quot;usermail&quot;  #">
@@ -328,9 +328,21 @@
 </li>
 </ul>
 <h1 id="二、Node-js"><a href="#二、Node-js" class="headerlink" title="二、Node.js"></a>二、Node.js</h1><p><a href="http://nodejs.org/" target="_blank" rel="noopener">下载地址</a></p>
-<h1 id="三、Hexo"><a href="#三、Hexo" class="headerlink" title="三、Hexo"></a>三、Hexo</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli  <span class="comment">#使用npm安装Hexo</span></span><br><span class="line">hexo init &lt;folder&gt;  <span class="comment">#初始化根目录</span></span><br><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<h1 id="四、与GitHub-Pages关联"><a href="#四、与GitHub-Pages关联" class="headerlink" title="四、与GitHub Pages关联"></a>四、与GitHub Pages关联</h1><p>编辑_config.yml文件，添加</p>
+<h1 id="三、Hexo"><a href="#三、Hexo" class="headerlink" title="三、Hexo"></a>三、Hexo</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli  <span class="comment">#使用npm安装Hexo</span></span><br><span class="line">hexo init &lt;folder&gt;  <span class="comment">#初始化根目录</span></span><br><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">npm install</span><br><span class="line">npm install --save hexo-deployer-git  <span class="comment">#安装Git部署服务</span></span><br></pre></td></tr></table></figure>
+<h1 id="四、目录"><a href="#四、目录" class="headerlink" title="四、目录"></a>四、目录</h1><blockquote>
+<ul>
+<li>_config.yml  网站配置</li>
+<li>package.json  应用程序信息，如已安装的<code>hexo-deployer-git</code></li>
+<li>public/  存放生成的站点文件</li>
+<li>scaffolds/  模板，创建新文章时默认填充</li>
+<li>source/  存放Markdown源文件，被解析到public文件夹</li>
+<li>themes/  主题</li>
+</ul>
+</blockquote>
+<h1 id="五、与GitHub-Pages关联"><a href="#五、与GitHub-Pages关联" class="headerlink" title="五、与GitHub Pages关联"></a>五、与GitHub Pages关联</h1><p>编辑<code>_config.yml</code>文件，添加</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:xxx.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<h1 id="六、写作"><a href="#六、写作" class="headerlink" title="六、写作"></a>六、写作</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"My New Post"</span></span><br><span class="line">hexo server -p 5000</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+<h1 id="七、主题"><a href="#七、主题" class="headerlink" title="七、主题"></a>七、主题</h1><p><a href="https://github.com/iissnan/hexo-theme-next/releases" target="_blank" rel="noopener">NexT</a></p>
 
       
     </div>
@@ -490,7 +502,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、Git"><span class="nav-number">1.</span> <span class="nav-text">一、Git</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、Node-js"><span class="nav-number">2.</span> <span class="nav-text">二、Node.js</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、Hexo"><span class="nav-number">3.</span> <span class="nav-text">三、Hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、与GitHub-Pages关联"><span class="nav-number">4.</span> <span class="nav-text">四、与GitHub Pages关联</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、Git"><span class="nav-number">1.</span> <span class="nav-text">一、Git</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、Node-js"><span class="nav-number">2.</span> <span class="nav-text">二、Node.js</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、Hexo"><span class="nav-number">3.</span> <span class="nav-text">三、Hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、目录"><span class="nav-number">4.</span> <span class="nav-text">四、目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、与GitHub-Pages关联"><span class="nav-number">5.</span> <span class="nav-text">五、与GitHub Pages关联</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、写作"><span class="nav-number">6.</span> <span class="nav-text">六、写作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七、主题"><span class="nav-number">7.</span> <span class="nav-text">七、主题</span></a></li></ol></div>
             
 
           </div>
