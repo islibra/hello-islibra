@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aaron&#39;s horizon">
-<meta property="og:url" content="http://islibra.github.io/hello-islibra/categories/java/index.html">
+<meta name="description" content="目录 用途 备注     /bin /usr/bin /usr/local/bin 最常用的二进制命令 如：ls mv cat   /sbin /usr/sbin /usr/local/sbin 系统专用的二进制命令 root使用，如：fdisk shutdown mount   /lib /usr/lib /usr/local/lib 系统使用的库文件 如：/lib/modules   /">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux文件系统">
+<meta property="og:url" content="http://islibra.github.io/hello-islibra/2018/07/15/Linux文件系统/index.html">
 <meta property="og:site_name" content="Aaron&#39;s horizon">
+<meta property="og:description" content="目录 用途 备注     /bin /usr/bin /usr/local/bin 最常用的二进制命令 如：ls mv cat   /sbin /usr/sbin /usr/local/sbin 系统专用的二进制命令 root使用，如：fdisk shutdown mount   /lib /usr/lib /usr/local/lib 系统使用的库文件 如：/lib/modules   /">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-15T05:14:03.446Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aaron&#39;s horizon">
+<meta name="twitter:title" content="Linux文件系统">
+<meta name="twitter:description" content="目录 用途 备注     /bin /usr/bin /usr/local/bin 最常用的二进制命令 如：ls mv cat   /sbin /usr/sbin /usr/local/sbin 系统专用的二进制命令 root使用，如：fdisk shutdown mount   /lib /usr/lib /usr/local/lib 系统使用的库文件 如：/lib/modules   /">
 
 
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://islibra.github.io/hello-islibra/categories/java/"/>
+  <link rel="canonical" href="http://islibra.github.io/hello-islibra/2018/07/15/Linux文件系统/"/>
 
 
 
 
 
-  <title>Category: java | Aaron's horizon</title>
+  <title>Linux文件系统 | Aaron's horizon</title>
   
 
 
@@ -140,7 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,55 +218,258 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>java<small>Category</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/15/Linux文件系统/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/hello-islibra/2018/07/14/Linux设置Java环境变量/" itemprop="url">
-              
-                <span itemprop="name">Linux设置Java环境变量</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Linux文件系统</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-14T12:48:57+08:00"
-              content="2018-07-14" >
-          07-14
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-15T13:12:59+08:00">
+                2018-07-15
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/os/" itemprop="url" rel="index">
+                    <span itemprop="name">os</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <table>
+<thead>
+<tr>
+<th>目录</th>
+<th>用途</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/bin /usr/bin /usr/local/bin</td>
+<td>最常用的二进制命令</td>
+<td>如：ls mv cat</td>
+</tr>
+<tr>
+<td>/sbin /usr/sbin /usr/local/sbin</td>
+<td>系统专用的二进制命令</td>
+<td>root使用，如：fdisk shutdown mount</td>
+</tr>
+<tr>
+<td>/lib /usr/lib /usr/local/lib</td>
+<td>系统使用的库文件</td>
+<td>如：/lib/modules</td>
+</tr>
+<tr>
+<td>/boot</td>
+<td>系统启动时用来引导Linux的文件，建议<strong>单独分区</strong>100M即可</td>
+<td>如：/boot/vmlinuz为linux内核文件，/boot/grub</td>
+</tr>
+<tr>
+<td>/dev</td>
+<td>设备文件</td>
+<td>如：mount /dev/cdrom /mnt/cdrom挂载光驱</td>
+</tr>
+<tr>
+<td>/etc</td>
+<td>系统配置文件，修改之前记得备份</td>
+<td>如：/etc/inittab /etc/fstab /etc/init.d /etc/X11 /etc/sysconfig</td>
+</tr>
+<tr>
+<td>/home</td>
+<td>各用户的根目录，用~表示，建议<strong>单独分区</strong>，设置较大的磁盘空间</td>
+<td></td>
+</tr>
+<tr>
+<td>/root</td>
+<td>root的根目录，用~表示，建议和/放置在同一个分区下</td>
+<td></td>
+</tr>
+<tr>
+<td>/lost+found</td>
+<td>系统异常时丢失的文件</td>
+<td>挂载硬盘后自动生成，如：mount /dev/dm-0 /xxx，生成/xxx/lost+found</td>
+</tr>
+<tr>
+<td>/mnt /media</td>
+<td>媒体挂载点</td>
+<td>如：/mount -o loop xxx.iso /mnt/cdrom</td>
+</tr>
+<tr>
+<td>/opt</td>
+<td>安装第三方软件目录</td>
+<td></td>
+</tr>
+<tr>
+<td>/proc</td>
+<td>CPU、进程、内存、IO、网络数据，内存的映射，虚拟目录，不占用磁盘空间</td>
+<td>如：/proc/cpuinfo /proc/interrupts /proc/dma /proc/ioports /proc/net/*</td>
+</tr>
+<tr>
+<td>/sys</td>
+<td>系统信息</td>
+<td></td>
+</tr>
+<tr>
+<td>/tmp</td>
+<td>临时文件目录，一般用户或正在执行的程序都可存放，任何人都可以访问，重要数据不可放置在此目录下</td>
+<td></td>
+</tr>
+<tr>
+<td>/srv</td>
+<td>服务启动后需要访问的数据目录</td>
+<td>如：/srv/www</td>
+</tr>
+<tr>
+<td>/usr</td>
+<td>普通用户的应用程序、库文件、文档，建议<strong>单独分区</strong>，设置较大的磁盘空间</td>
+<td>如：/usr/bin应用程序 /usr/lib库文件 /usr/share共享数据 /usr/local软件升级包 /usr/share/doc系统说明文件 /usr/share/man程序说明文件</td>
+</tr>
+<tr>
+<td>/var</td>
+<td>动态变化的文件，建议<strong>单独分区</strong>，设置较大的磁盘空间</td>
+<td>如：日志/var/log /var/log/message 邮件/var/spool/mail 程序PID/var/run</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/hello-islibra/2018/07/15/vim/" rel="next" title="vim">
+                <i class="fa fa-chevron-left"></i> vim
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -270,6 +477,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -475,6 +686,10 @@
   
 
   
+  <script type="text/javascript" src="/hello-islibra/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/hello-islibra/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
