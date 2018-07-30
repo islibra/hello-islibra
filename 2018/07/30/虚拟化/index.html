@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="一、通过分支MERGE1234567891011git clone xxx.git #将要提交代码仓路径clone到本地cd #进入代码目录git branch #查看当前分支git pull origin master #更新本地分支git checkout -b newbranch #checkout到个人分支git branch #查看当前分支为个人分支git push origin new">
+<meta name="description" content="通过Hypervisor将物理机/宿主机（Host）的硬件资源虚拟化，并提供给虚拟机/客户机（Guest）使用。 1型虚拟化直接安装在物理机上，如：  Xen VMWare的ESXi  2型虚拟化安装在常规的操作系统上，如：  KVM VirualBox VMWare Workstation  KVM基于Linux内核实现，内核模块kvm.io用于管理CPU和内存，而存储和网络等IO由Linux内">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git常用命令">
-<meta property="og:url" content="http://islibra.github.io/hello-islibra/2018/07/15/Git常用命令/index.html">
+<meta property="og:title" content="虚拟化">
+<meta property="og:url" content="http://islibra.github.io/hello-islibra/2018/07/30/虚拟化/index.html">
 <meta property="og:site_name" content="Aaron&#39;s horizon">
-<meta property="og:description" content="一、通过分支MERGE1234567891011git clone xxx.git #将要提交代码仓路径clone到本地cd #进入代码目录git branch #查看当前分支git pull origin master #更新本地分支git checkout -b newbranch #checkout到个人分支git branch #查看当前分支为个人分支git push origin new">
+<meta property="og:description" content="通过Hypervisor将物理机/宿主机（Host）的硬件资源虚拟化，并提供给虚拟机/客户机（Guest）使用。 1型虚拟化直接安装在物理机上，如：  Xen VMWare的ESXi  2型虚拟化安装在常规的操作系统上，如：  KVM VirualBox VMWare Workstation  KVM基于Linux内核实现，内核模块kvm.io用于管理CPU和内存，而存储和网络等IO由Linux内">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-15T09:23:17.227Z">
+<meta property="og:updated_time" content="2018-07-30T13:32:24.425Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git常用命令">
-<meta name="twitter:description" content="一、通过分支MERGE1234567891011git clone xxx.git #将要提交代码仓路径clone到本地cd #进入代码目录git branch #查看当前分支git pull origin master #更新本地分支git checkout -b newbranch #checkout到个人分支git branch #查看当前分支为个人分支git push origin new">
+<meta name="twitter:title" content="虚拟化">
+<meta name="twitter:description" content="通过Hypervisor将物理机/宿主机（Host）的硬件资源虚拟化，并提供给虚拟机/客户机（Guest）使用。 1型虚拟化直接安装在物理机上，如：  Xen VMWare的ESXi  2型虚拟化安装在常规的操作系统上，如：  KVM VirualBox VMWare Workstation  KVM基于Linux内核实现，内核模块kvm.io用于管理CPU和内存，而存储和网络等IO由Linux内">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://islibra.github.io/hello-islibra/2018/07/15/Git常用命令/"/>
+  <link rel="canonical" href="http://islibra.github.io/hello-islibra/2018/07/30/虚拟化/"/>
 
 
 
 
 
-  <title>Git常用命令 | Aaron's horizon</title>
+  <title>虚拟化 | Aaron's horizon</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/15/Git常用命令/">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/30/虚拟化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiXiaolong">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git常用命令</h1>
+          <h1 class="post-title" itemprop="name headline">虚拟化</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-15T17:22:07+08:00">
-                2018-07-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-30T21:31:36+08:00">
+                2018-07-30
               </time>
             
 
@@ -284,8 +284,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/environment/" itemprop="url" rel="index">
-                    <span itemprop="name">environment</span>
+                  <a href="/hello-islibra/categories/openstack/" itemprop="url" rel="index">
+                    <span itemprop="name">openstack</span>
                   </a>
                 </span>
 
@@ -321,11 +321,27 @@
       
 
       
-        <h1 id="一、通过分支MERGE"><a href="#一、通过分支MERGE" class="headerlink" title="一、通过分支MERGE"></a>一、通过分支MERGE</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> xxx.git <span class="comment">#将要提交代码仓路径clone到本地</span></span><br><span class="line"><span class="built_in">cd</span> <span class="comment">#进入代码目录</span></span><br><span class="line">git branch <span class="comment">#查看当前分支</span></span><br><span class="line">git pull origin master <span class="comment">#更新本地分支</span></span><br><span class="line">git checkout -b newbranch <span class="comment">#checkout到个人分支</span></span><br><span class="line">git branch <span class="comment">#查看当前分支为个人分支</span></span><br><span class="line">git push origin newbranch <span class="comment">#将checkout出来的个人分支push到CodeClub</span></span><br><span class="line">git status <span class="comment">#查看本地修改的文件</span></span><br><span class="line">git add -A . <span class="comment">#将本地修改的文件add到本地仓个人分支</span></span><br><span class="line">git commit -m <span class="string">"xxx"</span> <span class="comment">#将本地修改的文件提交到本地仓个人分支</span></span><br><span class="line">git push origin newbranch <span class="comment">#将本地修改的文件提交到远程仓个人分支</span></span><br></pre></td></tr></table></figure>
-<p>发起merge，从远程仓个人分支merge到远程仓主干分支</p>
-<h1 id="二、Fork个人仓"><a href="#二、Fork个人仓" class="headerlink" title="二、Fork个人仓"></a>二、Fork个人仓</h1><p>将主干仓Fork到个人仓<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> xxx.git <span class="comment">#将个人仓clone到本地</span></span><br><span class="line"><span class="built_in">cd</span> <span class="comment">#进入代码目录</span></span><br><span class="line">git remote -v <span class="comment">#查看远程分支列表</span></span><br><span class="line">git remote add projorigin projxxx.git <span class="comment">#增加主库分支到本地</span></span><br><span class="line">git branch <span class="comment">#查看当前分支</span></span><br><span class="line">git pull origin master <span class="comment">#更新当前分支</span></span><br><span class="line">git fetch projorigin <span class="comment">#fetch主库分支的最新版本到本地</span></span><br><span class="line">git merge projorigin/master <span class="comment">#merge主库分支到本地</span></span><br><span class="line">git status <span class="comment">#查看本地修改的文件</span></span><br><span class="line">git add -A . <span class="comment">#将本地修改的文件add到本地仓</span></span><br><span class="line">git commit -m <span class="string">"xxx"</span> <span class="comment">#将本地修改的文件提交到本地仓</span></span><br><span class="line">git push origin branchname <span class="comment">#将本地修改的文件提交到远程个人仓</span></span><br></pre></td></tr></table></figure></p>
-<p>发起merge，从远程个人仓merge到远程主干仓</p>
-<p>END</p>
+        <p>通过<code>Hypervisor</code>将物理机/宿主机（<code>Host</code>）的硬件资源虚拟化，并提供给虚拟机/客户机（<code>Guest</code>）使用。</p>
+<h2 id="1型虚拟化"><a href="#1型虚拟化" class="headerlink" title="1型虚拟化"></a>1型虚拟化</h2><p>直接安装在物理机上，如：</p>
+<ul>
+<li>Xen</li>
+<li>VMWare的ESXi</li>
+</ul>
+<h2 id="2型虚拟化"><a href="#2型虚拟化" class="headerlink" title="2型虚拟化"></a>2型虚拟化</h2><p>安装在常规的操作系统上，如：</p>
+<ul>
+<li>KVM</li>
+<li>VirualBox</li>
+<li>VMWare Workstation</li>
+</ul>
+<h1 id="KVM"><a href="#KVM" class="headerlink" title="KVM"></a>KVM</h1><p>基于Linux内核实现，内核模块kvm.io用于管理CPU和内存，而存储和网络等IO由Linux内核和Qemu实现。</p>
+<p>KVM的管理工具：<code>Libvirt</code></p>
+<ul>
+<li>libvirtd，后台deamon服务，接收和处理API请求。</li>
+<li>API库，可基于libvirt开发，如图形化的KVM管理工具virt-manager。</li>
+<li>virsh，KVM命令行工具。</li>
+</ul>
+<h2 id="安装KVM包"><a href="#安装KVM包" class="headerlink" title="安装KVM包"></a>安装KVM包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#qemu-kvm qemu-system：KVM 和 QEMU 的核心包，提供 CPU、内存和 IO 虚拟化功能</span></span><br><span class="line"><span class="comment">#libvirt-bin：libvirt命令行管理工具</span></span><br><span class="line"><span class="comment">#virt-manager：KVM图形化管理工具</span></span><br><span class="line"><span class="comment">#bridge-utils vlan：网络虚拟化</span></span><br><span class="line">sudo apt-get install qemu-kvm qemu-system libvirt-bin virt-manager bridge-utils vlan</span><br><span class="line"><span class="comment">#安装Ubuntu图形界面</span></span><br><span class="line">sudo apt-get install xinit</span><br><span class="line">sudo apt-get install gdm</span><br><span class="line">sudo apt-get install kubuntu-desktop</span><br><span class="line"><span class="comment">#配置国内镜像站点/etc/apt/sources.list</span></span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line"><span class="comment">#更新安装包</span></span><br><span class="line">apt update</span><br></pre></td></tr></table></figure>
+<p>参考：<a href="http://www.cnblogs.com/CloudMan6/" target="_blank" rel="noopener">http://www.cnblogs.com/CloudMan6/</a><br>已读：<a href="https://www.cnblogs.com/CloudMan6/p/5233484.html" target="_blank" rel="noopener">https://www.cnblogs.com/CloudMan6/p/5233484.html</a></p>
 
       
     </div>
@@ -350,8 +366,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/hello-islibra/2018/07/15/Linux用户管理/" rel="next" title="Linux用户管理">
-                <i class="fa fa-chevron-left"></i> Linux用户管理
+              <a href="/hello-islibra/2018/07/29/README/" rel="next" title="README">
+                <i class="fa fa-chevron-left"></i> README
               </a>
             
           </div>
@@ -360,8 +376,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/hello-islibra/2018/07/15/将TAB转换为4个空格/" rel="prev" title="将TAB转换为4个空格">
-                将TAB转换为4个空格 <i class="fa fa-chevron-right"></i>
+              <a href="/hello-islibra/2018/07/30/Linux系统管理/" rel="prev" title="Linux系统管理">
+                Linux系统管理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -485,7 +501,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、通过分支MERGE"><span class="nav-number">1.</span> <span class="nav-text">一、通过分支MERGE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、Fork个人仓"><span class="nav-number">2.</span> <span class="nav-text">二、Fork个人仓</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1型虚拟化"><span class="nav-number">1.</span> <span class="nav-text">1型虚拟化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2型虚拟化"><span class="nav-number">2.</span> <span class="nav-text">2型虚拟化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#KVM"><span class="nav-number"></span> <span class="nav-text">KVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装KVM包"><span class="nav-number">1.</span> <span class="nav-text">安装KVM包</span></a></li></ol></div>
             
 
           </div>
