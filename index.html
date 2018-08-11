@@ -229,6 +229,443 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/11/Ubuntu16-04安装mysql5-7-23/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/08/11/Ubuntu16-04安装mysql5-7-23/" itemprop="url">Ubuntu16.04安装mysql5.7.23</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-11T11:52:06+08:00">
+                2018-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/db/" itemprop="url" rel="index">
+                    <span itemprop="name">db</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="下载安装包和依赖包"><a href="#下载安装包和依赖包" class="headerlink" title="下载安装包和依赖包"></a>下载安装包和依赖包</h1><h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><p>下载地址: <a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a><br>点击<code>Looking for the latest GA version?</code></p>
+<blockquote>
+<p>Select Version: <code>5.7.23</code><br>Select Operating System: <code>Ubuntu Linux</code><br>Select OS Version: <code>Ubuntu Linux 16.04 (x86, 64-bit)</code></p>
+</blockquote>
+<p>选择<code>DEB Bundle (mysql-server_5.7.23-1ubuntu16.04_amd64.deb-bundle.tar)</code>，点击<code>Download</code>。<br>或直接使用下载地址：<a href="https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-server_5.7.23-1ubuntu16.04_amd64.deb-bundle.tar" target="_blank" rel="noopener">https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-server_5.7.23-1ubuntu16.04_amd64.deb-bundle.tar</a></p>
+<h2 id="依赖库"><a href="#依赖库" class="headerlink" title="依赖库"></a>依赖库</h2><p><a href="http://ftp.br.debian.org/debian/pool/main/n/numactl/libnuma1_2.0.10-1_amd64.deb" target="_blank" rel="noopener">libnuma1_2.0.10-1_amd64.deb</a><br><a href="http://ftp.br.debian.org/debian/pool/main/liba/libaio/libaio1_0.3.110-1_amd64.deb" target="_blank" rel="noopener">libaio1_0.3.110-1_amd64.deb</a><br><a href="http://ftp.br.debian.org/debian/pool/main/m/mecab/libmecab2_0.996-3.1_amd64.deb" target="_blank" rel="noopener">libmecab2_0.996-3.1_amd64.deb</a><br><a href="http://ftp.br.debian.org/debian/pool/main/p/psmisc/psmisc_22.21-2_amd64.deb" target="_blank" rel="noopener">psmisc_22.21-2_amd64.deb</a><br><a href="http://ftp.br.debian.org/debian/pool/main/" target="_blank" rel="noopener">其他版本</a></p>
+<h1 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mkdir mysql</span><br><span class="line">tar -xv -C mysql -f mysql-server_5.7.23-1ubuntu16.04_amd64.deb-bundle.tar  <span class="comment">#将下载的安装包解包到mysql文件夹</span></span><br><span class="line"></span><br><span class="line">dpkg -i mysql-common_5.7.23-1ubuntu16.04_amd64.deb  <span class="comment">#安装公共组件</span></span><br><span class="line">dpkg -i libmysqlclient20_5.7.23-1ubuntu16.04_amd64.deb  <span class="comment">#安装客户端依赖库</span></span><br><span class="line"></span><br><span class="line">dpkg -i libnuma1_2.0.10-1_amd64.deb  <span class="comment">#安装客户端依赖库</span></span><br><span class="line">dpkg -i libaio1_0.3.110-1_amd64.deb</span><br><span class="line"></span><br><span class="line">dpkg -i mysql-community-client_5.7.23-1ubuntu16.04_amd64.deb  <span class="comment">#安装客户端</span></span><br><span class="line"></span><br><span class="line">dpkg -i libmecab2_0.996-3.1_amd64.deb</span><br><span class="line">dpkg -i mysql-client_5.7.23-1ubuntu16.04_amd64.deb</span><br><span class="line"></span><br><span class="line">dpkg -i psmisc_22.21-2_amd64.deb</span><br><span class="line">dpkg -i mysql-community-server_5.7.23-1ubuntu16.04_amd64.deb  <span class="comment">#安装服务端</span></span><br></pre></td></tr></table></figure>
+<h1 id="查看数据库运行状态"><a href="#查看数据库运行状态" class="headerlink" title="查看数据库运行状态"></a>查看数据库运行状态</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">systemctl status mysql.service</span><br><span class="line">mysql -u root -p</span><br><span class="line">show databases;</span><br><span class="line">use mysql;</span><br><span class="line"><span class="comment">#配置远程连接权限，其中*.*代表所有库所有表，root为用户名，%表示所有IP地址，password为密码</span></span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO <span class="string">'root'</span>@<span class="string">'%'</span> IDENTIFIED BY <span class="string">'password'</span> WITH GRANT OPTION;</span><br><span class="line">flush privileges;</span><br><span class="line"><span class="comment">#或</span></span><br><span class="line">update user <span class="built_in">set</span> host = <span class="string">'%'</span> <span class="built_in">where</span> user = <span class="string">'root'</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="相关文件目录"><a href="#相关文件目录" class="headerlink" title="相关文件目录"></a>相关文件目录</h1><ul>
+<li>配置文件：<code>/etc/mysql/my.cnf</code></li>
+<li>数据库主目录：<code>/var/lib/mysql</code></li>
+<li>配置文件目录：<code>/usr/share/mysql</code></li>
+<li>日志文件目录：<code>/var/log/mysql</code></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/11/docker常用命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/08/11/docker常用命令/" itemprop="url">docker常用命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-11T11:50:09+08:00">
+                2018-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/container/" itemprop="url" rel="index">
+                    <span itemprop="name">container</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp file.xxx ced60ce33136:/opt/xxx  <span class="comment">#将host上的文件拷贝到容器</span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/11/Linux网络管理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/08/11/Linux网络管理/" itemprop="url">Linux网络管理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-11T11:47:23+08:00">
+                2018-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/os/" itemprop="url" rel="index">
+                    <span itemprop="name">os</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="设置某IP禁止访问"><a href="#设置某IP禁止访问" class="headerlink" title="设置某IP禁止访问"></a>设置某IP禁止访问</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -s 10.0.0.1/32 -j DROP  <span class="comment">#增加防火墙规则</span></span><br><span class="line">iptables -A OUTPUT -d 10.0.0.1/32 -j DROP</span><br><span class="line">iptables -L INPUT -n --line-numbers  <span class="comment">#带行号显示防火墙INPUT规则</span></span><br><span class="line">iptables -D INPUT 2  <span class="comment">#通过行号删除防火墙规则</span></span><br><span class="line">iptables -D OUTPUT 3</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/05/README/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1397,6 +1834,7 @@
         
           
             <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Redhat查询软件是否安装</span></span><br><span class="line">rpm -qa xxx</span><br><span class="line"></span><br><span class="line"><span class="comment">#Ubuntu配置国内镜像站点/etc/apt/sources.list</span></span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line"><span class="comment">#Ubuntu安装软件</span></span><br><span class="line">sudo apt-get install xxx</span><br><span class="line"><span class="comment">#Ubuntu更新安装包</span></span><br><span class="line">apt update</span><br></pre></td></tr></table></figure>
+<h1 id="Ubuntu下安装deb包命令"><a href="#Ubuntu下安装deb包命令" class="headerlink" title="Ubuntu下安装deb包命令"></a>Ubuntu下安装deb包命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dpkg -l | grep xxx  <span class="comment">#查看已安装的软件</span></span><br><span class="line">dpkg -L | grep xxx  <span class="comment">#查看已安装的软件路径</span></span><br><span class="line">dpkg -i package.deb  <span class="comment">#安装</span></span><br><span class="line">dpkg -c package.deb  <span class="comment">#查看deb包中的内容</span></span><br><span class="line">dpkg -L package  <span class="comment">#列出deb包安装的所有文件清单</span></span><br><span class="line">dpkg -I package.deb  <span class="comment">#从deb包中提取信息</span></span><br><span class="line">dpkg -s package  <span class="comment">#显示已安装包的信息</span></span><br><span class="line">dpkg -r package  <span class="comment">#移除已安装的deb包</span></span><br><span class="line">dpkg -P package  <span class="comment">#彻底删除已安装的deb包和配置文件</span></span><br><span class="line">dpkg-reconfigure package  <span class="comment">#重新配置已安装的包</span></span><br></pre></td></tr></table></figure>
 <h1 id="压缩解压文件"><a href="#压缩解压文件" class="headerlink" title="压缩解压文件"></a>压缩解压文件</h1><h2 id="1-tar"><a href="#1-tar" class="headerlink" title="1. tar"></a>1. tar</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar xvf FileName.tar  <span class="comment">#解包</span></span><br><span class="line">$ tar cvf FileName.tar DirName  <span class="comment">#打包（注：tar是打包，不是压缩！）</span></span><br></pre></td></tr></table></figure>
 <h2 id="2-gz"><a href="#2-gz" class="headerlink" title="2. gz"></a>2. gz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ gunzip FileName.gz  <span class="comment">#解压1</span></span><br><span class="line">$ gzip -d FileName.gz  <span class="comment">#解压2</span></span><br><span class="line">$ gzip FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
 <h2 id="3-tar-gz"><a href="#3-tar-gz" class="headerlink" title="3. tar.gz"></a>3. tar.gz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zxvf file.tar.gz  <span class="comment">#解压</span></span><br><span class="line">$ tar -zcvf file.tar.gz dir  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
@@ -1415,450 +1853,6 @@
 <p>rar需下载，解压后将<code>rar_static</code>拷贝到<code>/usr/bin</code>目录（其他由$PATH环境变量指定的目录也行）</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cp rar_static /usr/bin/rar</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/30/Linux系统管理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/07/30/Linux系统管理/" itemprop="url">Linux系统管理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-30T21:32:59+08:00">
-                2018-07-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/os/" itemprop="url" rel="index">
-                    <span itemprop="name">os</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Ubuntu允许root通过ssh直接登录"><a href="#Ubuntu允许root通过ssh直接登录" class="headerlink" title="Ubuntu允许root通过ssh直接登录"></a>Ubuntu允许root通过ssh直接登录</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#修改/etc/ssh/sshd_config</span></span><br><span class="line">PermitRootLogin yes</span><br><span class="line"><span class="comment">#重启ssh服务</span></span><br><span class="line">ssh stop/waiting</span><br><span class="line">ssh start/running, process 27639</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/30/虚拟化/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/07/30/虚拟化/" itemprop="url">虚拟化</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-30T21:31:36+08:00">
-                2018-07-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/openstack/" itemprop="url" rel="index">
-                    <span itemprop="name">openstack</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>通过<code>Hypervisor</code>将物理机/宿主机（<code>Host</code>）的硬件资源虚拟化，并提供给虚拟机/客户机（<code>Guest</code>）使用。</p>
-<h2 id="1型虚拟化"><a href="#1型虚拟化" class="headerlink" title="1型虚拟化"></a>1型虚拟化</h2><p>直接安装在物理机上，如：</p>
-<ul>
-<li>Xen</li>
-<li>VMWare的ESXi</li>
-</ul>
-<h2 id="2型虚拟化"><a href="#2型虚拟化" class="headerlink" title="2型虚拟化"></a>2型虚拟化</h2><p>安装在常规的操作系统上，如：</p>
-<ul>
-<li>KVM</li>
-<li>VirualBox</li>
-<li>VMWare Workstation</li>
-</ul>
-<h1 id="KVM"><a href="#KVM" class="headerlink" title="KVM"></a>KVM</h1><p>基于Linux内核实现，内核模块kvm.io用于管理CPU和内存，而存储和网络等IO由Linux内核和Qemu实现。</p>
-<p>KVM的管理工具：<code>Libvirt</code></p>
-<ul>
-<li>libvirtd，后台deamon服务，接收和处理API请求。</li>
-<li>API库，可基于libvirt开发，如图形化的KVM管理工具virt-manager。</li>
-<li>virsh，KVM命令行工具。</li>
-</ul>
-<h2 id="安装KVM包"><a href="#安装KVM包" class="headerlink" title="安装KVM包"></a>安装KVM包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#qemu-kvm qemu-system：KVM 和 QEMU 的核心包，提供 CPU、内存和 IO 虚拟化功能</span></span><br><span class="line"><span class="comment">#libvirt-bin：libvirt命令行管理工具</span></span><br><span class="line"><span class="comment">#virt-manager：KVM图形化管理工具</span></span><br><span class="line"><span class="comment">#bridge-utils vlan：网络虚拟化</span></span><br><span class="line">sudo apt-get install qemu-kvm qemu-system libvirt-bin virt-manager bridge-utils vlan</span><br><span class="line"><span class="comment">#安装Ubuntu图形界面</span></span><br><span class="line">sudo apt-get install xinit</span><br><span class="line">sudo apt-get install gdm</span><br><span class="line">sudo apt-get install kubuntu-desktop</span><br><span class="line"><span class="comment">#配置国内镜像站点/etc/apt/sources.list</span></span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line"><span class="comment">#更新安装包</span></span><br><span class="line">apt update</span><br></pre></td></tr></table></figure>
-<p>参考：<a href="http://www.cnblogs.com/CloudMan6/" target="_blank" rel="noopener">http://www.cnblogs.com/CloudMan6/</a><br>已读：<a href="https://www.cnblogs.com/CloudMan6/p/5233484.html" target="_blank" rel="noopener">https://www.cnblogs.com/CloudMan6/p/5233484.html</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/29/Linux基本命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/07/29/Linux基本命令/" itemprop="url">Linux基本命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-29T10:09:25+08:00">
-                2018-07-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/os/" itemprop="url" rel="index">
-                    <span itemprop="name">os</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="一、字符串处理"><a href="#一、字符串处理" class="headerlink" title="一、字符串处理"></a>一、字符串处理</h1><h2 id="1-转换大小写"><a href="#1-转换大小写" class="headerlink" title="1. 转换大小写"></a>1. 转换大小写</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'hello'</span> | tr <span class="string">'a-z'</span> <span class="string">'A-Z'</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'HELLO'</span> | tr <span class="string">'A-Z'</span> <span class="string">'a-z'</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -1944,7 +1938,7 @@
               
                 <a href="/hello-islibra/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1955,7 +1949,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
