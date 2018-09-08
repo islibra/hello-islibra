@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="参考：https://www.cnblogs.com/enjoycode/p/5022607.html">
+<meta name="description" content="修改sshd_config配置文件路径: /etc/ssh/sshd_config  ClientAliveInterval 300  #服务器向客户端请求消息的时间间隔, 设置成3600秒或更长.ClientAliveCountMax 0  #服务器发出请求后客户端没有响应的最大次数, 超过自动断开. 默认客户端不会响应. 设置成3或更大.  重新载入配置文件 1service sshd rel">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设置ssh连接不超时">
 <meta property="og:url" content="http://islibra.github.io/hello-islibra/2018/08/05/设置ssh连接不超时/index.html">
 <meta property="og:site_name" content="Aaron&#39;s horizon">
-<meta property="og:description" content="参考：https://www.cnblogs.com/enjoycode/p/5022607.html">
+<meta property="og:description" content="修改sshd_config配置文件路径: /etc/ssh/sshd_config  ClientAliveInterval 300  #服务器向客户端请求消息的时间间隔, 设置成3600秒或更长.ClientAliveCountMax 0  #服务器发出请求后客户端没有响应的最大次数, 超过自动断开. 默认客户端不会响应. 设置成3或更大.  重新载入配置文件 1service sshd rel">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-05T08:35:48.575Z">
+<meta property="og:updated_time" content="2018-09-08T03:53:06.515Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设置ssh连接不超时">
-<meta name="twitter:description" content="参考：https://www.cnblogs.com/enjoycode/p/5022607.html">
+<meta name="twitter:description" content="修改sshd_config配置文件路径: /etc/ssh/sshd_config  ClientAliveInterval 300  #服务器向客户端请求消息的时间间隔, 设置成3600秒或更长.ClientAliveCountMax 0  #服务器发出请求后客户端没有响应的最大次数, 超过自动断开. 默认客户端不会响应. 设置成3或更大.  重新载入配置文件 1service sshd rel">
 
 
 
@@ -321,7 +321,19 @@
       
 
       
-        <p>参考：<a href="https://www.cnblogs.com/enjoycode/p/5022607.html" target="_blank" rel="noopener">https://www.cnblogs.com/enjoycode/p/5022607.html</a></p>
+        <h1 id="修改sshd-config"><a href="#修改sshd-config" class="headerlink" title="修改sshd_config"></a>修改sshd_config</h1><p>配置文件路径: <code>/etc/ssh/sshd_config</code></p>
+<blockquote>
+<p>ClientAliveInterval 300  #服务器向客户端请求消息的时间间隔, 设置成3600秒或更长.<br>ClientAliveCountMax 0  #服务器发出请求后客户端没有响应的最大次数, 超过自动断开. 默认客户端不会响应. 设置成3或更大.</p>
+</blockquote>
+<p>重新载入配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service sshd reload</span><br></pre></td></tr></table></figure>
+<h1 id="修改TMOUT环境变量"><a href="#修改TMOUT环境变量" class="headerlink" title="修改TMOUT环境变量"></a>修改TMOUT环境变量</h1><p>配置文件路径: <code>/etc/profile</code></p>
+<blockquote>
+<p>export TMOUT=300  #设置为3600或更长.</p>
+</blockquote>
+<p>重新载入配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> profile</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$TMOUT</span>  <span class="comment">#查看是否生效</span></span><br></pre></td></tr></table></figure>
+<p>参考：<a href="https://www.cnblogs.com/enjoycode/p/5022607.html" target="_blank" rel="noopener">https://www.cnblogs.com/enjoycode/p/5022607.html</a></p>
 
       
     </div>
@@ -410,8 +422,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -426,7 +447,7 @@
               
                 <a href="/hello-islibra/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -437,7 +458,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
@@ -462,6 +483,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#修改sshd-config"><span class="nav-number">1.</span> <span class="nav-text">修改sshd_config</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改TMOUT环境变量"><span class="nav-number">2.</span> <span class="nav-text">修改TMOUT环境变量</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

@@ -229,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/05/私网IP地址范围/">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/Vue-js/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiXiaolong">
@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/hello-islibra/2018/08/05/私网IP地址范围/" itemprop="url">私网IP地址范围</a></h1>
+                <a class="post-title-link" href="/hello-islibra/2018/09/08/Vue-js/" itemprop="url">Vue.js</a></h1>
         
 
         <div class="post-meta">
@@ -260,8 +260,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-05T16:15:21+08:00">
-                2018-08-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:33:44+08:00">
+                2018-09-08
               </time>
             
 
@@ -283,8 +283,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/net/" itemprop="url" rel="index">
-                    <span itemprop="name">net</span>
+                  <a href="/hello-islibra/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
                   </a>
                 </span>
 
@@ -322,36 +322,9 @@
       
         
           
-            <table>
-<thead>
-<tr>
-<th>类型</th>
-<th>起始地址</th>
-<th>终止地址</th>
-<th>范围</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A类</td>
-<td>10.0.0.0</td>
-<td>10.255.255.255</td>
-<td>10.0.0.0/8</td>
-</tr>
-<tr>
-<td>B类</td>
-<td>172.16.0.0</td>
-<td>172.31.255.255</td>
-<td>172.16.0.0/12</td>
-</tr>
-<tr>
-<td>C类</td>
-<td>192.168.0.0</td>
-<td>192.168.255.255</td>
-<td>192.168.0.0/16</td>
-</tr>
-</tbody>
-</table>
+            <h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p><a href="https://vuejs.org/js/vue.js" target="_blank" rel="noopener">开发版本</a><br><a href="https://vuejs.org/js/vue.min.js" target="_blank" rel="noopener">生产版本</a></p>
+<h1 id="Hello-Vue-js"><a href="#Hello-Vue-js" class="headerlink" title="Hello Vue.js"></a>Hello Vue.js</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Vue Demo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 引入库 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  &#123;&#123; message &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el: <span class="string">'#app'</span>,</span></span><br><span class="line"><span class="undefined">  data: &#123;</span></span><br><span class="line"><span class="javascript">    message: <span class="string">'Hello Vue!'</span></span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-bind:title</span>=<span class="string">"message"</span>&gt;</span></span><br><span class="line">  鼠标悬停几秒钟查看此处动态绑定的提示信息！</span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -400,7 +373,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/05/SVN：Previous-operation-has-not-finished-run-cleanup-if-it-was-interrupted/">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/Lambda表达式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiXiaolong">
@@ -419,7 +392,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/hello-islibra/2018/08/05/SVN：Previous-operation-has-not-finished-run-cleanup-if-it-was-interrupted/" itemprop="url">SVN：Previous operation has not finished; run 'cleanup' if it was interrupted</a></h1>
+                <a class="post-title-link" href="/hello-islibra/2018/09/08/Lambda表达式/" itemprop="url">Lambda表达式</a></h1>
         
 
         <div class="post-meta">
@@ -431,150 +404,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-05T16:14:43+08:00">
-                2018-08-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/dts/" itemprop="url" rel="index">
-                    <span itemprop="name">dts</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="SVN：Previous-operation-has-not-finished-run-‘cleanup’-if-it-was-interrupted"><a href="#SVN：Previous-operation-has-not-finished-run-‘cleanup’-if-it-was-interrupted" class="headerlink" title="SVN：Previous operation has not finished; run ‘cleanup’ if it was interrupted"></a>SVN：Previous operation has not finished; run ‘cleanup’ if it was interrupted</h1><p>参考：<a href="https://www.cnblogs.com/dunitian/p/5721664.html#top" target="_blank" rel="noopener">https://www.cnblogs.com/dunitian/p/5721664.html#top</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/05/Java基本数据类型/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/08/05/Java基本数据类型/" itemprop="url">Java基本数据类型</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-05T16:13:06+08:00">
-                2018-08-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:31:47+08:00">
+                2018-09-08
               </time>
             
 
@@ -635,490 +466,35 @@
       
         
           
-            <table>
-<thead>
-<tr>
-<th>数据类型</th>
-<th>字节数</th>
-<th>位数</th>
-<th>范围</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Byte</td>
-<td>1</td>
-<td>8</td>
-<td>[-2^7, 2^7-1]</td>
-<td>[-128, 127]</td>
-</tr>
-<tr>
-<td>Short</td>
-<td>2</td>
-<td>16</td>
-<td>[-2^15, 2^15-1]</td>
-<td>[-32768, 32767]</td>
-</tr>
-<tr>
-<td>Integer</td>
-<td>4</td>
-<td>32</td>
-<td>[-2^31, 2^31-1]</td>
-<td>[-2147483648, 2147483647]</td>
-</tr>
-<tr>
-<td>Long</td>
-<td>8</td>
-<td>64</td>
-<td>[-2^63, 2^63-1]</td>
-<td>[-9223372036854775808, 9223372036854775807]</td>
-</tr>
-<tr>
-<td>Float</td>
-<td>4</td>
-<td>32</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Double</td>
-<td>8</td>
-<td>64</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Character</td>
-<td>2</td>
-<td>16</td>
-<td>[‘\u0000’, ‘\uFFFF’]</td>
-<td>[0, 65535]</td>
-</tr>
-</tbody>
-</table>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/05/HTTP错误码/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/08/05/HTTP错误码/" itemprop="url">HTTP错误码</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-05T16:12:44+08:00">
-                2018-08-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/web/" itemprop="url" rel="index">
-                    <span itemprop="name">web</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="错误码分类"><a href="#错误码分类" class="headerlink" title="错误码分类"></a>错误码分类</h1><ul>
-<li>1xx：信息提示</li>
-<li>2xx：成功</li>
-<li>3xx：重定向</li>
-<li>4xx：客户端错误</li>
-<li>5xx：服务器错误</li>
-</ul>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><ul>
-<li>100 - 继续。</li>
-<li>101 - 切换协议。</li>
-<li>200 - 确定。客户端请求已成功。</li>
-<li>201 - 已创建。</li>
-<li>202 - 已接受。</li>
-<li>203 - 非权威性信息。</li>
-<li>204 - 无内容。</li>
-<li>205 - 重置内容。</li>
-<li>206 - 部分内容。</li>
-<li>302 - 对象已移动。</li>
-<li>304 - 未修改。</li>
-<li>307 - 临时重定向。</li>
-<li>400 - 错误的请求。</li>
-<li>401 - 访问被拒绝。</li>
-<li>401.1 - 登录失败。</li>
-<li>401.2 - 服务器配置导致登录失败。</li>
-<li>401.3 - 由于 ACL 对资源的限制而未获得授权。</li>
-<li>401.4 - 筛选器授权失败。</li>
-<li>401.5 - ISAPI/CGI 应用程序授权失败。</li>
-<li>401.7 – 访问被 Web 服务器上的 URL 授权策略拒绝。这个错误代码为 IIS 6.0 所专用。</li>
-<li>403 - 禁止访问。</li>
-<li>403.1 - 执行访问被禁止。</li>
-<li>403.2 - 读访问被禁止。</li>
-<li>403.3 - 写访问被禁止。</li>
-<li>403.4 - 要求 SSL。</li>
-<li>403.5 - 要求 SSL 128。</li>
-<li>403.6 - IP 地址被拒绝。</li>
-<li>403.7 - 要求客户端证书。</li>
-<li>403.8 - 站点访问被拒绝。</li>
-<li>403.9 - 用户数过多。</li>
-<li>403.10 - 配置无效。</li>
-<li>403.11 - 密码更改。</li>
-<li>403.12 - 拒绝访问映射表。</li>
-<li>403.13 - 客户端证书被吊销。</li>
-<li>403.14 - 拒绝目录列表。</li>
-<li>403.15 - 超出客户端访问许可。</li>
-<li>403.16 - 客户端证书不受信任或无效。</li>
-<li>403.17 - 客户端证书已过期或尚未生效。</li>
-<li>403.18 - 在当前的应用程序池中不能执行所请求的 URL。这个错误代码为 IIS 6.0 所专用。</li>
-<li>403.19 - 不能为这个应用程序池中的客户端执行 CGI。这个错误代码为 IIS 6.0 所专用。</li>
-<li>403.20 - Passport 登录失败。这个错误代码为 IIS 6.0 所专用。</li>
-<li>404 - 未找到。</li>
-<li>404.0 -（无） – 没有找到文件或目录。</li>
-<li>404.1 - 无法在所请求的端口上访问 Web 站点。</li>
-<li>404.2 - Web 服务扩展锁定策略阻止本请求。</li>
-<li>404.3 - MIME 映射策略阻止本请求。</li>
-<li>405 - 用来访问本页面的 HTTP 谓词不被允许（方法不被允许）</li>
-<li>406 - 客户端浏览器不接受所请求页面的 MIME 类型。</li>
-<li>407 - 要求进行代理身份验证。</li>
-<li>412 - 前提条件失败。</li>
-<li>413 – 请求实体太大。</li>
-<li>414 - 请求 URI 太长。</li>
-<li>415 – 不支持的媒体类型。</li>
-<li>416 – 所请求的范围无法满足。</li>
-<li>417 – 执行失败。</li>
-<li>423 – 锁定的错误。</li>
-<li>500 - 内部服务器错误。</li>
-<li>500.12 - 应用程序正忙于在 Web 服务器上重新启动。</li>
-<li>500.13 - Web 服务器太忙。</li>
-<li>500.15 - 不允许直接请求 Global.asa。</li>
-<li>500.16 – UNC 授权凭据不正确。这个错误代码为 IIS 6.0 所专用。</li>
-<li>500.18 – URL 授权存储不能打开。这个错误代码为 IIS 6.0 所专用。</li>
-<li>500.100 - 内部 ASP 错误。</li>
-<li>501 - 页眉值指定了未实现的配置。</li>
-<li>502 - Web 服务器用作网关或代理服务器时收到了无效响应。     502.1 - CGI 应用程序超时。</li>
-<li>502.2 - CGI 应用程序出错。application.</li>
-<li>503 - 服务不可用。这个错误代码为 IIS 6.0 所专用。</li>
-<li>504 - 网关超时。</li>
-<li>505 - HTTP 版本不受支持。</li>
-</ul>
-<h1 id="原英文释义"><a href="#原英文释义" class="headerlink" title="原英文释义"></a>原英文释义</h1><ul>
-<li>“100” : Continue</li>
-<li>“101” : witching Protocols</li>
-<li>“200” : OK</li>
-<li>“201” : Created</li>
-<li>“202” : Accepted</li>
-<li>“203” : Non-Authoritative Information</li>
-<li>“204” : No Content</li>
-<li>“205” : Reset Content</li>
-<li>“206” : Partial Content</li>
-<li>“300” : Multiple Choices</li>
-<li>“301” : Moved Permanently</li>
-<li>“302” : Found</li>
-<li>“303” : See Other</li>
-<li>“304” : Not Modified</li>
-<li>“305” : Use Proxy</li>
-<li>“307” : Temporary Redirect</li>
-<li>“400” : Bad Request</li>
-<li>“401” : Unauthorized</li>
-<li>“402” : Payment Required</li>
-<li>“403” : Forbidden</li>
-<li>“404” : Not Found</li>
-<li>“405” : Method Not Allowed</li>
-<li>“406” : Not Acceptable</li>
-<li>“407” : Proxy Authentication Required</li>
-<li>“408” : Request Time-out</li>
-<li>“409” : Conflict</li>
-<li>“410” : Gone</li>
-<li>“411” : Length Required</li>
-<li>“412” : Precondition Failed</li>
-<li>“413” : Request Entity Too Large</li>
-<li>“414” : Request-URI Too Large</li>
-<li>“415” : Unsupported Media Type</li>
-<li>“416” : Requested range not satisfiable</li>
-<li>“417” : Expectation Failed</li>
-<li>“500” : Internal Server Error</li>
-<li>“501” : Not Implemented</li>
-<li>“502” : Bad Gateway</li>
-<li>“503” : Service Unavailable</li>
-<li>“504” : Gateway Time-out</li>
-<li>“505” : HTTP Version not supported</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/30/Linux软件管理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/07/30/Linux软件管理/" itemprop="url">Linux软件管理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-30T21:33:50+08:00">
-                2018-07-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/os/" itemprop="url" rel="index">
-                    <span itemprop="name">os</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Redhat查询软件是否安装</span></span><br><span class="line">rpm -qa xxx</span><br><span class="line"></span><br><span class="line"><span class="comment">#Ubuntu配置国内镜像站点/etc/apt/sources.list</span></span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line"><span class="comment">#Ubuntu安装软件</span></span><br><span class="line">sudo apt-get install xxx</span><br><span class="line"><span class="comment">#Ubuntu更新安装包</span></span><br><span class="line">apt update</span><br></pre></td></tr></table></figure>
-<h1 id="Ubuntu下安装deb包命令"><a href="#Ubuntu下安装deb包命令" class="headerlink" title="Ubuntu下安装deb包命令"></a>Ubuntu下安装deb包命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dpkg -l | grep xxx  <span class="comment">#查看已安装的软件</span></span><br><span class="line">dpkg -L | grep xxx  <span class="comment">#查看已安装的软件路径</span></span><br><span class="line">dpkg -i package.deb  <span class="comment">#安装</span></span><br><span class="line">dpkg -c package.deb  <span class="comment">#查看deb包中的内容</span></span><br><span class="line">dpkg -L package  <span class="comment">#列出deb包安装的所有文件清单</span></span><br><span class="line">dpkg -I package.deb  <span class="comment">#从deb包中提取信息</span></span><br><span class="line">dpkg -s package  <span class="comment">#显示已安装包的信息</span></span><br><span class="line">dpkg -r package  <span class="comment">#移除已安装的deb包</span></span><br><span class="line">dpkg -P package  <span class="comment">#彻底删除已安装的deb包和配置文件</span></span><br><span class="line">dpkg-reconfigure package  <span class="comment">#重新配置已安装的包</span></span><br></pre></td></tr></table></figure>
-<h1 id="压缩解压文件"><a href="#压缩解压文件" class="headerlink" title="压缩解压文件"></a>压缩解压文件</h1><h2 id="1-tar"><a href="#1-tar" class="headerlink" title="1. tar"></a>1. tar</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar xvf FileName.tar  <span class="comment">#解包</span></span><br><span class="line">$ tar cvf FileName.tar DirName  <span class="comment">#打包（注：tar是打包，不是压缩！）</span></span><br></pre></td></tr></table></figure>
-<h2 id="2-gz"><a href="#2-gz" class="headerlink" title="2. gz"></a>2. gz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ gunzip FileName.gz  <span class="comment">#解压1</span></span><br><span class="line">$ gzip -d FileName.gz  <span class="comment">#解压2</span></span><br><span class="line">$ gzip FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-tar-gz"><a href="#3-tar-gz" class="headerlink" title="3. tar.gz"></a>3. tar.gz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zxvf file.tar.gz  <span class="comment">#解压</span></span><br><span class="line">$ tar -zcvf file.tar.gz dir  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
-<h2 id="4-bz2"><a href="#4-bz2" class="headerlink" title="4. bz2"></a>4. bz2</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ bzip2 -d FileName.bz2  <span class="comment">#解压1</span></span><br><span class="line">$ bunzip2 FileName.bz2  <span class="comment">#解压2</span></span><br><span class="line">$ bzip2 -z FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
-<h2 id="5-tar-bz2"><a href="#5-tar-bz2" class="headerlink" title="5. tar.bz2"></a>5. tar.bz2</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ tar -jxvf FileName.tar.bz2  <span class="comment">#解压1</span></span><br><span class="line">$ bzip2 -d file.tar.bz2 &amp; tar -xvf file.tar  <span class="comment">#解压2</span></span><br><span class="line">$ tar jcvf FileName.tar.bz2 DirName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
-<h2 id="6-bz"><a href="#6-bz" class="headerlink" title="6. bz"></a>6. bz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bzip2 -d FileName.bz  <span class="comment">#解压1</span></span><br><span class="line">$ bunzip2 FileName.bz  <span class="comment">#解压2</span></span><br></pre></td></tr></table></figure>
-<h2 id="7-tar-bz"><a href="#7-tar-bz" class="headerlink" title="7. tar.bz"></a>7. tar.bz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar jxvf FileName.tar.bz  <span class="comment">#解压</span></span><br></pre></td></tr></table></figure>
-<h2 id="8-Z"><a href="#8-Z" class="headerlink" title="8. Z"></a>8. Z</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ uncompress FileName.Z  <span class="comment">#解压</span></span><br><span class="line">$ compress FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
-<h2 id="9-tar-Z"><a href="#9-tar-Z" class="headerlink" title="9. tar.Z"></a>9. tar.Z</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar Zxvf FileName.tar.Z  <span class="comment">#解压</span></span><br><span class="line">$ tar Zcvf FileName.tar.Z DirName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
-<h2 id="10-tgz"><a href="#10-tgz" class="headerlink" title="10. tgz"></a>10. tgz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxvf FileName.tgz  <span class="comment">#解压</span></span><br></pre></td></tr></table></figure>
-<h1 id="11-tar-tgz"><a href="#11-tar-tgz" class="headerlink" title="11. tar.tgz"></a>11. tar.tgz</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxvf FileName.tar.tgz  <span class="comment">#解压</span></span><br><span class="line">$ tar zcvf FileName.tar.tgz FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
-<h2 id="12-zip"><a href="#12-zip" class="headerlink" title="12. zip"></a>12. zip</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ unzip FileName.zip  <span class="comment">#解压</span></span><br><span class="line">$ zip FileName.zip DirName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
-<h2 id="13-lha"><a href="#13-lha" class="headerlink" title="13. lha"></a>13. lha</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ lha -e FileName.lha  <span class="comment">#解压</span></span><br><span class="line">$ lha -a FileName.lha FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
-<h2 id="14-rar"><a href="#14-rar" class="headerlink" title="14. rar"></a>14. rar</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ rar a FileName.rar  <span class="comment">#解压</span></span><br><span class="line">$ rar e FileName.rar  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>rar需下载，解压后将<code>rar_static</code>拷贝到<code>/usr/bin</code>目录（其他由$PATH环境变量指定的目录也行）</p>
+            <p>Lambda表达式表示函数接口的实例，可以作为参数传递进方法中。</p>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><blockquote>
+<p>(parameters) -&gt; expression</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cp rar_static /usr/bin/rar</span><br></pre></td></tr></table></figure>
+<p>或</p>
+<blockquote>
+<p>(parameters) -&gt; { statements; }</p>
+</blockquote>
+<h2 id="可选类型声明"><a href="#可选类型声明" class="headerlink" title="可选类型声明"></a>可选类型声明</h2><blockquote>
+<p>(int a, int b) -&gt; a + b;<br>(a, b) -&gt; a - b;</p>
+</blockquote>
+<h2 id="可选圆括号"><a href="#可选圆括号" class="headerlink" title="可选圆括号"></a>可选圆括号</h2><blockquote>
+<p>(message) -&gt; System.out.println(message);<br>message -&gt; System.out.println(message);  //一个参数无需圆括号，多个参数需要圆括号</p>
+</blockquote>
+<h2 id="可选大括号"><a href="#可选大括号" class="headerlink" title="可选大括号"></a>可选大括号</h2><blockquote>
+<p>(a, b) -&gt; { return a <em> b; };<br>(a, b) -&gt; return a </em> b;  //只有一个语句，不需要使用大括号</p>
+</blockquote>
+<h2 id="可选返回关键字"><a href="#可选返回关键字" class="headerlink" title="可选返回关键字"></a>可选返回关键字</h2><blockquote>
+<p>(a, b) -&gt; return a / b;<br>(a, b) -&gt; a / b;  //只有一个表达式返回值</p>
+</blockquote>
+<h1 id="典型应用"><a href="#典型应用" class="headerlink" title="典型应用"></a>典型应用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LambdaTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> factor = <span class="number">3</span>;</span><br><span class="line">        MyIntCalc calc = i -&gt; i * factor;  <span class="comment">//2、Lambda表达式。可以引用局部变量但不可改变局部变量，可以改变非局部变量。</span></span><br><span class="line">        System.out.println(calc.calcInt(<span class="number">4</span>));  <span class="comment">//3、接口执行</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyIntCalc</span> </span>&#123;  <span class="comment">//1、函数式接口</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">calcInt</span><span class="params">(Integer i)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="作为函数参数传入"><a href="#作为函数参数传入" class="headerlink" title="作为函数参数传入"></a>作为函数参数传入</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LambdaTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        engine((x, y) -&gt; x + y);  <span class="comment">//3、Lambda表达式及函数调用</span></span><br><span class="line">        engine((x, y) -&gt; x - y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">engine</span><span class="params">(MyLongCalc calc)</span> </span>&#123;  <span class="comment">//2、接收函数式接口作为参数的函数</span></span><br><span class="line">        <span class="keyword">long</span> x = <span class="number">3L</span>, y = <span class="number">2L</span>;</span><br><span class="line">        System.out.println(calc.calcLong(x, y));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyLongCalc</span> </span>&#123;  <span class="comment">//1、函数式接口</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">calcLong</span><span class="params">(Long x, Long y)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="作为返回值"><a href="#作为返回值" class="headerlink" title="作为返回值"></a>作为返回值</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LambdaTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(getAlgorithm().calcLong(<span class="number">1L</span>, <span class="number">2L</span>));  <span class="comment">//3、函数调用</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> MyLongCalc <span class="title">getAlgorithm</span><span class="params">()</span> </span>&#123;  <span class="comment">//2、返回类型为函数式接口的函数及Lambda表达式</span></span><br><span class="line">        <span class="keyword">return</span> (x, y) -&gt; x + y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyLongCalc</span> </span>&#123;  <span class="comment">//1、函数式接口</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">calcLong</span><span class="params">(Long x, Long y)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Java内置的函数式接口"><a href="#Java内置的函数式接口" class="headerlink" title="Java内置的函数式接口"></a>Java内置的函数式接口</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.function.Function;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LambdaTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Function&lt;String, Integer&gt; func = str -&gt; str.length();  <span class="comment">//接收T，返回R</span></span><br><span class="line">        System.out.println(func.apply(<span class="string">"This is a function."</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BiFunction</span>&lt;<span class="title">T</span>,<span class="title">U</span>,<span class="title">R</span>&gt;</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> R <span class="title">apply</span><span class="params">(T t, U u)</span></span>;  <span class="comment">//接收T和U，返回R</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> Predicate&lt;T&gt; &#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">test</span><span class="params">(T  t)</span></span>;  <span class="comment">//返回布尔</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BiPredicate</span>&lt;<span class="title">T</span>,<span class="title">U</span>&gt;</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">test</span><span class="params">(T t, U u)</span></span>;  <span class="comment">//接收两个参数并返回布尔</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Consumer</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(T t)</span></span>;  <span class="comment">//返回void</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BiConsumer</span>&lt;<span class="title">T</span>,<span class="title">U</span>&gt;</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(T t, U  u)</span></span>;  <span class="comment">//接收两个参数并返回void</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Supplier</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">get</span><span class="params">()</span></span>;  <span class="comment">//无参并返回T</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UnaryOperator</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> T  <span class="title">apply</span><span class="params">(T t)</span></span>;  <span class="comment">//接收T并返回T</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BinaryOperator</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> T <span class="title">apply</span><span class="params">(T t1, T t2)</span></span>;  <span class="comment">//接收两个T并返回T</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上是通用版本，IntConsumer 是 Consumer<t> 的专用版本。</t></p>
+<h1 id="交叉类型"><a href="#交叉类型" class="headerlink" title="交叉类型"></a>交叉类型</h1><p>使Lambda表达式，即函数式接口的实例可序列化，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.io.Serializable ser = (java.io.Serializable &amp; MyLongCalc) (x,y)-&gt; x + y;</span><br></pre></td></tr></table></figure>
+<h1 id="无参调用"><a href="#无参调用" class="headerlink" title="无参调用"></a>无参调用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(() -&gt; &#123;System.out.println(<span class="string">"hello"</span>);&#125;).start();</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1167,7 +543,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/30/Linux系统管理/">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/Java数据类型转换/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiXiaolong">
@@ -1186,7 +562,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/hello-islibra/2018/07/30/Linux系统管理/" itemprop="url">Linux系统管理</a></h1>
+                <a class="post-title-link" href="/hello-islibra/2018/09/08/Java数据类型转换/" itemprop="url">Java数据类型转换</a></h1>
         
 
         <div class="post-meta">
@@ -1198,453 +574,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-30T21:32:59+08:00">
-                2018-07-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/os/" itemprop="url" rel="index">
-                    <span itemprop="name">os</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Ubuntu允许root通过ssh直接登录"><a href="#Ubuntu允许root通过ssh直接登录" class="headerlink" title="Ubuntu允许root通过ssh直接登录"></a>Ubuntu允许root通过ssh直接登录</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#修改/etc/ssh/sshd_config</span></span><br><span class="line">PermitRootLogin yes</span><br><span class="line"><span class="comment">#重启ssh服务</span></span><br><span class="line">ssh stop/waiting</span><br><span class="line">ssh start/running, process 27639</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/30/虚拟化/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/07/30/虚拟化/" itemprop="url">虚拟化</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-30T21:31:36+08:00">
-                2018-07-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/openstack/" itemprop="url" rel="index">
-                    <span itemprop="name">openstack</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>通过<code>Hypervisor</code>将物理机/宿主机（<code>Host</code>）的硬件资源虚拟化，并提供给虚拟机/客户机（<code>Guest</code>）使用。</p>
-<h2 id="1型虚拟化"><a href="#1型虚拟化" class="headerlink" title="1型虚拟化"></a>1型虚拟化</h2><p>直接安装在物理机上，如：</p>
-<ul>
-<li>Xen</li>
-<li>VMWare的ESXi</li>
-</ul>
-<h2 id="2型虚拟化"><a href="#2型虚拟化" class="headerlink" title="2型虚拟化"></a>2型虚拟化</h2><p>安装在常规的操作系统上，如：</p>
-<ul>
-<li>KVM</li>
-<li>VirualBox</li>
-<li>VMWare Workstation</li>
-</ul>
-<h1 id="KVM"><a href="#KVM" class="headerlink" title="KVM"></a>KVM</h1><p>基于Linux内核实现，内核模块kvm.io用于管理CPU和内存，而存储和网络等IO由Linux内核和Qemu实现。</p>
-<p>KVM的管理工具：<code>Libvirt</code></p>
-<ul>
-<li>libvirtd，后台deamon服务，接收和处理API请求。</li>
-<li>API库，可基于libvirt开发，如图形化的KVM管理工具virt-manager。</li>
-<li>virsh，KVM命令行工具。</li>
-</ul>
-<h2 id="安装KVM包"><a href="#安装KVM包" class="headerlink" title="安装KVM包"></a>安装KVM包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#qemu-kvm qemu-system：KVM 和 QEMU 的核心包，提供 CPU、内存和 IO 虚拟化功能</span></span><br><span class="line"><span class="comment">#libvirt-bin：libvirt命令行管理工具</span></span><br><span class="line"><span class="comment">#virt-manager：KVM图形化管理工具</span></span><br><span class="line"><span class="comment">#bridge-utils vlan：网络虚拟化</span></span><br><span class="line">sudo apt-get install qemu-kvm qemu-system libvirt-bin virt-manager bridge-utils vlan</span><br><span class="line"><span class="comment">#安装Ubuntu图形界面</span></span><br><span class="line">sudo apt-get install xinit</span><br><span class="line">sudo apt-get install gdm</span><br><span class="line">sudo apt-get install kubuntu-desktop</span><br><span class="line"><span class="comment">#配置国内镜像站点/etc/apt/sources.list</span></span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line"><span class="comment">#更新安装包</span></span><br><span class="line">apt update</span><br></pre></td></tr></table></figure>
-<p>参考：<a href="http://www.cnblogs.com/CloudMan6/" target="_blank" rel="noopener">http://www.cnblogs.com/CloudMan6/</a><br>已读：<a href="https://www.cnblogs.com/CloudMan6/p/5233484.html" target="_blank" rel="noopener">https://www.cnblogs.com/CloudMan6/p/5233484.html</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/29/Linux基本命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/07/29/Linux基本命令/" itemprop="url">Linux基本命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-29T10:09:25+08:00">
-                2018-07-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/os/" itemprop="url" rel="index">
-                    <span itemprop="name">os</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="一、字符串处理"><a href="#一、字符串处理" class="headerlink" title="一、字符串处理"></a>一、字符串处理</h1><h2 id="1-转换大小写"><a href="#1-转换大小写" class="headerlink" title="1. 转换大小写"></a>1. 转换大小写</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'hello'</span> | tr <span class="string">'a-z'</span> <span class="string">'A-Z'</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'HELLO'</span> | tr <span class="string">'A-Z'</span> <span class="string">'a-z'</span></span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/29/使用HttpClient发送HTTPS请求/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/07/29/使用HttpClient发送HTTPS请求/" itemprop="url">使用HttpClient发送HTTPS请求</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-29T10:04:01+08:00">
-                2018-07-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:26:54+08:00">
+                2018-09-08
               </time>
             
 
@@ -1705,37 +636,63 @@
       
         
           
-            <h1 id="一、背景知识"><a href="#一、背景知识" class="headerlink" title="一、背景知识"></a>一、背景知识</h1><h2 id="TLS协商过程"><a href="#TLS协商过程" class="headerlink" title="TLS协商过程"></a>TLS协商过程</h2><ol>
-<li>客户端发送HTTPS请求ClientHello</li>
-<li>服务器发送X.509证书，包含服务器公钥ServerHello</li>
-<li>客户端校验证书，并生成随机对称密钥，并用服务器公钥加密</li>
-<li>使用对称密钥加密会话数据</li>
-</ol>
-<h2 id="Java默认存放CA证书的文件"><a href="#Java默认存放CA证书的文件" class="headerlink" title="Java默认存放CA证书的文件"></a>Java默认存放CA证书的文件</h2><p>文件路径：<code>%JAVA_HOME%\jre\lib\security\cacerts</code></p>
-<p>使用<code>KeyStore Explorer</code>查看，默认密码<code>changeit</code></p>
-<p>PEM格式，纯文本，使用BASE64编码，使用<code>-----BEGIN CERTIFICATE-----</code> 和 <code>-----END CERTIFICATE-----</code> 来标识；<br>DER格式，二进制。</p>
-<p>KeyStore/TrustStore存储：1、Certificate证书；2、PrivateKey非对称加密私钥；3、SecretKey对称加密密钥。<br>KeyStore文件格式：JKS、JCEKS、PKCS12、DKS</p>
-<h2 id="类使用链"><a href="#类使用链" class="headerlink" title="类使用链"></a>类使用链</h2><p>KeyManagerFactory/TrustManagerFactory -&gt; KeyManager/TrustManager;SecureRandom -&gt; SSLContext -&gt; SSLServerSocketFactory/SSLSocketFactory -&gt; SSLServerSocket -&gt; SSLSocket;SSLEngine -&gt; SSLSession</p>
-<h2 id="通过keytool查看KeyStore文件"><a href="#通过keytool查看KeyStore文件" class="headerlink" title="通过keytool查看KeyStore文件"></a>通过keytool查看KeyStore文件</h2><p><code>keytool -list -keystore cacerts</code></p>
-<h2 id="将证书导入文件"><a href="#将证书导入文件" class="headerlink" title="将证书导入文件"></a>将证书导入文件</h2><p><code>keytool -import -alias 12306 -keystore cacerts -file 12306.cer</code></p>
-<h1 id="二、实现过程"><a href="#二、实现过程" class="headerlink" title="二、实现过程"></a>二、实现过程</h1><h2 id="1-添加Maven依赖"><a href="#1-添加Maven依赖" class="headerlink" title="1. 添加Maven依赖"></a>1. 添加Maven依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.httpcomponents<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>httpclient<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.5.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="2-加载KeyStore"><a href="#2-加载KeyStore" class="headerlink" title="2. 加载KeyStore"></a>2. 加载KeyStore</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String keyStoreFilePath = <span class="string">""</span>;</span><br><span class="line">String password = <span class="string">""</span>;</span><br><span class="line">KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());</span><br><span class="line">FileInputStream fin = <span class="keyword">new</span> FileInputStream(keyStoreFilePath);</span><br><span class="line">ks.load(fin, password.toCharArray());</span><br></pre></td></tr></table></figure>
-<h2 id="3-使用KeyStore初始化TrustManagerFactory"><a href="#3-使用KeyStore初始化TrustManagerFactory" class="headerlink" title="3. 使用KeyStore初始化TrustManagerFactory"></a>3. 使用KeyStore初始化TrustManagerFactory</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());</span><br><span class="line">tmf.init(ks);</span><br></pre></td></tr></table></figure>
-<h2 id="4-自定义TrustManager，信任所有服务器证书"><a href="#4-自定义TrustManager，信任所有服务器证书" class="headerlink" title="4. 自定义TrustManager，信任所有服务器证书"></a>4. 自定义TrustManager，信任所有服务器证书</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">TrustManager[] trustAllCerts = <span class="keyword">new</span> TrustManager[] &#123;</span><br><span class="line">        <span class="keyword">new</span> X509TrustManager() &#123;</span><br><span class="line">            <span class="keyword">public</span> X509Certificate[] getAcceptedIssuers() &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkClientTrusted</span><span class="params">(X509Certificate[] certs, String authType)</span> </span>&#123;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkServerTrusted</span><span class="params">(X509Certificate[] certs, String authType)</span> </span>&#123;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="5-SSL上下文"><a href="#5-SSL上下文" class="headerlink" title="5. SSL上下文"></a>5. SSL上下文</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SSLContext sslcontext = SSLContext.getInstance(<span class="string">"TLSv1.2"</span>);</span><br><span class="line">sslcontext.init(<span class="keyword">null</span>, trustAllCerts, <span class="keyword">null</span>);  <span class="comment">//信任所有证书</span></span><br><span class="line">sslcontext.init(<span class="keyword">null</span>, tmf.getTrustManagers(), <span class="keyword">null</span>);  <span class="comment">//使用加载的KeyStore</span></span><br></pre></td></tr></table></figure>
-<h2 id="6-创建SSLSocketFactory"><a href="#6-创建SSLSocketFactory" class="headerlink" title="6. 创建SSLSocketFactory"></a>6. 创建SSLSocketFactory</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SSLConnectionSocketFactory sslsf = <span class="keyword">new</span> SSLConnectionSocketFactory(sslcontext);</span><br></pre></td></tr></table></figure>
-<h2 id="7-创建请求客户端"><a href="#7-创建请求客户端" class="headerlink" title="7. 创建请求客户端"></a>7. 创建请求客户端</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CloseableHttpClient httpclient = <span class="keyword">null</span>;</span><br><span class="line"><span class="comment">//httpclient = HttpClients.createDefault();</span></span><br><span class="line">httpclient = HttpClients.custom()</span><br><span class="line">.setSSLSocketFactory(sslsf)  <span class="comment">//自定义SSL工厂</span></span><br><span class="line">.build();</span><br></pre></td></tr></table></figure>
-<h2 id="8-GET请求"><a href="#8-GET请求" class="headerlink" title="8. GET请求"></a>8. GET请求</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建GET方法</span></span><br><span class="line">HttpGet httpGet = <span class="keyword">new</span> HttpGet(<span class="string">"http://3ms.huawei.com/hi/home/index.html"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加请求头</span></span><br><span class="line">httpGet.setHeader(<span class="string">"User-Agent"</span>, <span class="string">"Mozilla/5.0 (Windows NT 6.1; WOW64) ..."</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//执行HTTP请求</span></span><br><span class="line">String responseBody = httpclient.execute(httpGet, response -&gt; &#123;</span><br><span class="line">    <span class="comment">//返回状态码</span></span><br><span class="line">    <span class="keyword">int</span> status = response.getStatusLine().getStatusCode();</span><br><span class="line">    <span class="keyword">if</span> (status &gt;= <span class="number">200</span> &amp;&amp; status &lt; <span class="number">300</span>) &#123;</span><br><span class="line">        <span class="comment">//返回实体</span></span><br><span class="line">        HttpEntity entity = response.getEntity();</span><br><span class="line">        <span class="keyword">return</span> entity != <span class="keyword">null</span> ? EntityUtils.toString(entity, <span class="string">"UTF-8"</span>) : <span class="keyword">null</span>;  <span class="comment">//避免中文乱码</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ClientProtocolException(<span class="string">"Unexpected response status: "</span> + status);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">System.out.println(responseBody);</span><br><span class="line">System.out.println(<span class="string">"--------------------GET END--------------------"</span>);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>注意：</strong>如果使用Vertx发送请求，且body中携带中文，使用write方法会无法解析。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">HttpClient httpClient = VertxUtils.getHttpClient(XXX);</span><br><span class="line"></span><br><span class="line">HttpClientRequest request = httpClient.request(method, port, host, uri);</span><br><span class="line"></span><br><span class="line">request.putHeader(HttpHeaders.CONTENT_TYPE, <span class="string">"application/json;charset=utf8"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//request.putHeader(HttpHeaders.CONTENT_LENGTH, String.valueOf(requestBody.length()));</span></span><br><span class="line"><span class="comment">//request.write(requestBody, "UTF-8");  //此处写入body会出现中文无法解码</span></span><br><span class="line"></span><br><span class="line">request.end(requestBody, <span class="string">"UTF-8"</span>);  <span class="comment">//写入body，并自动填充Content_Length</span></span><br></pre></td></tr></table></figure>
-<h2 id="9-POST请求"><a href="#9-POST请求" class="headerlink" title="9. POST请求"></a>9. POST请求</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建POST方法</span></span><br><span class="line">HttpPost httpPost = <span class="keyword">new</span> HttpPost(<span class="string">"http://talk.page.huawei.com"</span>);</span><br><span class="line">List&lt;NameValuePair&gt; nvps = <span class="keyword">new</span> ArrayList&lt;NameValuePair&gt;();</span><br><span class="line">nvps.add(<span class="keyword">new</span> BasicNameValuePair(<span class="string">"username"</span>, <span class="string">"vip"</span>));</span><br><span class="line">nvps.add(<span class="keyword">new</span> BasicNameValuePair(<span class="string">"password"</span>, <span class="string">"secret"</span>));</span><br><span class="line"><span class="comment">//创建请求实体</span></span><br><span class="line">httpPost.setEntity(<span class="keyword">new</span> UrlEncodedFormEntity(nvps));</span><br><span class="line"><span class="comment">//String parameter = "key=value";</span></span><br><span class="line"><span class="comment">//httpPost.setEntity(new StringEntity(parameter, ContentType.create("application/x-www-form-urlencoded")));</span></span><br><span class="line"><span class="comment">//执行HTTP请求</span></span><br><span class="line">CloseableHttpResponse response = httpclient.execute(httpPost);</span><br><span class="line">HttpEntity entity = response.getEntity();</span><br><span class="line"><span class="keyword">if</span>(entity != <span class="keyword">null</span>) &#123;</span><br><span class="line">    System.out.println(entity.getContentLength());</span><br><span class="line">    InputStream in = entity.getContent();</span><br><span class="line">    BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(in));</span><br><span class="line">    String read = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">while</span>((read = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">        System.out.println(read);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(<span class="string">"--------------------POST END--------------------"</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="10-最后别忘了在finally里关闭"><a href="#10-最后别忘了在finally里关闭" class="headerlink" title="10. 最后别忘了在finally里关闭"></a>10. 最后别忘了在finally里关闭</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">httpclient.close();</span><br></pre></td></tr></table></figure>
-<h2 id="11-附："><a href="#11-附：" class="headerlink" title="11. 附："></a>11. 附：</h2><h3 id="通过KeyStore获取证书"><a href="#通过KeyStore获取证书" class="headerlink" title="通过KeyStore获取证书"></a>通过KeyStore获取证书</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Certificate certificate = ks.getCertificate(<span class="string">""</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="替换证书"><a href="#替换证书" class="headerlink" title="替换证书"></a>替换证书</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取所有别名</span></span><br><span class="line">Enumeration&lt;String&gt; aliases = ks.aliases();</span><br><span class="line"><span class="keyword">while</span> (aliases.hasMoreElements()) &#123;</span><br><span class="line">    String alias = aliases.nextElement();</span><br><span class="line">    <span class="keyword">if</span> (alias != <span class="keyword">null</span> &amp;&amp; alias.startsWith(<span class="string">""</span>)) &#123;</span><br><span class="line">        ks.deleteEntry(alias);  <span class="comment">//替换证书</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">ks.setCertificateEntry(<span class="string">""</span>, certificate);</span><br><span class="line">FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">""</span>);</span><br><span class="line">ks.store(fos, password.toCharArray());  <span class="comment">//存入KeyStore文件</span></span><br></pre></td></tr></table></figure>
-<h3 id="直接使用JDK提供的接口"><a href="#直接使用JDK提供的接口" class="headerlink" title="直接使用JDK提供的接口"></a>直接使用JDK提供的接口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.net.URL;</span><br><span class="line"><span class="keyword">import</span> java.net.HttpURLConnection;</span><br><span class="line"></span><br><span class="line">URL url = <span class="keyword">new</span> URL(<span class="string">"http://www.huawei.com/"</span>);</span><br><span class="line">HttpURLConnection uc = (HttpURLConnection)url.openConnection();</span><br><span class="line">BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(uc.getInputStream()));</span><br><span class="line">String in = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">while</span>((in = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">System.out.println(in);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="三、代码"><a href="#三、代码" class="headerlink" title="三、代码"></a>三、代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.huawei.web;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.http.HttpEntity;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.NameValuePair;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.ClientProtocolException;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.entity.UrlEncodedFormEntity;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.methods.CloseableHttpResponse;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.methods.HttpGet;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.methods.HttpPost;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.conn.ssl.SSLConnectionSocketFactory;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.impl.client.CloseableHttpClient;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.impl.client.HttpClients;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.message.BasicNameValuePair;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.util.EntityUtils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.net.ssl.SSLContext;</span><br><span class="line"><span class="keyword">import</span> javax.net.ssl.TrustManager;</span><br><span class="line"><span class="keyword">import</span> javax.net.ssl.TrustManagerFactory;</span><br><span class="line"><span class="keyword">import</span> javax.net.ssl.X509TrustManager;</span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"><span class="keyword">import</span> java.security.KeyStore;</span><br><span class="line"><span class="keyword">import</span> java.security.cert.Certificate;</span><br><span class="line"><span class="keyword">import</span> java.security.cert.X509Certificate;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Enumeration;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 调用HttpClient发送HTTPS请求</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> l00250989</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpsRequestUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 自定义信任所有证书的TrustManager</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> TrustManager[] trustAllCerts = <span class="keyword">new</span> TrustManager[] &#123;</span><br><span class="line">            <span class="keyword">new</span> X509TrustManager() &#123;</span><br><span class="line">                <span class="keyword">public</span> X509Certificate[] getAcceptedIssuers() &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkClientTrusted</span><span class="params">(X509Certificate[] certs, String authType)</span> </span>&#123;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkServerTrusted</span><span class="params">(X509Certificate[] certs, String authType)</span> </span>&#123;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">echo</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        System.out.println(str);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        CloseableHttpClient httpclient = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//加载KeyStore</span></span><br><span class="line">            String keyStoreFilePath = <span class="string">""</span>;</span><br><span class="line">            String password = <span class="string">""</span>;</span><br><span class="line">            echo(KeyStore.getDefaultType().toString());</span><br><span class="line">            KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());</span><br><span class="line">            FileInputStream fin = <span class="keyword">new</span> FileInputStream(keyStoreFilePath);</span><br><span class="line">            ks.load(fin, password.toCharArray());</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取证书</span></span><br><span class="line">            Certificate certificate = ks.getCertificate(<span class="string">""</span>);</span><br><span class="line">            <span class="comment">//获取所有别名</span></span><br><span class="line">            Enumeration&lt;String&gt; aliases = ks.aliases();</span><br><span class="line">            <span class="keyword">while</span> (aliases.hasMoreElements()) &#123;</span><br><span class="line">                String alias = aliases.nextElement();</span><br><span class="line">                <span class="keyword">if</span> (alias != <span class="keyword">null</span> &amp;&amp; alias.startsWith(<span class="string">""</span>)) &#123;</span><br><span class="line">                    ks.deleteEntry(alias);  <span class="comment">//替换证书</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ks.setCertificateEntry(<span class="string">""</span>, certificate);</span><br><span class="line">            FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">""</span>);</span><br><span class="line">            ks.store(fos, password.toCharArray());  <span class="comment">//存入KeyStore文件</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//使用KeyStore初始化TrustManagerFactory</span></span><br><span class="line">            echo(TrustManagerFactory.getDefaultAlgorithm().toString());</span><br><span class="line">            TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());</span><br><span class="line">            tmf.init(ks);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//SSL上下文</span></span><br><span class="line">            SSLContext sslcontext = SSLContext.getInstance(<span class="string">"TLSv1.2"</span>);</span><br><span class="line">            <span class="comment">//sslcontext.init(null, trustAllCerts, null);</span></span><br><span class="line">            sslcontext.init(<span class="keyword">null</span>, tmf.getTrustManagers(), <span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//SSLSocketFactory</span></span><br><span class="line">            SSLConnectionSocketFactory sslsf = <span class="keyword">new</span> SSLConnectionSocketFactory(sslcontext);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//创建请求客户端</span></span><br><span class="line">            <span class="comment">//httpclient = HttpClients.createDefault();</span></span><br><span class="line">            httpclient = HttpClients.custom()</span><br><span class="line">                    .setSSLSocketFactory(sslsf)  <span class="comment">//自定义SSL工厂</span></span><br><span class="line">                    .build();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//创建GET方法</span></span><br><span class="line">            HttpGet httpGet = <span class="keyword">new</span> HttpGet(<span class="string">"http://3ms.huawei.com/hi/home/index.html"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//添加请求头</span></span><br><span class="line">            httpGet.setHeader(<span class="string">"User-Agent"</span>, <span class="string">"Mozilla/5.0 (Windows NT 6.1; WOW64) ..."</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//执行HTTP请求</span></span><br><span class="line">            String responseBody = httpclient.execute(httpGet, response -&gt; &#123;</span><br><span class="line">                <span class="comment">//返回状态码</span></span><br><span class="line">                <span class="keyword">int</span> status = response.getStatusLine().getStatusCode();</span><br><span class="line">                <span class="keyword">if</span> (status &gt;= <span class="number">200</span> &amp;&amp; status &lt; <span class="number">300</span>) &#123;</span><br><span class="line">                    <span class="comment">//返回实体</span></span><br><span class="line">                    HttpEntity entity = response.getEntity();</span><br><span class="line">                    <span class="keyword">return</span> entity != <span class="keyword">null</span> ? EntityUtils.toString(entity) : <span class="keyword">null</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> ClientProtocolException(<span class="string">"Unexpected response status: "</span> + status);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            System.out.println(responseBody);</span><br><span class="line">            System.out.println(<span class="string">"--------------------GET END--------------------"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//创建POST方法</span></span><br><span class="line">            HttpPost httpPost = <span class="keyword">new</span> HttpPost(<span class="string">"http://talk.page.huawei.com"</span>);</span><br><span class="line">            List&lt;NameValuePair&gt; nvps = <span class="keyword">new</span> ArrayList&lt;NameValuePair&gt;();</span><br><span class="line">            nvps.add(<span class="keyword">new</span> BasicNameValuePair(<span class="string">"username"</span>, <span class="string">"vip"</span>));</span><br><span class="line">            nvps.add(<span class="keyword">new</span> BasicNameValuePair(<span class="string">"password"</span>, <span class="string">"secret"</span>));</span><br><span class="line">            <span class="comment">//创建请求实体</span></span><br><span class="line">            httpPost.setEntity(<span class="keyword">new</span> UrlEncodedFormEntity(nvps));</span><br><span class="line">            <span class="comment">//String parameter = "key=value";</span></span><br><span class="line">            <span class="comment">//httpPost.setEntity(new StringEntity(parameter, ContentType.create("application/x-www-form-urlencoded")));</span></span><br><span class="line">            <span class="comment">//执行HTTP请求</span></span><br><span class="line">            CloseableHttpResponse response = httpclient.execute(httpPost);</span><br><span class="line">            HttpEntity entity = response.getEntity();</span><br><span class="line">            <span class="keyword">if</span>(entity != <span class="keyword">null</span>) &#123;</span><br><span class="line">                System.out.println(entity.getContentLength());</span><br><span class="line">                InputStream in = entity.getContent();</span><br><span class="line">                BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(in));</span><br><span class="line">                String read = <span class="keyword">null</span>;</span><br><span class="line">                <span class="keyword">while</span>((read = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    System.out.println(read);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"--------------------POST END--------------------"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            System.out.println(e);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                httpclient.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                System.out.println(e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h1 id="String与Date"><a href="#String与Date" class="headerlink" title="String与Date"></a>String与Date</h1><h2 id="时间格式"><a href="#时间格式" class="headerlink" title="时间格式"></a>时间格式</h2><table>
+<thead>
+<tr>
+<th>Date and Time Pattern</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“yyyy.MM.dd G ‘at’ HH:mm:ss z”</td>
+<td>2001.07.04 AD at 12:08:56 PDT</td>
+</tr>
+<tr>
+<td>“EEE, MMM d, ‘’yy”</td>
+<td>Wed, Jul 4, ‘01</td>
+</tr>
+<tr>
+<td>“h:mm a”</td>
+<td>12:08 PM</td>
+</tr>
+<tr>
+<td>“hh ‘o’’clock’ a, zzzz”</td>
+<td>12 o’clock PM, Pacific Daylight Time</td>
+</tr>
+<tr>
+<td>“K:mm a, z”</td>
+<td>0:08 PM, PDT</td>
+</tr>
+<tr>
+<td>“yyyyy.MMMMM.dd GGG hh:mm aaa”</td>
+<td>02001.July.04 AD 12:08 PM</td>
+</tr>
+<tr>
+<td>“EEE, d MMM yyyy HH:mm:ss Z”</td>
+<td>Wed, 4 Jul 2001 12:08:56 -0700</td>
+</tr>
+<tr>
+<td>“yyMMddHHmmssZ”</td>
+<td>010704120856-0700</td>
+</tr>
+<tr>
+<td>“yyyy-MM-dd’T’HH:mm:ss.SSSZ”</td>
+<td>2001-07-04T12:08:56.235-0700</td>
+</tr>
+<tr>
+<td>“yyyy-MM-dd’T’HH:mm:ss.SSSXXX”</td>
+<td>2001-07-04T12:08:56.235-07:00</td>
+</tr>
+<tr>
+<td>“YYYY-‘W’ww-u”</td>
+<td>2001-W27-3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="String转Date"><a href="#String转Date" class="headerlink" title="String转Date"></a>String转Date</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy/MM/dd HH:mm:ss.SSS"</span>);</span><br><span class="line">Date date = df.parse(strTime);</span><br></pre></td></tr></table></figure>
+<h2 id="Date转String"><a href="#Date转String" class="headerlink" title="Date转String"></a>Date转String</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy/MM/dd HH:mm:ss.SSS"</span>);</span><br><span class="line">String tsStr = sdf.format(time);</span><br></pre></td></tr></table></figure>
+<h1 id="将List转换为以逗号分隔的字符串"><a href="#将List转换为以逗号分隔的字符串" class="headerlink" title="将List转换为以逗号分隔的字符串"></a>将List转换为以逗号分隔的字符串</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; cities = Arrays.asList(<span class="string">"Shenzhen"</span>, <span class="string">"Beijing"</span>, <span class="string">"Shanghai"</span>);</span><br><span class="line">String citiesCommaSeparated = String.join(<span class="string">","</span>, cities);</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1784,7 +741,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/15/将TAB转换为4个空格/">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/Notepad/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiXiaolong">
@@ -1803,7 +760,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/hello-islibra/2018/07/15/将TAB转换为4个空格/" itemprop="url">将TAB转换为4个空格</a></h1>
+                <a class="post-title-link" href="/hello-islibra/2018/09/08/Notepad/" itemprop="url">Notepad++</a></h1>
         
 
         <div class="post-meta">
@@ -1815,8 +772,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-15T17:24:44+08:00">
-                2018-07-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:24:33+08:00">
+                2018-09-08
               </time>
             
 
@@ -1877,7 +834,954 @@
       
         
           
-            <h1 id="Notepad"><a href="#Notepad" class="headerlink" title="Notepad++"></a>Notepad++</h1><p>设置-首选项-制表符设置-勾选转换为空格</p>
+            <h1 id="行首行尾添加字符"><a href="#行首行尾添加字符" class="headerlink" title="行首行尾添加字符"></a>行首行尾添加字符</h1><p>菜单<code>搜索</code> - <code>替换</code>，或使用快捷键<code>Ctrl + H</code>，查找目标<code>^</code>代表行首，<code>$</code>代表行尾，<code>查找模式</code>选择<code>正则表达式</code>，点击<code>全部替换</code>。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/工具/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/09/08/工具/" itemprop="url">工具</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:21:50+08:00">
+                2018-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/environment/" itemprop="url" rel="index">
+                    <span itemprop="name">environment</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h1><ul>
+<li>Termius 比较炫酷的终端连接工具</li>
+<li>Kitty 相对putty可保存用户名密码</li>
+<li>Clink Windows的DOS窗口</li>
+<li>Xming 图形化的界面</li>
+<li>WinSCP 文件传输</li>
+<li>ConEmu 壳</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/25/README/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/08/25/README/" itemprop="url">README</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-25T20:41:53+08:00">
+                2018-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="container"><a href="#container" class="headerlink" title="container:"></a>container:</h1><ul>
+<li><a href="https://islibra.github.io/hello-islibra/2018/08/11/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">docker常用命令</a></li>
+</ul>
+<h1 id="db"><a href="#db" class="headerlink" title="db:"></a>db:</h1><ul>
+<li><a href="https://islibra.github.io/hello-islibra/2018/08/11/Ubuntu16-04%E5%AE%89%E8%A3%85mysql5-7-23/">Ubuntu16.04安装mysql5.7.23</a></li>
+</ul>
+<h1 id="dts"><a href="#dts" class="headerlink" title="dts:"></a>dts:</h1><ul>
+<li><a href="https://islibra.github.io/hello-islibra/2018/08/05/SVN%EF%BC%9APrevious-operation-has-not-finished-run-cleanup-if-it-was-interrupted/">SVN：Previous operation has not finished; run ‘cleanup’ if it was interrupted</a></li>
+</ul>
+<h1 id="environment"><a href="#environment" class="headerlink" title="environment:"></a>environment:</h1><ul>
+<li><a href="https://islibra.github.io/hello-islibra/2018/07/15/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Git常用命令</a></li>
+<li><a href="https://islibra.github.io/hello-islibra/2018/07/14/%E5%88%9B%E5%BB%BAVPN/">创建VPN</a></li>
+<li><a href="https://islibra.github.io/hello-islibra/2018/07/15/%E5%B0%86TAB%E8%BD%AC%E6%8D%A2%E4%B8%BA4%E4%B8%AA%E7%A9%BA%E6%A0%BC/">将TAB转换为4个空格</a></li>
+<li><a href="https://islibra.github.io/hello-islibra/2018/08/25/%E5%BF%AB%E6%8D%B7%E9%94%AE/">快捷键</a></li>
+</ul>
+<h1 id="java"><a href="#java" class="headerlink" title="java:"></a>java:</h1><ul>
+<li><a href="https://islibra.github.io/hello-islibra/2018/07/14/Linux%E8%AE%BE%E7%BD%AEJava%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">Linux设置Java环境变量</a></li>
+<li><a href="https://islibra.github.io/hello-islibra/2018/07/29/%E4%BD%BF%E7%94%A8HttpClient%E5%8F%91%E9%80%81HTTPS%E8%AF%B7%E6%B1%82/">使用HttpClient发送HTTPS请求</a></li>
+<li><a href="https://islibra.github.io/hello-islibra/2018/08/05/Java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">Java基本数据类型</a></li>
+<li><a href="https://islibra.github.io/hello-islibra/2018/08/25/Linux%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8Cjar/">Linux后台运行jar</a></li>
+<li><a href="https://islibra.github.io/hello-islibra/2018/08/25/Java8-Stream/">Java8 Stream</a></li>
+<li><a href="https://islibra.github.io/hello-islibra/2018/08/25/Annotation/">Annotation</a></li>
+</ul>
+<h1 id="net"><a href="#net" class="headerlink" title="net:"></a>net:</h1><ul>
+<li><a href="https://islibra.github.io/hello-islibra/2018/08/05/%E7%A7%81%E7%BD%91IP%E5%9C%B0%E5%9D%80%E8%8C%83%E5%9B%B4/">私网IP地址范围</a></li>
+</ul>
+<h1 id="openstack"><a href="#openstack" class="headerlink" title="openstack:"></a>openstack:</h1><ul>
+<li><a href="https://islibra.github.io/hello-islibra/2018/07/30/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a></li>
+</ul>
+<h1 id="os"><a href="#os" class="headerlink" title="os:"></a>os:</h1><ul>
+<li><a href="https://islibra.github.io/hello-islibra/2018/07/29/Linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">Linux基本命令</a></li>
+<li><a href="https://islibra.github.io/hello-islibra/2018/07/15/Linux%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">Linux文件系统</a></li>
+<li><a href="https://islibra.github.io/hello-islibra/2018/07/15/Linux%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/">Linux用户管理</a></li>
+<li><a href="https://islibra.github.io/hello-islibra/2018/07/30/Linux%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">Linux系统管理</a></li>
+<li><a href="https://islibra.github.io/hello-islibra/2018/07/30/Linux%E8%BD%AF%E4%BB%B6%E7%AE%A1%E7%90%86/">Linux软件管理</a></li>
+<li><a href="https://islibra.github.io/hello-islibra/2018/07/15/sudoers%E6%96%87%E4%BB%B6/">sudoers文件</a></li>
+<li><a href="https://islibra.github.io/hello-islibra/2018/07/15/vim/">vim</a></li>
+<li><a href="https://islibra.github.io/hello-islibra/2018/08/05/%E8%AE%BE%E7%BD%AEssh%E8%BF%9E%E6%8E%A5%E4%B8%8D%E8%B6%85%E6%97%B6/">设置ssh连接不超时</a></li>
+<li><a href="https://islibra.github.io/hello-islibra/2018/08/11/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/">Linux网络管理</a></li>
+<li><a href="https://islibra.github.io/hello-islibra/2018/08/25/Tips/">Tips</a></li>
+</ul>
+<h1 id="web"><a href="#web" class="headerlink" title="web:"></a>web:</h1><ul>
+<li><a href="https://islibra.github.io/hello-islibra/2018/07/14/LVS%E8%BD%AC%E5%8F%91%E9%97%AE%E9%A2%98%E6%8A%93%E5%8C%85%E5%AE%9A%E4%BD%8D/">LVS转发问题抓包定位</a></li>
+<li><a href="https://islibra.github.io/hello-islibra/2018/08/05/HTTP%E9%94%99%E8%AF%AF%E7%A0%81/">HTTP错误码</a></li>
+</ul>
+<h1 id="writing"><a href="#writing" class="headerlink" title="writing:"></a>writing:</h1><ul>
+<li><a href="https://islibra.github.io/hello-islibra/2018/07/14/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">使用Hexo搭建个人博客</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/25/Annotation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/08/25/Annotation/" itemprop="url">Annotation</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-25T20:33:18+08:00">
+                2018-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> DemoAnno &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@DemoAnno</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestAnno</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><blockquote>
+<ul>
+<li>注解的属性也叫做成员变量。注解<strong>只有成员变量</strong>，没有方法。</li>
+<li>注解的成员变量在注解的定义中以<strong>无形参的方法</strong>形式来声明。</li>
+<li>方法名定义了该成员变量的名字。</li>
+<li>返回值定义了该成员变量的类型。</li>
+</ul>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> DemoAnno &#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">id</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">String <span class="title">role</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@DemoAnno</span>(id = <span class="number">0</span>, role = <span class="string">"coder"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestAnno</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h1><ul>
+<li>@Retention 生命周期<ul>
+<li>RetentionPolicy.SOURCE</li>
+<li>RetentionPolicy.CLASS</li>
+<li>RetentionPolicy.RUNTIME</li>
+</ul>
+</li>
+<li>@Documented 包含到Javadoc</li>
+<li>@Target 注解位置<ul>
+<li>ElementType.ANNOTATION_TYPE 注解</li>
+<li>ElementType.CONSTRUCTOR 构造方法</li>
+<li>ElementType.FIELD 属性</li>
+<li>ElementType.LOCAL_VARIABLE 局部变量</li>
+<li>ElementType.METHOD 方法</li>
+<li>ElementType.PACKAGE 包</li>
+<li>ElementType.PARAMETER 参数</li>
+<li>ElementType.TYPE 类、接口、枚举</li>
+</ul>
+</li>
+<li>@Inherited 可以被继承</li>
+<li>@Repeatable 可重复应用</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> DemoAnnoGroup &#123;</span><br><span class="line">    DemoAnno[] value();  <span class="comment">//该注解存放其他注解的数组</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Repeatable</span>(DemoAnnoGroup.class)  <span class="comment">//该注解是可以被重复应用的</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> DemoAnno &#123;</span><br><span class="line">    <span class="function">String <span class="title">role</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@DemoAnno</span>(role = <span class="string">"coder"</span>)</span><br><span class="line"><span class="meta">@DemoAnno</span>(role = <span class="string">"PM"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestAnno</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="预置的注解"><a href="#预置的注解" class="headerlink" title="预置的注解"></a>预置的注解</h1><ul>
+<li>@Deprecated 已过时</li>
+<li>@Override 标明该方法是重写父类的方法</li>
+<li>@SuppressWarnings(“deprecation”) 屏蔽告警</li>
+<li>函数式接口<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="注解与反射"><a href="#注解与反射" class="headerlink" title="注解与反射"></a>注解与反射</h1><blockquote>
+<p><strong>注意</strong> 注解需要添加上<code>@Retention(RetentionPolicy.RUNTIME)</code>才能在运行时被读取到。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> hasAnno = TestAnno.class.isAnnotationPresent(DemoAnnoGroup.class);  <span class="comment">//判断TestAnno类是否添加了DemoAnno注解</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (hasAnno) &#123;</span><br><span class="line">    DemoAnnoGroup demoAnnoGroup = TestAnno.class.getAnnotation(DemoAnnoGroup.class);  <span class="comment">//获取注解</span></span><br><span class="line">    <span class="keyword">for</span> (DemoAnno demoAnno : demoAnnoGroup.value()) &#123;</span><br><span class="line">        System.out.println(demoAnno.id());</span><br><span class="line">        System.out.println(demoAnno.role());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    Field age = TestAnno.class.getDeclaredField(<span class="string">"age"</span>);</span><br><span class="line">    age.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">    DemoAnno demoAnno = age.getAnnotation(DemoAnno.class);</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">null</span> != demoAnno)</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(demoAnno.id());</span><br><span class="line">        System.out.println(demoAnno.role());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Method met = TestAnno.class.getDeclaredMethod(<span class="string">"say"</span>);</span><br><span class="line">    Annotation[] ans = met.getAnnotations();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ans.length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(ans[i].annotationType().getSimpleName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (NoSuchFieldException e) &#123;</span><br><span class="line">    System.out.println(e);</span><br><span class="line">&#125; <span class="keyword">catch</span> (NoSuchMethodException e) &#123;</span><br><span class="line">    System.out.println(e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="典型应用"><a href="#典型应用" class="headerlink" title="典型应用"></a>典型应用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">TestAnno ta = <span class="keyword">new</span> TestAnno();</span><br><span class="line">Class clazz = ta.getClass();</span><br><span class="line">Method[] mets = clazz.getDeclaredMethods();</span><br><span class="line"><span class="keyword">for</span>(Method m : mets)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (m.isAnnotationPresent(DemoAnno.class))</span><br><span class="line">    &#123;</span><br><span class="line">        m.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">        m.invoke(ta, <span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参考原文：<a href="https://blog.csdn.net/briblue/article/details/73824058" target="_blank" rel="noopener">https://blog.csdn.net/briblue/article/details/73824058</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/25/快捷键/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/08/25/快捷键/" itemprop="url">快捷键</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-25T20:30:15+08:00">
+                2018-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/environment/" itemprop="url" rel="index">
+                    <span itemprop="name">environment</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a>IDEA</h1><ul>
+<li>单行注释/取消注释：<code>Ctrl+/</code></li>
+<li>块注释/取消注释：<code>Ctrl+Shift+/</code></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/25/Java8-Stream/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/08/25/Java8-Stream/" itemprop="url">Java8 Stream</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-25T20:28:45+08:00">
+                2018-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://mp.weixin.qq.com/s/GDwUgb4FHtOdHa5VOgMU_g" target="_blank" rel="noopener">简洁又快速地处理集合——Java8 Stream（上）</a></p>
+<p><a href="https://mp.weixin.qq.com/s/yS61Bbvlj5eOfEGpJR4gQA" target="_blank" rel="noopener">简洁又快速地处理集合——Java8 Stream（下）</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/25/jar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/08/25/jar/" itemprop="url">jar</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-25T20:25:28+08:00">
+                2018-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Linux后台运行jar"><a href="#Linux后台运行jar" class="headerlink" title="Linux后台运行jar"></a>Linux后台运行jar</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">java -jar XXX.jar  <span class="comment">#当前ssh窗口被锁定；使用Ctrl + C打断程序运行；窗口关闭，程序退出。</span></span><br><span class="line">java -jar XXX.jar &amp;  <span class="comment">#后台运行；窗口关闭，程序退出。</span></span><br><span class="line">nohup java -jar XXX.jar &amp;  <span class="comment">#终端关闭，程序仍然运行。所有输出被重定向到nohup.out。</span></span><br><span class="line">nohup java -jar XXX.jar &gt;temp.txt &amp;  <span class="comment">#输出重定向。</span></span><br><span class="line"><span class="built_in">jobs</span>  <span class="comment">#查看后台运行的任务，显示编号。</span></span><br><span class="line"><span class="built_in">fg</span> 23  <span class="comment">#将编号指定任务调回到前台控制。</span></span><br></pre></td></tr></table></figure>
+<h1 id="使用批处理或shell启动jar"><a href="#使用批处理或shell启动jar" class="headerlink" title="使用批处理或shell启动jar"></a>使用批处理或shell启动jar</h1><ol>
+<li>假设<code>${ROOT}</code>为项目根目录，已将工程打包成<code>${ROOT}\test.jar</code></li>
+<li>拷贝jre到<code>${ROOT}\jre</code></li>
+<li>拷贝依赖的库文件，到<code>${ROOT}\lib</code></li>
+<li>在<code>${ROOT}</code>创建bat文件：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">start .\jre\bin\javaw.exe -jar .\test.jar</span><br><span class="line">@pause</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果是java.exe，默认显示运行窗口；javaw.exe默认不显示。</p>
+</blockquote>
+<p>或在<code>${ROOT}</code>创建sh文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">chmod -R 740 *</span><br><span class="line">CLASSPATH=<span class="variable">$CLASSPATH</span>:./lib/com.springsource.oracle.jdbc-11.1.0.7.jar</span><br><span class="line">CLASSPATH=<span class="variable">$CLASSPATH</span>:./lib/com.springsource.org.apache.log4j-1.2.16.jar</span><br><span class="line">CLASSPATH=<span class="variable">$CLASSPATH</span>:./lib/dom4j-1.6.1.jar</span><br><span class="line">CLASSPATH=<span class="variable">$CLASSPATH</span>:./lib/com.springsource.org.apache.commons.lang-2.6.0.jar</span><br><span class="line">CLASSPATH=<span class="variable">$CLASSPATH</span>:./lib/jsch-0.1.54.jar</span><br><span class="line">CLASSPATH=<span class="variable">$CLASSPATH</span>:./lib/jtds-1.3.1.jar</span><br><span class="line">CLASSPATH=<span class="variable">$CLASSPATH</span>:./DBSyncTool.jar</span><br><span class="line"><span class="built_in">export</span> classpath=<span class="variable">$CLASSPATH</span></span><br><span class="line">./jre/bin/java -Xms256m -Xmx1024m -classpath <span class="string">"<span class="variable">$CLASSPATH</span>"</span> com.test.DBSync</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">&gt; bat启动需要在工程打包的时候，将`classpath`路径写入jar中的`META-INF`中的`MANIFEST.MF`文件，否则会报找不到类。</span><br><span class="line"></span><br><span class="line"><span class="comment">## 1. ant编译：</span></span><br><span class="line"></span><br><span class="line">```xml</span><br><span class="line">&lt;target name=<span class="string">"jar.DBSyncTool"</span> depends=<span class="string">"copy.DBSyncTool.lib"</span>&gt;</span><br><span class="line">        &lt;pathconvert property=<span class="string">"mf.classpath"</span> pathsep=<span class="string">" "</span>&gt;</span><br><span class="line">            &lt;path refid=<span class="string">"classpath"</span> /&gt;</span><br><span class="line">            &lt;chainedmapper&gt;</span><br><span class="line">                &lt;flattenmapper /&gt;</span><br><span class="line">                &lt;globmapper from=<span class="string">"*"</span> to=<span class="string">"lib/*"</span> /&gt;</span><br><span class="line">            &lt;/chainedmapper&gt;</span><br><span class="line">        &lt;/pathconvert&gt;</span><br><span class="line">        &lt;jar destfile=<span class="string">"../SecospacePackage/resource/moduler/tools/DBSyncTool/DBSyncTool.jar"</span>&gt;</span><br><span class="line">            &lt;manifest&gt;</span><br><span class="line">                &lt;attribute name=<span class="string">"Main-Class"</span> value=<span class="string">"com.huawei.DBSync"</span>/&gt;</span><br><span class="line">                &lt;attribute name=<span class="string">"Class-Path"</span> value=<span class="string">"<span class="variable">$&#123;mf.classpath&#125;</span>"</span>/&gt;</span><br><span class="line">            &lt;/manifest&gt;</span><br><span class="line">            &lt;fileset dir=<span class="string">"./target/classes"</span> excludes=<span class="string">""</span> /&gt;</span><br><span class="line">        &lt;/jar&gt;</span><br><span class="line">&lt;/target&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-maven编译："><a href="#2-maven编译：" class="headerlink" title="2. maven编译："></a>2. maven编译：</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-jar-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">archive</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">manifest</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">addClasspath</span>&gt;</span>true<span class="tag">&lt;/<span class="name">addClasspath</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">classpathPrefix</span>&gt;</span>./lib/<span class="tag">&lt;/<span class="name">classpathPrefix</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span>com.test.MainClass<span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">useUniqueVersions</span>&gt;</span>false<span class="tag">&lt;/<span class="name">useUniqueVersions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">manifestEntries</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Class-Path</span>&gt;</span>.<span class="tag">&lt;/<span class="name">Class-Path</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">manifestEntries</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">archive</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">excludes</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">exclude</span>&gt;</span>xxx.yaml<span class="tag">&lt;/<span class="name">exclude</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">excludes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">classesDirectory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">classesDirectory</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -1917,7 +1821,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/hello-islibra/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/hello-islibra/">1</a><span class="page-number current">2</span><a class="page-number" href="/hello-islibra/page/3/">3</a><a class="extend next" rel="next" href="/hello-islibra/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/hello-islibra/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/hello-islibra/">1</a><span class="page-number current">2</span><a class="page-number" href="/hello-islibra/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/hello-islibra/page/5/">5</a><a class="extend next" rel="next" href="/hello-islibra/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1963,7 +1867,7 @@
               
                 <a href="/hello-islibra/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1974,7 +1878,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
