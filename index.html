@@ -514,6 +514,43 @@
 <blockquote>
 <p><code>/*! ... */</code> 仅在MySQL中执行。如：<code>/*! select * from user*/;</code><br><code>/*!50001 select * from user*/;</code> 仅在5.00.01以上的MySQL版本中执行。</p>
 </blockquote>
+<h1 id="information-schema数据库"><a href="#information-schema数据库" class="headerlink" title="information_schema数据库"></a>information_schema数据库</h1><h2 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h2><blockquote>
+<ul>
+<li>CHARACTER_SETS 字符集</li>
+<li>COLLATIONS 字符集排序规则</li>
+<li>COLLATION_CHARACTER_SET_APPLICABILITY</li>
+</ul>
+</blockquote>
+<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><blockquote>
+<ul>
+<li>SCHEMA_PRIVILEGES 数据库相关权限，mysql.db</li>
+<li>TABLE_PRIVILEGES 表相关权限，mysql.tables_priv</li>
+<li>COLUMN_PRIVILEGES 表授权的用户对象</li>
+<li>USER_PRIVILEGES 用户相关权限，mysql.user<ul>
+<li>Select_priv</li>
+<li>Insert_priv</li>
+<li>Update_priv</li>
+<li>Delete_priv</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 新增用户，限制登录ip为10.155.123.%，%为通配符 */</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> mysql.user(Host,<span class="keyword">User</span>,<span class="keyword">Password</span>) <span class="keyword">VALUES</span>(<span class="string">"10.155.123.%"</span>,<span class="string">"kaka"</span>,<span class="keyword">PASSWORD</span>(<span class="string">"kaka123"</span>));</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;  <span class="comment">/* 刷新系统权限相关表 */</span></span><br><span class="line">service mysqld restart  <span class="comment">/* 重启生效 */</span></span><br></pre></td></tr></table></figure>
+<h3 id="权限分配"><a href="#权限分配" class="headerlink" title="权限分配"></a>权限分配</h3><p><code>GRANT 权限 ON 数据库.* TO 用户名@&#39;登录主机&#39; IDENTIFIED BY &#39;密码&#39;</code></p>
+<ul>
+<li>权限：<code>ALL,ALTER,CREATE,DROP,SELECT,UPDATE,DELETE</code></li>
+<li>数据库：<code>*.*  表示所有库的所有表</code></li>
+<li>用户名：<code>MySQL的账户名</code></li>
+<li>登陆主机：<code>&#39;%&#39;表示所有ip</code></li>
+<li>密码：<code>MySQL的账户名对应的登陆密码</code></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span> <span class="keyword">ON</span> test.user <span class="keyword">TO</span> kaka@<span class="string">'10.155.123.55'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'123456'</span>;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">Grants</span> <span class="keyword">for</span> <span class="string">'kaka'</span>@<span class="string">'10.155.123.55'</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="实体对象"><a href="#实体对象" class="headerlink" title="实体对象"></a>实体对象</h2><blockquote>
+<ul>
+<li>COLUMNS 表字段</li>
+<li>SCHEMATA 所有数据库及默认字符集</li>
+</ul>
+</blockquote>
 
           
         
