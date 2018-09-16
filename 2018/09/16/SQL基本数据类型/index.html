@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="String与Date时间格式   Date and Time Pattern Result     “yyyy.MM.dd G ‘at’ HH:mm:ss z” 2001.07.04 AD at 12:08:56 PDT   “EEE, MMM d, ‘’yy” Wed, Jul 4, ‘01   “h:mm a” 12:08 PM   “hh ‘o’’clock’ a, zzzz” 12 o’">
+<meta name="description" content="MySQL文本   是否常用 数据类型 描述     *** CHAR(size) 保存固定长度的字符串（可包含字母、数字以及特殊字符）。在括号中指定字符串的长度。最多 255 个字符。   *** VARCHAR(size) 保存可变长度的字符串（可包含字母、数字以及特殊字符）。在括号中指定字符串的最大长度。最多 255 个字符。注释：如果值的长度大于 255，则被转换为 TEXT 类型。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java数据类型转换">
-<meta property="og:url" content="http://islibra.github.io/hello-islibra/2018/09/08/Java数据类型转换/index.html">
+<meta property="og:title" content="SQL基本数据类型">
+<meta property="og:url" content="http://islibra.github.io/hello-islibra/2018/09/16/SQL基本数据类型/index.html">
 <meta property="og:site_name" content="Aaron&#39;s horizon">
-<meta property="og:description" content="String与Date时间格式   Date and Time Pattern Result     “yyyy.MM.dd G ‘at’ HH:mm:ss z” 2001.07.04 AD at 12:08:56 PDT   “EEE, MMM d, ‘’yy” Wed, Jul 4, ‘01   “h:mm a” 12:08 PM   “hh ‘o’’clock’ a, zzzz” 12 o’">
+<meta property="og:description" content="MySQL文本   是否常用 数据类型 描述     *** CHAR(size) 保存固定长度的字符串（可包含字母、数字以及特殊字符）。在括号中指定字符串的长度。最多 255 个字符。   *** VARCHAR(size) 保存可变长度的字符串（可包含字母、数字以及特殊字符）。在括号中指定字符串的最大长度。最多 255 个字符。注释：如果值的长度大于 255，则被转换为 TEXT 类型。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-08T03:27:36.773Z">
+<meta property="og:updated_time" content="2018-09-16T06:11:12.118Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java数据类型转换">
-<meta name="twitter:description" content="String与Date时间格式   Date and Time Pattern Result     “yyyy.MM.dd G ‘at’ HH:mm:ss z” 2001.07.04 AD at 12:08:56 PDT   “EEE, MMM d, ‘’yy” Wed, Jul 4, ‘01   “h:mm a” 12:08 PM   “hh ‘o’’clock’ a, zzzz” 12 o’">
+<meta name="twitter:title" content="SQL基本数据类型">
+<meta name="twitter:description" content="MySQL文本   是否常用 数据类型 描述     *** CHAR(size) 保存固定长度的字符串（可包含字母、数字以及特殊字符）。在括号中指定字符串的长度。最多 255 个字符。   *** VARCHAR(size) 保存可变长度的字符串（可包含字母、数字以及特殊字符）。在括号中指定字符串的最大长度。最多 255 个字符。注释：如果值的长度大于 255，则被转换为 TEXT 类型。">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://islibra.github.io/hello-islibra/2018/09/08/Java数据类型转换/"/>
+  <link rel="canonical" href="http://islibra.github.io/hello-islibra/2018/09/16/SQL基本数据类型/"/>
 
 
 
 
 
-  <title>Java数据类型转换 | Aaron's horizon</title>
+  <title>SQL基本数据类型 | Aaron's horizon</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/Java数据类型转换/">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/16/SQL基本数据类型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiXiaolong">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java数据类型转换</h1>
+          <h1 class="post-title" itemprop="name headline">SQL基本数据类型</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:26:54+08:00">
-                2018-09-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-16T14:10:44+08:00">
+                2018-09-16
               </time>
             
 
@@ -284,8 +284,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
+                  <a href="/hello-islibra/categories/db/" itemprop="url" rel="index">
+                    <span itemprop="name">db</span>
                   </a>
                 </span>
 
@@ -321,63 +321,168 @@
       
 
       
-        <h1 id="String与Date"><a href="#String与Date" class="headerlink" title="String与Date"></a>String与Date</h1><h2 id="时间格式"><a href="#时间格式" class="headerlink" title="时间格式"></a>时间格式</h2><table>
+        <h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><table>
 <thead>
 <tr>
-<th>Date and Time Pattern</th>
-<th>Result</th>
+<th>是否常用</th>
+<th>数据类型</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>“yyyy.MM.dd G ‘at’ HH:mm:ss z”</td>
-<td>2001.07.04 AD at 12:08:56 PDT</td>
+<td>***</td>
+<td>CHAR(size)</td>
+<td>保存固定长度的字符串（可包含字母、数字以及特殊字符）。在括号中指定字符串的长度。最多 255 个字符。</td>
 </tr>
 <tr>
-<td>“EEE, MMM d, ‘’yy”</td>
-<td>Wed, Jul 4, ‘01</td>
+<td>***</td>
+<td>VARCHAR(size)</td>
+<td>保存可变长度的字符串（可包含字母、数字以及特殊字符）。在括号中指定字符串的最大长度。最多 255 个字符。注释：如果值的长度大于 255，则被转换为 TEXT 类型。</td>
 </tr>
 <tr>
-<td>“h:mm a”</td>
-<td>12:08 PM</td>
+<td>-</td>
+<td>TINYTEXT</td>
+<td>存放最大长度为 255 个字符的字符串。</td>
 </tr>
 <tr>
-<td>“hh ‘o’’clock’ a, zzzz”</td>
-<td>12 o’clock PM, Pacific Daylight Time</td>
+<td>-</td>
+<td>TEXT</td>
+<td>存放最大长度为 65,535 个字符的字符串。</td>
 </tr>
 <tr>
-<td>“K:mm a, z”</td>
-<td>0:08 PM, PDT</td>
+<td>-</td>
+<td>BLOB</td>
+<td>用于 BLOBs (Binary Large OBjects)。存放最多 65,535 字节的数据。</td>
 </tr>
 <tr>
-<td>“yyyyy.MMMMM.dd GGG hh:mm aaa”</td>
-<td>02001.July.04 AD 12:08 PM</td>
+<td>-</td>
+<td>MEDIUMTEXT</td>
+<td>存放最大长度为 16,777,215 个字符的字符串。</td>
 </tr>
 <tr>
-<td>“EEE, d MMM yyyy HH:mm:ss Z”</td>
-<td>Wed, 4 Jul 2001 12:08:56 -0700</td>
+<td>-</td>
+<td>MEDIUMBLOB</td>
+<td>用于 BLOBs (Binary Large OBjects)。存放最多 16,777,215 字节的数据。</td>
 </tr>
 <tr>
-<td>“yyMMddHHmmssZ”</td>
-<td>010704120856-0700</td>
+<td>-</td>
+<td>LONGTEXT</td>
+<td>存放最大长度为 4,294,967,295 个字符的字符串。</td>
 </tr>
 <tr>
-<td>“yyyy-MM-dd’T’HH:mm:ss.SSSZ”</td>
-<td>2001-07-04T12:08:56.235-0700</td>
+<td>-</td>
+<td>LONGBLOB</td>
+<td>用于 BLOBs (Binary Large OBjects)。存放最多 4,294,967,295 字节的数据。</td>
 </tr>
 <tr>
-<td>“yyyy-MM-dd’T’HH:mm:ss.SSSXXX”</td>
-<td>2001-07-04T12:08:56.235-07:00</td>
+<td>-</td>
+<td>ENUM(x,y,z,etc.)</td>
+<td>允许你输入可能值的列表。可以在 ENUM 列表中列出最大 65535 个值。如果列表中不存在插入的值，则插入空值。注释：这些值是按照你输入的顺序存储的。可以按照此格式输入可能的值：ENUM(‘X’,’Y’,’Z’)</td>
 </tr>
 <tr>
-<td>“YYYY-‘W’ww-u”</td>
-<td>2001-W27-3</td>
+<td>-</td>
+<td>SET</td>
+<td>与 ENUM 类似，SET 最多只能包含 64 个列表项，不过 SET 可存储一个以上的值。</td>
 </tr>
 </tbody>
 </table>
-<h2 id="String转Date"><a href="#String转Date" class="headerlink" title="String转Date"></a>String转Date</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy/MM/dd HH:mm:ss.SSS"</span>);</span><br><span class="line">Date date = df.parse(strTime);</span><br></pre></td></tr></table></figure>
-<h2 id="Date转String"><a href="#Date转String" class="headerlink" title="Date转String"></a>Date转String</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy/MM/dd HH:mm:ss.SSS"</span>);</span><br><span class="line">String tsStr = sdf.format(time);</span><br></pre></td></tr></table></figure>
-<h1 id="将List转换为以逗号分隔的字符串"><a href="#将List转换为以逗号分隔的字符串" class="headerlink" title="将List转换为以逗号分隔的字符串"></a>将List转换为以逗号分隔的字符串</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; cities = Arrays.asList(<span class="string">"Shenzhen"</span>, <span class="string">"Beijing"</span>, <span class="string">"Shanghai"</span>);</span><br><span class="line">String citiesCommaSeparated = String.join(<span class="string">","</span>, cities);</span><br></pre></td></tr></table></figure>
+<h2 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h2><table>
+<thead>
+<tr>
+<th>是否常用</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-</td>
+<td>TINYINT(size)</td>
+<td>-128 到 127 常规。0 到 255 无符号*。在括号中规定最大位数。</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SMALLINT(size)</td>
+<td>-32768 到 32767 常规。0 到 65535 无符号*。在括号中规定最大位数。</td>
+</tr>
+<tr>
+<td>-</td>
+<td>MEDIUMINT(size)</td>
+<td>-8388608 到 8388607 普通。0 to 16777215 无符号*。在括号中规定最大位数。</td>
+</tr>
+<tr>
+<td>***</td>
+<td>INT(size)</td>
+<td>-2147483648 到 2147483647 常规。0 到 4294967295 无符号*。在括号中规定最大位数。</td>
+</tr>
+<tr>
+<td>-</td>
+<td>BIGINT(size)</td>
+<td>-9223372036854775808 到 9223372036854775807 常规。0 到 18446744073709551615 无符号*。在括号中规定最大位数。</td>
+</tr>
+<tr>
+<td>-</td>
+<td>FLOAT(size,d)</td>
+<td>带有浮动小数点的小数字。在括号中规定最大位数。在 d 参数中规定小数点右侧的最大位数。</td>
+</tr>
+<tr>
+<td>-</td>
+<td>DOUBLE(size,d)</td>
+<td>带有浮动小数点的大数字。在括号中规定最大位数。在 d 参数中规定小数点右侧的最大位数。</td>
+</tr>
+<tr>
+<td>-</td>
+<td>DECIMAL(size,d)</td>
+<td>作为字符串存储的 DOUBLE 类型，允许固定的小数点。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="日期-时间"><a href="#日期-时间" class="headerlink" title="日期/时间"></a>日期/时间</h2><table>
+<thead>
+<tr>
+<th>是否常用</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-</td>
+<td>DATE()</td>
+<td>日期。格式：YYYY-MM-DD。注释：支持的范围是从 ‘1000-01-01’ 到 ‘9999-12-31’</td>
+</tr>
+<tr>
+<td>-</td>
+<td>DATETIME()</td>
+<td>*日期和时间的组合。格式：YYYY-MM-DD HH:MM:SS。注释：支持的范围是从 ‘1000-01-01 00:00:00’ 到 ‘9999-12-31 23:59:59’</td>
+</tr>
+<tr>
+<td>-</td>
+<td>TIMESTAMP()</td>
+<td>*时间戳。TIMESTAMP 值使用 Unix 纪元(‘1970-01-01 00:00:00’ UTC) 至今的描述来存储。格式：YYYY-MM-DD HH:MM:SS。注释：支持的范围是从 ‘1970-01-01 00:00:01’ UTC 到 ‘2038-01-09 03:14:07’ UTC</td>
+</tr>
+<tr>
+<td>-</td>
+<td>TIME()</td>
+<td>时间。格式：HH:MM:SS 注释：支持的范围是从 ‘-838:59:59’ 到 ‘838:59:59’</td>
+</tr>
+<tr>
+<td>-</td>
+<td>YEAR()</td>
+<td>2 位或 4 位格式的年。注释：4 位格式所允许的值：1901 到 2155。2 位格式所允许的值：70 到 69，表示从 1970 到 2069。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Tips:</strong> 在 INSERT 或 UPDATE 查询中，TIMESTAMP 自动把自身设置为当前的日期和时间。</p>
+</blockquote>
+<h1 id="Oracle"><a href="#Oracle" class="headerlink" title="Oracle"></a>Oracle</h1><h2 id="常见文本存储类型及使用"><a href="#常见文本存储类型及使用" class="headerlink" title="常见文本存储类型及使用"></a>常见文本存储类型及使用</h2><ul>
+<li>char：char是定长的，也就是当你输入的字符小于你指定的数目时，char(8)，你输入的字符小于8时，它会再后面补空值。当你输入的字符大于指定的数时，它会截取超出的字符。CHAR存储定长数据很方便，CHAR字段上的索引效率级高，比如定义char(10)，那么不论你存储的数据是否达到了10个字节，都要占去10个字节的空间。</li>
+<li>varchar[(n)]：长度为n个字节的可变长度且非Unicode的字符数据。n必须是一个介于1和8,000之间的数值。存储大小为输入数据的字节的实际长度，而不是n个字节。所输入的数据字符长度可以为零。存储变长数据，但存储效率没有CHAR高。如果一个字段可能的值是不固定长度的，我们只知道它不可能超过10个字符，把它定义为VARCHAR(10)是最合算的。VARCHAR类型的实际长度是它的值的实际长度+1。为什么“+1”呢？这一个字节用于保存实际使用了多大的长度。从空间上考虑，用varchar合适；从效率上考虑，用char合适，关键是根据实际情况找到权衡点。</li>
+<li>TEXT。text存储可变长度的非Unicode数据，最大长度为2^31-1(2,147,483,647)个字符。</li>
+<li>nvarchar(n)：包含n个字符的可变长度Unicode字符数据。n的值必须介于1与4,000之间。字节的存储大小是所输入字符个数的两倍。所输入的数据字符长度可以为零。NCHAR、NVARCHAR、NTEXT这三种从名字上看比前面三种多了个“N”。它表示存储的是Unicode数据类型的字符。我们知道字符中，英文字符只需要一个字节存储就足够了，但汉字众多，需要两个字节存储，英文与汉字同时存在时容易造成混乱，Unicode字符集就是为了解决字符集这种不兼容的问题而产生的，它所有的字符都用两个字节表示，即英文字符也是用两个字节表示。nchar、nvarchar的长度是在1到4000之间。和char、varchar比较起来，nchar、nvarchar则最多存储4000个字符，不论是英文还是汉字；而char、varchar最多能存储8000个英文，4000个汉字。可以看出使用nchar、nvarchar数据类型时不用担心输入的字符是英文还是汉字，较为方便，但在存储英文时数量上有些损失。所以一般来说，如果含有中文字符，用nchar/nvarchar，如果纯英文和数字，用char/varchar。</li>
+</ul>
 
       
     </div>
@@ -402,8 +507,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/hello-islibra/2018/09/08/Notepad/" rel="next" title="Notepad++">
-                <i class="fa fa-chevron-left"></i> Notepad++
+              <a href="/hello-islibra/2018/09/16/SQL/" rel="next" title="SQL">
+                <i class="fa fa-chevron-left"></i> SQL
               </a>
             
           </div>
@@ -412,8 +517,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/hello-islibra/2018/09/08/Lambda表达式/" rel="prev" title="Lambda表达式">
-                Lambda表达式 <i class="fa fa-chevron-right"></i>
+              <a href="/hello-islibra/2018/09/16/搜狗输入法自定义短语/" rel="prev" title="搜狗输入法自定义短语">
+                搜狗输入法自定义短语 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -537,7 +642,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#String与Date"><span class="nav-number">1.</span> <span class="nav-text">String与Date</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#时间格式"><span class="nav-number">1.1.</span> <span class="nav-text">时间格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String转Date"><span class="nav-number">1.2.</span> <span class="nav-text">String转Date</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Date转String"><span class="nav-number">1.3.</span> <span class="nav-text">Date转String</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#将List转换为以逗号分隔的字符串"><span class="nav-number">2.</span> <span class="nav-text">将List转换为以逗号分隔的字符串</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL"><span class="nav-number">1.</span> <span class="nav-text">MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文本"><span class="nav-number">1.1.</span> <span class="nav-text">文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字"><span class="nav-number">1.2.</span> <span class="nav-text">数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期-时间"><span class="nav-number">1.3.</span> <span class="nav-text">日期/时间</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Oracle"><span class="nav-number">2.</span> <span class="nav-text">Oracle</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见文本存储类型及使用"><span class="nav-number">2.1.</span> <span class="nav-text">常见文本存储类型及使用</span></a></li></ol></li></ol></div>
             
 
           </div>

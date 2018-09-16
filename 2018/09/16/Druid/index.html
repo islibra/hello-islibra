@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="术语schema：数据库，例如查询所有数据库名称和默认编码： 123456789101112mysql&amp;gt; select schema_name, default_character_set_name from information_schema.schemata;+--------------------+----------------------------+| schema_name">
+<meta name="description" content="SQL ParserParserLexer词法分析Lexer中拥有词汇表，即Keywords。 1protected Keywords keywods = Keywords.DEFAULT_KEYWORDS; DEFAULT_KEYWORDS是一个Map&amp;lt;String, Token&amp;gt;，Token是词汇的枚举类，包含SELECT\INSERT\FROM\WHERE等。 nextToken">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL">
-<meta property="og:url" content="http://islibra.github.io/hello-islibra/2018/09/08/MySQL/index.html">
+<meta property="og:title" content="Druid">
+<meta property="og:url" content="http://islibra.github.io/hello-islibra/2018/09/16/Druid/index.html">
 <meta property="og:site_name" content="Aaron&#39;s horizon">
-<meta property="og:description" content="术语schema：数据库，例如查询所有数据库名称和默认编码： 123456789101112mysql&amp;gt; select schema_name, default_character_set_name from information_schema.schemata;+--------------------+----------------------------+| schema_name">
+<meta property="og:description" content="SQL ParserParserLexer词法分析Lexer中拥有词汇表，即Keywords。 1protected Keywords keywods = Keywords.DEFAULT_KEYWORDS; DEFAULT_KEYWORDS是一个Map&amp;lt;String, Token&amp;gt;，Token是词汇的枚举类，包含SELECT\INSERT\FROM\WHERE等。 nextToken">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-09T12:21:01.615Z">
+<meta property="og:updated_time" content="2018-09-16T06:06:06.164Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL">
-<meta name="twitter:description" content="术语schema：数据库，例如查询所有数据库名称和默认编码： 123456789101112mysql&amp;gt; select schema_name, default_character_set_name from information_schema.schemata;+--------------------+----------------------------+| schema_name">
+<meta name="twitter:title" content="Druid">
+<meta name="twitter:description" content="SQL ParserParserLexer词法分析Lexer中拥有词汇表，即Keywords。 1protected Keywords keywods = Keywords.DEFAULT_KEYWORDS; DEFAULT_KEYWORDS是一个Map&amp;lt;String, Token&amp;gt;，Token是词汇的枚举类，包含SELECT\INSERT\FROM\WHERE等。 nextToken">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://islibra.github.io/hello-islibra/2018/09/08/MySQL/"/>
+  <link rel="canonical" href="http://islibra.github.io/hello-islibra/2018/09/16/Druid/"/>
 
 
 
 
 
-  <title>MySQL | Aaron's horizon</title>
+  <title>Druid | Aaron's horizon</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/MySQL/">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/16/Druid/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiXiaolong">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MySQL</h1>
+          <h1 class="post-title" itemprop="name headline">Druid</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:58:45+08:00">
-                2018-09-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-16T13:51:33+08:00">
+                2018-09-16
               </time>
             
 
@@ -321,49 +321,66 @@
       
 
       
-        <h1 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h1><p>schema：数据库，例如查询所有数据库名称和默认编码：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select schema_name, default_character_set_name from information_schema.schemata;</span><br><span class="line"></span><br><span class="line">+<span class="comment">--------------------+----------------------------+</span></span><br><span class="line">| schema_name        | default_character_set_name |</span><br><span class="line">+<span class="comment">--------------------+----------------------------+</span></span><br><span class="line">| information_schema | utf8                       |</span><br><span class="line">| db_6922_0000       | latin1                     |</span><br><span class="line">| mysql              | latin1                     |</span><br><span class="line">| performance_schema | utf8                       |</span><br><span class="line">| sys                | utf8                       |</span><br><span class="line">+<span class="comment">--------------------+----------------------------+</span></span><br><span class="line">12 rows in <span class="keyword">set</span> (<span class="number">0.02</span> sec)</span><br></pre></td></tr></table></figure>
-<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* ... */</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><code>/*! ... */</code> 仅在MySQL中执行。如：<code>/*! select * from user*/;</code><br><code>/*!50001 select * from user*/;</code> 仅在5.00.01以上的MySQL版本中执行。</p>
-</blockquote>
-<h1 id="information-schema数据库"><a href="#information-schema数据库" class="headerlink" title="information_schema数据库"></a>information_schema数据库</h1><h2 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h2><blockquote>
+        <h1 id="SQL-Parser"><a href="#SQL-Parser" class="headerlink" title="SQL Parser"></a>SQL Parser</h1><h2 id="Parser"><a href="#Parser" class="headerlink" title="Parser"></a>Parser</h2><h3 id="Lexer词法分析"><a href="#Lexer词法分析" class="headerlink" title="Lexer词法分析"></a>Lexer词法分析</h3><p>Lexer中拥有词汇表，即Keywords。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> Keywords keywods = Keywords.DEFAULT_KEYWORDS;</span><br></pre></td></tr></table></figure>
+<p><code>DEFAULT_KEYWORDS</code>是一个Map&lt;String, Token&gt;，<code>Token</code>是词汇的枚举类，包含<code>SELECT\INSERT\FROM\WHERE</code>等。</p>
+<p><code>nextToken()</code>从SQL语句解析出下一个单词。<br><code>token()</code>返回上一次解析的单词的Token类型。<br><code>stringVal()</code>获取标识符(Identifier)类型的值。</p>
+<h3 id="Parser语法分析"><a href="#Parser语法分析" class="headerlink" title="Parser语法分析"></a>Parser语法分析</h3><p>在<code>SQLStatementParser</code>的<code>parseStatement</code>方法中通过调用<code>token()</code>方法，解析<code>SQLStatement</code>。如果Token类型为<code>SELECT</code>，则调用<code>parseSelect()</code>方法解析<code>SQLSelectStatement</code>。</p>
+<h2 id="AST抽象语法树"><a href="#AST抽象语法树" class="headerlink" title="AST抽象语法树"></a>AST抽象语法树</h2><h3 id="节点类型"><a href="#节点类型" class="headerlink" title="节点类型"></a>节点类型</h3><ul>
+<li>interface SQLObject {}</li>
+<li><p>interface SQLExpr extends SQLObject {}</p>
 <ul>
-<li>CHARACTER_SETS 字符集</li>
-<li>COLLATIONS 字符集排序规则</li>
-<li>COLLATION_CHARACTER_SET_APPLICABILITY</li>
+<li><p>interface SQLName extends SQLExpr {}</p>
+<ul>
+<li>class SQLIdentifierExpr implements SQLName  //如<code>ID = 3</code>的<code>ID</code></li>
+<li>class SQLPropertyExpr implements SQLName  //如<code>A.ID = 3</code>的<code>A.ID</code></li>
 </ul>
-</blockquote>
-<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><blockquote>
+</li>
+<li><p>class SQLBinaryOpExpr implements SQLExpr  //如<code>ID = 3</code>是一个SQLBinaryOpExpr，left是ID (SQLIdentifierExpr)，right是3 (SQLIntegerExpr)</p>
+</li>
+<li>class SQLIntegerExpr extends SQLNumericLiteralExpr implements SQLValuableExpr  //如<code>ID = 3</code>的<code>3</code>是一个SQLIntegerExpr</li>
+<li>class SQLCharExpr extends SQLTextLiteralExpr implements SQLValuableExpr  //如<code>NAME = &#39;jobs&#39;</code>的<code>&#39;jobs&#39;</code>是一个SQLCharExpr</li>
+</ul>
+</li>
+<li><p>interface SQLStatement extends SQLObject {}</p>
 <ul>
-<li>SCHEMA_PRIVILEGES 数据库相关权限，mysql.db</li>
-<li>TABLE_PRIVILEGES 表相关权限，mysql.tables_priv</li>
-<li>COLUMN_PRIVILEGES 表授权的用户对象</li>
-<li>USER_PRIVILEGES 用户相关权限，mysql.user<ul>
-<li>Select_priv</li>
-<li>Insert_priv</li>
-<li>Update_priv</li>
-<li>Delete_priv</li>
+<li>class SQLSelectStatement implements SQLStatement</li>
+<li>class SQLUpdateStatement implements SQLStatement</li>
+<li>class SQLDeleteStatement implements SQLStatement</li>
+<li>class SQLInsertStatement implements SQLStatement</li>
+</ul>
+</li>
+<li><p>class SQLCreateTableStatement extends SQLStatementImpl</p>
+</li>
+<li><p>interface SQLTableSource extends SQLObject {}</p>
+<ul>
+<li><p>class SQLTableSourceImpl extends SQLObjectImpl implements SQLTableSource</p>
+<ul>
+<li>class SQLExprTableSource extends SQLTableSourceImpl  //如<code>select * from emp where i = 3</code>，的<code>from emp</code>是一个SQLExprTableSource，其中<code>expr</code>是一个<code>name=emp</code>的SQLIdentifierExpr</li>
+<li>class SQLJoinTableSource extends SQLTableSourceImpl  //如<code>select * from emp e inner join org o on e.org_id = o.id</code>，其中left <code>&#39;emp e&#39;</code> 是一个SQLExprTableSource，right <code>&#39;org o&#39;</code>也是一个SQLExprTableSource，condition <code>&#39;e.org_id = o.id&#39;</code>是一个SQLBinaryOpExpr</li>
+<li>SQLSubqueryTableSource extends SQLTableSourceImpl  //如<code>select * from (select * from temp) a</code>，这里第一层<code>from(...)</code>是一个SQLSubqueryTableSource</li>
 </ul>
 </li>
 </ul>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 新增用户，限制登录ip为10.155.123.%，%为通配符 */</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> mysql.user(Host,<span class="keyword">User</span>,<span class="keyword">Password</span>) <span class="keyword">VALUES</span>(<span class="string">"10.155.123.%"</span>,<span class="string">"kaka"</span>,<span class="keyword">PASSWORD</span>(<span class="string">"kaka123"</span>));</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;  <span class="comment">/* 刷新系统权限相关表 */</span></span><br><span class="line">service mysqld restart  <span class="comment">/* 重启生效 */</span></span><br></pre></td></tr></table></figure>
-<h3 id="权限分配"><a href="#权限分配" class="headerlink" title="权限分配"></a>权限分配</h3><p><code>GRANT 权限 ON 数据库.* TO 用户名@&#39;登录主机&#39; IDENTIFIED BY &#39;密码&#39;</code></p>
-<ul>
-<li>权限：<code>ALL,ALTER,CREATE,DROP,SELECT,UPDATE,DELETE</code></li>
-<li>数据库：<code>*.*  表示所有库的所有表</code></li>
-<li>用户名：<code>MySQL的账户名</code></li>
-<li>登陆主机：<code>&#39;%&#39;表示所有ip</code></li>
-<li>密码：<code>MySQL的账户名对应的登陆密码</code></li>
+</li>
+<li><p>class SQLSelect extends SQLObject {}</p>
+</li>
+<li>interface SQLSelectQuery extends SQLObject {}</li>
+<li>class SQLSelectQueryBlock extends SQLObject {}</li>
+<li>class SQLUnionQuery implements SQLSelectQuery</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span> <span class="keyword">ON</span> test.user <span class="keyword">TO</span> kaka@<span class="string">'10.155.123.55'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'123456'</span>;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">Grants</span> <span class="keyword">for</span> <span class="string">'kaka'</span>@<span class="string">'10.155.123.55'</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="实体对象"><a href="#实体对象" class="headerlink" title="实体对象"></a>实体对象</h2><blockquote>
-<ul>
-<li>COLUMNS 表字段</li>
-<li>SCHEMATA 所有数据库及默认字符集</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> String dbType = JdbcConstants.MYSQL;  <span class="comment">//可以是ORACLE、POSTGRESQL、SQLSERVER、ODPS等</span></span><br><span class="line">String sql = <span class="string">"select * from t"</span>;</span><br><span class="line">List&lt;SQLStatement&gt; stmtList = SQLUtils.parseStatements(sql, dbType);  <span class="comment">//生成SQL语句</span></span><br><span class="line">SQLExpr expr = SQLUtils.toSQLExpr(<span class="string">"id=3"</span>, dbType);  <span class="comment">//生成表达式</span></span><br></pre></td></tr></table></figure>
+<h2 id="Visitor"><a href="#Visitor" class="headerlink" title="Visitor"></a>Visitor</h2><ul>
+<li>OutputVisitor用来把AST输出为字符串</li>
+<li>WallVisitor分析SQL语意来防御SQL注入攻击</li>
+<li>ParameterizedOutputVisitor用来合并未参数化的SQL进行统计</li>
+<li>EvalVisitor用来对SQL表达式求值</li>
+<li>ExportParameterVisitor用来提取SQL中的变量参数</li>
+<li>SchemaStatVisitor用来统计SQL中使用的表、字段、过滤条件、排序表达式、分组表达式</li>
+<li>SQL格式化 Druid内置了基于语义的SQL格式化功能</li>
 </ul>
-</blockquote>
+<h2 id="典型操作"><a href="#典型操作" class="headerlink" title="典型操作"></a>典型操作</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">String sql = <span class="string">"select * from user order by id"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 新建 MySQL Parser</span></span><br><span class="line">SQLStatementParser parser = <span class="keyword">new</span> MySqlStatementParser(sql);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用Parser解析生成AST，这里SQLStatement就是AST</span></span><br><span class="line">SQLStatement statement = parser.parseStatement();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用visitor来访问AST</span></span><br><span class="line">MySqlSchemaStatVisitor visitor = <span class="keyword">new</span> MySqlSchemaStatVisitor();</span><br><span class="line">statement.accept(visitor);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"getColumns:"</span> + visitor.getColumns());</span><br><span class="line">System.out.println(<span class="string">"getTables:"</span> + visitor.getTables());</span><br><span class="line">System.out.println(<span class="string">"getParameters:"</span> + visitor.getParameters());</span><br><span class="line">System.out.println(<span class="string">"getOrderByColumns:"</span> + visitor.getOrderByColumns());</span><br><span class="line">System.out.println(<span class="string">"getGroupByColumns:"</span> + visitor.getGroupByColumns());</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/alibaba/druid/wiki/SQL-Parser" target="_blank" rel="noopener">官方文档</a></p>
 
       
     </div>
@@ -388,8 +405,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/hello-islibra/2018/09/08/UML/" rel="next" title="UML">
-                <i class="fa fa-chevron-left"></i> UML
+              <a href="/hello-islibra/2018/09/08/README/" rel="next" title="README">
+                <i class="fa fa-chevron-left"></i> README
               </a>
             
           </div>
@@ -398,8 +415,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/hello-islibra/2018/09/08/README/" rel="prev" title="README">
-                README <i class="fa fa-chevron-right"></i>
+              <a href="/hello-islibra/2018/09/16/SQL/" rel="prev" title="SQL">
+                SQL <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -523,7 +540,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#术语"><span class="nav-number">1.</span> <span class="nav-text">术语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注释"><span class="nav-number">2.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#information-schema数据库"><span class="nav-number">3.</span> <span class="nav-text">information_schema数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符集"><span class="nav-number">3.1.</span> <span class="nav-text">字符集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限"><span class="nav-number">3.2.</span> <span class="nav-text">权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#权限分配"><span class="nav-number">3.2.1.</span> <span class="nav-text">权限分配</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实体对象"><span class="nav-number">3.3.</span> <span class="nav-text">实体对象</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL-Parser"><span class="nav-number">1.</span> <span class="nav-text">SQL Parser</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Parser"><span class="nav-number">1.1.</span> <span class="nav-text">Parser</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Lexer词法分析"><span class="nav-number">1.1.1.</span> <span class="nav-text">Lexer词法分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Parser语法分析"><span class="nav-number">1.1.2.</span> <span class="nav-text">Parser语法分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AST抽象语法树"><span class="nav-number">1.2.</span> <span class="nav-text">AST抽象语法树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#节点类型"><span class="nav-number">1.2.1.</span> <span class="nav-text">节点类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Visitor"><span class="nav-number">1.3.</span> <span class="nav-text">Visitor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#典型操作"><span class="nav-number">1.4.</span> <span class="nav-text">典型操作</span></a></li></ol></li></ol></div>
             
 
           </div>

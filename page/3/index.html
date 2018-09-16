@@ -229,6 +229,637 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/25/Annotation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/08/25/Annotation/" itemprop="url">Annotation</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-25T20:33:18+08:00">
+                2018-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> DemoAnno &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@DemoAnno</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestAnno</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><blockquote>
+<ul>
+<li>注解的属性也叫做成员变量。注解<strong>只有成员变量</strong>，没有方法。</li>
+<li>注解的成员变量在注解的定义中以<strong>无形参的方法</strong>形式来声明。</li>
+<li>方法名定义了该成员变量的名字。</li>
+<li>返回值定义了该成员变量的类型。</li>
+</ul>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> DemoAnno &#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">id</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">String <span class="title">role</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@DemoAnno</span>(id = <span class="number">0</span>, role = <span class="string">"coder"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestAnno</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h1><ul>
+<li>@Retention 生命周期<ul>
+<li>RetentionPolicy.SOURCE</li>
+<li>RetentionPolicy.CLASS</li>
+<li>RetentionPolicy.RUNTIME</li>
+</ul>
+</li>
+<li>@Documented 包含到Javadoc</li>
+<li>@Target 注解位置<ul>
+<li>ElementType.ANNOTATION_TYPE 注解</li>
+<li>ElementType.CONSTRUCTOR 构造方法</li>
+<li>ElementType.FIELD 属性</li>
+<li>ElementType.LOCAL_VARIABLE 局部变量</li>
+<li>ElementType.METHOD 方法</li>
+<li>ElementType.PACKAGE 包</li>
+<li>ElementType.PARAMETER 参数</li>
+<li>ElementType.TYPE 类、接口、枚举</li>
+</ul>
+</li>
+<li>@Inherited 可以被继承</li>
+<li>@Repeatable 可重复应用</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> DemoAnnoGroup &#123;</span><br><span class="line">    DemoAnno[] value();  <span class="comment">//该注解存放其他注解的数组</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Repeatable</span>(DemoAnnoGroup.class)  <span class="comment">//该注解是可以被重复应用的</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> DemoAnno &#123;</span><br><span class="line">    <span class="function">String <span class="title">role</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@DemoAnno</span>(role = <span class="string">"coder"</span>)</span><br><span class="line"><span class="meta">@DemoAnno</span>(role = <span class="string">"PM"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestAnno</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="预置的注解"><a href="#预置的注解" class="headerlink" title="预置的注解"></a>预置的注解</h1><ul>
+<li>@Deprecated 已过时</li>
+<li>@Override 标明该方法是重写父类的方法</li>
+<li>@SuppressWarnings(“deprecation”) 屏蔽告警</li>
+<li>函数式接口<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="注解与反射"><a href="#注解与反射" class="headerlink" title="注解与反射"></a>注解与反射</h1><blockquote>
+<p><strong>注意</strong> 注解需要添加上<code>@Retention(RetentionPolicy.RUNTIME)</code>才能在运行时被读取到。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> hasAnno = TestAnno.class.isAnnotationPresent(DemoAnnoGroup.class);  <span class="comment">//判断TestAnno类是否添加了DemoAnno注解</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (hasAnno) &#123;</span><br><span class="line">    DemoAnnoGroup demoAnnoGroup = TestAnno.class.getAnnotation(DemoAnnoGroup.class);  <span class="comment">//获取注解</span></span><br><span class="line">    <span class="keyword">for</span> (DemoAnno demoAnno : demoAnnoGroup.value()) &#123;</span><br><span class="line">        System.out.println(demoAnno.id());</span><br><span class="line">        System.out.println(demoAnno.role());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    Field age = TestAnno.class.getDeclaredField(<span class="string">"age"</span>);</span><br><span class="line">    age.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">    DemoAnno demoAnno = age.getAnnotation(DemoAnno.class);</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">null</span> != demoAnno)</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(demoAnno.id());</span><br><span class="line">        System.out.println(demoAnno.role());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Method met = TestAnno.class.getDeclaredMethod(<span class="string">"say"</span>);</span><br><span class="line">    Annotation[] ans = met.getAnnotations();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ans.length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(ans[i].annotationType().getSimpleName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (NoSuchFieldException e) &#123;</span><br><span class="line">    System.out.println(e);</span><br><span class="line">&#125; <span class="keyword">catch</span> (NoSuchMethodException e) &#123;</span><br><span class="line">    System.out.println(e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="典型应用"><a href="#典型应用" class="headerlink" title="典型应用"></a>典型应用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">TestAnno ta = <span class="keyword">new</span> TestAnno();</span><br><span class="line">Class clazz = ta.getClass();</span><br><span class="line">Method[] mets = clazz.getDeclaredMethods();</span><br><span class="line"><span class="keyword">for</span>(Method m : mets)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (m.isAnnotationPresent(DemoAnno.class))</span><br><span class="line">    &#123;</span><br><span class="line">        m.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">        m.invoke(ta, <span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参考原文：<a href="https://blog.csdn.net/briblue/article/details/73824058" target="_blank" rel="noopener">https://blog.csdn.net/briblue/article/details/73824058</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/25/快捷键/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/08/25/快捷键/" itemprop="url">快捷键</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-25T20:30:15+08:00">
+                2018-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/environment/" itemprop="url" rel="index">
+                    <span itemprop="name">environment</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a>IDEA</h1><ul>
+<li>单行注释/取消注释：<code>Ctrl+/</code></li>
+<li>块注释/取消注释：<code>Ctrl+Shift+/</code></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/25/Java8-Stream/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/08/25/Java8-Stream/" itemprop="url">Java8 Stream</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-25T20:28:45+08:00">
+                2018-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://mp.weixin.qq.com/s/GDwUgb4FHtOdHa5VOgMU_g" target="_blank" rel="noopener">简洁又快速地处理集合——Java8 Stream（上）</a></p>
+<p><a href="https://mp.weixin.qq.com/s/yS61Bbvlj5eOfEGpJR4gQA" target="_blank" rel="noopener">简洁又快速地处理集合——Java8 Stream（下）</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/25/jar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/08/25/jar/" itemprop="url">jar</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-25T20:25:28+08:00">
+                2018-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Linux后台运行jar"><a href="#Linux后台运行jar" class="headerlink" title="Linux后台运行jar"></a>Linux后台运行jar</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">java -jar XXX.jar  <span class="comment">#当前ssh窗口被锁定；使用Ctrl + C打断程序运行；窗口关闭，程序退出。</span></span><br><span class="line">java -jar XXX.jar &amp;  <span class="comment">#后台运行；窗口关闭，程序退出。</span></span><br><span class="line">nohup java -jar XXX.jar &amp;  <span class="comment">#终端关闭，程序仍然运行。所有输出被重定向到nohup.out。</span></span><br><span class="line">nohup java -jar XXX.jar &gt;temp.txt &amp;  <span class="comment">#输出重定向。</span></span><br><span class="line"><span class="built_in">jobs</span>  <span class="comment">#查看后台运行的任务，显示编号。</span></span><br><span class="line"><span class="built_in">fg</span> 23  <span class="comment">#将编号指定任务调回到前台控制。</span></span><br></pre></td></tr></table></figure>
+<h1 id="使用批处理或shell启动jar"><a href="#使用批处理或shell启动jar" class="headerlink" title="使用批处理或shell启动jar"></a>使用批处理或shell启动jar</h1><ol>
+<li>假设<code>${ROOT}</code>为项目根目录，已将工程打包成<code>${ROOT}\test.jar</code></li>
+<li>拷贝jre到<code>${ROOT}\jre</code></li>
+<li>拷贝依赖的库文件，到<code>${ROOT}\lib</code></li>
+<li>在<code>${ROOT}</code>创建bat文件：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">start .\jre\bin\javaw.exe -jar .\test.jar</span><br><span class="line">@pause</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果是java.exe，默认显示运行窗口；javaw.exe默认不显示。</p>
+</blockquote>
+<p>或在<code>${ROOT}</code>创建sh文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">chmod -R 740 *</span><br><span class="line">CLASSPATH=<span class="variable">$CLASSPATH</span>:./lib/com.springsource.oracle.jdbc-11.1.0.7.jar</span><br><span class="line">CLASSPATH=<span class="variable">$CLASSPATH</span>:./lib/com.springsource.org.apache.log4j-1.2.16.jar</span><br><span class="line">CLASSPATH=<span class="variable">$CLASSPATH</span>:./lib/dom4j-1.6.1.jar</span><br><span class="line">CLASSPATH=<span class="variable">$CLASSPATH</span>:./lib/com.springsource.org.apache.commons.lang-2.6.0.jar</span><br><span class="line">CLASSPATH=<span class="variable">$CLASSPATH</span>:./lib/jsch-0.1.54.jar</span><br><span class="line">CLASSPATH=<span class="variable">$CLASSPATH</span>:./lib/jtds-1.3.1.jar</span><br><span class="line">CLASSPATH=<span class="variable">$CLASSPATH</span>:./DBSyncTool.jar</span><br><span class="line"><span class="built_in">export</span> classpath=<span class="variable">$CLASSPATH</span></span><br><span class="line">./jre/bin/java -Xms256m -Xmx1024m -classpath <span class="string">"<span class="variable">$CLASSPATH</span>"</span> com.test.DBSync</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">&gt; bat启动需要在工程打包的时候，将`classpath`路径写入jar中的`META-INF`中的`MANIFEST.MF`文件，否则会报找不到类。</span><br><span class="line"></span><br><span class="line"><span class="comment">## 1. ant编译：</span></span><br><span class="line"></span><br><span class="line">```xml</span><br><span class="line">&lt;target name=<span class="string">"jar.DBSyncTool"</span> depends=<span class="string">"copy.DBSyncTool.lib"</span>&gt;</span><br><span class="line">        &lt;pathconvert property=<span class="string">"mf.classpath"</span> pathsep=<span class="string">" "</span>&gt;</span><br><span class="line">            &lt;path refid=<span class="string">"classpath"</span> /&gt;</span><br><span class="line">            &lt;chainedmapper&gt;</span><br><span class="line">                &lt;flattenmapper /&gt;</span><br><span class="line">                &lt;globmapper from=<span class="string">"*"</span> to=<span class="string">"lib/*"</span> /&gt;</span><br><span class="line">            &lt;/chainedmapper&gt;</span><br><span class="line">        &lt;/pathconvert&gt;</span><br><span class="line">        &lt;jar destfile=<span class="string">"../SecospacePackage/resource/moduler/tools/DBSyncTool/DBSyncTool.jar"</span>&gt;</span><br><span class="line">            &lt;manifest&gt;</span><br><span class="line">                &lt;attribute name=<span class="string">"Main-Class"</span> value=<span class="string">"com.huawei.DBSync"</span>/&gt;</span><br><span class="line">                &lt;attribute name=<span class="string">"Class-Path"</span> value=<span class="string">"<span class="variable">$&#123;mf.classpath&#125;</span>"</span>/&gt;</span><br><span class="line">            &lt;/manifest&gt;</span><br><span class="line">            &lt;fileset dir=<span class="string">"./target/classes"</span> excludes=<span class="string">""</span> /&gt;</span><br><span class="line">        &lt;/jar&gt;</span><br><span class="line">&lt;/target&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-maven编译："><a href="#2-maven编译：" class="headerlink" title="2. maven编译："></a>2. maven编译：</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-jar-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">archive</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">manifest</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">addClasspath</span>&gt;</span>true<span class="tag">&lt;/<span class="name">addClasspath</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">classpathPrefix</span>&gt;</span>./lib/<span class="tag">&lt;/<span class="name">classpathPrefix</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span>com.test.MainClass<span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">useUniqueVersions</span>&gt;</span>false<span class="tag">&lt;/<span class="name">useUniqueVersions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">manifestEntries</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Class-Path</span>&gt;</span>.<span class="tag">&lt;/<span class="name">Class-Path</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">manifestEntries</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">archive</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">excludes</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">exclude</span>&gt;</span>xxx.yaml<span class="tag">&lt;/<span class="name">exclude</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">excludes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">classesDirectory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">classesDirectory</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/25/Tips/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1119,773 +1750,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/05/SVN：Previous-operation-has-not-finished-run-cleanup-if-it-was-interrupted/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/08/05/SVN：Previous-operation-has-not-finished-run-cleanup-if-it-was-interrupted/" itemprop="url">SVN：Previous operation has not finished; run 'cleanup' if it was interrupted</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-05T16:14:43+08:00">
-                2018-08-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/dts/" itemprop="url" rel="index">
-                    <span itemprop="name">dts</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="SVN：Previous-operation-has-not-finished-run-‘cleanup’-if-it-was-interrupted"><a href="#SVN：Previous-operation-has-not-finished-run-‘cleanup’-if-it-was-interrupted" class="headerlink" title="SVN：Previous operation has not finished; run ‘cleanup’ if it was interrupted"></a>SVN：Previous operation has not finished; run ‘cleanup’ if it was interrupted</h1><p>参考：<a href="https://www.cnblogs.com/dunitian/p/5721664.html#top" target="_blank" rel="noopener">https://www.cnblogs.com/dunitian/p/5721664.html#top</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/05/Java基本数据类型/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/08/05/Java基本数据类型/" itemprop="url">Java基本数据类型</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-05T16:13:06+08:00">
-                2018-08-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <table>
-<thead>
-<tr>
-<th>数据类型</th>
-<th>字节数</th>
-<th>位数</th>
-<th>范围</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Byte</td>
-<td>1</td>
-<td>8</td>
-<td>[-2^7, 2^7-1]</td>
-<td>[-128, 127]</td>
-</tr>
-<tr>
-<td>Short</td>
-<td>2</td>
-<td>16</td>
-<td>[-2^15, 2^15-1]</td>
-<td>[-32768, 32767]</td>
-</tr>
-<tr>
-<td>Integer</td>
-<td>4</td>
-<td>32</td>
-<td>[-2^31, 2^31-1]</td>
-<td>[-2147483648, 2147483647]</td>
-</tr>
-<tr>
-<td>Long</td>
-<td>8</td>
-<td>64</td>
-<td>[-2^63, 2^63-1]</td>
-<td>[-9223372036854775808, 9223372036854775807]</td>
-</tr>
-<tr>
-<td>Float</td>
-<td>4</td>
-<td>32</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Double</td>
-<td>8</td>
-<td>64</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Character</td>
-<td>2</td>
-<td>16</td>
-<td>[‘\u0000’, ‘\uFFFF’]</td>
-<td>[0, 65535]</td>
-</tr>
-</tbody>
-</table>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/05/HTTP错误码/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/08/05/HTTP错误码/" itemprop="url">HTTP错误码</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-05T16:12:44+08:00">
-                2018-08-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/web/" itemprop="url" rel="index">
-                    <span itemprop="name">web</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="错误码分类"><a href="#错误码分类" class="headerlink" title="错误码分类"></a>错误码分类</h1><ul>
-<li>1xx：信息提示</li>
-<li>2xx：成功</li>
-<li>3xx：重定向</li>
-<li>4xx：客户端错误</li>
-<li>5xx：服务器错误</li>
-</ul>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><ul>
-<li>100 - 继续。</li>
-<li>101 - 切换协议。</li>
-<li>200 - 确定。客户端请求已成功。</li>
-<li>201 - 已创建。</li>
-<li>202 - 已接受。</li>
-<li>203 - 非权威性信息。</li>
-<li>204 - 无内容。</li>
-<li>205 - 重置内容。</li>
-<li>206 - 部分内容。</li>
-<li>302 - 对象已移动。</li>
-<li>304 - 未修改。</li>
-<li>307 - 临时重定向。</li>
-<li>400 - 错误的请求。</li>
-<li>401 - 访问被拒绝。</li>
-<li>401.1 - 登录失败。</li>
-<li>401.2 - 服务器配置导致登录失败。</li>
-<li>401.3 - 由于 ACL 对资源的限制而未获得授权。</li>
-<li>401.4 - 筛选器授权失败。</li>
-<li>401.5 - ISAPI/CGI 应用程序授权失败。</li>
-<li>401.7 – 访问被 Web 服务器上的 URL 授权策略拒绝。这个错误代码为 IIS 6.0 所专用。</li>
-<li>403 - 禁止访问。</li>
-<li>403.1 - 执行访问被禁止。</li>
-<li>403.2 - 读访问被禁止。</li>
-<li>403.3 - 写访问被禁止。</li>
-<li>403.4 - 要求 SSL。</li>
-<li>403.5 - 要求 SSL 128。</li>
-<li>403.6 - IP 地址被拒绝。</li>
-<li>403.7 - 要求客户端证书。</li>
-<li>403.8 - 站点访问被拒绝。</li>
-<li>403.9 - 用户数过多。</li>
-<li>403.10 - 配置无效。</li>
-<li>403.11 - 密码更改。</li>
-<li>403.12 - 拒绝访问映射表。</li>
-<li>403.13 - 客户端证书被吊销。</li>
-<li>403.14 - 拒绝目录列表。</li>
-<li>403.15 - 超出客户端访问许可。</li>
-<li>403.16 - 客户端证书不受信任或无效。</li>
-<li>403.17 - 客户端证书已过期或尚未生效。</li>
-<li>403.18 - 在当前的应用程序池中不能执行所请求的 URL。这个错误代码为 IIS 6.0 所专用。</li>
-<li>403.19 - 不能为这个应用程序池中的客户端执行 CGI。这个错误代码为 IIS 6.0 所专用。</li>
-<li>403.20 - Passport 登录失败。这个错误代码为 IIS 6.0 所专用。</li>
-<li>404 - 未找到。</li>
-<li>404.0 -（无） – 没有找到文件或目录。</li>
-<li>404.1 - 无法在所请求的端口上访问 Web 站点。</li>
-<li>404.2 - Web 服务扩展锁定策略阻止本请求。</li>
-<li>404.3 - MIME 映射策略阻止本请求。</li>
-<li>405 - 用来访问本页面的 HTTP 谓词不被允许（方法不被允许）</li>
-<li>406 - 客户端浏览器不接受所请求页面的 MIME 类型。</li>
-<li>407 - 要求进行代理身份验证。</li>
-<li>412 - 前提条件失败。</li>
-<li>413 – 请求实体太大。</li>
-<li>414 - 请求 URI 太长。</li>
-<li>415 – 不支持的媒体类型。</li>
-<li>416 – 所请求的范围无法满足。</li>
-<li>417 – 执行失败。</li>
-<li>423 – 锁定的错误。</li>
-<li>500 - 内部服务器错误。</li>
-<li>500.12 - 应用程序正忙于在 Web 服务器上重新启动。</li>
-<li>500.13 - Web 服务器太忙。</li>
-<li>500.15 - 不允许直接请求 Global.asa。</li>
-<li>500.16 – UNC 授权凭据不正确。这个错误代码为 IIS 6.0 所专用。</li>
-<li>500.18 – URL 授权存储不能打开。这个错误代码为 IIS 6.0 所专用。</li>
-<li>500.100 - 内部 ASP 错误。</li>
-<li>501 - 页眉值指定了未实现的配置。</li>
-<li>502 - Web 服务器用作网关或代理服务器时收到了无效响应。     502.1 - CGI 应用程序超时。</li>
-<li>502.2 - CGI 应用程序出错。application.</li>
-<li>503 - 服务不可用。这个错误代码为 IIS 6.0 所专用。</li>
-<li>504 - 网关超时。</li>
-<li>505 - HTTP 版本不受支持。</li>
-</ul>
-<h1 id="原英文释义"><a href="#原英文释义" class="headerlink" title="原英文释义"></a>原英文释义</h1><ul>
-<li>“100” : Continue</li>
-<li>“101” : witching Protocols</li>
-<li>“200” : OK</li>
-<li>“201” : Created</li>
-<li>“202” : Accepted</li>
-<li>“203” : Non-Authoritative Information</li>
-<li>“204” : No Content</li>
-<li>“205” : Reset Content</li>
-<li>“206” : Partial Content</li>
-<li>“300” : Multiple Choices</li>
-<li>“301” : Moved Permanently</li>
-<li>“302” : Found</li>
-<li>“303” : See Other</li>
-<li>“304” : Not Modified</li>
-<li>“305” : Use Proxy</li>
-<li>“307” : Temporary Redirect</li>
-<li>“400” : Bad Request</li>
-<li>“401” : Unauthorized</li>
-<li>“402” : Payment Required</li>
-<li>“403” : Forbidden</li>
-<li>“404” : Not Found</li>
-<li>“405” : Method Not Allowed</li>
-<li>“406” : Not Acceptable</li>
-<li>“407” : Proxy Authentication Required</li>
-<li>“408” : Request Time-out</li>
-<li>“409” : Conflict</li>
-<li>“410” : Gone</li>
-<li>“411” : Length Required</li>
-<li>“412” : Precondition Failed</li>
-<li>“413” : Request Entity Too Large</li>
-<li>“414” : Request-URI Too Large</li>
-<li>“415” : Unsupported Media Type</li>
-<li>“416” : Requested range not satisfiable</li>
-<li>“417” : Expectation Failed</li>
-<li>“500” : Internal Server Error</li>
-<li>“501” : Not Implemented</li>
-<li>“502” : Bad Gateway</li>
-<li>“503” : Service Unavailable</li>
-<li>“504” : Gateway Time-out</li>
-<li>“505” : HTTP Version not supported</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/30/Linux软件管理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/07/30/Linux软件管理/" itemprop="url">Linux软件管理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-30T21:33:50+08:00">
-                2018-07-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/os/" itemprop="url" rel="index">
-                    <span itemprop="name">os</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Redhat查询软件是否安装</span></span><br><span class="line">rpm -qa xxx</span><br><span class="line"></span><br><span class="line"><span class="comment">#Ubuntu配置国内镜像站点/etc/apt/sources.list</span></span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line"><span class="comment">#Ubuntu安装软件</span></span><br><span class="line">sudo apt-get install xxx</span><br><span class="line"><span class="comment">#Ubuntu更新安装包</span></span><br><span class="line">apt update</span><br></pre></td></tr></table></figure>
-<h1 id="Ubuntu下安装deb包命令"><a href="#Ubuntu下安装deb包命令" class="headerlink" title="Ubuntu下安装deb包命令"></a>Ubuntu下安装deb包命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dpkg -l | grep xxx  <span class="comment">#查看已安装的软件</span></span><br><span class="line">dpkg -L | grep xxx  <span class="comment">#查看已安装的软件路径</span></span><br><span class="line">dpkg -i package.deb  <span class="comment">#安装</span></span><br><span class="line">dpkg -c package.deb  <span class="comment">#查看deb包中的内容</span></span><br><span class="line">dpkg -L package  <span class="comment">#列出deb包安装的所有文件清单</span></span><br><span class="line">dpkg -I package.deb  <span class="comment">#从deb包中提取信息</span></span><br><span class="line">dpkg -s package  <span class="comment">#显示已安装包的信息</span></span><br><span class="line">dpkg -r package  <span class="comment">#移除已安装的deb包</span></span><br><span class="line">dpkg -P package  <span class="comment">#彻底删除已安装的deb包和配置文件</span></span><br><span class="line">dpkg-reconfigure package  <span class="comment">#重新配置已安装的包</span></span><br></pre></td></tr></table></figure>
-<h1 id="压缩解压文件"><a href="#压缩解压文件" class="headerlink" title="压缩解压文件"></a>压缩解压文件</h1><h2 id="1-tar"><a href="#1-tar" class="headerlink" title="1. tar"></a>1. tar</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar xvf FileName.tar  <span class="comment">#解包</span></span><br><span class="line">$ tar cvf FileName.tar DirName  <span class="comment">#打包（注：tar是打包，不是压缩！）</span></span><br></pre></td></tr></table></figure>
-<h2 id="2-gz"><a href="#2-gz" class="headerlink" title="2. gz"></a>2. gz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ gunzip FileName.gz  <span class="comment">#解压1</span></span><br><span class="line">$ gzip -d FileName.gz  <span class="comment">#解压2</span></span><br><span class="line">$ gzip FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-tar-gz"><a href="#3-tar-gz" class="headerlink" title="3. tar.gz"></a>3. tar.gz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zxvf file.tar.gz  <span class="comment">#解压</span></span><br><span class="line">$ tar -zcvf file.tar.gz dir  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
-<h2 id="4-bz2"><a href="#4-bz2" class="headerlink" title="4. bz2"></a>4. bz2</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ bzip2 -d FileName.bz2  <span class="comment">#解压1</span></span><br><span class="line">$ bunzip2 FileName.bz2  <span class="comment">#解压2</span></span><br><span class="line">$ bzip2 -z FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
-<h2 id="5-tar-bz2"><a href="#5-tar-bz2" class="headerlink" title="5. tar.bz2"></a>5. tar.bz2</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ tar -jxvf FileName.tar.bz2  <span class="comment">#解压1</span></span><br><span class="line">$ bzip2 -d file.tar.bz2 &amp; tar -xvf file.tar  <span class="comment">#解压2</span></span><br><span class="line">$ tar jcvf FileName.tar.bz2 DirName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
-<h2 id="6-bz"><a href="#6-bz" class="headerlink" title="6. bz"></a>6. bz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bzip2 -d FileName.bz  <span class="comment">#解压1</span></span><br><span class="line">$ bunzip2 FileName.bz  <span class="comment">#解压2</span></span><br></pre></td></tr></table></figure>
-<h2 id="7-tar-bz"><a href="#7-tar-bz" class="headerlink" title="7. tar.bz"></a>7. tar.bz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar jxvf FileName.tar.bz  <span class="comment">#解压</span></span><br></pre></td></tr></table></figure>
-<h2 id="8-Z"><a href="#8-Z" class="headerlink" title="8. Z"></a>8. Z</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ uncompress FileName.Z  <span class="comment">#解压</span></span><br><span class="line">$ compress FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
-<h2 id="9-tar-Z"><a href="#9-tar-Z" class="headerlink" title="9. tar.Z"></a>9. tar.Z</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar Zxvf FileName.tar.Z  <span class="comment">#解压</span></span><br><span class="line">$ tar Zcvf FileName.tar.Z DirName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
-<h2 id="10-tgz"><a href="#10-tgz" class="headerlink" title="10. tgz"></a>10. tgz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxvf FileName.tgz  <span class="comment">#解压</span></span><br></pre></td></tr></table></figure>
-<h1 id="11-tar-tgz"><a href="#11-tar-tgz" class="headerlink" title="11. tar.tgz"></a>11. tar.tgz</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxvf FileName.tar.tgz  <span class="comment">#解压</span></span><br><span class="line">$ tar zcvf FileName.tar.tgz FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
-<h2 id="12-zip"><a href="#12-zip" class="headerlink" title="12. zip"></a>12. zip</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ unzip FileName.zip  <span class="comment">#解压</span></span><br><span class="line">$ zip FileName.zip DirName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
-<h2 id="13-lha"><a href="#13-lha" class="headerlink" title="13. lha"></a>13. lha</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ lha -e FileName.lha  <span class="comment">#解压</span></span><br><span class="line">$ lha -a FileName.lha FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
-<h2 id="14-rar"><a href="#14-rar" class="headerlink" title="14. rar"></a>14. rar</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ rar a FileName.rar  <span class="comment">#解压</span></span><br><span class="line">$ rar e FileName.rar  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>rar需下载，解压后将<code>rar_static</code>拷贝到<code>/usr/bin</code>目录（其他由$PATH环境变量指定的目录也行）</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cp rar_static /usr/bin/rar</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1936,7 +1800,7 @@
               
                 <a href="/hello-islibra/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
