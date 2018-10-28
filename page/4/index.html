@@ -229,6 +229,204 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/Java数据类型转换/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/09/08/Java数据类型转换/" itemprop="url">Java数据类型转换</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:26:54+08:00">
+                2018-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="String与Date"><a href="#String与Date" class="headerlink" title="String与Date"></a>String与Date</h1><h2 id="时间格式"><a href="#时间格式" class="headerlink" title="时间格式"></a>时间格式</h2><table>
+<thead>
+<tr>
+<th>Date and Time Pattern</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“yyyy.MM.dd G ‘at’ HH:mm:ss z”</td>
+<td>2001.07.04 AD at 12:08:56 PDT</td>
+</tr>
+<tr>
+<td>“EEE, MMM d, ‘’yy”</td>
+<td>Wed, Jul 4, ‘01</td>
+</tr>
+<tr>
+<td>“h:mm a”</td>
+<td>12:08 PM</td>
+</tr>
+<tr>
+<td>“hh ‘o’’clock’ a, zzzz”</td>
+<td>12 o’clock PM, Pacific Daylight Time</td>
+</tr>
+<tr>
+<td>“K:mm a, z”</td>
+<td>0:08 PM, PDT</td>
+</tr>
+<tr>
+<td>“yyyyy.MMMMM.dd GGG hh:mm aaa”</td>
+<td>02001.July.04 AD 12:08 PM</td>
+</tr>
+<tr>
+<td>“EEE, d MMM yyyy HH:mm:ss Z”</td>
+<td>Wed, 4 Jul 2001 12:08:56 -0700</td>
+</tr>
+<tr>
+<td>“yyMMddHHmmssZ”</td>
+<td>010704120856-0700</td>
+</tr>
+<tr>
+<td>“yyyy-MM-dd’T’HH:mm:ss.SSSZ”</td>
+<td>2001-07-04T12:08:56.235-0700</td>
+</tr>
+<tr>
+<td>“yyyy-MM-dd’T’HH:mm:ss.SSSXXX”</td>
+<td>2001-07-04T12:08:56.235-07:00</td>
+</tr>
+<tr>
+<td>“YYYY-‘W’ww-u”</td>
+<td>2001-W27-3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="String转Date"><a href="#String转Date" class="headerlink" title="String转Date"></a>String转Date</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy/MM/dd HH:mm:ss.SSS"</span>);</span><br><span class="line">Date date = df.parse(strTime);</span><br></pre></td></tr></table></figure>
+<h2 id="Date转String"><a href="#Date转String" class="headerlink" title="Date转String"></a>Date转String</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy/MM/dd HH:mm:ss.SSS"</span>);</span><br><span class="line">String tsStr = sdf.format(time);</span><br></pre></td></tr></table></figure>
+<h1 id="将List转换为以逗号分隔的字符串"><a href="#将List转换为以逗号分隔的字符串" class="headerlink" title="将List转换为以逗号分隔的字符串"></a>将List转换为以逗号分隔的字符串</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; cities = Arrays.asList(<span class="string">"Shenzhen"</span>, <span class="string">"Beijing"</span>, <span class="string">"Shanghai"</span>);</span><br><span class="line">String citiesCommaSeparated = String.join(<span class="string">","</span>, cities);</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/Notepad/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1579,147 +1777,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/11/Linux网络管理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/08/11/Linux网络管理/" itemprop="url">Linux网络管理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-11T11:47:23+08:00">
-                2018-08-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/os/" itemprop="url" rel="index">
-                    <span itemprop="name">os</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="设置某IP禁止访问"><a href="#设置某IP禁止访问" class="headerlink" title="设置某IP禁止访问"></a>设置某IP禁止访问</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -s 10.0.0.1/32 -j DROP  <span class="comment">#增加防火墙规则</span></span><br><span class="line">iptables -A OUTPUT -d 10.0.0.1/32 -j DROP</span><br><span class="line">iptables -L INPUT -n --line-numbers  <span class="comment">#带行号显示防火墙INPUT规则</span></span><br><span class="line">iptables -D INPUT 2  <span class="comment">#通过行号删除防火墙规则</span></span><br><span class="line">iptables -D OUTPUT 3</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1770,7 +1827,7 @@
               
                 <a href="/hello-islibra/archives/">
               
-                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-count">62</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
