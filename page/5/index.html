@@ -229,6 +229,1401 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/05/设置ssh连接不超时/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/08/05/设置ssh连接不超时/" itemprop="url">设置ssh连接不超时</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-05T16:15:41+08:00">
+                2018-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/os/" itemprop="url" rel="index">
+                    <span itemprop="name">os</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="修改sshd-config"><a href="#修改sshd-config" class="headerlink" title="修改sshd_config"></a>修改sshd_config</h1><p>配置文件路径: <code>/etc/ssh/sshd_config</code></p>
+<blockquote>
+<p>ClientAliveInterval 300  #服务器向客户端请求消息的时间间隔, 设置成3600秒或更长.<br>ClientAliveCountMax 0  #服务器发出请求后客户端没有响应的最大次数, 超过自动断开. 默认客户端不会响应. 设置成3或更大.</p>
+</blockquote>
+<p>重新载入配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service sshd reload</span><br></pre></td></tr></table></figure>
+<h1 id="修改TMOUT环境变量"><a href="#修改TMOUT环境变量" class="headerlink" title="修改TMOUT环境变量"></a>修改TMOUT环境变量</h1><p>配置文件路径: <code>/etc/profile</code></p>
+<blockquote>
+<p>export TMOUT=300  #设置为3600或更长.</p>
+</blockquote>
+<p>重新载入配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> profile</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$TMOUT</span>  <span class="comment">#查看是否生效</span></span><br></pre></td></tr></table></figure>
+<p>参考：<a href="https://www.cnblogs.com/enjoycode/p/5022607.html" target="_blank" rel="noopener">https://www.cnblogs.com/enjoycode/p/5022607.html</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/05/私网IP地址范围/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/08/05/私网IP地址范围/" itemprop="url">私网IP地址范围</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-05T16:15:21+08:00">
+                2018-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/net/" itemprop="url" rel="index">
+                    <span itemprop="name">net</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <table>
+<thead>
+<tr>
+<th>类型</th>
+<th>起始地址</th>
+<th>终止地址</th>
+<th>范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A类</td>
+<td>10.0.0.0</td>
+<td>10.255.255.255</td>
+<td>10.0.0.0/8</td>
+</tr>
+<tr>
+<td>B类</td>
+<td>172.16.0.0</td>
+<td>172.31.255.255</td>
+<td>172.16.0.0/12</td>
+</tr>
+<tr>
+<td>C类</td>
+<td>192.168.0.0</td>
+<td>192.168.255.255</td>
+<td>192.168.0.0/16</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/05/SVN：Previous-operation-has-not-finished-run-cleanup-if-it-was-interrupted/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/08/05/SVN：Previous-operation-has-not-finished-run-cleanup-if-it-was-interrupted/" itemprop="url">SVN：Previous operation has not finished; run 'cleanup' if it was interrupted</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-05T16:14:43+08:00">
+                2018-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/dts/" itemprop="url" rel="index">
+                    <span itemprop="name">dts</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="SVN：Previous-operation-has-not-finished-run-‘cleanup’-if-it-was-interrupted"><a href="#SVN：Previous-operation-has-not-finished-run-‘cleanup’-if-it-was-interrupted" class="headerlink" title="SVN：Previous operation has not finished; run ‘cleanup’ if it was interrupted"></a>SVN：Previous operation has not finished; run ‘cleanup’ if it was interrupted</h1><p>参考：<a href="https://www.cnblogs.com/dunitian/p/5721664.html#top" target="_blank" rel="noopener">https://www.cnblogs.com/dunitian/p/5721664.html#top</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/05/Java基本数据类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/08/05/Java基本数据类型/" itemprop="url">Java基本数据类型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-05T16:13:06+08:00">
+                2018-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>字节数</th>
+<th>位数</th>
+<th>范围</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Byte</td>
+<td>1</td>
+<td>8</td>
+<td>[-2^7, 2^7-1]</td>
+<td>[-128, 127]</td>
+</tr>
+<tr>
+<td>Short</td>
+<td>2</td>
+<td>16</td>
+<td>[-2^15, 2^15-1]</td>
+<td>[-32768, 32767]</td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>4</td>
+<td>32</td>
+<td>[-2^31, 2^31-1]</td>
+<td>[-2147483648, 2147483647]</td>
+</tr>
+<tr>
+<td>Long</td>
+<td>8</td>
+<td>64</td>
+<td>[-2^63, 2^63-1]</td>
+<td>[-9223372036854775808, 9223372036854775807]</td>
+</tr>
+<tr>
+<td>Float</td>
+<td>4</td>
+<td>32</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Double</td>
+<td>8</td>
+<td>64</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Character</td>
+<td>2</td>
+<td>16</td>
+<td>[‘\u0000’, ‘\uFFFF’]</td>
+<td>[0, 65535]</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/05/HTTP错误码/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/08/05/HTTP错误码/" itemprop="url">HTTP错误码</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-05T16:12:44+08:00">
+                2018-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="错误码分类"><a href="#错误码分类" class="headerlink" title="错误码分类"></a>错误码分类</h1><ul>
+<li>1xx：信息提示</li>
+<li>2xx：成功</li>
+<li>3xx：重定向</li>
+<li>4xx：客户端错误</li>
+<li>5xx：服务器错误</li>
+</ul>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><ul>
+<li>100 - 继续。</li>
+<li>101 - 切换协议。</li>
+<li>200 - 确定。客户端请求已成功。</li>
+<li>201 - 已创建。</li>
+<li>202 - 已接受。</li>
+<li>203 - 非权威性信息。</li>
+<li>204 - 无内容。</li>
+<li>205 - 重置内容。</li>
+<li>206 - 部分内容。</li>
+<li>302 - 对象已移动。</li>
+<li>304 - 未修改。</li>
+<li>307 - 临时重定向。</li>
+<li>400 - 错误的请求。</li>
+<li>401 - 访问被拒绝。</li>
+<li>401.1 - 登录失败。</li>
+<li>401.2 - 服务器配置导致登录失败。</li>
+<li>401.3 - 由于 ACL 对资源的限制而未获得授权。</li>
+<li>401.4 - 筛选器授权失败。</li>
+<li>401.5 - ISAPI/CGI 应用程序授权失败。</li>
+<li>401.7 – 访问被 Web 服务器上的 URL 授权策略拒绝。这个错误代码为 IIS 6.0 所专用。</li>
+<li>403 - 禁止访问。</li>
+<li>403.1 - 执行访问被禁止。</li>
+<li>403.2 - 读访问被禁止。</li>
+<li>403.3 - 写访问被禁止。</li>
+<li>403.4 - 要求 SSL。</li>
+<li>403.5 - 要求 SSL 128。</li>
+<li>403.6 - IP 地址被拒绝。</li>
+<li>403.7 - 要求客户端证书。</li>
+<li>403.8 - 站点访问被拒绝。</li>
+<li>403.9 - 用户数过多。</li>
+<li>403.10 - 配置无效。</li>
+<li>403.11 - 密码更改。</li>
+<li>403.12 - 拒绝访问映射表。</li>
+<li>403.13 - 客户端证书被吊销。</li>
+<li>403.14 - 拒绝目录列表。</li>
+<li>403.15 - 超出客户端访问许可。</li>
+<li>403.16 - 客户端证书不受信任或无效。</li>
+<li>403.17 - 客户端证书已过期或尚未生效。</li>
+<li>403.18 - 在当前的应用程序池中不能执行所请求的 URL。这个错误代码为 IIS 6.0 所专用。</li>
+<li>403.19 - 不能为这个应用程序池中的客户端执行 CGI。这个错误代码为 IIS 6.0 所专用。</li>
+<li>403.20 - Passport 登录失败。这个错误代码为 IIS 6.0 所专用。</li>
+<li>404 - 未找到。</li>
+<li>404.0 -（无） – 没有找到文件或目录。</li>
+<li>404.1 - 无法在所请求的端口上访问 Web 站点。</li>
+<li>404.2 - Web 服务扩展锁定策略阻止本请求。</li>
+<li>404.3 - MIME 映射策略阻止本请求。</li>
+<li>405 - 用来访问本页面的 HTTP 谓词不被允许（方法不被允许）</li>
+<li>406 - 客户端浏览器不接受所请求页面的 MIME 类型。</li>
+<li>407 - 要求进行代理身份验证。</li>
+<li>412 - 前提条件失败。</li>
+<li>413 – 请求实体太大。</li>
+<li>414 - 请求 URI 太长。</li>
+<li>415 – 不支持的媒体类型。</li>
+<li>416 – 所请求的范围无法满足。</li>
+<li>417 – 执行失败。</li>
+<li>423 – 锁定的错误。</li>
+<li>500 - 内部服务器错误。</li>
+<li>500.12 - 应用程序正忙于在 Web 服务器上重新启动。</li>
+<li>500.13 - Web 服务器太忙。</li>
+<li>500.15 - 不允许直接请求 Global.asa。</li>
+<li>500.16 – UNC 授权凭据不正确。这个错误代码为 IIS 6.0 所专用。</li>
+<li>500.18 – URL 授权存储不能打开。这个错误代码为 IIS 6.0 所专用。</li>
+<li>500.100 - 内部 ASP 错误。</li>
+<li>501 - 页眉值指定了未实现的配置。</li>
+<li>502 - Web 服务器用作网关或代理服务器时收到了无效响应。     502.1 - CGI 应用程序超时。</li>
+<li>502.2 - CGI 应用程序出错。application.</li>
+<li>503 - 服务不可用。这个错误代码为 IIS 6.0 所专用。</li>
+<li>504 - 网关超时。</li>
+<li>505 - HTTP 版本不受支持。</li>
+</ul>
+<h1 id="原英文释义"><a href="#原英文释义" class="headerlink" title="原英文释义"></a>原英文释义</h1><ul>
+<li>“100” : Continue</li>
+<li>“101” : witching Protocols</li>
+<li>“200” : OK</li>
+<li>“201” : Created</li>
+<li>“202” : Accepted</li>
+<li>“203” : Non-Authoritative Information</li>
+<li>“204” : No Content</li>
+<li>“205” : Reset Content</li>
+<li>“206” : Partial Content</li>
+<li>“300” : Multiple Choices</li>
+<li>“301” : Moved Permanently</li>
+<li>“302” : Found</li>
+<li>“303” : See Other</li>
+<li>“304” : Not Modified</li>
+<li>“305” : Use Proxy</li>
+<li>“307” : Temporary Redirect</li>
+<li>“400” : Bad Request</li>
+<li>“401” : Unauthorized</li>
+<li>“402” : Payment Required</li>
+<li>“403” : Forbidden</li>
+<li>“404” : Not Found</li>
+<li>“405” : Method Not Allowed</li>
+<li>“406” : Not Acceptable</li>
+<li>“407” : Proxy Authentication Required</li>
+<li>“408” : Request Time-out</li>
+<li>“409” : Conflict</li>
+<li>“410” : Gone</li>
+<li>“411” : Length Required</li>
+<li>“412” : Precondition Failed</li>
+<li>“413” : Request Entity Too Large</li>
+<li>“414” : Request-URI Too Large</li>
+<li>“415” : Unsupported Media Type</li>
+<li>“416” : Requested range not satisfiable</li>
+<li>“417” : Expectation Failed</li>
+<li>“500” : Internal Server Error</li>
+<li>“501” : Not Implemented</li>
+<li>“502” : Bad Gateway</li>
+<li>“503” : Service Unavailable</li>
+<li>“504” : Gateway Time-out</li>
+<li>“505” : HTTP Version not supported</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/30/Linux软件管理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/07/30/Linux软件管理/" itemprop="url">Linux软件管理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-30T21:33:50+08:00">
+                2018-07-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/os/" itemprop="url" rel="index">
+                    <span itemprop="name">os</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Redhat查询软件是否安装</span></span><br><span class="line">rpm -qa xxx</span><br><span class="line"></span><br><span class="line"><span class="comment">#Ubuntu配置国内镜像站点/etc/apt/sources.list</span></span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line"><span class="comment">#Ubuntu安装软件</span></span><br><span class="line">sudo apt-get install xxx</span><br><span class="line"><span class="comment">#Ubuntu更新安装包</span></span><br><span class="line">apt update</span><br></pre></td></tr></table></figure>
+<h1 id="Ubuntu下安装deb包命令"><a href="#Ubuntu下安装deb包命令" class="headerlink" title="Ubuntu下安装deb包命令"></a>Ubuntu下安装deb包命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dpkg -l | grep xxx  <span class="comment">#查看已安装的软件</span></span><br><span class="line">dpkg -L | grep xxx  <span class="comment">#查看已安装的软件路径</span></span><br><span class="line">dpkg -i package.deb  <span class="comment">#安装</span></span><br><span class="line">dpkg -c package.deb  <span class="comment">#查看deb包中的内容</span></span><br><span class="line">dpkg -L package  <span class="comment">#列出deb包安装的所有文件清单</span></span><br><span class="line">dpkg -I package.deb  <span class="comment">#从deb包中提取信息</span></span><br><span class="line">dpkg -s package  <span class="comment">#显示已安装包的信息</span></span><br><span class="line">dpkg -r package  <span class="comment">#移除已安装的deb包</span></span><br><span class="line">dpkg -P package  <span class="comment">#彻底删除已安装的deb包和配置文件</span></span><br><span class="line">dpkg-reconfigure package  <span class="comment">#重新配置已安装的包</span></span><br></pre></td></tr></table></figure>
+<h1 id="压缩解压文件"><a href="#压缩解压文件" class="headerlink" title="压缩解压文件"></a>压缩解压文件</h1><h2 id="1-tar"><a href="#1-tar" class="headerlink" title="1. tar"></a>1. tar</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar xvf FileName.tar  <span class="comment">#解包</span></span><br><span class="line">$ tar cvf FileName.tar DirName  <span class="comment">#打包（注：tar是打包，不是压缩！）</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-gz"><a href="#2-gz" class="headerlink" title="2. gz"></a>2. gz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ gunzip FileName.gz  <span class="comment">#解压1</span></span><br><span class="line">$ gzip -d FileName.gz  <span class="comment">#解压2</span></span><br><span class="line">$ gzip FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-tar-gz"><a href="#3-tar-gz" class="headerlink" title="3. tar.gz"></a>3. tar.gz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zxvf file.tar.gz  <span class="comment">#解压</span></span><br><span class="line">$ tar -zcvf file.tar.gz dir  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-bz2"><a href="#4-bz2" class="headerlink" title="4. bz2"></a>4. bz2</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ bzip2 -d FileName.bz2  <span class="comment">#解压1</span></span><br><span class="line">$ bunzip2 FileName.bz2  <span class="comment">#解压2</span></span><br><span class="line">$ bzip2 -z FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-tar-bz2"><a href="#5-tar-bz2" class="headerlink" title="5. tar.bz2"></a>5. tar.bz2</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ tar -jxvf FileName.tar.bz2  <span class="comment">#解压1</span></span><br><span class="line">$ bzip2 -d file.tar.bz2 &amp; tar -xvf file.tar  <span class="comment">#解压2</span></span><br><span class="line">$ tar jcvf FileName.tar.bz2 DirName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
+<h2 id="6-bz"><a href="#6-bz" class="headerlink" title="6. bz"></a>6. bz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bzip2 -d FileName.bz  <span class="comment">#解压1</span></span><br><span class="line">$ bunzip2 FileName.bz  <span class="comment">#解压2</span></span><br></pre></td></tr></table></figure>
+<h2 id="7-tar-bz"><a href="#7-tar-bz" class="headerlink" title="7. tar.bz"></a>7. tar.bz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar jxvf FileName.tar.bz  <span class="comment">#解压</span></span><br></pre></td></tr></table></figure>
+<h2 id="8-Z"><a href="#8-Z" class="headerlink" title="8. Z"></a>8. Z</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ uncompress FileName.Z  <span class="comment">#解压</span></span><br><span class="line">$ compress FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
+<h2 id="9-tar-Z"><a href="#9-tar-Z" class="headerlink" title="9. tar.Z"></a>9. tar.Z</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar Zxvf FileName.tar.Z  <span class="comment">#解压</span></span><br><span class="line">$ tar Zcvf FileName.tar.Z DirName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
+<h2 id="10-tgz"><a href="#10-tgz" class="headerlink" title="10. tgz"></a>10. tgz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxvf FileName.tgz  <span class="comment">#解压</span></span><br></pre></td></tr></table></figure>
+<h1 id="11-tar-tgz"><a href="#11-tar-tgz" class="headerlink" title="11. tar.tgz"></a>11. tar.tgz</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxvf FileName.tar.tgz  <span class="comment">#解压</span></span><br><span class="line">$ tar zcvf FileName.tar.tgz FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
+<h2 id="12-zip"><a href="#12-zip" class="headerlink" title="12. zip"></a>12. zip</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ unzip FileName.zip  <span class="comment">#解压</span></span><br><span class="line">$ zip FileName.zip DirName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
+<h2 id="13-lha"><a href="#13-lha" class="headerlink" title="13. lha"></a>13. lha</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ lha -e FileName.lha  <span class="comment">#解压</span></span><br><span class="line">$ lha -a FileName.lha FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
+<h2 id="14-rar"><a href="#14-rar" class="headerlink" title="14. rar"></a>14. rar</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ rar a FileName.rar  <span class="comment">#解压</span></span><br><span class="line">$ rar e FileName.rar  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>rar需下载，解压后将<code>rar_static</code>拷贝到<code>/usr/bin</code>目录（其他由$PATH环境变量指定的目录也行）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cp rar_static /usr/bin/rar</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/30/Linux系统管理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/07/30/Linux系统管理/" itemprop="url">Linux系统管理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-30T21:32:59+08:00">
+                2018-07-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/os/" itemprop="url" rel="index">
+                    <span itemprop="name">os</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Ubuntu允许root通过ssh直接登录"><a href="#Ubuntu允许root通过ssh直接登录" class="headerlink" title="Ubuntu允许root通过ssh直接登录"></a>Ubuntu允许root通过ssh直接登录</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#修改/etc/ssh/sshd_config</span></span><br><span class="line">PermitRootLogin yes</span><br><span class="line"><span class="comment">#重启ssh服务</span></span><br><span class="line">ssh stop/waiting</span><br><span class="line">ssh start/running, process 27639</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/30/虚拟化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/07/30/虚拟化/" itemprop="url">虚拟化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-30T21:31:36+08:00">
+                2018-07-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/openstack/" itemprop="url" rel="index">
+                    <span itemprop="name">openstack</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>通过<code>Hypervisor</code>将物理机/宿主机（<code>Host</code>）的硬件资源虚拟化，并提供给虚拟机/客户机（<code>Guest</code>）使用。</p>
+<h2 id="1型虚拟化"><a href="#1型虚拟化" class="headerlink" title="1型虚拟化"></a>1型虚拟化</h2><p>直接安装在物理机上，如：</p>
+<ul>
+<li>Xen</li>
+<li>VMWare的ESXi</li>
+</ul>
+<h2 id="2型虚拟化"><a href="#2型虚拟化" class="headerlink" title="2型虚拟化"></a>2型虚拟化</h2><p>安装在常规的操作系统上，如：</p>
+<ul>
+<li>KVM</li>
+<li>VirualBox</li>
+<li>VMWare Workstation</li>
+</ul>
+<h1 id="KVM"><a href="#KVM" class="headerlink" title="KVM"></a>KVM</h1><p>基于Linux内核实现，内核模块kvm.io用于管理CPU和内存，而存储和网络等IO由Linux内核和Qemu实现。</p>
+<p>KVM的管理工具：<code>Libvirt</code></p>
+<ul>
+<li>libvirtd，后台deamon服务，接收和处理API请求。</li>
+<li>API库，可基于libvirt开发，如图形化的KVM管理工具virt-manager。</li>
+<li>virsh，KVM命令行工具。</li>
+</ul>
+<h2 id="安装KVM包"><a href="#安装KVM包" class="headerlink" title="安装KVM包"></a>安装KVM包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#qemu-kvm qemu-system：KVM 和 QEMU 的核心包，提供 CPU、内存和 IO 虚拟化功能</span></span><br><span class="line"><span class="comment">#libvirt-bin：libvirt命令行管理工具</span></span><br><span class="line"><span class="comment">#virt-manager：KVM图形化管理工具</span></span><br><span class="line"><span class="comment">#bridge-utils vlan：网络虚拟化</span></span><br><span class="line">sudo apt-get install qemu-kvm qemu-system libvirt-bin virt-manager bridge-utils vlan</span><br><span class="line"><span class="comment">#安装Ubuntu图形界面</span></span><br><span class="line">sudo apt-get install xinit</span><br><span class="line">sudo apt-get install gdm</span><br><span class="line">sudo apt-get install kubuntu-desktop</span><br><span class="line"><span class="comment">#配置国内镜像站点/etc/apt/sources.list</span></span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line"><span class="comment">#更新安装包</span></span><br><span class="line">apt update</span><br></pre></td></tr></table></figure>
+<p>参考：<a href="http://www.cnblogs.com/CloudMan6/" target="_blank" rel="noopener">http://www.cnblogs.com/CloudMan6/</a><br>已读：<a href="https://www.cnblogs.com/CloudMan6/p/5233484.html" target="_blank" rel="noopener">https://www.cnblogs.com/CloudMan6/p/5233484.html</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/29/Linux基本命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -531,1343 +1926,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/15/将TAB转换为4个空格/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/07/15/将TAB转换为4个空格/" itemprop="url">将TAB转换为4个空格</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-15T17:24:44+08:00">
-                2018-07-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/environment/" itemprop="url" rel="index">
-                    <span itemprop="name">environment</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Notepad"><a href="#Notepad" class="headerlink" title="Notepad++"></a>Notepad++</h1><p>设置-首选项-制表符设置-勾选转换为空格</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/15/Git常用命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/07/15/Git常用命令/" itemprop="url">Git常用命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-15T17:22:07+08:00">
-                2018-07-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/environment/" itemprop="url" rel="index">
-                    <span itemprop="name">environment</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="一、通过分支MERGE"><a href="#一、通过分支MERGE" class="headerlink" title="一、通过分支MERGE"></a>一、通过分支MERGE</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> xxx.git <span class="comment">#将要提交代码仓路径clone到本地</span></span><br><span class="line"><span class="built_in">cd</span> <span class="comment">#进入代码目录</span></span><br><span class="line">git branch <span class="comment">#查看当前分支</span></span><br><span class="line">git pull origin master <span class="comment">#更新本地分支</span></span><br><span class="line">git checkout -b newbranch <span class="comment">#checkout到个人分支</span></span><br><span class="line">git branch <span class="comment">#查看当前分支为个人分支</span></span><br><span class="line">git push origin newbranch <span class="comment">#将checkout出来的个人分支push到CodeClub</span></span><br><span class="line">git status <span class="comment">#查看本地修改的文件</span></span><br><span class="line">git add -A . <span class="comment">#将本地修改的文件add到本地仓个人分支</span></span><br><span class="line">git commit -m <span class="string">"xxx"</span> <span class="comment">#将本地修改的文件提交到本地仓个人分支</span></span><br><span class="line">git push origin newbranch <span class="comment">#将本地修改的文件提交到远程仓个人分支</span></span><br></pre></td></tr></table></figure>
-<p>发起merge，从远程仓个人分支merge到远程仓主干分支</p>
-<h1 id="二、Fork个人仓"><a href="#二、Fork个人仓" class="headerlink" title="二、Fork个人仓"></a>二、Fork个人仓</h1><p>将主干仓Fork到个人仓<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> xxx.git <span class="comment">#将个人仓clone到本地</span></span><br><span class="line"><span class="built_in">cd</span> <span class="comment">#进入代码目录</span></span><br><span class="line">git remote -v <span class="comment">#查看远程分支列表</span></span><br><span class="line">git remote add projorigin projxxx.git <span class="comment">#增加主库分支到本地</span></span><br><span class="line">git branch <span class="comment">#查看当前分支</span></span><br><span class="line">git pull origin master <span class="comment">#更新当前分支</span></span><br><span class="line">git fetch projorigin <span class="comment">#fetch主库分支的最新版本到本地</span></span><br><span class="line">git merge projorigin/master <span class="comment">#merge主库分支到本地</span></span><br><span class="line">git status <span class="comment">#查看本地修改的文件</span></span><br><span class="line">git add -A . <span class="comment">#将本地修改的文件add到本地仓</span></span><br><span class="line">git commit -m <span class="string">"xxx"</span> <span class="comment">#将本地修改的文件提交到本地仓</span></span><br><span class="line">git push origin branchname <span class="comment">#将本地修改的文件提交到远程个人仓</span></span><br></pre></td></tr></table></figure></p>
-<p>发起merge，从远程个人仓merge到远程主干仓</p>
-<p>END</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/15/Linux用户管理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/07/15/Linux用户管理/" itemprop="url">Linux用户管理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-15T17:15:36+08:00">
-                2018-07-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/os/" itemprop="url" rel="index">
-                    <span itemprop="name">os</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>用户<code>/etc/passwd</code></li>
-<li>用户组<code>/etc/group</code></li>
-</ul>
-<h1 id="增加用户"><a href="#增加用户" class="headerlink" title="增加用户"></a>增加用户</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd kk  <span class="comment">#添加用户kk</span></span><br></pre></td></tr></table></figure>
-<h1 id="切换用户"><a href="#切换用户" class="headerlink" title="切换用户"></a>切换用户</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">whoami  <span class="comment">#显示当前用户</span></span><br><span class="line"><span class="built_in">pwd</span>  <span class="comment">#显示当前目录</span></span><br><span class="line">su root  <span class="comment">#切换到root用户</span></span><br></pre></td></tr></table></figure>
-<h1 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">passwd w3cschool  <span class="comment">#设置w3cschool用户的密码</span></span><br><span class="line">Enter new UNIX password:  <span class="comment">#输入新密码，输入的密码无回显</span></span><br><span class="line">Retype new UNIX password:  <span class="comment">#确认密码</span></span><br><span class="line">passwd: password updated successfully</span><br></pre></td></tr></table></figure>
-<h1 id="更改个人资讯"><a href="#更改个人资讯" class="headerlink" title="更改个人资讯"></a>更改个人资讯</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">chfn</span><br><span class="line">Changing finger information <span class="keyword">for</span> root.</span><br><span class="line">Name [root]: hnlinux</span><br><span class="line">Office []: hn</span><br><span class="line">Office Phone []: 888888</span><br><span class="line">Home Phone []: 9999999</span><br><span class="line">Finger information changed.</span><br></pre></td></tr></table></figure>
-<h1 id="修改用户属性"><a href="#修改用户属性" class="headerlink" title="修改用户属性"></a>修改用户属性</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -g usergroup username</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/15/sudoers文件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/07/15/sudoers文件/" itemprop="url">sudoers文件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-15T17:04:41+08:00">
-                2018-07-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/os/" itemprop="url" rel="index">
-                    <span itemprop="name">os</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>文件路径：<code>/etc/sudoers</code></p>
-<p>允许普通用户在不输入root密码的情况下执行sudo命令。</p>
-<blockquote>
-<p>通过<code>visudo</code>命令编辑</p>
-</blockquote>
-<h1 id="通过以下关键词设置别名"><a href="#通过以下关键词设置别名" class="headerlink" title="通过以下关键词设置别名"></a>通过以下关键词设置别名</h1><ul>
-<li>Host_Alias</li>
-<li>User_Alias</li>
-<li>Cmnd_Alias</li>
-</ul>
-<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><blockquote>
-<p>%groupname  #用户组</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">user    MACHINE=COMMANDS</span><br><span class="line">root    ALL=(ALL)       ALL  <span class="comment">#允许root在所有机器上执行所有命令</span></span><br><span class="line">%sys ALL = NETWORKING, SOFTWARE, SERVICES, STORAGE, DELEGATING, PROCESSES, LOCATE, DRIVERS  <span class="comment">#允许sys用户组执行网络等命令</span></span><br><span class="line">%wheel        ALL=(ALL)       NOPASSWD: ALL  <span class="comment">#允许wheel用户组在不输入自己密码的情况下执行所有命令</span></span><br><span class="line">%users  ALL=/sbin/mount /mnt/cdrom, /sbin/umount /mnt/cdrom  <span class="comment">#允许users用户组执行mount/unmount /mnt/cdrom命令</span></span><br><span class="line">%users  localhost=/sbin/shutdown -h now  <span class="comment">#允许users用户组在本机执行关机操作</span></span><br><span class="line">xxx ALL=(ALL) NOPASSWD: /usr/bin/su  <span class="comment">#允许xxx用户在不输入自己密码的情况下执行/usr/bin/su命令</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><code>#include /etc/sudoers.d/sudoers.paas</code>  #包含其他文件<a href="前面的#不是注释。">^1</a></p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/15/Linux文件系统/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/07/15/Linux文件系统/" itemprop="url">Linux文件系统</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-15T13:12:59+08:00">
-                2018-07-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/os/" itemprop="url" rel="index">
-                    <span itemprop="name">os</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <table>
-<thead>
-<tr>
-<th>目录</th>
-<th>用途</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/bin /usr/bin /usr/local/bin</td>
-<td>最常用的二进制命令</td>
-<td>如：ls mv cat</td>
-</tr>
-<tr>
-<td>/sbin /usr/sbin /usr/local/sbin</td>
-<td>系统专用的二进制命令</td>
-<td>root使用，如：fdisk shutdown mount</td>
-</tr>
-<tr>
-<td>/lib /usr/lib /usr/local/lib</td>
-<td>系统使用的库文件</td>
-<td>如：/lib/modules</td>
-</tr>
-<tr>
-<td>/boot</td>
-<td>系统启动时用来引导Linux的文件，建议<strong>单独分区</strong>100M即可</td>
-<td>如：/boot/vmlinuz为linux内核文件，/boot/grub</td>
-</tr>
-<tr>
-<td>/dev</td>
-<td>设备文件</td>
-<td>如：mount /dev/cdrom /mnt/cdrom挂载光驱</td>
-</tr>
-<tr>
-<td>/etc</td>
-<td>系统配置文件，修改之前记得备份</td>
-<td>如：/etc/inittab /etc/fstab /etc/init.d /etc/X11 /etc/sysconfig</td>
-</tr>
-<tr>
-<td>/home</td>
-<td>各用户的根目录，用~表示，建议<strong>单独分区</strong>，设置较大的磁盘空间</td>
-<td></td>
-</tr>
-<tr>
-<td>/root</td>
-<td>root的根目录，用~表示，建议和/放置在同一个分区下</td>
-<td></td>
-</tr>
-<tr>
-<td>/lost+found</td>
-<td>系统异常时丢失的文件</td>
-<td>挂载硬盘后自动生成，如：mount /dev/dm-0 /xxx，生成/xxx/lost+found</td>
-</tr>
-<tr>
-<td>/mnt /media</td>
-<td>媒体挂载点</td>
-<td>如：/mount -o loop xxx.iso /mnt/cdrom</td>
-</tr>
-<tr>
-<td>/opt</td>
-<td>安装第三方软件目录</td>
-<td></td>
-</tr>
-<tr>
-<td>/proc</td>
-<td>CPU、进程、内存、IO、网络数据，内存的映射，虚拟目录，不占用磁盘空间</td>
-<td>如：/proc/cpuinfo /proc/interrupts /proc/dma /proc/ioports /proc/net/*</td>
-</tr>
-<tr>
-<td>/sys</td>
-<td>系统信息</td>
-<td></td>
-</tr>
-<tr>
-<td>/tmp</td>
-<td>临时文件目录，一般用户或正在执行的程序都可存放，任何人都可以访问，重要数据不可放置在此目录下</td>
-<td></td>
-</tr>
-<tr>
-<td>/srv</td>
-<td>服务启动后需要访问的数据目录</td>
-<td>如：/srv/www</td>
-</tr>
-<tr>
-<td>/usr</td>
-<td>普通用户的应用程序、库文件、文档，建议<strong>单独分区</strong>，设置较大的磁盘空间</td>
-<td>如：/usr/bin应用程序 /usr/lib库文件 /usr/share共享数据 /usr/local软件升级包 /usr/share/doc系统说明文件 /usr/share/man程序说明文件</td>
-</tr>
-<tr>
-<td>/var</td>
-<td>动态变化的文件，建议<strong>单独分区</strong>，设置较大的磁盘空间</td>
-<td>如：日志/var/log /var/log/message 邮件/var/spool/mail 程序PID/var/run</td>
-</tr>
-</tbody>
-</table>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/15/vim/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/07/15/vim/" itemprop="url">vim</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-15T11:47:30+08:00">
-                2018-07-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/os/" itemprop="url" rel="index">
-                    <span itemprop="name">os</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p><code>Ctrl + u</code>  向上翻半屏<br><code>Ctrl + d</code>  向下翻半屏<br><code>Ctrl + b</code>  向上翻一屏<br><code>Ctrl + f</code>  向下翻一屏<br><code>:set number</code>  显示行号<br><code>:set nonumber</code>  取消显示行号<br><code>:set encoding=utf-8</code>  设置编码<br><code>:行号</code>  跳转到指定行<br><code>:$</code>  跳转到最后一行<br><code>/xxx</code>  向下搜索xxx<br><code>?xxx</code>  向上搜索xxx<br><code>n</code>  查找下一个匹配<br><code>shift + n</code>  查找上一个匹配<br><code>noh</code>  取消高亮<br><code>dd</code>  删除整行<br><code>ndd</code>  删除n行<br><code>D</code>  删除从光标到末尾<br><code>a</code>  在当前字符后插入<br><code>A</code>  在行末插入<br><code>i</code>  在当前字符前插入<br><code>I</code>  在行首插入<br><code>o</code>  在下一行插入<br><code>O</code>  在上一行插入<br><code>:a,bs/F/T</code>  从第a行到第b行将F替换为T<br><code>:f</code>  显示当前文件名、光标所在行、显示比例<br><code>:wq</code>  存盘退出<br><code>:q!</code>  强制退出</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/14/创建VPN/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/07/14/创建VPN/" itemprop="url">创建VPN</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-14T15:41:20+08:00">
-                2018-07-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/environment/" itemprop="url" rel="index">
-                    <span itemprop="name">environment</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><p>网络和共享中心 - 设置新的连接或网络</p>
-</li>
-<li><p>连接到工作区</p>
-</li>
-<li><p>使用我的Internet连接(VPN)</p>
-</li>
-<li><p>填写Internet地址和目标名称，并勾选<code>现在不连接；仅进行设置以便稍后连接</code></p>
-</li>
-<li><p>输入用户名和密码，点击<code>创建</code></p>
-</li>
-<li><p>创建完成后，到网络和共享中心 - 更改适配器设置，找到刚才创建的VPN连接，点击右键 - 创建快捷方式，创建到桌面。</p>
-</li>
-<li><p>双击快捷方式，点击属性，在<code>常规</code>中输入IP地址，切换到<code>网络</code>选项卡，分别设置IPv4和IPv6的属性 - 高级，<strong>[重要！]取消勾选<code>在远程网络上使用默认网关</code></strong></p>
-</li>
-<li><p>输入用户名密码，点击<strong>连接</strong></p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/14/LVS转发问题抓包定位/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/07/14/LVS转发问题抓包定位/" itemprop="url">LVS转发问题抓包定位</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-14T15:37:23+08:00">
-                2018-07-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/web/" itemprop="url" rel="index">
-                    <span itemprop="name">web</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="1-服务订购失败，查询broker日志，报错信息为："><a href="#1-服务订购失败，查询broker日志，报错信息为：" class="headerlink" title="1. 服务订购失败，查询broker日志，报错信息为："></a>1. 服务订购失败，查询broker日志，报错信息为：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">06-29 07:29:53,747 INFO (vert.x-worker-thread-0) Submit create instance request: uri=https://10.186.86.79:8443/fst/rest/v1.0/d387a958e8f04967a501530872c8462e/instances, body=&#123;&quot;instance&quot;:&#123;&quot;project_id&quot;:&quot;d387a</span><br><span class="line">958e8f04967a501530872c8462e&quot;,&quot;organization_guid&quot;:&quot;ddmtest&quot;,&quot;space_guid&quot;:&quot;bilibili&quot;,&quot;plan_name&quot;:&quot;default&quot;,&quot;service_guid&quot;:&quot;790b1219-9fb5-935c-f2bb-0e6ae9139594&quot;,&quot;service_name&quot;:&quot;ddm-serviceddddd&quot;,&quot;instance_id&quot;</span><br><span class="line">:null,&quot;instance_name&quot;:&quot;dddddd&quot;,&quot;parameters&quot;:&#123;&quot;ams_ip&quot;:&quot;10.186.144.34&quot;,&quot;console_address&quot;:&quot;10.186.86.79:7443&quot;,&quot;ddm_core_package&quot;:&quot;https://10.186.144.34:20202/swr/v2/domains/paas-ddmtest/namespaces/ddm-namespa</span><br><span class="line">ce/repositories/ddm-ware/packages/ddm-pkg/versions/1.0.0.B005/file_paths/DDM-CORE-AOS-1.0.0.B006.zip&quot;,&quot;manager_address&quot;:&quot;10.186.86.79:8443&quot;,&quot;pod_etcd01&quot;:&quot;10.162.249.97&quot;,&quot;pod_etcd02&quot;:&quot;10.186.99.212&quot;,&quot;pod_etc</span><br><span class="line">d03&quot;:&quot;10.162.233.92&quot;&#125;,&quot;accepts_incomplete&quot;:true,&quot;blueprint_id&quot;:&quot;217326bf-e600-72f1-5669-e2e35a622eea&quot;,&quot;dependInfo&quot;:[],&quot;organization_id&quot;:&quot;989ad1d82c6c4530b1b1369c0536e05c&quot;,&quot;user_guid&quot;:&quot;ddmtest&quot;,&quot;cluster_id&quot;:</span><br><span class="line">&quot;11111111-1111-1111-1111-111111111111&quot;,&quot;cluster_name&quot;:null,&quot;cluster_namespace&quot;:&quot;bilibili&quot;&#125;&#125; (DdmManagerHttpClient:38)</span><br><span class="line">06-29 07:29:56,283 INFO (vert.x-eventloop-thread-4) getServiceCatalog uri is /v2/catalog (BrokerRestResource:61)</span><br><span class="line">06-29 07:30:04,915 ERROR(vert.x-eventloop-thread-0) requestAsyn error,</span><br><span class="line">Exception: javax.net.ssl.SSLHandshakeException; Failed to create SSL connection</span><br><span class="line">javax.net.ssl.SSLHandshakeException: Failed to create SSL connection</span><br><span class="line">        at io.vertx.core.http.impl.ConnectionManager$ConnQueue.handshakeFailure(ConnectionManager.java:316)</span><br><span class="line">        at io.vertx.core.http.impl.ConnectionManager$ConnQueue.access$1700(ConnectionManager.java:186)</span><br><span class="line">        at io.vertx.core.http.impl.ConnectionManager$ChannelConnector.lambda$null$1(ConnectionManager.java:502)</span><br><span class="line">        at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:514)</span><br><span class="line">        at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:507)</span><br><span class="line">        at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:486)</span><br><span class="line">        at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:427)</span><br><span class="line">        at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:129)</span><br><span class="line">        at io.netty.handler.ssl.SslHandler.notifyHandshakeFailure(SslHandler.java:1235)</span><br><span class="line">        at io.netty.handler.ssl.SslHandler.access$700(SslHandler.java:160)</span><br><span class="line">        at io.netty.handler.ssl.SslHandler$5.run(SslHandler.java:1379)</span><br><span class="line">        at io.netty.util.concurrent.PromiseTask$RunnableAdapter.call(PromiseTask.java:38)</span><br><span class="line">        at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:120)</span><br><span class="line">        at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)</span><br><span class="line">        at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:418)</span><br><span class="line">        at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:440)</span><br><span class="line">        at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873)</span><br><span class="line">        at java.lang.Thread.run(Thread.java:748)</span><br><span class="line">Caused by: javax.net.ssl.SSLException: handshake timed out</span><br><span class="line">        at io.netty.handler.ssl.SslHandler.handshake(...)(Unknown Source)</span><br><span class="line"> (VertxHttpClientUtils:70)</span><br><span class="line">06-29 07:30:04,919 ERROR(vert.x-worker-thread-0) Create instance request failed: non-response (DdmManagerHttpClient:53)</span><br></pre></td></tr></table></figure>
-<p>从报错信息得知，broker在发起https请求时，与manager <strong>建立SSL连接超时</strong> 。</p>
-<h1 id="2-测试网络连接和manager服务"><a href="#2-测试网络连接和manager服务" class="headerlink" title="2. 测试网络连接和manager服务"></a>2. 测试网络连接和manager服务</h1><ul>
-<li>测试broker与manager：<code>curl -kv https://10.162.61.211:8443</code>，连接正常。</li>
-<li>测试broker与LVS：<code>curl -kv https://10.186.86.79:8443</code>，连接失败。此为 <strong>疑问点1</strong> 。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*   Trying 10.186.86.79...</span><br><span class="line">* Connected to 10.186.86.79 (10.186.86.79) port 8443 (#0)</span><br><span class="line">* Initializing NSS with certpath: sql:/etc/pki/nssdb</span><br><span class="line">* NSS error -5961 (PR_CONNECT_RESET_ERROR)</span><br><span class="line">* TCP connection reset by peer</span><br><span class="line">* Closing connection 0</span><br><span class="line">curl: (35) TCP connection reset</span><br></pre></td></tr></table></figure>
-<h1 id="3-查询keepalived进程，正常："><a href="#3-查询keepalived进程，正常：" class="headerlink" title="3. 查询keepalived进程，正常："></a>3. 查询keepalived进程，正常：</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@szvphicpra57487 ~]<span class="comment"># ps -ef | grep keepalived</span></span><br><span class="line">paas      70663      1  0 6月29 ?       00:00:02 /usr/sbin/keepalived -D -f /etc/keepalived/keepalived.conf -p /etc/keepalived/run/keepalived.pid -r /etc/keepalived/run/vrrp.pid -c /etc/keepalived/run/checkers.pid</span><br><span class="line">paas      70668  70663  0 6月29 ?       00:00:14 /usr/sbin/keepalived -D -f /etc/keepalived/keepalived.conf -p /etc/keepalived/run/keepalived.pid -r /etc/keepalived/run/vrrp.pid -c /etc/keepalived/run/checkers.pid</span><br><span class="line">paas      70669  70663  0 6月29 ?       00:00:14 /usr/sbin/keepalived -D -f /etc/keepalived/keepalived.conf -p /etc/keepalived/run/keepalived.pid -r /etc/keepalived/run/vrrp.pid -c /etc/keepalived/run/checkers.pid</span><br><span class="line">root     104754 104025  0 10:57 pts/0    00:00:00 grep --color=auto keepalived</span><br></pre></td></tr></table></figure>
-<h1 id="4-查询VIP绑定情况，正常："><a href="#4-查询VIP绑定情况，正常：" class="headerlink" title="4. 查询VIP绑定情况，正常："></a>4. 查询VIP绑定情况，正常：</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@szvphicpra57487 ~]<span class="comment"># ip a</span></span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN</span><br><span class="line">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1/8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 ::1/128 scope host</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000</span><br><span class="line">    link/ether 28:6e:d4:89:1a:d4 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 10.186.87.105/23 brd 10.186.87.255 scope global eth0</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet 10.186.86.79/32 scope global eth0</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::2a6e:d4ff:fe89:1ad4/64 scope link</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br></pre></td></tr></table></figure>
-<h1 id="5-查询LVS转发："><a href="#5-查询LVS转发：" class="headerlink" title="5. 查询LVS转发："></a>5. 查询LVS转发：</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@szvphicpra57487 ~]<span class="comment"># ipvsadm -L -n --stats</span></span><br><span class="line">IP Virtual Server version 1.2.1 (size=4194304)</span><br><span class="line">Prot LocalAddress:Port               Conns   InPkts  OutPkts  InBytes OutBytes</span><br><span class="line">  -&gt; RemoteAddress:Port</span><br><span class="line">TCP  10.186.86.79:7443                  29     1611     0   137797  0</span><br><span class="line">  -&gt; 10.186.99.175:7443                 27     1586     0   135331  0</span><br><span class="line">  -&gt; 10.186.127.176:7443                 2       25       0     2466     0</span><br><span class="line">TCP  10.186.86.79:8443                   6       72       0    16952    0</span><br><span class="line">  -&gt; 10.162.61.211:8443                  6       72       0    16952    0</span><br></pre></td></tr></table></figure>
-<p>发现 <strong>只有输入的包，没有输出的包</strong>，此为 <strong>疑问点2</strong> 。</p>
-<h1 id="6-在LVS节点上查询防火墙信息，未发现异常："><a href="#6-在LVS节点上查询防火墙信息，未发现异常：" class="headerlink" title="6. 在LVS节点上查询防火墙信息，未发现异常："></a>6. 在LVS节点上查询防火墙信息，未发现异常：</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">[root@szvphicpra57487 ~]<span class="comment"># iptables -L -n -v</span></span><br><span class="line">Chain INPUT (policy ACCEPT 47 packets, 11299 bytes)</span><br><span class="line"> pkts bytes target     prot opt <span class="keyword">in</span>     out     <span class="built_in">source</span>               destination</span><br><span class="line">4462K 2468M KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0</span><br><span class="line">    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:49537</span><br><span class="line">    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:49537</span><br><span class="line">    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:60129</span><br><span class="line"></span><br><span class="line">Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)</span><br><span class="line"> pkts bytes target     prot opt <span class="keyword">in</span>     out     <span class="built_in">source</span>               destination</span><br><span class="line">    1    48 CANAL-ISOLATION  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* default/canal-service */</span><br><span class="line">    1    48 DOCKER-ISOLATION  all  --  *      *       0.0.0.0/0            0.0.0.0/0</span><br><span class="line">    0     0 DOCKER     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0</span><br><span class="line">    0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED</span><br><span class="line">    0     0 ACCEPT     all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0</span><br><span class="line">    0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0</span><br><span class="line"></span><br><span class="line">Chain OUTPUT (policy ACCEPT 43 packets, 4868 bytes)</span><br><span class="line"> pkts bytes target     prot opt <span class="keyword">in</span>     out     <span class="built_in">source</span>               destination</span><br><span class="line">3632K  827M KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0</span><br><span class="line">3632K  827M KUBE-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes service portals */</span><br><span class="line"></span><br><span class="line">Chain CANAL-ISOLATION (1 references)</span><br><span class="line"> pkts bytes target     prot opt <span class="keyword">in</span>     out     <span class="built_in">source</span>               destination</span><br><span class="line">    0     0 CANAL-ISOLATION_7505d64a  all  --  gw_7505d64a *       0.0.0.0/0            0.0.0.0/0</span><br><span class="line">    0     0 ACCEPT     all  --  *      gw_7505d64a  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED</span><br><span class="line"></span><br><span class="line">Chain CANAL-ISOLATION_7505d64a (1 references)</span><br><span class="line"> pkts bytes target     prot opt <span class="keyword">in</span>     out     <span class="built_in">source</span>               destination</span><br><span class="line">    0     0 ACCEPT     all  --  *      gw_7505d64a  0.0.0.0/0            0.0.0.0/0</span><br><span class="line">    0     0 ACCEPT     all  --  *      eth0    0.0.0.0/0            0.0.0.0/0</span><br><span class="line">    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0</span><br><span class="line"></span><br><span class="line">Chain DOCKER (1 references)</span><br><span class="line"> pkts bytes target     prot opt <span class="keyword">in</span>     out     <span class="built_in">source</span>               destination</span><br><span class="line"></span><br><span class="line">Chain DOCKER-ISOLATION (1 references)</span><br><span class="line"> pkts bytes target     prot opt <span class="keyword">in</span>     out     <span class="built_in">source</span>               destination</span><br><span class="line">    1    48 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0</span><br><span class="line"></span><br><span class="line">Chain KUBE-FIREWALL (2 references)</span><br><span class="line"> pkts bytes target     prot opt <span class="keyword">in</span>     out     <span class="built_in">source</span>               destination</span><br><span class="line">    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes firewall <span class="keyword">for</span> dropping marked packets */ mark match 0x8000/0x8000</span><br><span class="line"></span><br><span class="line">Chain KUBE-SERVICES (1 references)</span><br><span class="line"> pkts bytes target     prot opt <span class="keyword">in</span>     out     <span class="built_in">source</span>               destination</span><br><span class="line">    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.247.37.237        /* kube-system/ingress-controller:ingress-controller-secure has no endpoints */ tcp dpt:30280 reject-with icmp-port-unreachable</span><br><span class="line">    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.247.37.237        /* kube-system/ingress-controller:ingress-controller-insecure has no endpoints */ tcp dpt:30281 reject-with icmp-port-unreachable</span><br></pre></td></tr></table></figure>
-<h1 id="7-抓包查看报文转发情况"><a href="#7-抓包查看报文转发情况" class="headerlink" title="7. 抓包查看报文转发情况"></a>7. 抓包查看报文转发情况</h1><h2 id="1-安装tcpdump"><a href="#1-安装tcpdump" class="headerlink" title="1. 安装tcpdump"></a>1. 安装tcpdump</h2><p>安装包已分享至OneBox：<a href="https://onebox.huawei.com/p/59c49f09d1cda4a34294dd23e08811da" target="_blank" rel="noopener">https://onebox.huawei.com/p/59c49f09d1cda4a34294dd23e08811da</a></p>
-<ul>
-<li>使用工具如WinSCP将<code>libpcap0-0.9.8-50.10.1.x86_64.rpm</code>和<code>tcpdump-3.9.8-1.21.x86_64.rpm</code>两个安装包拷贝到需要抓包的VM上；</li>
-<li>修改文件执行权限<code>chmod 777 libpcap0-0.9.8-50.10.1.x86_64.rpm</code>和<code>chmod 777 tcpdump-3.9.8-1.21.x86_64.rpm</code>；</li>
-<li>执行安装<code>rpm -hvi libpcap0-0.9.8-50.10.1.x86_64.rpm</code>和<code>rpm -hvi tcpdump-3.9.8-1.21.x86_64.rpm</code>；</li>
-</ul>
-<h2 id="2-执行抓包程序"><a href="#2-执行抓包程序" class="headerlink" title="2. 执行抓包程序"></a>2. 执行抓包程序</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcpdump -v -n -i eth0 -w /opt/tmp.cap -s 0  <span class="comment">#-i为网络接口名称，-w为输出文件路径</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-抓包分析"><a href="#3-抓包分析" class="headerlink" title="3. 抓包分析"></a>3. 抓包分析</h2><ul>
-<li>使用<code>Ctrl + C</code>停止抓包，并将抓包文件使用WinSCP拷贝回Windows机器上，使用<code>WireShark</code>进行分析，安装包已分享至OneBox：<a href="https://onebox.huawei.com/p/711f01fe1344b866d2c7d5ec152ff5d3" target="_blank" rel="noopener">https://onebox.huawei.com/p/711f01fe1344b866d2c7d5ec152ff5d3</a></li>
-<li>使用过滤条件进行报文过滤：<code>tcp &amp;&amp; ((ip.src == 10.186.127.176 &amp;&amp; ip.dst == 10.162.61.211) || (ip.src == 10.162.61.211 &amp;&amp; ip.dst == 10.186.127.176))</code></li>
-</ul>
-<p>通过分析broker报文发现，在broker发送了PSH<a href="TCP协议字段详解：">^1</a>推送报文后，就一直在重传， <strong>没有得到manager的响应</strong> ，此为 <strong>疑问点3</strong> 。</p>
-<p><img src="~/11-33-06.jpg" alt=""></p>
-<p>分析LVS报文，发现LVS向manager发送了RST<a href="TCP协议字段详解：">^1</a>报文。</p>
-<p><img src="~/14-43-57.jpg" alt=""></p>
-<p>查阅资料得知，这是keepalived的健康检查机制，LVS会定期（默认6秒，可以修改keepalived.conf中字段<code>delay_loop 6</code>）向manager发送一个TCP连接来检测http是否正常，为了减少TCP连接带来的资源浪费，所以检测（TCP三次握手<a href="TCP三次握手">^2</a>）完毕后会发送一个RST报文来断开这个连接，释放资源。因此该报文为正常报文，且未接收到LVS发送的请求报文。</p>
-<p>尝试不使用LVS，broker直连manager，订购成功。</p>
-<p><img src="~/14-52-41.jpg" alt=""></p>
-<p>在broker向manager发送了PSH报文后，manager向broker返回PSH应答报文。</p>
-<p>综合报文分析，原因仍是出在LVS。</p>
-<h1 id="8-查看keepalived配置"><a href="#8-查看keepalived配置" class="headerlink" title="8. 查看keepalived配置"></a>8. 查看keepalived配置</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/keepalived/keepalived.conf</span><br><span class="line">global_defs &#123;</span><br><span class="line">   router_id DDM_LVS_205</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">local_address_group laddr_g1 &#123;</span><br><span class="line">    10.186.87.105</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    state MASTER</span><br><span class="line">    interface eth0</span><br><span class="line">    virtual_router_id 51</span><br><span class="line">    priority 205</span><br><span class="line">    advert_int 1</span><br><span class="line">        nopreempt</span><br><span class="line">    authentication &#123;</span><br><span class="line">        auth_type PASS</span><br><span class="line">        auth_pass 1111</span><br><span class="line">    &#125;</span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">                10.186.86.79</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">virtual_server 10.186.86.79 7443 &#123;</span><br><span class="line">    delay_loop 6</span><br><span class="line">    lb_algo rr</span><br><span class="line">    lb_kind FNAT</span><br><span class="line">    persistence_timeout 50</span><br><span class="line">    protocol TCP</span><br><span class="line">        syn_proxy</span><br><span class="line">        laddr_group_name laddr_g1</span><br><span class="line"></span><br><span class="line">    real_server 10.186.99.175 7443 &#123;</span><br><span class="line">        weight 1</span><br><span class="line">        TCP_CHECK &#123;</span><br><span class="line">        connect_timeout 8</span><br><span class="line">        nb_get_retry 3</span><br><span class="line">        delay_before_retry 3</span><br><span class="line">        connect_port 7443</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    real_server 10.186.127.176 7443 &#123;</span><br><span class="line">        weight 1</span><br><span class="line">        TCP_CHECK &#123;</span><br><span class="line">        connect_timeout 8</span><br><span class="line">        nb_get_retry 3</span><br><span class="line">        delay_before_retry 3</span><br><span class="line">        connect_port 7443</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">virtual_server 10.186.86.79 8443 &#123;</span><br><span class="line">    delay_loop 6</span><br><span class="line">    lb_algo rr</span><br><span class="line">    lb_kind FNAT</span><br><span class="line">    persistence_timeout 50</span><br><span class="line">    protocol TCP</span><br><span class="line">        laddr_group_name laddr_g1</span><br><span class="line"></span><br><span class="line">    real_server 10.162.217.81 8443 &#123;</span><br><span class="line">        weight 1</span><br><span class="line">        TCP_CHECK &#123;</span><br><span class="line">        connect_timeout 8</span><br><span class="line">        nb_get_retry 3</span><br><span class="line">        delay_before_retry 3</span><br><span class="line">        connect_port 8443</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    real_server 10.162.61.211 8443 &#123;</span><br><span class="line">        weight 1</span><br><span class="line">        TCP_CHECK &#123;</span><br><span class="line">        connect_timeout 8</span><br><span class="line">        nb_get_retry 3</span><br><span class="line">        delay_before_retry 3</span><br><span class="line">        connect_port 8443</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>发现<code>local_address_group laddr_g1</code>中的IP非本机IP，而是另一个LVS的IP。再查看堆栈部署参数，发现<code>lvs_node1</code>参数填写的是节点标签为<code>ddm_lvs2</code>的地址，而<code>lvs_node2</code>参数填写的是节点标签为<code>ddm_lvs1</code>的地址。</p>
-<p>问题明确，手动修改keepalived.conf，将IP修改正确，重启keepalived服务，问题解决。</p>
-<p>问题原因比较简单，但以此文来说明LVS问题定位思路。</p>
-<p>END</p>
-<h1 id="（续）主备倒换后，网络又不通"><a href="#（续）主备倒换后，网络又不通" class="headerlink" title="（续）主备倒换后，网络又不通"></a>（续）主备倒换后，网络又不通</h1><p>查看<code>ipvsadm -ln --stats</code>，发现发送和接收包全零。</p>
-<p>查看<code>iptables -t raw -L -nv</code>，发现是因为误执行了<code>iptables -t raw -I PREROUTING -d $lvs_floating_ip -j DROP</code>，增加了一条备节点的防火墙规则，而在主备倒换的时候未删除导致。</p>
-<p>执行<code>iptables -t raw -L -nv --line-numbers</code>，查看规则行号，如1。</p>
-<p>执行<code>iptables -t raw -D PREROUTING 1</code>，删除该规则，问题解决。</p>
-<p>END</p>
-<ul>
-<li>SYN 建立连接，仅用于三次握手</li>
-<li>FIN 关闭连接</li>
-<li>ACK 确认标志</li>
-<li>PSH 数据传输</li>
-<li>RST 连接重置</li>
-<li>URG 紧急标志</li>
-</ul>
-<ul>
-<li>发送端发送SYN=1，ACK=0请求建立连接</li>
-<li>接收端发送SYN=1，ACK=1应答</li>
-<li>发送端发送SYN=0，ACK=1确认连接</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/hello-islibra/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/hello-islibra/">1</a><span class="space">&hellip;</span><a class="page-number" href="/hello-islibra/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/hello-islibra/page/6/">6</a><a class="extend next" rel="next" href="/hello-islibra/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/hello-islibra/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/hello-islibra/">1</a><span class="space">&hellip;</span><a class="page-number" href="/hello-islibra/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/hello-islibra/page/6/">6</a><a class="page-number" href="/hello-islibra/page/7/">7</a><a class="extend next" rel="next" href="/hello-islibra/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1913,7 +1976,7 @@
               
                 <a href="/hello-islibra/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1924,7 +1987,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
