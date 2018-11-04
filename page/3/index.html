@@ -229,6 +229,893 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/16/SQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/09/16/SQL/" itemprop="url">SQL</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-16T14:09:20+08:00">
+                2018-09-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/db/" itemprop="url" rel="index">
+                    <span itemprop="name">db</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p><strong>Tips:</strong> SQL 对大小写不敏感！</p>
+</blockquote>
+<h1 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h1><ul>
+<li>SELECT 列名称 FROM 表名称<ul>
+<li>SELECT <strong>DISTINCT</strong> column1, column2, … FROM table_name;  //去重</li>
+<li>SELECT ID <strong>AS</strong> CUSTOMER_ID, NAME <strong>AS</strong> CUSTOMER_NAME FROM CUSTOMERS;  //列别名</li>
+<li>SELECT C.ID, C.NAME, C.AGE, O.AMOUNT FROM CUSTOMERS AS C, ORDERS AS O WHERE C.ID = O.CUSTOMER_ID;  //表别名</li>
+</ul>
+</li>
+<li>UPDATE 表名称 SET 列1名称 = 新值1[, 列2名称 = 新值2] WHERE 列名称 = 某值</li>
+<li>DELETE FROM 表名称 WHERE 列名称 = 值</li>
+<li>INSERT INTO table_name [(列1, 列2,…)] VALUES (值1, 值2,….)</li>
+</ul>
+<blockquote>
+<p><strong>WARNING!</strong> DELETE不加WHERE子句就会删除表中全部数据！</p>
+</blockquote>
+<h2 id="WHERE子句"><a href="#WHERE子句" class="headerlink" title="WHERE子句"></a>WHERE子句</h2><p>SELECT 列名称 FROM 表名称 <strong>WHERE 列 运算符 值</strong></p>
+<h3 id="运算符用法："><a href="#运算符用法：" class="headerlink" title="运算符用法："></a>运算符用法：</h3><ul>
+<li>=  !=  &gt;  &gt;=  &lt;  &lt;=，例：<ul>
+<li><code>WHERE City=&#39;Beijing&#39;</code></li>
+<li><code>WHERE Year&gt;1965</code></li>
+</ul>
+</li>
+<li>BETWEEN，例：<code>SELECT column_name(s) FROM table_name WHERE column_name BETWEEN value1 AND value2;</code>，适用于文本、数值或日期。</li>
+<li>LIKE，％ 百分号表示零个，一个或多个字符；_ 下划线表示单个字符；[charlist] 表示字符列中的任一字符；[^charlist]或[!charlist] 表示不在字符列中的任一字符。例：<ul>
+<li><code>SELECT * FROM Customers WHERE CustomerName LIKE &#39;a%&#39;;</code></li>
+<li><code>SELECT * FROM Customers WHERE CustomerName LIKE &#39;_r%&#39;;</code></li>
+<li><code>SELECT * FROM Persons WHERE City NOT LIKE &#39;%lon%&#39;</code></li>
+<li><code>SELECT * FROM Persons WHERE City LIKE &#39;[ALN]%&#39;</code>，以A或L或N开头的任意字符串</li>
+</ul>
+</li>
+<li>IS，例：<ul>
+<li>测试空值：<code>SELECT column_names FROM table_name WHERE column_name IS [NOT] NULL;</code></li>
+</ul>
+</li>
+<li>IN，例：<code>SELECT column_name(s) FROM table_name WHERE column_name IN (value1,value2,...);</code></li>
+</ul>
+<blockquote>
+<p><strong>Tips:</strong> 文本使用单引号，数值不使用引号！</p>
+</blockquote>
+<h3 id="AND和OR"><a href="#AND和OR" class="headerlink" title="AND和OR"></a>AND和OR</h3><ul>
+<li>SELECT * FROM Persons WHERE FirstName=’Thomas’ AND LastName=’Carter’</li>
+<li>SELECT * FROM Persons WHERE firstname=’Thomas’ OR lastname=’Carter’</li>
+<li>SELECT * FROM Persons WHERE (FirstName=’Thomas’ OR FirstName=’William’) AND LastName=’Carter’</li>
+</ul>
+<h2 id="ORDER-BY"><a href="#ORDER-BY" class="headerlink" title="ORDER BY"></a>ORDER BY</h2><p>SELECT 列名称 FROM 表名称 <strong>ORDER BY 列1 [ASC/DESC], 列2 [ASC/DESC]</strong></p>
+<h2 id="TOP子句"><a href="#TOP子句" class="headerlink" title="TOP子句"></a>TOP子句</h2><ul>
+<li>SQL Server: <code>SELECT TOP number|percent column_name(s) FROM table_name WHERE condition;</code>，例：<ul>
+<li>SELECT TOP 2 * FROM Persons</li>
+<li>SELECT TOP 50 PERCENT * FROM Persons</li>
+</ul>
+</li>
+<li>MySQL: <code>SELECT column_name(s) FROM table_name LIMIT number;</code>，例：<ul>
+<li>SELECT User from user limit 2;  /<em> 只查询2条数据 </em>/</li>
+<li>SELECT User from user limit 2,3;  /<em> 从偏移量2开始查询3条数据，偏移量从0开始 </em>/</li>
+</ul>
+</li>
+<li>Oracle: <code>SELECT column_name(s) FROM table_name WHERE ROWNUM &lt;= number;</code></li>
+</ul>
+<blockquote>
+<p><strong>Tips:</strong> 如果只查询一条记录，可以加上LIMIT 1，避免全表扫描。在偏移量大的时候limit执行效率降低，应优先使用where子句，配合limit使用。</p>
+</blockquote>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>SELECT function(列) FROM 表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(OrderPrice) <span class="keyword">AS</span> OrderAverage <span class="keyword">FROM</span> Orders;</span><br><span class="line"><span class="keyword">SELECT</span> Customer <span class="keyword">FROM</span> Orders <span class="keyword">WHERE</span> OrderPrice&gt;(<span class="keyword">SELECT</span> <span class="keyword">AVG</span>(OrderPrice) <span class="keyword">FROM</span> Orders)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(Customer) <span class="keyword">AS</span> CustomerNilsen <span class="keyword">FROM</span> Orders <span class="keyword">WHERE</span> Customer=<span class="string">'Carter'</span></span><br><span class="line"><span class="comment">/* 类似用法：FIRST\LAST\MAX\MIN\SUM\UCASE\LCASE\LEN */</span></span><br><span class="line"><span class="comment">/* 获取子字符串 */</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MID</span>(City,<span class="number">1</span>,<span class="number">3</span>) <span class="keyword">as</span> SmallCity <span class="keyword">FROM</span> Persons;  <span class="comment">/* SELECT MID(column_name,start[,length]) FROM table_name */</span></span><br><span class="line"><span class="comment">/* 把数值字段舍入为指定的小数位数 */</span></span><br><span class="line"><span class="keyword">SELECT</span> ProductName, <span class="keyword">ROUND</span>(UnitPrice,<span class="number">0</span>) <span class="keyword">as</span> UnitPrice <span class="keyword">FROM</span> Products;  <span class="comment">/* SELECT ROUND(column_name,decimals) FROM table_name */</span></span><br><span class="line"><span class="comment">/* 获取当前时间 */</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">NOW</span>() <span class="keyword">FROM</span> table_name;</span><br><span class="line"><span class="comment">/* 格式化 */</span></span><br><span class="line"><span class="keyword">SELECT</span> ProductName, UnitPrice, <span class="keyword">FORMAT</span>(<span class="keyword">Now</span>(),<span class="string">'YYYY-MM-DD'</span>) <span class="keyword">as</span> PerDate <span class="keyword">FROM</span> Products;</span><br></pre></td></tr></table></figure>
+<h3 id="GROUP-BY"><a href="#GROUP-BY" class="headerlink" title="GROUP BY"></a>GROUP BY</h3><p>SELECT column_name1, column_name2, aggregate_function(column_name3) FROM table_name GROUP BY column_name1, column_name2;<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Customer,<span class="keyword">SUM</span>(OrderPrice) <span class="keyword">FROM</span> Orders <span class="keyword">GROUP</span> <span class="keyword">BY</span> Customer;</span><br></pre></td></tr></table></figure></p>
+<h3 id="HAVING"><a href="#HAVING" class="headerlink" title="HAVING"></a>HAVING</h3><p>WHERE 关键字无法与合计函数一起使用，HAVING 子句对GROUP BY子句过滤。<br>SELECT column_name, aggregate_function(column_name) FROM table_name WHERE column_name operator value GROUP BY column_name HAVING aggregate_function(column_name) operator value;</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Customer,<span class="keyword">SUM</span>(OrderPrice) <span class="keyword">FROM</span> Orders <span class="keyword">GROUP</span> <span class="keyword">BY</span> Customer <span class="keyword">HAVING</span> <span class="keyword">SUM</span>(OrderPrice)&lt;<span class="number">2000</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="JOIN"><a href="#JOIN" class="headerlink" title="JOIN"></a>JOIN</h2><ul>
+<li>[INNER] JOIN: <code>SELECT column_name(s) FROM table_name1 INNER JOIN table_name2 ON table_name1.column_name=table_name2.column_name;</code>，所有表中的数据都匹配（不为空）才会显示。<ul>
+<li>例：<code>SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo FROM Persons INNER JOIN Orders ON Persons.Id_P = Orders.Id_P;</code></li>
+<li>相当于：<code>SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo FROM Persons, Orders WHERE Persons.Id_P = Orders.Id_P;</code></li>
+</ul>
+</li>
+<li>LEFT [OUTER] JOIN: <code>SELECT column_name(s) FROM table_name1 LEFT JOIN table_name2 ON table_name1.column_name=table_name2.column_name</code>，从左表返回所有的行。</li>
+<li>RIGHT [OUTER] JOIN: <code>SELECT column_name(s) FROM table_name1 RIGHT JOIN table_name2 ON table_name1.column_name=table_name2.column_name</code>，从右表返回所有的行。</li>
+<li>FULL [OUTER] JOIN: <code>SELECT column_name(s) FROM table_name1 FULL JOIN table_name2 ON table_name1.column_name=table_name2.column_name</code>，返回所有表中的所有行。</li>
+</ul>
+<h2 id="UNION"><a href="#UNION" class="headerlink" title="UNION"></a>UNION</h2><blockquote>
+<p><strong>WARNING!</strong> UNION用于合并两个或多个SELECT语句的结果集，必须拥有相同数量、类型、顺序的列。</p>
+</blockquote>
+<ul>
+<li>UNION: <code>SELECT column_name(s) FROM table_name1 UNION SELECT column_name(s) FROM table_name2;</code>，去除重复值。</li>
+<li>UNION ALL: <code>SELECT column_name(s) FROM table_name1 UNION ALL SELECT column_name(s) FROM table_name2;</code>，保留全部值。</li>
+</ul>
+<blockquote>
+<p><strong>Tips1:</strong> 结果集中的列名总是等于 UNION 中第一个 SELECT 语句中的列名。</p>
+</blockquote>
+<blockquote>
+<p><strong>Tips2:</strong> 跨表查询的方法：</p>
+<ul>
+<li>SELECT column_name(s) FROM table_name WHERE column_name IN (SELECT STATEMENT);</li>
+<li>SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate FROM Orders INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;</li>
+<li>SELECT Customers.CustomerName, Orders.OrderID FROM Customers LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID ORDER BY Customers.CustomerName;</li>
+<li>SELECT Orders.OrderID, Employees.LastName, Employees.FirstName FROM Orders RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID ORDER BY Orders.OrderID;</li>
+<li>SELECT City, Country FROM Customers WHERE Country=’Germany’ UNION SELECT City, Country FROM Suppliers WHERE Country=’Germany’ ORDER BY City;</li>
+</ul>
+</blockquote>
+<h2 id="复制表数据"><a href="#复制表数据" class="headerlink" title="复制表数据"></a>复制表数据</h2><ul>
+<li>SELECT INTO: <code>SELECT column_name(s) INTO new_table_name [IN externaldatabase] FROM old_tablename;</code>，可以使用IN关键字拷贝到另一个数据库中。例：<ul>
+<li>SELECT * INTO CustomersBackup2013 FROM Customers WHERE Country=’Germany’;</li>
+</ul>
+</li>
+<li>INSERT INTO SELECT<ul>
+<li>INSERT INTO Customers (CustomerName, Country) SELECT SupplierName, Country FROM Suppliers WHERE Country=’Germany’;</li>
+</ul>
+</li>
+</ul>
+<h1 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h1><ul>
+<li>CREATE DATABASE database_name</li>
+<li>ALTER DATABASE</li>
+<li>DROP DATABASE database_name</li>
+<li>CREATE TABLE Persons<br>(<br>PersonID int,<br>LastName varchar(255),<br>FirstName varchar(255),<br>Address varchar(255),<br>City varchar(255)<br>);</li>
+<li>ALTER TABLE<ul>
+<li>ALTER TABLE table_name ADD column_name datatype</li>
+<li>ALTER TABLE table_name DROP COLUMN column_name</li>
+<li>ALTER TABLE table_name ALTER COLUMN column_name datatype，SQL Server</li>
+<li>ALTER TABLE table_name MODIFY COLUMN column_name datatype，Oracle</li>
+</ul>
+</li>
+<li>DROP TABLE table_name</li>
+<li>CREATE INDEX index_name ON table_name (column_name)</li>
+<li><p>DROP INDEX</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Microsoft Access */</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">INDEX</span> index_name <span class="keyword">ON</span> table_name</span><br><span class="line"><span class="comment">/* MS SQL Server */</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">INDEX</span> table_name.index_name</span><br><span class="line"><span class="comment">/* Oracle */</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">INDEX</span> index_name</span><br><span class="line"><span class="comment">/* MySQL */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">DROP</span> <span class="keyword">INDEX</span> index_name</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>TRUNCATE TABLE table_name，清空表中数据。</p>
+</li>
+</ul>
+<h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><h3 id="NOT-NULL，字段非空。例："><a href="#NOT-NULL，字段非空。例：" class="headerlink" title="NOT NULL，字段非空。例："></a>NOT NULL，字段非空。例：</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">Id_P <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">LastName <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">FirstName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">Address <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">City <span class="built_in">varchar</span>(<span class="number">255</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="UNIQUE，字段唯一。例："><a href="#UNIQUE，字段唯一。例：" class="headerlink" title="UNIQUE，字段唯一。例："></a>UNIQUE，字段唯一。例：</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* MySQL */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">Id_P <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">LastName <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">FirstName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">Address <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">City <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line"><span class="keyword">UNIQUE</span> (Id_P)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* SQL Server / Oracle / MS Access */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">P_Id <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">UNIQUE</span>,</span><br><span class="line">LastName <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">FirstName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">Address <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">City <span class="built_in">varchar</span>(<span class="number">255</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 命名 UNIQUE 约束，并为多个列定义 UNIQUE 约束，MySQL / SQL Server / Oracle / MS Access */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">P_Id <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">LastName <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">FirstName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">Address <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">City <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line"><span class="keyword">CONSTRAINT</span> uc_PersonID <span class="keyword">UNIQUE</span> (P_Id,LastName)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 增加约束，MySQL / SQL Server / Oracle / MS Access */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons <span class="keyword">ADD</span> <span class="keyword">UNIQUE</span> (Id_P);</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> uc_PersonID <span class="keyword">UNIQUE</span> (P_Id,LastName)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 撤销 UNIQUE 约束，MySQL */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons <span class="keyword">DROP</span> <span class="keyword">INDEX</span> uc_PersonID</span><br><span class="line"><span class="comment">/* SQL Server / Oracle / MS Access */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons <span class="keyword">DROP</span> <span class="keyword">CONSTRAINT</span> uc_PersonID</span><br></pre></td></tr></table></figure>
+<h3 id="PRIMARY-KEY，主键，唯一，非空，有且只有一个主键字段。例："><a href="#PRIMARY-KEY，主键，唯一，非空，有且只有一个主键字段。例：" class="headerlink" title="PRIMARY KEY，主键，唯一，非空，有且只有一个主键字段。例："></a>PRIMARY KEY，主键，唯一，非空，有且只有一个主键字段。例：</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* MySQL */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">Id_P <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">LastName <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">FirstName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">Address <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">City <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">PRIMARY <span class="keyword">KEY</span> (Id_P)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* SQL Server / Oracle / MS Access */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">Id_P <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">LastName <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">FirstName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">Address <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">City <span class="built_in">varchar</span>(<span class="number">255</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 命名 PRIMARY KEY 约束，并为多个列定义 PRIMARY KEY 约束，MySQL / SQL Server / Oracle / MS Access */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">Id_P <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">LastName <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">FirstName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">Address <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">City <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line"><span class="keyword">CONSTRAINT</span> pk_PersonID PRIMARY <span class="keyword">KEY</span> (Id_P,LastName)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 增加主键，MySQL / SQL Server / Oracle / MS Access，增加主键的字段必须在创建表时NOT NULL */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons <span class="keyword">ADD</span> PRIMARY <span class="keyword">KEY</span> (Id_P)</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> pk_PersonID PRIMARY <span class="keyword">KEY</span> (Id_P,LastName)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 撤销 PRIMARY KEY 约束，MySQL */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons <span class="keyword">DROP</span> PRIMARY <span class="keyword">KEY</span></span><br><span class="line"><span class="comment">/* SQL Server / Oracle / MS Access */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons <span class="keyword">DROP</span> <span class="keyword">CONSTRAINT</span> pk_PersonID</span><br></pre></td></tr></table></figure>
+<h3 id="FOREIGN-KEY，外键，指向另一个表中的-PRIMARY-KEY。例："><a href="#FOREIGN-KEY，外键，指向另一个表中的-PRIMARY-KEY。例：" class="headerlink" title="FOREIGN KEY，外键，指向另一个表中的 PRIMARY KEY。例："></a>FOREIGN KEY，外键，指向另一个表中的 PRIMARY KEY。例：</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* MySQL */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Orders</span><br><span class="line">(</span><br><span class="line">Id_O <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">OrderNo <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">Id_P <span class="built_in">int</span>,</span><br><span class="line">PRIMARY <span class="keyword">KEY</span> (Id_O),</span><br><span class="line">FOREIGN <span class="keyword">KEY</span> (Id_P) <span class="keyword">REFERENCES</span> Persons(Id_P)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* SQL Server / Oracle / MS Access */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Orders</span><br><span class="line">(</span><br><span class="line">O_Id <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">OrderNo <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">P_Id <span class="built_in">int</span> FOREIGN <span class="keyword">KEY</span> <span class="keyword">REFERENCES</span> Persons(P_Id)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 命名 FOREIGN KEY 约束，并为多个列定义 FOREIGN KEY 约束，MySQL / SQL Server / Oracle / MS Access */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Orders</span><br><span class="line">(</span><br><span class="line">O_Id <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">OrderNo <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">P_Id <span class="built_in">int</span>,</span><br><span class="line">PRIMARY <span class="keyword">KEY</span> (O_Id),</span><br><span class="line"><span class="keyword">CONSTRAINT</span> fk_PerOrders FOREIGN <span class="keyword">KEY</span> (P_Id) <span class="keyword">REFERENCES</span> Persons(P_Id)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 增加 FOREIGN KEY 约束，MySQL / SQL Server / Oracle / MS Access */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Orders <span class="keyword">ADD</span> FOREIGN <span class="keyword">KEY</span> (Id_P) <span class="keyword">REFERENCES</span> Persons(Id_P)</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Orders <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> fk_PerOrders FOREIGN <span class="keyword">KEY</span> (P_Id) <span class="keyword">REFERENCES</span> Persons(P_Id)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 撤销 FOREIGN KEY 约束，MySQL */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Orders <span class="keyword">DROP</span> FOREIGN <span class="keyword">KEY</span> fk_PerOrders</span><br><span class="line"><span class="comment">/* SQL Server / Oracle / MS Access */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Orders <span class="keyword">DROP</span> <span class="keyword">CONSTRAINT</span> fk_PerOrders</span><br></pre></td></tr></table></figure>
+<h3 id="CHECK，限制列中的值的范围。例："><a href="#CHECK，限制列中的值的范围。例：" class="headerlink" title="CHECK，限制列中的值的范围。例："></a>CHECK，限制列中的值的范围。例：</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* My SQL */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">Id_P <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">LastName <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">FirstName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">Address <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">City <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line"><span class="keyword">CHECK</span> (Id_P&gt;<span class="number">0</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* SQL Server / Oracle / MS Access */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">Id_P <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">CHECK</span> (Id_P&gt;<span class="number">0</span>),</span><br><span class="line">LastName <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">FirstName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">Address <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">City <span class="built_in">varchar</span>(<span class="number">255</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 命名 CHECK 约束，并为多个列定义 CHECK 约束，MySQL / SQL Server / Oracle / MS Access */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">Id_P <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">LastName <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">FirstName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">Address <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">City <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line"><span class="keyword">CONSTRAINT</span> chk_Person <span class="keyword">CHECK</span> (Id_P&gt;<span class="number">0</span> <span class="keyword">AND</span> City=<span class="string">'Sandnes'</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 新增CHECK约束，MySQL / SQL Server / Oracle / MS Access */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons <span class="keyword">ADD</span> <span class="keyword">CHECK</span> (Id_P&gt;<span class="number">0</span>)</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> chk_Person <span class="keyword">CHECK</span> (Id_P&gt;<span class="number">0</span> <span class="keyword">AND</span> City=<span class="string">'Sandnes'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 撤销 CHECK 约束，MySQL */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons <span class="keyword">DROP</span> <span class="keyword">CHECK</span> chk_Person</span><br><span class="line"><span class="comment">/* SQL Server / Oracle / MS Access */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons <span class="keyword">DROP</span> <span class="keyword">CONSTRAINT</span> chk_Person</span><br></pre></td></tr></table></figure>
+<h3 id="DEFAULT，向列中插入默认值。例："><a href="#DEFAULT，向列中插入默认值。例：" class="headerlink" title="DEFAULT，向列中插入默认值。例："></a>DEFAULT，向列中插入默认值。例：</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* MySQL / SQL Server / Oracle / MS Access */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">Id_P <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">LastName <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">FirstName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">Address <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">City <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="string">'Sandnes'</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 自动插入系统值 */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Orders</span><br><span class="line">(</span><br><span class="line">Id_O <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">OrderNo <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">Id_P <span class="built_in">int</span>,</span><br><span class="line">OrderDate <span class="built_in">date</span> <span class="keyword">DEFAULT</span> <span class="keyword">GETDATE</span>()</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 新增 DEFAULT 约束，MySQL */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons <span class="keyword">ALTER</span> City <span class="keyword">SET</span> <span class="keyword">DEFAULT</span> <span class="string">'SANDNES'</span></span><br><span class="line"><span class="comment">/* SQL Server / Oracle / MS Access */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons <span class="keyword">ALTER</span> <span class="keyword">COLUMN</span> City <span class="keyword">SET</span> <span class="keyword">DEFAULT</span> <span class="string">'SANDNES'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 撤销 DEFAULT 约束，MySQL */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons <span class="keyword">ALTER</span> City <span class="keyword">DROP</span> <span class="keyword">DEFAULT</span></span><br><span class="line"><span class="comment">/* SQL Server / Oracle / MS Access */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons <span class="keyword">ALTER</span> <span class="keyword">COLUMN</span> City <span class="keyword">DROP</span> <span class="keyword">DEFAULT</span></span><br></pre></td></tr></table></figure>
+<h2 id="自增字段"><a href="#自增字段" class="headerlink" title="自增字段"></a>自增字段</h2><h3 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">P_Id <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,  <span class="comment">/* 默认起始值为1，递增1 */</span></span><br><span class="line">LastName <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">FirstName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">Address <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">City <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">PRIMARY <span class="keyword">KEY</span> (P_Id)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 修改起始值 */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons AUTO_INCREMENT=<span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 添加记录时不指定自增字段的值 */</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Persons (FirstName,LastName) <span class="keyword">VALUES</span> (<span class="string">'Bill'</span>,<span class="string">'Gates'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="SQL-Server"><a href="#SQL-Server" class="headerlink" title="SQL Server"></a>SQL Server</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">P_Id <span class="built_in">int</span> PRIMARY <span class="keyword">KEY</span> <span class="keyword">IDENTITY</span>,  <span class="comment">/* 使用IDENTITY(20,10)更改起始值和递增值 */</span></span><br><span class="line">LastName <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">FirstName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">Address <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">City <span class="built_in">varchar</span>(<span class="number">255</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="Oracle"><a href="#Oracle" class="headerlink" title="Oracle"></a>Oracle</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 使用序列（ sequence ）对象（该对象生成数字序列）创建自动增量（ auto-increment ）字段。 */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">SEQUENCE</span> seq_person</span><br><span class="line"><span class="keyword">MINVALUE</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">START</span> <span class="keyword">WITH</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">INCREMENT</span> <span class="keyword">BY</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">CACHE</span> <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Persons (<span class="keyword">ID</span>,FirstName,LastName) <span class="keyword">VALUES</span> (seq_person.nextval,<span class="string">'Lars'</span>,<span class="string">'Monsen'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Access"><a href="#Access" class="headerlink" title="Access"></a>Access</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">P_Id <span class="built_in">int</span> PRIMARY <span class="keyword">KEY</span> AUTOINCREMENT,  <span class="comment">/* 使用AUTOINCREMENT(20,10)更改起始值和递增值 */</span></span><br><span class="line">LastName <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">FirstName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">Address <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">City <span class="built_in">varchar</span>(<span class="number">255</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><blockquote>
+<p><strong>Tips:</strong><br>索引能够提高 SELECT 查询和 WHERE 子句的速度，但是却降低了包含 UPDATE 语句或 INSERT 语句的数据输入过程的速度。<br>创建单列索引还是聚簇索引，要看每次查询中，哪些列在作为过滤条件的 WHERE 子句中最常出现。<br>如果只需要一列，那么就应当创建单列索引。如果作为过滤条件的 WHERE 子句用到了两个或者更多的列，那么聚簇索引就是最好的选择。</p>
+</blockquote>
+<p>CREATE INDEX index_name on table_name (column1, column2);</p>
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><p>预定义的 SQL 语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> CUSTOMERS_VIEW <span class="keyword">AS</span> <span class="keyword">SELECT</span> <span class="keyword">name</span>, age <span class="keyword">FROM</span> CUSTOMERS <span class="keyword">WHERE</span> age <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> [<span class="keyword">WITH</span> <span class="keyword">CHECK</span> <span class="keyword">OPTION</span>];</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">VIEW</span> view_name <span class="keyword">AS</span> <span class="keyword">SELECT</span> column_name(s) <span class="keyword">FROM</span> table_name <span class="keyword">WHERE</span> condition;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">VIEW</span> view_name;</span><br></pre></td></tr></table></figure>
+<h1 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">IF EXISTS (<span class="keyword">SELECT</span> <span class="keyword">name</span> <span class="keyword">FROM</span> sysobjects <span class="keyword">WHERE</span> <span class="keyword">name</span> = <span class="string">'Proc_InsertEmployee'</span> <span class="keyword">AND</span> <span class="keyword">type</span> = <span class="string">'P'</span>) </span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> Proc_InsertEmployee </span><br><span class="line"><span class="keyword">GO</span> </span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> Proc_InsertEmployee </span><br><span class="line">@PName <span class="keyword">nvarchar</span>(<span class="number">50</span>), </span><br><span class="line">@PSex <span class="keyword">nvarchar</span>(<span class="number">4</span>), </span><br><span class="line">@PAge <span class="built_in">int</span>, </span><br><span class="line">@PWage money </span><br><span class="line"><span class="keyword">AS</span> </span><br><span class="line"><span class="keyword">begin</span> </span><br><span class="line"><span class="keyword">declare</span> @PID <span class="keyword">nvarchar</span>(<span class="number">50</span>) </span><br><span class="line"><span class="keyword">select</span> @PID=<span class="keyword">Max</span>(员工编号) <span class="keyword">from</span> tb_Employee </span><br><span class="line"><span class="keyword">if</span>(@PID <span class="keyword">is</span> <span class="literal">null</span>) </span><br><span class="line"><span class="keyword">set</span> @PID=<span class="string">'P1001'</span> </span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line"><span class="keyword">set</span> @PID=<span class="string">'P'</span>+<span class="keyword">cast</span>(<span class="keyword">cast</span>(<span class="keyword">substring</span>(@PID,<span class="number">2</span>,<span class="number">4</span>) <span class="keyword">as</span> <span class="built_in">int</span>)+<span class="number">1</span> <span class="keyword">as</span> <span class="keyword">nvarchar</span>(<span class="number">50</span>)) </span><br><span class="line"><span class="keyword">begin</span> </span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> tb_Employee <span class="keyword">values</span>(@PID,@PName,@PSex,@PAge,@PWage) </span><br><span class="line"><span class="keyword">end</span> </span><br><span class="line"><span class="keyword">end</span> </span><br><span class="line"><span class="keyword">go</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 带输出参数 */</span></span><br><span class="line"><span class="keyword">CREATE</span> PROC PROC_EXISTS </span><br><span class="line">( </span><br><span class="line">@UserName <span class="keyword">NVARCHAR</span>(<span class="number">20</span>), </span><br><span class="line">@<span class="keyword">PassWord</span> <span class="keyword">NVARCHAR</span>(<span class="number">20</span>), </span><br><span class="line">@ReturnValue <span class="built_in">int</span> <span class="keyword">OUTPUT</span> </span><br><span class="line">) </span><br><span class="line"><span class="keyword">AS</span> </span><br><span class="line"><span class="keyword">IF</span> <span class="keyword">EXISTS</span>(<span class="keyword">select</span> * <span class="keyword">from</span> tb_member <span class="keyword">where</span> userName=@UserName <span class="keyword">AND</span> <span class="keyword">passWord</span>=@<span class="keyword">PassWord</span>) </span><br><span class="line"><span class="keyword">set</span> @ReturnValue= <span class="number">100</span> </span><br><span class="line"><span class="keyword">ELSE</span> </span><br><span class="line"><span class="keyword">set</span> @ReturnValue= <span class="number">-100</span> </span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">declare</span> @IsRight <span class="built_in">int</span> </span><br><span class="line">exec StuProc <span class="string">'赵雷'</span> , @IsRight <span class="keyword">output</span></span><br><span class="line"><span class="keyword">select</span> @IsRight</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>Tips:</strong> 需要使用精确的时间时，使用LONG代替DATE，精确到毫秒。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/16/Druid/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/09/16/Druid/" itemprop="url">Druid</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-16T13:51:33+08:00">
+                2018-09-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/db/" itemprop="url" rel="index">
+                    <span itemprop="name">db</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="SQL-Parser"><a href="#SQL-Parser" class="headerlink" title="SQL Parser"></a>SQL Parser</h1><h2 id="Parser"><a href="#Parser" class="headerlink" title="Parser"></a>Parser</h2><h3 id="Lexer词法分析"><a href="#Lexer词法分析" class="headerlink" title="Lexer词法分析"></a>Lexer词法分析</h3><p>Lexer中拥有词汇表，即Keywords。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> Keywords keywods = Keywords.DEFAULT_KEYWORDS;</span><br></pre></td></tr></table></figure>
+<p><code>DEFAULT_KEYWORDS</code>是一个Map&lt;String, Token&gt;，<code>Token</code>是词汇的枚举类，包含<code>SELECT\INSERT\FROM\WHERE</code>等。</p>
+<p><code>nextToken()</code>从SQL语句解析出下一个单词。<br><code>token()</code>返回上一次解析的单词的Token类型。<br><code>stringVal()</code>获取标识符(Identifier)类型的值。</p>
+<h3 id="Parser语法分析"><a href="#Parser语法分析" class="headerlink" title="Parser语法分析"></a>Parser语法分析</h3><p>在<code>SQLStatementParser</code>的<code>parseStatement</code>方法中通过调用<code>token()</code>方法，解析<code>SQLStatement</code>。如果Token类型为<code>SELECT</code>，则调用<code>parseSelect()</code>方法解析<code>SQLSelectStatement</code>。</p>
+<h2 id="AST抽象语法树"><a href="#AST抽象语法树" class="headerlink" title="AST抽象语法树"></a>AST抽象语法树</h2><h3 id="节点类型"><a href="#节点类型" class="headerlink" title="节点类型"></a>节点类型</h3><ul>
+<li>interface SQLObject {}</li>
+<li><p>interface SQLExpr extends SQLObject {}</p>
+<ul>
+<li><p>interface SQLName extends SQLExpr {}</p>
+<ul>
+<li>class SQLIdentifierExpr implements SQLName  //如<code>ID = 3</code>的<code>ID</code></li>
+<li>class SQLPropertyExpr implements SQLName  //如<code>A.ID = 3</code>的<code>A.ID</code></li>
+</ul>
+</li>
+<li><p>class SQLBinaryOpExpr implements SQLExpr  //如<code>ID = 3</code>是一个SQLBinaryOpExpr，left是ID (SQLIdentifierExpr)，right是3 (SQLIntegerExpr)</p>
+</li>
+<li>class SQLIntegerExpr extends SQLNumericLiteralExpr implements SQLValuableExpr  //如<code>ID = 3</code>的<code>3</code>是一个SQLIntegerExpr</li>
+<li>class SQLCharExpr extends SQLTextLiteralExpr implements SQLValuableExpr  //如<code>NAME = &#39;jobs&#39;</code>的<code>&#39;jobs&#39;</code>是一个SQLCharExpr</li>
+</ul>
+</li>
+<li><p>interface SQLStatement extends SQLObject {}</p>
+<ul>
+<li>class SQLSelectStatement implements SQLStatement</li>
+<li>class SQLUpdateStatement implements SQLStatement</li>
+<li>class SQLDeleteStatement implements SQLStatement</li>
+<li>class SQLInsertStatement implements SQLStatement</li>
+</ul>
+</li>
+<li><p>class SQLCreateTableStatement extends SQLStatementImpl</p>
+</li>
+<li><p>interface SQLTableSource extends SQLObject {}</p>
+<ul>
+<li><p>class SQLTableSourceImpl extends SQLObjectImpl implements SQLTableSource</p>
+<ul>
+<li>class SQLExprTableSource extends SQLTableSourceImpl  //如<code>select * from emp where i = 3</code>，的<code>from emp</code>是一个SQLExprTableSource，其中<code>expr</code>是一个<code>name=emp</code>的SQLIdentifierExpr</li>
+<li>class SQLJoinTableSource extends SQLTableSourceImpl  //如<code>select * from emp e inner join org o on e.org_id = o.id</code>，其中left <code>&#39;emp e&#39;</code> 是一个SQLExprTableSource，right <code>&#39;org o&#39;</code>也是一个SQLExprTableSource，condition <code>&#39;e.org_id = o.id&#39;</code>是一个SQLBinaryOpExpr</li>
+<li>SQLSubqueryTableSource extends SQLTableSourceImpl  //如<code>select * from (select * from temp) a</code>，这里第一层<code>from(...)</code>是一个SQLSubqueryTableSource</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>class SQLSelect extends SQLObject {}</p>
+</li>
+<li>interface SQLSelectQuery extends SQLObject {}</li>
+<li>class SQLSelectQueryBlock extends SQLObject {}</li>
+<li>class SQLUnionQuery implements SQLSelectQuery</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> String dbType = JdbcConstants.MYSQL;  <span class="comment">//可以是ORACLE、POSTGRESQL、SQLSERVER、ODPS等</span></span><br><span class="line">String sql = <span class="string">"select * from t"</span>;</span><br><span class="line">List&lt;SQLStatement&gt; stmtList = SQLUtils.parseStatements(sql, dbType);  <span class="comment">//生成SQL语句</span></span><br><span class="line">SQLExpr expr = SQLUtils.toSQLExpr(<span class="string">"id=3"</span>, dbType);  <span class="comment">//生成表达式</span></span><br></pre></td></tr></table></figure>
+<h2 id="Visitor"><a href="#Visitor" class="headerlink" title="Visitor"></a>Visitor</h2><ul>
+<li>OutputVisitor用来把AST输出为字符串</li>
+<li>WallVisitor分析SQL语意来防御SQL注入攻击</li>
+<li>ParameterizedOutputVisitor用来合并未参数化的SQL进行统计</li>
+<li>EvalVisitor用来对SQL表达式求值</li>
+<li>ExportParameterVisitor用来提取SQL中的变量参数</li>
+<li>SchemaStatVisitor用来统计SQL中使用的表、字段、过滤条件、排序表达式、分组表达式</li>
+<li>SQL格式化 Druid内置了基于语义的SQL格式化功能</li>
+</ul>
+<h2 id="典型操作"><a href="#典型操作" class="headerlink" title="典型操作"></a>典型操作</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">String sql = <span class="string">"select * from user order by id"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 新建 MySQL Parser</span></span><br><span class="line">SQLStatementParser parser = <span class="keyword">new</span> MySqlStatementParser(sql);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用Parser解析生成AST，这里SQLStatement就是AST</span></span><br><span class="line">SQLStatement statement = parser.parseStatement();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用visitor来访问AST</span></span><br><span class="line">MySqlSchemaStatVisitor visitor = <span class="keyword">new</span> MySqlSchemaStatVisitor();</span><br><span class="line">statement.accept(visitor);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"getColumns:"</span> + visitor.getColumns());</span><br><span class="line">System.out.println(<span class="string">"getTables:"</span> + visitor.getTables());</span><br><span class="line">System.out.println(<span class="string">"getParameters:"</span> + visitor.getParameters());</span><br><span class="line">System.out.println(<span class="string">"getOrderByColumns:"</span> + visitor.getOrderByColumns());</span><br><span class="line">System.out.println(<span class="string">"getGroupByColumns:"</span> + visitor.getGroupByColumns());</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/alibaba/druid/wiki/SQL-Parser" target="_blank" rel="noopener">官方文档</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/MySQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/09/08/MySQL/" itemprop="url">MySQL</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:58:45+08:00">
+                2018-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/db/" itemprop="url" rel="index">
+                    <span itemprop="name">db</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h1><p>schema：数据库，例如查询所有数据库名称和默认编码：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select schema_name, default_character_set_name from information_schema.schemata;</span><br><span class="line"></span><br><span class="line">+<span class="comment">--------------------+----------------------------+</span></span><br><span class="line">| schema_name        | default_character_set_name |</span><br><span class="line">+<span class="comment">--------------------+----------------------------+</span></span><br><span class="line">| information_schema | utf8                       |</span><br><span class="line">| db_6922_0000       | latin1                     |</span><br><span class="line">| mysql              | latin1                     |</span><br><span class="line">| performance_schema | utf8                       |</span><br><span class="line">| sys                | utf8                       |</span><br><span class="line">+<span class="comment">--------------------+----------------------------+</span></span><br><span class="line">12 rows in <span class="keyword">set</span> (<span class="number">0.02</span> sec)</span><br></pre></td></tr></table></figure>
+<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* ... */</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>/*! ... */</code> 仅在MySQL中执行。如：<code>/*! select * from user*/;</code><br><code>/*!50001 select * from user*/;</code> 仅在5.00.01以上的MySQL版本中执行。</p>
+</blockquote>
+<h1 id="information-schema数据库"><a href="#information-schema数据库" class="headerlink" title="information_schema数据库"></a>information_schema数据库</h1><h2 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h2><blockquote>
+<ul>
+<li>CHARACTER_SETS 字符集</li>
+<li>COLLATIONS 字符集排序规则</li>
+<li>COLLATION_CHARACTER_SET_APPLICABILITY</li>
+</ul>
+</blockquote>
+<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><blockquote>
+<ul>
+<li>SCHEMA_PRIVILEGES 数据库相关权限，mysql.db</li>
+<li>TABLE_PRIVILEGES 表相关权限，mysql.tables_priv</li>
+<li>COLUMN_PRIVILEGES 表授权的用户对象</li>
+<li>USER_PRIVILEGES 用户相关权限，mysql.user<ul>
+<li>Select_priv</li>
+<li>Insert_priv</li>
+<li>Update_priv</li>
+<li>Delete_priv</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 新增用户，限制登录ip为10.155.123.%，%为通配符 */</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> mysql.user(Host,<span class="keyword">User</span>,<span class="keyword">Password</span>) <span class="keyword">VALUES</span>(<span class="string">"10.155.123.%"</span>,<span class="string">"kaka"</span>,<span class="keyword">PASSWORD</span>(<span class="string">"kaka123"</span>));</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;  <span class="comment">/* 刷新系统权限相关表 */</span></span><br><span class="line">service mysqld restart  <span class="comment">/* 重启生效 */</span></span><br></pre></td></tr></table></figure>
+<h3 id="权限分配"><a href="#权限分配" class="headerlink" title="权限分配"></a>权限分配</h3><p><code>GRANT 权限 ON 数据库.* TO 用户名@&#39;登录主机&#39; IDENTIFIED BY &#39;密码&#39;</code></p>
+<ul>
+<li>权限：<code>ALL,ALTER,CREATE,DROP,SELECT,UPDATE,DELETE</code></li>
+<li>数据库：<code>*.*  表示所有库的所有表</code></li>
+<li>用户名：<code>MySQL的账户名</code></li>
+<li>登陆主机：<code>&#39;%&#39;表示所有ip</code></li>
+<li>密码：<code>MySQL的账户名对应的登陆密码</code></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span> <span class="keyword">ON</span> test.user <span class="keyword">TO</span> kaka@<span class="string">'10.155.123.55'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'123456'</span>;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">Grants</span> <span class="keyword">for</span> <span class="string">'kaka'</span>@<span class="string">'10.155.123.55'</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="实体对象"><a href="#实体对象" class="headerlink" title="实体对象"></a>实体对象</h2><blockquote>
+<ul>
+<li>COLUMNS 表字段</li>
+<li>SCHEMATA 所有数据库及默认字符集</li>
+</ul>
+</blockquote>
+<h1 id="MySQL协议"><a href="#MySQL协议" class="headerlink" title="MySQL协议"></a>MySQL协议</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><h3 id="Integers"><a href="#Integers" class="headerlink" title="Integers"></a>Integers</h3><h4 id="Fixed-length-integers"><a href="#Fixed-length-integers" class="headerlink" title="Fixed-length integers"></a>Fixed-length integers</h4><p>定长，例 int<3><br><code>01 00 00</code></3></p>
+<h4 id="Length-encoded-integers"><a href="#Length-encoded-integers" class="headerlink" title="Length-encoded integers"></a>Length-encoded integers</h4><p>用第一个字节代表存储长度。例：</p>
+<p><code>fa</code>       – 250<br><code>fc fb 00</code> – 251</p>
+<ul>
+<li>&lt;0xfb 1字节</li>
+<li>0xfc 2字节</li>
+<li>0xfd 3字节</li>
+<li>0xfe 8字节</li>
+</ul>
+<h3 id="Strings"><a href="#Strings" class="headerlink" title="Strings"></a>Strings</h3><h4 id="FixedLengthString"><a href="#FixedLengthString" class="headerlink" title="FixedLengthString"></a>FixedLengthString</h4><p>定长，例 <code>string&lt;fix&gt;</code></p>
+<h4 id="NulTerminatedString"><a href="#NulTerminatedString" class="headerlink" title="NulTerminatedString"></a>NulTerminatedString</h4><p><code>string&lt;NUL&gt;</code> ，以 <code>00</code> 结尾。</p>
+<h4 id="VariableLengthString"><a href="#VariableLengthString" class="headerlink" title="VariableLengthString"></a>VariableLengthString</h4><p><code>string&lt;var&gt;</code></p>
+<h4 id="LengthEncodedString"><a href="#LengthEncodedString" class="headerlink" title="LengthEncodedString"></a>LengthEncodedString</h4><p><code>string&lt;lenenc&gt;</code></p>
+<h4 id="RestOfPacketString"><a href="#RestOfPacketString" class="headerlink" title="RestOfPacketString"></a>RestOfPacketString</h4><p><code>string&lt;EOF&gt;</code></p>
+<h2 id="Packets"><a href="#Packets" class="headerlink" title="Packets"></a>Packets</h2><p>MySQL协议包被切分为最多2^24-1字节，每个分片携带包头。</p>
+<h3 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h3><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int<3></3></td>
+<td>payload_length</td>
+<td>payload长度</td>
+</tr>
+<tr>
+<td>int<1></1></td>
+<td>sequence_id</td>
+<td>报文序列号</td>
+</tr>
+<tr>
+<td>string<var></var></td>
+<td>payload</td>
+<td>payload</td>
+</tr>
+</tbody>
+</table>
+<p>例，<code>COM_QUIT</code>：</p>
+<p><code>01 00 00 00 01</code></p>
+<ul>
+<li>length: 0x01</li>
+<li>sequence_id: 0x00</li>
+<li>payload: 0x01</li>
+</ul>
+<p><code>COM_QUERY</code>：</p>
+<p><code>13 00 00 00 03 53 ...</code></p>
+<ul>
+<li>length: 0x13</li>
+<li>sequence_id: 0x00</li>
+<li>命令类型：0x03</li>
+<li>命令：0x53 …</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/UML/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/09/08/UML/" itemprop="url">UML</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:56:17+08:00">
+                2018-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/design/" itemprop="url" rel="index">
+                    <span itemprop="name">design</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h1><ul>
+<li>类名</li>
+<li>属性field</li>
+<li>方法method</li>
+</ul>
+<h2 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h2><blockquote>
+<p>public +<br>private -<br>protected #</p>
+</blockquote>
+<h2 id="完整表示"><a href="#完整表示" class="headerlink" title="完整表示"></a>完整表示</h2><p>可见性  名称 ：类型 [ = 缺省值]<br>可见性  名称(参数列表) [ ： 返回类型]</p>
+<h2 id="类之间的关系"><a href="#类之间的关系" class="headerlink" title="类之间的关系"></a>类之间的关系</h2><h3 id="单向关联"><a href="#单向关联" class="headerlink" title="单向关联"></a>单向关联</h3><p>箭头 -&gt;</p>
+<h3 id="双向关联"><a href="#双向关联" class="headerlink" title="双向关联"></a>双向关联</h3><p>直线 -</p>
+<h3 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h3><p>空心菱形箭头 &lt;&gt;-&gt;</p>
+<h3 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h3><p>实心菱形箭头 &lt;*&gt;-&gt;</p>
+<h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><p>虚线箭头 —&gt;</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>空心三角 -|&gt;</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>虚线空心三角 —|&gt;</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/AIO/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1193,630 +2080,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/Linux中sh和bash的区别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/09/08/Linux中sh和bash的区别/" itemprop="url">Linux中sh和bash的区别</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:37:08+08:00">
-                2018-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/os/" itemprop="url" rel="index">
-                    <span itemprop="name">os</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>sh是UNIX中POSIX标准模式的shell，兼容各种UNIX。</p>
-<p>bash是sh的扩展，Linux默认shell。</p>
-<p>/bin/sh是/bin/bash的软连接。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/Node-js/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/09/08/Node-js/" itemprop="url">Node.js</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:35:35+08:00">
-                2018-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Node.js是javascript的运行时，基于Chrome的V8引擎，可直接运行javascript代码。</p>
-<p><a href="http://nodejs.org/" target="_blank" rel="noopener">官方下载地址</a></p>
-<p>内容包含：</p>
-<ul>
-<li>Node.js runtime(node.exe) javascript运行时环境</li>
-<li>npm package manager npm包管理器</li>
-</ul>
-<h1 id="查看Node-js版本"><a href="#查看Node-js版本" class="headerlink" title="查看Node.js版本"></a>查看Node.js版本</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
-<h1 id="交互式运行"><a href="#交互式运行" class="headerlink" title="交互式运行"></a>交互式运行</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ node</span><br><span class="line">&gt; console.log(<span class="string">'hello'</span>);</span><br><span class="line">hello</span><br></pre></td></tr></table></figure>
-<h1 id="运行javascript文件"><a href="#运行javascript文件" class="headerlink" title="运行javascript文件"></a>运行javascript文件</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node min.js</span><br></pre></td></tr></table></figure>
-<h1 id="官方Demo，运行一个http-server"><a href="#官方Demo，运行一个http-server" class="headerlink" title="官方Demo，运行一个http server"></a>官方Demo，运行一个http server</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);  <span class="comment">//载入Node.js模块</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> hostname = <span class="string">'127.0.0.1'</span>;</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">3000</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建http服务器</span></span><br><span class="line"><span class="keyword">const</span> server = http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.statusCode = <span class="number">200</span>;</span><br><span class="line">  res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/plain'</span>);</span><br><span class="line">  res.end(<span class="string">'Hello World\n'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//监听并响应请求</span></span><br><span class="line">server.listen(port, hostname, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Server running at http://<span class="subst">$&#123;hostname&#125;</span>:<span class="subst">$&#123;port&#125;</span>/`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h1 id="查看npm版本"><a href="#查看npm版本" class="headerlink" title="查看npm版本"></a>查看npm版本</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm -v</span><br><span class="line">6.2.0</span><br></pre></td></tr></table></figure>
-<h1 id="npm设置-取消代理"><a href="#npm设置-取消代理" class="headerlink" title="npm设置/取消代理"></a>npm设置/取消代理</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> proxy http://username:password@server:port</span><br><span class="line">npm config <span class="built_in">set</span> https-proxy http://username:password@server:port</span><br><span class="line">npm config delete proxy</span><br><span class="line">npm config delete https-proxy</span><br><span class="line">npm config list</span><br></pre></td></tr></table></figure>
-<h1 id="使用npm安装模块"><a href="#使用npm安装模块" class="headerlink" title="使用npm安装模块"></a>使用npm安装模块</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-g 全局安装</span></span><br><span class="line"><span class="comment">#代码中通过require('xxx')载入模块</span></span><br><span class="line"><span class="comment">#同样适用于升级npm版本，如npm install npm -g</span></span><br><span class="line">npm install xxx -g</span><br></pre></td></tr></table></figure>
-<ul>
-<li>本地安装：在当前目录新建./node_modules目录存放安装包，代码中通过require()载入模块。</li>
-<li>全局安装：安装包存放在/usr/local或node安装目录（C:\Users\xxx\AppData\Roaming\npm\node_modules\xxx），可直接在命令行使用。</li>
-</ul>
-<h1 id="查看已安装的模块"><a href="#查看已安装的模块" class="headerlink" title="查看已安装的模块"></a>查看已安装的模块</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm list -g</span><br><span class="line">npm list xxx</span><br></pre></td></tr></table></figure>
-<h1 id="卸载-更新-搜索模块"><a href="#卸载-更新-搜索模块" class="headerlink" title="卸载/更新/搜索模块"></a>卸载/更新/搜索模块</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm uninstall express</span><br><span class="line">$ npm update express</span><br><span class="line">$ npm search express</span><br></pre></td></tr></table></figure>
-<h1 id="创建模块并发布"><a href="#创建模块并发布" class="headerlink" title="创建模块并发布"></a>创建模块并发布</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm init</span><br><span class="line">$ npm adduser</span><br><span class="line">Username:</span><br><span class="line">...</span><br><span class="line">$ npm publish</span><br></pre></td></tr></table></figure>
-<h1 id="使用淘宝镜像"><a href="#使用淘宝镜像" class="headerlink" title="使用淘宝镜像"></a>使用淘宝镜像</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line">$ cnpm install [name]</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/Vue-js/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/09/08/Vue-js/" itemprop="url">Vue.js</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:33:44+08:00">
-                2018-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p><a href="https://vuejs.org/js/vue.js" target="_blank" rel="noopener">开发版本</a><br><a href="https://vuejs.org/js/vue.min.js" target="_blank" rel="noopener">生产版本</a></p>
-<h1 id="Hello-Vue-js"><a href="#Hello-Vue-js" class="headerlink" title="Hello Vue.js"></a>Hello Vue.js</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Vue Demo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 引入库 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  &#123;&#123; message &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">var app = new Vue(&#123;</span></span><br><span class="line"><span class="undefined">  el: '#app',</span></span><br><span class="line"><span class="undefined">  data: &#123;</span></span><br><span class="line"><span class="undefined">    message: 'Hello Vue!'</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h1 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-bind:title</span>=<span class="string">"message"</span>&gt;</span></span><br><span class="line">  鼠标悬停几秒钟查看此处动态绑定的提示信息！</span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>基于Vue.js的UI库：<a href="http://v2.iviewui.com/docs/guide/start" target="_blank" rel="noopener">iView</a></p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/Lambda表达式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/09/08/Lambda表达式/" itemprop="url">Lambda表达式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:31:47+08:00">
-                2018-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Lambda表达式表示函数接口的实例，可以作为参数传递进方法中。</p>
-<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><blockquote>
-<p>(parameters) -&gt; expression</p>
-</blockquote>
-<p>或</p>
-<blockquote>
-<p>(parameters) -&gt; { statements; }</p>
-</blockquote>
-<h2 id="可选类型声明"><a href="#可选类型声明" class="headerlink" title="可选类型声明"></a>可选类型声明</h2><blockquote>
-<p>(int a, int b) -&gt; a + b;<br>(a, b) -&gt; a - b;</p>
-</blockquote>
-<h2 id="可选圆括号"><a href="#可选圆括号" class="headerlink" title="可选圆括号"></a>可选圆括号</h2><blockquote>
-<p>(message) -&gt; System.out.println(message);<br>message -&gt; System.out.println(message);  //一个参数无需圆括号，多个参数需要圆括号</p>
-</blockquote>
-<h2 id="可选大括号"><a href="#可选大括号" class="headerlink" title="可选大括号"></a>可选大括号</h2><blockquote>
-<p>(a, b) -&gt; { return a <em> b; };<br>(a, b) -&gt; return a </em> b;  //只有一个语句，不需要使用大括号</p>
-</blockquote>
-<h2 id="可选返回关键字"><a href="#可选返回关键字" class="headerlink" title="可选返回关键字"></a>可选返回关键字</h2><blockquote>
-<p>(a, b) -&gt; return a / b;<br>(a, b) -&gt; a / b;  //只有一个表达式返回值</p>
-</blockquote>
-<h1 id="典型应用"><a href="#典型应用" class="headerlink" title="典型应用"></a>典型应用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LambdaTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> factor = <span class="number">3</span>;</span><br><span class="line">        MyIntCalc calc = i -&gt; i * factor;  <span class="comment">//2、Lambda表达式。可以引用局部变量但不可改变局部变量，可以改变非局部变量。</span></span><br><span class="line">        System.out.println(calc.calcInt(<span class="number">4</span>));  <span class="comment">//3、接口执行</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyIntCalc</span> </span>&#123;  <span class="comment">//1、函数式接口</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">calcInt</span><span class="params">(Integer i)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="作为函数参数传入"><a href="#作为函数参数传入" class="headerlink" title="作为函数参数传入"></a>作为函数参数传入</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LambdaTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        engine((x, y) -&gt; x + y);  <span class="comment">//3、Lambda表达式及函数调用</span></span><br><span class="line">        engine((x, y) -&gt; x - y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">engine</span><span class="params">(MyLongCalc calc)</span> </span>&#123;  <span class="comment">//2、接收函数式接口作为参数的函数</span></span><br><span class="line">        <span class="keyword">long</span> x = <span class="number">3L</span>, y = <span class="number">2L</span>;</span><br><span class="line">        System.out.println(calc.calcLong(x, y));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyLongCalc</span> </span>&#123;  <span class="comment">//1、函数式接口</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">calcLong</span><span class="params">(Long x, Long y)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="作为返回值"><a href="#作为返回值" class="headerlink" title="作为返回值"></a>作为返回值</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LambdaTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(getAlgorithm().calcLong(<span class="number">1L</span>, <span class="number">2L</span>));  <span class="comment">//3、函数调用</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> MyLongCalc <span class="title">getAlgorithm</span><span class="params">()</span> </span>&#123;  <span class="comment">//2、返回类型为函数式接口的函数及Lambda表达式</span></span><br><span class="line">        <span class="keyword">return</span> (x, y) -&gt; x + y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyLongCalc</span> </span>&#123;  <span class="comment">//1、函数式接口</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">calcLong</span><span class="params">(Long x, Long y)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="Java内置的函数式接口"><a href="#Java内置的函数式接口" class="headerlink" title="Java内置的函数式接口"></a>Java内置的函数式接口</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.function.Function;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LambdaTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Function&lt;String, Integer&gt; func = str -&gt; str.length();  <span class="comment">//接收T，返回R</span></span><br><span class="line">        System.out.println(func.apply(<span class="string">"This is a function."</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BiFunction</span>&lt;<span class="title">T</span>,<span class="title">U</span>,<span class="title">R</span>&gt;</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> R <span class="title">apply</span><span class="params">(T t, U u)</span></span>;  <span class="comment">//接收T和U，返回R</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> Predicate&lt;T&gt; &#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">test</span><span class="params">(T  t)</span></span>;  <span class="comment">//返回布尔</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BiPredicate</span>&lt;<span class="title">T</span>,<span class="title">U</span>&gt;</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">test</span><span class="params">(T t, U u)</span></span>;  <span class="comment">//接收两个参数并返回布尔</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Consumer</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(T t)</span></span>;  <span class="comment">//返回void</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BiConsumer</span>&lt;<span class="title">T</span>,<span class="title">U</span>&gt;</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(T t, U  u)</span></span>;  <span class="comment">//接收两个参数并返回void</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Supplier</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">get</span><span class="params">()</span></span>;  <span class="comment">//无参并返回T</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UnaryOperator</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> T  <span class="title">apply</span><span class="params">(T t)</span></span>;  <span class="comment">//接收T并返回T</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BinaryOperator</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> T <span class="title">apply</span><span class="params">(T t1, T t2)</span></span>;  <span class="comment">//接收两个T并返回T</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上是通用版本，IntConsumer 是 Consumer<t> 的专用版本。</t></p>
-<h1 id="交叉类型"><a href="#交叉类型" class="headerlink" title="交叉类型"></a>交叉类型</h1><p>使Lambda表达式，即函数式接口的实例可序列化，如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.io.Serializable ser = (java.io.Serializable &amp; MyLongCalc) (x,y)-&gt; x + y;</span><br></pre></td></tr></table></figure>
-<h1 id="无参调用"><a href="#无参调用" class="headerlink" title="无参调用"></a>无参调用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(() -&gt; &#123;System.out.println(<span class="string">"hello"</span>);&#125;).start();</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1867,7 +2130,7 @@
               
                 <a href="/hello-islibra/archives/">
               
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1878,7 +2141,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
