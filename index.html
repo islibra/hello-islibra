@@ -229,6 +229,314 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/11/18/开发环境初始化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/11/18/开发环境初始化/" itemprop="url">开发环境初始化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-18T13:32:11+08:00">
+                2018-11-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/environment/" itemprop="url" rel="index">
+                    <span itemprop="name">environment</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="IntelliJ-IDEA"><a href="#IntelliJ-IDEA" class="headerlink" title="IntelliJ IDEA"></a>IntelliJ IDEA</h1><h2 id="开启Toolbar和Tool-Buttons"><a href="#开启Toolbar和Tool-Buttons" class="headerlink" title="开启Toolbar和Tool Buttons"></a>开启Toolbar和Tool Buttons</h2><p>View -&gt; 勾选Toolbar和Tool Buttons</p>
+<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p>File -&gt; Settings -&gt; Editor -&gt; Font</p>
+<h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><p>File -&gt; Settings -&gt; Editor -&gt; Color Scheme -&gt; General</p>
+<p>Editor -&gt; Selection background，选取文本颜色</p>
+<p>Code -&gt; Identifer under caret，相同文本颜色</p>
+<p>Search Results -&gt; Text search result，搜索文本颜色</p>
+<p>File -&gt; Settings -&gt; Editor -&gt; Color Scheme -&gt; Diff &amp; Merge -&gt; Changed lines，文件对比颜色</p>
+<h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><p>File -&gt; Settings -&gt; Editor -&gt; File Encodings，Project Encoding，Properties Files，勾选Transparent native-to-ascii conversion</p>
+<h2 id="设置JDK"><a href="#设置JDK" class="headerlink" title="设置JDK"></a>设置JDK</h2><p>File -&gt; Project Structure</p>
+<h2 id="设置Maven"><a href="#设置Maven" class="headerlink" title="设置Maven"></a>设置Maven</h2><p>File -&gt; Settings -&gt; Build, Execution, Deployment -&gt; Build Tools -&gt; Maven</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>File -&gt; Settings -&gt; Editor -&gt; General -&gt; Auto Import，勾选Add unambiguous imports on the fly，自动导入包；勾选Optimize imports on the fly，自动删除无用的包。</p>
+<p>File -&gt; Settings -&gt; Editor -&gt; Code Style -&gt; Java -&gt; Imports，将<code>Class count to use import with &#39;*&#39;</code>改为<code>100</code>，取消自动导入<code>.*</code>。</p>
+<p>File -&gt; Settings -&gt; Editor -&gt; Inspections -&gt; General -&gt; Duplicated Code，去掉勾选，取消重复代码提示。</p>
+<p>回到上一个位置：File -&gt; Settings -&gt; Keymap，Main menu -&gt; Window -&gt; Editor Tabs，去掉Select Next/Previous Tab跳转Tab页，将Main menu -&gt; Navigate -&gt; Back/Forward改为Alt + 向左/右箭头</p>
+<h1 id="Eclipse"><a href="#Eclipse" class="headerlink" title="Eclipse"></a>Eclipse</h1><h2 id="设置代理"><a href="#设置代理" class="headerlink" title="设置代理"></a>设置代理</h2><p>Preferences -&gt; General -&gt; Network Connectior</p>
+<h2 id="JDK路径，编译版本"><a href="#JDK路径，编译版本" class="headerlink" title="JDK路径，编译版本"></a>JDK路径，编译版本</h2><p>Preferences -&gt; Java -&gt; Installed JREs，指向JDK路径</p>
+<p>Preferences -&gt; Java -&gt; Compiler，选择1.8</p>
+<h2 id="去掉代码校验"><a href="#去掉代码校验" class="headerlink" title="去掉代码校验"></a>去掉代码校验</h2><p>Preferences -&gt; Validation，点击Disable All，勾选Suspend all validators</p>
+<h2 id="编码-1"><a href="#编码-1" class="headerlink" title="编码"></a>编码</h2><p>Preferences -&gt; General -&gt; Workspace，Text file encoding设置为UTF-8</p>
+<p>Preferences -&gt; General -&gt; Content Types，选中Text，在Default encoding中填入UTF-8，点击Update</p>
+<h2 id="字体和高亮"><a href="#字体和高亮" class="headerlink" title="字体和高亮"></a>字体和高亮</h2><p>Preferences -&gt; General -&gt; Appearance -&gt; Colors and Fonts，Basic -&gt; Text Font，Edit选择自己喜欢的字体和字号</p>
+<p>Preferences -&gt; General -&gt; Editors -&gt; Text Editors，Selection background color选中的行背景颜色，Annotations -&gt; Occurrences高亮的背景颜色</p>
+<h2 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h2><p>Preferences -&gt; Maven -&gt; Installations，添加Maven安装地址</p>
+<p>Preferences -&gt; Maven -&gt; User Settings，设置Maven配置文件</p>
+<h2 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h2><p>Preferences -&gt; General -&gt; Editors -&gt; Text Editors，勾选Insert spaces for tabs，将TAB替换为4个空格。</p>
+<h2 id="安装YEdit插件"><a href="#安装YEdit插件" class="headerlink" title="安装YEdit插件"></a>安装YEdit插件</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/11/18/那些年踩过的坑/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/11/18/那些年踩过的坑/" itemprop="url">那些年踩过的坑</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-18T13:30:19+08:00">
+                2018-11-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="函数内部修改由参数传过来的引用指向的变量值"><a href="#函数内部修改由参数传过来的引用指向的变量值" class="headerlink" title="函数内部修改由参数传过来的引用指向的变量值"></a>函数内部修改由参数传过来的引用指向的变量值</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;String&gt; globalStrList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Map&lt;String, String&gt; globalStrMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 测试函数内部是否可以改变参数传过来的变量</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testChangeStr</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//1.直接传递String</span></span><br><span class="line">        String s1 = <span class="string">"abc"</span>;</span><br><span class="line">        <span class="comment">//2.将String放入List</span></span><br><span class="line">        String s2 = <span class="string">"efg"</span>;</span><br><span class="line">        List&lt;String&gt; strList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        strList.add(s2);</span><br><span class="line">        <span class="comment">//3.类成员List</span></span><br><span class="line">        String s3 = <span class="string">"hij"</span>;</span><br><span class="line">        globalStrList.add(s3);</span><br><span class="line">        <span class="comment">//4.将String放入Map</span></span><br><span class="line">        String s4 = <span class="string">"lmn"</span>;</span><br><span class="line">        Map&lt;String, String&gt; strMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        strMap.put(s4, s4);</span><br><span class="line">        <span class="comment">//5.类成员Map</span></span><br><span class="line">        String s5 = <span class="string">"opq"</span>;</span><br><span class="line">        globalStrMap.put(s5, s5);</span><br><span class="line"></span><br><span class="line">        System.out.println(s1);</span><br><span class="line">        <span class="keyword">for</span> (String s : strList)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (String s : globalStrList)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (String s : strMap.values())</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (String s : globalStrMap.values())</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/* result:</span></span><br><span class="line"><span class="comment">        * abc</span></span><br><span class="line"><span class="comment">        * efg</span></span><br><span class="line"><span class="comment">        * hij</span></span><br><span class="line"><span class="comment">        * lmn</span></span><br><span class="line"><span class="comment">        * opq</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line"></span><br><span class="line">        changeStr(s1, strList, strMap);</span><br><span class="line"></span><br><span class="line">        System.out.println(s1);</span><br><span class="line">        <span class="keyword">for</span> (String s : strList)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (String s : globalStrList)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (String s : strMap.values())</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (String s : globalStrMap.values())</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/* result:</span></span><br><span class="line"><span class="comment">         * abc</span></span><br><span class="line"><span class="comment">         * efg</span></span><br><span class="line"><span class="comment">         * hij</span></span><br><span class="line"><span class="comment">         * sm_changed.</span></span><br><span class="line"><span class="comment">         * globalsm_changed.</span></span><br><span class="line"><span class="comment">         * */</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">changeStr</span><span class="params">(String str, List&lt;String&gt; slist, Map&lt;String, String&gt; smap)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//new了一个String并赋值为"changed."，将形参str指向的地址改为"changed."。</span></span><br><span class="line">        <span class="comment">//不会改变原s1指向的地址"abc"和"abc"的值</span></span><br><span class="line">        str = <span class="string">"changed."</span>;</span><br><span class="line">        <span class="keyword">for</span> (String s : slist)</span><br><span class="line">        &#123;</span><br><span class="line">            s = <span class="string">"sl_changed."</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (String s : globalStrList)</span><br><span class="line">        &#123;</span><br><span class="line">            s = <span class="string">"globalsl_changed."</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//new了一个String并赋值为"sm_changed."，将map中对应key指向的地址改为"sm_changed."。</span></span><br><span class="line">        <span class="keyword">for</span> (String s : smap.keySet())</span><br><span class="line">        &#123;</span><br><span class="line">            smap.put(s, <span class="string">"sm_changed."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (String s : globalStrMap.keySet())</span><br><span class="line">        &#123;</span><br><span class="line">            globalStrMap.put(s, <span class="string">"globalsm_changed."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            StringUtil su = <span class="keyword">new</span> StringUtil();</span><br><span class="line">            su.testChangeStr();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            System.out.println(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/11/04/README/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1610,303 +1918,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/10/28/咖啡/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/10/28/咖啡/" itemprop="url">咖啡</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-28T12:24:34+08:00">
-                2018-10-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/life/" itemprop="url" rel="index">
-                    <span itemprop="name">life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="意大利浓缩咖啡"><a href="#意大利浓缩咖啡" class="headerlink" title="意大利浓缩咖啡"></a>意大利浓缩咖啡</h1><h1 id="美式咖啡"><a href="#美式咖啡" class="headerlink" title="美式咖啡"></a>美式咖啡</h1><p>加水</p>
-<h1 id="白咖啡"><a href="#白咖啡" class="headerlink" title="白咖啡"></a>白咖啡</h1><p>加牛奶</p>
-<h1 id="玛奇朵"><a href="#玛奇朵" class="headerlink" title="玛奇朵"></a>玛奇朵</h1><p>加奶泡</p>
-<h1 id="拿铁"><a href="#拿铁" class="headerlink" title="拿铁"></a>拿铁</h1><p>牛奶 &gt; 奶泡</p>
-<h1 id="卡布奇诺"><a href="#卡布奇诺" class="headerlink" title="卡布奇诺"></a>卡布奇诺</h1><p>奶泡 &gt; 牛奶</p>
-<h1 id="摩卡"><a href="#摩卡" class="headerlink" title="摩卡"></a>摩卡</h1><p>牛奶 奶油 巧克力</p>
-<h1 id="康宝蓝"><a href="#康宝蓝" class="headerlink" title="康宝蓝"></a>康宝蓝</h1><p>加奶油</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/10/28/锁/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/10/28/锁/" itemprop="url">锁</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-28T12:23:01+08:00">
-                2018-10-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>java.util.concurrent.locks包提供的接口和类，可用来替代JDK1.5之前的synchronized和监视机制（wait(), notify(), notifyAll()）。</p>
-<h1 id="synchronized典型用法"><a href="#synchronized典型用法" class="headerlink" title="synchronized典型用法"></a>synchronized典型用法</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Object LOCK = <span class="keyword">new</span> Object();</span><br><span class="line"><span class="keyword">synchronized</span>(LOCK)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="Lock典型用法"><a href="#Lock典型用法" class="headerlink" title="Lock典型用法"></a>Lock典型用法</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Lock lock = <span class="keyword">new</span> ReentrantLock();</span><br><span class="line"></span><br><span class="line">lock.lock();  <span class="comment">//lock会阻塞该线程，直到获取到锁</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    lock.unlock();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(lock.tryLock())  <span class="comment">//尝试获取锁，如果锁可用，则获取锁，并立即返回true，否则返回false。不会阻塞当前线程。</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">//...  </span></span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">//...  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="读写锁"><a href="#读写锁" class="headerlink" title="读写锁"></a>读写锁</h1><ul>
-<li>读锁允许多个reader线程同时拥有，写锁只能有一个writter线程持有。</li>
-<li>如果一个线程已持有写锁，可再持有读锁；如果已持有读锁，则必须释放读锁，才能再持有写锁。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> ReadWriteLock rwlock = <span class="keyword">new</span> ReentrantReadWriteLock();</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Thread()&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            rwlock.readLock().lock();</span><br><span class="line">            <span class="comment">//...</span></span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            rwlock.readLock().unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;.start();</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Thread()&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            rwlock.writeLock().lock();</span><br><span class="line">            <span class="comment">//...</span></span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            rwlock.writeLock().unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;.start();</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1957,7 +1968,7 @@
               
                 <a href="/hello-islibra/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">68</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
