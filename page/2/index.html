@@ -229,6 +229,153 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/10/28/正则表达式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/10/28/正则表达式/" itemprop="url">正则表达式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-28T12:25:58+08:00">
+                2018-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/design/" itemprop="url" rel="index">
+                    <span itemprop="name">design</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">"This is 1 string to test regex."</span>;</span><br><span class="line">String pat = <span class="string">"(.*)(\\d+)(.*)"</span>;</span><br><span class="line"></span><br><span class="line">Pattern pattern = Pattern.compile(pat);  <span class="comment">//创建 Pattern 对象</span></span><br><span class="line">Matcher m = pattern.matcher(str);  <span class="comment">//创建 matcher 对象</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">find</span><span class="params">()</span>  <span class="comment">//查找下一个</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">start</span><span class="params">()</span>  <span class="comment">//查找到的起始索引</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">end</span><span class="params">()</span>  <span class="comment">//查找到的终止索引</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">//例：</span></span></span><br><span class="line"><span class="function"><span class="title">while</span><span class="params">(m.find()</span>) </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"start(): "</span>+m.start());</span><br><span class="line">    System.out.println(<span class="string">"end(): "</span>+m.end());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">lookingAt</span><span class="params">()</span>  <span class="comment">//是否部分匹配</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">matches</span><span class="params">()</span>  <span class="comment">//是否整体匹配</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">replaceFirst</span><span class="params">(String replacement)</span>  <span class="comment">//替换第一个匹配</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">replaceAll</span><span class="params">(String replacement)</span>  <span class="comment">//替换所有匹配</span></span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>(?i)abc</code> 表示abc都忽略大小写<br><code>a(?i)bc</code> 表示bc忽略大小写<br><code>a((?i)b)c</code> 表示只有b忽略大小写</p>
+</blockquote>
+<p>也可以用<code>Pattern.compile(rexp,Pattern.CASE_INSENSITIVE)</code>表示整体都忽略大小写。</p>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'BoxShow,(,REBOOT,STOP,30,),BoxConfirm,BoxShow,(,HOME,UP,ENTER,MENU,RIGHT,RIGHT,RIGHT,ENTER,DOWN,ENTER,ENTER,ENTER,STOP,50,DOWN,STOP,5,DOWN,STOP,5,),BoxConfirm,(,HOME,UP,ENTER,MENU,RIGHT,RIGHT,RIGHT,DOWN,DOWN,ENTER,ENTER,ENTER,STOP,50,DOWN,STOP,120,),BoxConfirm,BoxConfirm,BoxConfirm'</span>;</span><br><span class="line"><span class="comment">//var reg=new RegExp('regstr');</span></span><br><span class="line"><span class="comment">//var reg=/regstr/ig;  //直接量法创建正则表达式</span></span><br><span class="line"><span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\(,[a-zA-Z0-9,]+,\\)'</span>,<span class="string">'ig'</span>);  <span class="comment">//匹配 (,字母数字英文都好,) 并替换为#</span></span><br><span class="line"><span class="comment">// i 不区分大小写，g 全局查找</span></span><br><span class="line"><span class="keyword">var</span> result=str.replace(reg, <span class="string">'#'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(str);</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> n = str.search(<span class="regexp">/regstr/i</span>);  <span class="comment">//返回字符串起始位置</span></span><br><span class="line"><span class="keyword">var</span> n = str.search(<span class="string">"substr"</span>);  <span class="comment">//直接搜字符串</span></span><br><span class="line"><span class="keyword">var</span> txt = str.replace(<span class="regexp">/regstr/i</span>,<span class="string">"newstr"</span>);  <span class="comment">//替换匹配到的字符串</span></span><br><span class="line"><span class="keyword">var</span> txt = str.replace(<span class="string">"substr"</span>,<span class="string">"newstr"</span>);  <span class="comment">//直接替换字符串</span></span><br><span class="line"><span class="keyword">var</span> ary = str.match(reg);  <span class="comment">//查找字符串中的匹配项并返回数组</span></span><br><span class="line"><span class="built_in">console</span>.log(ary[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/10/28/咖啡/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1696,206 +1843,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/10/12/字符编码/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/10/12/字符编码/" itemprop="url">字符编码</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T21:13:14+08:00">
-                2018-10-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="ASCII"><a href="#ASCII" class="headerlink" title="ASCII"></a>ASCII</h1><p>一个字节BYTE有8位二进制bit，可表示范围<code>0~255</code>。<br>ASCII采用（第一位为0）7位128个值（0~127）编码26个英文字母、10个数字、32个特殊字符、33个控制字符和1个空格。其中：</p>
-<ul>
-<li><code>0~31</code> / <code>0x00~0x1F</code>和<code>127</code> / <code>0x7F</code>共33个，代表控制字符，不可显示。如8=BS（退格）、9=HT（水平制表符）、10=LF（换行）、13=CR（回车）、127=DEL（删除）</li>
-</ul>
-<blockquote>
-<p><strong>Tips:</strong> 回车\r使光标重新回到本行开头，换行\n使光标往下一行。Windows中使用\r\n，UNIX中使用\n，MAC中使用\r。</p>
-</blockquote>
-<ul>
-<li><code>32</code> / <code>0x20</code>，代表空格</li>
-<li><code>33~47</code> / <code>0x21~0x2F</code>、<code>58~64</code> / <code>0x3A~0x40</code>、<code>91~96</code> / <code>0x5B~0x60</code>、<code>123~126</code> / <code>0x7B~0x7E</code>共32个，代表`~!@#$%^&amp;*()-_=+|[{}];:’”,&lt;.&gt;/?特殊字符</li>
-<li><code>48~57</code> / <code>0x30~0x39</code>共10个，代表0~9数字</li>
-<li><code>65~90</code> / <code>0x41~0x5A</code>共26个，代表A~Z大写字母</li>
-<li><code>97~122</code> / <code>0x61~0x7A</code>共26个，代表a~z小写字母</li>
-</ul>
-<h1 id="ISO-8859-1-Latin-1"><a href="#ISO-8859-1-Latin-1" class="headerlink" title="ISO-8859-1(Latin-1)"></a>ISO-8859-1(Latin-1)</h1><p>单字节编码，<code>0x00~0x7F</code>为ASCII编码，其他为欧洲语言。</p>
-<h1 id="GB2312"><a href="#GB2312" class="headerlink" title="GB2312"></a>GB2312</h1><p>简体中文编码方式，使用两个字节代表一个汉字，可表示范围<code>0~65535</code>。英文字母和ISO-8859-1一致。<br>GBK包含简体中文和繁体中文。</p>
-<blockquote>
-<p><strong>Tips:</strong> ANSI是Windows默认的编码方式，扩展了ASCII编码，使用<code>0x00~0x7F</code>表示ASCII编码，<code>0x80~0xFFFF</code>表示其他语言的字符，比如简体中文GB2312编码，不同语言之间的ANSI编码不能互相转换。</p>
-</blockquote>
-<h1 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h1><p>统一字符编码，规定了所有字符与二进制的对应关系。<strong>字符串在Java内存中总是按Unicode编码存储。</strong></p>
-<h2 id="UCS-2"><a href="#UCS-2" class="headerlink" title="UCS-2"></a>UCS-2</h2><p>直接使用两个字节存储Unicode编码。</p>
-<ul>
-<li>little endian，小头方式（倒序），即低8位在前，高8位在后。文件中BOM前两个字节是FF FE表示。</li>
-<li>big endian，大头方式（正序），文件中BOM前两个字节是FE FF表示。</li>
-</ul>
-<blockquote>
-<p><strong>Tips:</strong> BOM在Windows中是字节顺序标记，用来区分大头还是小头。</p>
-</blockquote>
-<h2 id="UTF-8"><a href="#UTF-8" class="headerlink" title="UTF-8"></a>UTF-8</h2><p>Unicode字符在计算机中的存储方式，使用1~4个字节变长存储。文件中BOM前三个字节是EF BB BF表示。</p>
-<ul>
-<li>对于单字节符号，第一位为0，后7位为Unicode编码。对于英文字母，UTF-8 = ASCII。</li>
-<li>对于n字节符号，第一个字节前n位为1，n+1位为0，后面字节前两位为10，其他位为Unicode编码。中文一般为3个字节。</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Unicode符号范围（十六进制）</th>
-<th>UTF-8编码方式（二进制）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0000 0000-0000 007F</td>
-<td>0xxxxxxx</td>
-</tr>
-<tr>
-<td>0000 0080-0000 07FF</td>
-<td>110xxxxx 10xxxxxx</td>
-</tr>
-<tr>
-<td>0000 0800-0000 FFFF</td>
-<td>1110xxxx 10xxxxxx 10xxxxxx</td>
-</tr>
-<tr>
-<td>0001 0000-0010 FFFF</td>
-<td>11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</td>
-</tr>
-</tbody>
-</table>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1946,7 +1893,7 @@
               
                 <a href="/hello-islibra/archives/">
               
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">69</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1957,7 +1904,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
