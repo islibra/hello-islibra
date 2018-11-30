@@ -229,6 +229,331 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/05/设置ssh连接不超时/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/08/05/设置ssh连接不超时/" itemprop="url">设置ssh连接不超时</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-05T16:15:41+08:00">
+                2018-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/os/" itemprop="url" rel="index">
+                    <span itemprop="name">os</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="修改sshd-config"><a href="#修改sshd-config" class="headerlink" title="修改sshd_config"></a>修改sshd_config</h1><p>配置文件路径: <code>/etc/ssh/sshd_config</code></p>
+<blockquote>
+<p>ClientAliveInterval 300  #服务器向客户端请求消息的时间间隔, 设置成3600秒或更长.<br>ClientAliveCountMax 0  #服务器发出请求后客户端没有响应的最大次数, 超过自动断开. 默认客户端不会响应. 设置成3或更大.</p>
+</blockquote>
+<p>重新载入配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service sshd reload</span><br></pre></td></tr></table></figure>
+<h1 id="修改TMOUT环境变量"><a href="#修改TMOUT环境变量" class="headerlink" title="修改TMOUT环境变量"></a>修改TMOUT环境变量</h1><p>配置文件路径: <code>/etc/profile</code></p>
+<blockquote>
+<p>export TMOUT=300  #设置为3600或更长.</p>
+</blockquote>
+<p>重新载入配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> profile</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$TMOUT</span>  <span class="comment">#查看是否生效</span></span><br></pre></td></tr></table></figure>
+<p>参考：<a href="https://www.cnblogs.com/enjoycode/p/5022607.html" target="_blank" rel="noopener">https://www.cnblogs.com/enjoycode/p/5022607.html</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/05/私网IP地址范围/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/08/05/私网IP地址范围/" itemprop="url">私网IP地址范围</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-05T16:15:21+08:00">
+                2018-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/net/" itemprop="url" rel="index">
+                    <span itemprop="name">net</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <table>
+<thead>
+<tr>
+<th>类型</th>
+<th>起始地址</th>
+<th>终止地址</th>
+<th>范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A类</td>
+<td>10.0.0.0</td>
+<td>10.255.255.255</td>
+<td>10.0.0.0/8</td>
+</tr>
+<tr>
+<td>B类</td>
+<td>172.16.0.0</td>
+<td>172.31.255.255</td>
+<td>172.16.0.0/12</td>
+</tr>
+<tr>
+<td>C类</td>
+<td>192.168.0.0</td>
+<td>192.168.255.255</td>
+<td>192.168.0.0/16</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/05/SVN：Previous-operation-has-not-finished-run-cleanup-if-it-was-interrupted/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -928,8 +1253,19 @@
       
         
           
-            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Redhat查询软件是否安装</span></span><br><span class="line">rpm -qa xxx</span><br><span class="line"></span><br><span class="line"><span class="comment">#Ubuntu配置国内镜像站点/etc/apt/sources.list</span></span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line"><span class="comment">#Ubuntu安装软件</span></span><br><span class="line">sudo apt-get install xxx</span><br><span class="line"><span class="comment">#Ubuntu更新安装包</span></span><br><span class="line">apt update</span><br></pre></td></tr></table></figure>
-<h1 id="Ubuntu下安装deb包命令"><a href="#Ubuntu下安装deb包命令" class="headerlink" title="Ubuntu下安装deb包命令"></a>Ubuntu下安装deb包命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dpkg -l | grep xxx  <span class="comment">#查看已安装的软件</span></span><br><span class="line">dpkg -L | grep xxx  <span class="comment">#查看已安装的软件路径</span></span><br><span class="line">dpkg -i package.deb  <span class="comment">#安装</span></span><br><span class="line">dpkg -c package.deb  <span class="comment">#查看deb包中的内容</span></span><br><span class="line">dpkg -L package  <span class="comment">#列出deb包安装的所有文件清单</span></span><br><span class="line">dpkg -I package.deb  <span class="comment">#从deb包中提取信息</span></span><br><span class="line">dpkg -s package  <span class="comment">#显示已安装包的信息</span></span><br><span class="line">dpkg -r package  <span class="comment">#移除已安装的deb包</span></span><br><span class="line">dpkg -P package  <span class="comment">#彻底删除已安装的deb包和配置文件</span></span><br><span class="line">dpkg-reconfigure package  <span class="comment">#重新配置已安装的包</span></span><br></pre></td></tr></table></figure>
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Redhat查询软件是否安装</span></span><br><span class="line">rpm -qa xxx</span><br><span class="line"><span class="comment">#Redhat安装软件</span></span><br><span class="line">rpm -ivh xxx.rpm</span><br></pre></td></tr></table></figure>
+<h1 id="安装JDK的步骤"><a href="#安装JDK的步骤" class="headerlink" title="安装JDK的步骤"></a>安装JDK的步骤</h1><ol>
+<li>下载linux版的jdk</li>
+<li>解压jdk安装包，<code>tar -xzvf jdk-7u17-linux-x64.tar.gz</code></li>
+<li>将解压后的 jdk-7u17-linux-x64 目录下的所有文件移动到<code>/usr/local/java</code></li>
+<li><p>设置环境变量，<code>sudo vim /etc/profile</code>，写入如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/java</span><br><span class="line">export JRE_HOME=/usr/local/java/jre　</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH</span><br><span class="line">export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行<code>source /etc/profile</code>，使环境变量生效</p>
+</li>
+<li>输入<code>java -version</code>命令查看java是否安装成功</li>
+</ol>
+<h1 id="Ubuntu下安装deb包命令"><a href="#Ubuntu下安装deb包命令" class="headerlink" title="Ubuntu下安装deb包命令"></a>Ubuntu下安装deb包命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Ubuntu配置国内镜像站点/etc/apt/sources.list</span></span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#Ubuntu安装软件</span></span><br><span class="line">sudo apt-get install xxx</span><br><span class="line"></span><br><span class="line"><span class="comment">#Ubuntu更新安装包</span></span><br><span class="line">apt update</span><br><span class="line"></span><br><span class="line">dpkg -l | grep xxx  <span class="comment">#查看已安装的软件</span></span><br><span class="line">dpkg -L | grep xxx  <span class="comment">#查看已安装的软件路径</span></span><br><span class="line">dpkg -i package.deb  <span class="comment">#安装</span></span><br><span class="line">dpkg -c package.deb  <span class="comment">#查看deb包中的内容</span></span><br><span class="line">dpkg -L package  <span class="comment">#列出deb包安装的所有文件清单</span></span><br><span class="line">dpkg -I package.deb  <span class="comment">#从deb包中提取信息</span></span><br><span class="line">dpkg -s package  <span class="comment">#显示已安装包的信息</span></span><br><span class="line">dpkg -r package  <span class="comment">#移除已安装的deb包</span></span><br><span class="line">dpkg -P package  <span class="comment">#彻底删除已安装的deb包和配置文件</span></span><br><span class="line">dpkg-reconfigure package  <span class="comment">#重新配置已安装的包</span></span><br></pre></td></tr></table></figure>
 <h1 id="压缩解压文件"><a href="#压缩解压文件" class="headerlink" title="压缩解压文件"></a>压缩解压文件</h1><h2 id="1-tar"><a href="#1-tar" class="headerlink" title="1. tar"></a>1. tar</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar xvf FileName.tar  <span class="comment">#解包</span></span><br><span class="line">$ tar cvf FileName.tar DirName  <span class="comment">#打包（注：tar是打包，不是压缩！）</span></span><br></pre></td></tr></table></figure>
 <h2 id="2-gz"><a href="#2-gz" class="headerlink" title="2. gz"></a>2. gz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ gunzip FileName.gz  <span class="comment">#解压1</span></span><br><span class="line">$ gzip -d FileName.gz  <span class="comment">#解压2</span></span><br><span class="line">$ gzip FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
 <h2 id="3-tar-gz"><a href="#3-tar-gz" class="headerlink" title="3. tar.gz"></a>3. tar.gz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zxvf file.tar.gz  <span class="comment">#解压</span></span><br><span class="line">$ tar -zcvf file.tar.gz dir  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
@@ -940,7 +1276,7 @@
 <h2 id="8-Z"><a href="#8-Z" class="headerlink" title="8. Z"></a>8. Z</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ uncompress FileName.Z  <span class="comment">#解压</span></span><br><span class="line">$ compress FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
 <h2 id="9-tar-Z"><a href="#9-tar-Z" class="headerlink" title="9. tar.Z"></a>9. tar.Z</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar Zxvf FileName.tar.Z  <span class="comment">#解压</span></span><br><span class="line">$ tar Zcvf FileName.tar.Z DirName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
 <h2 id="10-tgz"><a href="#10-tgz" class="headerlink" title="10. tgz"></a>10. tgz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxvf FileName.tgz  <span class="comment">#解压</span></span><br></pre></td></tr></table></figure>
-<h1 id="11-tar-tgz"><a href="#11-tar-tgz" class="headerlink" title="11. tar.tgz"></a>11. tar.tgz</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxvf FileName.tar.tgz  <span class="comment">#解压</span></span><br><span class="line">$ tar zcvf FileName.tar.tgz FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
+<h2 id="11-tar-tgz"><a href="#11-tar-tgz" class="headerlink" title="11. tar.tgz"></a>11. tar.tgz</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxvf FileName.tar.tgz  <span class="comment">#解压</span></span><br><span class="line">$ tar zcvf FileName.tar.tgz FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
 <h2 id="12-zip"><a href="#12-zip" class="headerlink" title="12. zip"></a>12. zip</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ unzip FileName.zip  <span class="comment">#解压</span></span><br><span class="line">$ zip FileName.zip DirName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
 <h2 id="13-lha"><a href="#13-lha" class="headerlink" title="13. lha"></a>13. lha</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ lha -e FileName.lha  <span class="comment">#解压</span></span><br><span class="line">$ lha -a FileName.lha FileName  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
 <h2 id="14-rar"><a href="#14-rar" class="headerlink" title="14. rar"></a>14. rar</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ rar a FileName.rar  <span class="comment">#解压</span></span><br><span class="line">$ rar e FileName.rar  <span class="comment">#压缩</span></span><br></pre></td></tr></table></figure>
@@ -1601,303 +1937,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/15/将TAB转换为4个空格/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/07/15/将TAB转换为4个空格/" itemprop="url">将TAB转换为4个空格</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-15T17:24:44+08:00">
-                2018-07-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/environment/" itemprop="url" rel="index">
-                    <span itemprop="name">environment</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Notepad"><a href="#Notepad" class="headerlink" title="Notepad++"></a>Notepad++</h1><p>设置-首选项-制表符设置-勾选转换为空格</p>
-<h1 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a>IDEA</h1><p>菜单<code>File &gt; Settings</code>，<code>Editor &gt; Code Style &gt; Java</code>，<code>Tabs and Indents</code>，去掉勾选<code>Use tab character</code>。</p>
-<blockquote>
-<p><strong>Tips:</strong> 显示空格和TAB符号：<code>File &gt; Settings</code>，<code>Editor &gt; General &gt; Appearance</code>，勾选<code>Show whitespaces</code>。</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/15/Git常用命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/07/15/Git常用命令/" itemprop="url">Git常用命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-15T17:22:07+08:00">
-                2018-07-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/environment/" itemprop="url" rel="index">
-                    <span itemprop="name">environment</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="一、通过分支MERGE"><a href="#一、通过分支MERGE" class="headerlink" title="一、通过分支MERGE"></a>一、通过分支MERGE</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> xxx.git <span class="comment">#将要提交代码仓路径clone到本地</span></span><br><span class="line"><span class="built_in">cd</span> <span class="comment">#进入代码目录</span></span><br><span class="line">git branch <span class="comment">#查看当前分支</span></span><br><span class="line">git pull origin master <span class="comment">#更新本地分支</span></span><br><span class="line">git checkout -b newbranch <span class="comment">#checkout到个人分支</span></span><br><span class="line">git branch <span class="comment">#查看当前分支为个人分支</span></span><br><span class="line">git push origin newbranch <span class="comment">#将checkout出来的个人分支push到CodeClub</span></span><br><span class="line">git status <span class="comment">#查看本地修改的文件</span></span><br><span class="line">git add -A . <span class="comment">#将本地修改的文件add到本地仓个人分支</span></span><br><span class="line">git commit -m <span class="string">"xxx"</span> <span class="comment">#将本地修改的文件提交到本地仓个人分支</span></span><br><span class="line">git push origin newbranch <span class="comment">#将本地修改的文件提交到远程仓个人分支</span></span><br></pre></td></tr></table></figure>
-<p>发起merge，从远程仓个人分支merge到远程仓主干分支</p>
-<h1 id="二、Fork个人仓"><a href="#二、Fork个人仓" class="headerlink" title="二、Fork个人仓"></a>二、Fork个人仓</h1><p>将主干仓Fork到个人仓<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> xxx.git <span class="comment">#将个人仓clone到本地</span></span><br><span class="line"><span class="built_in">cd</span> <span class="comment">#进入代码目录</span></span><br><span class="line">git remote -v <span class="comment">#查看远程分支列表</span></span><br><span class="line">git remote add projorigin projxxx.git <span class="comment">#增加主库分支到本地</span></span><br><span class="line">git branch <span class="comment">#查看当前分支</span></span><br><span class="line">git pull origin master <span class="comment">#更新当前分支</span></span><br><span class="line">git fetch projorigin <span class="comment">#fetch主库分支的最新版本到本地</span></span><br><span class="line">git merge projorigin/master <span class="comment">#merge主库分支到本地</span></span><br><span class="line">git status <span class="comment">#查看本地修改的文件</span></span><br><span class="line">git add -A . <span class="comment">#将本地修改的文件add到本地仓</span></span><br><span class="line">git commit -m <span class="string">"xxx"</span> <span class="comment">#将本地修改的文件提交到本地仓</span></span><br><span class="line">git push origin branchname <span class="comment">#将本地修改的文件提交到远程个人仓</span></span><br></pre></td></tr></table></figure></p>
-<p>发起merge，从远程个人仓merge到远程主干仓</p>
-<p>END</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/hello-islibra/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/hello-islibra/">1</a><span class="space">&hellip;</span><a class="page-number" href="/hello-islibra/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/hello-islibra/page/7/">7</a><a class="extend next" rel="next" href="/hello-islibra/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/hello-islibra/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/hello-islibra/">1</a><span class="space">&hellip;</span><a class="page-number" href="/hello-islibra/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/hello-islibra/page/7/">7</a><a class="page-number" href="/hello-islibra/page/8/">8</a><a class="extend next" rel="next" href="/hello-islibra/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1943,7 +1987,7 @@
               
                 <a href="/hello-islibra/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
