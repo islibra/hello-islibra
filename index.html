@@ -229,6 +229,900 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/12/28/Kubenetes网络/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/12/28/Kubenetes网络/" itemprop="url">Kubenetes网络</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-28T20:49:39+08:00">
+                2018-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/container/" itemprop="url" rel="index">
+                    <span itemprop="name">container</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>假设创建Deployment的yaml为：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">httpd</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">    replicas:</span> <span class="number">3</span></span><br><span class="line"><span class="attr">    template:</span></span><br><span class="line"><span class="attr">        metadata:</span></span><br><span class="line"><span class="attr">            labels:</span>  <span class="string">//设置应用的label</span></span><br><span class="line"><span class="attr">                run:</span> <span class="string">httpd</span></span><br></pre></td></tr></table></figure>
+<h1 id="定义Service-httpd-svc-yaml："><a href="#定义Service-httpd-svc-yaml：" class="headerlink" title="定义Service httpd-svc.yaml："></a>定义Service httpd-svc.yaml：</h1><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span>  <span class="string">//Service的apiVersion</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span>  <span class="string">//资源类型为Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">httpd-svc</span>  <span class="string">//Service的名称</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">    clusterIP:</span> <span class="number">10.250</span><span class="number">.45</span><span class="number">.217</span>  <span class="string">//可选</span></span><br><span class="line"><span class="attr">    selector:</span>  <span class="string">//选择Pod的label为run:</span> <span class="string">httpd</span></span><br><span class="line"><span class="attr">        run:</span> <span class="string">httpd</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="attr">        - protocol:</span> <span class="string">TCP</span>  <span class="string">//将Service的TCP端口8080映射到Pod的80端口</span></span><br><span class="line"><span class="attr">        port:</span> <span class="number">8080</span></span><br><span class="line"><span class="attr">        targetPort:</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
+<p>创建Service：<code>kubectl apply -f httpd-svc.yaml</code><br>查看Service：<code>kubectl get service</code>，Cluster通过kubernetes Service访问API Server。<br>查看Service详细：<code>kubectl describe service httpd-svc</code>，包含三个Endpoints（Pod的IP和端口）。<br>通过Service的IP访问Pod：<code>curl {Service Cluster IP}:8080</code>，流量会被路由到Endpoint。</p>
+<blockquote>
+<p>Service会被分配一个Cluster IP，Service Cluster IP是一个虚拟IP，由iptables管理：允许Pod访问httpd-svc；其他地址访问httpd-svc，跳转到规则（1/3概率跳转到规则1（将请求转发到Pod）,1/3概率跳转到规则2,1/3概率跳转到规则3），查看iptables规则：<code>iptables-save</code>，Cluster每个节点都配置了相同的iptables。<br>Service的selector持续检查并通知同名Endpoints，修改为正确的Pod IP和端口。</p>
+</blockquote>
+<h1 id="自定义Endpoint，访问其他namespace的service或非kubenetes的backend："><a href="#自定义Endpoint，访问其他namespace的service或非kubenetes的backend：" class="headerlink" title="自定义Endpoint，访问其他namespace的service或非kubenetes的backend："></a>自定义Endpoint，访问其他namespace的service或非kubenetes的backend：</h1><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">my-service</span></span><br><span class="line"><span class="attr">spec:</span>  <span class="string">//不定义selector</span></span><br><span class="line"><span class="attr">  ports:</span></span><br><span class="line"><span class="attr">  - protocol:</span> <span class="string">TCP</span></span><br><span class="line"><span class="attr">    port:</span> <span class="number">80</span></span><br><span class="line"><span class="attr">    targetPort:</span> <span class="number">9376</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Endpoints</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">my-service</span></span><br><span class="line"><span class="attr">subsets:</span></span><br><span class="line"><span class="attr">  - addresses:</span></span><br><span class="line"><span class="attr">      - ip:</span> <span class="number">1.2</span><span class="number">.3</span><span class="number">.4</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="attr">      - port:</span> <span class="number">9376</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>Tips:</strong> 多个资源在同一个YAML文件中以—分割。</p>
+</blockquote>
+<h1 id="定义多个端口映射"><a href="#定义多个端口映射" class="headerlink" title="定义多个端口映射"></a>定义多个端口映射</h1><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">my-service</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">    selector:</span></span><br><span class="line"><span class="attr">      app:</span> <span class="string">MyApp</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="attr">      - name:</span> <span class="string">http</span>  <span class="string">//给出端口名称</span></span><br><span class="line"><span class="attr">        protocol:</span> <span class="string">TCP</span></span><br><span class="line"><span class="attr">        port:</span> <span class="number">80</span></span><br><span class="line"><span class="attr">        targetPort:</span> <span class="number">9376</span></span><br><span class="line"><span class="attr">      - name:</span> <span class="string">https</span></span><br><span class="line"><span class="attr">        protocol:</span> <span class="string">TCP</span></span><br><span class="line"><span class="attr">        port:</span> <span class="number">443</span></span><br><span class="line"><span class="attr">        targetPort:</span> <span class="number">9377</span></span><br></pre></td></tr></table></figure>
+<h1 id="DNS访问Service"><a href="#DNS访问Service" class="headerlink" title="DNS访问Service"></a>DNS访问Service</h1><p>kubeadm部署时默认安装kube-dns：<code>kubectl get deployment --namespace=kube-system</code>，监视创建Service时，自动添加DNS记录。<br>DNS服务器在kube-system中部署一个Service，域名访问<code>kube-dns.kube-system.svc.cluster.local</code>。<br>查看namespace：<code>kubectl get namespace</code>。</p>
+<p>httpd-svc的完整域名是<code>httpd-svc.default.svc.cluster.local</code>，在Pod中访问：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl run busybox --rm -ti --image=busybox /bin/sh</span><br><span class="line">wget httpd-svc.default:8080  //&lt;SERVICE_NAME&gt;.&lt;NAMESPACE_NAME&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在Pod中直接查找DNS信息：<code>nslookup httpd-svc</code>。  </p>
+<h1 id="NodePort对非Kubenetes提供服务"><a href="#NodePort对非Kubenetes提供服务" class="headerlink" title="NodePort对非Kubenetes提供服务"></a>NodePort对非Kubenetes提供服务</h1><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">httpd-svc</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">    type:</span> <span class="string">NodePort</span>  <span class="string">//默认是ClusterIP，只能Cluster内的节点和Pod访问</span></span><br><span class="line"><span class="attr">    selector:</span></span><br><span class="line"><span class="attr">        run:</span> <span class="string">httpd</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="attr">    - protocol:</span> <span class="string">TCP</span></span><br><span class="line"><span class="attr">    nodePort:</span> <span class="number">30000</span>  <span class="string">//可指定节点端口</span></span><br><span class="line"><span class="attr">    port:</span> <span class="number">8080</span></span><br><span class="line"><span class="attr">    targetPort:</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
+<p>查看Service：<code>kubectl get service httpd-svc</code>，将Service的8080端口映射到 <strong>每个Node的30000-32767端口。</strong></p>
+<h1 id="外部IP"><a href="#外部IP" class="headerlink" title="外部IP"></a>外部IP</h1><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">my-service</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  selector:</span></span><br><span class="line"><span class="attr">    app:</span> <span class="string">MyApp</span></span><br><span class="line"><span class="attr">  ports:</span></span><br><span class="line"><span class="attr">    - name:</span> <span class="string">http</span></span><br><span class="line"><span class="attr">      protocol:</span> <span class="string">TCP</span></span><br><span class="line"><span class="attr">      port:</span> <span class="number">80</span></span><br><span class="line"><span class="attr">      targetPort:</span> <span class="number">9376</span></span><br><span class="line"><span class="attr">  externalIPs:</span> </span><br><span class="line"><span class="bullet">    -</span> <span class="number">80.11</span><span class="number">.12</span><span class="number">.10</span>  <span class="string">//可以通过80.11.12.10:80访问该Service</span></span><br></pre></td></tr></table></figure>
+<p>参考：<br><a href="https://kubernetes.io/zh/docs/concepts/services-networking/service/" target="_blank" rel="noopener">https://kubernetes.io/zh/docs/concepts/services-networking/service/</a><br><a href="https://kubernetes.io/docs/concepts/services-networking/service/" target="_blank" rel="noopener">https://kubernetes.io/docs/concepts/services-networking/service/</a>  </p>
+<h1 id="Ingress"><a href="#Ingress" class="headerlink" title="Ingress"></a>Ingress</h1><p>提供集群外部访问service。</p>
+<p>创建Ingress：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">extensions/v1beta1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">test-ingress</span></span><br><span class="line"><span class="attr">  annotations:</span></span><br><span class="line">    <span class="string">nginx.ingress.kubernetes.io/rewrite-target:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  rules:</span></span><br><span class="line"><span class="attr">  - http:</span></span><br><span class="line"><span class="attr">      paths:</span></span><br><span class="line"><span class="attr">      - path:</span> <span class="string">/testpath</span></span><br><span class="line"><span class="attr">        backend:</span></span><br><span class="line"><span class="attr">          serviceName:</span> <span class="string">test</span></span><br><span class="line"><span class="attr">          servicePort:</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
+<p>参考：<br><a href="https://kubernetes.io/docs/concepts/services-networking/ingress/" target="_blank" rel="noopener">https://kubernetes.io/docs/concepts/services-networking/ingress/</a>  </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/12/28/BC4K/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/12/28/BC4K/" itemprop="url">BC4K</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-28T20:46:28+08:00">
+                2018-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/environment/" itemprop="url" rel="index">
+                    <span itemprop="name">environment</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Beyond Compare 4<br>Licensed to:    Huawei Technologies Co., Ltd<br>Quantity:       World-wide users<br>Serial number:  7069-1739<br>License type:   Pro Edition for Windows/Linux/OS X</p>
+<p>— BEGIN LICENSE KEY —<br>VErpepLezNP0xt383CQz43LYV8Q6VHkDlLusjClOAaTA6iqdAVSXgKDzH<br>rAzBBuMSP388G9DwNwK0mSlSf6MMvKwv9X6ifB9NXkFI-yhSKe35vk6TN<br>r6q6Ih08wIa6rxoaTrKwiJQaqg7tvvE46qCyRNr+hAQyR0k0C9tKU4jke<br>kSn-UbZs9HrYW6wuvvMrg6oMz3lsjzkfrTxbtS0YguB2KE8q7IlKUWu7X<br>0wusjjKvmRn5s3Kz+gmycL8mXlEUa-5ZXdZBISbKP4JSL-VOcgZYY8lxu<br>f3clex3A7nrBHkFAPkCMuXGugr0YrlbN9593ACO4MvOj3BWJy94c2vBA+<br>— END LICENSE KEY —–</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/12/28/Maven/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/12/28/Maven/" itemprop="url">Maven</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-28T20:42:38+08:00">
+                2018-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/environment/" itemprop="url" rel="index">
+                    <span itemprop="name">environment</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h1><p>已安装JDK，并设置环境变量<code>JAVA_HOME</code>和<code>path</code>。</p>
+<h1 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h1><blockquote>
+<p>M2_HOME=D:\software\apache-maven-3.3.3<br>M2=%M2_HOME%\bin  <strong>–添加到path中去</strong><br>MAVEN_OPTS=-Xms256m -Xmx512m</p>
+</blockquote>
+<h1 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h1><ul>
+<li>pre-clean -&gt; clean -&gt; post-clean</li>
+<li>validate -&gt; initialize -&gt; compile -&gt; test -&gt; package -&gt; install -&gt; depoly</li>
+<li>pre-site -&gt; site -&gt; post-site -&gt; site-depoly</li>
+</ul>
+<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>配置文件路径：<code>/conf/setting.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--本地仓路径--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>D:\software\apache-maven-3.3.3\repo<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--从远程仓下载使用的镜像--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>planetmirror.com<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>PlanetMirror Australia<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://downloads.planetmirror.com/pub/maven2<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!--需镜像的远程仓，如central代表https://repo.maven.apache.org/maven2/--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--为Maven配置代理访问网络--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">proxies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">proxy</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>myproxy<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">active</span>&gt;</span>true<span class="tag">&lt;/<span class="name">active</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">protocol</span>&gt;</span>http<span class="tag">&lt;/<span class="name">protocol</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">host</span>&gt;</span>proxy.somewhere.com<span class="tag">&lt;/<span class="name">host</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">port</span>&gt;</span>8080<span class="tag">&lt;/<span class="name">port</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">username</span>&gt;</span>proxyuser<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">password</span>&gt;</span>somepassword<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">nonProxyHosts</span>&gt;</span>*.google.com|ibiblio.org<span class="tag">&lt;/<span class="name">nonProxyHosts</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">proxy</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">proxies</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--定义配置，通过&lt;activatedProfiles/&gt;标签或环境变量/JDK版本激活--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">profiles</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>test<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>false<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--在JDK 1.8版本构建时被激活--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">jdk</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">jdk</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--在环境变量mavenVersion的值为2.0.3时被激活--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">name</span>&gt;</span>mavenVersion<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">value</span>&gt;</span>2.0.3<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!--当该profile被激活时，在POM中通过$&#123;user.install&#125;访问该属性--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">user.install</span>&gt;</span>$&#123;user.home&#125;/our-project<span class="tag">&lt;/<span class="name">user.install</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!--定义Maven下载依赖和插件的远端仓库地址--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">repositories</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">id</span>&gt;</span>codehausSnapshots<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">name</span>&gt;</span>Codehaus Snapshots<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">releases</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">updatePolicy</span>&gt;</span>always<span class="tag">&lt;/<span class="name">updatePolicy</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">checksumPolicy</span>&gt;</span>warn<span class="tag">&lt;/<span class="name">checksumPolicy</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">updatePolicy</span>&gt;</span>never<span class="tag">&lt;/<span class="name">updatePolicy</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">checksumPolicy</span>&gt;</span>fail<span class="tag">&lt;/<span class="name">checksumPolicy</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://snapshots.maven.codehaus.org/maven2<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">layout</span>&gt;</span>default<span class="tag">&lt;/<span class="name">layout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">pluginRepositories</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">      <span class="tag">&lt;/<span class="name">pluginRepositories</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!--在所有构建都激活的profile--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">activeProfiles</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">activeProfile</span>&gt;</span>env-test<span class="tag">&lt;/<span class="name">activeProfile</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">activeProfiles</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="maven工程典型目录结构"><a href="#maven工程典型目录结构" class="headerlink" title="maven工程典型目录结构"></a>maven工程典型目录结构</h1><blockquote>
+<p>/src/main/java  <strong>–源码</strong><br>/src/main/resources  <strong>–资源文件</strong><br>/src/test  <strong>–测试代码</strong><br>/target  <strong>–编译生成的二进制文件</strong><br>/target/classes  <strong>–部署使用的jar</strong><br>/pom.xml</p>
+</blockquote>
+<h1 id="POM"><a href="#POM" class="headerlink" title="POM"></a>POM</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.aaron<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springBootDemo<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h2><p>在parent中配置dependencyManagement，统一管理jar版本。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version.framework</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version.framework</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">javaee-api.version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">javaee-api.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.zhisheng<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>framework-cache<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;version.framework&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javaee-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;javaee-api.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>子项目中引用依赖无需显示的列出版本号，继承父项目。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.zhisheng<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">relativePath</span>&gt;</span>../parent/pom.xml<span class="tag">&lt;/<span class="name">relativePath</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--依赖关系--&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javaee-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">        <span class="comment">&lt;!--此处若声明&lt;version&gt;将覆盖parent版本号--&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.zhisheng<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>framework-cache<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-annotations<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>使用专门的POM来进行依赖管理。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.zhisheng.sample<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>sample-dependency-infrastructure<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactid</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.8.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactid</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.16<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过import scope方式引入依赖管理，不继承父项目。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.zhisheng.sample<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactid</span>&gt;</span>sample-dependency-infrastructure<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactid</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactid</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="插件管理"><a href="#插件管理" class="headerlink" title="插件管理"></a>插件管理</h2><p>在parent中统一配置pluginManagement，与dependencyManagement类似，子项目继承父项目配置。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">pluginManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">encoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">pluginManagement</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/31020263" target="_blank" rel="noopener">Maven 中 dependencies 与 dependencyManagement 的区别</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/12/28/apple/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/12/28/apple/" itemprop="url">apple</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-28T20:40:07+08:00">
+                2018-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/business/" itemprop="url" rel="index">
+                    <span itemprop="name">business</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <table>
+<thead>
+<tr>
+<th>MacBook</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>thin 13.1mm</td>
+</tr>
+<tr>
+<td>light 2lb.</td>
+</tr>
+<tr>
+<td>12-inch</td>
+</tr>
+<tr>
+<td>Intel Core m3, i5, i7. Turbo Boost up to 3.6GHz. no fan.</td>
+</tr>
+<tr>
+<td>SSD storage</td>
+</tr>
+<tr>
+<td>10h</td>
+</tr>
+<tr>
+<td>gold, gray, silver</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/12/28/AI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/12/28/AI/" itemprop="url">AI</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-28T20:36:26+08:00">
+                2018-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/ai/" itemprop="url" rel="index">
+                    <span itemprop="name">ai</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>神经网络被支持向量机取代<br>随机模拟</p>
+<h1 id="人工智能四要素"><a href="#人工智能四要素" class="headerlink" title="人工智能四要素"></a>人工智能四要素</h1><ul>
+<li>算法</li>
+<li>算力</li>
+<li>数据：特征工程：数据表示（特征抽取：数据转换，如主成分分析，特征选择：不破坏数据取子集），数据整理（数据清洗，缺失数据分析，诱导特征，数据压缩，数据合并），关系发现，异常点检测（Additive Outlier, Innovative Outlier, Temporary Change, Level Shift）</li>
+<li>场景</li>
+</ul>
+<h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p>计算基础：最优化，矩阵计算，概率统计</p>
+<h3 id="轻量机器学习"><a href="#轻量机器学习" class="headerlink" title="轻量机器学习"></a>轻量机器学习</h3><ol>
+<li>计算复杂度低，训练周期短</li>
+<li>在线学习，不存储大量训练样本，来一个学一个，模型时时更新</li>
+<li>具备先验知识，数据量少依然可以进行模型更新和推断</li>
+<li>近似计算求满意解，非最优解，降低计算复杂度</li>
+</ol>
+<h3 id="非轻量机器学习"><a href="#非轻量机器学习" class="headerlink" title="非轻量机器学习"></a>非轻量机器学习</h3><h4 id="无监督学习（数据驱动，聚类）"><a href="#无监督学习（数据驱动，聚类）" class="headerlink" title="无监督学习（数据驱动，聚类）"></a>无监督学习（数据驱动，聚类）</h4><p>直接对无标签样本进行聚类。</p>
+<h5 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h5><ul>
+<li>k-均值聚类<ol>
+<li>随机挑选聚类中心的位置</li>
+<li>根据样本到中心的距离为样本打标签</li>
+<li>调整聚类中心的位置，如果有变化，继续</li>
+<li>调整样本标签和聚类中心位置，直到位置无变化</li>
+</ol>
+</li>
+<li>层级聚类</li>
+</ul>
+<h5 id="自组织映射"><a href="#自组织映射" class="headerlink" title="自组织映射"></a>自组织映射</h5><h4 id="有监督学习（任务驱动，识别，分类，回归）"><a href="#有监督学习（任务驱动，识别，分类，回归）" class="headerlink" title="有监督学习（任务驱动，识别，分类，回归）"></a>有监督学习（任务驱动，识别，分类，回归）</h4><p>对于样本和标签进行分类。</p>
+<ol>
+<li>训练数据：<ul>
+<li>样本</li>
+<li>标签</li>
+</ul>
+</li>
+<li>模型（函数集合）</li>
+<li>定义函数好坏。</li>
+<li>找到最好的函数。</li>
+</ol>
+<h5 id="参数方法"><a href="#参数方法" class="headerlink" title="参数方法"></a>参数方法</h5><p>对于线性回归来说，通过定义误差=(模型计算值-样本标签值)的平方和来定义函数好坏。</p>
+<p>使用梯度下降法找到最优解，适用于线性回归或多项式回归：</p>
+<ol>
+<li>用随机值初始化权重和偏差</li>
+<li>把输入传入网络，得到输出值</li>
+<li>计算预测值和真实值之间的误差</li>
+<li>对每一个产生误差的神经元，调整相应的（权重）值以减小误差</li>
+<li>重复迭代，直至得到网络权重的最佳值</li>
+</ol>
+<h5 id="非参数方法"><a href="#非参数方法" class="headerlink" title="非参数方法"></a>非参数方法</h5><h6 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h6><h5 id="几何方法"><a href="#几何方法" class="headerlink" title="几何方法"></a>几何方法</h5><h6 id="支持向量机"><a href="#支持向量机" class="headerlink" title="支持向量机"></a>支持向量机</h6><p>数据线性可分，离决策平面最近的点作为支撑向量。</p>
+<p>使用逻辑回归法寻找最优解。</p>
+<p>可用来进行文本和超文本分类，图像分类，新文章聚类，手写数字识别等。</p>
+<h5 id="核方法"><a href="#核方法" class="headerlink" title="核方法"></a>核方法</h5><p>经过变换之后，线性可分。</p>
+<h5 id="贝叶斯方法"><a href="#贝叶斯方法" class="headerlink" title="贝叶斯方法"></a>贝叶斯方法</h5><p>朴素贝叶斯：假定每个符号出现的概率是条件独立的。</p>
+<p>根据贝叶斯公式计算符号w出现时，是垃圾邮件的概率：<br>w在垃圾邮件中出现的概率x垃圾邮件的占比 / w在垃圾邮件中出现的概率x垃圾邮件的占比 + w在正常邮件中出现的概率x正常邮件的占比</p>
+<ol>
+<li>收集训练数据（4000正常邮件，4000垃圾邮件）</li>
+<li>计算每个符号w出现时，该邮件是垃圾邮件的概率</li>
+<li>如果w只出现在垃圾邮件中，设概率为0.99</li>
+<li>如果w只出现在正常邮件中，设概率为0.01</li>
+<li>对于新邮件，设正常邮件和垃圾邮件占比相同</li>
+<li>如果w在训练数据中没有出现过，设概率为0.4</li>
+<li>挑选离0.5最远的15个概率，计算当15个符号同时出现时：是垃圾邮件的概率积 / 是垃圾邮件的概率积 + 不是垃圾邮件的概率积</li>
+<li><blockquote>
+<p>0.9 认为是垃圾邮件</p>
+</blockquote>
+</li>
+</ol>
+<h5 id="概率图模型"><a href="#概率图模型" class="headerlink" title="概率图模型"></a>概率图模型</h5><h5 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h5><p>使用多条线对数据进行划分。</p>
+<ul>
+<li>ANN(Artificial Neural Netword)：人工神经网络<ul>
+<li>人工神经元（M-P Model）<br>对输入x1, x2,…求加权weight和，加上偏置bias，通过激活函数threshold unit得到输出。<br>激活函数：Unit step, Linear, Logistic, Hyperbolic tangent(sigmoid)…</li>
+<li>单层感知器（Single-Layer Perceptron）<br>只能“一刀切”。</li>
+<li>多层感知器（Multi-Layer Perceptron）<br>增加中间隐藏层。</li>
+</ul>
+</li>
+<li>RNN(Recurrent Neural Network)：</li>
+</ul>
+<hr>
+<ul>
+<li>Back Propagation算法：误差平方和反向传递调整权重。<br>局限性：步长太小fall in local minimum；步长太大不收敛；受初始点选择，权重，下降速率影响；无法使用数学证明；欠拟合过拟合。<br><strong>应用：</strong> 车牌识别（需要在单幅图片中对车牌进行裁切），手写数字识别。</li>
+<li>Hebb Rule：基于条件反射模型，由<code>误差 x 输入 x 系数</code>调整权值。</li>
+<li>Self-organizing Kohonen Rule：优先取影响较大的神经元。<em>无监督</em></li>
+<li>Hopfield law：基于热力学能量定律，解决了“旅行推销员TSP”问题。</li>
+<li>LMS algorithm(Least Mean Square)：用最小方差来计算误差，采用梯度下降法学习。</li>
+<li>Competitive Learning竞争学习：胜者全取。<em>无监督</em></li>
+</ul>
+<hr>
+<ul>
+<li>Supervised Learning: 有监督学习</li>
+<li>Unsupervised Learning: 无监督学习</li>
+<li>Reinforcement Learning: 强化学习</li>
+<li>Offline Learning: 离线学习（批处理）</li>
+</ul>
+<hr>
+<ul>
+<li>Training set: 训练样本</li>
+<li>Validation set: 验证微调</li>
+<li>Test set: 评估测试</li>
+</ul>
+<hr>
+<ul>
+<li>Classification: 分类</li>
+<li>Prediction: 预测</li>
+<li>Clustering: 聚类</li>
+<li>Pattern Recognition: 模式识别</li>
+</ul>
+<p>batch梯度下降<br>随机梯度下降<br>Mini-batch梯度下降</p>
+<p>大规模<br>深度</p>
+<p>通过过滤器进行卷积，减少参数量</p>
+<p>池化，减少冗余参数</p>
+<h6 id="深度学习（多层神经网络）"><a href="#深度学习（多层神经网络）" class="headerlink" title="深度学习（多层神经网络）"></a>深度学习（多层神经网络）</h6><p>适用于图像，语音的感知（识别），但欠缺推理，认知。</p>
+<h4 id="强化学习（与环境互动）"><a href="#强化学习（与环境互动）" class="headerlink" title="强化学习（与环境互动）"></a>强化学习（与环境互动）</h4>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/11/30/README/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1001,6 +1895,10 @@
 <h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><p>File -&gt; Settings -&gt; Editor -&gt; File Encodings，Project Encoding，Properties Files，勾选Transparent native-to-ascii conversion</p>
 <h2 id="设置JDK"><a href="#设置JDK" class="headerlink" title="设置JDK"></a>设置JDK</h2><p>File -&gt; Project Structure</p>
 <h2 id="设置Maven"><a href="#设置Maven" class="headerlink" title="设置Maven"></a>设置Maven</h2><p>File -&gt; Settings -&gt; Build, Execution, Deployment -&gt; Build Tools -&gt; Maven</p>
+<h2 id="安装Maven插件"><a href="#安装Maven插件" class="headerlink" title="安装Maven插件"></a>安装Maven插件</h2><p>File -&gt; Settings -&gt; Plugins，搜索<code>Maven Helper</code></p>
+<blockquote>
+<p><strong>Tips:</strong> 若导入项目后未识别出pom.xml，选中pom.xml右键菜单，点击<code>Add as Maven Project</code></p>
+</blockquote>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>File -&gt; Settings -&gt; Editor -&gt; General -&gt; Auto Import，勾选Add unambiguous imports on the fly，自动导入包；勾选Optimize imports on the fly，自动删除无用的包。</p>
 <p>File -&gt; Settings -&gt; Editor -&gt; Code Style -&gt; Java -&gt; Imports，将<code>Class count to use import with &#39;*&#39;</code>改为<code>100</code>，取消自动导入<code>.*</code>。</p>
 <p>File -&gt; Settings -&gt; Editor -&gt; Inspections -&gt; General -&gt; Duplicated Code，去掉勾选，取消重复代码提示。</p>
@@ -1017,763 +1915,6 @@
 <p>Preferences -&gt; Maven -&gt; User Settings，设置Maven配置文件</p>
 <h2 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h2><p>Preferences -&gt; General -&gt; Editors -&gt; Text Editors，勾选Insert spaces for tabs，将TAB替换为4个空格。</p>
 <h2 id="安装YEdit插件"><a href="#安装YEdit插件" class="headerlink" title="安装YEdit插件"></a>安装YEdit插件</h2><h1 id="Excel"><a href="#Excel" class="headerlink" title="Excel"></a>Excel</h1><p>关闭自动保存：选项-保存-自动恢复例外情况</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/11/18/那些年踩过的坑/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/11/18/那些年踩过的坑/" itemprop="url">那些年踩过的坑</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-18T13:30:19+08:00">
-                2018-11-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="函数内部修改由参数传过来的引用指向的变量值"><a href="#函数内部修改由参数传过来的引用指向的变量值" class="headerlink" title="函数内部修改由参数传过来的引用指向的变量值"></a>函数内部修改由参数传过来的引用指向的变量值</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;String&gt; globalStrList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Map&lt;String, String&gt; globalStrMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 测试函数内部是否可以改变参数传过来的变量</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testChangeStr</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//1.直接传递String</span></span><br><span class="line">        String s1 = <span class="string">"abc"</span>;</span><br><span class="line">        <span class="comment">//2.将String放入List</span></span><br><span class="line">        String s2 = <span class="string">"efg"</span>;</span><br><span class="line">        List&lt;String&gt; strList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        strList.add(s2);</span><br><span class="line">        <span class="comment">//3.类成员List</span></span><br><span class="line">        String s3 = <span class="string">"hij"</span>;</span><br><span class="line">        globalStrList.add(s3);</span><br><span class="line">        <span class="comment">//4.将String放入Map</span></span><br><span class="line">        String s4 = <span class="string">"lmn"</span>;</span><br><span class="line">        Map&lt;String, String&gt; strMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        strMap.put(s4, s4);</span><br><span class="line">        <span class="comment">//5.类成员Map</span></span><br><span class="line">        String s5 = <span class="string">"opq"</span>;</span><br><span class="line">        globalStrMap.put(s5, s5);</span><br><span class="line"></span><br><span class="line">        System.out.println(s1);</span><br><span class="line">        <span class="keyword">for</span> (String s : strList)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (String s : globalStrList)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (String s : strMap.values())</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (String s : globalStrMap.values())</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/* result:</span></span><br><span class="line"><span class="comment">        * abc</span></span><br><span class="line"><span class="comment">        * efg</span></span><br><span class="line"><span class="comment">        * hij</span></span><br><span class="line"><span class="comment">        * lmn</span></span><br><span class="line"><span class="comment">        * opq</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line"></span><br><span class="line">        changeStr(s1, strList, strMap);</span><br><span class="line"></span><br><span class="line">        System.out.println(s1);</span><br><span class="line">        <span class="keyword">for</span> (String s : strList)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (String s : globalStrList)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (String s : strMap.values())</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (String s : globalStrMap.values())</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/* result:</span></span><br><span class="line"><span class="comment">         * abc</span></span><br><span class="line"><span class="comment">         * efg</span></span><br><span class="line"><span class="comment">         * hij</span></span><br><span class="line"><span class="comment">         * sm_changed.</span></span><br><span class="line"><span class="comment">         * globalsm_changed.</span></span><br><span class="line"><span class="comment">         * */</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">changeStr</span><span class="params">(String str, List&lt;String&gt; slist, Map&lt;String, String&gt; smap)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//new了一个String并赋值为"changed."，将形参str指向的地址改为"changed."。</span></span><br><span class="line">        <span class="comment">//不会改变原s1指向的地址"abc"和"abc"的值</span></span><br><span class="line">        str = <span class="string">"changed."</span>;</span><br><span class="line">        <span class="keyword">for</span> (String s : slist)</span><br><span class="line">        &#123;</span><br><span class="line">            s = <span class="string">"sl_changed."</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (String s : globalStrList)</span><br><span class="line">        &#123;</span><br><span class="line">            s = <span class="string">"globalsl_changed."</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//new了一个String并赋值为"sm_changed."，将map中对应key指向的地址改为"sm_changed."。</span></span><br><span class="line">        <span class="keyword">for</span> (String s : smap.keySet())</span><br><span class="line">        &#123;</span><br><span class="line">            smap.put(s, <span class="string">"sm_changed."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (String s : globalStrMap.keySet())</span><br><span class="line">        &#123;</span><br><span class="line">            globalStrMap.put(s, <span class="string">"globalsm_changed."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            StringUtil su = <span class="keyword">new</span> StringUtil();</span><br><span class="line">            su.testChangeStr();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            System.out.println(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/11/04/Java排序/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/11/04/Java排序/" itemprop="url">Java排序</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-04T22:03:23+08:00">
-                2018-11-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="PriorityQueue"><a href="#PriorityQueue" class="headerlink" title="PriorityQueue"></a>PriorityQueue</h1><p>带优先级的队列，使用poll方法按序获取元素。<br>队列元素需实现Comparable接口的compareTo方法。<br>非线程安全。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.Objects;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Record</span> <span class="keyword">implements</span> <span class="title">Comparable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String orderKey;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">byte</span>[] originalData;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Record</span><span class="params">(String orderKey, <span class="keyword">byte</span>[] originalData)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.orderKey = orderKey;</span><br><span class="line">        <span class="keyword">this</span>.originalData = originalData;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getOrderKey</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> orderKey;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOrderKey</span><span class="params">(String orderKey)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.orderKey = orderKey;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">byte</span>[] getOriginalData() &#123;</span><br><span class="line">        <span class="keyword">return</span> originalData;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOriginalData</span><span class="params">(<span class="keyword">byte</span>[] originalData)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.originalData = originalData;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//按照从小到大排序</span></span><br><span class="line">        Record record = (Record) o;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.orderKey.compareTo(record.getOrderKey()) &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">this</span>.orderKey.compareTo(record.getOrderKey()) &gt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 实现equals方法，方便PriorityQueue中的contains方法判断</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> o object</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> true false</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == o) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (o == <span class="keyword">null</span> || getClass() != o.getClass()) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        Record record = (Record) o;</span><br><span class="line">        <span class="keyword">return</span> orderKey.equals(record.orderKey);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result = Objects.hash(orderKey);</span><br><span class="line">        result = <span class="number">31</span> * result + Arrays.hashCode(originalData);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Record&#123;"</span> +</span><br><span class="line">                <span class="string">"orderKey='"</span> + orderKey + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", originalData="</span> + Arrays.toString(originalData) +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.PriorityQueue;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PriorityQueueDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> PriorityQueue&lt;Record&gt; priorityQueue = <span class="keyword">new</span> PriorityQueue&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Object LOCK = <span class="keyword">new</span> Object();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addRecord</span><span class="params">(Record record)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (LOCK)  <span class="comment">//PriorityQueue的add方法不是线程安全的，需要加锁控制</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!priorityQueue.contains(record))</span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(Thread.currentThread() + <span class="string">": "</span> + record.getOrderKey());</span><br><span class="line">                priorityQueue.add(record);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        PriorityQueueDemo priorityQueueDemo = <span class="keyword">new</span> PriorityQueueDemo();</span><br><span class="line"></span><br><span class="line">        Thread t1 = <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span></span><br><span class="line"><span class="function">            </span>&#123;</span><br><span class="line">                System.out.println(<span class="string">"t1 started.."</span>);</span><br><span class="line">                priorityQueueDemo.addRecord(<span class="keyword">new</span> Record(<span class="string">"abc"</span>, <span class="keyword">new</span> <span class="keyword">byte</span>[]&#123;<span class="string">'e'</span>,<span class="string">'b'</span>&#125;));</span><br><span class="line">                priorityQueueDemo.addRecord(<span class="keyword">new</span> Record(<span class="string">"efg"</span>, <span class="keyword">new</span> <span class="keyword">byte</span>[]&#123;<span class="string">'e'</span>,<span class="string">'b'</span>&#125;));</span><br><span class="line">                priorityQueueDemo.addRecord(<span class="keyword">new</span> Record(<span class="string">"def"</span>, <span class="keyword">new</span> <span class="keyword">byte</span>[]&#123;<span class="string">'e'</span>,<span class="string">'b'</span>&#125;));</span><br><span class="line">                priorityQueueDemo.addRecord(<span class="keyword">new</span> Record(<span class="string">"bcd"</span>, <span class="keyword">new</span> <span class="keyword">byte</span>[]&#123;<span class="string">'e'</span>,<span class="string">'b'</span>&#125;));</span><br><span class="line">                priorityQueueDemo.addRecord(<span class="keyword">new</span> Record(<span class="string">"cde"</span>, <span class="keyword">new</span> <span class="keyword">byte</span>[]&#123;<span class="string">'e'</span>,<span class="string">'b'</span>&#125;));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        Thread t2 = <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span></span><br><span class="line"><span class="function">            </span>&#123;</span><br><span class="line">                System.out.println(<span class="string">"t2 started.."</span>);</span><br><span class="line">                priorityQueueDemo.addRecord(<span class="keyword">new</span> Record(<span class="string">"abc"</span>, <span class="keyword">new</span> <span class="keyword">byte</span>[]&#123;<span class="string">'e'</span>,<span class="string">'b'</span>&#125;));</span><br><span class="line">                priorityQueueDemo.addRecord(<span class="keyword">new</span> Record(<span class="string">"efg"</span>, <span class="keyword">new</span> <span class="keyword">byte</span>[]&#123;<span class="string">'e'</span>,<span class="string">'b'</span>&#125;));</span><br><span class="line">                priorityQueueDemo.addRecord(<span class="keyword">new</span> Record(<span class="string">"def"</span>, <span class="keyword">new</span> <span class="keyword">byte</span>[]&#123;<span class="string">'e'</span>,<span class="string">'b'</span>&#125;));</span><br><span class="line">                priorityQueueDemo.addRecord(<span class="keyword">new</span> Record(<span class="string">"bcd"</span>, <span class="keyword">new</span> <span class="keyword">byte</span>[]&#123;<span class="string">'e'</span>,<span class="string">'b'</span>&#125;));</span><br><span class="line">                priorityQueueDemo.addRecord(<span class="keyword">new</span> Record(<span class="string">"cde"</span>, <span class="keyword">new</span> <span class="keyword">byte</span>[]&#123;<span class="string">'e'</span>,<span class="string">'b'</span>&#125;));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        Thread t3 = <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span></span><br><span class="line"><span class="function">            </span>&#123;</span><br><span class="line">                System.out.println(<span class="string">"t3 started.."</span>);</span><br><span class="line">                priorityQueueDemo.addRecord(<span class="keyword">new</span> Record(<span class="string">"abc"</span>, <span class="keyword">new</span> <span class="keyword">byte</span>[]&#123;<span class="string">'e'</span>,<span class="string">'b'</span>&#125;));</span><br><span class="line">                priorityQueueDemo.addRecord(<span class="keyword">new</span> Record(<span class="string">"efg"</span>, <span class="keyword">new</span> <span class="keyword">byte</span>[]&#123;<span class="string">'e'</span>,<span class="string">'b'</span>&#125;));</span><br><span class="line">                priorityQueueDemo.addRecord(<span class="keyword">new</span> Record(<span class="string">"def"</span>, <span class="keyword">new</span> <span class="keyword">byte</span>[]&#123;<span class="string">'e'</span>,<span class="string">'b'</span>&#125;));</span><br><span class="line">                priorityQueueDemo.addRecord(<span class="keyword">new</span> Record(<span class="string">"bcd"</span>, <span class="keyword">new</span> <span class="keyword">byte</span>[]&#123;<span class="string">'e'</span>,<span class="string">'b'</span>&#125;));</span><br><span class="line">                priorityQueueDemo.addRecord(<span class="keyword">new</span> Record(<span class="string">"cde"</span>, <span class="keyword">new</span> <span class="keyword">byte</span>[]&#123;<span class="string">'e'</span>,<span class="string">'b'</span>&#125;));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        t1.start();</span><br><span class="line">        t2.start();</span><br><span class="line">        t3.start();</span><br><span class="line">        t1.join();  <span class="comment">//等待调用join的线程执行完毕。t1.join(10);表示等待10毫秒。</span></span><br><span class="line">        t2.join();</span><br><span class="line">        t3.join();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"------ 运行结果 ---------"</span>);</span><br><span class="line">        <span class="keyword">while</span>(!priorityQueue.isEmpty())</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(priorityQueue.poll());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/11/04/深入理解JVM/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/11/04/深入理解JVM/" itemprop="url">深入理解JVM</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-04T22:02:07+08:00">
-                2018-11-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="一、程序计数器"><a href="#一、程序计数器" class="headerlink" title="一、程序计数器"></a>一、程序计数器</h1><p>当前线程所执行的字节码的行号指示器，每条线程独立的 <strong>线程私有</strong> 内存空间。 <strong>无OutOfMemoryError。</strong></p>
-<h1 id="二、Java虚拟机栈"><a href="#二、Java虚拟机栈" class="headerlink" title="二、Java虚拟机栈"></a>二、Java虚拟机栈</h1><p>线程私有。Java <strong>方法</strong> 执行时，创建一个Stack Frame，用于存储 <strong>局部变量</strong> 、操作栈、动态链接、方法出口等信息。<br>局部变量表主要包含编译期可知的基本数据类型（boolean\byte\char\shor\int\float\long\double）、对象引用（reference）、returnAddress类型（指向字节码指令的地址）。<br>局部变量表所需的内存空间在编译期间完成分配，运行期间不会改变。<br>异常：</p>
-<ul>
-<li>StackOverflowError，请求栈深度大于虚拟机允许的深度。</li>
-<li>OutOfMemoryError，虚拟机栈动态扩展时无法申请到足够的内存。</li>
-</ul>
-<h1 id="三、本地方法栈"><a href="#三、本地方法栈" class="headerlink" title="三、本地方法栈"></a>三、本地方法栈</h1><p>与Java虚拟机栈相同，为虚拟机使用到的Native方法服务。</p>
-<h1 id="四、Java堆"><a href="#四、Java堆" class="headerlink" title="四、Java堆"></a>四、Java堆</h1><p>所有线程共享的一块内存区域，在虚拟机启动时创建。<br>存放对象实例和数组。<br>垃圾回收的主要区域，分为新生代和老年代。<br>在启动参数中通过-Xmx和-Xms控制。<br>异常：</p>
-<ul>
-<li>OutOfMemoryError，堆中没有内存完成实例分配，并且堆无法再扩展。</li>
-</ul>
-<h1 id="五、方法区"><a href="#五、方法区" class="headerlink" title="五、方法区"></a>五、方法区</h1><p>各个线程共享的内存区域。<br>存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等。<br>非堆内存Non-Heap。<br>HotSpot虚拟机的设计团队把GC扩展至方法区，并成为永久代（Permanent Generation）。后续规划搬迁至Native Memory。<br>垃圾回收较少，主要针对 <strong>常量池和对类型的卸载</strong> 。<br>异常：</p>
-<ul>
-<li>OutOfMemoryError，方法区无法满足内存分配需求。</li>
-</ul>
-<h2 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h2><p>用于存放编译期生成的字面量和符号引用，在类加载后存放到方法区的运行时常量池中。</p>
-<h1 id="六、直接内存"><a href="#六、直接内存" class="headerlink" title="六、直接内存"></a>六、直接内存</h1><p>NIO中引入Channel和Buffer，可以使用Native函数库直接分配 <strong>堆外内存</strong> ，然后通过一个存储在Java堆里面的DirectByteBuffer对象作为这块内存的引用进行操作。<br>不受Java堆大小限制，受本机总内存（RAM、SWAP区或分页文件）大小及处理器寻址空间限制。</p>
-<h1 id="对象访问"><a href="#对象访问" class="headerlink" title="对象访问"></a>对象访问</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br></pre></td></tr></table></figure>
-<p>如果在方法体中，<code>Object obj</code>在Java栈的本地变量表中，作为reference类型。<br><code>new Object()</code>在Java堆中形成一块存储Instance Data的结构化内存。<br>在方法区中存放该对象 <strong>类型数据</strong> （对象类型、父类、实现的接口、方法等），在Java堆中包含能查找到这些对象类型数据的地址信息。</p>
-<ul>
-<li>句柄方式：Java堆中划分出一块内存作为句柄池，reference中存储对象的句柄地址，句柄中包含对象 <strong>实例数据</strong> 和 <strong>类型数据</strong> 各自的地址。</li>
-<li>指针方式：reference直接存储对象地址，在对象实例数据中包含对象 <strong>类型数据</strong> 的指针。</li>
-</ul>
-<h1 id="JVM参数"><a href="#JVM参数" class="headerlink" title="JVM参数"></a>JVM参数</h1><h2 id="标准参数（-）"><a href="#标准参数（-）" class="headerlink" title="标准参数（-）"></a>标准参数（-）</h2><p>-verbose:gc<br>-client 使用Client模式，启动速度快，运行时性能和内存管理效率低，用于开发调试<br>-server 使用Server模式，启动速度慢，运行时性能和内存管理效率高，用于生产环境</p>
-<h2 id="非标准参数（-X）"><a href="#非标准参数（-X）" class="headerlink" title="非标准参数（-X）"></a>非标准参数（-X）</h2><p>-Xms20M Java堆初始值<br>-Xmx200M Java堆最大值（可以设置与-Xms相同，避免每次GC后重新分配内存）<br>-Xmn2g 新生代大小，推荐整个堆大小的3/8<br>-Xss128k 每个线程的栈大小。在相同的物理内存下，每个线程栈越小，可以生成更多线程，但受操作系统一个进程内的线程数限制。</p>
-<h2 id="非稳定参数（-XX）"><a href="#非稳定参数（-XX）" class="headerlink" title="非稳定参数（-XX）"></a>非稳定参数（-XX）</h2><p>-XX:NewSize=1024m 新生代初始值<br>-XX:MaxNewSize=1024m 新生代最大值<br>-XX:NewRatio=4 新生代（1个Eden、1个from Survivor和1个to Survivor）与老年代的比值为1:4<br>-XX:SurvivorRatio=4 新生代中2个Survivor和Eden的比值为2:4<br>-XX:PermSize=10M 方法区初始值<br>-XX:MaxPermSize=10M 方法区最大值<br>-XX:MaxDirectMemorySize=10M 直接内存<br>-XX:+UseParNewGC 设置新生代为并发收集<br>-XX:+UseConcMarkSweepGC CMS收集，即老年代为并发收集<br>-XX:ParallelGCThreads=20 并发收集线程数，建议与CPU（核）数相等<br>-XX:+HeapDumpOnOutOfMemoryError 内存溢出时dump内存快照。<br>-XX:HeapDumpPath=./java_pid.hprof Dump堆内存路径<br>-XX:+PrintGCDetails 每次GC时打印详细信息</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/11/04/茶/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/11/04/茶/" itemprop="url">茶</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-04T22:00:32+08:00">
-                2018-11-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/life/" itemprop="url" rel="index">
-                    <span itemprop="name">life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="红茶"><a href="#红茶" class="headerlink" title="红茶"></a>红茶</h1><h2 id="金骏眉"><a href="#金骏眉" class="headerlink" title="金骏眉"></a>金骏眉</h2><p>属于正山小种的分支，原产于福建省武夷山市。于2005年研制出的新品种红茶。</p>
-<h1 id="茉莉花茶"><a href="#茉莉花茶" class="headerlink" title="茉莉花茶"></a>茉莉花茶</h1><h1 id="铁观音"><a href="#铁观音" class="headerlink" title="铁观音"></a>铁观音</h1><h1 id="绿茶"><a href="#绿茶" class="headerlink" title="绿茶"></a>绿茶</h1>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/11/04/阿胶固元膏/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/11/04/阿胶固元膏/" itemprop="url">阿胶固元膏</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-04T21:56:36+08:00">
-                2018-11-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/food/" itemprop="url" rel="index">
-                    <span itemprop="name">food</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="用料"><a href="#用料" class="headerlink" title="用料"></a>用料</h1><ul>
-<li>阿胶 500g</li>
-<li>黄酒 500g-1000g</li>
-<li>黑芝麻 400g-1000g</li>
-<li>核桃仁 400g-500g</li>
-<li>红枣 300g-500g</li>
-<li>桂圆 250g</li>
-<li>枸杞 250g</li>
-<li>冰糖 250g-500g</li>
-</ul>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
-<li>阿胶粉加入黄酒搅拌均匀，泡12-24小时。</li>
-<li>冰糖打粉，倒入阿胶中，搅拌均匀。</li>
-<li>大火熬制开锅，中间不断搅拌，转小火，熬至挂旗。</li>
-<li>黑芝麻、核桃仁、红枣、枸杞用小火炒出香味。</li>
-<li>准备一个平底盘，上面铺一层保鲜膜，抹上一层油。再准备一层保鲜膜，抹上一层油。</li>
-<li>将核桃、红枣、桂圆、枸杞加入并搅拌均匀。</li>
-<li>将黑芝麻分两次加入并搅拌均匀。</li>
-<li>将阿胶倒入平底盘，盖上保鲜膜，将阿胶碾平。</li>
-<li>晾凉后放入冰箱冷冻1小时。</li>
-<li>切块食用。</li>
-</ol>
 
           
         
@@ -1859,7 +2000,7 @@
               
                 <a href="/hello-islibra/archives/">
               
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">76</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1870,7 +2011,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
