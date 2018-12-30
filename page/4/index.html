@@ -229,1265 +229,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/16/Druid/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/09/16/Druid/" itemprop="url">Druid</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-16T13:51:33+08:00">
-                2018-09-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/db/" itemprop="url" rel="index">
-                    <span itemprop="name">db</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="SQL-Parser"><a href="#SQL-Parser" class="headerlink" title="SQL Parser"></a>SQL Parser</h1><h2 id="Parser"><a href="#Parser" class="headerlink" title="Parser"></a>Parser</h2><h3 id="Lexer词法分析"><a href="#Lexer词法分析" class="headerlink" title="Lexer词法分析"></a>Lexer词法分析</h3><p>Lexer中拥有词汇表，即Keywords。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> Keywords keywods = Keywords.DEFAULT_KEYWORDS;</span><br></pre></td></tr></table></figure>
-<p><code>DEFAULT_KEYWORDS</code>是一个Map&lt;String, Token&gt;，<code>Token</code>是词汇的枚举类，包含<code>SELECT\INSERT\FROM\WHERE</code>等。</p>
-<p><code>nextToken()</code>从SQL语句解析出下一个单词。<br><code>token()</code>返回上一次解析的单词的Token类型。<br><code>stringVal()</code>获取标识符(Identifier)类型的值。</p>
-<h3 id="Parser语法分析"><a href="#Parser语法分析" class="headerlink" title="Parser语法分析"></a>Parser语法分析</h3><p>在<code>SQLStatementParser</code>的<code>parseStatement</code>方法中通过调用<code>token()</code>方法，解析<code>SQLStatement</code>。如果Token类型为<code>SELECT</code>，则调用<code>parseSelect()</code>方法解析<code>SQLSelectStatement</code>。</p>
-<h2 id="AST抽象语法树"><a href="#AST抽象语法树" class="headerlink" title="AST抽象语法树"></a>AST抽象语法树</h2><h3 id="节点类型"><a href="#节点类型" class="headerlink" title="节点类型"></a>节点类型</h3><ul>
-<li>interface SQLObject {}</li>
-<li><p>interface SQLExpr extends SQLObject {}</p>
-<ul>
-<li><p>interface SQLName extends SQLExpr {}</p>
-<ul>
-<li>class SQLIdentifierExpr implements SQLName  //如<code>ID = 3</code>的<code>ID</code></li>
-<li>class SQLPropertyExpr implements SQLName  //如<code>A.ID = 3</code>的<code>A.ID</code></li>
-</ul>
-</li>
-<li><p>class SQLBinaryOpExpr implements SQLExpr  //如<code>ID = 3</code>是一个SQLBinaryOpExpr，left是ID (SQLIdentifierExpr)，right是3 (SQLIntegerExpr)</p>
-</li>
-<li>class SQLIntegerExpr extends SQLNumericLiteralExpr implements SQLValuableExpr  //如<code>ID = 3</code>的<code>3</code>是一个SQLIntegerExpr</li>
-<li>class SQLCharExpr extends SQLTextLiteralExpr implements SQLValuableExpr  //如<code>NAME = &#39;jobs&#39;</code>的<code>&#39;jobs&#39;</code>是一个SQLCharExpr</li>
-</ul>
-</li>
-<li><p>interface SQLStatement extends SQLObject {}</p>
-<ul>
-<li>class SQLSelectStatement implements SQLStatement</li>
-<li>class SQLUpdateStatement implements SQLStatement</li>
-<li>class SQLDeleteStatement implements SQLStatement</li>
-<li>class SQLInsertStatement implements SQLStatement</li>
-</ul>
-</li>
-<li><p>class SQLCreateTableStatement extends SQLStatementImpl</p>
-</li>
-<li><p>interface SQLTableSource extends SQLObject {}</p>
-<ul>
-<li><p>class SQLTableSourceImpl extends SQLObjectImpl implements SQLTableSource</p>
-<ul>
-<li>class SQLExprTableSource extends SQLTableSourceImpl  //如<code>select * from emp where i = 3</code>，的<code>from emp</code>是一个SQLExprTableSource，其中<code>expr</code>是一个<code>name=emp</code>的SQLIdentifierExpr</li>
-<li>class SQLJoinTableSource extends SQLTableSourceImpl  //如<code>select * from emp e inner join org o on e.org_id = o.id</code>，其中left <code>&#39;emp e&#39;</code> 是一个SQLExprTableSource，right <code>&#39;org o&#39;</code>也是一个SQLExprTableSource，condition <code>&#39;e.org_id = o.id&#39;</code>是一个SQLBinaryOpExpr</li>
-<li>SQLSubqueryTableSource extends SQLTableSourceImpl  //如<code>select * from (select * from temp) a</code>，这里第一层<code>from(...)</code>是一个SQLSubqueryTableSource</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>class SQLSelect extends SQLObject {}</p>
-</li>
-<li>interface SQLSelectQuery extends SQLObject {}</li>
-<li>class SQLSelectQueryBlock extends SQLObject {}</li>
-<li>class SQLUnionQuery implements SQLSelectQuery</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> String dbType = JdbcConstants.MYSQL;  <span class="comment">//可以是ORACLE、POSTGRESQL、SQLSERVER、ODPS等</span></span><br><span class="line">String sql = <span class="string">"select * from t"</span>;</span><br><span class="line">List&lt;SQLStatement&gt; stmtList = SQLUtils.parseStatements(sql, dbType);  <span class="comment">//生成SQL语句</span></span><br><span class="line">SQLExpr expr = SQLUtils.toSQLExpr(<span class="string">"id=3"</span>, dbType);  <span class="comment">//生成表达式</span></span><br></pre></td></tr></table></figure>
-<h2 id="Visitor"><a href="#Visitor" class="headerlink" title="Visitor"></a>Visitor</h2><ul>
-<li>OutputVisitor用来把AST输出为字符串</li>
-<li>WallVisitor分析SQL语意来防御SQL注入攻击</li>
-<li>ParameterizedOutputVisitor用来合并未参数化的SQL进行统计</li>
-<li>EvalVisitor用来对SQL表达式求值</li>
-<li>ExportParameterVisitor用来提取SQL中的变量参数</li>
-<li>SchemaStatVisitor用来统计SQL中使用的表、字段、过滤条件、排序表达式、分组表达式</li>
-<li>SQL格式化 Druid内置了基于语义的SQL格式化功能</li>
-</ul>
-<h2 id="典型操作"><a href="#典型操作" class="headerlink" title="典型操作"></a>典型操作</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br></pre></td><td class="code"><pre><span class="line">String sql = <span class="string">"select * from user order by id"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 新建 MySQL Parser</span></span><br><span class="line">SQLStatementParser parser = <span class="keyword">new</span> MySqlStatementParser(sql);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用Parser解析生成AST，这里SQLStatement就是AST</span></span><br><span class="line">SQLStatement statement = parser.parseStatement();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用visitor来访问AST</span></span><br><span class="line">MySqlSchemaStatVisitor visitor = <span class="keyword">new</span> MySqlSchemaStatVisitor();</span><br><span class="line">statement.accept(visitor);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"getColumns:"</span> + visitor.getColumns());</span><br><span class="line">System.out.println(<span class="string">"getTables:"</span> + visitor.getTables());</span><br><span class="line">System.out.println(<span class="string">"getParameters:"</span> + visitor.getParameters());</span><br><span class="line">System.out.println(<span class="string">"getOrderByColumns:"</span> + visitor.getOrderByColumns());</span><br><span class="line">System.out.println(<span class="string">"getGroupByColumns:"</span> + visitor.getGroupByColumns());</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(statement <span class="keyword">instanceof</span> SQLSelectStatement)</span><br><span class="line">&#123;</span><br><span class="line">    SQLSelect select = ((SQLSelectStatement) statement).getSelect();</span><br><span class="line">    SQLSelectQuery query = select.getQuery();</span><br><span class="line">    <span class="keyword">if</span>(query <span class="keyword">instanceof</span> SQLSelectQueryBlock)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//解析Table</span></span><br><span class="line">        SQLTableSource table = ((SQLSelectQueryBlock) query).getFrom();</span><br><span class="line">        System.out.println(<span class="string">"getFrom: "</span> + table);</span><br><span class="line">        <span class="comment">//关联查询</span></span><br><span class="line">        <span class="keyword">if</span>(table <span class="keyword">instanceof</span> SQLJoinTableSource)</span><br><span class="line">        &#123;</span><br><span class="line">            SQLJoinTableSource joinTable=(SQLJoinTableSource)table;</span><br><span class="line">            String joinType=joinTable.getJoinType().toString();</span><br><span class="line">            System.out.println(<span class="string">"joinType: "</span> + joinType);  <span class="comment">//关联类型：JOIN/COMMA</span></span><br><span class="line">            System.out.println(<span class="string">"getLeft: "</span> + joinTable.getLeft());  <span class="comment">//左表</span></span><br><span class="line">            System.out.println(<span class="string">"getRight: "</span> + joinTable.getRight());  <span class="comment">//右表</span></span><br><span class="line">            SQLExpr expr = joinTable.getCondition();  <span class="comment">//关联条件</span></span><br><span class="line">            System.out.println(<span class="string">"getCondition: "</span> + expr);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">""</span>);</span><br><span class="line">        <span class="comment">//查询列</span></span><br><span class="line">        List&lt;SQLSelectItem&gt; mysqlSelectList = ((SQLSelectQueryBlock) query).getSelectList();</span><br><span class="line">        System.out.println(<span class="string">"getSelectList: "</span> + mysqlSelectList);</span><br><span class="line">        <span class="keyword">for</span>(SQLSelectItem sqlSelectItem : mysqlSelectList)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//select *</span></span><br><span class="line">            <span class="keyword">if</span> (sqlSelectItem.getExpr() <span class="keyword">instanceof</span> SQLAllColumnExpr)</span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(<span class="string">"getExpr: "</span> + sqlSelectItem.getExpr());</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//聚合函数</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(sqlSelectItem.getExpr() <span class="keyword">instanceof</span> SQLAggregateExpr)</span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(<span class="string">"getMethodName: "</span> + ((SQLAggregateExpr) sqlSelectItem.getExpr()).getMethodName());  <span class="comment">//函数名称</span></span><br><span class="line">                System.out.println(<span class="string">"getArguments: "</span> + ((SQLAggregateExpr) sqlSelectItem.getExpr()).getArguments());  <span class="comment">//参数列表</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (sqlSelectItem.getExpr() <span class="keyword">instanceof</span> SQLPropertyExpr)</span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(<span class="string">"getExpr: "</span> + sqlSelectItem.getExpr());</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(<span class="string">"item: "</span> + sqlSelectItem);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">""</span>);</span><br><span class="line">        <span class="comment">//查询条件</span></span><br><span class="line">        SQLExpr expr = ((SQLSelectQueryBlock) query).getWhere();</span><br><span class="line">        System.out.println(<span class="string">"getWhere: "</span> + expr);</span><br><span class="line">        <span class="keyword">if</span> (expr <span class="keyword">instanceof</span> SQLBinaryOpExpr)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//表达式</span></span><br><span class="line">            SQLBinaryOpExpr bexpr = (SQLBinaryOpExpr)expr;</span><br><span class="line">            System.out.println(<span class="string">"getLeft: "</span> + bexpr.getLeft());</span><br><span class="line">            System.out.println(<span class="string">"getRight: "</span> + bexpr.getRight());</span><br><span class="line">            System.out.println(<span class="string">"getOperator: "</span> + bexpr.getOperator());  <span class="comment">//BooleanAnd\BooleanOr</span></span><br><span class="line">            <span class="keyword">if</span> (bexpr.getLeft() <span class="keyword">instanceof</span> SQLBinaryOpExpr)</span><br><span class="line">            &#123;</span><br><span class="line">                SQLBinaryOpExpr bexprL = (SQLBinaryOpExpr)bexpr.getLeft();</span><br><span class="line">                System.out.println(<span class="string">"LgetLeft: "</span> + bexprL.getLeft());</span><br><span class="line">                <span class="comment">//字符串值</span></span><br><span class="line">                <span class="keyword">if</span> (bexprL.getRight() <span class="keyword">instanceof</span> SQLCharExpr)</span><br><span class="line">                &#123;</span><br><span class="line">                    System.out.println(<span class="string">"LgetRight: "</span> + ((SQLCharExpr)bexprL.getRight()).toString());</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//Equality</span></span><br><span class="line">                <span class="keyword">if</span> (SQLBinaryOperator.Equality == bexprL.getOperator())</span><br><span class="line">                &#123;</span><br><span class="line">                    System.out.println(<span class="string">"LgetOperator: ="</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (bexpr.getRight() <span class="keyword">instanceof</span> SQLBinaryOpExpr)</span><br><span class="line">            &#123;</span><br><span class="line">                SQLBinaryOpExpr bexprR = (SQLBinaryOpExpr)bexpr.getRight();</span><br><span class="line">                System.out.println(<span class="string">"RgetLeft: "</span> + bexprR.getLeft());</span><br><span class="line">                <span class="comment">//数字值</span></span><br><span class="line">                <span class="keyword">if</span> (bexprR.getRight() <span class="keyword">instanceof</span> SQLIntegerExpr)</span><br><span class="line">                &#123;</span><br><span class="line">                    System.out.println(<span class="string">"RgetRight: "</span> + ((SQLIntegerExpr)bexprR.getRight()).getNumber().longValue());</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(<span class="string">"RgetOperator: "</span> + bexprR.getOperator());  <span class="comment">//GreaterThan</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(expr <span class="keyword">instanceof</span> SQLInListExpr)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//IN子句</span></span><br><span class="line">            SQLInListExpr inexpr = (SQLInListExpr)expr;</span><br><span class="line">            SQLExpr exprL =  inexpr.getExpr();</span><br><span class="line">            System.out.println(<span class="string">"in getExpr: "</span> + exprL);</span><br><span class="line">            System.out.println(<span class="string">"toMySqlString: "</span> + SQLUtils.toMySqlString(inexpr));  <span class="comment">//将IN转换成key in (values)</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">""</span>);</span><br><span class="line">        <span class="comment">//排序</span></span><br><span class="line">        SQLOrderBy orderby = ((SQLSelectQueryBlock) query).getOrderBy();</span><br><span class="line">        <span class="keyword">if</span> (orderby != <span class="keyword">null</span> )</span><br><span class="line">        &#123;</span><br><span class="line">            List&lt;SQLSelectOrderByItem&gt; orderbyItems = orderby.getItems();</span><br><span class="line">            <span class="keyword">for</span> (SQLSelectOrderByItem orderitem : orderbyItems)</span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(<span class="string">"getExpr: "</span> + orderitem.getExpr());</span><br><span class="line">                <span class="keyword">if</span> (SQLOrderingSpecification.ASC==orderitem.getType() || SQLOrderingSpecification.DESC==orderitem.getType())</span><br><span class="line">                &#123;</span><br><span class="line">                    System.out.println(<span class="string">"getType: "</span> + orderitem.getType());  <span class="comment">//ASC\DESC</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">""</span>);</span><br><span class="line">        <span class="comment">//分页</span></span><br><span class="line">        SQLLimit limit = ((SQLSelectQueryBlock) query).getLimit();</span><br><span class="line">        <span class="keyword">if</span> (limit != <span class="keyword">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(<span class="string">"getOffset: "</span> + limit.getOffset());</span><br><span class="line">            System.out.println(<span class="string">"getRowCount: "</span> + limit.getRowCount());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建表语句中查找主键和自增字段</span></span><br><span class="line"><span class="keyword">if</span>(statement <span class="keyword">instanceof</span> MySqlCreateTableStatement)</span><br><span class="line">&#123;</span><br><span class="line">    MySqlCreateTableStatement createTableStatement = (MySqlCreateTableStatement)statement;</span><br><span class="line">    List&lt;SQLTableElement&gt; tableElementList = createTableStatement.getTableElementList();</span><br><span class="line">    <span class="comment">// 找出主键</span></span><br><span class="line">    <span class="keyword">for</span> (SQLTableElement element : tableElementList) &#123;</span><br><span class="line">        <span class="comment">// 单独定义的主键，PRIMARY KEY (name，id)</span></span><br><span class="line">        <span class="keyword">if</span> (element <span class="keyword">instanceof</span> MySqlPrimaryKey) &#123;</span><br><span class="line">            List&lt;SQLExpr&gt; columns = ((MySqlPrimaryKey) element).getColumns();</span><br><span class="line">            System.out.println(<span class="string">"PrimaryKey: "</span> + columns.get(<span class="number">0</span>).toString());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 字段定义后面 id int primary key,</span></span><br><span class="line">        <span class="keyword">if</span> (element <span class="keyword">instanceof</span> SQLColumnDefinition) &#123;</span><br><span class="line">            SQLColumnDefinition columnDefinition = (SQLColumnDefinition) element;</span><br><span class="line">            <span class="comment">// 自增长列名称</span></span><br><span class="line">            String columnName = columnDefinition.getName().toString();</span><br><span class="line">            <span class="comment">//判断id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY</span></span><br><span class="line">            List&lt;SQLColumnConstraint&gt; constraints = columnDefinition.getConstraints();</span><br><span class="line">            <span class="keyword">for</span> (SQLColumnConstraint constraintTmp : constraints) &#123;</span><br><span class="line">                <span class="keyword">if</span> (constraintTmp <span class="keyword">instanceof</span> SQLColumnPrimaryKey) &#123;</span><br><span class="line">                    System.out.println(<span class="string">"Constraint PrimaryKey: "</span> + columnName);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 自增字段</span></span><br><span class="line">            <span class="keyword">if</span> (columnDefinition.isAutoIncrement())</span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(<span class="string">"AutoIncrement: "</span> + columnName);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 字段类型</span></span><br><span class="line">            SQLDataType sqlDataType = columnDefinition.getDataType();</span><br><span class="line">            <span class="keyword">if</span> (sqlDataType != <span class="keyword">null</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">"DataType: "</span> + sqlDataType.getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://github.com/alibaba/druid/wiki/SQL-Parser" target="_blank" rel="noopener">官方文档</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/MySQL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/09/08/MySQL/" itemprop="url">MySQL</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:58:45+08:00">
-                2018-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/db/" itemprop="url" rel="index">
-                    <span itemprop="name">db</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h1><p>schema：数据库，例如查询所有数据库名称和默认编码：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select schema_name, default_character_set_name from information_schema.schemata;</span><br><span class="line"></span><br><span class="line">+<span class="comment">--------------------+----------------------------+</span></span><br><span class="line">| schema_name        | default_character_set_name |</span><br><span class="line">+<span class="comment">--------------------+----------------------------+</span></span><br><span class="line">| information_schema | utf8                       |</span><br><span class="line">| db_6922_0000       | latin1                     |</span><br><span class="line">| mysql              | latin1                     |</span><br><span class="line">| performance_schema | utf8                       |</span><br><span class="line">| sys                | utf8                       |</span><br><span class="line">+<span class="comment">--------------------+----------------------------+</span></span><br><span class="line">12 rows in <span class="keyword">set</span> (<span class="number">0.02</span> sec)</span><br></pre></td></tr></table></figure>
-<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* ... */</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><code>/*! ... */</code> 仅在MySQL中执行。如：<code>/*! select * from user*/;</code><br><code>/*!50001 select * from user*/;</code> 仅在5.00.01以上的MySQL版本中执行。</p>
-</blockquote>
-<h1 id="information-schema数据库"><a href="#information-schema数据库" class="headerlink" title="information_schema数据库"></a>information_schema数据库</h1><h2 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h2><ul>
-<li>CHARACTER_SETS: 字符集</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*查看支持的字符集*/</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span>;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> information_schema.CHARACTER_SETS;</span><br><span class="line"><span class="keyword">SHOW</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> <span class="keyword">where</span> <span class="keyword">charset</span>=<span class="string">'utf8'</span>;</span><br><span class="line"><span class="keyword">SHOW</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> <span class="keyword">like</span> <span class="string">'utf8%'</span>;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>COLLATIONS: 字符集排序规则</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*查看支持的字符序*/</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">COLLATION</span>;</span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">COLLATION</span> <span class="keyword">where</span> <span class="keyword">charset</span>=<span class="string">'utf8'</span>;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> information_schema.COLLATIONS <span class="keyword">where</span> CHARACTER_SET_NAME=<span class="string">'utf8'</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="设置级别"><a href="#设置级别" class="headerlink" title="设置级别"></a>设置级别</h3><h4 id="server"><a href="#server" class="headerlink" title="server"></a>server</h4><p>创建数据库时未指定字符集，字符序，默认使用server字符集，字符序。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*查看server字符集，字符序*/</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'character_set_server'</span>;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'collation_server'</span>;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>启动服务时指定：</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqld --character-set-server=latin1 \</span><br><span class="line">       --collation-server=latin1_swedish_ci</span><br></pre></td></tr></table></figure>
-<ul>
-<li>配置文件指定，<code>/etc/my.cnf</code>：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line">default-character-set=utf8</span><br><span class="line"></span><br><span class="line">[mysql]</span><br><span class="line">default-character-set=utf8</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">character-set-server=utf8</span><br><span class="line">collation-server=utf8_unicode_ci</span><br><span class="line">#指定客户端连接使用的字符集，相当于运行时执行：SET NAMES &apos;utf8&apos;;</span><br><span class="line">#SET character_set_client = utf8; SET character_set_results = utf8; SET character_set_connection = utf8;</span><br><span class="line">init-connect=&apos;SET NAMES utf8&apos;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>运行时修改</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> character_set_server=utf8;  <span class="comment">/*重启后生效*/</span></span><br></pre></td></tr></table></figure>
-<h4 id="database"><a href="#database" class="headerlink" title="database"></a>database</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*查看数据库字符集，字符序*/</span></span><br><span class="line"><span class="keyword">select</span> @@character_set_database, @@collation_database;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> information_schema.SCHEMATA <span class="keyword">where</span> SCHEMA_NAME=<span class="string">'xxx'</span>;</span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> xxx;</span><br><span class="line"><span class="comment">/*创建数据库时设置字符集*/</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> test_schema <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8;</span><br><span class="line"><span class="comment">/*修改数据库字符集*/</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> test_schema <span class="keyword">default</span> <span class="built_in">character</span> <span class="keyword">set</span>=gb2312;</span><br></pre></td></tr></table></figure>
-<h4 id="table"><a href="#table" class="headerlink" title="table"></a>table</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*创建表时指定字符集*/</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">PersonID <span class="built_in">int</span>,</span><br><span class="line">PName <span class="built_in">varchar</span>(<span class="number">255</span>)</span><br><span class="line">) <span class="keyword">DEFAULT</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span>=utf8;</span><br><span class="line"><span class="comment">/*修改表字符集*/</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons <span class="keyword">default</span> <span class="built_in">character</span> <span class="keyword">set</span>=utf8;</span><br><span class="line"><span class="comment">/*查看表字符集*/</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">TABLE</span> <span class="keyword">STATUS</span> <span class="keyword">FROM</span> test_schema;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> information_schema.TABLES <span class="keyword">where</span> TABLE_SCHEMA=<span class="string">'test_schema'</span> <span class="keyword">and</span> TABLE_NAME=<span class="string">'Persons'</span>;</span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons;</span><br></pre></td></tr></table></figure>
-<h4 id="column"><a href="#column" class="headerlink" title="column"></a>column</h4><p>类型为CHAR, VARCHAR, TEXT的列，可以指定字符集，字符序。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*新增列时指定字符集*/</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> Addr <span class="built_in">VARCHAR</span>(<span class="number">25</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8;</span><br><span class="line"><span class="comment">/*查看列字符集*/</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> information_schema.COLUMNS <span class="keyword">where</span> TABLE_SCHEMA=<span class="string">'test_schema'</span> <span class="keyword">and</span> TABLE_NAME=<span class="string">'Persons'</span>;</span><br></pre></td></tr></table></figure>
-<p>参考链接：<a href="https://dev.mysql.com/doc/refman/5.7/en/charset.html" target="_blank" rel="noopener">Character Sets, Collations, Unicode</a></p>
-<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><blockquote>
-<ul>
-<li>SCHEMA_PRIVILEGES 数据库相关权限，mysql.db</li>
-<li>TABLE_PRIVILEGES 表相关权限，mysql.tables_priv</li>
-<li>COLUMN_PRIVILEGES 表授权的用户对象</li>
-<li>USER_PRIVILEGES 用户相关权限，mysql.user<ul>
-<li>Select_priv</li>
-<li>Insert_priv</li>
-<li>Update_priv</li>
-<li>Delete_priv</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 新增用户，限制登录ip为10.155.123.%，%为通配符 */</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> mysql.user(Host,<span class="keyword">User</span>,<span class="keyword">Password</span>) <span class="keyword">VALUES</span>(<span class="string">"10.155.123.%"</span>,<span class="string">"kaka"</span>,<span class="keyword">PASSWORD</span>(<span class="string">"kaka123"</span>));</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;  <span class="comment">/* 刷新系统权限相关表 */</span></span><br><span class="line">service mysqld restart  <span class="comment">/* 重启生效 */</span></span><br></pre></td></tr></table></figure>
-<h3 id="权限分配"><a href="#权限分配" class="headerlink" title="权限分配"></a>权限分配</h3><p><code>GRANT 权限 ON 数据库.* TO 用户名@&#39;登录主机&#39; IDENTIFIED BY &#39;密码&#39;</code></p>
-<ul>
-<li>权限：<code>ALL,ALTER,CREATE,DROP,SELECT,UPDATE,DELETE</code></li>
-<li>数据库：<code>*.*  表示所有库的所有表</code></li>
-<li>用户名：<code>MySQL的账户名</code></li>
-<li>登陆主机：<code>&#39;%&#39;表示所有ip</code></li>
-<li>密码：<code>MySQL的账户名对应的登陆密码</code></li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span> <span class="keyword">ON</span> test.user <span class="keyword">TO</span> kaka@<span class="string">'10.155.123.55'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'123456'</span>;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">Grants</span> <span class="keyword">for</span> <span class="string">'kaka'</span>@<span class="string">'10.155.123.55'</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="实体对象"><a href="#实体对象" class="headerlink" title="实体对象"></a>实体对象</h2><blockquote>
-<ul>
-<li>COLUMNS 表字段</li>
-<li>SCHEMATA 所有数据库及默认字符集</li>
-</ul>
-</blockquote>
-<h1 id="MySQL协议"><a href="#MySQL协议" class="headerlink" title="MySQL协议"></a>MySQL协议</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><h3 id="Integers"><a href="#Integers" class="headerlink" title="Integers"></a>Integers</h3><h4 id="Fixed-length-integers"><a href="#Fixed-length-integers" class="headerlink" title="Fixed-length integers"></a>Fixed-length integers</h4><p>定长，例 int<3><br><code>01 00 00</code></3></p>
-<h4 id="Length-encoded-integers"><a href="#Length-encoded-integers" class="headerlink" title="Length-encoded integers"></a>Length-encoded integers</h4><p>用第一个字节代表存储长度。例：</p>
-<p><code>fa</code>       – 250<br><code>fc fb 00</code> – 251</p>
-<ul>
-<li>&lt;0xfb 1字节</li>
-<li>0xfc 2字节</li>
-<li>0xfd 3字节</li>
-<li>0xfe 8字节</li>
-</ul>
-<h3 id="Strings"><a href="#Strings" class="headerlink" title="Strings"></a>Strings</h3><h4 id="FixedLengthString"><a href="#FixedLengthString" class="headerlink" title="FixedLengthString"></a>FixedLengthString</h4><p>定长，例 <code>string&lt;fix&gt;</code></p>
-<h4 id="NulTerminatedString"><a href="#NulTerminatedString" class="headerlink" title="NulTerminatedString"></a>NulTerminatedString</h4><p><code>string&lt;NUL&gt;</code> ，以 <code>00</code> 结尾。</p>
-<h4 id="VariableLengthString"><a href="#VariableLengthString" class="headerlink" title="VariableLengthString"></a>VariableLengthString</h4><p><code>string&lt;var&gt;</code></p>
-<h4 id="LengthEncodedString"><a href="#LengthEncodedString" class="headerlink" title="LengthEncodedString"></a>LengthEncodedString</h4><p><code>string&lt;lenenc&gt;</code></p>
-<h4 id="RestOfPacketString"><a href="#RestOfPacketString" class="headerlink" title="RestOfPacketString"></a>RestOfPacketString</h4><p><code>string&lt;EOF&gt;</code></p>
-<h2 id="Packets"><a href="#Packets" class="headerlink" title="Packets"></a>Packets</h2><p>MySQL协议包被切分为最多2^24-1字节，每个分片携带包头。</p>
-<h3 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h3><table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>int<3></3></td>
-<td>payload_length</td>
-<td>payload长度</td>
-</tr>
-<tr>
-<td>int<1></1></td>
-<td>sequence_id</td>
-<td>报文序列号</td>
-</tr>
-<tr>
-<td>string<var></var></td>
-<td>payload</td>
-<td>payload</td>
-</tr>
-</tbody>
-</table>
-<p>例，<code>COM_QUIT</code>：</p>
-<p><code>01 00 00 00 01</code></p>
-<ul>
-<li>length: 0x01</li>
-<li>sequence_id: 0x00</li>
-<li>payload: 0x01</li>
-</ul>
-<p><code>COM_QUERY</code>：</p>
-<p><code>13 00 00 00 03 53 ...</code></p>
-<ul>
-<li>length: 0x13</li>
-<li>sequence_id: 0x00</li>
-<li>命令类型：0x03</li>
-<li>命令：0x53 …</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/UML/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/09/08/UML/" itemprop="url">UML</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:56:17+08:00">
-                2018-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/design/" itemprop="url" rel="index">
-                    <span itemprop="name">design</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h1><ul>
-<li>类名</li>
-<li>属性field</li>
-<li>方法method</li>
-</ul>
-<h2 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h2><blockquote>
-<p>public +<br>private -<br>protected #</p>
-</blockquote>
-<h2 id="完整表示"><a href="#完整表示" class="headerlink" title="完整表示"></a>完整表示</h2><p>可见性  名称 ：类型 [ = 缺省值]<br>可见性  名称(参数列表) [ ： 返回类型]</p>
-<h2 id="类之间的关系"><a href="#类之间的关系" class="headerlink" title="类之间的关系"></a>类之间的关系</h2><h3 id="单向关联"><a href="#单向关联" class="headerlink" title="单向关联"></a>单向关联</h3><p>箭头 -&gt;</p>
-<h3 id="双向关联"><a href="#双向关联" class="headerlink" title="双向关联"></a>双向关联</h3><p>直线 -</p>
-<h3 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h3><p>空心菱形箭头 &lt;&gt;-&gt;</p>
-<h3 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h3><p>实心菱形箭头 &lt;*&gt;-&gt;</p>
-<h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><p>虚线箭头 —&gt;</p>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>空心三角 -|&gt;</p>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>虚线空心三角 —|&gt;</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/AIO/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/09/08/AIO/" itemprop="url">AIO</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:54:02+08:00">
-                2018-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>AIO需要操作系统支持.</p>
-<h1 id="核心类"><a href="#核心类" class="headerlink" title="核心类"></a>核心类</h1><ul>
-<li><p>AsynchronousChannelGroup</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用线程池初始化AsynchronousChannelGroup</span></span><br><span class="line">ExecutorService executorService = Executors.newFixedThreadPool(<span class="number">80</span>);  <span class="comment">//处理IO事件和触发CompletionHandler回调接口</span></span><br><span class="line">AsynchronousChannelGroup channelGroup = AsynchronousChannelGroup.withThreadPool(executorService);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>AsynchronousServerSocketChannel</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用group初始化server socket</span></span><br><span class="line">AsynchronousServerSocketChannel serverChannel = AsynchronousServerSocketChannel.open(channelGroup);</span><br><span class="line">setOption(SocketOption&lt;T&gt; name, T value)  <span class="comment">//配置Socket参数</span></span><br><span class="line">serverChannel.bind(<span class="keyword">new</span> InetSocketAddress(ip, port), <span class="number">100</span>);  <span class="comment">//backlog参数指定队列中挂起的连接的最大个数</span></span><br><span class="line"></span><br><span class="line"><span class="function">Future&lt;AsynchronousSocketChannel&gt; <span class="title">accept</span><span class="params">()</span>  <span class="comment">//通过返回Future的get方法接收客户端请求</span></span></span><br><span class="line"><span class="function"><span class="comment">//示例代码</span></span></span><br><span class="line"><span class="function"><span class="title">while</span> <span class="params">(<span class="keyword">true</span>)</span></span>&#123;</span><br><span class="line">    Future&lt;AsynchronousSocketChannel&gt; future = serverSocketChannel.accept();</span><br><span class="line">    AsynchronousSocketChannel socketChannel = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        socketChannel = future.get();</span><br><span class="line">        socketChannel.write(ByteBuffer.wrap(<span class="string">"ssss"</span>.getBytes(<span class="string">"UTF-8"</span>)));</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;A&gt; <span class="function"><span class="keyword">void</span> <span class="title">accept</span><span class="params">(A attachment ,CompletionHandler&lt;AsynchronousSocketChannel,? <span class="keyword">super</span> A&gt; handler)</span>  <span class="comment">//通过回调方法接收客户端请求</span></span></span><br><span class="line"><span class="function"><span class="comment">//CompletionHandler定义两个方法：</span></span></span><br><span class="line"><span class="function"><span class="title">completed</span><span class="params">(V result , A attachment)</span>  <span class="comment">//参数：IO操作返回的对象AsynchronousSocketChannel， 发起IO操作时传入的附加参数</span></span></span><br><span class="line"><span class="function"><span class="title">faild</span><span class="params">(Throwable exc, A attachment)</span>  <span class="comment">//参数：IO操作失败引发的异常或错误， 发起IO操作时传入的附加参数</span></span></span><br><span class="line"><span class="function"><span class="comment">//示例代码</span></span></span><br><span class="line"><span class="function">server.<span class="title">accept</span><span class="params">(<span class="keyword">null</span>, new CompletionHandler&lt;AsynchronousSocketChannel, Object&gt;()</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">final</span> ByteBuffer buffer = ByteBuffer.allocate(<span class="number">1024</span>);  </span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">completed</span><span class="params">(AsynchronousSocketChannel result, Object attachment)</span> </span>&#123;  </span><br><span class="line">        System.out.println(<span class="string">"waiting...."</span>);  </span><br><span class="line">        buffer.clear();  </span><br><span class="line">        <span class="keyword">try</span> &#123;  </span><br><span class="line">            <span class="comment">//把socket中的数据读取到buffer中  </span></span><br><span class="line">            result.read(buffer).get();  </span><br><span class="line">            buffer.flip();  </span><br><span class="line">            System.out.println(<span class="string">"Echo "</span> + <span class="keyword">new</span> String(buffer.array()).trim() + <span class="string">" to "</span> + result);  </span><br><span class="line">             </span><br><span class="line">            <span class="comment">//把收到的直接返回给客户端  </span></span><br><span class="line">            result.write(buffer);  </span><br><span class="line">            buffer.flip();  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (ExecutionException e) &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;  </span><br><span class="line">            <span class="keyword">try</span> &#123;  </span><br><span class="line">                <span class="comment">//关闭处理完的socket，并重新调用accept等待新的连接  </span></span><br><span class="line">                result.close();  </span><br><span class="line">                server.accept(<span class="keyword">null</span>, <span class="keyword">this</span>);  </span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;  </span><br><span class="line">                e.printStackTrace();  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">failed</span><span class="params">(Throwable exc, Object attachment)</span> </span>&#123;  </span><br><span class="line">        System.out.print(<span class="string">"Server failed...."</span> + exc.getCause());  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>AsynchronousSocketChannel</p>
-<ul>
-<li>connect()  用于连接到指定IP/端口的服务器</li>
-<li>read()</li>
-<li>write()</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/curl/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/09/08/curl/" itemprop="url">curl</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:49:42+08:00">
-                2018-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/web/" itemprop="url" rel="index">
-                    <span itemprop="name">web</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h1><blockquote>
-<ul>
-<li>-i –include 输出协议头信息</li>
-<li>-k –insecure 访问SSL网站不校验证书</li>
-<li>-H –header LINE 自定义header</li>
-<li>-X –request COMMAND 请求类型POST/GET/PUT/DELETE</li>
-<li>-d –data DATA HTTP POST body</li>
-<li>-v –verbose 显示冗余信息</li>
-</ul>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/grep/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/09/08/grep/" itemprop="url">grep</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:48:21+08:00">
-                2018-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/os/" itemprop="url" rel="index">
-                    <span itemprop="name">os</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在每个FILE或标准输入中查找PATTERN.</p>
-<h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -i <span class="string">'hello world'</span> first.java second.properties</span><br></pre></td></tr></table></figure>
-<h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><blockquote>
-<ul>
-<li>-i –ignore-case 忽略大小写</li>
-<li>-v –invert-match 查找不匹配的行</li>
-</ul>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/MongoDB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiXiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's horizon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hello-islibra/2018/09/08/MongoDB/" itemprop="url">MongoDB</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:46:28+08:00">
-                2018-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hello-islibra/categories/db/" itemprop="url" rel="index">
-                    <span itemprop="name">db</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="NoSQL数据库分类"><a href="#NoSQL数据库分类" class="headerlink" title="NoSQL数据库分类"></a>NoSQL数据库分类</h1><table>
-<thead>
-<tr>
-<th>类型</th>
-<th>部分代表</th>
-<th>特点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>列存储</td>
-<td>Hbase, Cassandra, Hypertable</td>
-<td>顾名思义，是按列存储数据的。最大的特点是方便存储结构化和半结构化数据，方便做数据压缩，对针对某一列或者某几列的查询有非常大的IO优势。</td>
-</tr>
-<tr>
-<td>文档存储</td>
-<td>MongoDB, CouchDB</td>
-<td>文档存储一般用类似json的格式存储，存储的内容是文档型的。这样也就有有机会对某些字段建立索引，实现关系数据库的某些功能。</td>
-</tr>
-<tr>
-<td>key-value存储</td>
-<td>Tokyo Cabinet / Tyrant, Berkeley DB, MemcacheDB, Redis</td>
-<td>可以通过key快速查询到其value。一般来说，存储不管value的格式，照单全收。（Redis包含了其他功能）</td>
-</tr>
-<tr>
-<td>图存储</td>
-<td>Neo4J, FlockDB</td>
-<td>图形关系的最佳存储。使用传统关系数据库来解决的话性能低下，而且设计使用不方便。</td>
-</tr>
-<tr>
-<td>对象存储</td>
-<td>db4o, Versant</td>
-<td>通过类似面向对象语言的语法操作数据库，通过对象的方式存取数据。</td>
-</tr>
-<tr>
-<td>xml数据库</td>
-<td>Berkeley DB XML, BaseX</td>
-<td>高效的存储XML数据，并支持XML的内部查询语法，比如XQuery,Xpath。</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MongoDB常用命令"><a href="#MongoDB常用命令" class="headerlink" title="MongoDB常用命令"></a>MongoDB常用命令</h1><p>启动服务：<code>./mongod</code><br>管理：<code>./mongo</code><br>显示所有数据库：<code>show dbs</code><br>显示当前数据库：<code>db</code><br>连接到数据库：<code>use local</code><br>插入数据：<code>db.runoob.insert({x:10})</code><br>查找数据：<code>db.runoob.find()</code></p>
-<h1 id="使用Node-js连接MongoDB"><a href="#使用Node-js连接MongoDB" class="headerlink" title="使用Node.js连接MongoDB"></a>使用Node.js连接MongoDB</h1><p><a href="http://mongodb.github.io/node-mongodb-native/3.1/quick-start/quick-start/" target="_blank" rel="noopener">Quick Start</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/Java单元测试/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1955,11 +696,1174 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/Node-js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/09/08/Node-js/" itemprop="url">Node.js</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:35:35+08:00">
+                2018-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Node.js是javascript的运行时，基于Chrome的V8引擎，可直接运行javascript代码。</p>
+<p><a href="http://nodejs.org/" target="_blank" rel="noopener">官方下载地址</a></p>
+<p>内容包含：</p>
+<ul>
+<li>Node.js runtime(node.exe) javascript运行时环境</li>
+<li>npm package manager npm包管理器</li>
+</ul>
+<h1 id="查看Node-js版本"><a href="#查看Node-js版本" class="headerlink" title="查看Node.js版本"></a>查看Node.js版本</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+<h1 id="交互式运行"><a href="#交互式运行" class="headerlink" title="交互式运行"></a>交互式运行</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ node</span><br><span class="line">&gt; console.log(<span class="string">'hello'</span>);</span><br><span class="line">hello</span><br></pre></td></tr></table></figure>
+<h1 id="运行javascript文件"><a href="#运行javascript文件" class="headerlink" title="运行javascript文件"></a>运行javascript文件</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node min.js</span><br></pre></td></tr></table></figure>
+<h1 id="官方Demo，运行一个http-server"><a href="#官方Demo，运行一个http-server" class="headerlink" title="官方Demo，运行一个http server"></a>官方Demo，运行一个http server</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);  <span class="comment">//载入Node.js模块</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> hostname = <span class="string">'127.0.0.1'</span>;</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">3000</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建http服务器</span></span><br><span class="line"><span class="keyword">const</span> server = http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.statusCode = <span class="number">200</span>;</span><br><span class="line">  res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/plain'</span>);</span><br><span class="line">  res.end(<span class="string">'Hello World\n'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//监听并响应请求</span></span><br><span class="line">server.listen(port, hostname, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Server running at http://<span class="subst">$&#123;hostname&#125;</span>:<span class="subst">$&#123;port&#125;</span>/`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="查看npm版本"><a href="#查看npm版本" class="headerlink" title="查看npm版本"></a>查看npm版本</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm -v</span><br><span class="line">6.2.0</span><br></pre></td></tr></table></figure>
+<h1 id="npm设置-取消代理"><a href="#npm设置-取消代理" class="headerlink" title="npm设置/取消代理"></a>npm设置/取消代理</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> proxy http://username:password@server:port</span><br><span class="line">npm config <span class="built_in">set</span> https-proxy http://username:password@server:port</span><br><span class="line">npm config delete proxy</span><br><span class="line">npm config delete https-proxy</span><br><span class="line">npm config list</span><br></pre></td></tr></table></figure>
+<h1 id="使用npm安装模块"><a href="#使用npm安装模块" class="headerlink" title="使用npm安装模块"></a>使用npm安装模块</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-g 全局安装</span></span><br><span class="line"><span class="comment">#代码中通过require('xxx')载入模块</span></span><br><span class="line"><span class="comment">#同样适用于升级npm版本，如npm install npm -g</span></span><br><span class="line">npm install xxx -g</span><br></pre></td></tr></table></figure>
+<ul>
+<li>本地安装：在当前目录新建./node_modules目录存放安装包，代码中通过require()载入模块。</li>
+<li>全局安装：安装包存放在/usr/local或node安装目录（C:\Users\xxx\AppData\Roaming\npm\node_modules\xxx），可直接在命令行使用。</li>
+</ul>
+<h1 id="查看已安装的模块"><a href="#查看已安装的模块" class="headerlink" title="查看已安装的模块"></a>查看已安装的模块</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm list -g</span><br><span class="line">npm list xxx</span><br></pre></td></tr></table></figure>
+<h1 id="卸载-更新-搜索模块"><a href="#卸载-更新-搜索模块" class="headerlink" title="卸载/更新/搜索模块"></a>卸载/更新/搜索模块</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm uninstall express</span><br><span class="line">$ npm update express</span><br><span class="line">$ npm search express</span><br></pre></td></tr></table></figure>
+<h1 id="创建模块并发布"><a href="#创建模块并发布" class="headerlink" title="创建模块并发布"></a>创建模块并发布</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm init</span><br><span class="line">$ npm adduser</span><br><span class="line">Username:</span><br><span class="line">...</span><br><span class="line">$ npm publish</span><br></pre></td></tr></table></figure>
+<h1 id="使用淘宝镜像"><a href="#使用淘宝镜像" class="headerlink" title="使用淘宝镜像"></a>使用淘宝镜像</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line">$ cnpm install [name]</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/Vue-js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/09/08/Vue-js/" itemprop="url">Vue.js</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:33:44+08:00">
+                2018-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p><a href="https://vuejs.org/js/vue.js" target="_blank" rel="noopener">开发版本</a><br><a href="https://vuejs.org/js/vue.min.js" target="_blank" rel="noopener">生产版本</a></p>
+<h1 id="Hello-Vue-js"><a href="#Hello-Vue-js" class="headerlink" title="Hello Vue.js"></a>Hello Vue.js</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Vue Demo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 引入库 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  &#123;&#123; message &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el: <span class="string">'#app'</span>,</span></span><br><span class="line"><span class="undefined">  data: &#123;</span></span><br><span class="line"><span class="javascript">    message: <span class="string">'Hello Vue!'</span></span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-bind:title</span>=<span class="string">"message"</span>&gt;</span></span><br><span class="line">  鼠标悬停几秒钟查看此处动态绑定的提示信息！</span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>基于Vue.js的UI库：<a href="http://v2.iviewui.com/docs/guide/start" target="_blank" rel="noopener">iView</a></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/Lambda表达式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/09/08/Lambda表达式/" itemprop="url">Lambda表达式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:31:47+08:00">
+                2018-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Lambda表达式表示函数接口的实例，可以作为参数传递进方法中。</p>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><blockquote>
+<p>(parameters) -&gt; expression</p>
+</blockquote>
+<p>或</p>
+<blockquote>
+<p>(parameters) -&gt; { statements; }</p>
+</blockquote>
+<h2 id="可选类型声明"><a href="#可选类型声明" class="headerlink" title="可选类型声明"></a>可选类型声明</h2><blockquote>
+<p>(int a, int b) -&gt; a + b;<br>(a, b) -&gt; a - b;</p>
+</blockquote>
+<h2 id="可选圆括号"><a href="#可选圆括号" class="headerlink" title="可选圆括号"></a>可选圆括号</h2><blockquote>
+<p>(message) -&gt; System.out.println(message);<br>message -&gt; System.out.println(message);  //一个参数无需圆括号，多个参数需要圆括号</p>
+</blockquote>
+<h2 id="可选大括号"><a href="#可选大括号" class="headerlink" title="可选大括号"></a>可选大括号</h2><blockquote>
+<p>(a, b) -&gt; { return a <em> b; };<br>(a, b) -&gt; return a </em> b;  //只有一个语句，不需要使用大括号</p>
+</blockquote>
+<h2 id="可选返回关键字"><a href="#可选返回关键字" class="headerlink" title="可选返回关键字"></a>可选返回关键字</h2><blockquote>
+<p>(a, b) -&gt; return a / b;<br>(a, b) -&gt; a / b;  //只有一个表达式返回值</p>
+</blockquote>
+<h1 id="典型应用"><a href="#典型应用" class="headerlink" title="典型应用"></a>典型应用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LambdaTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> factor = <span class="number">3</span>;</span><br><span class="line">        MyIntCalc calc = i -&gt; i * factor;  <span class="comment">//2、Lambda表达式。可以引用局部变量但不可改变局部变量，可以改变非局部变量。</span></span><br><span class="line">        System.out.println(calc.calcInt(<span class="number">4</span>));  <span class="comment">//3、接口执行</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyIntCalc</span> </span>&#123;  <span class="comment">//1、函数式接口</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">calcInt</span><span class="params">(Integer i)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="作为函数参数传入"><a href="#作为函数参数传入" class="headerlink" title="作为函数参数传入"></a>作为函数参数传入</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LambdaTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        engine((x, y) -&gt; x + y);  <span class="comment">//3、Lambda表达式及函数调用</span></span><br><span class="line">        engine((x, y) -&gt; x - y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">engine</span><span class="params">(MyLongCalc calc)</span> </span>&#123;  <span class="comment">//2、接收函数式接口作为参数的函数</span></span><br><span class="line">        <span class="keyword">long</span> x = <span class="number">3L</span>, y = <span class="number">2L</span>;</span><br><span class="line">        System.out.println(calc.calcLong(x, y));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyLongCalc</span> </span>&#123;  <span class="comment">//1、函数式接口</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">calcLong</span><span class="params">(Long x, Long y)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="作为返回值"><a href="#作为返回值" class="headerlink" title="作为返回值"></a>作为返回值</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LambdaTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(getAlgorithm().calcLong(<span class="number">1L</span>, <span class="number">2L</span>));  <span class="comment">//3、函数调用</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> MyLongCalc <span class="title">getAlgorithm</span><span class="params">()</span> </span>&#123;  <span class="comment">//2、返回类型为函数式接口的函数及Lambda表达式</span></span><br><span class="line">        <span class="keyword">return</span> (x, y) -&gt; x + y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyLongCalc</span> </span>&#123;  <span class="comment">//1、函数式接口</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">calcLong</span><span class="params">(Long x, Long y)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Java内置的函数式接口"><a href="#Java内置的函数式接口" class="headerlink" title="Java内置的函数式接口"></a>Java内置的函数式接口</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.function.Function;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LambdaTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Function&lt;String, Integer&gt; func = str -&gt; str.length();  <span class="comment">//接收T，返回R</span></span><br><span class="line">        System.out.println(func.apply(<span class="string">"This is a function."</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BiFunction</span>&lt;<span class="title">T</span>,<span class="title">U</span>,<span class="title">R</span>&gt;</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> R <span class="title">apply</span><span class="params">(T t, U u)</span></span>;  <span class="comment">//接收T和U，返回R</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> Predicate&lt;T&gt; &#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">test</span><span class="params">(T  t)</span></span>;  <span class="comment">//返回布尔</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BiPredicate</span>&lt;<span class="title">T</span>,<span class="title">U</span>&gt;</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">test</span><span class="params">(T t, U u)</span></span>;  <span class="comment">//接收两个参数并返回布尔</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Consumer</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(T t)</span></span>;  <span class="comment">//返回void</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BiConsumer</span>&lt;<span class="title">T</span>,<span class="title">U</span>&gt;</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(T t, U  u)</span></span>;  <span class="comment">//接收两个参数并返回void</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Supplier</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">get</span><span class="params">()</span></span>;  <span class="comment">//无参并返回T</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UnaryOperator</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> T  <span class="title">apply</span><span class="params">(T t)</span></span>;  <span class="comment">//接收T并返回T</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BinaryOperator</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> T <span class="title">apply</span><span class="params">(T t1, T t2)</span></span>;  <span class="comment">//接收两个T并返回T</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上是通用版本，IntConsumer 是 Consumer<t> 的专用版本。</t></p>
+<h1 id="交叉类型"><a href="#交叉类型" class="headerlink" title="交叉类型"></a>交叉类型</h1><p>使Lambda表达式，即函数式接口的实例可序列化，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.io.Serializable ser = (java.io.Serializable &amp; MyLongCalc) (x,y)-&gt; x + y;</span><br></pre></td></tr></table></figure>
+<h1 id="无参调用"><a href="#无参调用" class="headerlink" title="无参调用"></a>无参调用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(() -&gt; &#123;System.out.println(<span class="string">"hello"</span>);&#125;).start();</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/Java数据类型转换/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/09/08/Java数据类型转换/" itemprop="url">Java数据类型转换</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:26:54+08:00">
+                2018-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="String与Date"><a href="#String与Date" class="headerlink" title="String与Date"></a>String与Date</h1><h2 id="时间格式"><a href="#时间格式" class="headerlink" title="时间格式"></a>时间格式</h2><table>
+<thead>
+<tr>
+<th>Date and Time Pattern</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“yyyy.MM.dd G ‘at’ HH:mm:ss z”</td>
+<td>2001.07.04 AD at 12:08:56 PDT</td>
+</tr>
+<tr>
+<td>“EEE, MMM d, ‘’yy”</td>
+<td>Wed, Jul 4, ‘01</td>
+</tr>
+<tr>
+<td>“h:mm a”</td>
+<td>12:08 PM</td>
+</tr>
+<tr>
+<td>“hh ‘o’’clock’ a, zzzz”</td>
+<td>12 o’clock PM, Pacific Daylight Time</td>
+</tr>
+<tr>
+<td>“K:mm a, z”</td>
+<td>0:08 PM, PDT</td>
+</tr>
+<tr>
+<td>“yyyyy.MMMMM.dd GGG hh:mm aaa”</td>
+<td>02001.July.04 AD 12:08 PM</td>
+</tr>
+<tr>
+<td>“EEE, d MMM yyyy HH:mm:ss Z”</td>
+<td>Wed, 4 Jul 2001 12:08:56 -0700</td>
+</tr>
+<tr>
+<td>“yyMMddHHmmssZ”</td>
+<td>010704120856-0700</td>
+</tr>
+<tr>
+<td>“yyyy-MM-dd’T’HH:mm:ss.SSSZ”</td>
+<td>2001-07-04T12:08:56.235-0700</td>
+</tr>
+<tr>
+<td>“yyyy-MM-dd’T’HH:mm:ss.SSSXXX”</td>
+<td>2001-07-04T12:08:56.235-07:00</td>
+</tr>
+<tr>
+<td>“YYYY-‘W’ww-u”</td>
+<td>2001-W27-3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="String转Date"><a href="#String转Date" class="headerlink" title="String转Date"></a>String转Date</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy/MM/dd HH:mm:ss.SSS"</span>);</span><br><span class="line">Date date = df.parse(strTime);</span><br></pre></td></tr></table></figure>
+<h2 id="Date转String"><a href="#Date转String" class="headerlink" title="Date转String"></a>Date转String</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy/MM/dd HH:mm:ss.SSS"</span>);</span><br><span class="line">String tsStr = sdf.format(time);</span><br></pre></td></tr></table></figure>
+<h1 id="将List转换为以逗号分隔的字符串"><a href="#将List转换为以逗号分隔的字符串" class="headerlink" title="将List转换为以逗号分隔的字符串"></a>将List转换为以逗号分隔的字符串</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; cities = Arrays.asList(<span class="string">"Shenzhen"</span>, <span class="string">"Beijing"</span>, <span class="string">"Shanghai"</span>);</span><br><span class="line">String citiesCommaSeparated = String.join(<span class="string">","</span>, cities);</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/Notepad/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/09/08/Notepad/" itemprop="url">Notepad++</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:24:33+08:00">
+                2018-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/environment/" itemprop="url" rel="index">
+                    <span itemprop="name">environment</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="行首行尾添加字符"><a href="#行首行尾添加字符" class="headerlink" title="行首行尾添加字符"></a>行首行尾添加字符</h1><p>菜单<code>搜索</code> - <code>替换</code>，或使用快捷键<code>Ctrl + H</code>，查找目标<code>^</code>代表行首，<code>$</code>代表行尾，<code>查找模式</code>选择<code>正则表达式</code>，点击<code>全部替换</code>。</p>
+<h1 id="Windows-Unix文档格式转换"><a href="#Windows-Unix文档格式转换" class="headerlink" title="Windows, Unix文档格式转换"></a>Windows, Unix文档格式转换</h1><p>菜单<code>视图 - 显示符号 - 显示所有字符</code>，<code>编辑 - 档案格式转换 - 转换为 UNIX 格式</code>。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/09/08/工具/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/09/08/工具/" itemprop="url">工具</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T11:21:50+08:00">
+                2018-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/environment/" itemprop="url" rel="index">
+                    <span itemprop="name">environment</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h1><ul>
+<li>MobaXterm = xShell + Xmanager<ul>
+<li>MultiExec: 针对多台服务器进行相同的配置操作时，多窗口同步进行。</li>
+<li>文件传输。</li>
+</ul>
+</li>
+<li>Termius 比较炫酷的终端连接工具</li>
+<li>Kitty 相对putty可保存用户名密码</li>
+<li>Clink Windows的DOS窗口</li>
+<li>Xming 图形化的界面</li>
+<li>WinSCP 文件传输</li>
+<li>ConEmu 壳</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/08/25/Annotation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/08/25/Annotation/" itemprop="url">Annotation</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-25T20:33:18+08:00">
+                2018-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> DemoAnno &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@DemoAnno</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestAnno</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><blockquote>
+<ul>
+<li>注解的属性也叫做成员变量。注解<strong>只有成员变量</strong>，没有方法。</li>
+<li>注解的成员变量在注解的定义中以<strong>无形参的方法</strong>形式来声明。</li>
+<li>方法名定义了该成员变量的名字。</li>
+<li>返回值定义了该成员变量的类型。</li>
+</ul>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> DemoAnno &#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">id</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">String <span class="title">role</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@DemoAnno</span>(id = <span class="number">0</span>, role = <span class="string">"coder"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestAnno</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h1><ul>
+<li>@Retention 生命周期<ul>
+<li>RetentionPolicy.SOURCE</li>
+<li>RetentionPolicy.CLASS</li>
+<li>RetentionPolicy.RUNTIME</li>
+</ul>
+</li>
+<li>@Documented 包含到Javadoc</li>
+<li>@Target 注解位置<ul>
+<li>ElementType.ANNOTATION_TYPE 注解</li>
+<li>ElementType.CONSTRUCTOR 构造方法</li>
+<li>ElementType.FIELD 属性</li>
+<li>ElementType.LOCAL_VARIABLE 局部变量</li>
+<li>ElementType.METHOD 方法</li>
+<li>ElementType.PACKAGE 包</li>
+<li>ElementType.PARAMETER 参数</li>
+<li>ElementType.TYPE 类、接口、枚举</li>
+</ul>
+</li>
+<li>@Inherited 可以被继承</li>
+<li>@Repeatable 可重复应用</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> DemoAnnoGroup &#123;</span><br><span class="line">    DemoAnno[] value();  <span class="comment">//该注解存放其他注解的数组</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Repeatable</span>(DemoAnnoGroup.class)  <span class="comment">//该注解是可以被重复应用的</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> DemoAnno &#123;</span><br><span class="line">    <span class="function">String <span class="title">role</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@DemoAnno</span>(role = <span class="string">"coder"</span>)</span><br><span class="line"><span class="meta">@DemoAnno</span>(role = <span class="string">"PM"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestAnno</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="预置的注解"><a href="#预置的注解" class="headerlink" title="预置的注解"></a>预置的注解</h1><ul>
+<li>@Deprecated 已过时</li>
+<li>@Override 标明该方法是重写父类的方法</li>
+<li>@SuppressWarnings(“deprecation”) 屏蔽告警</li>
+<li>函数式接口<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="注解与反射"><a href="#注解与反射" class="headerlink" title="注解与反射"></a>注解与反射</h1><blockquote>
+<p><strong>注意</strong> 注解需要添加上<code>@Retention(RetentionPolicy.RUNTIME)</code>才能在运行时被读取到。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> hasAnno = TestAnno.class.isAnnotationPresent(DemoAnnoGroup.class);  <span class="comment">//判断TestAnno类是否添加了DemoAnno注解</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (hasAnno) &#123;</span><br><span class="line">    DemoAnnoGroup demoAnnoGroup = TestAnno.class.getAnnotation(DemoAnnoGroup.class);  <span class="comment">//获取注解</span></span><br><span class="line">    <span class="keyword">for</span> (DemoAnno demoAnno : demoAnnoGroup.value()) &#123;</span><br><span class="line">        System.out.println(demoAnno.id());</span><br><span class="line">        System.out.println(demoAnno.role());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    Field age = TestAnno.class.getDeclaredField(<span class="string">"age"</span>);</span><br><span class="line">    age.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">    DemoAnno demoAnno = age.getAnnotation(DemoAnno.class);</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">null</span> != demoAnno)</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(demoAnno.id());</span><br><span class="line">        System.out.println(demoAnno.role());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Method met = TestAnno.class.getDeclaredMethod(<span class="string">"say"</span>);</span><br><span class="line">    Annotation[] ans = met.getAnnotations();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ans.length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(ans[i].annotationType().getSimpleName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (NoSuchFieldException e) &#123;</span><br><span class="line">    System.out.println(e);</span><br><span class="line">&#125; <span class="keyword">catch</span> (NoSuchMethodException e) &#123;</span><br><span class="line">    System.out.println(e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="典型应用"><a href="#典型应用" class="headerlink" title="典型应用"></a>典型应用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">TestAnno ta = <span class="keyword">new</span> TestAnno();</span><br><span class="line">Class clazz = ta.getClass();</span><br><span class="line">Method[] mets = clazz.getDeclaredMethods();</span><br><span class="line"><span class="keyword">for</span>(Method m : mets)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (m.isAnnotationPresent(DemoAnno.class))</span><br><span class="line">    &#123;</span><br><span class="line">        m.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">        m.invoke(ta, <span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参考原文：<a href="https://blog.csdn.net/briblue/article/details/73824058" target="_blank" rel="noopener">https://blog.csdn.net/briblue/article/details/73824058</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/hello-islibra/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/hello-islibra/">1</a><span class="space">&hellip;</span><a class="page-number" href="/hello-islibra/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/hello-islibra/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/hello-islibra/page/8/">8</a><a class="extend next" rel="next" href="/hello-islibra/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/hello-islibra/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/hello-islibra/">1</a><span class="space">&hellip;</span><a class="page-number" href="/hello-islibra/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/hello-islibra/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/hello-islibra/page/7/">7</a><a class="extend next" rel="next" href="/hello-islibra/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2005,7 +1909,7 @@
               
                 <a href="/hello-islibra/archives/">
               
-                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-count">68</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2016,7 +1920,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
