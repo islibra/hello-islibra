@@ -187,6 +187,26 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/hello-islibra/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/hello-islibra/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/hello-islibra/archives/" rel="section">
             
@@ -215,6 +235,302 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/15/Git常用命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/07/15/Git常用命令/" itemprop="url">Git常用命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-15T17:22:07+08:00">
+                2018-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/environment/" itemprop="url" rel="index">
+                    <span itemprop="name">environment</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一、通过分支MERGE"><a href="#一、通过分支MERGE" class="headerlink" title="一、通过分支MERGE"></a>一、通过分支MERGE</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> xxx.git <span class="comment">#将要提交代码仓路径clone到本地</span></span><br><span class="line"><span class="built_in">cd</span> <span class="comment">#进入代码目录</span></span><br><span class="line">git branch <span class="comment">#查看当前分支</span></span><br><span class="line">git pull origin master <span class="comment">#更新本地分支</span></span><br><span class="line">git checkout -b newbranch <span class="comment">#checkout到个人分支</span></span><br><span class="line">git branch <span class="comment">#查看当前分支为个人分支</span></span><br><span class="line">git push origin newbranch <span class="comment">#将checkout出来的个人分支push到CodeClub</span></span><br><span class="line">git status <span class="comment">#查看本地修改的文件</span></span><br><span class="line">git add -A . <span class="comment">#将本地修改的文件add到本地仓个人分支</span></span><br><span class="line">git commit -m <span class="string">"xxx"</span> <span class="comment">#将本地修改的文件提交到本地仓个人分支</span></span><br><span class="line">git push origin newbranch <span class="comment">#将本地修改的文件提交到远程仓个人分支</span></span><br></pre></td></tr></table></figure>
+<p>发起merge，从远程仓个人分支merge到远程仓主干分支</p>
+<h1 id="二、Fork个人仓"><a href="#二、Fork个人仓" class="headerlink" title="二、Fork个人仓"></a>二、Fork个人仓</h1><p>将主干仓Fork到个人仓<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> xxx.git <span class="comment">#将个人仓clone到本地</span></span><br><span class="line"><span class="built_in">cd</span> <span class="comment">#进入代码目录</span></span><br><span class="line">git remote -v <span class="comment">#查看远程分支列表</span></span><br><span class="line">git remote add projorigin projxxx.git <span class="comment">#增加主库分支到本地</span></span><br><span class="line">git branch <span class="comment">#查看当前分支</span></span><br><span class="line">git pull origin master <span class="comment">#更新当前分支</span></span><br><span class="line">git fetch projorigin <span class="comment">#fetch主库分支的最新版本到本地</span></span><br><span class="line">git merge projorigin/master <span class="comment">#merge主库分支到本地</span></span><br><span class="line">git status <span class="comment">#查看本地修改的文件</span></span><br><span class="line">git add -A . <span class="comment">#将本地修改的文件add到本地仓</span></span><br><span class="line">git commit -m <span class="string">"xxx"</span> <span class="comment">#将本地修改的文件提交到本地仓</span></span><br><span class="line">git push origin branchname <span class="comment">#将本地修改的文件提交到远程个人仓</span></span><br></pre></td></tr></table></figure></p>
+<p>发起merge，从远程个人仓merge到远程主干仓</p>
+<p>END</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://islibra.github.io/hello-islibra/hello-islibra/2018/07/15/Linux用户管理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiXiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hello-islibra/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's horizon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-islibra/2018/07/15/Linux用户管理/" itemprop="url">Linux用户管理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-15T17:15:36+08:00">
+                2018-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hello-islibra/categories/os/" itemprop="url" rel="index">
+                    <span itemprop="name">os</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>用户<code>/etc/passwd</code></li>
+<li>用户组<code>/etc/group</code></li>
+</ul>
+<h1 id="增加用户"><a href="#增加用户" class="headerlink" title="增加用户"></a>增加用户</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd kk  <span class="comment">#添加用户kk</span></span><br></pre></td></tr></table></figure>
+<h1 id="切换用户"><a href="#切换用户" class="headerlink" title="切换用户"></a>切换用户</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">whoami  <span class="comment">#显示当前用户</span></span><br><span class="line"><span class="built_in">pwd</span>  <span class="comment">#显示当前目录</span></span><br><span class="line">su root  <span class="comment">#切换到root用户</span></span><br></pre></td></tr></table></figure>
+<h1 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">passwd w3cschool  <span class="comment">#设置w3cschool用户的密码</span></span><br><span class="line">Enter new UNIX password:  <span class="comment">#输入新密码，输入的密码无回显</span></span><br><span class="line">Retype new UNIX password:  <span class="comment">#确认密码</span></span><br><span class="line">passwd: password updated successfully</span><br></pre></td></tr></table></figure>
+<h1 id="更改个人资讯"><a href="#更改个人资讯" class="headerlink" title="更改个人资讯"></a>更改个人资讯</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">chfn</span><br><span class="line">Changing finger information <span class="keyword">for</span> root.</span><br><span class="line">Name [root]: hnlinux</span><br><span class="line">Office []: hn</span><br><span class="line">Office Phone []: 888888</span><br><span class="line">Home Phone []: 9999999</span><br><span class="line">Finger information changed.</span><br></pre></td></tr></table></figure>
+<h1 id="修改用户属性"><a href="#修改用户属性" class="headerlink" title="修改用户属性"></a>修改用户属性</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -g usergroup username</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1595,7 +1911,7 @@
               
                 <a href="/hello-islibra/archives/">
               
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1645,7 +1961,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1669,6 +1985,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
