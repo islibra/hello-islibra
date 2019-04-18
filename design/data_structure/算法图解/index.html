@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>广度优先搜索解决无权图的最短路径问题 - My Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u5e7f\u5ea6\u4f18\u5148\u641c\u7d22\u89e3\u51b3\u65e0\u6743\u56fe\u7684\u6700\u77ed\u8def\u5f84\u95ee\u9898";
+    var mkdocs_page_input_path = "design\\data_structure\\\u7b97\u6cd5\u56fe\u89e3.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">README</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Cloud</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Ai</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/ai/AI/">AI</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/ai/softcom_plus_ai/">softcom</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Container</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/container/Kubenetes常用命令/">Kubenetes常用命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/container/Kubenetes网络/">Kubenetes网络</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/container/docker常用命令/">docker常用命令</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Openstack</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/openstack/架构/">keystone</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/openstack/虚拟化/">虚拟化</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Coding</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Db</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/db/Druid/">Druid</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/db/MongoDB/">MongoDB</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/db/MySQL/">MySQL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/db/SQL/">SQL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/db/SQL基本数据类型/">SQL基本数据类型</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/db/Ubuntu16.04安装mysql5.7.23/">Ubuntu16.04安装mysql5.7.23</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/db/mybatis/">Mybatis</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Go</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/go/go/">Go</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Java</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/AIO/">AIO</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/Annotation/">Annotation</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/Jackson/">Jackson</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/Java8 Stream/">Java8 Stream</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/Java单元测试/">Java单元测试</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/Java基本数据类型/">Java基本数据类型</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/Java排序/">Java排序</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/Java数据类型转换/">Java数据类型转换</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/Java读取properties配置文件/">Java读取properties配置文件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/Java运算符/">Java运算符</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/Lambda表达式/">Lambda表达式</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/Linux设置Java环境变量/">Linux设置Java环境变量</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/NIO/">NIO</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/Netty/">Netty</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/SSL/">SSL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/jar/">jar</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/使用HttpClient发送HTTPS请求/">使用HttpClient发送HTTPS请求</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/字符编码/">字符编码</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/序列化/">序列化</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/深入理解JVM/">深入理解JVM</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/线程池/">线程池</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/远程调试/">远程调试</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/那些年踩过的坑/">那些年踩过的坑</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/java/锁/">锁</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Javascript</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/javascript/Node.js/">Node.js</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/javascript/Vue.js/">Vue.js</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Python</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/python/6_io/">文件读写</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/python/7_异常/">7 异常</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/python/8_类/">8 类</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/python/datatype/">字符串</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/python/operator/">逻辑/成员/身份运算符</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/python/python/">安装</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/python/subprocess/">参数列表</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/python/函数/">函数</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/python/库函数/">库函数</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/python/模块/">导入</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/python/流程控制/">if</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/python/迭代器生成器/">迭代器生成器</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Springboot</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/springboot/注解/">注解</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Web</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/web/HTTP错误码/">HTTP错误码</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/web/LVS转发问题抓包定位/">LVS转发问题抓包定位</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/web/URL归一化/">前置条件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/web/curl/">curl</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/web/http响应头/">Content-Security-Policy</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/web/nginx/">架构</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/web/短网址/">短网址算法</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Writing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/writing/Markdown/">Markdown</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/writing/atom/">atom</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/writing/mkdocs/">Welcome to MkDocs</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../coding/writing/使用Hexo搭建个人博客/">使用Hexo搭建个人博客</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Design</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../UML/">UML</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../优化/">优化</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../正则表达式/">正则表达式</a>
+                </li>
+                <li class=" current">
+                    
+    <span class="caption-text">Data structure</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../balance_tree/">Balance tree</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../red_black_tree/">二叉查找树</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../堆/">最大堆</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../查找排序/">二分查找</a>
+                </li>
+                <li class="toctree-l3 current">
+                    
+    <a class="current" href="./">广度优先搜索解决无权图的最短路径问题</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l4"><a href="#_1">广度优先搜索解决无权图的最短路径问题</a></li>
+    
+
+    <li class="toctree-l4"><a href="#dijkstra">Dijkstra算法寻找有向带权图的最短路径</a></li>
+    
+
+    <li class="toctree-l4"><a href="#_2">贪婪算法</a></li>
+    
+
+    <li class="toctree-l4"><a href="#01">动态规划解决01背包问题</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#_3">最长公共子串（连续）</a></li>
+        
+            <li><a class="toctree-l5" href="#_4">最长公共子序列（不连续）</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l4"><a href="#kknn">K近邻KNN</a></li>
+    
+
+    <li class="toctree-l4"><a href="#_5">朴素贝叶斯分类</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Environment</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Net</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/net/私网IP地址范围/">私网IP地址范围</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Os</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux中sh和bash的区别/">Linux中sh和bash的区别</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux基本命令/">Linux基本命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux文件系统/">Linux文件系统</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux用户管理/">Linux用户管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux磁盘管理/">Linux磁盘管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux系统管理/">Linux系统管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux网络管理/">Linux网络管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux软件管理/">Linux软件管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Tips/">Tips</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/grep&awk/">grep&awk</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/sudoers文件/">sudoers文件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/vim/">vim</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/windows/">重启</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/查看操作系统版本/">操作系统发行版</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/设置ssh连接不超时/">设置ssh连接不超时</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Tools</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/Git常用命令/">Git常用命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/Maven/">Maven</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/Notepad++/">Notepad++</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/创建VPN/">创建VPN</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/将TAB转换为4个空格/">将TAB转换为4个空格</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/工具/">工具</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/开发环境初始化/">开发环境初始化</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/快捷键/">快捷键</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/搜狗输入法自定义短语/">搜狗输入法自定义短语</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Other</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../other/links/">网络安全</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../other/买房的事情/">买房的事情</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../other/班车/">班车</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../other/语录/">语录</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Dts</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../other/dts/SVN：Previous operation has not finished; run 'cleanup' if it was interrupted/">SVN：Previous operation has not finished; run 'cleanup' if it was interrupted</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../other/dts/git clone时报Please make sure you have the correct access rights and the repository exists/">问题现象</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../other/dts/hsts/">问题现象</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Security</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../security/OpenSSL/">1. 标准命令</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../security/google_search/">Google search</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../security/远程调用中的反序列化注入/">RMI</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Data structure &raquo;</li>
+        
+      
+        
+          <li>Design &raquo;</li>
+        
+      
+    
+    <li>广度优先搜索解决无权图的最短路径问题</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">广度优先搜索解决无权图的最短路径问题</h1>
+<p>图包含顶点，边</p>
+<p>使用散列表存储图，key为所有顶点，value为该顶点所有邻居。</p>
+<p>使用队列广度优先搜索，先将第一层放入队列，弹出第一个元素判断，再将该顶点所有邻居放入队列，若队列为空，即未找到元素。</p>
+<p>时间复杂度为O(V+E)</p>
+<h1 id="dijkstra">Dijkstra算法寻找有向带权图的最短路径</h1>
+<p>列出到每个结点的开销，依次找到最短路径，刷新各结点开销。</p>
+<ul>
+<li>二维散列表保存图的邻居和权重</li>
+<li>使用散列表保存开销表</li>
+<li>使用散列表保存父结点表</li>
+</ul>
+<h1 id="_2">贪婪算法</h1>
+<ul>
+<li>求解背包问题，先计算单位价值，从大到小排列</li>
+<li>解决NP完全问题如集合覆盖问题，每次寻找局部最优解</li>
+<li>旅行商问题，每次选取距离当前城市最近的解</li>
+</ul>
+<h1 id="01">动态规划解决01背包问题</h1>
+<p>以重量（限制条件）为列，商品为行，计算每个单元格（价值），其中列需要划分为最小单位。</p>
+<p>计算公式：<code>cell[i][j] = cell[i-1][j] vs 当前商品价值 + cell[i-1][j-当前商品重量]</code></p>
+<blockquote>
+<p><strong>Tips:</strong> 增加商品时只需增加行</p>
+</blockquote>
+<h2 id="_3">最长公共子串（连续）</h2>
+<p>行列值不同为0，相同为<code>cell[i-1][j-1] + 1</code></p>
+<h2 id="_4">最长公共子序列（不连续）</h2>
+<p>行列值不同为上左取最大，相同为<code>cell[i-1][j-1] + 1</code></p>
+<p>应用：DNA测序，git diff，论文查重</p>
+<h1 id="kknn">K近邻KNN</h1>
+<p>选取离得最近的K个元素，分类</p>
+<ol>
+<li>特征抽取</li>
+<li>计算距离：√(x1-x2)2+(y1-y2)2</li>
+<li>回归，根据K均值对分类结果预测。</li>
+</ol>
+<p>应用：OCR文字识别，语音识别，图像识别</p>
+<h1 id="_5">朴素贝叶斯分类</h1>
+<p>垃圾邮件过滤</p>
+<ol>
+<li>计算每个单词在正常邮件出现的概率，在垃圾邮件出现的概率</li>
+<li>根据贝叶斯公式计算某个单词出现了，是垃圾邮件的概率</li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../../environment/net/私网IP地址范围/" class="btn btn-neutral float-right" title="私网IP地址范围">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../查找排序/" class="btn btn-neutral" title="二分查找"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../查找排序/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../../environment/net/私网IP地址范围/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>

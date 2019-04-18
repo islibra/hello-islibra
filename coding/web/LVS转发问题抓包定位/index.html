@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>LVS转发问题抓包定位 - My Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "LVS\u8f6c\u53d1\u95ee\u9898\u6293\u5305\u5b9a\u4f4d";
+    var mkdocs_page_input_path = "coding\\web\\LVS\u8f6c\u53d1\u95ee\u9898\u6293\u5305\u5b9a\u4f4d.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">README</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Cloud</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Ai</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/ai/AI/">AI</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/ai/softcom_plus_ai/">softcom</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Container</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/container/Kubenetes常用命令/">Kubenetes常用命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/container/Kubenetes网络/">Kubenetes网络</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/container/docker常用命令/">docker常用命令</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Openstack</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/openstack/架构/">keystone</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/openstack/虚拟化/">虚拟化</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Coding</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Db</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/Druid/">Druid</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/MongoDB/">MongoDB</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/MySQL/">MySQL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/SQL/">SQL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/SQL基本数据类型/">SQL基本数据类型</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/Ubuntu16.04安装mysql5.7.23/">Ubuntu16.04安装mysql5.7.23</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/mybatis/">Mybatis</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Go</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../go/go/">Go</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Java</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/AIO/">AIO</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Annotation/">Annotation</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Jackson/">Jackson</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Java8 Stream/">Java8 Stream</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Java单元测试/">Java单元测试</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Java基本数据类型/">Java基本数据类型</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Java排序/">Java排序</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Java数据类型转换/">Java数据类型转换</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Java读取properties配置文件/">Java读取properties配置文件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Java运算符/">Java运算符</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Lambda表达式/">Lambda表达式</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Linux设置Java环境变量/">Linux设置Java环境变量</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/NIO/">NIO</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Netty/">Netty</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/SSL/">SSL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/jar/">jar</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/使用HttpClient发送HTTPS请求/">使用HttpClient发送HTTPS请求</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/字符编码/">字符编码</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/序列化/">序列化</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/深入理解JVM/">深入理解JVM</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/线程池/">线程池</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/远程调试/">远程调试</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/那些年踩过的坑/">那些年踩过的坑</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/锁/">锁</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Javascript</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../javascript/Node.js/">Node.js</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../javascript/Vue.js/">Vue.js</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Python</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/6_io/">文件读写</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/7_异常/">7 异常</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/8_类/">8 类</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/datatype/">字符串</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/operator/">逻辑/成员/身份运算符</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/python/">安装</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/subprocess/">参数列表</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/函数/">函数</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/库函数/">库函数</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/模块/">导入</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/流程控制/">if</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/迭代器生成器/">迭代器生成器</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Springboot</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../springboot/注解/">注解</a>
+                </li>
+    </ul>
+                </li>
+                <li class=" current">
+                    
+    <span class="caption-text">Web</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../HTTP错误码/">HTTP错误码</a>
+                </li>
+                <li class="toctree-l3 current">
+                    
+    <a class="current" href="./">LVS转发问题抓包定位</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l4"><a href="#1-broker">1. 服务订购失败，查询broker日志，报错信息为：</a></li>
+    
+
+    <li class="toctree-l4"><a href="#2-manager">2. 测试网络连接和manager服务</a></li>
+    
+
+    <li class="toctree-l4"><a href="#3-keepalived">3. 查询keepalived进程，正常：</a></li>
+    
+
+    <li class="toctree-l4"><a href="#4-vip">4. 查询VIP绑定情况，正常：</a></li>
+    
+
+    <li class="toctree-l4"><a href="#5-lvs">5. 查询LVS转发：</a></li>
+    
+
+    <li class="toctree-l4"><a href="#6-lvs">6. 在LVS节点上查询防火墙信息，未发现异常：</a></li>
+    
+
+    <li class="toctree-l4"><a href="#7">7. 抓包查看报文转发情况</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#1-tcpdump">1. 安装tcpdump</a></li>
+        
+            <li><a class="toctree-l5" href="#2">2. 执行抓包程序</a></li>
+        
+            <li><a class="toctree-l5" href="#3">3. 抓包分析</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l4"><a href="#8-keepalived">8. 查看keepalived配置</a></li>
+    
+
+    <li class="toctree-l4"><a href="#_1">（续）主备倒换后，网络又不通</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../URL归一化/">前置条件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../curl/">curl</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../http响应头/">Content-Security-Policy</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../nginx/">架构</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../短网址/">短网址算法</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Writing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../writing/Markdown/">Markdown</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../writing/atom/">atom</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../writing/mkdocs/">Welcome to MkDocs</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../writing/使用Hexo搭建个人博客/">使用Hexo搭建个人博客</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Design</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../design/UML/">UML</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../design/优化/">优化</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../design/正则表达式/">正则表达式</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Data structure</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/balance_tree/">Balance tree</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/red_black_tree/">二叉查找树</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/堆/">最大堆</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/查找排序/">二分查找</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/算法图解/">广度优先搜索解决无权图的最短路径问题</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Environment</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Net</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/net/私网IP地址范围/">私网IP地址范围</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Os</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux中sh和bash的区别/">Linux中sh和bash的区别</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux基本命令/">Linux基本命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux文件系统/">Linux文件系统</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux用户管理/">Linux用户管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux磁盘管理/">Linux磁盘管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux系统管理/">Linux系统管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux网络管理/">Linux网络管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux软件管理/">Linux软件管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Tips/">Tips</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/grep&awk/">grep&awk</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/sudoers文件/">sudoers文件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/vim/">vim</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/windows/">重启</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/查看操作系统版本/">操作系统发行版</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/设置ssh连接不超时/">设置ssh连接不超时</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Tools</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/Git常用命令/">Git常用命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/Maven/">Maven</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/Notepad++/">Notepad++</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/创建VPN/">创建VPN</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/将TAB转换为4个空格/">将TAB转换为4个空格</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/工具/">工具</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/开发环境初始化/">开发环境初始化</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/快捷键/">快捷键</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/搜狗输入法自定义短语/">搜狗输入法自定义短语</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Other</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../other/links/">网络安全</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../other/买房的事情/">买房的事情</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../other/班车/">班车</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../other/语录/">语录</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Dts</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../other/dts/SVN：Previous operation has not finished; run 'cleanup' if it was interrupted/">SVN：Previous operation has not finished; run 'cleanup' if it was interrupted</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../other/dts/git clone时报Please make sure you have the correct access rights and the repository exists/">问题现象</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../other/dts/hsts/">问题现象</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Security</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../security/OpenSSL/">1. 标准命令</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../security/google_search/">Google search</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../security/远程调用中的反序列化注入/">RMI</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Web &raquo;</li>
+        
+      
+        
+          <li>Coding &raquo;</li>
+        
+      
+    
+    <li>LVS转发问题抓包定位</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="1-broker">1. 服务订购失败，查询broker日志，报错信息为：</h1>
+<pre><code>06-29 07:29:53,747 INFO (vert.x-worker-thread-0) Submit create instance request: uri=https://10.186.86.79:8443/fst/rest/v1.0/d387a958e8f04967a501530872c8462e/instances, body={&quot;instance&quot;:{&quot;project_id&quot;:&quot;d387a
+958e8f04967a501530872c8462e&quot;,&quot;organization_guid&quot;:&quot;ddmtest&quot;,&quot;space_guid&quot;:&quot;bilibili&quot;,&quot;plan_name&quot;:&quot;default&quot;,&quot;service_guid&quot;:&quot;790b1219-9fb5-935c-f2bb-0e6ae9139594&quot;,&quot;service_name&quot;:&quot;ddm-serviceddddd&quot;,&quot;instance_id&quot;
+:null,&quot;instance_name&quot;:&quot;dddddd&quot;,&quot;parameters&quot;:{&quot;ams_ip&quot;:&quot;10.186.144.34&quot;,&quot;console_address&quot;:&quot;10.186.86.79:7443&quot;,&quot;ddm_core_package&quot;:&quot;https://10.186.144.34:20202/swr/v2/domains/paas-ddmtest/namespaces/ddm-namespa
+ce/repositories/ddm-ware/packages/ddm-pkg/versions/1.0.0.B005/file_paths/DDM-CORE-AOS-1.0.0.B006.zip&quot;,&quot;manager_address&quot;:&quot;10.186.86.79:8443&quot;,&quot;pod_etcd01&quot;:&quot;10.162.249.97&quot;,&quot;pod_etcd02&quot;:&quot;10.186.99.212&quot;,&quot;pod_etc
+d03&quot;:&quot;10.162.233.92&quot;},&quot;accepts_incomplete&quot;:true,&quot;blueprint_id&quot;:&quot;217326bf-e600-72f1-5669-e2e35a622eea&quot;,&quot;dependInfo&quot;:[],&quot;organization_id&quot;:&quot;989ad1d82c6c4530b1b1369c0536e05c&quot;,&quot;user_guid&quot;:&quot;ddmtest&quot;,&quot;cluster_id&quot;:
+&quot;11111111-1111-1111-1111-111111111111&quot;,&quot;cluster_name&quot;:null,&quot;cluster_namespace&quot;:&quot;bilibili&quot;}} (DdmManagerHttpClient:38)
+06-29 07:29:56,283 INFO (vert.x-eventloop-thread-4) getServiceCatalog uri is /v2/catalog (BrokerRestResource:61)
+06-29 07:30:04,915 ERROR(vert.x-eventloop-thread-0) requestAsyn error,
+Exception: javax.net.ssl.SSLHandshakeException; Failed to create SSL connection
+javax.net.ssl.SSLHandshakeException: Failed to create SSL connection
+        at io.vertx.core.http.impl.ConnectionManager$ConnQueue.handshakeFailure(ConnectionManager.java:316)
+        at io.vertx.core.http.impl.ConnectionManager$ConnQueue.access$1700(ConnectionManager.java:186)
+        at io.vertx.core.http.impl.ConnectionManager$ChannelConnector.lambda$null$1(ConnectionManager.java:502)
+        at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:514)
+        at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:507)
+        at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:486)
+        at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:427)
+        at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:129)
+        at io.netty.handler.ssl.SslHandler.notifyHandshakeFailure(SslHandler.java:1235)
+        at io.netty.handler.ssl.SslHandler.access$700(SslHandler.java:160)
+        at io.netty.handler.ssl.SslHandler$5.run(SslHandler.java:1379)
+        at io.netty.util.concurrent.PromiseTask$RunnableAdapter.call(PromiseTask.java:38)
+        at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:120)
+        at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)
+        at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:418)
+        at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:440)
+        at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873)
+        at java.lang.Thread.run(Thread.java:748)
+Caused by: javax.net.ssl.SSLException: handshake timed out
+        at io.netty.handler.ssl.SslHandler.handshake(...)(Unknown Source)
+ (VertxHttpClientUtils:70)
+06-29 07:30:04,919 ERROR(vert.x-worker-thread-0) Create instance request failed: non-response (DdmManagerHttpClient:53)
+</code></pre>
+
+<p>从报错信息得知，broker在发起https请求时，与manager <strong>建立SSL连接超时</strong> 。</p>
+<h1 id="2-manager">2. 测试网络连接和manager服务</h1>
+<ul>
+<li>测试broker与manager：<code>curl -kv https://10.162.61.211:8443</code>，连接正常。</li>
+<li>测试broker与LVS：<code>curl -kv https://10.186.86.79:8443</code>，连接失败。此为 <strong>疑问点1</strong> 。</li>
+</ul>
+<pre><code>*   Trying 10.186.86.79...
+* Connected to 10.186.86.79 (10.186.86.79) port 8443 (#0)
+* Initializing NSS with certpath: sql:/etc/pki/nssdb
+* NSS error -5961 (PR_CONNECT_RESET_ERROR)
+* TCP connection reset by peer
+* Closing connection 0
+curl: (35) TCP connection reset
+</code></pre>
+
+<h1 id="3-keepalived">3. 查询keepalived进程，正常：</h1>
+<pre><code class="bash">[root@szvphicpra57487 ~]# ps -ef | grep keepalived
+paas      70663      1  0 6月29 ?       00:00:02 /usr/sbin/keepalived -D -f /etc/keepalived/keepalived.conf -p /etc/keepalived/run/keepalived.pid -r /etc/keepalived/run/vrrp.pid -c /etc/keepalived/run/checkers.pid
+paas      70668  70663  0 6月29 ?       00:00:14 /usr/sbin/keepalived -D -f /etc/keepalived/keepalived.conf -p /etc/keepalived/run/keepalived.pid -r /etc/keepalived/run/vrrp.pid -c /etc/keepalived/run/checkers.pid
+paas      70669  70663  0 6月29 ?       00:00:14 /usr/sbin/keepalived -D -f /etc/keepalived/keepalived.conf -p /etc/keepalived/run/keepalived.pid -r /etc/keepalived/run/vrrp.pid -c /etc/keepalived/run/checkers.pid
+root     104754 104025  0 10:57 pts/0    00:00:00 grep --color=auto keepalived
+</code></pre>
+
+<h1 id="4-vip">4. 查询VIP绑定情况，正常：</h1>
+<pre><code class="bash">[root@szvphicpra57487 ~]# ip a
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 28:6e:d4:89:1a:d4 brd ff:ff:ff:ff:ff:ff
+    inet 10.186.87.105/23 brd 10.186.87.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet 10.186.86.79/32 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::2a6e:d4ff:fe89:1ad4/64 scope link
+       valid_lft forever preferred_lft forever
+</code></pre>
+
+<h1 id="5-lvs">5. 查询LVS转发：</h1>
+<pre><code class="bash">[root@szvphicpra57487 ~]# ipvsadm -L -n --stats
+IP Virtual Server version 1.2.1 (size=4194304)
+Prot LocalAddress:Port               Conns   InPkts  OutPkts  InBytes OutBytes
+  -&gt; RemoteAddress:Port
+TCP  10.186.86.79:7443                  29     1611     0   137797  0
+  -&gt; 10.186.99.175:7443                 27     1586     0   135331  0
+  -&gt; 10.186.127.176:7443                 2       25       0     2466     0
+TCP  10.186.86.79:8443                   6       72       0    16952    0
+  -&gt; 10.162.61.211:8443                  6       72       0    16952    0
+</code></pre>
+
+<p>发现 <strong>只有输入的包，没有输出的包</strong>，此为 <strong>疑问点2</strong> 。</p>
+<h1 id="6-lvs">6. 在LVS节点上查询防火墙信息，未发现异常：</h1>
+<pre><code class="bash">[root@szvphicpra57487 ~]# iptables -L -n -v
+Chain INPUT (policy ACCEPT 47 packets, 11299 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+4462K 2468M KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:49537
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:49537
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:60129
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+    1    48 CANAL-ISOLATION  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* default/canal-service */
+    1    48 DOCKER-ISOLATION  all  --  *      *       0.0.0.0/0            0.0.0.0/0
+    0     0 DOCKER     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0
+    0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 ACCEPT     all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0
+    0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0
+
+Chain OUTPUT (policy ACCEPT 43 packets, 4868 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+3632K  827M KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0
+3632K  827M KUBE-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes service portals */
+
+Chain CANAL-ISOLATION (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+    0     0 CANAL-ISOLATION_7505d64a  all  --  gw_7505d64a *       0.0.0.0/0            0.0.0.0/0
+    0     0 ACCEPT     all  --  *      gw_7505d64a  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+
+Chain CANAL-ISOLATION_7505d64a (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+    0     0 ACCEPT     all  --  *      gw_7505d64a  0.0.0.0/0            0.0.0.0/0
+    0     0 ACCEPT     all  --  *      eth0    0.0.0.0/0            0.0.0.0/0
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0
+
+Chain DOCKER (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain DOCKER-ISOLATION (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+    1    48 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0
+
+Chain KUBE-FIREWALL (2 references)
+ pkts bytes target     prot opt in     out     source               destination
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes firewall for dropping marked packets */ mark match 0x8000/0x8000
+
+Chain KUBE-SERVICES (1 references)
+ pkts bytes target     prot opt in     out     source               destination
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.247.37.237        /* kube-system/ingress-controller:ingress-controller-secure has no endpoints */ tcp dpt:30280 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.247.37.237        /* kube-system/ingress-controller:ingress-controller-insecure has no endpoints */ tcp dpt:30281 reject-with icmp-port-unreachable
+</code></pre>
+
+<h1 id="7">7. 抓包查看报文转发情况</h1>
+<h2 id="1-tcpdump">1. 安装tcpdump</h2>
+<p>安装包已分享至OneBox：<a href="https://onebox.huawei.com/p/59c49f09d1cda4a34294dd23e08811da">https://onebox.huawei.com/p/59c49f09d1cda4a34294dd23e08811da</a></p>
+<ul>
+<li>使用工具如WinSCP将<code>libpcap0-0.9.8-50.10.1.x86_64.rpm</code>和<code>tcpdump-3.9.8-1.21.x86_64.rpm</code>两个安装包拷贝到需要抓包的VM上；</li>
+<li>修改文件执行权限<code>chmod 777 libpcap0-0.9.8-50.10.1.x86_64.rpm</code>和<code>chmod 777 tcpdump-3.9.8-1.21.x86_64.rpm</code>；</li>
+<li>执行安装<code>rpm -hvi libpcap0-0.9.8-50.10.1.x86_64.rpm</code>和<code>rpm -hvi tcpdump-3.9.8-1.21.x86_64.rpm</code>；</li>
+</ul>
+<h2 id="2">2. 执行抓包程序</h2>
+<pre><code class="bash">tcpdump -v -n -i eth0 -w /opt/tmp.cap -s 0  #-i为网络接口名称，-w为输出文件路径
+</code></pre>
+
+<h2 id="3">3. 抓包分析</h2>
+<ul>
+<li>使用<code>Ctrl + C</code>停止抓包，并将抓包文件使用WinSCP拷贝回Windows机器上，使用<code>WireShark</code>进行分析，安装包已分享至OneBox：<a href="https://onebox.huawei.com/p/711f01fe1344b866d2c7d5ec152ff5d3">https://onebox.huawei.com/p/711f01fe1344b866d2c7d5ec152ff5d3</a></li>
+<li>使用过滤条件进行报文过滤：<code>tcp &amp;&amp; ((ip.src == 10.186.127.176 &amp;&amp; ip.dst == 10.162.61.211) || (ip.src == 10.162.61.211 &amp;&amp; ip.dst == 10.186.127.176))</code></li>
+</ul>
+<p>通过分析broker报文发现，在broker发送了PSH<a href="TCP协议字段详解：">^1</a>推送报文后，就一直在重传， <strong>没有得到manager的响应</strong> ，此为 <strong>疑问点3</strong> 。</p>
+<p><img alt="" src="~/11-33-06.jpg" /></p>
+<p>分析LVS报文，发现LVS向manager发送了RST<a href="TCP协议字段详解：">^1</a>报文。</p>
+<p><img alt="" src="~/14-43-57.jpg" /></p>
+<p>查阅资料得知，这是keepalived的健康检查机制，LVS会定期（默认6秒，可以修改keepalived.conf中字段<code>delay_loop 6</code>）向manager发送一个TCP连接来检测http是否正常，为了减少TCP连接带来的资源浪费，所以检测（TCP三次握手<a href="TCP三次握手">^2</a>）完毕后会发送一个RST报文来断开这个连接，释放资源。因此该报文为正常报文，且未接收到LVS发送的请求报文。</p>
+<p>尝试不使用LVS，broker直连manager，订购成功。</p>
+<p><img alt="" src="~/14-52-41.jpg" /></p>
+<p>在broker向manager发送了PSH报文后，manager向broker返回PSH应答报文。</p>
+<p>综合报文分析，原因仍是出在LVS。</p>
+<h1 id="8-keepalived">8. 查看keepalived配置</h1>
+<pre><code class="bash">cat /etc/keepalived/keepalived.conf
+global_defs {
+   router_id DDM_LVS_205
+}
+
+local_address_group laddr_g1 {
+    10.186.87.105
+}
+
+vrrp_instance VI_1 {
+    state MASTER
+    interface eth0
+    virtual_router_id 51
+    priority 205
+    advert_int 1
+        nopreempt
+    authentication {
+        auth_type PASS
+        auth_pass 1111
+    }
+    virtual_ipaddress {
+                10.186.86.79
+    }
+}
+
+virtual_server 10.186.86.79 7443 {
+    delay_loop 6
+    lb_algo rr
+    lb_kind FNAT
+    persistence_timeout 50
+    protocol TCP
+        syn_proxy
+        laddr_group_name laddr_g1
+
+    real_server 10.186.99.175 7443 {
+        weight 1
+        TCP_CHECK {
+        connect_timeout 8
+        nb_get_retry 3
+        delay_before_retry 3
+        connect_port 7443
+        }
+    }
+
+    real_server 10.186.127.176 7443 {
+        weight 1
+        TCP_CHECK {
+        connect_timeout 8
+        nb_get_retry 3
+        delay_before_retry 3
+        connect_port 7443
+        }
+    }
+}
+
+virtual_server 10.186.86.79 8443 {
+    delay_loop 6
+    lb_algo rr
+    lb_kind FNAT
+    persistence_timeout 50
+    protocol TCP
+        laddr_group_name laddr_g1
+
+    real_server 10.162.217.81 8443 {
+        weight 1
+        TCP_CHECK {
+        connect_timeout 8
+        nb_get_retry 3
+        delay_before_retry 3
+        connect_port 8443
+        }
+    }
+
+    real_server 10.162.61.211 8443 {
+        weight 1
+        TCP_CHECK {
+        connect_timeout 8
+        nb_get_retry 3
+        delay_before_retry 3
+        connect_port 8443
+        }
+    }
+}
+</code></pre>
+
+<p>发现<code>local_address_group laddr_g1</code>中的IP非本机IP，而是另一个LVS的IP。再查看堆栈部署参数，发现<code>lvs_node1</code>参数填写的是节点标签为<code>ddm_lvs2</code>的地址，而<code>lvs_node2</code>参数填写的是节点标签为<code>ddm_lvs1</code>的地址。</p>
+<p>问题明确，手动修改keepalived.conf，将IP修改正确，重启keepalived服务，问题解决。</p>
+<p>问题原因比较简单，但以此文来说明LVS问题定位思路。</p>
+<p>END</p>
+<h1 id="_1">（续）主备倒换后，网络又不通</h1>
+<p>查看<code>ipvsadm -ln --stats</code>，发现发送和接收包全零。</p>
+<p>查看<code>iptables -t raw -L -nv</code>，发现是因为误执行了<code>iptables -t raw -I PREROUTING -d $lvs_floating_ip -j DROP</code>，增加了一条备节点的防火墙规则，而在主备倒换的时候未删除导致。</p>
+<p>执行<code>iptables -t raw -L -nv --line-numbers</code>，查看规则行号，如1。</p>
+<p>执行<code>iptables -t raw -D PREROUTING 1</code>，删除该规则，问题解决。</p>
+<p>END</p>
+<ul>
+<li>SYN 建立连接，仅用于三次握手</li>
+<li>FIN 关闭连接</li>
+<li>ACK 确认标志</li>
+<li>PSH 数据传输</li>
+<li>RST 连接重置</li>
+<li>
+<p>URG 紧急标志</p>
+</li>
+<li>
+<p>发送端发送SYN=1，ACK=0请求建立连接</p>
+</li>
+<li>接收端发送SYN=1，ACK=1应答</li>
+<li>发送端发送SYN=0，ACK=1确认连接</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../URL归一化/" class="btn btn-neutral float-right" title="前置条件">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../HTTP错误码/" class="btn btn-neutral" title="HTTP错误码"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../HTTP错误码/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../URL归一化/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>

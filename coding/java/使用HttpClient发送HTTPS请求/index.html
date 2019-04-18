@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>使用HttpClient发送HTTPS请求 - My Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u4f7f\u7528HttpClient\u53d1\u9001HTTPS\u8bf7\u6c42";
+    var mkdocs_page_input_path = "coding\\java\\\u4f7f\u7528HttpClient\u53d1\u9001HTTPS\u8bf7\u6c42.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">README</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Cloud</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Ai</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/ai/AI/">AI</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/ai/softcom_plus_ai/">softcom</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Container</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/container/Kubenetes常用命令/">Kubenetes常用命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/container/Kubenetes网络/">Kubenetes网络</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/container/docker常用命令/">docker常用命令</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Openstack</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/openstack/架构/">keystone</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/openstack/虚拟化/">虚拟化</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Coding</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Db</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/Druid/">Druid</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/MongoDB/">MongoDB</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/MySQL/">MySQL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/SQL/">SQL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/SQL基本数据类型/">SQL基本数据类型</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/Ubuntu16.04安装mysql5.7.23/">Ubuntu16.04安装mysql5.7.23</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/mybatis/">Mybatis</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Go</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../go/go/">Go</a>
+                </li>
+    </ul>
+                </li>
+                <li class=" current">
+                    
+    <span class="caption-text">Java</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../AIO/">AIO</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Annotation/">Annotation</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Jackson/">Jackson</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java8 Stream/">Java8 Stream</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java单元测试/">Java单元测试</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java基本数据类型/">Java基本数据类型</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java排序/">Java排序</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java数据类型转换/">Java数据类型转换</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java读取properties配置文件/">Java读取properties配置文件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java运算符/">Java运算符</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Lambda表达式/">Lambda表达式</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Linux设置Java环境变量/">Linux设置Java环境变量</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../NIO/">NIO</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Netty/">Netty</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../SSL/">SSL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../jar/">jar</a>
+                </li>
+                <li class="toctree-l3 current">
+                    
+    <a class="current" href="./">使用HttpClient发送HTTPS请求</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l4"><a href="#_1">一、背景知识</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#tls">TLS协商过程</a></li>
+        
+            <li><a class="toctree-l5" href="#javaca">Java默认存放CA证书的文件</a></li>
+        
+            <li><a class="toctree-l5" href="#_2">类使用链</a></li>
+        
+            <li><a class="toctree-l5" href="#keytoolkeystore">通过keytool查看KeyStore文件</a></li>
+        
+            <li><a class="toctree-l5" href="#_3">将证书导入文件</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l4"><a href="#_4">二、实现过程</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#1-maven">1. 添加Maven依赖</a></li>
+        
+            <li><a class="toctree-l5" href="#2-keystore">2. 加载KeyStore</a></li>
+        
+            <li><a class="toctree-l5" href="#3-keystoretrustmanagerfactory">3. 使用KeyStore初始化TrustManagerFactory</a></li>
+        
+            <li><a class="toctree-l5" href="#4-trustmanager">4. 自定义TrustManager，信任所有服务器证书</a></li>
+        
+            <li><a class="toctree-l5" href="#5-ssl">5. SSL上下文</a></li>
+        
+            <li><a class="toctree-l5" href="#6-sslsocketfactory">6. 创建SSLSocketFactory</a></li>
+        
+            <li><a class="toctree-l5" href="#7">7. 创建请求客户端</a></li>
+        
+            <li><a class="toctree-l5" href="#8-get">8. GET请求</a></li>
+        
+            <li><a class="toctree-l5" href="#9-post">9. POST请求</a></li>
+        
+            <li><a class="toctree-l5" href="#10-finally">10. 最后别忘了在finally里关闭</a></li>
+        
+            <li><a class="toctree-l5" href="#11">11. 附：</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l4"><a href="#_6">三、代码</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../字符编码/">字符编码</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../序列化/">序列化</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../深入理解JVM/">深入理解JVM</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../线程池/">线程池</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../远程调试/">远程调试</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../那些年踩过的坑/">那些年踩过的坑</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../锁/">锁</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Javascript</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../javascript/Node.js/">Node.js</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../javascript/Vue.js/">Vue.js</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Python</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/6_io/">文件读写</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/7_异常/">7 异常</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/8_类/">8 类</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/datatype/">字符串</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/operator/">逻辑/成员/身份运算符</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/python/">安装</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/subprocess/">参数列表</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/函数/">函数</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/库函数/">库函数</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/模块/">导入</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/流程控制/">if</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/迭代器生成器/">迭代器生成器</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Springboot</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../springboot/注解/">注解</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Web</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/HTTP错误码/">HTTP错误码</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/LVS转发问题抓包定位/">LVS转发问题抓包定位</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/URL归一化/">前置条件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/curl/">curl</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/http响应头/">Content-Security-Policy</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/nginx/">架构</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/短网址/">短网址算法</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Writing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../writing/Markdown/">Markdown</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../writing/atom/">atom</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../writing/mkdocs/">Welcome to MkDocs</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../writing/使用Hexo搭建个人博客/">使用Hexo搭建个人博客</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Design</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../design/UML/">UML</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../design/优化/">优化</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../design/正则表达式/">正则表达式</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Data structure</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/balance_tree/">Balance tree</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/red_black_tree/">二叉查找树</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/堆/">最大堆</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/查找排序/">二分查找</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/算法图解/">广度优先搜索解决无权图的最短路径问题</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Environment</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Net</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/net/私网IP地址范围/">私网IP地址范围</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Os</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux中sh和bash的区别/">Linux中sh和bash的区别</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux基本命令/">Linux基本命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux文件系统/">Linux文件系统</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux用户管理/">Linux用户管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux磁盘管理/">Linux磁盘管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux系统管理/">Linux系统管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux网络管理/">Linux网络管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux软件管理/">Linux软件管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Tips/">Tips</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/grep&awk/">grep&awk</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/sudoers文件/">sudoers文件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/vim/">vim</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/windows/">重启</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/查看操作系统版本/">操作系统发行版</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/设置ssh连接不超时/">设置ssh连接不超时</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Tools</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/Git常用命令/">Git常用命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/Maven/">Maven</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/Notepad++/">Notepad++</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/创建VPN/">创建VPN</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/将TAB转换为4个空格/">将TAB转换为4个空格</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/工具/">工具</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/开发环境初始化/">开发环境初始化</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/快捷键/">快捷键</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/搜狗输入法自定义短语/">搜狗输入法自定义短语</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Other</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../other/links/">网络安全</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../other/买房的事情/">买房的事情</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../other/班车/">班车</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../other/语录/">语录</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Dts</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../other/dts/SVN：Previous operation has not finished; run 'cleanup' if it was interrupted/">SVN：Previous operation has not finished; run 'cleanup' if it was interrupted</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../other/dts/git clone时报Please make sure you have the correct access rights and the repository exists/">问题现象</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../other/dts/hsts/">问题现象</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Security</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../security/OpenSSL/">1. 标准命令</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../security/google_search/">Google search</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../security/远程调用中的反序列化注入/">RMI</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Java &raquo;</li>
+        
+      
+        
+          <li>Coding &raquo;</li>
+        
+      
+    
+    <li>使用HttpClient发送HTTPS请求</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">一、背景知识</h1>
+<h2 id="tls">TLS协商过程</h2>
+<ol>
+<li>客户端发送HTTPS请求ClientHello</li>
+<li>服务器发送X.509证书，包含服务器公钥ServerHello</li>
+<li>客户端校验证书，并生成随机对称密钥，并用服务器公钥加密</li>
+<li>使用对称密钥加密会话数据</li>
+</ol>
+<h2 id="javaca">Java默认存放CA证书的文件</h2>
+<p>文件路径：<code>%JAVA_HOME%\jre\lib\security\cacerts</code></p>
+<p>使用<code>KeyStore Explorer</code>查看，默认密码<code>changeit</code></p>
+<p>PEM格式，纯文本，使用BASE64编码，使用<code>-----BEGIN CERTIFICATE-----</code> 和 <code>-----END CERTIFICATE-----</code> 来标识；
+DER格式，二进制。</p>
+<p>KeyStore/TrustStore存储：1、Certificate证书；2、PrivateKey非对称加密私钥；3、SecretKey对称加密密钥。
+KeyStore文件格式：JKS、JCEKS、PKCS12、DKS</p>
+<h2 id="_2">类使用链</h2>
+<p>KeyManagerFactory/TrustManagerFactory -&gt; KeyManager/TrustManager;SecureRandom -&gt; SSLContext -&gt; SSLServerSocketFactory/SSLSocketFactory -&gt; SSLServerSocket -&gt; SSLSocket;SSLEngine -&gt; SSLSession</p>
+<h2 id="keytoolkeystore">通过keytool查看KeyStore文件</h2>
+<p><code>keytool -list -v -keystore D:\xxx.keystore -storepass 123456</code></p>
+<h2 id="_3">将证书导入文件</h2>
+<p><code>keytool -import -alias 12306 -keystore cacerts -file 12306.cer</code></p>
+<h1 id="_4">二、实现过程</h1>
+<h2 id="1-maven">1. 添加Maven依赖</h2>
+<pre><code class="xml">        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.httpcomponents&lt;/groupId&gt;
+            &lt;artifactId&gt;httpclient&lt;/artifactId&gt;
+            &lt;version&gt;4.5.2&lt;/version&gt;
+        &lt;/dependency&gt;
+</code></pre>
+
+<h2 id="2-keystore">2. 加载KeyStore</h2>
+<pre><code class="java">String keyStoreFilePath = &quot;&quot;;
+String password = &quot;&quot;;
+KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
+FileInputStream fin = new FileInputStream(keyStoreFilePath);
+ks.load(fin, password.toCharArray());
+</code></pre>
+
+<h2 id="3-keystoretrustmanagerfactory">3. 使用KeyStore初始化TrustManagerFactory</h2>
+<pre><code class="java">TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+tmf.init(ks);
+</code></pre>
+
+<h2 id="4-trustmanager">4. 自定义TrustManager，信任所有服务器证书</h2>
+<pre><code class="java">            TrustManager[] trustAllCerts = new TrustManager[] {
+                    new X509TrustManager() {
+                        public X509Certificate[] getAcceptedIssuers() {
+                            return null;
+                        }
+                        public void checkClientTrusted(X509Certificate[] certs, String authType) {
+                        }
+                        public void checkServerTrusted(X509Certificate[] certs, String authType) {
+                        }
+                    }
+            };
+</code></pre>
+
+<h2 id="5-ssl">5. SSL上下文</h2>
+<pre><code class="java">SSLContext sslcontext = SSLContext.getInstance(&quot;TLSv1.2&quot;);
+sslcontext.init(null, trustAllCerts, null);  //信任所有证书
+sslcontext.init(null, tmf.getTrustManagers(), null);  //使用加载的KeyStore
+</code></pre>
+
+<h2 id="6-sslsocketfactory">6. 创建SSLSocketFactory</h2>
+<pre><code class="java">import javax.net.ssl.HostnameVerifier;
+
+SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(sslcontext);
+
+//屏蔽host校验
+SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(sslcontext, new HostnameVerifier(){
+    @Override
+    public boolean verify(String hostname, SSLSession session) {
+        hostname = &quot;drds.hwclouds.com&quot;;
+        return SSLConnectionSocketFactory.getDefaultHostnameVerifier().verify(hostname, session);
+    }
+});
+//或使用Lambda表达式
+SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(sslcontext, (hostname, session) -&gt; true);
+</code></pre>
+
+<h2 id="7">7. 创建请求客户端</h2>
+<pre><code class="java">CloseableHttpClient httpclient = null;
+//httpclient = HttpClients.createDefault();
+httpclient = HttpClients.custom()
+.setSSLSocketFactory(sslsf)  //自定义SSL工厂
+.build();
+</code></pre>
+
+<h2 id="8-get">8. GET请求</h2>
+<pre><code class="java">            //创建GET方法
+            HttpGet httpGet = new HttpGet(&quot;http://3ms.huawei.com/hi/home/index.html&quot;);
+
+            //添加请求头
+            httpGet.setHeader(&quot;User-Agent&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) ...&quot;);
+
+            //执行HTTP请求
+            String responseBody = httpclient.execute(httpGet, response -&gt; {
+                //返回状态码
+                int status = response.getStatusLine().getStatusCode();
+                if (status &gt;= 200 &amp;&amp; status &lt; 300) {
+                    //返回实体
+                    HttpEntity entity = response.getEntity();
+                    return entity != null ? EntityUtils.toString(entity, &quot;UTF-8&quot;) : null;  //避免中文乱码
+                } else {
+                    throw new ClientProtocolException(&quot;Unexpected response status: &quot; + status);
+                }
+            });
+            System.out.println(responseBody);
+            System.out.println(&quot;--------------------GET END--------------------&quot;);
+</code></pre>
+
+<blockquote>
+<p><strong>注意：</strong>如果使用Vertx发送请求，且body中携带中文，使用write方法会无法解析。</p>
+</blockquote>
+<pre><code class="java">HttpClient httpClient = VertxUtils.getHttpClient(XXX);
+
+HttpClientRequest request = httpClient.request(method, port, host, uri);
+
+request.putHeader(HttpHeaders.CONTENT_TYPE, &quot;application/json;charset=utf8&quot;);
+
+//request.putHeader(HttpHeaders.CONTENT_LENGTH, String.valueOf(requestBody.length()));
+//request.write(requestBody, &quot;UTF-8&quot;);  //此处写入body会出现中文无法解码
+
+request.end(requestBody, &quot;UTF-8&quot;);  //写入body，并自动填充Content_Length
+</code></pre>
+
+<h2 id="9-post">9. POST请求</h2>
+<pre><code class="java">            //创建POST方法
+            HttpPost httpPost = new HttpPost(&quot;http://talk.page.huawei.com&quot;);
+            List&lt;NameValuePair&gt; nvps = new ArrayList&lt;NameValuePair&gt;();
+            nvps.add(new BasicNameValuePair(&quot;username&quot;, &quot;vip&quot;));
+            nvps.add(new BasicNameValuePair(&quot;password&quot;, &quot;secret&quot;));
+            //创建请求实体
+            httpPost.setEntity(new UrlEncodedFormEntity(nvps));
+            //String parameter = &quot;key=value&quot;;
+            //httpPost.setEntity(new StringEntity(parameter, ContentType.create(&quot;application/x-www-form-urlencoded&quot;)));
+            //执行HTTP请求
+            CloseableHttpResponse response = httpclient.execute(httpPost);
+            HttpEntity entity = response.getEntity();
+            if(entity != null) {
+                System.out.println(entity.getContentLength());
+                InputStream in = entity.getContent();
+                BufferedReader br = new BufferedReader(new InputStreamReader(in));
+                String read = null;
+                while((read = br.readLine()) != null) {
+                    System.out.println(read);
+                }
+            }
+            System.out.println(&quot;--------------------POST END--------------------&quot;);
+</code></pre>
+
+<h2 id="10-finally">10. 最后别忘了在finally里关闭</h2>
+<pre><code class="java">httpclient.close();
+</code></pre>
+
+<h2 id="11">11. 附：</h2>
+<h3 id="keystore">通过KeyStore获取证书</h3>
+<pre><code class="java">Certificate certificate = ks.getCertificate(&quot;&quot;);
+</code></pre>
+
+<h3 id="_5">替换证书</h3>
+<pre><code class="java">            //获取所有别名
+            Enumeration&lt;String&gt; aliases = ks.aliases();
+            while (aliases.hasMoreElements()) {
+                String alias = aliases.nextElement();
+                if (alias != null &amp;&amp; alias.startsWith(&quot;&quot;)) {
+                    ks.deleteEntry(alias);  //替换证书
+                }
+            }
+            ks.setCertificateEntry(&quot;&quot;, certificate);
+            FileOutputStream fos = new FileOutputStream(&quot;&quot;);
+            ks.store(fos, password.toCharArray());  //存入KeyStore文件
+</code></pre>
+
+<h3 id="jdk">直接使用JDK提供的接口</h3>
+<pre><code class="java">import java.net.URL;
+import java.net.HttpURLConnection;
+
+URL url = new URL(&quot;http://www.huawei.com/&quot;);
+HttpURLConnection uc = (HttpURLConnection)url.openConnection();
+BufferedReader br = new BufferedReader(new InputStreamReader(uc.getInputStream()));
+String in = null;
+while((in = br.readLine()) != null) {
+System.out.println(in);
+}
+</code></pre>
+
+<h1 id="_6">三、代码</h1>
+<pre><code class="java">package com.huawei.web;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
+import javax.net.ssl.X509TrustManager;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.security.KeyStore;
+import java.security.cert.Certificate;
+import java.security.cert.X509Certificate;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
+
+/**
+ * 调用HttpClient发送HTTPS请求
+ * @author l00250989
+ */
+public class HttpsRequestUtil {
+
+    /**
+     * 自定义信任所有证书的TrustManager
+     */
+    private final TrustManager[] trustAllCerts = new TrustManager[] {
+            new X509TrustManager() {
+                public X509Certificate[] getAcceptedIssuers() {
+                    return null;
+                }
+                public void checkClientTrusted(X509Certificate[] certs, String authType) {
+                }
+                public void checkServerTrusted(X509Certificate[] certs, String authType) {
+                }
+            }
+    };
+
+    private static void echo(String str) {
+        System.out.println(str);
+    }
+
+    public static void main(String args[]) {
+
+        CloseableHttpClient httpclient = null;
+        try {
+            //加载KeyStore
+            String keyStoreFilePath = &quot;&quot;;
+            String password = &quot;&quot;;
+            echo(KeyStore.getDefaultType().toString());
+            KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
+            FileInputStream fin = new FileInputStream(keyStoreFilePath);
+            ks.load(fin, password.toCharArray());
+
+            //获取证书
+            Certificate certificate = ks.getCertificate(&quot;&quot;);
+            //获取所有别名
+            Enumeration&lt;String&gt; aliases = ks.aliases();
+            while (aliases.hasMoreElements()) {
+                String alias = aliases.nextElement();
+                if (alias != null &amp;&amp; alias.startsWith(&quot;&quot;)) {
+                    ks.deleteEntry(alias);  //替换证书
+                }
+            }
+            ks.setCertificateEntry(&quot;&quot;, certificate);
+            FileOutputStream fos = new FileOutputStream(&quot;&quot;);
+            ks.store(fos, password.toCharArray());  //存入KeyStore文件
+
+            //使用KeyStore初始化TrustManagerFactory
+            echo(TrustManagerFactory.getDefaultAlgorithm().toString());
+            TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+            tmf.init(ks);
+
+            //SSL上下文
+            SSLContext sslcontext = SSLContext.getInstance(&quot;TLSv1.2&quot;);
+            //sslcontext.init(null, trustAllCerts, null);
+            sslcontext.init(null, tmf.getTrustManagers(), null);
+
+            //SSLSocketFactory
+            SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(sslcontext);
+
+            //创建请求客户端
+            //httpclient = HttpClients.createDefault();
+            httpclient = HttpClients.custom()
+                    .setSSLSocketFactory(sslsf)  //自定义SSL工厂
+                    .build();
+
+            //创建GET方法
+            HttpGet httpGet = new HttpGet(&quot;http://3ms.huawei.com/hi/home/index.html&quot;);
+
+            //添加请求头
+            httpGet.setHeader(&quot;User-Agent&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) ...&quot;);
+
+            //执行HTTP请求
+            String responseBody = httpclient.execute(httpGet, response -&gt; {
+                //返回状态码
+                int status = response.getStatusLine().getStatusCode();
+                if (status &gt;= 200 &amp;&amp; status &lt; 300) {
+                    //返回实体
+                    HttpEntity entity = response.getEntity();
+                    return entity != null ? EntityUtils.toString(entity) : null;
+                } else {
+                    throw new ClientProtocolException(&quot;Unexpected response status: &quot; + status);
+                }
+            });
+            System.out.println(responseBody);
+            System.out.println(&quot;--------------------GET END--------------------&quot;);
+
+            //创建POST方法
+            HttpPost httpPost = new HttpPost(&quot;http://talk.page.huawei.com&quot;);
+            List&lt;NameValuePair&gt; nvps = new ArrayList&lt;NameValuePair&gt;();
+            nvps.add(new BasicNameValuePair(&quot;username&quot;, &quot;vip&quot;));
+            nvps.add(new BasicNameValuePair(&quot;password&quot;, &quot;secret&quot;));
+            //创建请求实体
+            httpPost.setEntity(new UrlEncodedFormEntity(nvps));
+            //String parameter = &quot;key=value&quot;;
+            //httpPost.setEntity(new StringEntity(parameter, ContentType.create(&quot;application/x-www-form-urlencoded&quot;)));
+            //执行HTTP请求
+            CloseableHttpResponse response = httpclient.execute(httpPost);
+            HttpEntity entity = response.getEntity();
+            if(entity != null) {
+                System.out.println(entity.getContentLength());
+                InputStream in = entity.getContent();
+                BufferedReader br = new BufferedReader(new InputStreamReader(in));
+                String read = null;
+                while((read = br.readLine()) != null) {
+                    System.out.println(read);
+                }
+            }
+            System.out.println(&quot;--------------------POST END--------------------&quot;);
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            try {
+                httpclient.close();
+            } catch (IOException e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../字符编码/" class="btn btn-neutral float-right" title="字符编码">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../jar/" class="btn btn-neutral" title="jar"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../jar/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../字符编码/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>

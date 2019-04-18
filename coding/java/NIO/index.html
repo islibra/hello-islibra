@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>NIO - My Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "NIO";
+    var mkdocs_page_input_path = "coding\\java\\NIO.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">README</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Cloud</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Ai</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/ai/AI/">AI</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/ai/softcom_plus_ai/">softcom</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Container</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/container/Kubenetes常用命令/">Kubenetes常用命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/container/Kubenetes网络/">Kubenetes网络</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/container/docker常用命令/">docker常用命令</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Openstack</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/openstack/架构/">keystone</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/openstack/虚拟化/">虚拟化</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Coding</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Db</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/Druid/">Druid</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/MongoDB/">MongoDB</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/MySQL/">MySQL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/SQL/">SQL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/SQL基本数据类型/">SQL基本数据类型</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/Ubuntu16.04安装mysql5.7.23/">Ubuntu16.04安装mysql5.7.23</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/mybatis/">Mybatis</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Go</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../go/go/">Go</a>
+                </li>
+    </ul>
+                </li>
+                <li class=" current">
+                    
+    <span class="caption-text">Java</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../AIO/">AIO</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Annotation/">Annotation</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Jackson/">Jackson</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java8 Stream/">Java8 Stream</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java单元测试/">Java单元测试</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java基本数据类型/">Java基本数据类型</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java排序/">Java排序</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java数据类型转换/">Java数据类型转换</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java读取properties配置文件/">Java读取properties配置文件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java运算符/">Java运算符</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Lambda表达式/">Lambda表达式</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Linux设置Java环境变量/">Linux设置Java环境变量</a>
+                </li>
+                <li class="toctree-l3 current">
+                    
+    <a class="current" href="./">NIO</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l4"><a href="#socket">Socket通信</a></li>
+    
+
+    <li class="toctree-l4"><a href="#_1">多线程通信</a></li>
+    
+
+    <li class="toctree-l4"><a href="#nio">NIO</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#_2">核心要素</a></li>
+        
+            <li><a class="toctree-l5" href="#_3">示例代码</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Netty/">Netty</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../SSL/">SSL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../jar/">jar</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../使用HttpClient发送HTTPS请求/">使用HttpClient发送HTTPS请求</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../字符编码/">字符编码</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../序列化/">序列化</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../深入理解JVM/">深入理解JVM</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../线程池/">线程池</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../远程调试/">远程调试</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../那些年踩过的坑/">那些年踩过的坑</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../锁/">锁</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Javascript</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../javascript/Node.js/">Node.js</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../javascript/Vue.js/">Vue.js</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Python</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/6_io/">文件读写</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/7_异常/">7 异常</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/8_类/">8 类</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/datatype/">字符串</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/operator/">逻辑/成员/身份运算符</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/python/">安装</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/subprocess/">参数列表</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/函数/">函数</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/库函数/">库函数</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/模块/">导入</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/流程控制/">if</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/迭代器生成器/">迭代器生成器</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Springboot</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../springboot/注解/">注解</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Web</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/HTTP错误码/">HTTP错误码</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/LVS转发问题抓包定位/">LVS转发问题抓包定位</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/URL归一化/">前置条件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/curl/">curl</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/http响应头/">Content-Security-Policy</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/nginx/">架构</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/短网址/">短网址算法</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Writing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../writing/Markdown/">Markdown</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../writing/atom/">atom</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../writing/mkdocs/">Welcome to MkDocs</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../writing/使用Hexo搭建个人博客/">使用Hexo搭建个人博客</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Design</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../design/UML/">UML</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../design/优化/">优化</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../design/正则表达式/">正则表达式</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Data structure</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/balance_tree/">Balance tree</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/red_black_tree/">二叉查找树</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/堆/">最大堆</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/查找排序/">二分查找</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/算法图解/">广度优先搜索解决无权图的最短路径问题</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Environment</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Net</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/net/私网IP地址范围/">私网IP地址范围</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Os</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux中sh和bash的区别/">Linux中sh和bash的区别</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux基本命令/">Linux基本命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux文件系统/">Linux文件系统</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux用户管理/">Linux用户管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux磁盘管理/">Linux磁盘管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux系统管理/">Linux系统管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux网络管理/">Linux网络管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux软件管理/">Linux软件管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Tips/">Tips</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/grep&awk/">grep&awk</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/sudoers文件/">sudoers文件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/vim/">vim</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/windows/">重启</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/查看操作系统版本/">操作系统发行版</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/设置ssh连接不超时/">设置ssh连接不超时</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Tools</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/Git常用命令/">Git常用命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/Maven/">Maven</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/Notepad++/">Notepad++</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/创建VPN/">创建VPN</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/将TAB转换为4个空格/">将TAB转换为4个空格</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/工具/">工具</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/开发环境初始化/">开发环境初始化</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/快捷键/">快捷键</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/搜狗输入法自定义短语/">搜狗输入法自定义短语</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Other</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../other/links/">网络安全</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../other/买房的事情/">买房的事情</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../other/班车/">班车</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../other/语录/">语录</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Dts</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../other/dts/SVN：Previous operation has not finished; run 'cleanup' if it was interrupted/">SVN：Previous operation has not finished; run 'cleanup' if it was interrupted</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../other/dts/git clone时报Please make sure you have the correct access rights and the repository exists/">问题现象</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../other/dts/hsts/">问题现象</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Security</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../security/OpenSSL/">1. 标准命令</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../security/google_search/">Google search</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../security/远程调用中的反序列化注入/">RMI</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Java &raquo;</li>
+        
+      
+        
+          <li>Coding &raquo;</li>
+        
+      
+    
+    <li>NIO</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="socket">Socket通信</h1>
+<p>示例代码（服务端）：</p>
+<pre><code class="java">import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class AaronServer extends Thread {
+
+    private ServerSocket serverSocket;
+
+    public AaronServer(int port) {
+        try {
+            serverSocket = new ServerSocket(port);
+            serverSocket.setSoTimeout(10000);
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+
+    public void run() {
+        while(true) {
+            System.out.println(&quot;waiting for client on port &quot; + serverSocket.getLocalPort() + &quot;...&quot;);
+            try {
+                Socket socket = serverSocket.accept();
+                System.out.println(&quot;just connected to &quot; + socket.getRemoteSocketAddress());
+                DataInputStream in = new DataInputStream(socket.getInputStream());
+                System.out.println(in.readUTF());
+
+                DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+                out.writeUTF(&quot;Thank u for connect to &quot; + socket.getLocalSocketAddress());
+                socket.close();
+            } catch (IOException e) {
+                System.out.println(e);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Thread t = new AaronServer(6066);
+        t.start();
+    }
+}
+</code></pre>
+
+<p>示例代码（客户端）：</p>
+<pre><code class="java">import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+
+public class AaronClient {
+
+    public static void main(String[] args) {
+        System.out.println(&quot;connecting to aaron on port 6066...&quot;);
+        try {
+            Socket client = new Socket(&quot;127.0.0.1&quot;, 6066);
+            System.out.println(&quot;just connected to &quot; + client.getRemoteSocketAddress());
+            DataOutputStream out = new DataOutputStream(client.getOutputStream());
+            out.writeUTF(&quot;hello from &quot; + client.getLocalSocketAddress());
+
+            DataInputStream in = new DataInputStream(client.getInputStream());
+            System.out.println(&quot;server say: &quot; + in.readUTF());
+            client.close();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+
+}
+</code></pre>
+
+<h1 id="_1">多线程通信</h1>
+<p>示例代码（服务端）：</p>
+<pre><code class="java">import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class MyServer {
+
+    private static ExecutorService executorService = Executors.newCachedThreadPool();
+
+    private static class HandleMsg implements Runnable{
+        Socket client;
+        public HandleMsg(Socket client){
+            this.client = client;
+        }
+        @Override
+        public void run() {
+            BufferedReader bufferedReader = null;
+            PrintWriter printWriter = null;
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(client.getInputStream()));
+                printWriter = new PrintWriter(client.getOutputStream(),true);
+                String inputLine = null;
+                long a = System.currentTimeMillis();
+                while ((inputLine = bufferedReader.readLine())!=null){
+                    printWriter.println(inputLine);
+                }
+                long b = System.currentTimeMillis();
+                System.out.println(&quot;Thread cost: &quot; + (b-a) + &quot; seconds.&quot;);
+            } catch (IOException e) {
+                System.out.println(e);
+            }finally {
+                try {
+                    bufferedReader.close();
+                    printWriter.close();
+                    client.close();
+                } catch (IOException e) {
+                    System.out.println(e);
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+        ServerSocket server = new ServerSocket(8686);
+        Socket client = null;
+        while (true){
+            client = server.accept();
+            System.out.println(client.getRemoteSocketAddress()+&quot; client connect success.&quot;);
+            executorService.submit(new HandleMsg(client));
+        }
+    }
+
+}
+</code></pre>
+
+<p>示例代码（客户端）：</p>
+<pre><code class="java">import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+
+public class MyClient {
+
+    public static void main(String[] args) throws IOException {
+        Socket client = null;
+        PrintWriter printWriter = null;
+        BufferedReader bufferedReader = null;
+        try {
+            client = new Socket();
+            client.connect(new InetSocketAddress(&quot;localhost&quot;,8686));
+            printWriter = new PrintWriter(client.getOutputStream(),true);
+            printWriter.println(&quot;hello&quot;);
+            printWriter.flush();
+
+            bufferedReader = new BufferedReader(new InputStreamReader(client.getInputStream()));
+            System.out.println(&quot;The message from server is: &quot;+bufferedReader.readLine());
+        } catch (IOException e) {
+            System.out.println(e);
+        }finally {
+            printWriter.close();
+            bufferedReader.close();
+            client.close();
+        }
+    }
+
+}
+</code></pre>
+
+<h1 id="nio">NIO</h1>
+<h2 id="_2">核心要素</h2>
+<h3 id="buffer">Buffer，缓冲区</h3>
+<p>Buffer类型: Byte Char Int long short double float</p>
+<p>数据流向：<code>Client &lt;-data-&gt; Buffer &lt;-data-&gt; Channel &lt;-data-&gt; Channel &lt;-data-&gt; Buffer &lt;-data-&gt; Server</code></p>
+<ul>
+<li>分配空间：<code>ByteBuffer byteBuffer = ByteBuffer.allocate(1024);</code></li>
+<li>从Client向Buffer中写入数据：<code>byteBuffer.put(...);</code></li>
+<li>获取Channel：<code>inputstream.getchanel();</code></li>
+<li>Buffer中的数据写入Channel：<code>channel.write(byteBuffer);</code></li>
+<li>读写转换：<code>bytebuffer.flip();</code></li>
+<li>Buffer从Channel中读取数据：<code>channel.read(byteBuffer);</code></li>
+<li>Server从Buffer中读取数据：<code>byteBuffer.get(...);</code></li>
+</ul>
+<blockquote>
+<ul>
+<li>capacity，缓冲区容量</li>
+<li>position，当前位置，下一次读取和写入的索引</li>
+<li>limit，界限，最后一个有效位置之后的下一个位置的索引</li>
+<li>flip()，将limit设置为position，position设置为0</li>
+<li>clear()，清空缓冲区</li>
+</ul>
+</blockquote>
+<h3 id="channel">Channel，通道</h3>
+<p>chanel相对于input/outputstream流来说是双向的。</p>
+<ul>
+<li>FileChannel，文件IO</li>
+<li>DatagramChannel，UDP协议</li>
+<li>ServerSocketChannel/SocketChannel，TCP协议</li>
+</ul>
+<blockquote>
+<p>打开一个ServerSocketChannel通道：<code>ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();</code>
+将通道设置为非阻塞：<code>serverSocketChannel.configureBlocking(false);</code>
+循环监听SocketChannel：</p>
+</blockquote>
+<pre><code class="java">while(true){
+    SocketChannel socketChannel = serverSocketChannel.accept();
+}
+</code></pre>
+
+<blockquote>
+<p>关闭ServerSocketChannel通道：<code>serverSocketChannel.close();</code></p>
+</blockquote>
+<h3 id="selector">Selector，选择器，通道管理器，选择器允许一个单独的线程来监视多个通道</h3>
+<blockquote>
+<p>创建并返回一个选择器实例：<code>Selector.open();</code>
+将通道与选择器绑定并注册一个OP_ACCEPT事件：<code>SelectionKey selectionKey = channel.register(selector,SelectionKey.OP_ACCEPT);</code></p>
+<p><strong>Tips:</strong> Channel和Selector绑定时，Channel必须是非阻塞模式，而FileChannel不能切换到非阻塞模式，因为它不是套接字通道，所以FileChannel不能和Selector绑定事件。</p>
+<ol>
+<li>SelectionKey.OP_CONNECT：连接事件</li>
+<li>SelectionKey.OP_ACCEPT：接收事件</li>
+<li>SelectionKey.OP_READ：读事件</li>
+<li>SelectionKey.OP_WRITE：写事件</li>
+</ol>
+<p>轮询</p>
+</blockquote>
+<pre><code class="java">while (true){
+    selector.select();  //这是一个阻塞方法，一直等待直到有数据可读，返回值是SelectionKey的数量
+    Set keys = selector.selectedKeys();  //如果channel有数据了，获取keys集合
+    Iterator iterator = keys.iterator();
+    while (iterator.hasNext()){
+        SelectionKey key = (SelectionKey) iterator.next();
+        iterator.remove();
+        if (key.isAcceptable()){
+            doAccept(key);
+        } else...
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>SelectionKey对象，检测Channel事件类型</p>
+</blockquote>
+<pre><code class="java">selectionKey.isAcceptable();
+selectionKey.isConnectable();
+selectionKey.isReadable();
+selectionKey.isWritable();
+</code></pre>
+
+<blockquote>
+<p>通过SelectionKey获取Channel和Selector</p>
+</blockquote>
+<pre><code class="java">Channel  channel  = selectionKey.channel();
+Selector selector = selectionKey.selector();
+</code></pre>
+
+<blockquote>
+<p>在Channel上注册事件并绑定一个Buffer：<code>clientChannel.register(key.selector(), SelectionKey.OP_READ,ByteBuffer.allocateDirect(1024));</code>
+绑定一个Object：</p>
+</blockquote>
+<pre><code class="java">selectionKey.attach(Object);
+Object anthorObj = selectionKey.attachment();
+</code></pre>
+
+<h2 id="_3">示例代码</h2>
+<h3 id="_4">服务端</h3>
+<pre><code class="java">import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.channels.SocketChannel;
+import java.util.Iterator;
+import java.util.Set;
+
+public class MyNioServer {
+    private Selector selector;
+    private final static int port = 8686;
+    private final static int BUF_SIZE = 10240;
+
+    private void initServer() throws IOException {
+        this.selector=Selector.open();
+
+        ServerSocketChannel channel = ServerSocketChannel.open();
+        channel.configureBlocking(false);
+        channel.socket().bind(new InetSocketAddress(port));
+
+        SelectionKey selectionKey = channel.register(selector,SelectionKey.OP_ACCEPT);
+
+        while (true){
+            selector.select();
+            Set keys = selector.selectedKeys();
+            Iterator iterator = keys.iterator();
+            while (iterator.hasNext()){
+                SelectionKey key = (SelectionKey) iterator.next();
+                iterator.remove();
+                if (key.isAcceptable()){
+                    doAccept(key);
+                }else if (key.isReadable()){
+                    doRead(key);
+                }else if (key.isWritable() &amp;&amp; key.isValid()){
+                    doWrite(key);
+                }else if (key.isConnectable()){
+                    System.out.println(&quot;Connect success.&quot;);
+                }
+            }
+        }
+    }
+
+    public void doAccept(SelectionKey key) throws IOException {
+        ServerSocketChannel serverChannel = (ServerSocketChannel) key.channel();
+        System.out.println(&quot;ServerSocketChannel is listening...&quot;);
+        SocketChannel clientChannel = serverChannel.accept();
+        clientChannel.configureBlocking(false);
+        clientChannel.register(key.selector(),SelectionKey.OP_READ);
+    }
+
+    public void doRead(SelectionKey key) throws IOException {
+        SocketChannel clientChannel = (SocketChannel) key.channel();
+        ByteBuffer byteBuffer = ByteBuffer.allocate(BUF_SIZE);
+        long bytesRead = clientChannel.read(byteBuffer);
+        while (bytesRead &gt; 0){
+            byteBuffer.flip();
+            byte[] data = byteBuffer.array();
+            String info = new String(data).trim();
+            System.out.println(&quot;The message from client is &quot; + info);
+            byteBuffer.clear();
+            bytesRead = clientChannel.read(byteBuffer);
+        }
+        clientChannel.register(key.selector(), SelectionKey.OP_WRITE);
+        /*if (bytesRead == -1){
+            clientChannel.close();
+        }*/
+    }
+
+    public void doWrite(SelectionKey key) throws IOException {
+        ByteBuffer byteBuffer = ByteBuffer.allocate(BUF_SIZE);
+        String info = &quot;Hello Client.&quot;;
+        byteBuffer.clear();
+        byteBuffer.put(info.getBytes(&quot;UTF-8&quot;));
+        byteBuffer.flip();
+        SocketChannel clientChannel = (SocketChannel) key.channel();
+        while (byteBuffer.hasRemaining()){
+            clientChannel.write(byteBuffer);
+        }
+        byteBuffer.compact();
+        clientChannel.close();
+    }
+
+    public static void main(String[] args) throws IOException {
+        MyNioServer myNioServer = new MyNioServer();
+        myNioServer.initServer();
+    }
+}
+</code></pre>
+
+<h3 id="_5">客户端</h3>
+<pre><code class="java">import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.SocketChannel;
+import java.util.Iterator;
+
+public class MyNioClient {
+    private Selector selector;
+    private final static int port = 8686;
+    private final static int BUF_SIZE = 10240;
+    private static ByteBuffer byteBuffer = ByteBuffer.allocate(BUF_SIZE);
+
+    private void  initClient() throws IOException {
+        this.selector = Selector.open();
+        SocketChannel clientChannel = SocketChannel.open();
+        clientChannel.configureBlocking(false);
+        clientChannel.connect(new InetSocketAddress(port));
+        clientChannel.register(selector, SelectionKey.OP_CONNECT);
+        while (true){
+            selector.select();
+            Iterator&lt;SelectionKey&gt; iterator = selector.selectedKeys().iterator();
+            while (iterator.hasNext()){
+                SelectionKey key = iterator.next();
+                iterator.remove();
+                if (key.isConnectable()){
+                    doConnect(key);
+                }else if (key.isReadable()){
+                    doRead(key);
+                }
+            }
+        }
+    }
+
+    public void doConnect(SelectionKey key) throws IOException {
+        SocketChannel clientChannel = (SocketChannel) key.channel();
+        if (clientChannel.isConnectionPending()){
+            clientChannel.finishConnect();
+        }
+        clientChannel.configureBlocking(false);
+        String info = &quot;Hello Server.&quot;;
+        byteBuffer.clear();
+        byteBuffer.put(info.getBytes(&quot;UTF-8&quot;));
+        byteBuffer.flip();
+        clientChannel.write(byteBuffer);
+        clientChannel.register(key.selector(),SelectionKey.OP_READ);
+        //clientChannel.close();
+    }
+
+    public void doRead(SelectionKey key) throws IOException {
+        SocketChannel clientChannel = (SocketChannel) key.channel();
+        byteBuffer.clear();
+        clientChannel.read(byteBuffer);
+        byteBuffer.flip();
+        byte[] data = byteBuffer.array();
+        String msg = new String(data).trim();
+        System.out.println(&quot;Received message from server: &quot; + msg);
+        clientChannel.close();
+        //key.selector().close();
+    }
+
+    public static void main(String[] args) throws IOException {
+        MyNioClient myNioClient = new MyNioClient();
+        myNioClient.initClient();
+    }
+}
+</code></pre>
+
+<p>参考文献：<a href="https://segmentfault.com/a/1190000012316621">Java NIO详解</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Netty/" class="btn btn-neutral float-right" title="Netty">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Linux设置Java环境变量/" class="btn btn-neutral" title="Linux设置Java环境变量"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../Linux设置Java环境变量/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Netty/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>

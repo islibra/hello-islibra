@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Druid - My Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Druid";
+    var mkdocs_page_input_path = "coding\\db\\Druid.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">README</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Cloud</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Ai</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/ai/AI/">AI</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/ai/softcom_plus_ai/">softcom</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Container</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/container/Kubenetes常用命令/">Kubenetes常用命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/container/Kubenetes网络/">Kubenetes网络</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/container/docker常用命令/">docker常用命令</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Openstack</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/openstack/架构/">keystone</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/openstack/虚拟化/">虚拟化</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Coding</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <span class="caption-text">Db</span>
+    <ul class="subnav">
+                <li class="toctree-l3 current">
+                    
+    <a class="current" href="./">Druid</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l4"><a href="#sql-parser">SQL Parser</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#parser">Parser</a></li>
+        
+            <li><a class="toctree-l5" href="#ast">AST抽象语法树</a></li>
+        
+            <li><a class="toctree-l5" href="#visitor">Visitor</a></li>
+        
+            <li><a class="toctree-l5" href="#_2">典型操作</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../MongoDB/">MongoDB</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../MySQL/">MySQL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../SQL/">SQL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../SQL基本数据类型/">SQL基本数据类型</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Ubuntu16.04安装mysql5.7.23/">Ubuntu16.04安装mysql5.7.23</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../mybatis/">Mybatis</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Go</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../go/go/">Go</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Java</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/AIO/">AIO</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Annotation/">Annotation</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Jackson/">Jackson</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Java8 Stream/">Java8 Stream</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Java单元测试/">Java单元测试</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Java基本数据类型/">Java基本数据类型</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Java排序/">Java排序</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Java数据类型转换/">Java数据类型转换</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Java读取properties配置文件/">Java读取properties配置文件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Java运算符/">Java运算符</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Lambda表达式/">Lambda表达式</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Linux设置Java环境变量/">Linux设置Java环境变量</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/NIO/">NIO</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/Netty/">Netty</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/SSL/">SSL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/jar/">jar</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/使用HttpClient发送HTTPS请求/">使用HttpClient发送HTTPS请求</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/字符编码/">字符编码</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/序列化/">序列化</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/深入理解JVM/">深入理解JVM</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/线程池/">线程池</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/远程调试/">远程调试</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/那些年踩过的坑/">那些年踩过的坑</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../java/锁/">锁</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Javascript</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../javascript/Node.js/">Node.js</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../javascript/Vue.js/">Vue.js</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Python</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/6_io/">文件读写</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/7_异常/">7 异常</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/8_类/">8 类</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/datatype/">字符串</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/operator/">逻辑/成员/身份运算符</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/python/">安装</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/subprocess/">参数列表</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/函数/">函数</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/库函数/">库函数</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/模块/">导入</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/流程控制/">if</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/迭代器生成器/">迭代器生成器</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Springboot</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../springboot/注解/">注解</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Web</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/HTTP错误码/">HTTP错误码</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/LVS转发问题抓包定位/">LVS转发问题抓包定位</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/URL归一化/">前置条件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/curl/">curl</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/http响应头/">Content-Security-Policy</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/nginx/">架构</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/短网址/">短网址算法</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Writing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../writing/Markdown/">Markdown</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../writing/atom/">atom</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../writing/mkdocs/">Welcome to MkDocs</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../writing/使用Hexo搭建个人博客/">使用Hexo搭建个人博客</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Design</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../design/UML/">UML</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../design/优化/">优化</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../design/正则表达式/">正则表达式</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Data structure</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/balance_tree/">Balance tree</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/red_black_tree/">二叉查找树</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/堆/">最大堆</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/查找排序/">二分查找</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/算法图解/">广度优先搜索解决无权图的最短路径问题</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Environment</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Net</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/net/私网IP地址范围/">私网IP地址范围</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Os</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux中sh和bash的区别/">Linux中sh和bash的区别</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux基本命令/">Linux基本命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux文件系统/">Linux文件系统</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux用户管理/">Linux用户管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux磁盘管理/">Linux磁盘管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux系统管理/">Linux系统管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux网络管理/">Linux网络管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux软件管理/">Linux软件管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Tips/">Tips</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/grep&awk/">grep&awk</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/sudoers文件/">sudoers文件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/vim/">vim</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/windows/">重启</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/查看操作系统版本/">操作系统发行版</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/设置ssh连接不超时/">设置ssh连接不超时</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Tools</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/Git常用命令/">Git常用命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/Maven/">Maven</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/Notepad++/">Notepad++</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/创建VPN/">创建VPN</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/将TAB转换为4个空格/">将TAB转换为4个空格</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/工具/">工具</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/开发环境初始化/">开发环境初始化</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/快捷键/">快捷键</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/搜狗输入法自定义短语/">搜狗输入法自定义短语</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Other</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../other/links/">网络安全</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../other/买房的事情/">买房的事情</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../other/班车/">班车</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../other/语录/">语录</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Dts</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../other/dts/SVN：Previous operation has not finished; run 'cleanup' if it was interrupted/">SVN：Previous operation has not finished; run 'cleanup' if it was interrupted</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../other/dts/git clone时报Please make sure you have the correct access rights and the repository exists/">问题现象</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../other/dts/hsts/">问题现象</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Security</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../security/OpenSSL/">1. 标准命令</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../security/google_search/">Google search</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../security/远程调用中的反序列化注入/">RMI</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Db &raquo;</li>
+        
+      
+        
+          <li>Coding &raquo;</li>
+        
+      
+    
+    <li>Druid</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="sql-parser">SQL Parser</h1>
+<h2 id="parser">Parser</h2>
+<h3 id="lexer">Lexer词法分析</h3>
+<p>Lexer中拥有词汇表，即Keywords。</p>
+<pre><code class="java">protected Keywords keywods = Keywords.DEFAULT_KEYWORDS;
+</code></pre>
+
+<p><code>DEFAULT_KEYWORDS</code>是一个Map<String, Token>，<code>Token</code>是词汇的枚举类，包含<code>SELECT\INSERT\FROM\WHERE</code>等。</p>
+<p><code>nextToken()</code>从SQL语句解析出下一个单词。
+<code>token()</code>返回上一次解析的单词的Token类型。
+<code>stringVal()</code>获取标识符(Identifier)类型的值。</p>
+<h3 id="parser_1">Parser语法分析</h3>
+<p>在<code>SQLStatementParser</code>的<code>parseStatement</code>方法中通过调用<code>token()</code>方法，解析<code>SQLStatement</code>。如果Token类型为<code>SELECT</code>，则调用<code>parseSelect()</code>方法解析<code>SQLSelectStatement</code>。</p>
+<h2 id="ast">AST抽象语法树</h2>
+<h3 id="_1">节点类型</h3>
+<ul>
+<li>interface SQLObject {}</li>
+<li>
+<p>interface SQLExpr extends SQLObject {}</p>
+</li>
+<li>
+<p>interface SQLName extends SQLExpr {}</p>
+<ul>
+<li>class SQLIdentifierExpr implements SQLName  //如<code>ID = 3</code>的<code>ID</code></li>
+<li>class SQLPropertyExpr implements SQLName  //如<code>A.ID = 3</code>的<code>A.ID</code></li>
+</ul>
+</li>
+<li>
+<p>class SQLBinaryOpExpr implements SQLExpr  //如<code>ID = 3</code>是一个SQLBinaryOpExpr，left是ID (SQLIdentifierExpr)，right是3 (SQLIntegerExpr)</p>
+</li>
+<li>class SQLIntegerExpr extends SQLNumericLiteralExpr implements SQLValuableExpr  //如<code>ID = 3</code>的<code>3</code>是一个SQLIntegerExpr</li>
+<li>
+<p>class SQLCharExpr extends SQLTextLiteralExpr implements SQLValuableExpr  //如<code>NAME = 'jobs'</code>的<code>'jobs'</code>是一个SQLCharExpr</p>
+</li>
+<li>
+<p>interface SQLStatement extends SQLObject {}</p>
+</li>
+<li>
+<p>class SQLSelectStatement implements SQLStatement</p>
+</li>
+<li>class SQLUpdateStatement implements SQLStatement</li>
+<li>class SQLDeleteStatement implements SQLStatement</li>
+<li>class SQLInsertStatement implements SQLStatement</li>
+<li>
+<p>class SQLCreateTableStatement extends SQLStatementImpl</p>
+</li>
+<li>
+<p>interface SQLTableSource extends SQLObject {}</p>
+</li>
+<li>
+<p>class SQLTableSourceImpl extends SQLObjectImpl implements SQLTableSource</p>
+<ul>
+<li>class SQLExprTableSource extends SQLTableSourceImpl  //如<code>select * from emp where i = 3</code>，的<code>from emp</code>是一个SQLExprTableSource，其中<code>expr</code>是一个<code>name=emp</code>的SQLIdentifierExpr</li>
+<li>class SQLJoinTableSource extends SQLTableSourceImpl  //如<code>select * from emp e inner join org o on e.org_id = o.id</code>，其中left <code>'emp e'</code> 是一个SQLExprTableSource，right <code>'org o'</code>也是一个SQLExprTableSource，condition <code>'e.org_id = o.id'</code>是一个SQLBinaryOpExpr</li>
+<li>SQLSubqueryTableSource extends SQLTableSourceImpl  //如<code>select * from (select * from temp) a</code>，这里第一层<code>from(...)</code>是一个SQLSubqueryTableSource</li>
+</ul>
+</li>
+<li>
+<p>class SQLSelect extends SQLObject {}</p>
+</li>
+<li>interface SQLSelectQuery extends SQLObject {}</li>
+<li>class SQLSelectQueryBlock extends SQLObject {}</li>
+<li>class SQLUnionQuery implements SQLSelectQuery</li>
+</ul>
+<pre><code class="java">final String dbType = JdbcConstants.MYSQL;  //可以是ORACLE、POSTGRESQL、SQLSERVER、ODPS等
+String sql = &quot;select * from t&quot;;
+List&lt;SQLStatement&gt; stmtList = SQLUtils.parseStatements(sql, dbType);  //生成SQL语句
+SQLExpr expr = SQLUtils.toSQLExpr(&quot;id=3&quot;, dbType);  //生成表达式
+</code></pre>
+
+<h2 id="visitor">Visitor</h2>
+<ul>
+<li>OutputVisitor用来把AST输出为字符串</li>
+<li>WallVisitor分析SQL语意来防御SQL注入攻击</li>
+<li>ParameterizedOutputVisitor用来合并未参数化的SQL进行统计</li>
+<li>EvalVisitor用来对SQL表达式求值</li>
+<li>ExportParameterVisitor用来提取SQL中的变量参数</li>
+<li>SchemaStatVisitor用来统计SQL中使用的表、字段、过滤条件、排序表达式、分组表达式</li>
+<li>SQL格式化 Druid内置了基于语义的SQL格式化功能</li>
+</ul>
+<h2 id="_2">典型操作</h2>
+<pre><code class="java">String sql = &quot;select * from user order by id&quot;;
+
+// 新建 MySQL Parser
+SQLStatementParser parser = new MySqlStatementParser(sql);
+
+// 使用Parser解析生成AST，这里SQLStatement就是AST
+SQLStatement statement = parser.parseStatement();
+
+// 使用visitor来访问AST
+MySqlSchemaStatVisitor visitor = new MySqlSchemaStatVisitor();
+statement.accept(visitor);
+
+System.out.println(&quot;getColumns:&quot; + visitor.getColumns());
+System.out.println(&quot;getTables:&quot; + visitor.getTables());
+System.out.println(&quot;getParameters:&quot; + visitor.getParameters());
+System.out.println(&quot;getOrderByColumns:&quot; + visitor.getOrderByColumns());
+System.out.println(&quot;getGroupByColumns:&quot; + visitor.getGroupByColumns());
+
+if(statement instanceof SQLSelectStatement)
+{
+    SQLSelect select = ((SQLSelectStatement) statement).getSelect();
+    SQLSelectQuery query = select.getQuery();
+    if(query instanceof SQLSelectQueryBlock)
+    {
+        //解析Table
+        SQLTableSource table = ((SQLSelectQueryBlock) query).getFrom();
+        System.out.println(&quot;getFrom: &quot; + table);
+        //关联查询
+        if(table instanceof SQLJoinTableSource)
+        {
+            SQLJoinTableSource joinTable=(SQLJoinTableSource)table;
+            String joinType=joinTable.getJoinType().toString();
+            System.out.println(&quot;joinType: &quot; + joinType);  //关联类型：JOIN/COMMA
+            System.out.println(&quot;getLeft: &quot; + joinTable.getLeft());  //左表
+            System.out.println(&quot;getRight: &quot; + joinTable.getRight());  //右表
+            SQLExpr expr = joinTable.getCondition();  //关联条件
+            System.out.println(&quot;getCondition: &quot; + expr);
+        }
+
+        System.out.println(&quot;&quot;);
+        //查询列
+        List&lt;SQLSelectItem&gt; mysqlSelectList = ((SQLSelectQueryBlock) query).getSelectList();
+        System.out.println(&quot;getSelectList: &quot; + mysqlSelectList);
+        for(SQLSelectItem sqlSelectItem : mysqlSelectList)
+        {
+            //select *
+            if (sqlSelectItem.getExpr() instanceof SQLAllColumnExpr)
+            {
+                System.out.println(&quot;getExpr: &quot; + sqlSelectItem.getExpr());
+            }
+            //聚合函数
+            else if(sqlSelectItem.getExpr() instanceof SQLAggregateExpr)
+            {
+                System.out.println(&quot;getMethodName: &quot; + ((SQLAggregateExpr) sqlSelectItem.getExpr()).getMethodName());  //函数名称
+                System.out.println(&quot;getArguments: &quot; + ((SQLAggregateExpr) sqlSelectItem.getExpr()).getArguments());  //参数列表
+            }
+            else if (sqlSelectItem.getExpr() instanceof SQLPropertyExpr)
+            {
+                System.out.println(&quot;getExpr: &quot; + sqlSelectItem.getExpr());
+            }
+            else
+            {
+                System.out.println(&quot;item: &quot; + sqlSelectItem);
+            }
+        }
+
+        System.out.println(&quot;&quot;);
+        //查询条件
+        SQLExpr expr = ((SQLSelectQueryBlock) query).getWhere();
+        System.out.println(&quot;getWhere: &quot; + expr);
+        if (expr instanceof SQLBinaryOpExpr)
+        {
+            //表达式
+            SQLBinaryOpExpr bexpr = (SQLBinaryOpExpr)expr;
+            System.out.println(&quot;getLeft: &quot; + bexpr.getLeft());
+            System.out.println(&quot;getRight: &quot; + bexpr.getRight());
+            System.out.println(&quot;getOperator: &quot; + bexpr.getOperator());  //BooleanAnd\BooleanOr
+            if (bexpr.getLeft() instanceof SQLBinaryOpExpr)
+            {
+                SQLBinaryOpExpr bexprL = (SQLBinaryOpExpr)bexpr.getLeft();
+                System.out.println(&quot;LgetLeft: &quot; + bexprL.getLeft());
+                //字符串值
+                if (bexprL.getRight() instanceof SQLCharExpr)
+                {
+                    System.out.println(&quot;LgetRight: &quot; + ((SQLCharExpr)bexprL.getRight()).toString());
+                }
+                //Equality
+                if (SQLBinaryOperator.Equality == bexprL.getOperator())
+                {
+                    System.out.println(&quot;LgetOperator: =&quot;);
+                }
+            }
+            if (bexpr.getRight() instanceof SQLBinaryOpExpr)
+            {
+                SQLBinaryOpExpr bexprR = (SQLBinaryOpExpr)bexpr.getRight();
+                System.out.println(&quot;RgetLeft: &quot; + bexprR.getLeft());
+                //数字值
+                if (bexprR.getRight() instanceof SQLIntegerExpr)
+                {
+                    System.out.println(&quot;RgetRight: &quot; + ((SQLIntegerExpr)bexprR.getRight()).getNumber().longValue());
+                }
+                System.out.println(&quot;RgetOperator: &quot; + bexprR.getOperator());  //GreaterThan
+            }
+        }
+        else if(expr instanceof SQLInListExpr)
+        {
+            //IN子句
+            SQLInListExpr inexpr = (SQLInListExpr)expr;
+            SQLExpr exprL =  inexpr.getExpr();
+            System.out.println(&quot;in getExpr: &quot; + exprL);
+            System.out.println(&quot;toMySqlString: &quot; + SQLUtils.toMySqlString(inexpr));  //将IN转换成key in (values)
+        }
+
+        System.out.println(&quot;&quot;);
+        //排序
+        SQLOrderBy orderby = ((SQLSelectQueryBlock) query).getOrderBy();
+        if (orderby != null )
+        {
+            List&lt;SQLSelectOrderByItem&gt; orderbyItems = orderby.getItems();
+            for (SQLSelectOrderByItem orderitem : orderbyItems)
+            {
+                System.out.println(&quot;getExpr: &quot; + orderitem.getExpr());
+                if (SQLOrderingSpecification.ASC==orderitem.getType() || SQLOrderingSpecification.DESC==orderitem.getType())
+                {
+                    System.out.println(&quot;getType: &quot; + orderitem.getType());  //ASC\DESC
+                }
+            }
+        }
+
+        System.out.println(&quot;&quot;);
+        //分页
+        SQLLimit limit = ((SQLSelectQueryBlock) query).getLimit();
+        if (limit != null)
+        {
+            System.out.println(&quot;getOffset: &quot; + limit.getOffset());
+            System.out.println(&quot;getRowCount: &quot; + limit.getRowCount());
+        }
+    }
+}
+
+// 创建表语句中查找主键和自增字段
+if(statement instanceof MySqlCreateTableStatement)
+{
+    MySqlCreateTableStatement createTableStatement = (MySqlCreateTableStatement)statement;
+    List&lt;SQLTableElement&gt; tableElementList = createTableStatement.getTableElementList();
+    // 找出主键
+    for (SQLTableElement element : tableElementList) {
+        // 单独定义的主键，PRIMARY KEY (name，id)
+        if (element instanceof MySqlPrimaryKey) {
+            List&lt;SQLExpr&gt; columns = ((MySqlPrimaryKey) element).getColumns();
+            System.out.println(&quot;PrimaryKey: &quot; + columns.get(0).toString());
+        }
+
+        // 字段定义后面 id int primary key,
+        if (element instanceof SQLColumnDefinition) {
+            SQLColumnDefinition columnDefinition = (SQLColumnDefinition) element;
+            // 自增长列名称
+            String columnName = columnDefinition.getName().toString();
+            //判断id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
+            List&lt;SQLColumnConstraint&gt; constraints = columnDefinition.getConstraints();
+            for (SQLColumnConstraint constraintTmp : constraints) {
+                if (constraintTmp instanceof SQLColumnPrimaryKey) {
+                    System.out.println(&quot;Constraint PrimaryKey: &quot; + columnName);
+                }
+            }
+
+            // 自增字段
+            if (columnDefinition.isAutoIncrement())
+            {
+                System.out.println(&quot;AutoIncrement: &quot; + columnName);
+            }
+
+            // 字段类型
+            SQLDataType sqlDataType = columnDefinition.getDataType();
+            if (sqlDataType != null) {
+                System.out.println(&quot;DataType: &quot; + sqlDataType.getName());
+            }
+        }
+    }
+}
+</code></pre>
+
+<p><a href="https://github.com/alibaba/druid/wiki/SQL-Parser">官方文档</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../MongoDB/" class="btn btn-neutral float-right" title="MongoDB">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../../cloud/openstack/虚拟化/" class="btn btn-neutral" title="虚拟化"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../../cloud/openstack/虚拟化/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../MongoDB/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>线程池 - My Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u7ebf\u7a0b\u6c60";
+    var mkdocs_page_input_path = "coding\\java\\\u7ebf\u7a0b\u6c60.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">README</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Cloud</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Ai</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/ai/AI/">AI</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/ai/softcom_plus_ai/">softcom</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Container</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/container/Kubenetes常用命令/">Kubenetes常用命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/container/Kubenetes网络/">Kubenetes网络</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/container/docker常用命令/">docker常用命令</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Openstack</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/openstack/架构/">keystone</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../cloud/openstack/虚拟化/">虚拟化</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Coding</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Db</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/Druid/">Druid</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/MongoDB/">MongoDB</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/MySQL/">MySQL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/SQL/">SQL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/SQL基本数据类型/">SQL基本数据类型</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/Ubuntu16.04安装mysql5.7.23/">Ubuntu16.04安装mysql5.7.23</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../db/mybatis/">Mybatis</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Go</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../go/go/">Go</a>
+                </li>
+    </ul>
+                </li>
+                <li class=" current">
+                    
+    <span class="caption-text">Java</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../AIO/">AIO</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Annotation/">Annotation</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Jackson/">Jackson</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java8 Stream/">Java8 Stream</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java单元测试/">Java单元测试</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java基本数据类型/">Java基本数据类型</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java排序/">Java排序</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java数据类型转换/">Java数据类型转换</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java读取properties配置文件/">Java读取properties配置文件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Java运算符/">Java运算符</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Lambda表达式/">Lambda表达式</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Linux设置Java环境变量/">Linux设置Java环境变量</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../NIO/">NIO</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Netty/">Netty</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../SSL/">SSL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../jar/">jar</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../使用HttpClient发送HTTPS请求/">使用HttpClient发送HTTPS请求</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../字符编码/">字符编码</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../序列化/">序列化</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../深入理解JVM/">深入理解JVM</a>
+                </li>
+                <li class="toctree-l3 current">
+                    
+    <a class="current" href="./">线程池</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l4"><a href="#_1">线程池继承关系</a></li>
+    
+
+    <li class="toctree-l4"><a href="#_2">构造方法</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#_3">队列</a></li>
+        
+            <li><a class="toctree-l5" href="#handler">handler</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l4"><a href="#_4">周期线程池</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#_5">继承关系</a></li>
+        
+            <li><a class="toctree-l5" href="#_6">构造方法</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l4"><a href="#_7">多种线程池</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#newcachedthreadpool">newCachedThreadPool</a></li>
+        
+            <li><a class="toctree-l5" href="#newfixedthreadpool">newFixedThreadPool</a></li>
+        
+            <li><a class="toctree-l5" href="#newscheduledthreadpool">newScheduledThreadPool</a></li>
+        
+            <li><a class="toctree-l5" href="#newsinglethreadexecutor">newSingleThreadExecutor</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l4"><a href="#_8">多线程的应用</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#callable">Callable</a></li>
+        
+            <li><a class="toctree-l5" href="#futuretask">FutureTask</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l4"><a href="#countdownlatch">CountDownLatch计数器</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#_12">构造方法</a></li>
+        
+            <li><a class="toctree-l5" href="#_13">成员方法</a></li>
+        
+            <li><a class="toctree-l5" href="#_14">示例代码</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l4"><a href="#_15">线程状态</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#new">NEW</a></li>
+        
+            <li><a class="toctree-l5" href="#runnable">RUNNABLE</a></li>
+        
+            <li><a class="toctree-l5" href="#blocked">BLOCKED</a></li>
+        
+            <li><a class="toctree-l5" href="#waiting">WAITING</a></li>
+        
+            <li><a class="toctree-l5" href="#timed_waiting">TIMED_WAITING</a></li>
+        
+            <li><a class="toctree-l5" href="#terminated">TERMINATED</a></li>
+        
+            <li><a class="toctree-l5" href="#_16">常用定位方法</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../远程调试/">远程调试</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../那些年踩过的坑/">那些年踩过的坑</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../锁/">锁</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Javascript</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../javascript/Node.js/">Node.js</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../javascript/Vue.js/">Vue.js</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Python</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/6_io/">文件读写</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/7_异常/">7 异常</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/8_类/">8 类</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/datatype/">字符串</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/operator/">逻辑/成员/身份运算符</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/python/">安装</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/subprocess/">参数列表</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/函数/">函数</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/库函数/">库函数</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/模块/">导入</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/流程控制/">if</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../python/迭代器生成器/">迭代器生成器</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Springboot</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../springboot/注解/">注解</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Web</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/HTTP错误码/">HTTP错误码</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/LVS转发问题抓包定位/">LVS转发问题抓包定位</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/URL归一化/">前置条件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/curl/">curl</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/http响应头/">Content-Security-Policy</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/nginx/">架构</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../web/短网址/">短网址算法</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Writing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../writing/Markdown/">Markdown</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../writing/atom/">atom</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../writing/mkdocs/">Welcome to MkDocs</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../writing/使用Hexo搭建个人博客/">使用Hexo搭建个人博客</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Design</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../design/UML/">UML</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../design/优化/">优化</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../design/正则表达式/">正则表达式</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Data structure</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/balance_tree/">Balance tree</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/red_black_tree/">二叉查找树</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/堆/">最大堆</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/查找排序/">二分查找</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../design/data_structure/算法图解/">广度优先搜索解决无权图的最短路径问题</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Environment</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Net</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/net/私网IP地址范围/">私网IP地址范围</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Os</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux中sh和bash的区别/">Linux中sh和bash的区别</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux基本命令/">Linux基本命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux文件系统/">Linux文件系统</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux用户管理/">Linux用户管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux磁盘管理/">Linux磁盘管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux系统管理/">Linux系统管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux网络管理/">Linux网络管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Linux软件管理/">Linux软件管理</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/Tips/">Tips</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/grep&awk/">grep&awk</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/sudoers文件/">sudoers文件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/vim/">vim</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/windows/">重启</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/查看操作系统版本/">操作系统发行版</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/os/设置ssh连接不超时/">设置ssh连接不超时</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Tools</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/Git常用命令/">Git常用命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/Maven/">Maven</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/Notepad++/">Notepad++</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/创建VPN/">创建VPN</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/将TAB转换为4个空格/">将TAB转换为4个空格</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/工具/">工具</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/开发环境初始化/">开发环境初始化</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/快捷键/">快捷键</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../environment/tools/搜狗输入法自定义短语/">搜狗输入法自定义短语</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Other</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../other/links/">网络安全</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../other/买房的事情/">买房的事情</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../other/班车/">班车</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../other/语录/">语录</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Dts</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../other/dts/SVN：Previous operation has not finished; run 'cleanup' if it was interrupted/">SVN：Previous operation has not finished; run 'cleanup' if it was interrupted</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../other/dts/git clone时报Please make sure you have the correct access rights and the repository exists/">问题现象</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../other/dts/hsts/">问题现象</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Security</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../security/OpenSSL/">1. 标准命令</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../security/google_search/">Google search</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../security/远程调用中的反序列化注入/">RMI</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Java &raquo;</li>
+        
+      
+        
+          <li>Coding &raquo;</li>
+        
+      
+    
+    <li>线程池</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">线程池继承关系</h1>
+<pre><code class="java">public interface java.util.concurrent.Executor
+    void execute(Runnable command);
+
+public interface java.util.concurrent.ExecutorService extends Executor
+    void shutdown();
+    &lt;T&gt; Future&lt;T&gt; submit(Callable&lt;T&gt; task);
+    &lt;T&gt; Future&lt;T&gt; submit(Runnable task, T result);
+    Future&lt;?&gt; submit(Runnable task);
+    &lt;T&gt; List&lt;Future&lt;T&gt;&gt; invokeAll(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks)
+
+public abstract class AbstractExecutorService implements ExecutorService
+
+public class ThreadPoolExecutor extends AbstractExecutorService
+</code></pre>
+
+<h1 id="_2">构造方法</h1>
+<pre><code class="java">ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue&lt;Runnable&gt; workQueue[, ThreadFactory threadFactory, RejectedExecutionHandler handler])
+</code></pre>
+
+<h2 id="_3">队列</h2>
+<pre><code class="java">public class ArrayBlockingQueue&lt;E&gt;
+extends AbstractQueue&lt;E&gt;
+implements BlockingQueue&lt;E&gt;, java.io.Serializable
+
+private BlockingQueue&lt;Runnable&gt; queue = new ArrayBlockingQueue&lt;Runnable&gt;(int capacity);
+</code></pre>
+
+<h2 id="handler">handler</h2>
+<pre><code class="java">public interface RejectedExecutionHandler
+
+ThreadPoolExecutor.AbortPolicy()  //抛出java.util.concurrent.RejectedExecutionException异常
+ThreadPoolExecutor.CallerRunsPolicy()  //重试添加当前的任务，他会自动重复调用execute()方法
+ThreadPoolExecutor.DiscardOldestPolicy()  //抛弃旧的任务
+ThreadPoolExecutor.DiscardPolicy()  //抛弃当前的任务
+</code></pre>
+
+<h1 id="_4">周期线程池</h1>
+<h2 id="_5">继承关系</h2>
+<pre><code class="java">public interface ScheduledExecutorService extends ExecutorService
+    public ScheduledFuture&lt;?&gt; schedule(Runnable command, long delay, TimeUnit unit);  //延时执行
+    public ScheduledFuture&lt;?&gt; scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit unit);  //延时后周期执行，若执行时间超过周期，执行时间顺延。
+    public ScheduledFuture&lt;?&gt; scheduleWithFixedDelay(Runnable command, long initialDelay, long delay, TimeUnit unit);  //延时后，执行完毕后继续延时执行。
+
+public class ScheduledThreadPoolExecutor extends ThreadPoolExecutor implements ScheduledExecutorService
+</code></pre>
+
+<h2 id="_6">构造方法</h2>
+<pre><code class="java">ScheduledThreadPoolExecutor(int corePoolSize)
+</code></pre>
+
+<blockquote>
+<p><strong>Tips:</strong> 防止任务执行遇到异常取消后续执行</p>
+</blockquote>
+<pre><code class="java">public void run() {
+    //捕获所有的异常，保证定时任务能够继续执行
+    try {
+        //doBusiness();
+    } catch (Throwable e) {
+        // donothing
+    }
+}
+</code></pre>
+
+<h1 id="_7">多种线程池</h1>
+<p>Java通过java.util.concurrent.Executors提供四种线程池，分别为：</p>
+<h2 id="newcachedthreadpool">newCachedThreadPool</h2>
+<p>创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。线程池为无限大，当执行第二个任务时第一个任务已经完成，会复用执行第一个任务的线程，而不用每次新建线程。</p>
+<pre><code class="java">ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
+for (int i = 0; i &lt; 10; i++) {
+    final int index = i;
+    try {
+        Thread.sleep(index * 1000);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+
+    cachedThreadPool.execute(new Runnable() {
+        @Override
+        public void run() {
+            System.out.println(index);
+        }
+    });
+}
+</code></pre>
+
+<h2 id="newfixedthreadpool">newFixedThreadPool</h2>
+<p>创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待。因为线程池大小为3，每个任务输出index后sleep 2秒，所以每两秒打印3个数字。
+定长线程池的大小最好根据系统资源进行设置。如<code>Runtime.getRuntime().availableProcessors()</code>。</p>
+<pre><code class="java">ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
+for (int i = 0; i &lt; 10; i++) {
+    final int index = i;
+    fixedThreadPool.execute(new Runnable() {
+        @Override
+        public void run() {
+            try {
+                System.out.println(index);
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    });
+}
+</code></pre>
+
+<h2 id="newscheduledthreadpool">newScheduledThreadPool</h2>
+<p>创建一个定长线程池，支持定时及周期性任务执行。</p>
+<pre><code class="java">ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(5);
+scheduledThreadPool.schedule(new Runnable() {
+    @Override
+    public void run() {
+        System.out.println(&quot;delay 3 seconds&quot;);
+    }
+    }, 3, TimeUnit.SECONDS);
+</code></pre>
+
+<h2 id="newsinglethreadexecutor">newSingleThreadExecutor</h2>
+<p>创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序(FIFO, LIFO, 优先级)执行。</p>
+<pre><code class="java">ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
+for (int i = 0; i &lt; 10; i++) {
+    final int index = i;
+    singleThreadExecutor.execute(new Runnable() {
+        @Override
+        public void run() {
+            try {
+                System.out.println(index);
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    });
+}
+</code></pre>
+
+<h1 id="_8">多线程的应用</h1>
+<h2 id="callable">Callable</h2>
+<p>可以返回结果的线程接口</p>
+<pre><code class="java">public interface Callable&lt;V&gt; {
+    V call() throw Exception;
+}
+</code></pre>
+
+<h2 id="futuretask">FutureTask</h2>
+<h3 id="_9">继承关系</h3>
+<pre><code class="java">public interface Future&lt;V&gt; {
+    boolean cancel(boolean mayInterruptIfRunning);
+    boolean isCancelled();
+    boolean isDone();
+    V get() throws InterruptedException, ExecutionException;  //阻塞到任务执行完毕返回执行结果。
+    V get(long timeout, TimeUnit unit)  //在指定时间内，还没获取到结果，返回null。
+        throws InterruptedException, ExecutionException, TimeoutException;
+}
+
+public interface RunnableFuture&lt;V&gt; extends Runnable, Future&lt;V&gt; {
+    void run();
+}
+
+public class FutureTask&lt;V&gt; implements RunnableFuture&lt;V&gt;
+</code></pre>
+
+<h3 id="_10">构造方法</h3>
+<pre><code class="java">public FutureTask(Callable&lt;V&gt; callable)
+public FutureTask(Runnable runnable, V result)
+</code></pre>
+
+<h3 id="_11">调用方式</h3>
+<pre><code class="java">/**
+ * 定义可以返回结果的线程类
+ */
+class CallableImpl implements Callable&lt;Integer&gt; {
+    @Override
+    public Integer call() throws Exception {
+        System.out.println(&quot;子线程在进行计算&quot;);
+        Thread.sleep(3000);
+        int sum =0;
+        for(int i=0; i&lt;100; i++) {
+            sum += i;
+        }
+        return sum;
+    }
+}
+
+//初始化可以返回结果的线程类
+CallableImpl ci = new CallableImpl();
+
+ExecutorService executor = Executors.newCachedThreadPool();
+//一、使用ExecutorService提交任务，返回Future
+Future&lt;Integer&gt; result = executor.submit(ci);
+//二、使用Callable实现FutureTask类，使用ExecutorService提交Runnable
+//FutureTask&lt;Integer&gt; futureTask = new FutureTask&lt;Integer&gt;(ci);
+//executor.submit(futureTask);
+executor.shutdown();
+//三、使用Callable实现FutureTask类，使用Thread.start执行
+//FutureTask&lt;Integer&gt; futureTask = new FutureTask&lt;Integer&gt;(ci);
+//new Thread(futureTask).start();
+
+try {
+    Integer rs = result.get(1, TimeUnit.SECONDS);  //获取返回结果
+    if(null != rs) {
+        System.out.println(&quot;result：&quot; + rs);
+    }
+} catch (TimeoutException e) {
+    result.cancel(true);  //超时取消子线程
+    System.out.println(&quot;timeout...&quot;);
+}
+</code></pre>
+
+<h1 id="countdownlatch">CountDownLatch计数器</h1>
+<h2 id="_12">构造方法</h2>
+<pre><code class="java">public CountDownLatch(int count) { };  //参数count为计数值
+</code></pre>
+
+<h2 id="_13">成员方法</h2>
+<pre><code class="java">public void await() throws InterruptedException { };  //调用await()方法的线程会被挂起，它会等待直到count值为0才继续执行
+public boolean await(long timeout, TimeUnit unit) throws InterruptedException { };  //和await()类似，只不过等待一定的时间后count值还没变为0的话就会继续执行
+public void countDown() { };  //将count值减1
+</code></pre>
+
+<h2 id="_14">示例代码</h2>
+<pre><code class="java">final CountDownLatch latch = new CountDownLatch(2);
+System.out.println(&quot;Main threads start.&quot;);
+
+new Thread() {
+    public void run() {
+        System.out.println(&quot;Sub thread &quot; + Thread.currentThread().getName() + &quot; start.&quot;);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+        System.out.println(&quot;Sub thread &quot; + Thread.currentThread().getName() + &quot; finished.&quot;);
+        latch.countDown();  //计数
+    }
+}.start();
+
+new Thread() {
+    public void run() {
+        System.out.println(&quot;Sub thread &quot; + Thread.currentThread().getName() + &quot; start.&quot;);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+        System.out.println(&quot;Sub thread &quot; + Thread.currentThread().getName() + &quot; finished.&quot;);
+        latch.countDown();  //计数
+    }
+}.start();
+
+System.out.println(&quot;Waiting for sub threads finished.&quot;);
+try {
+    latch.await(5, TimeUnit.SECONDS);  //等待计数，5秒超时
+} catch (InterruptedException e) {
+    System.out.println(e);
+}
+System.out.println(&quot;Main threads finished.&quot;);
+</code></pre>
+
+<h1 id="_15">线程状态</h1>
+<h2 id="new">NEW</h2>
+<p>线程刚刚创建。</p>
+<pre><code class="java">Thread t = new Thread();
+</code></pre>
+
+<h2 id="runnable">RUNNABLE</h2>
+<p>已进入临界区（获得锁），正在执行或等待CPU/IO等资源。</p>
+<pre><code class="java">t.start();
+</code></pre>
+
+<h2 id="blocked">BLOCKED</h2>
+<p>未进入临界区，等待锁。</p>
+<pre><code class="java">final Object lock = new Object();
+
+Runnable run = new Runnable() {
+    public void run() {
+        synchronized (lock) {
+            //...
+        }
+    }
+}
+
+Thread t1 = new Thread(run);
+t1.setName(&quot;t1&quot;);
+Thread t2 = new Thread(run);
+t2.setName(&quot;t2&quot;);
+t1.start();
+t2.start();
+</code></pre>
+
+<h2 id="waiting">WAITING</h2>
+<p>已进入临界区（获得锁），调用了<code>wait</code>，需要其他线程调用<code>notify / notifyAll</code>唤醒；或<code>join</code>了另外线程等待其结束。</p>
+<pre><code class="java">final Object lock = new Object();
+
+Thread t1 = new Thread(){
+    public void run() {
+        synchronized (lock) {
+            lock.wait();  // 消费者
+        }
+    }
+}.start();
+
+Thread t2 = new Thread(){
+    public void run() {
+        synchronized (lock) {
+            lock.notifyAll();  // 生产者
+        }
+    }
+}.start();
+</code></pre>
+
+<h2 id="timed_waiting">TIMED_WAITING</h2>
+<p>有时间限制的WAITING，在调用wait(long), join(long)等情况下，或sleep。</p>
+<pre><code class="java">synchronized (lock) {
+    lock.wait(60 * 1000L);
+    //或
+    sleep(30*1000L);
+}
+</code></pre>
+
+<h2 id="terminated">TERMINATED</h2>
+<p>run方法已执行完毕。</p>
+<h2 id="_16">常用定位方法</h2>
+<p>通过<code>jstack</code>查看线程状态；
+标题为<code>threadName priority tid nid desc</code>；
+跟踪<code>tid, nid</code>都可以唯一找到线程；
+如果BLOCK说明synchronized块中处理速度比较慢；
+如果WAITING说明性能瓶颈存在于触发notify的那段逻辑。</p>
+<p>参考：<a href="http://www.cnblogs.com/dolphin0520/p/3949310.html">http://www.cnblogs.com/dolphin0520/p/3949310.html</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../远程调试/" class="btn btn-neutral float-right" title="远程调试">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../深入理解JVM/" class="btn btn-neutral" title="深入理解JVM"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../深入理解JVM/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../远程调试/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>
