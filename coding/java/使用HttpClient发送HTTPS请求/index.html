@@ -3,7 +3,7 @@
 
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -11,25 +11,29 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
+        <link rel="canonical" href="https://islibra.github.io/hello-islibra/coding/java/使用HttpClient发送HTTPS请求/">
       
       
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+        <meta name="author" content="李晓龙">
       
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
       
-        <meta name="lang:search.language" content="en">
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
         <meta name="lang:search.pipeline.trimmer" content="True">
       
-        <meta name="lang:search.result.none" content="No matching documents">
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
       
-        <meta name="lang:search.result.one" content="1 matching document">
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
       
-        <meta name="lang:search.result.other" content="# matching documents">
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
       
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.2">
@@ -42,6 +46,12 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/application.3020aac5.css">
       
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#00bcd4">
       
     
     
@@ -59,15 +69,61 @@
     
     
       
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-XXXXXXXX-X", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
     
     
   </head>
   
-    <body dir="ltr">
+    
+    
+    <body dir="ltr" data-md-color-primary="cyan" data-md-color-accent="red">
   
     <svg class="md-svg">
       <defs>
         
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
         
       </defs>
     </svg>
@@ -76,7 +132,7 @@
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
       <a href="#_1" tabindex="1" class="md-skip">
-        Skip to content
+        跳转至
       </a>
     
     
@@ -84,9 +140,9 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../.." title="islibra" class="md-header-nav__button md-logo">
+        <a href="https://islibra.github.io/hello-islibra/" title="islibra" class="md-header-nav__button md-logo">
           
-            <i class="md-icon"></i>
+            <i class="md-icon">cloud</i>
           
         </a>
       </div>
@@ -113,7 +169,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -123,7 +179,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="result">
           <div class="md-search-result__meta">
-            Type to start searching
+            键入以开始搜索
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -134,6 +190,28 @@
         
       </div>
       
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/islibra/wiki/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    islibra/wiki
+  </div>
+</a>
+          </div>
+        </div>
+      
     </div>
   </nav>
 </header>
@@ -142,6 +220,124 @@
       
         
       
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../.." title="README" class="md-tabs__link">
+        README
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../cloud/ai/AI/" title="Cloud" class="md-tabs__link">
+          Cloud
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../db/Druid/" title="Coding" class="md-tabs__link">
+          Coding
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../design/UML/" title="Design" class="md-tabs__link">
+          Design
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../environment/net/私网IP地址范围/" title="Environment" class="md-tabs__link">
+          Environment
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../other/买房的事情/" title="Other" class="md-tabs__link">
+          Other
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../security/OpenSSL/" title="Security" class="md-tabs__link">
+          Security
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
       
       <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
@@ -152,13 +348,33 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../.." title="islibra" class="md-nav__button md-logo">
+    <a href="https://islibra.github.io/hello-islibra/" title="islibra" class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <i class="md-icon">cloud</i>
       
     </a>
     islibra
   </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/islibra/wiki/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    islibra/wiki
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -168,8 +384,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../.." title="李晓龙" class="md-nav__link">
-      李晓龙
+    <a href="../../.." title="README" class="md-nav__link">
+      README
     </a>
   </li>
 
@@ -773,7 +989,7 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -814,6 +1030,12 @@
       
       
       
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
       
     </ul>
   
@@ -996,8 +1218,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../python/6_io/" title="文件读写" class="md-nav__link">
-      文件读写
+    <a href="../../python/6_io/" title="6_io" class="md-nav__link">
+      6_io
     </a>
   </li>
 
@@ -1224,8 +1446,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../web/URL归一化/" title="前置条件" class="md-nav__link">
-      前置条件
+    <a href="../../web/URL归一化/" title="URL归一化" class="md-nav__link">
+      URL归一化
     </a>
   </li>
 
@@ -1346,6 +1568,42 @@
   <li class="md-nav__item">
     <a href="../../writing/使用Hexo搭建个人博客/" title="使用Hexo搭建个人博客" class="md-nav__link">
       使用Hexo搭建个人博客
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-9" type="checkbox" id="nav-3-9">
+    
+    <label class="md-nav__link" for="nav-3-9">
+      Xml
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-9">
+        Xml
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../xml/CDATA/" title="CDATA" class="md-nav__link">
+      CDATA
     </a>
   </li>
 
@@ -1490,6 +1748,42 @@
   <li class="md-nav__item">
     <a href="../../../design/data_structure/算法图解/" title="广度优先搜索解决无权图的最短路径问题" class="md-nav__link">
       广度优先搜索解决无权图的最短路径问题
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-5" type="checkbox" id="nav-4-5">
+    
+    <label class="md-nav__link" for="nav-4-5">
+      Design pattern
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-5">
+        Design pattern
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../design/design_pattern/catalog/" title="catalog" class="md-nav__link">
+      catalog
     </a>
   </li>
 
@@ -2069,9 +2363,57 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/kali/" title="kali" class="md-nav__link">
+      kali
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/远程调用中的反序列化注入/" title="RMI" class="md-nav__link">
       RMI
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-6" type="checkbox" id="nav-7-6">
+    
+    <label class="md-nav__link" for="nav-7-6">
+      Code
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-6">
+        Code
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
+      构建字典
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -2097,7 +2439,7 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -2139,6 +2481,12 @@
       
       
       
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
     </ul>
   
 </nav>
@@ -2151,352 +2499,368 @@
             <article class="md-content__inner md-typeset">
               
                 
+                  <a href="https://github.com/islibra/wiki/blob/master/docs/coding/java/使用HttpClient发送HTTPS请求.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
-                <h1 id="_1">一、背景知识</h1>
-<h2 id="tls">TLS协商过程</h2>
+                
+                <h1 id="_1">一、背景知识<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="tls">TLS协商过程<a class="headerlink" href="#tls" title="Permanent link">&para;</a></h2>
 <ol>
 <li>客户端发送HTTPS请求ClientHello</li>
 <li>服务器发送X.509证书，包含服务器公钥ServerHello</li>
 <li>客户端校验证书，并生成随机对称密钥，并用服务器公钥加密</li>
 <li>使用对称密钥加密会话数据</li>
 </ol>
-<h2 id="javaca">Java默认存放CA证书的文件</h2>
+<h2 id="javaca">Java默认存放CA证书的文件<a class="headerlink" href="#javaca" title="Permanent link">&para;</a></h2>
 <p>文件路径：<code>%JAVA_HOME%\jre\lib\security\cacerts</code></p>
 <p>使用<code>KeyStore Explorer</code>查看，默认密码<code>changeit</code></p>
 <p>PEM格式，纯文本，使用BASE64编码，使用<code>-----BEGIN CERTIFICATE-----</code> 和 <code>-----END CERTIFICATE-----</code> 来标识；
 DER格式，二进制。</p>
 <p>KeyStore/TrustStore存储：1、Certificate证书；2、PrivateKey非对称加密私钥；3、SecretKey对称加密密钥。
 KeyStore文件格式：JKS、JCEKS、PKCS12、DKS</p>
-<h2 id="_2">类使用链</h2>
+<h2 id="_2">类使用链<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>KeyManagerFactory/TrustManagerFactory -&gt; KeyManager/TrustManager;SecureRandom -&gt; SSLContext -&gt; SSLServerSocketFactory/SSLSocketFactory -&gt; SSLServerSocket -&gt; SSLSocket;SSLEngine -&gt; SSLSession</p>
-<h2 id="keytoolkeystore">通过keytool查看KeyStore文件</h2>
+<h2 id="keytoolkeystore">通过keytool查看KeyStore文件<a class="headerlink" href="#keytoolkeystore" title="Permanent link">&para;</a></h2>
 <p><code>keytool -list -v -keystore D:\xxx.keystore -storepass 123456</code></p>
-<h2 id="_3">将证书导入文件</h2>
+<h2 id="_3">将证书导入文件<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><code>keytool -import -alias 12306 -keystore cacerts -file 12306.cer</code></p>
-<h1 id="_4">二、实现过程</h1>
-<h2 id="1-maven">1. 添加Maven依赖</h2>
-<pre><code class="xml">        &lt;dependency&gt;
-            &lt;groupId&gt;org.apache.httpcomponents&lt;/groupId&gt;
-            &lt;artifactId&gt;httpclient&lt;/artifactId&gt;
-            &lt;version&gt;4.5.2&lt;/version&gt;
-        &lt;/dependency&gt;
-</code></pre>
+<h1 id="_4">二、实现过程<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<h2 id="1-maven">1. 添加Maven依赖<a class="headerlink" href="#1-maven" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.apache.httpcomponents<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>httpclient<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>4.5.2<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
 
-<h2 id="2-keystore">2. 加载KeyStore</h2>
-<pre><code class="java">String keyStoreFilePath = &quot;&quot;;
-String password = &quot;&quot;;
-KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
-FileInputStream fin = new FileInputStream(keyStoreFilePath);
-ks.load(fin, password.toCharArray());
-</code></pre>
 
-<h2 id="3-keystoretrustmanagerfactory">3. 使用KeyStore初始化TrustManagerFactory</h2>
-<pre><code class="java">TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-tmf.init(ks);
-</code></pre>
+<h2 id="2-keystore">2. 加载KeyStore<a class="headerlink" href="#2-keystore" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">String</span> <span class="n">keyStoreFilePath</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+<span class="n">String</span> <span class="n">password</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+<span class="n">KeyStore</span> <span class="n">ks</span> <span class="o">=</span> <span class="n">KeyStore</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="n">KeyStore</span><span class="o">.</span><span class="na">getDefaultType</span><span class="o">());</span>
+<span class="n">FileInputStream</span> <span class="n">fin</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="n">keyStoreFilePath</span><span class="o">);</span>
+<span class="n">ks</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">fin</span><span class="o">,</span> <span class="n">password</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">());</span>
+</pre></div>
 
-<h2 id="4-trustmanager">4. 自定义TrustManager，信任所有服务器证书</h2>
-<pre><code class="java">            TrustManager[] trustAllCerts = new TrustManager[] {
-                    new X509TrustManager() {
-                        public X509Certificate[] getAcceptedIssuers() {
-                            return null;
-                        }
-                        public void checkClientTrusted(X509Certificate[] certs, String authType) {
-                        }
-                        public void checkServerTrusted(X509Certificate[] certs, String authType) {
-                        }
-                    }
-            };
-</code></pre>
 
-<h2 id="5-ssl">5. SSL上下文</h2>
-<pre><code class="java">SSLContext sslcontext = SSLContext.getInstance(&quot;TLSv1.2&quot;);
-sslcontext.init(null, trustAllCerts, null);  //信任所有证书
-sslcontext.init(null, tmf.getTrustManagers(), null);  //使用加载的KeyStore
-</code></pre>
+<h2 id="3-keystoretrustmanagerfactory">3. 使用KeyStore初始化TrustManagerFactory<a class="headerlink" href="#3-keystoretrustmanagerfactory" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">TrustManagerFactory</span> <span class="n">tmf</span> <span class="o">=</span> <span class="n">TrustManagerFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="n">TrustManagerFactory</span><span class="o">.</span><span class="na">getDefaultAlgorithm</span><span class="o">());</span>
+<span class="n">tmf</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="n">ks</span><span class="o">);</span>
+</pre></div>
 
-<h2 id="6-sslsocketfactory">6. 创建SSLSocketFactory</h2>
-<pre><code class="java">import javax.net.ssl.HostnameVerifier;
 
-SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(sslcontext);
+<h2 id="4-trustmanager">4. 自定义TrustManager，信任所有服务器证书<a class="headerlink" href="#4-trustmanager" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>            <span class="n">TrustManager</span><span class="o">[]</span> <span class="n">trustAllCerts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TrustManager</span><span class="o">[]</span> <span class="o">{</span>
+                    <span class="k">new</span> <span class="n">X509TrustManager</span><span class="o">()</span> <span class="o">{</span>
+                        <span class="kd">public</span> <span class="n">X509Certificate</span><span class="o">[]</span> <span class="nf">getAcceptedIssuers</span><span class="o">()</span> <span class="o">{</span>
+                            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+                        <span class="o">}</span>
+                        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkClientTrusted</span><span class="o">(</span><span class="n">X509Certificate</span><span class="o">[]</span> <span class="n">certs</span><span class="o">,</span> <span class="n">String</span> <span class="n">authType</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="o">}</span>
+                        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkServerTrusted</span><span class="o">(</span><span class="n">X509Certificate</span><span class="o">[]</span> <span class="n">certs</span><span class="o">,</span> <span class="n">String</span> <span class="n">authType</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="o">}</span>
+                    <span class="o">}</span>
+            <span class="o">};</span>
+</pre></div>
 
-//屏蔽host校验
-SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(sslcontext, new HostnameVerifier(){
-    @Override
-    public boolean verify(String hostname, SSLSession session) {
-        hostname = &quot;drds.hwclouds.com&quot;;
-        return SSLConnectionSocketFactory.getDefaultHostnameVerifier().verify(hostname, session);
-    }
-});
-//或使用Lambda表达式
-SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(sslcontext, (hostname, session) -&gt; true);
-</code></pre>
 
-<h2 id="7">7. 创建请求客户端</h2>
-<pre><code class="java">CloseableHttpClient httpclient = null;
-//httpclient = HttpClients.createDefault();
-httpclient = HttpClients.custom()
-.setSSLSocketFactory(sslsf)  //自定义SSL工厂
-.build();
-</code></pre>
+<h2 id="5-ssl">5. SSL上下文<a class="headerlink" href="#5-ssl" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">SSLContext</span> <span class="n">sslcontext</span> <span class="o">=</span> <span class="n">SSLContext</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="s">&quot;TLSv1.2&quot;</span><span class="o">);</span>
+<span class="n">sslcontext</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">trustAllCerts</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>  <span class="c1">//信任所有证书</span>
+<span class="n">sslcontext</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">tmf</span><span class="o">.</span><span class="na">getTrustManagers</span><span class="o">(),</span> <span class="kc">null</span><span class="o">);</span>  <span class="c1">//使用加载的KeyStore</span>
+</pre></div>
 
-<h2 id="8-get">8. GET请求</h2>
-<pre><code class="java">            //创建GET方法
-            HttpGet httpGet = new HttpGet(&quot;http://3ms.huawei.com/hi/home/index.html&quot;);
 
-            //添加请求头
-            httpGet.setHeader(&quot;User-Agent&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) ...&quot;);
+<h2 id="6-sslsocketfactory">6. 创建SSLSocketFactory<a class="headerlink" href="#6-sslsocketfactory" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">javax.net.ssl.HostnameVerifier</span><span class="o">;</span>
 
-            //执行HTTP请求
-            String responseBody = httpclient.execute(httpGet, response -&gt; {
-                //返回状态码
-                int status = response.getStatusLine().getStatusCode();
-                if (status &gt;= 200 &amp;&amp; status &lt; 300) {
-                    //返回实体
-                    HttpEntity entity = response.getEntity();
-                    return entity != null ? EntityUtils.toString(entity, &quot;UTF-8&quot;) : null;  //避免中文乱码
-                } else {
-                    throw new ClientProtocolException(&quot;Unexpected response status: &quot; + status);
-                }
-            });
-            System.out.println(responseBody);
-            System.out.println(&quot;--------------------GET END--------------------&quot;);
-</code></pre>
+<span class="n">SSLConnectionSocketFactory</span> <span class="n">sslsf</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SSLConnectionSocketFactory</span><span class="o">(</span><span class="n">sslcontext</span><span class="o">);</span>
+
+<span class="c1">//屏蔽host校验</span>
+<span class="n">SSLConnectionSocketFactory</span> <span class="n">sslsf</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SSLConnectionSocketFactory</span><span class="o">(</span><span class="n">sslcontext</span><span class="o">,</span> <span class="k">new</span> <span class="n">HostnameVerifier</span><span class="o">(){</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">verify</span><span class="o">(</span><span class="n">String</span> <span class="n">hostname</span><span class="o">,</span> <span class="n">SSLSession</span> <span class="n">session</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">hostname</span> <span class="o">=</span> <span class="s">&quot;drds.hwclouds.com&quot;</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">SSLConnectionSocketFactory</span><span class="o">.</span><span class="na">getDefaultHostnameVerifier</span><span class="o">().</span><span class="na">verify</span><span class="o">(</span><span class="n">hostname</span><span class="o">,</span> <span class="n">session</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">});</span>
+<span class="c1">//或使用Lambda表达式</span>
+<span class="n">SSLConnectionSocketFactory</span> <span class="n">sslsf</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SSLConnectionSocketFactory</span><span class="o">(</span><span class="n">sslcontext</span><span class="o">,</span> <span class="o">(</span><span class="n">hostname</span><span class="o">,</span> <span class="n">session</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="kc">true</span><span class="o">);</span>
+</pre></div>
+
+
+<h2 id="7">7. 创建请求客户端<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">CloseableHttpClient</span> <span class="n">httpclient</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="c1">//httpclient = HttpClients.createDefault();</span>
+<span class="n">httpclient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">custom</span><span class="o">()</span>
+<span class="o">.</span><span class="na">setSSLSocketFactory</span><span class="o">(</span><span class="n">sslsf</span><span class="o">)</span>  <span class="c1">//自定义SSL工厂</span>
+<span class="o">.</span><span class="na">build</span><span class="o">();</span>
+</pre></div>
+
+
+<h2 id="8-get">8. GET请求<a class="headerlink" href="#8-get" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>            <span class="c1">//创建GET方法</span>
+            <span class="n">HttpGet</span> <span class="n">httpGet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">&quot;http://3ms.huawei.com/hi/home/index.html&quot;</span><span class="o">);</span>
+
+            <span class="c1">//添加请求头</span>
+            <span class="n">httpGet</span><span class="o">.</span><span class="na">setHeader</span><span class="o">(</span><span class="s">&quot;User-Agent&quot;</span><span class="o">,</span> <span class="s">&quot;Mozilla/5.0 (Windows NT 6.1; WOW64) ...&quot;</span><span class="o">);</span>
+
+            <span class="c1">//执行HTTP请求</span>
+            <span class="n">String</span> <span class="n">responseBody</span> <span class="o">=</span> <span class="n">httpclient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">httpGet</span><span class="o">,</span> <span class="n">response</span> <span class="o">-&gt;</span> <span class="o">{</span>
+                <span class="c1">//返回状态码</span>
+                <span class="kt">int</span> <span class="n">status</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getStatusLine</span><span class="o">().</span><span class="na">getStatusCode</span><span class="o">();</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">status</span> <span class="o">&gt;=</span> <span class="mi">200</span> <span class="o">&amp;&amp;</span> <span class="n">status</span> <span class="o">&lt;</span> <span class="mi">300</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="c1">//返回实体</span>
+                    <span class="n">HttpEntity</span> <span class="n">entity</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getEntity</span><span class="o">();</span>
+                    <span class="k">return</span> <span class="n">entity</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">EntityUtils</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">entity</span><span class="o">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="o">)</span> <span class="o">:</span> <span class="kc">null</span><span class="o">;</span>  <span class="c1">//避免中文乱码</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="k">throw</span> <span class="k">new</span> <span class="n">ClientProtocolException</span><span class="o">(</span><span class="s">&quot;Unexpected response status: &quot;</span> <span class="o">+</span> <span class="n">status</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">});</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">responseBody</span><span class="o">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;--------------------GET END--------------------&quot;</span><span class="o">);</span>
+</pre></div>
+
 
 <blockquote>
 <p><strong>注意：</strong>如果使用Vertx发送请求，且body中携带中文，使用write方法会无法解析。</p>
 </blockquote>
-<pre><code class="java">HttpClient httpClient = VertxUtils.getHttpClient(XXX);
+<div class="codehilite"><pre><span></span><span class="n">HttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">VertxUtils</span><span class="o">.</span><span class="na">getHttpClient</span><span class="o">(</span><span class="n">XXX</span><span class="o">);</span>
 
-HttpClientRequest request = httpClient.request(method, port, host, uri);
+<span class="n">HttpClientRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">request</span><span class="o">(</span><span class="n">method</span><span class="o">,</span> <span class="n">port</span><span class="o">,</span> <span class="n">host</span><span class="o">,</span> <span class="n">uri</span><span class="o">);</span>
 
-request.putHeader(HttpHeaders.CONTENT_TYPE, &quot;application/json;charset=utf8&quot;);
+<span class="n">request</span><span class="o">.</span><span class="na">putHeader</span><span class="o">(</span><span class="n">HttpHeaders</span><span class="o">.</span><span class="na">CONTENT_TYPE</span><span class="o">,</span> <span class="s">&quot;application/json;charset=utf8&quot;</span><span class="o">);</span>
 
-//request.putHeader(HttpHeaders.CONTENT_LENGTH, String.valueOf(requestBody.length()));
-//request.write(requestBody, &quot;UTF-8&quot;);  //此处写入body会出现中文无法解码
+<span class="c1">//request.putHeader(HttpHeaders.CONTENT_LENGTH, String.valueOf(requestBody.length()));</span>
+<span class="c1">//request.write(requestBody, &quot;UTF-8&quot;);  //此处写入body会出现中文无法解码</span>
 
-request.end(requestBody, &quot;UTF-8&quot;);  //写入body，并自动填充Content_Length
-</code></pre>
+<span class="n">request</span><span class="o">.</span><span class="na">end</span><span class="o">(</span><span class="n">requestBody</span><span class="o">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="o">);</span>  <span class="c1">//写入body，并自动填充Content_Length</span>
+</pre></div>
 
-<h2 id="9-post">9. POST请求</h2>
-<pre><code class="java">            //创建POST方法
-            HttpPost httpPost = new HttpPost(&quot;http://talk.page.huawei.com&quot;);
-            List&lt;NameValuePair&gt; nvps = new ArrayList&lt;NameValuePair&gt;();
-            nvps.add(new BasicNameValuePair(&quot;username&quot;, &quot;vip&quot;));
-            nvps.add(new BasicNameValuePair(&quot;password&quot;, &quot;secret&quot;));
-            //创建请求实体
-            httpPost.setEntity(new UrlEncodedFormEntity(nvps));
-            //String parameter = &quot;key=value&quot;;
-            //httpPost.setEntity(new StringEntity(parameter, ContentType.create(&quot;application/x-www-form-urlencoded&quot;)));
-            //执行HTTP请求
-            CloseableHttpResponse response = httpclient.execute(httpPost);
-            HttpEntity entity = response.getEntity();
-            if(entity != null) {
-                System.out.println(entity.getContentLength());
-                InputStream in = entity.getContent();
-                BufferedReader br = new BufferedReader(new InputStreamReader(in));
-                String read = null;
-                while((read = br.readLine()) != null) {
-                    System.out.println(read);
-                }
-            }
-            System.out.println(&quot;--------------------POST END--------------------&quot;);
-</code></pre>
 
-<h2 id="10-finally">10. 最后别忘了在finally里关闭</h2>
-<pre><code class="java">httpclient.close();
-</code></pre>
+<h2 id="9-post">9. POST请求<a class="headerlink" href="#9-post" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>            <span class="c1">//创建POST方法</span>
+            <span class="n">HttpPost</span> <span class="n">httpPost</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpPost</span><span class="o">(</span><span class="s">&quot;http://talk.page.huawei.com&quot;</span><span class="o">);</span>
+            <span class="n">List</span><span class="o">&lt;</span><span class="n">NameValuePair</span><span class="o">&gt;</span> <span class="n">nvps</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">NameValuePair</span><span class="o">&gt;();</span>
+            <span class="n">nvps</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">BasicNameValuePair</span><span class="o">(</span><span class="s">&quot;username&quot;</span><span class="o">,</span> <span class="s">&quot;vip&quot;</span><span class="o">));</span>
+            <span class="n">nvps</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">BasicNameValuePair</span><span class="o">(</span><span class="s">&quot;password&quot;</span><span class="o">,</span> <span class="s">&quot;secret&quot;</span><span class="o">));</span>
+            <span class="c1">//创建请求实体</span>
+            <span class="n">httpPost</span><span class="o">.</span><span class="na">setEntity</span><span class="o">(</span><span class="k">new</span> <span class="n">UrlEncodedFormEntity</span><span class="o">(</span><span class="n">nvps</span><span class="o">));</span>
+            <span class="c1">//String parameter = &quot;key=value&quot;;</span>
+            <span class="c1">//httpPost.setEntity(new StringEntity(parameter, ContentType.create(&quot;application/x-www-form-urlencoded&quot;)));</span>
+            <span class="c1">//执行HTTP请求</span>
+            <span class="n">CloseableHttpResponse</span> <span class="n">response</span> <span class="o">=</span> <span class="n">httpclient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">httpPost</span><span class="o">);</span>
+            <span class="n">HttpEntity</span> <span class="n">entity</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getEntity</span><span class="o">();</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">entity</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">entity</span><span class="o">.</span><span class="na">getContentLength</span><span class="o">());</span>
+                <span class="n">InputStream</span> <span class="n">in</span> <span class="o">=</span> <span class="n">entity</span><span class="o">.</span><span class="na">getContent</span><span class="o">();</span>
+                <span class="n">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">InputStreamReader</span><span class="o">(</span><span class="n">in</span><span class="o">));</span>
+                <span class="n">String</span> <span class="n">read</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+                <span class="k">while</span><span class="o">((</span><span class="n">read</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">read</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;--------------------POST END--------------------&quot;</span><span class="o">);</span>
+</pre></div>
 
-<h2 id="11">11. 附：</h2>
-<h3 id="keystore">通过KeyStore获取证书</h3>
-<pre><code class="java">Certificate certificate = ks.getCertificate(&quot;&quot;);
-</code></pre>
 
-<h3 id="_5">替换证书</h3>
-<pre><code class="java">            //获取所有别名
-            Enumeration&lt;String&gt; aliases = ks.aliases();
-            while (aliases.hasMoreElements()) {
-                String alias = aliases.nextElement();
-                if (alias != null &amp;&amp; alias.startsWith(&quot;&quot;)) {
-                    ks.deleteEntry(alias);  //替换证书
-                }
-            }
-            ks.setCertificateEntry(&quot;&quot;, certificate);
-            FileOutputStream fos = new FileOutputStream(&quot;&quot;);
-            ks.store(fos, password.toCharArray());  //存入KeyStore文件
-</code></pre>
+<h2 id="10-finally">10. 最后别忘了在finally里关闭<a class="headerlink" href="#10-finally" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">httpclient</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</pre></div>
 
-<h3 id="jdk">直接使用JDK提供的接口</h3>
-<pre><code class="java">import java.net.URL;
-import java.net.HttpURLConnection;
 
-URL url = new URL(&quot;http://www.huawei.com/&quot;);
-HttpURLConnection uc = (HttpURLConnection)url.openConnection();
-BufferedReader br = new BufferedReader(new InputStreamReader(uc.getInputStream()));
-String in = null;
-while((in = br.readLine()) != null) {
-System.out.println(in);
-}
-</code></pre>
+<h2 id="11">11. 附：<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+<h3 id="keystore">通过KeyStore获取证书<a class="headerlink" href="#keystore" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="n">Certificate</span> <span class="n">certificate</span> <span class="o">=</span> <span class="n">ks</span><span class="o">.</span><span class="na">getCertificate</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">);</span>
+</pre></div>
 
-<h1 id="_6">三、代码</h1>
-<pre><code class="java">package com.huawei.web;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
+<h3 id="_5">替换证书<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>            <span class="c1">//获取所有别名</span>
+            <span class="n">Enumeration</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">aliases</span> <span class="o">=</span> <span class="n">ks</span><span class="o">.</span><span class="na">aliases</span><span class="o">();</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">aliases</span><span class="o">.</span><span class="na">hasMoreElements</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">String</span> <span class="n">alias</span> <span class="o">=</span> <span class="n">aliases</span><span class="o">.</span><span class="na">nextElement</span><span class="o">();</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">alias</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">alias</span><span class="o">.</span><span class="na">startsWith</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">))</span> <span class="o">{</span>
+                    <span class="n">ks</span><span class="o">.</span><span class="na">deleteEntry</span><span class="o">(</span><span class="n">alias</span><span class="o">);</span>  <span class="c1">//替换证书</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="n">ks</span><span class="o">.</span><span class="na">setCertificateEntry</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">,</span> <span class="n">certificate</span><span class="o">);</span>
+            <span class="n">FileOutputStream</span> <span class="n">fos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">);</span>
+            <span class="n">ks</span><span class="o">.</span><span class="na">store</span><span class="o">(</span><span class="n">fos</span><span class="o">,</span> <span class="n">password</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">());</span>  <span class="c1">//存入KeyStore文件</span>
+</pre></div>
 
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.TrustManagerFactory;
-import javax.net.ssl.X509TrustManager;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.security.KeyStore;
-import java.security.cert.Certificate;
-import java.security.cert.X509Certificate;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
 
-/**
- * 调用HttpClient发送HTTPS请求
- * @author l00250989
- */
-public class HttpsRequestUtil {
+<h3 id="jdk">直接使用JDK提供的接口<a class="headerlink" href="#jdk" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">java.net.URL</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.HttpURLConnection</span><span class="o">;</span>
 
-    /**
-     * 自定义信任所有证书的TrustManager
-     */
-    private final TrustManager[] trustAllCerts = new TrustManager[] {
-            new X509TrustManager() {
-                public X509Certificate[] getAcceptedIssuers() {
-                    return null;
-                }
-                public void checkClientTrusted(X509Certificate[] certs, String authType) {
-                }
-                public void checkServerTrusted(X509Certificate[] certs, String authType) {
-                }
-            }
-    };
+<span class="n">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">&quot;http://www.huawei.com/&quot;</span><span class="o">);</span>
+<span class="n">HttpURLConnection</span> <span class="n">uc</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span><span class="n">url</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+<span class="n">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">InputStreamReader</span><span class="o">(</span><span class="n">uc</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()));</span>
+<span class="n">String</span> <span class="n">in</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="k">while</span><span class="o">((</span><span class="n">in</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">in</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
 
-    private static void echo(String str) {
-        System.out.println(str);
-    }
 
-    public static void main(String args[]) {
+<h1 id="_6">三、代码<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.huawei.web</span><span class="o">;</span>
 
-        CloseableHttpClient httpclient = null;
-        try {
-            //加载KeyStore
-            String keyStoreFilePath = &quot;&quot;;
-            String password = &quot;&quot;;
-            echo(KeyStore.getDefaultType().toString());
-            KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
-            FileInputStream fin = new FileInputStream(keyStoreFilePath);
-            ks.load(fin, password.toCharArray());
+<span class="kn">import</span> <span class="nn">org.apache.http.HttpEntity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.NameValuePair</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.ClientProtocolException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.entity.UrlEncodedFormEntity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpPost</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.conn.ssl.SSLConnectionSocketFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.message.BasicNameValuePair</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.util.EntityUtils</span><span class="o">;</span>
 
-            //获取证书
-            Certificate certificate = ks.getCertificate(&quot;&quot;);
-            //获取所有别名
-            Enumeration&lt;String&gt; aliases = ks.aliases();
-            while (aliases.hasMoreElements()) {
-                String alias = aliases.nextElement();
-                if (alias != null &amp;&amp; alias.startsWith(&quot;&quot;)) {
-                    ks.deleteEntry(alias);  //替换证书
-                }
-            }
-            ks.setCertificateEntry(&quot;&quot;, certificate);
-            FileOutputStream fos = new FileOutputStream(&quot;&quot;);
-            ks.store(fos, password.toCharArray());  //存入KeyStore文件
+<span class="kn">import</span> <span class="nn">javax.net.ssl.SSLContext</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.net.ssl.TrustManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.net.ssl.TrustManagerFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.net.ssl.X509TrustManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileInputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileOutputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.security.KeyStore</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.security.cert.Certificate</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.security.cert.X509Certificate</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Enumeration</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
 
-            //使用KeyStore初始化TrustManagerFactory
-            echo(TrustManagerFactory.getDefaultAlgorithm().toString());
-            TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-            tmf.init(ks);
+<span class="cm">/**</span>
+<span class="cm"> * 调用HttpClient发送HTTPS请求</span>
+<span class="cm"> * @author l00250989</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HttpsRequestUtil</span> <span class="o">{</span>
 
-            //SSL上下文
-            SSLContext sslcontext = SSLContext.getInstance(&quot;TLSv1.2&quot;);
-            //sslcontext.init(null, trustAllCerts, null);
-            sslcontext.init(null, tmf.getTrustManagers(), null);
+    <span class="cm">/**</span>
+<span class="cm">     * 自定义信任所有证书的TrustManager</span>
+<span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">TrustManager</span><span class="o">[]</span> <span class="n">trustAllCerts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TrustManager</span><span class="o">[]</span> <span class="o">{</span>
+            <span class="k">new</span> <span class="n">X509TrustManager</span><span class="o">()</span> <span class="o">{</span>
+                <span class="kd">public</span> <span class="n">X509Certificate</span><span class="o">[]</span> <span class="nf">getAcceptedIssuers</span><span class="o">()</span> <span class="o">{</span>
+                    <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+                <span class="o">}</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkClientTrusted</span><span class="o">(</span><span class="n">X509Certificate</span><span class="o">[]</span> <span class="n">certs</span><span class="o">,</span> <span class="n">String</span> <span class="n">authType</span><span class="o">)</span> <span class="o">{</span>
+                <span class="o">}</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkServerTrusted</span><span class="o">(</span><span class="n">X509Certificate</span><span class="o">[]</span> <span class="n">certs</span><span class="o">,</span> <span class="n">String</span> <span class="n">authType</span><span class="o">)</span> <span class="o">{</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+    <span class="o">};</span>
 
-            //SSLSocketFactory
-            SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(sslcontext);
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">echo</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+    <span class="o">}</span>
 
-            //创建请求客户端
-            //httpclient = HttpClients.createDefault();
-            httpclient = HttpClients.custom()
-                    .setSSLSocketFactory(sslsf)  //自定义SSL工厂
-                    .build();
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
 
-            //创建GET方法
-            HttpGet httpGet = new HttpGet(&quot;http://3ms.huawei.com/hi/home/index.html&quot;);
+        <span class="n">CloseableHttpClient</span> <span class="n">httpclient</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="c1">//加载KeyStore</span>
+            <span class="n">String</span> <span class="n">keyStoreFilePath</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+            <span class="n">String</span> <span class="n">password</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+            <span class="n">echo</span><span class="o">(</span><span class="n">KeyStore</span><span class="o">.</span><span class="na">getDefaultType</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>
+            <span class="n">KeyStore</span> <span class="n">ks</span> <span class="o">=</span> <span class="n">KeyStore</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="n">KeyStore</span><span class="o">.</span><span class="na">getDefaultType</span><span class="o">());</span>
+            <span class="n">FileInputStream</span> <span class="n">fin</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="n">keyStoreFilePath</span><span class="o">);</span>
+            <span class="n">ks</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">fin</span><span class="o">,</span> <span class="n">password</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">());</span>
 
-            //添加请求头
-            httpGet.setHeader(&quot;User-Agent&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) ...&quot;);
+            <span class="c1">//获取证书</span>
+            <span class="n">Certificate</span> <span class="n">certificate</span> <span class="o">=</span> <span class="n">ks</span><span class="o">.</span><span class="na">getCertificate</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">);</span>
+            <span class="c1">//获取所有别名</span>
+            <span class="n">Enumeration</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">aliases</span> <span class="o">=</span> <span class="n">ks</span><span class="o">.</span><span class="na">aliases</span><span class="o">();</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">aliases</span><span class="o">.</span><span class="na">hasMoreElements</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">String</span> <span class="n">alias</span> <span class="o">=</span> <span class="n">aliases</span><span class="o">.</span><span class="na">nextElement</span><span class="o">();</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">alias</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">alias</span><span class="o">.</span><span class="na">startsWith</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">))</span> <span class="o">{</span>
+                    <span class="n">ks</span><span class="o">.</span><span class="na">deleteEntry</span><span class="o">(</span><span class="n">alias</span><span class="o">);</span>  <span class="c1">//替换证书</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="n">ks</span><span class="o">.</span><span class="na">setCertificateEntry</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">,</span> <span class="n">certificate</span><span class="o">);</span>
+            <span class="n">FileOutputStream</span> <span class="n">fos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">);</span>
+            <span class="n">ks</span><span class="o">.</span><span class="na">store</span><span class="o">(</span><span class="n">fos</span><span class="o">,</span> <span class="n">password</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">());</span>  <span class="c1">//存入KeyStore文件</span>
 
-            //执行HTTP请求
-            String responseBody = httpclient.execute(httpGet, response -&gt; {
-                //返回状态码
-                int status = response.getStatusLine().getStatusCode();
-                if (status &gt;= 200 &amp;&amp; status &lt; 300) {
-                    //返回实体
-                    HttpEntity entity = response.getEntity();
-                    return entity != null ? EntityUtils.toString(entity) : null;
-                } else {
-                    throw new ClientProtocolException(&quot;Unexpected response status: &quot; + status);
-                }
-            });
-            System.out.println(responseBody);
-            System.out.println(&quot;--------------------GET END--------------------&quot;);
+            <span class="c1">//使用KeyStore初始化TrustManagerFactory</span>
+            <span class="n">echo</span><span class="o">(</span><span class="n">TrustManagerFactory</span><span class="o">.</span><span class="na">getDefaultAlgorithm</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>
+            <span class="n">TrustManagerFactory</span> <span class="n">tmf</span> <span class="o">=</span> <span class="n">TrustManagerFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="n">TrustManagerFactory</span><span class="o">.</span><span class="na">getDefaultAlgorithm</span><span class="o">());</span>
+            <span class="n">tmf</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="n">ks</span><span class="o">);</span>
 
-            //创建POST方法
-            HttpPost httpPost = new HttpPost(&quot;http://talk.page.huawei.com&quot;);
-            List&lt;NameValuePair&gt; nvps = new ArrayList&lt;NameValuePair&gt;();
-            nvps.add(new BasicNameValuePair(&quot;username&quot;, &quot;vip&quot;));
-            nvps.add(new BasicNameValuePair(&quot;password&quot;, &quot;secret&quot;));
-            //创建请求实体
-            httpPost.setEntity(new UrlEncodedFormEntity(nvps));
-            //String parameter = &quot;key=value&quot;;
-            //httpPost.setEntity(new StringEntity(parameter, ContentType.create(&quot;application/x-www-form-urlencoded&quot;)));
-            //执行HTTP请求
-            CloseableHttpResponse response = httpclient.execute(httpPost);
-            HttpEntity entity = response.getEntity();
-            if(entity != null) {
-                System.out.println(entity.getContentLength());
-                InputStream in = entity.getContent();
-                BufferedReader br = new BufferedReader(new InputStreamReader(in));
-                String read = null;
-                while((read = br.readLine()) != null) {
-                    System.out.println(read);
-                }
-            }
-            System.out.println(&quot;--------------------POST END--------------------&quot;);
-        } catch (Exception e) {
-            System.out.println(e);
-        } finally {
-            try {
-                httpclient.close();
-            } catch (IOException e) {
-                System.out.println(e);
-            }
-        }
-    }
-}
-</code></pre>
+            <span class="c1">//SSL上下文</span>
+            <span class="n">SSLContext</span> <span class="n">sslcontext</span> <span class="o">=</span> <span class="n">SSLContext</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="s">&quot;TLSv1.2&quot;</span><span class="o">);</span>
+            <span class="c1">//sslcontext.init(null, trustAllCerts, null);</span>
+            <span class="n">sslcontext</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">tmf</span><span class="o">.</span><span class="na">getTrustManagers</span><span class="o">(),</span> <span class="kc">null</span><span class="o">);</span>
+
+            <span class="c1">//SSLSocketFactory</span>
+            <span class="n">SSLConnectionSocketFactory</span> <span class="n">sslsf</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SSLConnectionSocketFactory</span><span class="o">(</span><span class="n">sslcontext</span><span class="o">);</span>
+
+            <span class="c1">//创建请求客户端</span>
+            <span class="c1">//httpclient = HttpClients.createDefault();</span>
+            <span class="n">httpclient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">custom</span><span class="o">()</span>
+                    <span class="o">.</span><span class="na">setSSLSocketFactory</span><span class="o">(</span><span class="n">sslsf</span><span class="o">)</span>  <span class="c1">//自定义SSL工厂</span>
+                    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+
+            <span class="c1">//创建GET方法</span>
+            <span class="n">HttpGet</span> <span class="n">httpGet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">&quot;http://3ms.huawei.com/hi/home/index.html&quot;</span><span class="o">);</span>
+
+            <span class="c1">//添加请求头</span>
+            <span class="n">httpGet</span><span class="o">.</span><span class="na">setHeader</span><span class="o">(</span><span class="s">&quot;User-Agent&quot;</span><span class="o">,</span> <span class="s">&quot;Mozilla/5.0 (Windows NT 6.1; WOW64) ...&quot;</span><span class="o">);</span>
+
+            <span class="c1">//执行HTTP请求</span>
+            <span class="n">String</span> <span class="n">responseBody</span> <span class="o">=</span> <span class="n">httpclient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">httpGet</span><span class="o">,</span> <span class="n">response</span> <span class="o">-&gt;</span> <span class="o">{</span>
+                <span class="c1">//返回状态码</span>
+                <span class="kt">int</span> <span class="n">status</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getStatusLine</span><span class="o">().</span><span class="na">getStatusCode</span><span class="o">();</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">status</span> <span class="o">&gt;=</span> <span class="mi">200</span> <span class="o">&amp;&amp;</span> <span class="n">status</span> <span class="o">&lt;</span> <span class="mi">300</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="c1">//返回实体</span>
+                    <span class="n">HttpEntity</span> <span class="n">entity</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getEntity</span><span class="o">();</span>
+                    <span class="k">return</span> <span class="n">entity</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">EntityUtils</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">entity</span><span class="o">)</span> <span class="o">:</span> <span class="kc">null</span><span class="o">;</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="k">throw</span> <span class="k">new</span> <span class="n">ClientProtocolException</span><span class="o">(</span><span class="s">&quot;Unexpected response status: &quot;</span> <span class="o">+</span> <span class="n">status</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">});</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">responseBody</span><span class="o">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;--------------------GET END--------------------&quot;</span><span class="o">);</span>
+
+            <span class="c1">//创建POST方法</span>
+            <span class="n">HttpPost</span> <span class="n">httpPost</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpPost</span><span class="o">(</span><span class="s">&quot;http://talk.page.huawei.com&quot;</span><span class="o">);</span>
+            <span class="n">List</span><span class="o">&lt;</span><span class="n">NameValuePair</span><span class="o">&gt;</span> <span class="n">nvps</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">NameValuePair</span><span class="o">&gt;();</span>
+            <span class="n">nvps</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">BasicNameValuePair</span><span class="o">(</span><span class="s">&quot;username&quot;</span><span class="o">,</span> <span class="s">&quot;vip&quot;</span><span class="o">));</span>
+            <span class="n">nvps</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">BasicNameValuePair</span><span class="o">(</span><span class="s">&quot;password&quot;</span><span class="o">,</span> <span class="s">&quot;secret&quot;</span><span class="o">));</span>
+            <span class="c1">//创建请求实体</span>
+            <span class="n">httpPost</span><span class="o">.</span><span class="na">setEntity</span><span class="o">(</span><span class="k">new</span> <span class="n">UrlEncodedFormEntity</span><span class="o">(</span><span class="n">nvps</span><span class="o">));</span>
+            <span class="c1">//String parameter = &quot;key=value&quot;;</span>
+            <span class="c1">//httpPost.setEntity(new StringEntity(parameter, ContentType.create(&quot;application/x-www-form-urlencoded&quot;)));</span>
+            <span class="c1">//执行HTTP请求</span>
+            <span class="n">CloseableHttpResponse</span> <span class="n">response</span> <span class="o">=</span> <span class="n">httpclient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">httpPost</span><span class="o">);</span>
+            <span class="n">HttpEntity</span> <span class="n">entity</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getEntity</span><span class="o">();</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">entity</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">entity</span><span class="o">.</span><span class="na">getContentLength</span><span class="o">());</span>
+                <span class="n">InputStream</span> <span class="n">in</span> <span class="o">=</span> <span class="n">entity</span><span class="o">.</span><span class="na">getContent</span><span class="o">();</span>
+                <span class="n">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">InputStreamReader</span><span class="o">(</span><span class="n">in</span><span class="o">));</span>
+                <span class="n">String</span> <span class="n">read</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+                <span class="k">while</span><span class="o">((</span><span class="n">read</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">read</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;--------------------POST END--------------------&quot;</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="n">httpclient</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
                 
                   
                 
@@ -2504,6 +2868,22 @@ public class HttpsRequestUtil {
               
                 
 
+
+  <h2 id="__comments">评论</h2>
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://islibra.github.io/hello-islibra/coding/java/使用HttpClient发送HTTPS请求/";
+      this.page.identifier =
+        "coding/java/使用HttpClient发送HTTPS请求/";
+    };
+    (function() {
+      var d = document, s = d.createElement("script");
+      s.src = "//islibra.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
               
             </article>
@@ -2524,7 +2904,7 @@ public class HttpsRequestUtil {
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Previous
+                  后退
                 </span>
                 jar
               </span>
@@ -2536,7 +2916,7 @@ public class HttpsRequestUtil {
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Next
+                  前进
                 </span>
                 字符编码
               </span>
@@ -2553,6 +2933,10 @@ public class HttpsRequestUtil {
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 - 2019 李晓龙
+          </div>
+        
         powered by
         <a href="https://www.mkdocs.org">MkDocs</a>
         and
@@ -2567,6 +2951,23 @@ public class HttpsRequestUtil {
     </div>
     
       <script src="../../../assets/javascripts/application.267712eb.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       

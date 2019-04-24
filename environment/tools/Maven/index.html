@@ -3,7 +3,7 @@
 
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -11,25 +11,29 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
+        <link rel="canonical" href="https://islibra.github.io/hello-islibra/environment/tools/Maven/">
       
       
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+        <meta name="author" content="李晓龙">
       
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
       
-        <meta name="lang:search.language" content="en">
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
         <meta name="lang:search.pipeline.trimmer" content="True">
       
-        <meta name="lang:search.result.none" content="No matching documents">
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
       
-        <meta name="lang:search.result.one" content="1 matching document">
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
       
-        <meta name="lang:search.result.other" content="# matching documents">
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
       
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.2">
@@ -42,6 +46,12 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/application.3020aac5.css">
       
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#00bcd4">
       
     
     
@@ -59,15 +69,61 @@
     
     
       
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-XXXXXXXX-X", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
     
     
   </head>
   
-    <body dir="ltr">
+    
+    
+    <body dir="ltr" data-md-color-primary="cyan" data-md-color-accent="red">
   
     <svg class="md-svg">
       <defs>
         
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
         
       </defs>
     </svg>
@@ -76,7 +132,7 @@
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
       <a href="#_1" tabindex="1" class="md-skip">
-        Skip to content
+        跳转至
       </a>
     
     
@@ -84,9 +140,9 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../.." title="islibra" class="md-header-nav__button md-logo">
+        <a href="https://islibra.github.io/hello-islibra/" title="islibra" class="md-header-nav__button md-logo">
           
-            <i class="md-icon"></i>
+            <i class="md-icon">cloud</i>
           
         </a>
       </div>
@@ -113,7 +169,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -123,7 +179,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="result">
           <div class="md-search-result__meta">
-            Type to start searching
+            键入以开始搜索
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -134,6 +190,28 @@
         
       </div>
       
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/islibra/wiki/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    islibra/wiki
+  </div>
+</a>
+          </div>
+        </div>
+      
     </div>
   </nav>
 </header>
@@ -142,6 +220,124 @@
       
         
       
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../.." title="README" class="md-tabs__link">
+        README
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../cloud/ai/AI/" title="Cloud" class="md-tabs__link">
+          Cloud
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../coding/db/Druid/" title="Coding" class="md-tabs__link">
+          Coding
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../design/UML/" title="Design" class="md-tabs__link">
+          Design
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../net/私网IP地址范围/" title="Environment" class="md-tabs__link">
+          Environment
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../other/买房的事情/" title="Other" class="md-tabs__link">
+          Other
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../security/OpenSSL/" title="Security" class="md-tabs__link">
+          Security
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
       
       <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
@@ -152,13 +348,33 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../.." title="islibra" class="md-nav__button md-logo">
+    <a href="https://islibra.github.io/hello-islibra/" title="islibra" class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <i class="md-icon">cloud</i>
       
     </a>
     islibra
   </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/islibra/wiki/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    islibra/wiki
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -168,8 +384,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../.." title="李晓龙" class="md-nav__link">
-      李晓龙
+    <a href="../../.." title="README" class="md-nav__link">
+      README
     </a>
   </li>
 
@@ -926,8 +1142,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../coding/python/6_io/" title="文件读写" class="md-nav__link">
-      文件读写
+    <a href="../../../coding/python/6_io/" title="6_io" class="md-nav__link">
+      6_io
     </a>
   </li>
 
@@ -1154,8 +1370,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../coding/web/URL归一化/" title="前置条件" class="md-nav__link">
-      前置条件
+    <a href="../../../coding/web/URL归一化/" title="URL归一化" class="md-nav__link">
+      URL归一化
     </a>
   </li>
 
@@ -1276,6 +1492,42 @@
   <li class="md-nav__item">
     <a href="../../../coding/writing/使用Hexo搭建个人博客/" title="使用Hexo搭建个人博客" class="md-nav__link">
       使用Hexo搭建个人博客
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-9" type="checkbox" id="nav-3-9">
+    
+    <label class="md-nav__link" for="nav-3-9">
+      Xml
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-9">
+        Xml
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coding/xml/CDATA/" title="CDATA" class="md-nav__link">
+      CDATA
     </a>
   </li>
 
@@ -1420,6 +1672,42 @@
   <li class="md-nav__item">
     <a href="../../../design/data_structure/算法图解/" title="广度优先搜索解决无权图的最短路径问题" class="md-nav__link">
       广度优先搜索解决无权图的最短路径问题
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-5" type="checkbox" id="nav-4-5">
+    
+    <label class="md-nav__link" for="nav-4-5">
+      Design pattern
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-5">
+        Design pattern
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../design/design_pattern/catalog/" title="catalog" class="md-nav__link">
+      catalog
     </a>
   </li>
 
@@ -2012,9 +2300,57 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/kali/" title="kali" class="md-nav__link">
+      kali
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/远程调用中的反序列化注入/" title="RMI" class="md-nav__link">
       RMI
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-6" type="checkbox" id="nav-7-6">
+    
+    <label class="md-nav__link" for="nav-7-6">
+      Code
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-6">
+        Code
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
+      构建字典
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -2050,101 +2386,104 @@
             <article class="md-content__inner md-typeset">
               
                 
+                  <a href="https://github.com/islibra/wiki/blob/master/docs/environment/tools/Maven.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
-                <h1 id="_1">前置条件</h1>
+                
+                <h1 id="_1">前置条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>已安装JDK，并设置环境变量<code>JAVA_HOME</code>和<code>path</code>。</p>
-<h1 id="_2">设置环境变量</h1>
+<h1 id="_2">设置环境变量<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>M2_HOME=D:\software\apache-maven-3.3.3
 M2=%M2_HOME%\bin  <strong>--添加到path中去</strong>
 MAVEN_OPTS=-Xms256m -Xmx512m</p>
 </blockquote>
-<h1 id="_3">生命周期</h1>
+<h1 id="_3">生命周期<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
 <ul>
 <li>pre-clean -&gt; clean -&gt; post-clean</li>
 <li>validate -&gt; initialize -&gt; compile -&gt; test -&gt; package -&gt; install -&gt; depoly</li>
 <li>pre-site -&gt; site -&gt; post-site -&gt; site-depoly</li>
 </ul>
-<h1 id="_4">配置文件</h1>
+<h1 id="_4">配置文件<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
 <p>配置文件路径：<code>/conf/setting.xml</code></p>
-<pre><code class="xml">&lt;!--本地仓路径--&gt;
-&lt;localRepository&gt;D:\software\apache-maven-3.3.3\repo&lt;/localRepository&gt;
+<div class="codehilite"><pre><span></span><span class="c">&lt;!--本地仓路径--&gt;</span>
+<span class="nt">&lt;localRepository&gt;</span>D:\software\apache-maven-3.3.3\repo<span class="nt">&lt;/localRepository&gt;</span>
 
-&lt;!--从远程仓下载使用的镜像--&gt;
-  &lt;mirrors&gt;
-    &lt;mirror&gt;
-      &lt;id&gt;planetmirror.com&lt;/id&gt;
-      &lt;name&gt;PlanetMirror Australia&lt;/name&gt;
-      &lt;url&gt;http://downloads.planetmirror.com/pub/maven2&lt;/url&gt;
-      &lt;!--需镜像的远程仓，如central代表https://repo.maven.apache.org/maven2/--&gt;
-      &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
-    &lt;/mirror&gt;
-  &lt;/mirrors&gt;
+<span class="c">&lt;!--从远程仓下载使用的镜像--&gt;</span>
+  <span class="nt">&lt;mirrors&gt;</span>
+    <span class="nt">&lt;mirror&gt;</span>
+      <span class="nt">&lt;id&gt;</span>planetmirror.com<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;name&gt;</span>PlanetMirror Australia<span class="nt">&lt;/name&gt;</span>
+      <span class="nt">&lt;url&gt;</span>http://downloads.planetmirror.com/pub/maven2<span class="nt">&lt;/url&gt;</span>
+      <span class="c">&lt;!--需镜像的远程仓，如central代表https://repo.maven.apache.org/maven2/--&gt;</span>
+      <span class="nt">&lt;mirrorOf&gt;</span>central<span class="nt">&lt;/mirrorOf&gt;</span>
+    <span class="nt">&lt;/mirror&gt;</span>
+  <span class="nt">&lt;/mirrors&gt;</span>
 
-&lt;!--为Maven配置代理访问网络--&gt;
-  &lt;proxies&gt;
-    &lt;proxy&gt;
-      &lt;id&gt;myproxy&lt;/id&gt;
-      &lt;active&gt;true&lt;/active&gt;
-      &lt;protocol&gt;http&lt;/protocol&gt;
-      &lt;host&gt;proxy.somewhere.com&lt;/host&gt;
-      &lt;port&gt;8080&lt;/port&gt;
-      &lt;username&gt;proxyuser&lt;/username&gt;
-      &lt;password&gt;somepassword&lt;/password&gt;
-      &lt;nonProxyHosts&gt;*.google.com|ibiblio.org&lt;/nonProxyHosts&gt;
-    &lt;/proxy&gt;
-  &lt;/proxies&gt;
+<span class="c">&lt;!--为Maven配置代理访问网络--&gt;</span>
+  <span class="nt">&lt;proxies&gt;</span>
+    <span class="nt">&lt;proxy&gt;</span>
+      <span class="nt">&lt;id&gt;</span>myproxy<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;active&gt;</span>true<span class="nt">&lt;/active&gt;</span>
+      <span class="nt">&lt;protocol&gt;</span>http<span class="nt">&lt;/protocol&gt;</span>
+      <span class="nt">&lt;host&gt;</span>proxy.somewhere.com<span class="nt">&lt;/host&gt;</span>
+      <span class="nt">&lt;port&gt;</span>8080<span class="nt">&lt;/port&gt;</span>
+      <span class="nt">&lt;username&gt;</span>proxyuser<span class="nt">&lt;/username&gt;</span>
+      <span class="nt">&lt;password&gt;</span>somepassword<span class="nt">&lt;/password&gt;</span>
+      <span class="nt">&lt;nonProxyHosts&gt;</span>*.google.com|ibiblio.org<span class="nt">&lt;/nonProxyHosts&gt;</span>
+    <span class="nt">&lt;/proxy&gt;</span>
+  <span class="nt">&lt;/proxies&gt;</span>
 
-&lt;!--定义配置，通过&lt;activatedProfiles/&gt;标签或环境变量/JDK版本激活--&gt;
-  &lt;profiles&gt;
-    &lt;profile&gt;
-      &lt;id&gt;test&lt;/id&gt;
-      &lt;activation&gt;
-        &lt;activeByDefault&gt;false&lt;/activeByDefault&gt;
-    &lt;!--在JDK 1.8版本构建时被激活--&gt;
-        &lt;jdk&gt;1.8&lt;/jdk&gt;
-    &lt;!--在环境变量mavenVersion的值为2.0.3时被激活--&gt;
-        &lt;property&gt;
-          &lt;name&gt;mavenVersion&lt;/name&gt;
-          &lt;value&gt;2.0.3&lt;/value&gt;
-        &lt;/property&gt;
-      &lt;/activation&gt;
-      &lt;!--当该profile被激活时，在POM中通过${user.install}访问该属性--&gt;
-      &lt;properties&gt;
-        &lt;user.install&gt;${user.home}/our-project&lt;/user.install&gt;
-      &lt;/properties&gt;
-      &lt;!--定义Maven下载依赖和插件的远端仓库地址--&gt;
-      &lt;repositories&gt;
-        &lt;repository&gt;
-          &lt;id&gt;codehausSnapshots&lt;/id&gt;
-          &lt;name&gt;Codehaus Snapshots&lt;/name&gt;
-          &lt;releases&gt;
-            &lt;enabled&gt;false&lt;/enabled&gt;
-            &lt;updatePolicy&gt;always&lt;/updatePolicy&gt;
-            &lt;checksumPolicy&gt;warn&lt;/checksumPolicy&gt;
-          &lt;/releases&gt;
-          &lt;snapshots&gt;
-            &lt;enabled&gt;true&lt;/enabled&gt;
-            &lt;updatePolicy&gt;never&lt;/updatePolicy&gt;
-            &lt;checksumPolicy&gt;fail&lt;/checksumPolicy&gt;
-          &lt;/snapshots&gt;
-          &lt;url&gt;http://snapshots.maven.codehaus.org/maven2&lt;/url&gt;
-          &lt;layout&gt;default&lt;/layout&gt;
-        &lt;/repository&gt;
-      &lt;/repositories&gt;
-      &lt;pluginRepositories&gt;
+<span class="c">&lt;!--定义配置，通过&lt;activatedProfiles/&gt;标签或环境变量/JDK版本激活--&gt;</span>
+  <span class="nt">&lt;profiles&gt;</span>
+    <span class="nt">&lt;profile&gt;</span>
+      <span class="nt">&lt;id&gt;</span>test<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;activation&gt;</span>
+        <span class="nt">&lt;activeByDefault&gt;</span>false<span class="nt">&lt;/activeByDefault&gt;</span>
+    <span class="c">&lt;!--在JDK 1.8版本构建时被激活--&gt;</span>
+        <span class="nt">&lt;jdk&gt;</span>1.8<span class="nt">&lt;/jdk&gt;</span>
+    <span class="c">&lt;!--在环境变量mavenVersion的值为2.0.3时被激活--&gt;</span>
+        <span class="nt">&lt;property&gt;</span>
+          <span class="nt">&lt;name&gt;</span>mavenVersion<span class="nt">&lt;/name&gt;</span>
+          <span class="nt">&lt;value&gt;</span>2.0.3<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+      <span class="nt">&lt;/activation&gt;</span>
+      <span class="c">&lt;!--当该profile被激活时，在POM中通过${user.install}访问该属性--&gt;</span>
+      <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;user.install&gt;</span>${user.home}/our-project<span class="nt">&lt;/user.install&gt;</span>
+      <span class="nt">&lt;/properties&gt;</span>
+      <span class="c">&lt;!--定义Maven下载依赖和插件的远端仓库地址--&gt;</span>
+      <span class="nt">&lt;repositories&gt;</span>
+        <span class="nt">&lt;repository&gt;</span>
+          <span class="nt">&lt;id&gt;</span>codehausSnapshots<span class="nt">&lt;/id&gt;</span>
+          <span class="nt">&lt;name&gt;</span>Codehaus Snapshots<span class="nt">&lt;/name&gt;</span>
+          <span class="nt">&lt;releases&gt;</span>
+            <span class="nt">&lt;enabled&gt;</span>false<span class="nt">&lt;/enabled&gt;</span>
+            <span class="nt">&lt;updatePolicy&gt;</span>always<span class="nt">&lt;/updatePolicy&gt;</span>
+            <span class="nt">&lt;checksumPolicy&gt;</span>warn<span class="nt">&lt;/checksumPolicy&gt;</span>
+          <span class="nt">&lt;/releases&gt;</span>
+          <span class="nt">&lt;snapshots&gt;</span>
+            <span class="nt">&lt;enabled&gt;</span>true<span class="nt">&lt;/enabled&gt;</span>
+            <span class="nt">&lt;updatePolicy&gt;</span>never<span class="nt">&lt;/updatePolicy&gt;</span>
+            <span class="nt">&lt;checksumPolicy&gt;</span>fail<span class="nt">&lt;/checksumPolicy&gt;</span>
+          <span class="nt">&lt;/snapshots&gt;</span>
+          <span class="nt">&lt;url&gt;</span>http://snapshots.maven.codehaus.org/maven2<span class="nt">&lt;/url&gt;</span>
+          <span class="nt">&lt;layout&gt;</span>default<span class="nt">&lt;/layout&gt;</span>
+        <span class="nt">&lt;/repository&gt;</span>
+      <span class="nt">&lt;/repositories&gt;</span>
+      <span class="nt">&lt;pluginRepositories&gt;</span>
         ...
-      &lt;/pluginRepositories&gt;
-    &lt;/profile&gt;
-  &lt;/profiles&gt;
+      <span class="nt">&lt;/pluginRepositories&gt;</span>
+    <span class="nt">&lt;/profile&gt;</span>
+  <span class="nt">&lt;/profiles&gt;</span>
 
-  &lt;!--在所有构建都激活的profile--&gt;
-  &lt;activeProfiles&gt;
-    &lt;activeProfile&gt;env-test&lt;/activeProfile&gt;
-  &lt;/activeProfiles&gt;
-</code></pre>
+  <span class="c">&lt;!--在所有构建都激活的profile--&gt;</span>
+  <span class="nt">&lt;activeProfiles&gt;</span>
+    <span class="nt">&lt;activeProfile&gt;</span>env-test<span class="nt">&lt;/activeProfile&gt;</span>
+  <span class="nt">&lt;/activeProfiles&gt;</span>
+</pre></div>
 
-<h1 id="maven">maven工程典型目录结构</h1>
+
+<h1 id="maven">maven工程典型目录结构<a class="headerlink" href="#maven" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>/src/main/java  <strong>--源码</strong>
 /src/main/resources  <strong>--资源文件</strong>
@@ -2153,130 +2492,137 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
 /target/classes  <strong>--部署使用的jar</strong>
 /pom.xml</p>
 </blockquote>
-<h1 id="pom">POM</h1>
-<pre><code class="xml">&lt;groupId&gt;com.aaron&lt;/groupId&gt;
-&lt;artifactId&gt;springBootDemo&lt;/artifactId&gt;
-&lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
-&lt;packaging&gt;jar&lt;/packaging&gt;
-</code></pre>
+<h1 id="pom">POM<a class="headerlink" href="#pom" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;groupId&gt;</span>com.aaron<span class="nt">&lt;/groupId&gt;</span>
+<span class="nt">&lt;artifactId&gt;</span>springBootDemo<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
+</pre></div>
 
-<h2 id="_5">依赖管理</h2>
+
+<h2 id="_5">依赖管理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>在parent中配置dependencyManagement，统一管理jar版本。</p>
-<pre><code class="xml">&lt;properties&gt;
-    &lt;version.framework&gt;1.0-SNAPSHOT&lt;/version.framework&gt;
-    &lt;javaee-api.version&gt;1.0-SNAPSHOT&lt;/javaee-api.version&gt;
-&lt;/properties&gt;
-&lt;dependencyManagement&gt;
-    &lt;dependencies&gt;
-      &lt;dependency&gt;
-        &lt;groupId&gt;com.zhisheng&lt;/groupId&gt;
-        &lt;artifactId&gt;framework-cache&lt;/artifactId&gt;
-        &lt;version&gt;${version.framework}&lt;/version&gt;
-      &lt;/dependency&gt;
-      &lt;dependency&gt;  
-        &lt;groupId&gt;javax&lt;/groupId&gt;  
-        &lt;artifactId&gt;javaee-api&lt;/artifactId&gt;  
-        &lt;version&gt;${javaee-api.version}&lt;/version&gt;  
-      &lt;/dependency&gt;  
-    &lt;/dependencies&gt;
-&lt;/dependencyManagement&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;properties&gt;</span>
+    <span class="nt">&lt;version.framework&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version.framework&gt;</span>
+    <span class="nt">&lt;javaee-api.version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/javaee-api.version&gt;</span>
+<span class="nt">&lt;/properties&gt;</span>
+<span class="nt">&lt;dependencyManagement&gt;</span>
+    <span class="nt">&lt;dependencies&gt;</span>
+      <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>com.zhisheng<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>framework-cache<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>${version.framework}<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;/dependency&gt;</span>
+      <span class="nt">&lt;dependency&gt;</span>  
+        <span class="nt">&lt;groupId&gt;</span>javax<span class="nt">&lt;/groupId&gt;</span>  
+        <span class="nt">&lt;artifactId&gt;</span>javaee-api<span class="nt">&lt;/artifactId&gt;</span>  
+        <span class="nt">&lt;version&gt;</span>${javaee-api.version}<span class="nt">&lt;/version&gt;</span>  
+      <span class="nt">&lt;/dependency&gt;</span>  
+    <span class="nt">&lt;/dependencies&gt;</span>
+<span class="nt">&lt;/dependencyManagement&gt;</span>
+</pre></div>
+
 
 <p>子项目中引用依赖无需显示的列出版本号，继承父项目。</p>
-<pre><code class="xml">&lt;parent&gt;  
-    &lt;artifactId&gt;parent&lt;/artifactId&gt;  
-    &lt;groupId&gt;com.zhisheng&lt;/groupId&gt;
-    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;  
-    &lt;relativePath&gt;../parent/pom.xml&lt;/relativePath&gt; 
-&lt;/parent&gt;
-&lt;!--依赖关系--&gt;  
-&lt;dependencies&gt;  
-    &lt;dependency&gt;  
-        &lt;groupId&gt;javax&lt;/groupId&gt;  
-        &lt;artifactId&gt;javaee-api&lt;/artifactId&gt;  
-        &lt;!--此处若声明&lt;version&gt;将覆盖parent版本号--&gt;  
-    &lt;/dependency&gt;  
-    &lt;dependency&gt;
-        &lt;groupId&gt;com.zhisheng&lt;/groupId&gt;
-        &lt;artifactId&gt;framework-cache&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;  
-        &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;  
-        &lt;artifactId&gt;jackson-annotations&lt;/artifactId&gt;  
-    &lt;/dependency&gt;  
-&lt;/dependencies&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;parent&gt;</span>  
+    <span class="nt">&lt;artifactId&gt;</span>parent<span class="nt">&lt;/artifactId&gt;</span>  
+    <span class="nt">&lt;groupId&gt;</span>com.zhisheng<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>  
+    <span class="nt">&lt;relativePath&gt;</span>../parent/pom.xml<span class="nt">&lt;/relativePath&gt;</span> 
+<span class="nt">&lt;/parent&gt;</span>
+<span class="c">&lt;!--依赖关系--&gt;</span>  
+<span class="nt">&lt;dependencies&gt;</span>  
+    <span class="nt">&lt;dependency&gt;</span>  
+        <span class="nt">&lt;groupId&gt;</span>javax<span class="nt">&lt;/groupId&gt;</span>  
+        <span class="nt">&lt;artifactId&gt;</span>javaee-api<span class="nt">&lt;/artifactId&gt;</span>  
+        <span class="c">&lt;!--此处若声明&lt;version&gt;将覆盖parent版本号--&gt;</span>  
+    <span class="nt">&lt;/dependency&gt;</span>  
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>com.zhisheng<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>framework-cache<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>  
+        <span class="nt">&lt;groupId&gt;</span>com.fasterxml.jackson.core<span class="nt">&lt;/groupId&gt;</span>  
+        <span class="nt">&lt;artifactId&gt;</span>jackson-annotations<span class="nt">&lt;/artifactId&gt;</span>  
+    <span class="nt">&lt;/dependency&gt;</span>  
+<span class="nt">&lt;/dependencies&gt;</span>
+</pre></div>
+
 
 <p>使用专门的POM来进行依赖管理。</p>
-<pre><code class="xml">&lt;project&gt;
-  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-  &lt;groupId&gt;com.zhisheng.sample&lt;/groupId&gt;
-  &lt;artifactId&gt;sample-dependency-infrastructure&lt;/artifactId&gt;
-  &lt;packaging&gt;pom&lt;/packaging&gt;
-  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
-  &lt;dependencyManagement&gt;
-    &lt;dependencies&gt;
-        &lt;dependency&gt;
-          &lt;groupId&gt;junit&lt;/groupId&gt;
-          &lt;artifactid&gt;junit&lt;/artifactId&gt;
-          &lt;version&gt;4.8.2&lt;/version&gt;
-          &lt;scope&gt;test&lt;/scope&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-          &lt;groupId&gt;log4j&lt;/groupId&gt;
-          &lt;artifactid&gt;log4j&lt;/artifactId&gt;
-          &lt;version&gt;1.2.16&lt;/version&gt;
-        &lt;/dependency&gt;
-    &lt;/dependencies&gt;
-  &lt;/dependencyManagement&gt;
-&lt;/project&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;project&gt;</span>
+  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.zhisheng.sample<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>sample-dependency-infrastructure<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;dependencyManagement&gt;</span>
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+          <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+          <span class="nt">&lt;artifactid&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+          <span class="nt">&lt;version&gt;</span>4.8.2<span class="nt">&lt;/version&gt;</span>
+          <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+          <span class="nt">&lt;groupId&gt;</span>log4j<span class="nt">&lt;/groupId&gt;</span>
+          <span class="nt">&lt;artifactid&gt;</span>log4j<span class="nt">&lt;/artifactId&gt;</span>
+          <span class="nt">&lt;version&gt;</span>1.2.16<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
+  <span class="nt">&lt;/dependencyManagement&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</pre></div>
+
 
 <p>通过import scope方式引入依赖管理，不继承父项目。</p>
-<pre><code class="xml">&lt;dependencyManagement&gt;
-    &lt;dependencies&gt;
-        &lt;dependency&gt;
-          &lt;groupId&gt;com.zhisheng.sample&lt;/groupId&gt;
-          &lt;artifactid&gt;sample-dependency-infrastructure&lt;/artifactId&gt;
-          &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
-          &lt;type&gt;pom&lt;/type&gt;
-          &lt;scope&gt;import&lt;/scope&gt;
-        &lt;/dependency&gt;
-    &lt;/dependencies&gt;
-&lt;/dependencyManagement&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;junit&lt;/groupId&gt;
-    &lt;artifactid&gt;junit&lt;/artifactId&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;log4j&lt;/groupId&gt;
-    &lt;artifactid&gt;log4j&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;dependencyManagement&gt;</span>
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+          <span class="nt">&lt;groupId&gt;</span>com.zhisheng.sample<span class="nt">&lt;/groupId&gt;</span>
+          <span class="nt">&lt;artifactid&gt;</span>sample-dependency-infrastructure<span class="nt">&lt;/artifactId&gt;</span>
+          <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+          <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+          <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
+<span class="nt">&lt;/dependencyManagement&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactid&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>log4j<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactid&gt;</span>log4j<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
 
-<h2 id="_6">插件管理</h2>
+
+<h2 id="_6">插件管理<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>在parent中统一配置pluginManagement，与dependencyManagement类似，子项目继承父项目配置。</p>
-<pre><code class="xml">&lt;build&gt;
-  &lt;pluginManagement&gt;
-    &lt;plugins&gt;
-      &lt;plugin&gt;
-        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
-        &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
-        &lt;version&gt;2.5.1&lt;/version&gt;
-        &lt;configuration&gt;
-          &lt;source&gt;1.8&lt;/source&gt;
-          &lt;target&gt;1.8&lt;/target&gt;
-          &lt;encoding&gt;UTF-8&lt;/encoding&gt;
-        &lt;/configuration&gt;
-      &lt;/plugin&gt;
-    &lt;/plugins&gt;
-  &lt;/pluginManagement&gt;
-&lt;/build&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;build&gt;</span>
+  <span class="nt">&lt;pluginManagement&gt;</span>
+    <span class="nt">&lt;plugins&gt;</span>
+      <span class="nt">&lt;plugin&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>2.5.1<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;configuration&gt;</span>
+          <span class="nt">&lt;source&gt;</span>1.8<span class="nt">&lt;/source&gt;</span>
+          <span class="nt">&lt;target&gt;</span>1.8<span class="nt">&lt;/target&gt;</span>
+          <span class="nt">&lt;encoding&gt;</span>UTF-8<span class="nt">&lt;/encoding&gt;</span>
+        <span class="nt">&lt;/configuration&gt;</span>
+      <span class="nt">&lt;/plugin&gt;</span>
+    <span class="nt">&lt;/plugins&gt;</span>
+  <span class="nt">&lt;/pluginManagement&gt;</span>
+<span class="nt">&lt;/build&gt;</span>
+</pre></div>
 
-<h1 id="_7">常用命令</h1>
-<pre><code class="bash">mvn clean package/install -DskipTests
-</code></pre>
+
+<h1 id="_7">常用命令<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span>mvn clean package/install -DskipTests
+</pre></div>
+
 
 <p>参考：<a href="https://zhuanlan.zhihu.com/p/31020263">Maven 中 dependencies 与 dependencyManagement 的区别</a></p>
                 
@@ -2286,6 +2632,22 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
               
                 
 
+
+  <h2 id="__comments">评论</h2>
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://islibra.github.io/hello-islibra/environment/tools/Maven/";
+      this.page.identifier =
+        "environment/tools/Maven/";
+    };
+    (function() {
+      var d = document, s = d.createElement("script");
+      s.src = "//islibra.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
               
             </article>
@@ -2306,7 +2668,7 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Previous
+                  后退
                 </span>
                 Git常用命令
               </span>
@@ -2318,7 +2680,7 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Next
+                  前进
                 </span>
                 Notepad++
               </span>
@@ -2335,6 +2697,10 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 - 2019 李晓龙
+          </div>
+        
         powered by
         <a href="https://www.mkdocs.org">MkDocs</a>
         and
@@ -2349,6 +2715,23 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
     </div>
     
       <script src="../../../assets/javascripts/application.267712eb.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       

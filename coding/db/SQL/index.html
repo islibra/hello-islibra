@@ -3,7 +3,7 @@
 
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -11,25 +11,29 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
+        <link rel="canonical" href="https://islibra.github.io/hello-islibra/coding/db/SQL/">
       
       
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+        <meta name="author" content="李晓龙">
       
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
       
-        <meta name="lang:search.language" content="en">
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
         <meta name="lang:search.pipeline.trimmer" content="True">
       
-        <meta name="lang:search.result.none" content="No matching documents">
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
       
-        <meta name="lang:search.result.one" content="1 matching document">
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
       
-        <meta name="lang:search.result.other" content="# matching documents">
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
       
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.2">
@@ -42,6 +46,12 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/application.3020aac5.css">
       
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#00bcd4">
       
     
     
@@ -59,15 +69,61 @@
     
     
       
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-XXXXXXXX-X", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
     
     
   </head>
   
-    <body dir="ltr">
+    
+    
+    <body dir="ltr" data-md-color-primary="cyan" data-md-color-accent="red">
   
     <svg class="md-svg">
       <defs>
         
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
         
       </defs>
     </svg>
@@ -76,7 +132,7 @@
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
       <a href="#dml" tabindex="1" class="md-skip">
-        Skip to content
+        跳转至
       </a>
     
     
@@ -84,9 +140,9 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../.." title="islibra" class="md-header-nav__button md-logo">
+        <a href="https://islibra.github.io/hello-islibra/" title="islibra" class="md-header-nav__button md-logo">
           
-            <i class="md-icon"></i>
+            <i class="md-icon">cloud</i>
           
         </a>
       </div>
@@ -113,7 +169,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -123,7 +179,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="result">
           <div class="md-search-result__meta">
-            Type to start searching
+            键入以开始搜索
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -134,6 +190,28 @@
         
       </div>
       
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/islibra/wiki/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    islibra/wiki
+  </div>
+</a>
+          </div>
+        </div>
+      
     </div>
   </nav>
 </header>
@@ -142,6 +220,124 @@
       
         
       
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../.." title="README" class="md-tabs__link">
+        README
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../cloud/ai/AI/" title="Cloud" class="md-tabs__link">
+          Cloud
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../Druid/" title="Coding" class="md-tabs__link md-tabs__link--active">
+          Coding
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../design/UML/" title="Design" class="md-tabs__link">
+          Design
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../environment/net/私网IP地址范围/" title="Environment" class="md-tabs__link">
+          Environment
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../other/买房的事情/" title="Other" class="md-tabs__link">
+          Other
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../security/OpenSSL/" title="Security" class="md-tabs__link">
+          Security
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
       
       <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
@@ -152,13 +348,33 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../.." title="islibra" class="md-nav__button md-logo">
+    <a href="https://islibra.github.io/hello-islibra/" title="islibra" class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <i class="md-icon">cloud</i>
       
     </a>
     islibra
   </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/islibra/wiki/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    islibra/wiki
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -168,8 +384,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../.." title="李晓龙" class="md-nav__link">
-      李晓龙
+    <a href="../../.." title="README" class="md-nav__link">
+      README
     </a>
   </li>
 
@@ -461,7 +677,7 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -556,6 +772,12 @@
       
       
       
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
       
     </ul>
   
@@ -1050,8 +1272,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../python/6_io/" title="文件读写" class="md-nav__link">
-      文件读写
+    <a href="../../python/6_io/" title="6_io" class="md-nav__link">
+      6_io
     </a>
   </li>
 
@@ -1278,8 +1500,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../web/URL归一化/" title="前置条件" class="md-nav__link">
-      前置条件
+    <a href="../../web/URL归一化/" title="URL归一化" class="md-nav__link">
+      URL归一化
     </a>
   </li>
 
@@ -1400,6 +1622,42 @@
   <li class="md-nav__item">
     <a href="../../writing/使用Hexo搭建个人博客/" title="使用Hexo搭建个人博客" class="md-nav__link">
       使用Hexo搭建个人博客
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-9" type="checkbox" id="nav-3-9">
+    
+    <label class="md-nav__link" for="nav-3-9">
+      Xml
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-9">
+        Xml
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../xml/CDATA/" title="CDATA" class="md-nav__link">
+      CDATA
     </a>
   </li>
 
@@ -1544,6 +1802,42 @@
   <li class="md-nav__item">
     <a href="../../../design/data_structure/算法图解/" title="广度优先搜索解决无权图的最短路径问题" class="md-nav__link">
       广度优先搜索解决无权图的最短路径问题
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-5" type="checkbox" id="nav-4-5">
+    
+    <label class="md-nav__link" for="nav-4-5">
+      Design pattern
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-5">
+        Design pattern
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../design/design_pattern/catalog/" title="catalog" class="md-nav__link">
+      catalog
     </a>
   </li>
 
@@ -2123,9 +2417,57 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/kali/" title="kali" class="md-nav__link">
+      kali
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/远程调用中的反序列化注入/" title="RMI" class="md-nav__link">
       RMI
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-6" type="checkbox" id="nav-7-6">
+    
+    <label class="md-nav__link" for="nav-7-6">
+      Code
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-6">
+        Code
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
+      构建字典
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -2151,7 +2493,7 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -2247,6 +2589,12 @@
       
       
       
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
     </ul>
   
 </nav>
@@ -2259,11 +2607,13 @@
             <article class="md-content__inner md-typeset">
               
                 
+                  <a href="https://github.com/islibra/wiki/blob/master/docs/coding/db/SQL.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
                 
                 <blockquote>
 <p><strong>Tips:</strong> SQL 对大小写不敏感！</p>
 </blockquote>
-<h1 id="dml">DML</h1>
+<h1 id="dml">DML<a class="headerlink" href="#dml" title="Permanent link">&para;</a></h1>
 <ul>
 <li>SELECT 列名称 FROM 表名称<ul>
 <li>SELECT <strong>DISTINCT</strong> column1, column2, ... FROM table_name;  //去重</li>
@@ -2278,9 +2628,9 @@
 <blockquote>
 <p><strong>WARNING!</strong> DELETE不加WHERE子句就会删除表中全部数据！</p>
 </blockquote>
-<h2 id="where">WHERE子句</h2>
+<h2 id="where">WHERE子句<a class="headerlink" href="#where" title="Permanent link">&para;</a></h2>
 <p>SELECT 列名称 FROM 表名称 <strong>WHERE 列 运算符 值</strong></p>
-<h3 id="_1">运算符用法：</h3>
+<h3 id="_1">运算符用法：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>=  !=  &gt;  &gt;=  &lt;  &lt;=，例：<ul>
 <li><code>WHERE City='Beijing'</code></li>
@@ -2304,15 +2654,15 @@
 <blockquote>
 <p><strong>Tips:</strong> 文本使用单引号，数值不使用引号！</p>
 </blockquote>
-<h3 id="andor">AND和OR</h3>
+<h3 id="andor">AND和OR<a class="headerlink" href="#andor" title="Permanent link">&para;</a></h3>
 <ul>
 <li>SELECT * FROM Persons WHERE FirstName='Thomas' AND LastName='Carter'</li>
 <li>SELECT * FROM Persons WHERE firstname='Thomas' OR lastname='Carter'</li>
 <li>SELECT * FROM Persons WHERE (FirstName='Thomas' OR FirstName='William') AND LastName='Carter'</li>
 </ul>
-<h2 id="order-by">ORDER BY</h2>
+<h2 id="order-by">ORDER BY<a class="headerlink" href="#order-by" title="Permanent link">&para;</a></h2>
 <p>SELECT 列名称 FROM 表名称 <strong>ORDER BY 列1 [ASC/DESC], 列2 [ASC/DESC]</strong></p>
-<h2 id="top">TOP子句</h2>
+<h2 id="top">TOP子句<a class="headerlink" href="#top" title="Permanent link">&para;</a></h2>
 <ul>
 <li>SQL Server: <code>SELECT TOP number|percent column_name(s) FROM table_name WHERE condition;</code>，例：<ul>
 <li>SELECT TOP 2 * FROM Persons</li>
@@ -2329,34 +2679,37 @@
 <blockquote>
 <p><strong>Tips:</strong> 如果只查询一条记录，可以加上LIMIT 1，避免全表扫描。在偏移量大的时候limit执行效率降低，应优先使用where子句，配合limit使用。</p>
 </blockquote>
-<h2 id="_2">函数</h2>
+<h2 id="_2">函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>SELECT function(列) FROM 表</p>
-<pre><code class="sql">SELECT AVG(OrderPrice) AS OrderAverage FROM Orders;
-SELECT Customer FROM Orders WHERE OrderPrice&gt;(SELECT AVG(OrderPrice) FROM Orders)
-SELECT COUNT(Customer) AS CustomerNilsen FROM Orders WHERE Customer='Carter'
-/* 类似用法：FIRST\LAST\MAX\MIN\SUM\UCASE\LCASE\LEN */
-/* 获取子字符串 */
-SELECT MID(City,1,3) as SmallCity FROM Persons;  /* SELECT MID(column_name,start[,length]) FROM table_name */
-/* 把数值字段舍入为指定的小数位数 */
-SELECT ProductName, ROUND(UnitPrice,0) as UnitPrice FROM Products;  /* SELECT ROUND(column_name,decimals) FROM table_name */
-/* 获取当前时间 */
-SELECT NOW() FROM table_name;
-/* 格式化 */
-SELECT ProductName, UnitPrice, FORMAT(Now(),'YYYY-MM-DD') as PerDate FROM Products;
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="k">AVG</span><span class="p">(</span><span class="n">OrderPrice</span><span class="p">)</span> <span class="k">AS</span> <span class="n">OrderAverage</span> <span class="k">FROM</span> <span class="n">Orders</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="n">Customer</span> <span class="k">FROM</span> <span class="n">Orders</span> <span class="k">WHERE</span> <span class="n">OrderPrice</span><span class="o">&gt;</span><span class="p">(</span><span class="k">SELECT</span> <span class="k">AVG</span><span class="p">(</span><span class="n">OrderPrice</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">Orders</span><span class="p">)</span>
+<span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">Customer</span><span class="p">)</span> <span class="k">AS</span> <span class="n">CustomerNilsen</span> <span class="k">FROM</span> <span class="n">Orders</span> <span class="k">WHERE</span> <span class="n">Customer</span><span class="o">=</span><span class="s1">&#39;Carter&#39;</span>
+<span class="cm">/* 类似用法：FIRST\LAST\MAX\MIN\SUM\UCASE\LCASE\LEN */</span>
+<span class="cm">/* 获取子字符串 */</span>
+<span class="k">SELECT</span> <span class="n">MID</span><span class="p">(</span><span class="n">City</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="k">as</span> <span class="n">SmallCity</span> <span class="k">FROM</span> <span class="n">Persons</span><span class="p">;</span>  <span class="cm">/* SELECT MID(column_name,start[,length]) FROM table_name */</span>
+<span class="cm">/* 把数值字段舍入为指定的小数位数 */</span>
+<span class="k">SELECT</span> <span class="n">ProductName</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="n">UnitPrice</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="k">as</span> <span class="n">UnitPrice</span> <span class="k">FROM</span> <span class="n">Products</span><span class="p">;</span>  <span class="cm">/* SELECT ROUND(column_name,decimals) FROM table_name */</span>
+<span class="cm">/* 获取当前时间 */</span>
+<span class="k">SELECT</span> <span class="n">NOW</span><span class="p">()</span> <span class="k">FROM</span> <span class="k">table_name</span><span class="p">;</span>
+<span class="cm">/* 格式化 */</span>
+<span class="k">SELECT</span> <span class="n">ProductName</span><span class="p">,</span> <span class="n">UnitPrice</span><span class="p">,</span> <span class="n">FORMAT</span><span class="p">(</span><span class="n">Now</span><span class="p">(),</span><span class="s1">&#39;YYYY-MM-DD&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">PerDate</span> <span class="k">FROM</span> <span class="n">Products</span><span class="p">;</span>
+</pre></div>
 
-<h3 id="group-by">GROUP BY</h3>
+
+<h3 id="group-by">GROUP BY<a class="headerlink" href="#group-by" title="Permanent link">&para;</a></h3>
 <p>SELECT column_name1, column_name2, aggregate_function(column_name3) FROM table_name GROUP BY column_name1, column_name2;</p>
-<pre><code class="sql">SELECT Customer,SUM(OrderPrice) FROM Orders GROUP BY Customer;
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">Customer</span><span class="p">,</span><span class="k">SUM</span><span class="p">(</span><span class="n">OrderPrice</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">Orders</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">Customer</span><span class="p">;</span>
+</pre></div>
 
-<h3 id="having">HAVING</h3>
+
+<h3 id="having">HAVING<a class="headerlink" href="#having" title="Permanent link">&para;</a></h3>
 <p>WHERE 关键字无法与合计函数一起使用，HAVING 子句对GROUP BY子句过滤。
 SELECT column_name, aggregate_function(column_name) FROM table_name WHERE column_name operator value GROUP BY column_name HAVING aggregate_function(column_name) operator value;</p>
-<pre><code class="sql">SELECT Customer,SUM(OrderPrice) FROM Orders GROUP BY Customer HAVING SUM(OrderPrice)&lt;2000;
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">Customer</span><span class="p">,</span><span class="k">SUM</span><span class="p">(</span><span class="n">OrderPrice</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">Orders</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">Customer</span> <span class="k">HAVING</span> <span class="k">SUM</span><span class="p">(</span><span class="n">OrderPrice</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">2000</span><span class="p">;</span>
+</pre></div>
 
-<h2 id="join">JOIN</h2>
+
+<h2 id="join">JOIN<a class="headerlink" href="#join" title="Permanent link">&para;</a></h2>
 <ul>
 <li>[INNER] JOIN: <code>SELECT column_name(s) FROM table_name1 INNER JOIN table_name2 ON table_name1.column_name=table_name2.column_name;</code>，所有表中的数据都匹配（不为空）才会显示。<ul>
 <li>例：<code>SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo FROM Persons INNER JOIN Orders ON Persons.Id_P = Orders.Id_P;</code></li>
@@ -2367,7 +2720,7 @@ SELECT column_name, aggregate_function(column_name) FROM table_name WHERE column
 <li>RIGHT [OUTER] JOIN: <code>SELECT column_name(s) FROM table_name1 RIGHT JOIN table_name2 ON table_name1.column_name=table_name2.column_name</code>，从右表返回所有的行。</li>
 <li>FULL [OUTER] JOIN: <code>SELECT column_name(s) FROM table_name1 FULL JOIN table_name2 ON table_name1.column_name=table_name2.column_name</code>，返回所有表中的所有行。</li>
 </ul>
-<h2 id="union">UNION</h2>
+<h2 id="union">UNION<a class="headerlink" href="#union" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><strong>WARNING!</strong> UNION用于合并两个或多个SELECT语句的结果集，必须拥有相同数量、类型、顺序的列。</p>
 </blockquote>
@@ -2384,7 +2737,7 @@ SELECT column_name, aggregate_function(column_name) FROM table_name WHERE column
 + SELECT Orders.OrderID, Employees.LastName, Employees.FirstName FROM Orders RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID ORDER BY Orders.OrderID;
 + SELECT City, Country FROM Customers WHERE Country='Germany' UNION SELECT City, Country FROM Suppliers WHERE Country='Germany' ORDER BY City;</p>
 </blockquote>
-<h2 id="_3">复制表数据</h2>
+<h2 id="_3">复制表数据<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li>SELECT INTO: <code>SELECT column_name(s) INTO new_table_name [IN externaldatabase] FROM old_tablename;</code>，可以使用IN关键字拷贝到另一个数据库中。例：<ul>
 <li>SELECT * INTO CustomersBackup2013 FROM Customers WHERE Country='Germany';</li>
@@ -2395,7 +2748,7 @@ SELECT column_name, aggregate_function(column_name) FROM table_name WHERE column
 </ul>
 </li>
 </ul>
-<h1 id="ddl">DDL</h1>
+<h1 id="ddl">DDL<a class="headerlink" href="#ddl" title="Permanent link">&para;</a></h1>
 <ul>
 <li>CREATE DATABASE database_name</li>
 <li>ALTER DATABASE</li>
@@ -2419,286 +2772,297 @@ City varchar(255)
 <li>CREATE INDEX index_name ON table_name (column_name)</li>
 <li>DROP INDEX</li>
 </ul>
-<pre><code class="sql">/* Microsoft Access */
-DROP INDEX index_name ON table_name
-/* MS SQL Server */
-DROP INDEX table_name.index_name
-/* Oracle */
-DROP INDEX index_name
-/* MySQL */
-ALTER TABLE table_name DROP INDEX index_name
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="cm">/* Microsoft Access */</span>
+<span class="k">DROP</span> <span class="k">INDEX</span> <span class="n">index_name</span> <span class="k">ON</span> <span class="k">table_name</span>
+<span class="cm">/* MS SQL Server */</span>
+<span class="k">DROP</span> <span class="k">INDEX</span> <span class="k">table_name</span><span class="p">.</span><span class="n">index_name</span>
+<span class="cm">/* Oracle */</span>
+<span class="k">DROP</span> <span class="k">INDEX</span> <span class="n">index_name</span>
+<span class="cm">/* MySQL */</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="k">table_name</span> <span class="k">DROP</span> <span class="k">INDEX</span> <span class="n">index_name</span>
+</pre></div>
+
 
 <ul>
 <li>TRUNCATE TABLE table_name，清空表中数据。</li>
 </ul>
-<h2 id="_4">约束</h2>
-<h3 id="not-null">NOT NULL，字段非空。例：</h3>
-<pre><code class="sql">CREATE TABLE Persons
-(
-Id_P int NOT NULL,
-LastName varchar(255) NOT NULL,
-FirstName varchar(255),
-Address varchar(255),
-City varchar(255)
-)
-</code></pre>
+<h2 id="_4">约束<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="not-null">NOT NULL，字段非空。例：<a class="headerlink" href="#not-null" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span>
+<span class="p">(</span>
+<span class="n">Id_P</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">Address</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">City</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
 
-<h3 id="unique">UNIQUE，字段唯一。例：</h3>
-<pre><code class="sql">/* MySQL */
-CREATE TABLE Persons
-(
-Id_P int NOT NULL,
-LastName varchar(255) NOT NULL,
-FirstName varchar(255),
-Address varchar(255),
-City varchar(255),
-UNIQUE (Id_P)
-)
 
-/* SQL Server / Oracle / MS Access */
-CREATE TABLE Persons
-(
-P_Id int NOT NULL UNIQUE,
-LastName varchar(255) NOT NULL,
-FirstName varchar(255),
-Address varchar(255),
-City varchar(255)
-)
+<h3 id="unique">UNIQUE，字段唯一。例：<a class="headerlink" href="#unique" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="cm">/* MySQL */</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span>
+<span class="p">(</span>
+<span class="n">Id_P</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">Address</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">City</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="k">UNIQUE</span> <span class="p">(</span><span class="n">Id_P</span><span class="p">)</span>
+<span class="p">)</span>
 
-/* 命名 UNIQUE 约束，并为多个列定义 UNIQUE 约束，MySQL / SQL Server / Oracle / MS Access */
-CREATE TABLE Persons
-(
-P_Id int NOT NULL,
-LastName varchar(255) NOT NULL,
-FirstName varchar(255),
-Address varchar(255),
-City varchar(255),
-CONSTRAINT uc_PersonID UNIQUE (P_Id,LastName)
-)
+<span class="cm">/* SQL Server / Oracle / MS Access */</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span>
+<span class="p">(</span>
+<span class="n">P_Id</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">UNIQUE</span><span class="p">,</span>
+<span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">Address</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">City</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="p">)</span>
 
-/* 增加约束，MySQL / SQL Server / Oracle / MS Access */
-ALTER TABLE Persons ADD UNIQUE (Id_P);
-ALTER TABLE Persons ADD CONSTRAINT uc_PersonID UNIQUE (P_Id,LastName)
+<span class="cm">/* 命名 UNIQUE 约束，并为多个列定义 UNIQUE 约束，MySQL / SQL Server / Oracle / MS Access */</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span>
+<span class="p">(</span>
+<span class="n">P_Id</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">Address</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">City</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="k">CONSTRAINT</span> <span class="n">uc_PersonID</span> <span class="k">UNIQUE</span> <span class="p">(</span><span class="n">P_Id</span><span class="p">,</span><span class="n">LastName</span><span class="p">)</span>
+<span class="p">)</span>
 
-/* 撤销 UNIQUE 约束，MySQL */
-ALTER TABLE Persons DROP INDEX uc_PersonID
-/* SQL Server / Oracle / MS Access */
-ALTER TABLE Persons DROP CONSTRAINT uc_PersonID
-</code></pre>
+<span class="cm">/* 增加约束，MySQL / SQL Server / Oracle / MS Access */</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="k">ADD</span> <span class="k">UNIQUE</span> <span class="p">(</span><span class="n">Id_P</span><span class="p">);</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">uc_PersonID</span> <span class="k">UNIQUE</span> <span class="p">(</span><span class="n">P_Id</span><span class="p">,</span><span class="n">LastName</span><span class="p">)</span>
 
-<h3 id="primary-key">PRIMARY KEY，主键，唯一，非空，有且只有一个主键字段。例：</h3>
-<pre><code class="sql">/* MySQL */
-CREATE TABLE Persons
-(
-Id_P int NOT NULL,
-LastName varchar(255) NOT NULL,
-FirstName varchar(255),
-Address varchar(255),
-City varchar(255),
-PRIMARY KEY (Id_P)
-)
+<span class="cm">/* 撤销 UNIQUE 约束，MySQL */</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="k">DROP</span> <span class="k">INDEX</span> <span class="n">uc_PersonID</span>
+<span class="cm">/* SQL Server / Oracle / MS Access */</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="k">DROP</span> <span class="k">CONSTRAINT</span> <span class="n">uc_PersonID</span>
+</pre></div>
 
-/* SQL Server / Oracle / MS Access */
-CREATE TABLE Persons
-(
-Id_P int NOT NULL PRIMARY KEY,
-LastName varchar(255) NOT NULL,
-FirstName varchar(255),
-Address varchar(255),
-City varchar(255)
-)
 
-/* 命名 PRIMARY KEY 约束，并为多个列定义 PRIMARY KEY 约束，MySQL / SQL Server / Oracle / MS Access */
-CREATE TABLE Persons
-(
-Id_P int NOT NULL,
-LastName varchar(255) NOT NULL,
-FirstName varchar(255),
-Address varchar(255),
-City varchar(255),
-CONSTRAINT pk_PersonID PRIMARY KEY (Id_P,LastName)
-)
+<h3 id="primary-key">PRIMARY KEY，主键，唯一，非空，有且只有一个主键字段。例：<a class="headerlink" href="#primary-key" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="cm">/* MySQL */</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span>
+<span class="p">(</span>
+<span class="n">Id_P</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">Address</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">City</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">Id_P</span><span class="p">)</span>
+<span class="p">)</span>
 
-/* 增加主键，MySQL / SQL Server / Oracle / MS Access，增加主键的字段必须在创建表时NOT NULL */
-ALTER TABLE Persons ADD PRIMARY KEY (Id_P)
-ALTER TABLE Persons ADD CONSTRAINT pk_PersonID PRIMARY KEY (Id_P,LastName)
+<span class="cm">/* SQL Server / Oracle / MS Access */</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span>
+<span class="p">(</span>
+<span class="n">Id_P</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+<span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">Address</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">City</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="p">)</span>
 
-/* 撤销 PRIMARY KEY 约束，MySQL */
-ALTER TABLE Persons DROP PRIMARY KEY
-/* SQL Server / Oracle / MS Access */
-ALTER TABLE Persons DROP CONSTRAINT pk_PersonID
-</code></pre>
+<span class="cm">/* 命名 PRIMARY KEY 约束，并为多个列定义 PRIMARY KEY 约束，MySQL / SQL Server / Oracle / MS Access */</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span>
+<span class="p">(</span>
+<span class="n">Id_P</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">Address</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">City</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="k">CONSTRAINT</span> <span class="n">pk_PersonID</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">Id_P</span><span class="p">,</span><span class="n">LastName</span><span class="p">)</span>
+<span class="p">)</span>
 
-<h3 id="foreign-key-primary-key">FOREIGN KEY，外键，指向另一个表中的 PRIMARY KEY。例：</h3>
-<pre><code class="sql">/* MySQL */
-CREATE TABLE Orders
-(
-Id_O int NOT NULL,
-OrderNo int NOT NULL,
-Id_P int,
-PRIMARY KEY (Id_O),
-FOREIGN KEY (Id_P) REFERENCES Persons(Id_P)
-)
+<span class="cm">/* 增加主键，MySQL / SQL Server / Oracle / MS Access，增加主键的字段必须在创建表时NOT NULL */</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="k">ADD</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">Id_P</span><span class="p">)</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">pk_PersonID</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">Id_P</span><span class="p">,</span><span class="n">LastName</span><span class="p">)</span>
 
-/* SQL Server / Oracle / MS Access */
-CREATE TABLE Orders
-(
-O_Id int NOT NULL PRIMARY KEY,
-OrderNo int NOT NULL,
-P_Id int FOREIGN KEY REFERENCES Persons(P_Id)
-)
+<span class="cm">/* 撤销 PRIMARY KEY 约束，MySQL */</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="k">DROP</span> <span class="k">PRIMARY</span> <span class="k">KEY</span>
+<span class="cm">/* SQL Server / Oracle / MS Access */</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="k">DROP</span> <span class="k">CONSTRAINT</span> <span class="n">pk_PersonID</span>
+</pre></div>
 
-/* 命名 FOREIGN KEY 约束，并为多个列定义 FOREIGN KEY 约束，MySQL / SQL Server / Oracle / MS Access */
-CREATE TABLE Orders
-(
-O_Id int NOT NULL,
-OrderNo int NOT NULL,
-P_Id int,
-PRIMARY KEY (O_Id),
-CONSTRAINT fk_PerOrders FOREIGN KEY (P_Id) REFERENCES Persons(P_Id)
-)
 
-/* 增加 FOREIGN KEY 约束，MySQL / SQL Server / Oracle / MS Access */
-ALTER TABLE Orders ADD FOREIGN KEY (Id_P) REFERENCES Persons(Id_P)
-ALTER TABLE Orders ADD CONSTRAINT fk_PerOrders FOREIGN KEY (P_Id) REFERENCES Persons(P_Id)
+<h3 id="foreign-key-primary-key">FOREIGN KEY，外键，指向另一个表中的 PRIMARY KEY。例：<a class="headerlink" href="#foreign-key-primary-key" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="cm">/* MySQL */</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Orders</span>
+<span class="p">(</span>
+<span class="n">Id_O</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">OrderNo</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">Id_P</span> <span class="nb">int</span><span class="p">,</span>
+<span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">Id_O</span><span class="p">),</span>
+<span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">Id_P</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">Persons</span><span class="p">(</span><span class="n">Id_P</span><span class="p">)</span>
+<span class="p">)</span>
 
-/* 撤销 FOREIGN KEY 约束，MySQL */
-ALTER TABLE Orders DROP FOREIGN KEY fk_PerOrders
-/* SQL Server / Oracle / MS Access */
-ALTER TABLE Orders DROP CONSTRAINT fk_PerOrders
-</code></pre>
+<span class="cm">/* SQL Server / Oracle / MS Access */</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Orders</span>
+<span class="p">(</span>
+<span class="n">O_Id</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+<span class="n">OrderNo</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">P_Id</span> <span class="nb">int</span> <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="k">REFERENCES</span> <span class="n">Persons</span><span class="p">(</span><span class="n">P_Id</span><span class="p">)</span>
+<span class="p">)</span>
 
-<h3 id="check">CHECK，限制列中的值的范围。例：</h3>
-<pre><code class="sql">/* My SQL */
-CREATE TABLE Persons
-(
-Id_P int NOT NULL,
-LastName varchar(255) NOT NULL,
-FirstName varchar(255),
-Address varchar(255),
-City varchar(255),
-CHECK (Id_P&gt;0)
-)
+<span class="cm">/* 命名 FOREIGN KEY 约束，并为多个列定义 FOREIGN KEY 约束，MySQL / SQL Server / Oracle / MS Access */</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Orders</span>
+<span class="p">(</span>
+<span class="n">O_Id</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">OrderNo</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">P_Id</span> <span class="nb">int</span><span class="p">,</span>
+<span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">O_Id</span><span class="p">),</span>
+<span class="k">CONSTRAINT</span> <span class="n">fk_PerOrders</span> <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">P_Id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">Persons</span><span class="p">(</span><span class="n">P_Id</span><span class="p">)</span>
+<span class="p">)</span>
 
-/* SQL Server / Oracle / MS Access */
-CREATE TABLE Persons
-(
-Id_P int NOT NULL CHECK (Id_P&gt;0),
-LastName varchar(255) NOT NULL,
-FirstName varchar(255),
-Address varchar(255),
-City varchar(255)
-)
+<span class="cm">/* 增加 FOREIGN KEY 约束，MySQL / SQL Server / Oracle / MS Access */</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Orders</span> <span class="k">ADD</span> <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">Id_P</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">Persons</span><span class="p">(</span><span class="n">Id_P</span><span class="p">)</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Orders</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">fk_PerOrders</span> <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">P_Id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">Persons</span><span class="p">(</span><span class="n">P_Id</span><span class="p">)</span>
 
-/* 命名 CHECK 约束，并为多个列定义 CHECK 约束，MySQL / SQL Server / Oracle / MS Access */
-CREATE TABLE Persons
-(
-Id_P int NOT NULL,
-LastName varchar(255) NOT NULL,
-FirstName varchar(255),
-Address varchar(255),
-City varchar(255),
-CONSTRAINT chk_Person CHECK (Id_P&gt;0 AND City='Sandnes')
-)
+<span class="cm">/* 撤销 FOREIGN KEY 约束，MySQL */</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Orders</span> <span class="k">DROP</span> <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="n">fk_PerOrders</span>
+<span class="cm">/* SQL Server / Oracle / MS Access */</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Orders</span> <span class="k">DROP</span> <span class="k">CONSTRAINT</span> <span class="n">fk_PerOrders</span>
+</pre></div>
 
-/* 新增CHECK约束，MySQL / SQL Server / Oracle / MS Access */
-ALTER TABLE Persons ADD CHECK (Id_P&gt;0)
-ALTER TABLE Persons ADD CONSTRAINT chk_Person CHECK (Id_P&gt;0 AND City='Sandnes')
 
-/* 撤销 CHECK 约束，MySQL */
-ALTER TABLE Persons DROP CHECK chk_Person
-/* SQL Server / Oracle / MS Access */
-ALTER TABLE Persons DROP CONSTRAINT chk_Person
-</code></pre>
+<h3 id="check">CHECK，限制列中的值的范围。例：<a class="headerlink" href="#check" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="cm">/* My SQL */</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span>
+<span class="p">(</span>
+<span class="n">Id_P</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">Address</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">City</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="k">CHECK</span> <span class="p">(</span><span class="n">Id_P</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">)</span>
 
-<h3 id="default">DEFAULT，向列中插入默认值。例：</h3>
-<pre><code class="sql">/* MySQL / SQL Server / Oracle / MS Access */
-CREATE TABLE Persons
-(
-Id_P int NOT NULL,
-LastName varchar(255) NOT NULL,
-FirstName varchar(255),
-Address varchar(255),
-City varchar(255) DEFAULT 'Sandnes'
-)
+<span class="cm">/* SQL Server / Oracle / MS Access */</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span>
+<span class="p">(</span>
+<span class="n">Id_P</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">CHECK</span> <span class="p">(</span><span class="n">Id_P</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">),</span>
+<span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">Address</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">City</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="p">)</span>
 
-/* 自动插入系统值 */
-CREATE TABLE Orders
-(
-Id_O int NOT NULL,
-OrderNo int NOT NULL,
-Id_P int,
-OrderDate date DEFAULT GETDATE()
-)
+<span class="cm">/* 命名 CHECK 约束，并为多个列定义 CHECK 约束，MySQL / SQL Server / Oracle / MS Access */</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span>
+<span class="p">(</span>
+<span class="n">Id_P</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">Address</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">City</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="k">CONSTRAINT</span> <span class="n">chk_Person</span> <span class="k">CHECK</span> <span class="p">(</span><span class="n">Id_P</span><span class="o">&gt;</span><span class="mi">0</span> <span class="k">AND</span> <span class="n">City</span><span class="o">=</span><span class="s1">&#39;Sandnes&#39;</span><span class="p">)</span>
+<span class="p">)</span>
 
-/* 新增 DEFAULT 约束，MySQL */
-ALTER TABLE Persons ALTER City SET DEFAULT 'SANDNES'
-/* SQL Server / Oracle / MS Access */
-ALTER TABLE Persons ALTER COLUMN City SET DEFAULT 'SANDNES'
+<span class="cm">/* 新增CHECK约束，MySQL / SQL Server / Oracle / MS Access */</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="k">ADD</span> <span class="k">CHECK</span> <span class="p">(</span><span class="n">Id_P</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">chk_Person</span> <span class="k">CHECK</span> <span class="p">(</span><span class="n">Id_P</span><span class="o">&gt;</span><span class="mi">0</span> <span class="k">AND</span> <span class="n">City</span><span class="o">=</span><span class="s1">&#39;Sandnes&#39;</span><span class="p">)</span>
 
-/* 撤销 DEFAULT 约束，MySQL */
-ALTER TABLE Persons ALTER City DROP DEFAULT
-/* SQL Server / Oracle / MS Access */
-ALTER TABLE Persons ALTER COLUMN City DROP DEFAULT
-</code></pre>
+<span class="cm">/* 撤销 CHECK 约束，MySQL */</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="k">DROP</span> <span class="k">CHECK</span> <span class="n">chk_Person</span>
+<span class="cm">/* SQL Server / Oracle / MS Access */</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="k">DROP</span> <span class="k">CONSTRAINT</span> <span class="n">chk_Person</span>
+</pre></div>
 
-<h2 id="_5">自增字段</h2>
+
+<h3 id="default">DEFAULT，向列中插入默认值。例：<a class="headerlink" href="#default" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="cm">/* MySQL / SQL Server / Oracle / MS Access */</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span>
+<span class="p">(</span>
+<span class="n">Id_P</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">Address</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">City</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="s1">&#39;Sandnes&#39;</span>
+<span class="p">)</span>
+
+<span class="cm">/* 自动插入系统值 */</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Orders</span>
+<span class="p">(</span>
+<span class="n">Id_O</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">OrderNo</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">Id_P</span> <span class="nb">int</span><span class="p">,</span>
+<span class="n">OrderDate</span> <span class="nb">date</span> <span class="k">DEFAULT</span> <span class="n">GETDATE</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="cm">/* 新增 DEFAULT 约束，MySQL */</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="k">ALTER</span> <span class="n">City</span> <span class="k">SET</span> <span class="k">DEFAULT</span> <span class="s1">&#39;SANDNES&#39;</span>
+<span class="cm">/* SQL Server / Oracle / MS Access */</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="k">ALTER</span> <span class="k">COLUMN</span> <span class="n">City</span> <span class="k">SET</span> <span class="k">DEFAULT</span> <span class="s1">&#39;SANDNES&#39;</span>
+
+<span class="cm">/* 撤销 DEFAULT 约束，MySQL */</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="k">ALTER</span> <span class="n">City</span> <span class="k">DROP</span> <span class="k">DEFAULT</span>
+<span class="cm">/* SQL Server / Oracle / MS Access */</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="k">ALTER</span> <span class="k">COLUMN</span> <span class="n">City</span> <span class="k">DROP</span> <span class="k">DEFAULT</span>
+</pre></div>
+
+
+<h2 id="_5">自增字段<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><strong>Tips:</strong> 自增字段只能有一个，而且必须为键，可以为非主键。</p>
 </blockquote>
-<h3 id="mysql">MySQL</h3>
-<pre><code class="sql">CREATE TABLE Persons
-(
-P_Id int NOT NULL AUTO_INCREMENT,  /* 默认起始值为1，递增1 */
-LastName varchar(255) NOT NULL,
-FirstName varchar(255),
-Address varchar(255),
-City varchar(255),
-PRIMARY KEY (P_Id)
-)
+<h3 id="mysql">MySQL<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span>
+<span class="p">(</span>
+<span class="n">P_Id</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>  <span class="cm">/* 默认起始值为1，递增1 */</span>
+<span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">Address</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">City</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">P_Id</span><span class="p">)</span>
+<span class="p">)</span>
 
-/* 修改起始值 */
-ALTER TABLE Persons AUTO_INCREMENT=100
+<span class="cm">/* 修改起始值 */</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="n">AUTO_INCREMENT</span><span class="o">=</span><span class="mi">100</span>
 
-/* 添加记录时不指定自增字段的值 */
-INSERT INTO Persons (FirstName,LastName) VALUES ('Bill','Gates');
-</code></pre>
+<span class="cm">/* 添加记录时不指定自增字段的值 */</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Persons</span> <span class="p">(</span><span class="n">FirstName</span><span class="p">,</span><span class="n">LastName</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;Bill&#39;</span><span class="p">,</span><span class="s1">&#39;Gates&#39;</span><span class="p">);</span>
+</pre></div>
 
-<h3 id="sql-server">SQL Server</h3>
-<pre><code class="sql">CREATE TABLE Persons
-(
-P_Id int PRIMARY KEY IDENTITY,  /* 使用IDENTITY(20,10)更改起始值和递增值 */
-LastName varchar(255) NOT NULL,
-FirstName varchar(255),
-Address varchar(255),
-City varchar(255)
-)
-</code></pre>
 
-<h3 id="oracle">Oracle</h3>
-<pre><code class="sql">/* 使用序列（ sequence ）对象（该对象生成数字序列）创建自动增量（ auto-increment ）字段。 */
-CREATE SEQUENCE seq_person
-MINVALUE 1
-START WITH 1
-INCREMENT BY 1
-CACHE 10
+<h3 id="sql-server">SQL Server<a class="headerlink" href="#sql-server" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span>
+<span class="p">(</span>
+<span class="n">P_Id</span> <span class="nb">int</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="k">IDENTITY</span><span class="p">,</span>  <span class="cm">/* 使用IDENTITY(20,10)更改起始值和递增值 */</span>
+<span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">Address</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">City</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
 
-INSERT INTO Persons (ID,FirstName,LastName) VALUES (seq_person.nextval,'Lars','Monsen')
-</code></pre>
 
-<h3 id="access">Access</h3>
-<pre><code class="sql">CREATE TABLE Persons
-(
-P_Id int PRIMARY KEY AUTOINCREMENT,  /* 使用AUTOINCREMENT(20,10)更改起始值和递增值 */
-LastName varchar(255) NOT NULL,
-FirstName varchar(255),
-Address varchar(255),
-City varchar(255)
-)
-</code></pre>
+<h3 id="oracle">Oracle<a class="headerlink" href="#oracle" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="cm">/* 使用序列（ sequence ）对象（该对象生成数字序列）创建自动增量（ auto-increment ）字段。 */</span>
+<span class="k">CREATE</span> <span class="n">SEQUENCE</span> <span class="n">seq_person</span>
+<span class="k">MINVALUE</span> <span class="mi">1</span>
+<span class="k">START</span> <span class="k">WITH</span> <span class="mi">1</span>
+<span class="k">INCREMENT</span> <span class="k">BY</span> <span class="mi">1</span>
+<span class="k">CACHE</span> <span class="mi">10</span>
 
-<h2 id="_6">索引</h2>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Persons</span> <span class="p">(</span><span class="n">ID</span><span class="p">,</span><span class="n">FirstName</span><span class="p">,</span><span class="n">LastName</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="n">seq_person</span><span class="p">.</span><span class="n">nextval</span><span class="p">,</span><span class="s1">&#39;Lars&#39;</span><span class="p">,</span><span class="s1">&#39;Monsen&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="access">Access<a class="headerlink" href="#access" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span>
+<span class="p">(</span>
+<span class="n">P_Id</span> <span class="nb">int</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTOINCREMENT</span><span class="p">,</span>  <span class="cm">/* 使用AUTOINCREMENT(20,10)更改起始值和递增值 */</span>
+<span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">Address</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">City</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<h2 id="_6">索引<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><strong>Tips:</strong>
 索引能够提高 SELECT 查询和 WHERE 子句的速度，但是却降低了包含 UPDATE 语句或 INSERT 语句的数据输入过程的速度。
@@ -2706,54 +3070,56 @@ City varchar(255)
 如果只需要一列，那么就应当创建单列索引。如果作为过滤条件的 WHERE 子句用到了两个或者更多的列，那么聚簇索引就是最好的选择。</p>
 </blockquote>
 <p>CREATE INDEX index_name on table_name (column1, column2);</p>
-<h2 id="_7">视图</h2>
+<h2 id="_7">视图<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>预定义的 SQL 语句</p>
-<pre><code class="sql">CREATE VIEW CUSTOMERS_VIEW AS SELECT name, age FROM CUSTOMERS WHERE age IS NOT NULL [WITH CHECK OPTION];
-CREATE OR REPLACE VIEW view_name AS SELECT column_name(s) FROM table_name WHERE condition;
-DROP VIEW view_name;
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">VIEW</span> <span class="n">CUSTOMERS_VIEW</span> <span class="k">AS</span> <span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="k">FROM</span> <span class="n">CUSTOMERS</span> <span class="k">WHERE</span> <span class="n">age</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="p">[</span><span class="k">WITH</span> <span class="k">CHECK</span> <span class="k">OPTION</span><span class="p">];</span>
+<span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">VIEW</span> <span class="n">view_name</span> <span class="k">AS</span> <span class="k">SELECT</span> <span class="k">column_name</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">FROM</span> <span class="k">table_name</span> <span class="k">WHERE</span> <span class="n">condition</span><span class="p">;</span>
+<span class="k">DROP</span> <span class="k">VIEW</span> <span class="n">view_name</span><span class="p">;</span>
+</pre></div>
 
-<h1 id="_8">存储过程</h1>
-<pre><code class="sql">IF EXISTS (SELECT name FROM sysobjects WHERE name = 'Proc_InsertEmployee' AND type = 'P') 
-DROP PROCEDURE Proc_InsertEmployee 
-GO 
-CREATE PROCEDURE Proc_InsertEmployee 
-@PName nvarchar(50), 
-@PSex nvarchar(4), 
-@PAge int, 
-@PWage money 
-AS 
-begin 
-declare @PID nvarchar(50) 
-select @PID=Max(员工编号) from tb_Employee 
-if(@PID is null) 
-set @PID='P1001' 
-else 
-set @PID='P'+cast(cast(substring(@PID,2,4) as int)+1 as nvarchar(50)) 
-begin 
-insert into tb_Employee values(@PID,@PName,@PSex,@PAge,@PWage) 
-end 
-end 
-go
 
-/* 带输出参数 */
-CREATE PROC PROC_EXISTS 
-( 
-@UserName NVARCHAR(20), 
-@PassWord NVARCHAR(20), 
-@ReturnValue int OUTPUT 
-) 
-AS 
-IF EXISTS(select * from tb_member where userName=@UserName AND passWord=@PassWord) 
-set @ReturnValue= 100 
-ELSE 
-set @ReturnValue= -100 
-GO
+<h1 id="_8">存储过程<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><span class="k">IF</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">sysobjects</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Proc_InsertEmployee&#39;</span> <span class="k">AND</span> <span class="k">type</span> <span class="o">=</span> <span class="s1">&#39;P&#39;</span><span class="p">)</span> 
+<span class="k">DROP</span> <span class="k">PROCEDURE</span> <span class="n">Proc_InsertEmployee</span> 
+<span class="k">GO</span> 
+<span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="n">Proc_InsertEmployee</span> 
+<span class="o">@</span><span class="n">PName</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> 
+<span class="o">@</span><span class="n">PSex</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> 
+<span class="o">@</span><span class="n">PAge</span> <span class="nb">int</span><span class="p">,</span> 
+<span class="o">@</span><span class="n">PWage</span> <span class="n">money</span> 
+<span class="k">AS</span> 
+<span class="k">begin</span> 
+<span class="k">declare</span> <span class="o">@</span><span class="n">PID</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> 
+<span class="k">select</span> <span class="o">@</span><span class="n">PID</span><span class="o">=</span><span class="k">Max</span><span class="p">(</span><span class="err">员工编号</span><span class="p">)</span> <span class="k">from</span> <span class="n">tb_Employee</span> 
+<span class="k">if</span><span class="p">(</span><span class="o">@</span><span class="n">PID</span> <span class="k">is</span> <span class="k">null</span><span class="p">)</span> 
+<span class="k">set</span> <span class="o">@</span><span class="n">PID</span><span class="o">=</span><span class="s1">&#39;P1001&#39;</span> 
+<span class="k">else</span> 
+<span class="k">set</span> <span class="o">@</span><span class="n">PID</span><span class="o">=</span><span class="s1">&#39;P&#39;</span><span class="o">+</span><span class="k">cast</span><span class="p">(</span><span class="k">cast</span><span class="p">(</span><span class="k">substring</span><span class="p">(</span><span class="o">@</span><span class="n">PID</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="k">as</span> <span class="nb">int</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span> <span class="k">as</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span> 
+<span class="k">begin</span> 
+<span class="k">insert</span> <span class="k">into</span> <span class="n">tb_Employee</span> <span class="k">values</span><span class="p">(</span><span class="o">@</span><span class="n">PID</span><span class="p">,</span><span class="o">@</span><span class="n">PName</span><span class="p">,</span><span class="o">@</span><span class="n">PSex</span><span class="p">,</span><span class="o">@</span><span class="n">PAge</span><span class="p">,</span><span class="o">@</span><span class="n">PWage</span><span class="p">)</span> 
+<span class="k">end</span> 
+<span class="k">end</span> 
+<span class="k">go</span>
 
-declare @IsRight int 
-exec StuProc '赵雷' , @IsRight output
-select @IsRight
-</code></pre>
+<span class="cm">/* 带输出参数 */</span>
+<span class="k">CREATE</span> <span class="n">PROC</span> <span class="n">PROC_EXISTS</span> 
+<span class="p">(</span> 
+<span class="o">@</span><span class="n">UserName</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span> 
+<span class="o">@</span><span class="n">PassWord</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span> 
+<span class="o">@</span><span class="n">ReturnValue</span> <span class="nb">int</span> <span class="k">OUTPUT</span> 
+<span class="p">)</span> 
+<span class="k">AS</span> 
+<span class="k">IF</span> <span class="k">EXISTS</span><span class="p">(</span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">tb_member</span> <span class="k">where</span> <span class="n">userName</span><span class="o">=@</span><span class="n">UserName</span> <span class="k">AND</span> <span class="n">passWord</span><span class="o">=@</span><span class="n">PassWord</span><span class="p">)</span> 
+<span class="k">set</span> <span class="o">@</span><span class="n">ReturnValue</span><span class="o">=</span> <span class="mi">100</span> 
+<span class="k">ELSE</span> 
+<span class="k">set</span> <span class="o">@</span><span class="n">ReturnValue</span><span class="o">=</span> <span class="o">-</span><span class="mi">100</span> 
+<span class="k">GO</span>
+
+<span class="k">declare</span> <span class="o">@</span><span class="n">IsRight</span> <span class="nb">int</span> 
+<span class="k">exec</span> <span class="n">StuProc</span> <span class="s1">&#39;赵雷&#39;</span> <span class="p">,</span> <span class="o">@</span><span class="n">IsRight</span> <span class="k">output</span>
+<span class="k">select</span> <span class="o">@</span><span class="n">IsRight</span>
+</pre></div>
+
 
 <blockquote>
 <p><strong>Tips:</strong> 需要使用精确的时间时，使用LONG代替DATE，精确到毫秒。</p>
@@ -2765,6 +3131,22 @@ select @IsRight
               
                 
 
+
+  <h2 id="__comments">评论</h2>
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://islibra.github.io/hello-islibra/coding/db/SQL/";
+      this.page.identifier =
+        "coding/db/SQL/";
+    };
+    (function() {
+      var d = document, s = d.createElement("script");
+      s.src = "//islibra.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
               
             </article>
@@ -2785,7 +3167,7 @@ select @IsRight
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Previous
+                  后退
                 </span>
                 MySQL
               </span>
@@ -2797,7 +3179,7 @@ select @IsRight
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Next
+                  前进
                 </span>
                 SQL基本数据类型
               </span>
@@ -2814,6 +3196,10 @@ select @IsRight
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 - 2019 李晓龙
+          </div>
+        
         powered by
         <a href="https://www.mkdocs.org">MkDocs</a>
         and
@@ -2828,6 +3214,23 @@ select @IsRight
     </div>
     
       <script src="../../../assets/javascripts/application.267712eb.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       

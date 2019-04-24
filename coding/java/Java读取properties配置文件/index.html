@@ -3,7 +3,7 @@
 
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -11,25 +11,29 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
+        <link rel="canonical" href="https://islibra.github.io/hello-islibra/coding/java/Java读取properties配置文件/">
       
       
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+        <meta name="author" content="李晓龙">
       
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
       
-        <meta name="lang:search.language" content="en">
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
         <meta name="lang:search.pipeline.trimmer" content="True">
       
-        <meta name="lang:search.result.none" content="No matching documents">
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
       
-        <meta name="lang:search.result.one" content="1 matching document">
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
       
-        <meta name="lang:search.result.other" content="# matching documents">
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
       
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.2">
@@ -42,6 +46,12 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/application.3020aac5.css">
       
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#00bcd4">
       
     
     
@@ -59,15 +69,61 @@
     
     
       
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-XXXXXXXX-X", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
     
     
   </head>
   
-    <body dir="ltr">
+    
+    
+    <body dir="ltr" data-md-color-primary="cyan" data-md-color-accent="red">
   
     <svg class="md-svg">
       <defs>
         
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
         
       </defs>
     </svg>
@@ -76,7 +132,7 @@
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
       <a href="#_1" tabindex="1" class="md-skip">
-        Skip to content
+        跳转至
       </a>
     
     
@@ -84,9 +140,9 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../.." title="islibra" class="md-header-nav__button md-logo">
+        <a href="https://islibra.github.io/hello-islibra/" title="islibra" class="md-header-nav__button md-logo">
           
-            <i class="md-icon"></i>
+            <i class="md-icon">cloud</i>
           
         </a>
       </div>
@@ -113,7 +169,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -123,7 +179,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="result">
           <div class="md-search-result__meta">
-            Type to start searching
+            键入以开始搜索
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -134,6 +190,28 @@
         
       </div>
       
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/islibra/wiki/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    islibra/wiki
+  </div>
+</a>
+          </div>
+        </div>
+      
     </div>
   </nav>
 </header>
@@ -142,6 +220,124 @@
       
         
       
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../.." title="README" class="md-tabs__link">
+        README
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../cloud/ai/AI/" title="Cloud" class="md-tabs__link">
+          Cloud
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../db/Druid/" title="Coding" class="md-tabs__link">
+          Coding
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../design/UML/" title="Design" class="md-tabs__link">
+          Design
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../environment/net/私网IP地址范围/" title="Environment" class="md-tabs__link">
+          Environment
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../other/买房的事情/" title="Other" class="md-tabs__link">
+          Other
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../security/OpenSSL/" title="Security" class="md-tabs__link">
+          Security
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
       
       <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
@@ -152,13 +348,33 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../.." title="islibra" class="md-nav__button md-logo">
+    <a href="https://islibra.github.io/hello-islibra/" title="islibra" class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <i class="md-icon">cloud</i>
       
     </a>
     islibra
   </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/islibra/wiki/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    islibra/wiki
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -168,8 +384,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../.." title="李晓龙" class="md-nav__link">
-      李晓龙
+    <a href="../../.." title="README" class="md-nav__link">
+      README
     </a>
   </li>
 
@@ -939,8 +1155,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../python/6_io/" title="文件读写" class="md-nav__link">
-      文件读写
+    <a href="../../python/6_io/" title="6_io" class="md-nav__link">
+      6_io
     </a>
   </li>
 
@@ -1167,8 +1383,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../web/URL归一化/" title="前置条件" class="md-nav__link">
-      前置条件
+    <a href="../../web/URL归一化/" title="URL归一化" class="md-nav__link">
+      URL归一化
     </a>
   </li>
 
@@ -1289,6 +1505,42 @@
   <li class="md-nav__item">
     <a href="../../writing/使用Hexo搭建个人博客/" title="使用Hexo搭建个人博客" class="md-nav__link">
       使用Hexo搭建个人博客
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-9" type="checkbox" id="nav-3-9">
+    
+    <label class="md-nav__link" for="nav-3-9">
+      Xml
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-9">
+        Xml
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../xml/CDATA/" title="CDATA" class="md-nav__link">
+      CDATA
     </a>
   </li>
 
@@ -1433,6 +1685,42 @@
   <li class="md-nav__item">
     <a href="../../../design/data_structure/算法图解/" title="广度优先搜索解决无权图的最短路径问题" class="md-nav__link">
       广度优先搜索解决无权图的最短路径问题
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-5" type="checkbox" id="nav-4-5">
+    
+    <label class="md-nav__link" for="nav-4-5">
+      Design pattern
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-5">
+        Design pattern
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../design/design_pattern/catalog/" title="catalog" class="md-nav__link">
+      catalog
     </a>
   </li>
 
@@ -2012,9 +2300,57 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/kali/" title="kali" class="md-nav__link">
+      kali
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/远程调用中的反序列化注入/" title="RMI" class="md-nav__link">
       RMI
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-6" type="checkbox" id="nav-7-6">
+    
+    <label class="md-nav__link" for="nav-7-6">
+      Code
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-6">
+        Code
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
+      构建字典
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -2050,31 +2386,36 @@
             <article class="md-content__inner md-typeset">
               
                 
+                  <a href="https://github.com/islibra/wiki/blob/master/docs/coding/java/Java读取properties配置文件.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
-                <h1 id="_1">读取类路径下的配置文件</h1>
+                
+                <h1 id="_1">读取类路径下的配置文件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>配置文件路径：<code>src\main\resources\config\application.properties</code></p>
-<pre><code class="java">private static final String PATH = &quot;config/application.properties&quot;;
-InputStream in = PropertiesUtil.class.getClassLoader().getResourceAsStream(PATH);
-properties.load(in);
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">PATH</span> <span class="o">=</span> <span class="s">&quot;config/application.properties&quot;</span><span class="o">;</span>
+<span class="n">InputStream</span> <span class="n">in</span> <span class="o">=</span> <span class="n">PropertiesUtil</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getClassLoader</span><span class="o">().</span><span class="na">getResourceAsStream</span><span class="o">(</span><span class="n">PATH</span><span class="o">);</span>
+<span class="n">properties</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">in</span><span class="o">);</span>
+</pre></div>
 
-<h1 id="_2">读取任意路径下的配置文件</h1>
-<pre><code class="java">BufferedReader bufferedReader = new BufferedReader(new FileReader(&quot;F:/config.properties&quot;));
-properties.load(bufferedReader);
-</code></pre>
 
-<h1 id="_3">国际化</h1>
-<h2 id="_4">定义语言资源文件：</h2>
+<h1 id="_2">读取任意路径下的配置文件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><span class="n">BufferedReader</span> <span class="n">bufferedReader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="s">&quot;F:/config.properties&quot;</span><span class="o">));</span>
+<span class="n">properties</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">bufferedReader</span><span class="o">);</span>
+</pre></div>
+
+
+<h1 id="_3">国际化<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<h2 id="_4">定义语言资源文件：<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>资源路径：<code>src\main\resources\localize\info.properties</code></p>
 <ul>
 <li>info_zh_CN.properties</li>
 </ul>
-<pre><code class="properties">username=\u7528\u6237\u540d
-passwd=\u5BC6\u7801
-input=\u8BF7\u8F93\u5165
-info.success=\u6B22\u8FCE\uff0c{0}
-info.error=\u767B\u5f55
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="na">username</span><span class="o">=</span><span class="s">\u7528\u6237\u540d</span>
+<span class="na">passwd</span><span class="o">=</span><span class="s">\u5BC6\u7801</span>
+<span class="na">input</span><span class="o">=</span><span class="s">\u8BF7\u8F93\u5165</span>
+<span class="na">info.success</span><span class="o">=</span><span class="s">\u6B22\u8FCE\uff0c{0}</span>
+<span class="na">info.error</span><span class="o">=</span><span class="s">\u767B\u5f55</span>
+</pre></div>
+
 
 <blockquote>
 <p><strong>Tips:</strong> 在<code>IDEA - File - Settings - Editor - File Encodings</code>，设置<code>Global Encoding/Project Encoding/Properties Files - Default encoding for properties files</code>为 <strong>UTF-8</strong>，并勾选<code>Transparent native-to-ascii conversion</code>。</p>
@@ -2082,119 +2423,122 @@ info.error=\u767B\u5f55
 <ul>
 <li>info_en_US.properties</li>
 </ul>
-<h2 id="_5">创建本地语言环境对象：</h2>
-<pre><code class="java">Locale locale = Locale.getDefault();  //获取默认的系统语言
-if (&quot;zh&quot;.equals(language))
-{
-    locale = new Locale(&quot;zh&quot;, &quot;CN&quot;);
-}
-else if (&quot;en&quot;.equals(language))
-{
-    locale = Locale.US;
-}
-System.out.println(&quot;language: &quot; + locale.getLanguage() + &quot;, country: &quot; + locale.getCountry());
-</code></pre>
+<h2 id="_5">创建本地语言环境对象：<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Locale</span> <span class="n">locale</span> <span class="o">=</span> <span class="n">Locale</span><span class="o">.</span><span class="na">getDefault</span><span class="o">();</span>  <span class="c1">//获取默认的系统语言</span>
+<span class="k">if</span> <span class="o">(</span><span class="s">&quot;zh&quot;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">language</span><span class="o">))</span>
+<span class="o">{</span>
+    <span class="n">locale</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Locale</span><span class="o">(</span><span class="s">&quot;zh&quot;</span><span class="o">,</span> <span class="s">&quot;CN&quot;</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="s">&quot;en&quot;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">language</span><span class="o">))</span>
+<span class="o">{</span>
+    <span class="n">locale</span> <span class="o">=</span> <span class="n">Locale</span><span class="o">.</span><span class="na">US</span><span class="o">;</span>
+<span class="o">}</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;language: &quot;</span> <span class="o">+</span> <span class="n">locale</span><span class="o">.</span><span class="na">getLanguage</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot;, country: &quot;</span> <span class="o">+</span> <span class="n">locale</span><span class="o">.</span><span class="na">getCountry</span><span class="o">());</span>
+</pre></div>
 
-<h1 id="_6">绑定资源文件</h1>
-<pre><code class="java">ResourceBundle res = ResourceBundle.getBundle(&quot;localize.info&quot;, locale);
-</code></pre>
 
-<h1 id="_7">读取资源</h1>
-<pre><code class="java">String input = res.getString(&quot;input&quot;);
-String success = MessageFormat.format(res.getString(key), param);  //动态处理文本
-</code></pre>
+<h1 id="_6">绑定资源文件<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><span class="n">ResourceBundle</span> <span class="n">res</span> <span class="o">=</span> <span class="n">ResourceBundle</span><span class="o">.</span><span class="na">getBundle</span><span class="o">(</span><span class="s">&quot;localize.info&quot;</span><span class="o">,</span> <span class="n">locale</span><span class="o">);</span>
+</pre></div>
 
-<h1 id="_8">代码</h1>
-<pre><code class="java">import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.text.MessageFormat;
-import java.util.Locale;
-import java.util.Properties;
-import java.util.ResourceBundle;
 
-public class PropertiesUtil {
+<h1 id="_7">读取资源<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><span class="n">String</span> <span class="n">input</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">&quot;input&quot;</span><span class="o">);</span>
+<span class="n">String</span> <span class="n">success</span> <span class="o">=</span> <span class="n">MessageFormat</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">res</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">key</span><span class="o">),</span> <span class="n">param</span><span class="o">);</span>  <span class="c1">//动态处理文本</span>
+</pre></div>
 
-    private static final String PATH = &quot;config/application.properties&quot;;
 
-    private static Properties properties;
+<h1 id="_8">代码<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.FileNotFoundException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.text.MessageFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Locale</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Properties</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ResourceBundle</span><span class="o">;</span>
 
-    static
-    {
-        init();
-    }
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PropertiesUtil</span> <span class="o">{</span>
 
-    private static Properties init()
-    {
-        properties = new Properties();
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">PATH</span> <span class="o">=</span> <span class="s">&quot;config/application.properties&quot;</span><span class="o">;</span>
 
-        InputStream in = null;
-        try {
-            //配置文件在类路径下
-            in = PropertiesUtil.class.getClassLoader().getResourceAsStream(PATH);
-            properties.load(in);
-            //读取任意路径下的配置文件
-            //BufferedReader bufferedReader = new BufferedReader(new FileReader(&quot;F:/config.properties&quot;));
-            //properties.load(bufferedReader);
-        } catch (FileNotFoundException e) {
-            System.out.println(&quot;Properties not exist.&quot;);
-        } catch (IOException e) {
-            System.out.println(&quot;Properties load error.&quot;);
-        } finally {
-            if (in != null) {
-                try {
-                    in.close();
-                } catch (IOException e) {
-                    System.out.println(&quot;Close inputStream fail.&quot;);
-                }
-            }
-        }
-        return properties;
-    }
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Properties</span> <span class="n">properties</span><span class="o">;</span>
 
-    public static String getValue(String key) {
-        if (null == key) {
-            return null;
-        } else {
-            return properties.getProperty(key);
-        }
-    }
+    <span class="kd">static</span>
+    <span class="o">{</span>
+        <span class="n">init</span><span class="o">();</span>
+    <span class="o">}</span>
 
-    public static String getResValue(String key, String language, String param)
-    {
-        if (null == key) {
-            return null;
-        } else {
-            Locale locale = Locale.getDefault();  //获取默认的系统语言
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Properties</span> <span class="nf">init</span><span class="o">()</span>
+    <span class="o">{</span>
+        <span class="n">properties</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Properties</span><span class="o">();</span>
 
-            if (&quot;zh&quot;.equals(language))
-            {
-                locale = new Locale(&quot;zh&quot;, &quot;CN&quot;);
-            }
-            else if (&quot;en&quot;.equals(language))
-            {
-                locale = Locale.US;
-            }
-            System.out.println(&quot;language: &quot; + locale.getLanguage() + &quot;, country: &quot; + locale.getCountry());
+        <span class="n">InputStream</span> <span class="n">in</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="c1">//配置文件在类路径下</span>
+            <span class="n">in</span> <span class="o">=</span> <span class="n">PropertiesUtil</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getClassLoader</span><span class="o">().</span><span class="na">getResourceAsStream</span><span class="o">(</span><span class="n">PATH</span><span class="o">);</span>
+            <span class="n">properties</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">in</span><span class="o">);</span>
+            <span class="c1">//读取任意路径下的配置文件</span>
+            <span class="c1">//BufferedReader bufferedReader = new BufferedReader(new FileReader(&quot;F:/config.properties&quot;));</span>
+            <span class="c1">//properties.load(bufferedReader);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Properties not exist.&quot;</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Properties load error.&quot;</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">in</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">try</span> <span class="o">{</span>
+                    <span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Close inputStream fail.&quot;</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">properties</span><span class="o">;</span>
+    <span class="o">}</span>
 
-            ResourceBundle res = ResourceBundle.getBundle(&quot;localize.info&quot;, locale);
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">getValue</span><span class="o">(</span><span class="n">String</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">properties</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
 
-            if (null == param)
-            {
-                return res.getString(key);
-            }
-            return MessageFormat.format(res.getString(key), param);
-        }
-    }
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">getResValue</span><span class="o">(</span><span class="n">String</span> <span class="n">key</span><span class="o">,</span> <span class="n">String</span> <span class="n">language</span><span class="o">,</span> <span class="n">String</span> <span class="n">param</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">Locale</span> <span class="n">locale</span> <span class="o">=</span> <span class="n">Locale</span><span class="o">.</span><span class="na">getDefault</span><span class="o">();</span>  <span class="c1">//获取默认的系统语言</span>
 
-    public static void main(String args[])
-    {
-        System.out.println(PropertiesUtil.getValue(&quot;exampleKey&quot;));
-        System.out.println(PropertiesUtil.getResValue(&quot;name&quot;, &quot;en&quot;, null));
-        System.out.println(PropertiesUtil.getResValue(&quot;msg&quot;, &quot;zh&quot;, &quot;hello&quot;));
-    }
-}
-</code></pre>
+            <span class="k">if</span> <span class="o">(</span><span class="s">&quot;zh&quot;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">language</span><span class="o">))</span>
+            <span class="o">{</span>
+                <span class="n">locale</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Locale</span><span class="o">(</span><span class="s">&quot;zh&quot;</span><span class="o">,</span> <span class="s">&quot;CN&quot;</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="s">&quot;en&quot;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">language</span><span class="o">))</span>
+            <span class="o">{</span>
+                <span class="n">locale</span> <span class="o">=</span> <span class="n">Locale</span><span class="o">.</span><span class="na">US</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;language: &quot;</span> <span class="o">+</span> <span class="n">locale</span><span class="o">.</span><span class="na">getLanguage</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot;, country: &quot;</span> <span class="o">+</span> <span class="n">locale</span><span class="o">.</span><span class="na">getCountry</span><span class="o">());</span>
+
+            <span class="n">ResourceBundle</span> <span class="n">res</span> <span class="o">=</span> <span class="n">ResourceBundle</span><span class="o">.</span><span class="na">getBundle</span><span class="o">(</span><span class="s">&quot;localize.info&quot;</span><span class="o">,</span> <span class="n">locale</span><span class="o">);</span>
+
+            <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">param</span><span class="o">)</span>
+            <span class="o">{</span>
+                <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="k">return</span> <span class="n">MessageFormat</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">res</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">key</span><span class="o">),</span> <span class="n">param</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span>
+    <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">PropertiesUtil</span><span class="o">.</span><span class="na">getValue</span><span class="o">(</span><span class="s">&quot;exampleKey&quot;</span><span class="o">));</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">PropertiesUtil</span><span class="o">.</span><span class="na">getResValue</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;en&quot;</span><span class="o">,</span> <span class="kc">null</span><span class="o">));</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">PropertiesUtil</span><span class="o">.</span><span class="na">getResValue</span><span class="o">(</span><span class="s">&quot;msg&quot;</span><span class="o">,</span> <span class="s">&quot;zh&quot;</span><span class="o">,</span> <span class="s">&quot;hello&quot;</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
                 
                   
                 
@@ -2202,6 +2546,22 @@ public class PropertiesUtil {
               
                 
 
+
+  <h2 id="__comments">评论</h2>
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://islibra.github.io/hello-islibra/coding/java/Java读取properties配置文件/";
+      this.page.identifier =
+        "coding/java/Java读取properties配置文件/";
+    };
+    (function() {
+      var d = document, s = d.createElement("script");
+      s.src = "//islibra.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
               
             </article>
@@ -2222,7 +2582,7 @@ public class PropertiesUtil {
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Previous
+                  后退
                 </span>
                 Java数据类型转换
               </span>
@@ -2234,7 +2594,7 @@ public class PropertiesUtil {
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Next
+                  前进
                 </span>
                 Java运算符
               </span>
@@ -2251,6 +2611,10 @@ public class PropertiesUtil {
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 - 2019 李晓龙
+          </div>
+        
         powered by
         <a href="https://www.mkdocs.org">MkDocs</a>
         and
@@ -2265,6 +2629,23 @@ public class PropertiesUtil {
     </div>
     
       <script src="../../../assets/javascripts/application.267712eb.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
