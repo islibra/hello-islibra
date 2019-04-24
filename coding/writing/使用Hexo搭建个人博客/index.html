@@ -2393,15 +2393,13 @@
 <ul>
 <li>在GitHub注册个人账号，并跟随向导创建Repository。</li>
 <li>安装<a href="https://git-scm.com/download/win">Git</a>。</li>
-<li>创建SSH KEY</li>
-</ul>
+<li>创建SSH KEY
 <div class="codehilite"><pre><span></span>git config --global user.name <span class="s2">&quot;username&quot;</span>
 git config --global user.email <span class="s2">&quot;usermail&quot;</span>
 git config --global --list
 ssh-keygen -t rsa -C <span class="s2">&quot;usermail&quot;</span>  <span class="c1">#在默认路径生成.ssh/id_rsa.pub，使用记事本打开并拷贝内容，添加到GitHub上的SSH and GPG keys里。</span>
-</pre></div>
-
-
+</pre></div></li>
+</ul>
 <h1 id="nodejs">二、Node.js<a class="headerlink" href="#nodejs" title="Permanent link">&para;</a></h1>
 <p><a href="http://nodejs.org/">下载地址</a></p>
 <h1 id="hexo">三、Hexo<a class="headerlink" href="#hexo" title="Permanent link">&para;</a></h1>
@@ -2411,7 +2409,6 @@ hexo init &lt;folder&gt;  <span class="c1">#初始化根目录</span>
 npm install
 npm install --save hexo-deployer-git  <span class="c1">#安装Git部署服务</span>
 </pre></div>
-
 
 <h1 id="_1">四、目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <blockquote>
@@ -2432,7 +2429,6 @@ npm install --save hexo-deployer-git  <span class="c1">#安装Git部署服务</s
   <span class="nt">branch</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
 </pre></div>
 
-
 <h1 id="_2">六、写作<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span>hexo new <span class="s2">&quot;My New Post&quot;</span>
 hexo server -p <span class="m">5000</span>
@@ -2440,7 +2436,6 @@ hexo generate
 hexo deploy
 hexo clean
 </pre></div>
-
 
 <h1 id="_3">七、主题<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
 <p><a href="https://github.com/iissnan/hexo-theme-next/releases">NexT</a></p>

@@ -2400,18 +2400,15 @@
 <div class="codehilite"><pre><span></span>node -v
 </pre></div>
 
-
 <h1 id="_1">交互式运行<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span>$ node
 &gt; console.log<span class="o">(</span><span class="s1">&#39;hello&#39;</span><span class="o">)</span><span class="p">;</span>
 hello
 </pre></div>
 
-
 <h1 id="javascript">运行javascript文件<a class="headerlink" href="#javascript" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span>$ node min.js
 </pre></div>
-
 
 <h1 id="demohttp-server">官方Demo，运行一个http server<a class="headerlink" href="#demohttp-server" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span>  <span class="c1">//载入Node.js模块</span>
@@ -2432,12 +2429,10 @@ hello
 <span class="p">});</span>
 </pre></div>
 
-
 <h1 id="npm">查看npm版本<a class="headerlink" href="#npm" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span>$ npm -v
 <span class="m">6</span>.2.0
 </pre></div>
-
 
 <h1 id="npm_1">npm设置/取消代理<a class="headerlink" href="#npm_1" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span>npm config <span class="nb">set</span> proxy http://username:password@server:port
@@ -2447,14 +2442,12 @@ npm config delete https-proxy
 npm config list
 </pre></div>
 
-
 <h1 id="npm_2">使用npm安装模块<a class="headerlink" href="#npm_2" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="c1">#-g 全局安装</span>
 <span class="c1">#代码中通过require(&#39;xxx&#39;)载入模块</span>
 <span class="c1">#同样适用于升级npm版本，如npm install npm -g</span>
 npm install xxx -g
 </pre></div>
-
 
 <ul>
 <li>本地安装：在当前目录新建./node_modules目录存放安装包，代码中通过require()载入模块。</li>
@@ -2465,13 +2458,11 @@ npm install xxx -g
 npm list xxx
 </pre></div>
 
-
 <h1 id="_3">卸载/更新/搜索模块<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span>$ npm uninstall express
 $ npm update express
 $ npm search express
 </pre></div>
-
 
 <h1 id="_4">创建模块并发布<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span>$ npm init
@@ -2480,7 +2471,6 @@ Username:
 ...
 $ npm publish
 </pre></div>
-
 
 <h1 id="_5">使用淘宝镜像<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span>$ npm install -g cnpm --registry<span class="o">=</span>https://registry.npm.taobao.org

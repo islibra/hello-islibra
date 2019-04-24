@@ -2398,7 +2398,6 @@ nohup java -jar XXX.jar &gt;temp.txt <span class="p">&amp;</span>  <span class="
 <span class="nb">fg</span> <span class="m">23</span>  <span class="c1">#将编号指定任务调回到前台控制。</span>
 </pre></div>
 
-
 <h1 id="shelljar">使用批处理或shell启动jar<a class="headerlink" href="#shelljar" title="Permanent link">&para;</a></h1>
 <ol>
 <li>假设<code>${ROOT}</code>为项目根目录，已将工程打包成<code>${ROOT}\test.jar</code></li>
@@ -2410,7 +2409,6 @@ nohup java -jar XXX.jar &gt;temp.txt <span class="p">&amp;</span>  <span class="
 start .<span class="se">\j</span>re<span class="se">\b</span>in<span class="se">\j</span>avaw.exe -jar .<span class="se">\t</span>est.jar
 @pause
 </pre></div>
-
 
 <blockquote>
 <p>如果是java.exe，默认显示运行窗口；javaw.exe默认不显示。</p>
@@ -2427,7 +2425,6 @@ start .<span class="se">\j</span>re<span class="se">\b</span>in<span class="se">
 <span class="nb">export</span> <span class="nv">classpath</span><span class="o">=</span><span class="nv">$CLASSPATH</span>
 ./jre/bin/java -Xms256m -Xmx1024m -classpath <span class="s2">&quot;</span><span class="nv">$CLASSPATH</span><span class="s2">&quot;</span> com.test.DBSync
 </pre></div>
-
 
 <blockquote>
 <p>bat启动需要在工程打包的时候，将<code>classpath</code>路径写入jar中的<code>META-INF</code>中的<code>MANIFEST.MF</code>文件，否则会报找不到类。</p>

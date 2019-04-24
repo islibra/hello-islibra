@@ -2392,7 +2392,7 @@
                 <h1 id="_1">前置条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>假设存在URL：<code>http://30thh.loc:8480/app/test%3F/a%3F+b;jsessionid=S%3F+ID?p+1=c+d&amp;p+2=e+f#a</code></p>
 <p>应用程序部署在<code>/app</code>下。</p>
-<p>对应servlet配置为：  </p>
+<p>对应servlet配置为：<br />
 <div class="codehilite"><pre><span></span><span class="nt">&lt;servlet&gt;</span>
      <span class="nt">&lt;servlet-name&gt;</span>test<span class="nt">&lt;/servlet-name&gt;</span>
      <span class="nt">&lt;servlet-class&gt;</span>TestServlet<span class="nt">&lt;/servlet-class&gt;</span>
@@ -2401,9 +2401,7 @@
      <span class="nt">&lt;servlet-name&gt;</span>test<span class="nt">&lt;/servlet-name&gt;</span>
      <span class="nt">&lt;url-pattern&gt;</span>/test%3F/*<span class="nt">&lt;/url-pattern&gt;</span>
  <span class="nt">&lt;/servlet-mapping&gt;</span>
-</pre></div>
-
-
+</pre></div></p>
 <h1 id="_2">运行结果<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
 <table>
 <thead>
@@ -2449,7 +2447,7 @@
 <td>getPathInfo()</td>
 <td>yes</td>
 <td>/a?+b</td>
-<td>如果servlet配置中的url-pattern不以<em>结束（如/test或</em>.jsp），或使用Spring，getPathInfo返回null。</td>
+<td>如果servlet配置中的url-pattern不以*结束（如/test或*.jsp），或使用Spring，getPathInfo返回null。</td>
 </tr>
 <tr>
 <td>getProtocol()</td>
@@ -2478,7 +2476,7 @@
 <tr>
 <td>getRequestURL()</td>
 <td>no</td>
-<td>http://30thh.loc:8480/app/test%3F/a%3F+b;jsessionid=S+ID</td>
+<td><a href="http://30thh.loc:8480/app/test%3F/a%3F+b;jsessionid=S+ID">http://30thh.loc:8480/app/test%3F/a%3F+b;jsessionid=S+ID</a></td>
 <td></td>
 </tr>
 <tr>

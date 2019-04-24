@@ -2395,22 +2395,17 @@ rpm -qa xxx
 rpm -ivh xxx.rpm
 </pre></div>
 
-
 <h1 id="jdk">安装JDK的步骤<a class="headerlink" href="#jdk" title="Permanent link">&para;</a></h1>
 <ol>
 <li>下载linux版的jdk</li>
 <li>解压jdk安装包，<code>tar -xzvf jdk-7u17-linux-x64.tar.gz</code></li>
 <li>将解压后的 jdk-7u17-linux-x64 目录下的所有文件移动到<code>/usr/local/java</code></li>
-<li>设置环境变量，<code>sudo vim /etc/profile</code>，写入如下内容：</li>
-</ol>
+<li>设置环境变量，<code>sudo vim /etc/profile</code>，写入如下内容：
 <div class="codehilite"><pre><span></span>export JAVA_HOME=/usr/local/java
 export JRE_HOME=/usr/local/java/jre　
 export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
 export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
-</pre></div>
-
-
-<ol>
+</pre></div></li>
 <li>执行<code>source /etc/profile</code>，使环境变量生效</li>
 <li>输入<code>java -version</code>命令查看java是否安装成功</li>
 </ol>
@@ -2445,13 +2440,11 @@ dpkg -P package  <span class="c1">#彻底删除已安装的deb包和配置文件
 dpkg-reconfigure package  <span class="c1">#重新配置已安装的包</span>
 </pre></div>
 
-
 <h1 id="_1">压缩解压文件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h2 id="1-tar">1. tar<a class="headerlink" href="#1-tar" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>$ tar xvf FileName.tar  <span class="c1">#解包</span>
 $ tar cvf FileName.tar DirName  <span class="c1">#打包（注：tar是打包，不是压缩！）</span>
 </pre></div>
-
 
 <h2 id="2-gz">2. gz<a class="headerlink" href="#2-gz" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>$ gunzip FileName.gz  <span class="c1">#解压1</span>
@@ -2459,12 +2452,10 @@ $ gzip -d FileName.gz  <span class="c1">#解压2</span>
 $ gzip FileName  <span class="c1">#压缩</span>
 </pre></div>
 
-
 <h2 id="3-targz">3. tar.gz<a class="headerlink" href="#3-targz" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>$ tar -zxvf file.tar.gz  <span class="c1">#解压</span>
 $ tar -zcvf file.tar.gz dir  <span class="c1">#压缩</span>
 </pre></div>
-
 
 <h2 id="4-bz2">4. bz2<a class="headerlink" href="#4-bz2" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>$ bzip2 -d FileName.bz2  <span class="c1">#解压1</span>
@@ -2472,65 +2463,54 @@ $ bunzip2 FileName.bz2  <span class="c1">#解压2</span>
 $ bzip2 -z FileName  <span class="c1">#压缩</span>
 </pre></div>
 
-
 <h2 id="5-tarbz2">5. tar.bz2<a class="headerlink" href="#5-tarbz2" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>$ tar -jxvf FileName.tar.bz2  <span class="c1">#解压1</span>
 $ bzip2 -d file.tar.bz2 <span class="p">&amp;</span> tar -xvf file.tar  <span class="c1">#解压2</span>
 $ tar jcvf FileName.tar.bz2 DirName  <span class="c1">#压缩</span>
 </pre></div>
 
-
 <h2 id="6-bz">6. bz<a class="headerlink" href="#6-bz" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>$ bzip2 -d FileName.bz  <span class="c1">#解压1</span>
 $ bunzip2 FileName.bz  <span class="c1">#解压2</span>
 </pre></div>
 
-
 <h2 id="7-tarbz">7. tar.bz<a class="headerlink" href="#7-tarbz" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>$ tar jxvf FileName.tar.bz  <span class="c1">#解压</span>
 </pre></div>
-
 
 <h2 id="8-z">8. Z<a class="headerlink" href="#8-z" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>$ uncompress FileName.Z  <span class="c1">#解压</span>
 $ compress FileName  <span class="c1">#压缩</span>
 </pre></div>
 
-
 <h2 id="9-tarz">9. tar.Z<a class="headerlink" href="#9-tarz" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>$ tar Zxvf FileName.tar.Z  <span class="c1">#解压</span>
 $ tar Zcvf FileName.tar.Z DirName  <span class="c1">#压缩</span>
 </pre></div>
 
-
 <h2 id="10-tgz">10. tgz<a class="headerlink" href="#10-tgz" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>$ tar zxvf FileName.tgz  <span class="c1">#解压</span>
 </pre></div>
-
 
 <h2 id="11-tartgz">11. tar.tgz<a class="headerlink" href="#11-tartgz" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>$ tar zxvf FileName.tar.tgz  <span class="c1">#解压</span>
 $ tar zcvf FileName.tar.tgz FileName  <span class="c1">#压缩</span>
 </pre></div>
 
-
 <h2 id="12-zip">12. zip<a class="headerlink" href="#12-zip" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>$ unzip FileName.zip  <span class="c1">#解压</span>
 $ zip FileName.zip DirName  <span class="c1">#压缩</span>
 </pre></div>
-
 
 <h2 id="13-lha">13. lha<a class="headerlink" href="#13-lha" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>$ lha -e FileName.lha  <span class="c1">#解压</span>
 $ lha -a FileName.lha FileName  <span class="c1">#压缩</span>
 </pre></div>
 
-
 <h2 id="14-rar">14. rar<a class="headerlink" href="#14-rar" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>$ rar a FileName.rar  <span class="c1">#解压</span>
 $ rar e FileName.rar  <span class="c1">#压缩</span>
 </pre></div>
-
 
 <blockquote>
 <p>rar需下载，解压后将<code>rar_static</code>拷贝到<code>/usr/bin</code>目录（其他由$PATH环境变量指定的目录也行）</p>

@@ -2670,8 +2670,8 @@
 </ul>
 </li>
 <li>MySQL: <code>SELECT column_name(s) FROM table_name LIMIT number;</code>，例：<ul>
-<li>SELECT User from user limit 2;  /<em> 只查询2条数据 </em>/</li>
-<li>SELECT User from user limit 2,3;  /<em> 从偏移量2开始查询3条数据，偏移量从0开始 </em>/</li>
+<li>SELECT User from user limit 2;  /* 只查询2条数据 */</li>
+<li>SELECT User from user limit 2,3;  /* 从偏移量2开始查询3条数据，偏移量从0开始 */</li>
 </ul>
 </li>
 <li>Oracle: <code>SELECT column_name(s) FROM table_name WHERE ROWNUM &lt;= number;</code></li>
@@ -2695,19 +2695,15 @@
 <span class="k">SELECT</span> <span class="n">ProductName</span><span class="p">,</span> <span class="n">UnitPrice</span><span class="p">,</span> <span class="n">FORMAT</span><span class="p">(</span><span class="n">Now</span><span class="p">(),</span><span class="s1">&#39;YYYY-MM-DD&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">PerDate</span> <span class="k">FROM</span> <span class="n">Products</span><span class="p">;</span>
 </pre></div>
 
-
 <h3 id="group-by">GROUP BY<a class="headerlink" href="#group-by" title="Permanent link">&para;</a></h3>
-<p>SELECT column_name1, column_name2, aggregate_function(column_name3) FROM table_name GROUP BY column_name1, column_name2;</p>
+<p>SELECT column_name1, column_name2, aggregate_function(column_name3) FROM table_name GROUP BY column_name1, column_name2;
 <div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">Customer</span><span class="p">,</span><span class="k">SUM</span><span class="p">(</span><span class="n">OrderPrice</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">Orders</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">Customer</span><span class="p">;</span>
-</pre></div>
-
-
+</pre></div></p>
 <h3 id="having">HAVING<a class="headerlink" href="#having" title="Permanent link">&para;</a></h3>
 <p>WHERE 关键字无法与合计函数一起使用，HAVING 子句对GROUP BY子句过滤。
 SELECT column_name, aggregate_function(column_name) FROM table_name WHERE column_name operator value GROUP BY column_name HAVING aggregate_function(column_name) operator value;</p>
 <div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">Customer</span><span class="p">,</span><span class="k">SUM</span><span class="p">(</span><span class="n">OrderPrice</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">Orders</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">Customer</span> <span class="k">HAVING</span> <span class="k">SUM</span><span class="p">(</span><span class="n">OrderPrice</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">2000</span><span class="p">;</span>
 </pre></div>
-
 
 <h2 id="join">JOIN<a class="headerlink" href="#join" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2770,8 +2766,7 @@ City varchar(255)
 </li>
 <li>DROP TABLE table_name</li>
 <li>CREATE INDEX index_name ON table_name (column_name)</li>
-<li>DROP INDEX</li>
-</ul>
+<li>DROP INDEX
 <div class="codehilite"><pre><span></span><span class="cm">/* Microsoft Access */</span>
 <span class="k">DROP</span> <span class="k">INDEX</span> <span class="n">index_name</span> <span class="k">ON</span> <span class="k">table_name</span>
 <span class="cm">/* MS SQL Server */</span>
@@ -2780,10 +2775,7 @@ City varchar(255)
 <span class="k">DROP</span> <span class="k">INDEX</span> <span class="n">index_name</span>
 <span class="cm">/* MySQL */</span>
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="k">table_name</span> <span class="k">DROP</span> <span class="k">INDEX</span> <span class="n">index_name</span>
-</pre></div>
-
-
-<ul>
+</pre></div></li>
 <li>TRUNCATE TABLE table_name，清空表中数据。</li>
 </ul>
 <h2 id="_4">约束<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
@@ -2797,7 +2789,6 @@ City varchar(255)
 <span class="n">City</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
-
 
 <h3 id="unique">UNIQUE，字段唯一。例：<a class="headerlink" href="#unique" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="cm">/* MySQL */</span>
@@ -2842,7 +2833,6 @@ City varchar(255)
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="k">DROP</span> <span class="k">CONSTRAINT</span> <span class="n">uc_PersonID</span>
 </pre></div>
 
-
 <h3 id="primary-key">PRIMARY KEY，主键，唯一，非空，有且只有一个主键字段。例：<a class="headerlink" href="#primary-key" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="cm">/* MySQL */</span>
 <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span>
@@ -2886,7 +2876,6 @@ City varchar(255)
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="k">DROP</span> <span class="k">CONSTRAINT</span> <span class="n">pk_PersonID</span>
 </pre></div>
 
-
 <h3 id="foreign-key-primary-key">FOREIGN KEY，外键，指向另一个表中的 PRIMARY KEY。例：<a class="headerlink" href="#foreign-key-primary-key" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="cm">/* MySQL */</span>
 <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Orders</span>
@@ -2925,7 +2914,6 @@ City varchar(255)
 <span class="cm">/* SQL Server / Oracle / MS Access */</span>
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Orders</span> <span class="k">DROP</span> <span class="k">CONSTRAINT</span> <span class="n">fk_PerOrders</span>
 </pre></div>
-
 
 <h3 id="check">CHECK，限制列中的值的范围。例：<a class="headerlink" href="#check" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="cm">/* My SQL */</span>
@@ -2970,7 +2958,6 @@ City varchar(255)
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="k">DROP</span> <span class="k">CONSTRAINT</span> <span class="n">chk_Person</span>
 </pre></div>
 
-
 <h3 id="default">DEFAULT，向列中插入默认值。例：<a class="headerlink" href="#default" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="cm">/* MySQL / SQL Server / Oracle / MS Access */</span>
 <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span>
@@ -3002,7 +2989,6 @@ City varchar(255)
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="k">ALTER</span> <span class="k">COLUMN</span> <span class="n">City</span> <span class="k">DROP</span> <span class="k">DEFAULT</span>
 </pre></div>
 
-
 <h2 id="_5">自增字段<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><strong>Tips:</strong> 自增字段只能有一个，而且必须为键，可以为非主键。</p>
@@ -3025,7 +3011,6 @@ City varchar(255)
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Persons</span> <span class="p">(</span><span class="n">FirstName</span><span class="p">,</span><span class="n">LastName</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;Bill&#39;</span><span class="p">,</span><span class="s1">&#39;Gates&#39;</span><span class="p">);</span>
 </pre></div>
 
-
 <h3 id="sql-server">SQL Server<a class="headerlink" href="#sql-server" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span>
 <span class="p">(</span>
@@ -3036,7 +3021,6 @@ City varchar(255)
 <span class="n">City</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
-
 
 <h3 id="oracle">Oracle<a class="headerlink" href="#oracle" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="cm">/* 使用序列（ sequence ）对象（该对象生成数字序列）创建自动增量（ auto-increment ）字段。 */</span>
@@ -3049,7 +3033,6 @@ City varchar(255)
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Persons</span> <span class="p">(</span><span class="n">ID</span><span class="p">,</span><span class="n">FirstName</span><span class="p">,</span><span class="n">LastName</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="n">seq_person</span><span class="p">.</span><span class="n">nextval</span><span class="p">,</span><span class="s1">&#39;Lars&#39;</span><span class="p">,</span><span class="s1">&#39;Monsen&#39;</span><span class="p">)</span>
 </pre></div>
 
-
 <h3 id="access">Access<a class="headerlink" href="#access" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span>
 <span class="p">(</span>
@@ -3060,7 +3043,6 @@ City varchar(255)
 <span class="n">City</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
-
 
 <h2 id="_6">索引<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -3076,7 +3058,6 @@ City varchar(255)
 <span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">VIEW</span> <span class="n">view_name</span> <span class="k">AS</span> <span class="k">SELECT</span> <span class="k">column_name</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">FROM</span> <span class="k">table_name</span> <span class="k">WHERE</span> <span class="n">condition</span><span class="p">;</span>
 <span class="k">DROP</span> <span class="k">VIEW</span> <span class="n">view_name</span><span class="p">;</span>
 </pre></div>
-
 
 <h1 id="_8">存储过程<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="k">IF</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">sysobjects</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Proc_InsertEmployee&#39;</span> <span class="k">AND</span> <span class="k">type</span> <span class="o">=</span> <span class="s1">&#39;P&#39;</span><span class="p">)</span> 
@@ -3119,7 +3100,6 @@ City varchar(255)
 <span class="k">exec</span> <span class="n">StuProc</span> <span class="s1">&#39;赵雷&#39;</span> <span class="p">,</span> <span class="o">@</span><span class="n">IsRight</span> <span class="k">output</span>
 <span class="k">select</span> <span class="o">@</span><span class="n">IsRight</span>
 </pre></div>
-
 
 <blockquote>
 <p><strong>Tips:</strong> 需要使用精确的时间时，使用LONG代替DATE，精确到毫秒。</p>

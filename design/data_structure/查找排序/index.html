@@ -2391,14 +2391,12 @@
                 
                 <h1 id="_1">二分查找<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>关键词：有序，需要log2_n步</p>
-<p>伪代码：  </p>
+<p>伪代码：<br />
 <div class="codehilite"><pre><span></span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="nb">len</span><span class="o">-</span><span class="mi">1</span>
 <span class="n">mid</span><span class="o">=</span><span class="p">(</span><span class="n">low</span><span class="o">+</span><span class="n">high</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
 <span class="k">if</span> <span class="nb">list</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span><span class="o">&lt;</span><span class="n">item</span>
 <span class="n">low</span><span class="o">=</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span>
-</pre></div>
-
-
+</pre></div></p>
 <p>O表示运行时间的增速，代表最糟情况下运行时间，常见的时间复杂度：<br />
 - O(1) 常量级
 - O(logn) 对数级

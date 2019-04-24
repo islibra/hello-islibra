@@ -2405,11 +2405,9 @@
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreadPoolExecutor</span> <span class="kd">extends</span> <span class="n">AbstractExecutorService</span>
 </pre></div>
 
-
 <h1 id="_2">构造方法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="n">ThreadPoolExecutor</span><span class="o">(</span><span class="kt">int</span> <span class="n">corePoolSize</span><span class="o">,</span> <span class="kt">int</span> <span class="n">maximumPoolSize</span><span class="o">,</span> <span class="kt">long</span> <span class="n">keepAliveTime</span><span class="o">,</span> <span class="n">TimeUnit</span> <span class="n">unit</span><span class="o">,</span> <span class="n">BlockingQueue</span><span class="o">&lt;</span><span class="n">Runnable</span><span class="o">&gt;</span> <span class="n">workQueue</span><span class="o">[,</span> <span class="n">ThreadFactory</span> <span class="n">threadFactory</span><span class="o">,</span> <span class="n">RejectedExecutionHandler</span> <span class="n">handler</span><span class="o">])</span>
 </pre></div>
-
 
 <h2 id="_3">队列<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayBlockingQueue</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>
@@ -2419,7 +2417,6 @@
 <span class="kd">private</span> <span class="n">BlockingQueue</span><span class="o">&lt;</span><span class="n">Runnable</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayBlockingQueue</span><span class="o">&lt;</span><span class="n">Runnable</span><span class="o">&gt;(</span><span class="kt">int</span> <span class="n">capacity</span><span class="o">);</span>
 </pre></div>
 
-
 <h2 id="handler">handler<a class="headerlink" href="#handler" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">RejectedExecutionHandler</span>
 
@@ -2428,7 +2425,6 @@
 <span class="n">ThreadPoolExecutor</span><span class="o">.</span><span class="na">DiscardOldestPolicy</span><span class="o">()</span>  <span class="c1">//抛弃旧的任务</span>
 <span class="n">ThreadPoolExecutor</span><span class="o">.</span><span class="na">DiscardPolicy</span><span class="o">()</span>  <span class="c1">//抛弃当前的任务</span>
 </pre></div>
-
 
 <h1 id="_4">周期线程池<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
 <h2 id="_5">继承关系<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
@@ -2440,11 +2436,9 @@
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ScheduledThreadPoolExecutor</span> <span class="kd">extends</span> <span class="n">ThreadPoolExecutor</span> <span class="kd">implements</span> <span class="n">ScheduledExecutorService</span>
 </pre></div>
 
-
 <h2 id="_6">构造方法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="n">ScheduledThreadPoolExecutor</span><span class="o">(</span><span class="kt">int</span> <span class="n">corePoolSize</span><span class="o">)</span>
 </pre></div>
-
 
 <blockquote>
 <p><strong>Tips:</strong> 防止任务执行遇到异常取消后续执行</p>
@@ -2458,7 +2452,6 @@
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-
 
 <h1 id="_7">多种线程池<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
 <p>Java通过java.util.concurrent.Executors提供四种线程池，分别为：</p>
@@ -2482,7 +2475,6 @@
 <span class="o">}</span>
 </pre></div>
 
-
 <h2 id="newfixedthreadpool">newFixedThreadPool<a class="headerlink" href="#newfixedthreadpool" title="Permanent link">&para;</a></h2>
 <p>创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待。因为线程池大小为3，每个任务输出index后sleep 2秒，所以每两秒打印3个数字。
 定长线程池的大小最好根据系统资源进行设置。如<code>Runtime.getRuntime().availableProcessors()</code>。</p>
@@ -2503,7 +2495,6 @@
 <span class="o">}</span>
 </pre></div>
 
-
 <h2 id="newscheduledthreadpool">newScheduledThreadPool<a class="headerlink" href="#newscheduledthreadpool" title="Permanent link">&para;</a></h2>
 <p>创建一个定长线程池，支持定时及周期性任务执行。</p>
 <div class="codehilite"><pre><span></span><span class="n">ScheduledExecutorService</span> <span class="n">scheduledThreadPool</span> <span class="o">=</span> <span class="n">Executors</span><span class="o">.</span><span class="na">newScheduledThreadPool</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
@@ -2514,7 +2505,6 @@
     <span class="o">}</span>
     <span class="o">},</span> <span class="mi">3</span><span class="o">,</span> <span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">);</span>
 </pre></div>
-
 
 <h2 id="newsinglethreadexecutor">newSingleThreadExecutor<a class="headerlink" href="#newsinglethreadexecutor" title="Permanent link">&para;</a></h2>
 <p>创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序(FIFO, LIFO, 优先级)执行。</p>
@@ -2535,7 +2525,6 @@
 <span class="o">}</span>
 </pre></div>
 
-
 <h1 id="_8">多线程的应用<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h1>
 <h2 id="callable">Callable<a class="headerlink" href="#callable" title="Permanent link">&para;</a></h2>
 <p>可以返回结果的线程接口</p>
@@ -2543,7 +2532,6 @@
     <span class="n">V</span> <span class="nf">call</span><span class="o">()</span> <span class="k">throw</span> <span class="n">Exception</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
-
 
 <h2 id="futuretask">FutureTask<a class="headerlink" href="#futuretask" title="Permanent link">&para;</a></h2>
 <h3 id="_9">继承关系<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
@@ -2563,12 +2551,10 @@
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">FutureTask</span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">RunnableFuture</span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span>
 </pre></div>
 
-
 <h3 id="_10">构造方法<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="nf">FutureTask</span><span class="o">(</span><span class="n">Callable</span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span> <span class="n">callable</span><span class="o">)</span>
 <span class="kd">public</span> <span class="nf">FutureTask</span><span class="o">(</span><span class="n">Runnable</span> <span class="n">runnable</span><span class="o">,</span> <span class="n">V</span> <span class="n">result</span><span class="o">)</span>
 </pre></div>
-
 
 <h3 id="_11">调用方式<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="cm">/**</span>
@@ -2612,19 +2598,16 @@
 <span class="o">}</span>
 </pre></div>
 
-
 <h1 id="countdownlatch">CountDownLatch计数器<a class="headerlink" href="#countdownlatch" title="Permanent link">&para;</a></h1>
 <h2 id="_12">构造方法<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="nf">CountDownLatch</span><span class="o">(</span><span class="kt">int</span> <span class="n">count</span><span class="o">)</span> <span class="o">{</span> <span class="o">};</span>  <span class="c1">//参数count为计数值</span>
 </pre></div>
-
 
 <h2 id="_13">成员方法<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">await</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span> <span class="o">};</span>  <span class="c1">//调用await()方法的线程会被挂起，它会等待直到count值为0才继续执行</span>
 <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">await</span><span class="o">(</span><span class="kt">long</span> <span class="n">timeout</span><span class="o">,</span> <span class="n">TimeUnit</span> <span class="n">unit</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span> <span class="o">};</span>  <span class="c1">//和await()类似，只不过等待一定的时间后count值还没变为0的话就会继续执行</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">countDown</span><span class="o">()</span> <span class="o">{</span> <span class="o">};</span>  <span class="c1">//将count值减1</span>
 </pre></div>
-
 
 <h2 id="_14">示例代码<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="kd">final</span> <span class="n">CountDownLatch</span> <span class="n">latch</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CountDownLatch</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
@@ -2665,19 +2648,16 @@
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Main threads finished.&quot;</span><span class="o">);</span>
 </pre></div>
 
-
 <h1 id="_15">线程状态<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h1>
 <h2 id="new">NEW<a class="headerlink" href="#new" title="Permanent link">&para;</a></h2>
 <p>线程刚刚创建。</p>
 <div class="codehilite"><pre><span></span><span class="n">Thread</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">();</span>
 </pre></div>
 
-
 <h2 id="runnable">RUNNABLE<a class="headerlink" href="#runnable" title="Permanent link">&para;</a></h2>
 <p>已进入临界区（获得锁），正在执行或等待CPU/IO等资源。</p>
 <div class="codehilite"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
 </pre></div>
-
 
 <h2 id="blocked">BLOCKED<a class="headerlink" href="#blocked" title="Permanent link">&para;</a></h2>
 <p>未进入临界区，等待锁。</p>
@@ -2698,7 +2678,6 @@
 <span class="n">t1</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
 <span class="n">t2</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
 </pre></div>
-
 
 <h2 id="waiting">WAITING<a class="headerlink" href="#waiting" title="Permanent link">&para;</a></h2>
 <p>已进入临界区（获得锁），调用了<code>wait</code>，需要其他线程调用<code>notify / notifyAll</code>唤醒；或<code>join</code>了另外线程等待其结束。</p>
@@ -2721,7 +2700,6 @@
 <span class="o">}.</span><span class="na">start</span><span class="o">();</span>
 </pre></div>
 
-
 <h2 id="timed_waiting">TIMED_WAITING<a class="headerlink" href="#timed_waiting" title="Permanent link">&para;</a></h2>
 <p>有时间限制的WAITING，在调用wait(long), join(long)等情况下，或sleep。</p>
 <div class="codehilite"><pre><span></span><span class="kd">synchronized</span> <span class="o">(</span><span class="n">lock</span><span class="o">)</span> <span class="o">{</span>
@@ -2730,7 +2708,6 @@
     <span class="n">sleep</span><span class="o">(</span><span class="mi">30</span><span class="o">*</span><span class="mi">1000L</span><span class="o">);</span>
 <span class="o">}</span>
 </pre></div>
-
 
 <h2 id="terminated">TERMINATED<a class="headerlink" href="#terminated" title="Permanent link">&para;</a></h2>
 <p>run方法已执行完毕。</p>

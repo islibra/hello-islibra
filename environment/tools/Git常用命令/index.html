@@ -2390,7 +2390,7 @@
                 
                 
                 <h1 id="merge">一、通过分支MERGE<a class="headerlink" href="#merge" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span>git clone xxx.git <span class="c1">#将要提交代码仓路径clone到本地</span>
+<p><div class="codehilite"><pre><span></span>git clone xxx.git <span class="c1">#将要提交代码仓路径clone到本地</span>
 <span class="nb">cd</span> <span class="c1">#进入代码目录</span>
 git branch <span class="c1">#查看当前分支</span>
 git pull origin master <span class="c1">#更新本地分支</span>
@@ -2402,11 +2402,9 @@ git add -A . <span class="c1">#将本地修改的文件add到本地仓个人分�
 git commit -m <span class="s2">&quot;xxx&quot;</span> <span class="c1">#将本地修改的文件提交到本地仓个人分支</span>
 git push origin newbranch <span class="c1">#将本地修改的文件提交到远程仓个人分支</span>
 </pre></div>
-
-
-<p>发起merge，从远程仓个人分支merge到远程仓主干分支</p>
+发起merge，从远程仓个人分支merge到远程仓主干分支</p>
 <h1 id="fork">二、Fork个人仓<a class="headerlink" href="#fork" title="Permanent link">&para;</a></h1>
-<p>将主干仓Fork到个人仓</p>
+<p>将主干仓Fork到个人仓
 <div class="codehilite"><pre><span></span>git clone xxx.git <span class="c1">#将个人仓clone到本地</span>
 <span class="nb">cd</span> <span class="c1">#进入代码目录</span>
 git remote -v <span class="c1">#查看远程分支列表</span>
@@ -2420,9 +2418,7 @@ git add -A . <span class="c1">#将本地修改的文件add到本地仓</span>
 git commit -m <span class="s2">&quot;xxx&quot;</span> <span class="c1">#将本地修改的文件提交到本地仓</span>
 git push origin branchname <span class="c1">#将本地修改的文件提交到远程个人仓</span>
 </pre></div>
-
-
-<p>发起merge，从远程个人仓merge到远程主干仓</p>
+发起merge，从远程个人仓merge到远程主干仓</p>
 <p>END</p>
                 
                   

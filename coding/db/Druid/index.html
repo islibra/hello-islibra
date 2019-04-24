@@ -2561,7 +2561,6 @@
 <div class="codehilite"><pre><span></span><span class="kd">protected</span> <span class="n">Keywords</span> <span class="n">keywods</span> <span class="o">=</span> <span class="n">Keywords</span><span class="o">.</span><span class="na">DEFAULT_KEYWORDS</span><span class="o">;</span>
 </pre></div>
 
-
 <p><code>DEFAULT_KEYWORDS</code>是一个Map<String, Token>，<code>Token</code>是词汇的枚举类，包含<code>SELECT\INSERT\FROM\WHERE</code>等。</p>
 <p><code>nextToken()</code>从SQL语句解析出下一个单词。
 <code>token()</code>返回上一次解析的单词的Token类型。
@@ -2624,7 +2623,6 @@
 <span class="n">List</span><span class="o">&lt;</span><span class="n">SQLStatement</span><span class="o">&gt;</span> <span class="n">stmtList</span> <span class="o">=</span> <span class="n">SQLUtils</span><span class="o">.</span><span class="na">parseStatements</span><span class="o">(</span><span class="n">sql</span><span class="o">,</span> <span class="n">dbType</span><span class="o">);</span>  <span class="c1">//生成SQL语句</span>
 <span class="n">SQLExpr</span> <span class="n">expr</span> <span class="o">=</span> <span class="n">SQLUtils</span><span class="o">.</span><span class="na">toSQLExpr</span><span class="o">(</span><span class="s">&quot;id=3&quot;</span><span class="o">,</span> <span class="n">dbType</span><span class="o">);</span>  <span class="c1">//生成表达式</span>
 </pre></div>
-
 
 <h2 id="visitor">Visitor<a class="headerlink" href="#visitor" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2818,7 +2816,6 @@
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-
 
 <p><a href="https://github.com/alibaba/druid/wiki/SQL-Parser">官方文档</a></p>
                 

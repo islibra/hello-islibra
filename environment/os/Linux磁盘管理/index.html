@@ -2468,7 +2468,6 @@ vgdisplay  <span class="c1">#查看VG大小</span>
 lvcreate -l ***** -n lv1 vg1  <span class="c1">#创建LV，*为VG大小</span>
 </pre></div>
 
-
 <h2 id="suse">SUSE<a class="headerlink" href="#suse" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>mkfs.ext3 -j /dev/vg1/lv1
 tune2fs -c <span class="m">0</span> -i <span class="m">0</span> /dev/vg1/lv1  <span class="c1">#格式化磁盘</span>
@@ -2480,7 +2479,6 @@ vim /etc/fstab  <span class="c1">#重启后自动挂载</span>
 df -h  <span class="c1">#查看磁盘挂载状态</span>
 </pre></div>
 
-
 <h2 id="ubuntu">Ubuntu<a class="headerlink" href="#ubuntu" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>mkfs.ext4 -j /dev/vg1/lv1
 tune2fs -c <span class="m">0</span> -i <span class="m">0</span> /dev/vg1/lv1  <span class="c1">#格式化磁盘</span>
@@ -2488,7 +2486,6 @@ mkdir /data  <span class="c1">#创建挂载目录</span>
 mount /dev/vg1/lv1 /data  <span class="c1">#挂载磁盘（注意如果目录中存在内容，将会被隐藏）</span>
 <span class="nb">echo</span> <span class="s2">&quot;/dev/mapper/vg1-lv1 /data ext4 defaults 0 0&quot;</span> &gt;&gt; /etc/fstab  <span class="c1">#开机自动挂载磁盘</span>
 </pre></div>
-
 
 <h1 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span>ll /dev/mapper/

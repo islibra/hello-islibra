@@ -2496,7 +2496,6 @@ dpkg -i psmisc_22.21-2_amd64.deb
 dpkg -i mysql-community-server_5.7.23-1ubuntu16.04_amd64.deb  <span class="c1">#安装服务端</span>
 </pre></div>
 
-
 <h1 id="_3">查看数据库运行状态<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span>systemctl status mysql.service
 mysql -u root -p
@@ -2508,7 +2507,6 @@ flush privileges<span class="p">;</span>
 <span class="c1">#或</span>
 update user <span class="nb">set</span> <span class="nv">host</span> <span class="o">=</span> <span class="s1">&#39;%&#39;</span> where <span class="nv">user</span> <span class="o">=</span> <span class="s1">&#39;root&#39;</span><span class="p">;</span>
 </pre></div>
-
 
 <h1 id="_4">相关文件目录<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
 <ul>

@@ -2410,12 +2410,10 @@
 <span class="k">print</span><span class="p">(</span><span class="n">localsum</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </pre></div>
 
-
 <h1 id="_2">只导入模块中的部分功能<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">func</span> <span class="kn">import</span> <span class="n">area</span>
 <span class="k">print</span><span class="p">(</span><span class="n">area</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
-
 
 <ul>
 <li>模块内除方法外的代码用来初始化模块，在导入时被执行。</li>
@@ -2448,8 +2446,7 @@
 <span class="k">print</span><span class="p">(</span><span class="n">area</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 
-
-<p>执行结果：  </p>
+<p>执行结果：<br />
 <div class="codehilite"><pre><span></span>$ python mo.py
 inited..
 <span class="m">3</span>
@@ -2457,9 +2454,7 @@ $ python func.py
 <span class="m">3</span>
 <span class="m">7</span>
 <span class="m">12</span>
-</pre></div>
-
-
+</pre></div></p>
 <h1 id="_4">打印模块内所有属性<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">demoFunc</span><span class="p">():</span>
   <span class="k">return</span> <span class="mi">1</span>
@@ -2470,12 +2465,11 @@ $ python func.py
 <span class="p">[</span><span class="s1">&#39;__annotations__&#39;</span><span class="p">,</span> <span class="s1">&#39;__builtins__&#39;</span><span class="p">,</span> <span class="s1">&#39;__cached__&#39;</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">,</span> <span class="s1">&#39;__file__&#39;</span><span class="p">,</span> <span class="s1">&#39;__loader__&#39;</span><span class="p">,</span> <span class="s1">&#39;__name__&#39;</span><span class="p">,</span> <span class="s1">&#39;__package__&#39;</span><span class="p">,</span> <span class="s1">&#39;__spec__&#39;</span><span class="p">,</span> <span class="s1">&#39;demoFunc&#39;</span><span class="p">]</span>
 </pre></div>
 
-
 <h1 id="_5">包<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
-<p>目录下需包含<code>__init__.py</code>  </p>
+<p>目录下需包含<code>__init__.py</code><br />
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">sound.effect</span>
 <span class="n">sound</span><span class="o">.</span><span class="n">effect</span><span class="o">.</span><span class="n">area</span><span class="p">()</span>
-</pre></div>
+</pre></div></p>
                 
                   
                 

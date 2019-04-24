@@ -2424,7 +2424,6 @@ Caused by: javax.net.ssl.SSLException: handshake timed out
 06-29 07:30:04,919 ERROR(vert.x-worker-thread-0) Create instance request failed: non-response (DdmManagerHttpClient:53)
 </pre></div>
 
-
 <p>从报错信息得知，broker在发起https请求时，与manager <strong>建立SSL连接超时</strong> 。</p>
 <h1 id="2-manager">2. 测试网络连接和manager服务<a class="headerlink" href="#2-manager" title="Permanent link">&para;</a></h1>
 <ul>
@@ -2440,7 +2439,6 @@ Caused by: javax.net.ssl.SSLException: handshake timed out
 curl: (35) TCP connection reset
 </pre></div>
 
-
 <h1 id="3-keepalived">3. 查询keepalived进程，正常：<a class="headerlink" href="#3-keepalived" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="o">[</span>root@szvphicpra57487 ~<span class="o">]</span><span class="c1"># ps -ef | grep keepalived</span>
 paas      <span class="m">70663</span>      <span class="m">1</span>  <span class="m">0</span> 6月29 ?       <span class="m">00</span>:00:02 /usr/sbin/keepalived -D -f /etc/keepalived/keepalived.conf -p /etc/keepalived/run/keepalived.pid -r /etc/keepalived/run/vrrp.pid -c /etc/keepalived/run/checkers.pid
@@ -2448,7 +2446,6 @@ paas      <span class="m">70668</span>  <span class="m">70663</span>  <span clas
 paas      <span class="m">70669</span>  <span class="m">70663</span>  <span class="m">0</span> 6月29 ?       <span class="m">00</span>:00:14 /usr/sbin/keepalived -D -f /etc/keepalived/keepalived.conf -p /etc/keepalived/run/keepalived.pid -r /etc/keepalived/run/vrrp.pid -c /etc/keepalived/run/checkers.pid
 root     <span class="m">104754</span> <span class="m">104025</span>  <span class="m">0</span> <span class="m">10</span>:57 pts/0    <span class="m">00</span>:00:00 grep --color<span class="o">=</span>auto keepalived
 </pre></div>
-
 
 <h1 id="4-vip">4. 查询VIP绑定情况，正常：<a class="headerlink" href="#4-vip" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="o">[</span>root@szvphicpra57487 ~<span class="o">]</span><span class="c1"># ip a</span>
@@ -2468,7 +2465,6 @@ root     <span class="m">104754</span> <span class="m">104025</span>  <span clas
        valid_lft forever preferred_lft forever
 </pre></div>
 
-
 <h1 id="5-lvs">5. 查询LVS转发：<a class="headerlink" href="#5-lvs" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="o">[</span>root@szvphicpra57487 ~<span class="o">]</span><span class="c1"># ipvsadm -L -n --stats</span>
 IP Virtual Server version <span class="m">1</span>.2.1 <span class="o">(</span><span class="nv">size</span><span class="o">=</span><span class="m">4194304</span><span class="o">)</span>
@@ -2480,7 +2476,6 @@ TCP  <span class="m">10</span>.186.86.79:7443                  <span class="m">2
 TCP  <span class="m">10</span>.186.86.79:8443                   <span class="m">6</span>       <span class="m">72</span>       <span class="m">0</span>    <span class="m">16952</span>    <span class="m">0</span>
   -&gt; <span class="m">10</span>.162.61.211:8443                  <span class="m">6</span>       <span class="m">72</span>       <span class="m">0</span>    <span class="m">16952</span>    <span class="m">0</span>
 </pre></div>
-
 
 <p>发现 <strong>只有输入的包，没有输出的包</strong>，此为 <strong>疑问点2</strong> 。</p>
 <h1 id="6-lvs">6. 在LVS节点上查询防火墙信息，未发现异常：<a class="headerlink" href="#6-lvs" title="Permanent link">&para;</a></h1>
@@ -2534,7 +2529,6 @@ Chain KUBE-SERVICES <span class="o">(</span><span class="m">1</span> references<
     <span class="m">0</span>     <span class="m">0</span> REJECT     tcp  --  *      *       <span class="m">0</span>.0.0.0/0            <span class="m">10</span>.247.37.237        /* kube-system/ingress-controller:ingress-controller-insecure has no endpoints */ tcp dpt:30281 reject-with icmp-port-unreachable
 </pre></div>
 
-
 <h1 id="7">7. 抓包查看报文转发情况<a class="headerlink" href="#7" title="Permanent link">&para;</a></h1>
 <h2 id="1-tcpdump">1. 安装tcpdump<a class="headerlink" href="#1-tcpdump" title="Permanent link">&para;</a></h2>
 <p>安装包已分享至OneBox：<a href="https://onebox.huawei.com/p/59c49f09d1cda4a34294dd23e08811da">https://onebox.huawei.com/p/59c49f09d1cda4a34294dd23e08811da</a></p>
@@ -2546,7 +2540,6 @@ Chain KUBE-SERVICES <span class="o">(</span><span class="m">1</span> references<
 <h2 id="2">2. 执行抓包程序<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>tcpdump -v -n -i eth0 -w /opt/tmp.cap -s <span class="m">0</span>  <span class="c1">#-i为网络接口名称，-w为输出文件路径</span>
 </pre></div>
-
 
 <h2 id="3">3. 抓包分析<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2647,7 +2640,6 @@ virtual_server <span class="m">10</span>.186.86.79 <span class="m">8443</span> <
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-
 
 <p>发现<code>local_address_group laddr_g1</code>中的IP非本机IP，而是另一个LVS的IP。再查看堆栈部署参数，发现<code>lvs_node1</code>参数填写的是节点标签为<code>ddm_lvs2</code>的地址，而<code>lvs_node2</code>参数填写的是节点标签为<code>ddm_lvs1</code>的地址。</p>
 <p>问题明确，手动修改keepalived.conf，将IP修改正确，重启keepalived服务，问题解决。</p>

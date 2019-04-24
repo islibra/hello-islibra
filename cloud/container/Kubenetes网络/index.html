@@ -2401,7 +2401,6 @@
                 <span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">httpd</span>
 </pre></div>
 
-
 <h1 id="service-httpd-svcyaml">定义Service httpd-svc.yaml：<a class="headerlink" href="#service-httpd-svcyaml" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1  //Service的apiVersion</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service  //资源类型为Service</span>
@@ -2417,13 +2416,12 @@
         <span class="nt">targetPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
 </pre></div>
 
-
 <p>创建Service：<code>kubectl apply -f httpd-svc.yaml</code><br />
 查看Service：<code>kubectl get service</code>，Cluster通过kubernetes Service访问API Server。<br />
 查看Service详细：<code>kubectl describe service httpd-svc</code>，包含三个Endpoints（Pod的IP和端口）。<br />
 通过Service的IP访问Pod：<code>curl {Service Cluster IP}:8080</code>，流量会被路由到Endpoint。</p>
 <blockquote>
-<p>Service会被分配一个Cluster IP，Service Cluster IP是一个虚拟IP，由iptables管理：允许Pod访问httpd-svc；其他地址访问httpd-svc，跳转到规则（1/3概率跳转到规则1（将请求转发到Pod）,1/3概率跳转到规则2,1/3概率跳转到规则3），查看iptables规则：<code>iptables-save</code>，Cluster每个节点都配置了相同的iptables。
+<p>Service会被分配一个Cluster IP，Service Cluster IP是一个虚拟IP，由iptables管理：允许Pod访问httpd-svc；其他地址访问httpd-svc，跳转到规则（&#8531;概率跳转到规则1（将请求转发到Pod）,&#8531;概率跳转到规则2,&#8531;概率跳转到规则3），查看iptables规则：<code>iptables-save</code>，Cluster每个节点都配置了相同的iptables。
 Service的selector持续检查并通知同名Endpoints，修改为正确的Pod IP和端口。</p>
 </blockquote>
 <h1 id="endpointnamespaceservicekubenetesbackend">自定义Endpoint，访问其他namespace的service或非kubenetes的backend：<a class="headerlink" href="#endpointnamespaceservicekubenetesbackend" title="Permanent link">&para;</a></h1>
@@ -2450,7 +2448,6 @@ Service的selector持续检查并通知同名Endpoints，修改为正确的Pod I
       <span class="p p-Indicator">-</span> <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9376</span>
 </pre></div>
 
-
 <blockquote>
 <p><strong>Tips:</strong> 多个资源在同一个YAML文件中以---分割。</p>
 </blockquote>
@@ -2473,17 +2470,14 @@ Service的selector持续检查并通知同名Endpoints，修改为正确的Pod I
         <span class="nt">targetPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9377</span>
 </pre></div>
 
-
 <h1 id="dnsservice">DNS访问Service<a class="headerlink" href="#dnsservice" title="Permanent link">&para;</a></h1>
 <p>kubeadm部署时默认安装kube-dns：<code>kubectl get deployment --namespace=kube-system</code>，监视创建Service时，自动添加DNS记录。<br />
 DNS服务器在kube-system中部署一个Service，域名访问<code>kube-dns.kube-system.svc.cluster.local</code>。<br />
 查看namespace：<code>kubectl get namespace</code>。</p>
-<p>httpd-svc的完整域名是<code>httpd-svc.default.svc.cluster.local</code>，在Pod中访问：  </p>
+<p>httpd-svc的完整域名是<code>httpd-svc.default.svc.cluster.local</code>，在Pod中访问：<br />
 <div class="codehilite"><pre><span></span>kubectl run busybox --rm -ti --image<span class="o">=</span>busybox /bin/sh
 wget httpd-svc.default:8080  //&lt;SERVICE_NAME&gt;.&lt;NAMESPACE_NAME&gt;
-</pre></div>
-
-
+</pre></div></p>
 <p>在Pod中直接查找DNS信息：<code>nslookup httpd-svc</code>。  </p>
 <h1 id="nodeportkubenetes">NodePort对非Kubenetes提供服务<a class="headerlink" href="#nodeportkubenetes" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
@@ -2500,7 +2494,6 @@ wget httpd-svc.default:8080  //&lt;SERVICE_NAME&gt;.&lt;NAMESPACE_NAME&gt;
     <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
     <span class="nt">targetPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
 </pre></div>
-
 
 <p>查看Service：<code>kubectl get service httpd-svc</code>，将Service的8080端口映射到 <strong>每个Node的30000-32767端口。</strong></p>
 <h1 id="loadbalancerservice">LoadBalancer通过外部负载均衡访问该Service<a class="headerlink" href="#loadbalancerservice" title="Permanent link">&para;</a></h1>
@@ -2526,7 +2519,6 @@ wget httpd-svc.default:8080  //&lt;SERVICE_NAME&gt;.&lt;NAMESPACE_NAME&gt;
     <span class="p p-Indicator">-</span> <span class="nt">ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">146.148.47.155</span>  <span class="c1">#LB真实IP</span>
 </pre></div>
 
-
 <h1 id="externalname">ExternalName指定外部域名<a class="headerlink" href="#externalname" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
@@ -2537,7 +2529,6 @@ wget httpd-svc.default:8080  //&lt;SERVICE_NAME&gt;.&lt;NAMESPACE_NAME&gt;
   <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ExternalName</span>
   <span class="nt">externalName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my.database.example.com</span>
 </pre></div>
-
 
 <h1 id="ip">外部IP<a class="headerlink" href="#ip" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
@@ -2555,7 +2546,6 @@ wget httpd-svc.default:8080  //&lt;SERVICE_NAME&gt;.&lt;NAMESPACE_NAME&gt;
   <span class="nt">externalIPs</span><span class="p">:</span> 
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">80.11.12.10  //可以通过80.11.12.10:80访问该Service</span>
 </pre></div>
-
 
 <p>参考：
 <a href="https://kubernetes.io/zh/docs/concepts/services-networking/service/">https://kubernetes.io/zh/docs/concepts/services-networking/service/</a><br />
@@ -2580,13 +2570,11 @@ wget httpd-svc.default:8080  //&lt;SERVICE_NAME&gt;.&lt;NAMESPACE_NAME&gt;
           <span class="nt">servicePort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
 </pre></div>
 
-
 <p>查看ingress信息：</p>
 <div class="codehilite"><pre><span></span>$ kubectl get ingress -nxxx -owide <span class="p">|</span> grep aaa
 NAME                         HOSTS     ADDRESS          PORTS     AGE
 aaa-ingress     *         <span class="m">127</span>.0.0.1,172.16.35.53      <span class="m">80</span>, <span class="m">443</span>   11h
 </pre></div>
-
 
 <p>ADDRESS为ingress controller为ingress分配的IP地址。  </p>
 <h2 id="simple-fanout">Simple fanout<a class="headerlink" href="#simple-fanout" title="Permanent link">&para;</a></h2>
@@ -2611,7 +2599,6 @@ aaa-ingress     *         <span class="m">127</span>.0.0.1,172.16.35.53      <sp
           <span class="nt">serviceName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">service2</span>
           <span class="nt">servicePort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
 </pre></div>
-
 
 <h2 id="name-based-virtual-hosting">Name based virtual hosting<a class="headerlink" href="#name-based-virtual-hosting" title="Permanent link">&para;</a></h2>
 <p>根据域名分别路由到不同的service。</p>
@@ -2640,7 +2627,6 @@ aaa-ingress     *         <span class="m">127</span>.0.0.1,172.16.35.53      <sp
           <span class="nt">servicePort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
 </pre></div>
 
-
 <h2 id="tls">TLS<a class="headerlink" href="#tls" title="Permanent link">&para;</a></h2>
 <p>创建一个包含TLS私钥和证书的secret。</p>
 <div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
@@ -2653,7 +2639,6 @@ aaa-ingress     *         <span class="m">127</span>.0.0.1,172.16.35.53      <sp
   <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
 <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Opaque</span>
 </pre></div>
-
 
 <p>创建ingress并指定secret。</p>
 <div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">extensions/v1beta1</span>
@@ -2674,7 +2659,6 @@ aaa-ingress     *         <span class="m">127</span>.0.0.1,172.16.35.53      <sp
             <span class="nt">serviceName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">service1</span>
             <span class="nt">servicePort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
 </pre></div>
-
 
 <p>参考：<br />
 <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">https://kubernetes.io/docs/concepts/services-networking/ingress/</a>  </p>

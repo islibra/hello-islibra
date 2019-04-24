@@ -2405,11 +2405,9 @@
 <span class="mi">12</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span> <span class="n">sec</span><span class="p">)</span>
 </pre></div>
 
-
 <h1 id="_2">注释<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="cm">/* ... */</span>
 </pre></div>
-
 
 <blockquote>
 <p><code>/*! ... */</code> 仅在MySQL中执行。如：<code>/*! select * from user*/;</code>
@@ -2427,7 +2425,6 @@
 <span class="k">SHOW</span> <span class="nb">CHARACTER</span> <span class="k">SET</span> <span class="k">like</span> <span class="s1">&#39;utf8%&#39;</span><span class="p">;</span>
 </pre></div>
 
-
 <ul>
 <li>COLLATIONS: 字符集排序规则</li>
 </ul>
@@ -2437,7 +2434,6 @@
 <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">COLLATIONS</span> <span class="k">where</span> <span class="k">CHARACTER_SET_NAME</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">;</span>
 </pre></div>
 
-
 <h3 id="_4">设置级别<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <h4 id="server">server<a class="headerlink" href="#server" title="Permanent link">&para;</a></h4>
 <p>创建数据库时未指定字符集，字符序，默认使用server字符集，字符序。</p>
@@ -2446,14 +2442,12 @@
 <span class="k">show</span> <span class="n">variables</span> <span class="k">like</span> <span class="s1">&#39;collation_server&#39;</span><span class="p">;</span>
 </pre></div>
 
-
 <ul>
 <li>启动服务时指定：</li>
 </ul>
 <div class="codehilite"><pre><span></span>mysqld --character-set-server<span class="o">=</span>latin1 <span class="se">\</span>
        --collation-server<span class="o">=</span>latin1_swedish_ci
 </pre></div>
-
 
 <ul>
 <li>配置文件指定，<code>/etc/my.cnf</code>：</li>
@@ -2472,13 +2466,11 @@
 <span class="na">init-connect</span><span class="o">=</span><span class="s">&#39;SET NAMES utf8&#39;</span>
 </pre></div>
 
-
 <ul>
 <li>运行时修改</li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="k">set</span> <span class="n">character_set_server</span><span class="o">=</span><span class="n">utf8</span><span class="p">;</span>  <span class="cm">/*重启后生效*/</span>
 </pre></div>
-
 
 <h4 id="database">database<a class="headerlink" href="#database" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><span class="cm">/*查看数据库字符集，字符序*/</span>
@@ -2490,7 +2482,6 @@
 <span class="cm">/*修改数据库字符集*/</span>
 <span class="k">ALTER</span> <span class="k">DATABASE</span> <span class="n">test_schema</span> <span class="k">default</span> <span class="nb">character</span> <span class="k">set</span><span class="o">=</span><span class="n">gb2312</span><span class="p">;</span>
 </pre></div>
-
 
 <h4 id="table">table<a class="headerlink" href="#table" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><span class="cm">/*创建表时指定字符集*/</span>
@@ -2507,7 +2498,6 @@
 <span class="k">SHOW</span> <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span><span class="p">;</span>
 </pre></div>
 
-
 <h4 id="column">column<a class="headerlink" href="#column" title="Permanent link">&para;</a></h4>
 <p>类型为CHAR, VARCHAR, TEXT的列，可以指定字符集，字符序。</p>
 <div class="codehilite"><pre><span></span><span class="cm">/*新增列时指定字符集*/</span>
@@ -2515,7 +2505,6 @@
 <span class="cm">/*查看列字符集*/</span>
 <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">COLUMNS</span> <span class="k">where</span> <span class="n">TABLE_SCHEMA</span><span class="o">=</span><span class="s1">&#39;test_schema&#39;</span> <span class="k">and</span> <span class="k">TABLE_NAME</span><span class="o">=</span><span class="s1">&#39;Persons&#39;</span><span class="p">;</span>
 </pre></div>
-
 
 <p>参考链接：<a href="https://dev.mysql.com/doc/refman/5.7/en/charset.html">Character Sets, Collations, Unicode</a></p>
 <h2 id="_5">权限<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
@@ -2537,7 +2526,6 @@
 <span class="n">service</span> <span class="n">mysqld</span> <span class="k">restart</span>  <span class="cm">/* 重启生效 */</span>
 </pre></div>
 
-
 <h3 id="_6">权限分配<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p><code>GRANT 权限 ON 数据库.* TO 用户名@'登录主机' IDENTIFIED BY '密码'</code></p>
 <ul>
@@ -2550,7 +2538,6 @@
 <div class="codehilite"><pre><span></span><span class="k">GRANT</span> <span class="k">SELECT</span> <span class="k">ON</span> <span class="n">test</span><span class="p">.</span><span class="k">user</span> <span class="k">TO</span> <span class="n">kaka</span><span class="o">@</span><span class="s1">&#39;10.155.123.55&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">&#39;123456&#39;</span><span class="p">;</span>
 <span class="k">show</span> <span class="n">Grants</span> <span class="k">for</span> <span class="s1">&#39;kaka&#39;</span><span class="o">@</span><span class="s1">&#39;10.155.123.55&#39;</span><span class="p">;</span>
 </pre></div>
-
 
 <h2 id="_7">实体对象<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <blockquote>

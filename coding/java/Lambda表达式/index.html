@@ -2533,7 +2533,6 @@ message -&gt; System.out.println(message);  //一个参数无需圆括号，多�
 <span class="o">}</span>
 </pre></div>
 
-
 <h2 id="_7">作为函数参数传入<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LambdaTest</span> <span class="o">{</span>
 
@@ -2553,7 +2552,6 @@ message -&gt; System.out.println(message);  //一个参数无需圆括号，多�
 <span class="o">}</span>
 </pre></div>
 
-
 <h2 id="_8">作为返回值<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LambdaTest</span> <span class="o">{</span>
 
@@ -2571,7 +2569,6 @@ message -&gt; System.out.println(message);  //一个参数无需圆括号，多�
 <span class="o">}</span>
 </pre></div>
 
-
 <h1 id="java">Java内置的函数式接口<a class="headerlink" href="#java" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.function.Function</span><span class="o">;</span>
 
@@ -2583,7 +2580,6 @@ message -&gt; System.out.println(message);  //一个参数无需圆括号，多�
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-
 
 <div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">BiFunction</span><span class="o">&lt;</span><span class="n">T</span><span class="o">,</span><span class="n">U</span><span class="o">,</span><span class="n">R</span><span class="o">&gt;{</span>
    <span class="kd">public</span> <span class="n">R</span> <span class="nf">apply</span><span class="o">(</span><span class="n">T</span> <span class="n">t</span><span class="o">,</span> <span class="n">U</span> <span class="n">u</span><span class="o">);</span>  <span class="c1">//接收T和U，返回R</span>
@@ -2618,13 +2614,11 @@ message -&gt; System.out.println(message);  //一个参数无需圆括号，多�
 <span class="o">}</span>
 </pre></div>
 
-
 <p>以上是通用版本，IntConsumer 是 Consumer<T> 的专用版本。</p>
 <h1 id="_9">交叉类型<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h1>
 <p>使Lambda表达式，即函数式接口的实例可序列化，如：</p>
 <div class="codehilite"><pre><span></span><span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">Serializable</span> <span class="n">ser</span> <span class="o">=</span> <span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">Serializable</span> <span class="o">&amp;</span> <span class="n">MyLongCalc</span><span class="o">)</span> <span class="o">(</span><span class="n">x</span><span class="o">,</span><span class="n">y</span><span class="o">)-&gt;</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="o">;</span>
 </pre></div>
-
 
 <h1 id="_10">无参调用<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;hello&quot;</span><span class="o">);}).</span><span class="na">start</span><span class="o">();</span>

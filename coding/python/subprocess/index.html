@@ -2396,14 +2396,11 @@
 <span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># 第一个参数</span>
 </pre></div>
 
-
-<p>执行结果：  </p>
+<p>执行结果：<br />
 <div class="codehilite"><pre><span></span>python stepone.py <span class="nb">test</span>
 stepone.py
 <span class="nb">test</span>
-</pre></div>
-
-
+</pre></div></p>
 <h1 id="_2">子进程<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
 <p>subprocess，类似于shell，执行外部命令和程序。</p>
 <ul>
@@ -2417,16 +2414,13 @@ stepone.py
 <span class="k">print</span><span class="p">(</span><span class="n">rs</span><span class="p">)</span>
 </pre></div>
 
-
-<p>执行结果：  </p>
+<p>执行结果：<br />
 <div class="codehilite"><pre><span></span>python subp.py
 total <span class="m">8</span>
 -rw-r--r-- <span class="m">1</span> root root <span class="m">70</span> Mar <span class="m">28</span> <span class="m">17</span>:05 stepone.py
 -rw-r--r-- <span class="m">1</span> root root <span class="m">83</span> Mar <span class="m">28</span> <span class="m">17</span>:19 subp.py
 <span class="m">0</span>
-</pre></div>
-
-
+</pre></div></p>
 <h2 id="shell">起一个shell运行<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
 
@@ -2434,16 +2428,13 @@ total <span class="m">8</span>
 <span class="k">print</span><span class="p">(</span><span class="n">rs</span><span class="p">)</span>
 </pre></div>
 
-
-<p>执行结果：  </p>
+<p>执行结果：<br />
 <div class="codehilite"><pre><span></span>python subp.py
 total <span class="m">8</span>
 -rw-r--r-- <span class="m">1</span> root root <span class="m">70</span> Mar <span class="m">28</span> <span class="m">17</span>:05 stepone.py
 -rw-r--r-- <span class="m">1</span> root root <span class="m">90</span> Mar <span class="m">28</span> <span class="m">17</span>:23 subp.py
 <span class="m">0</span>
-</pre></div>
-
-
+</pre></div></p>
 <h2 id="_3">底层调用<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>返回子进程，主程序不会自动等待子进程完成，必须调用wait()。</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
@@ -2452,8 +2443,7 @@ total <span class="m">8</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;parent process&quot;</span><span class="p">)</span>
 </pre></div>
 
-
-<p>执行结果：  </p>
+<p>执行结果：<br />
 <div class="codehilite"><pre><span></span>python subp.py
 parent process
 root@SZX1000451827:/home/islibra/python# PING www.huawei.com <span class="o">(</span><span class="m">10</span>.3.42.32<span class="o">)</span> <span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span> bytes of data.
@@ -2466,9 +2456,7 @@ root@SZX1000451827:/home/islibra/python# PING www.huawei.com <span class="o">(</
 --- www.huawei.com ping statistics ---
 <span class="m">5</span> packets transmitted, <span class="m">5</span> received, <span class="m">0</span>% packet loss, <span class="nb">time</span> 4006ms
 rtt min/avg/max/mdev <span class="o">=</span> <span class="m">2</span>.553/2.633/2.704/0.080 ms
-</pre></div>
-
-
+</pre></div></p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
 
 <span class="n">child</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;ping&#39;</span><span class="p">,</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span><span class="s1">&#39;5&#39;</span><span class="p">,</span><span class="s1">&#39;www.huawei.com&#39;</span><span class="p">])</span>
@@ -2476,8 +2464,7 @@ rtt min/avg/max/mdev <span class="o">=</span> <span class="m">2</span>.553/2.633
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;parent process&quot;</span><span class="p">)</span>
 </pre></div>
 
-
-<p>执行结果：  </p>
+<p>执行结果：<br />
 <div class="codehilite"><pre><span></span>python subp.py
 PING www.huawei.com <span class="o">(</span><span class="m">10</span>.3.42.32<span class="o">)</span> <span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span> bytes of data.
 <span class="m">64</span> bytes from <span class="m">10</span>.3.42.32: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">250</span> <span class="nv">time</span><span class="o">=</span><span class="m">2</span>.86 ms
@@ -2490,9 +2477,7 @@ PING www.huawei.com <span class="o">(</span><span class="m">10</span>.3.42.32<sp
 <span class="m">5</span> packets transmitted, <span class="m">5</span> received, <span class="m">0</span>% packet loss, <span class="nb">time</span> 4005ms
 rtt min/avg/max/mdev <span class="o">=</span> <span class="m">2</span>.594/2.823/2.960/0.133 ms
 parent process
-</pre></div>
-
-
+</pre></div></p>
 <ul>
 <li>child.poll()  # 检查子进程状态</li>
 <li>child.kill()  # 终止子进程</li>
@@ -2509,25 +2494,20 @@ parent process
 <span class="k">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 </pre></div>
 
-
-<p>执行结果：  </p>
+<p>执行结果：<br />
 <div class="codehilite"><pre><span></span>python subp.py
 <span class="o">(</span>b<span class="s1">&#39;-rw-r--r-- 1 root root 226 Mar 28 18:58 subp.py\n&#39;</span>, None<span class="o">)</span>
-</pre></div>
-
-
-<p>communicate为阻塞式，可通过communicate为子进程作为输入：  </p>
+</pre></div></p>
+<p>communicate为阻塞式，可通过communicate为子进程作为输入：<br />
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
 
 <span class="n">child</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;wc&#39;</span><span class="p">],</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
 <span class="n">child</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="s2">&quot;home islibra python&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
-</pre></div>
-
-
-<p>执行结果：  </p>
+</pre></div></p>
+<p>执行结果：<br />
 <div class="codehilite"><pre><span></span>python subp.py
       <span class="m">0</span>       <span class="m">3</span>      <span class="m">19</span>
-</pre></div>
+</pre></div></p>
                 
                   
                 

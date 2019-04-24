@@ -2382,9 +2382,9 @@
 <li>@Value: 值注入</li>
 <li>外部注入：<code>普通字符串@Value("normal"), 操作系统属性@Value("#{systemProperties['os.name']}"), 表达式结果@Value("#{ T(java.lang.Math).random() * 100.0 }"), 其他bean属性@Value("#{beanInject.another}"), 文件资源@Value("classpath:com/hry/spring/configinject/config.txt"), URL资源@Value("http://www.baidu.com")</code></li>
 <li>配置文件注入：<code>@Value("${app.name}")</code></li>
-<li>@PropertySource({"classpath:com/xxx/config.properties", "classpath:com/yyy/config_${anotherfile.configinject}.properties"}) 引入外部配置文件组，${anotherfile.configinject}的值来自于第一个配置文件，相同的key最后一个生效。</li>
+<li>@PropertySource({"classpath:com/xxx/config.properties", "classpath:com/yyy/config_<span><span class="MathJax_Preview">{anotherfile.configinject}.properties"}) 引入外部配置文件组，</span><script type="math/tex">{anotherfile.configinject}.properties"}) 引入外部配置文件组，</script></span>{anotherfile.configinject}的值来自于第一个配置文件，相同的key最后一个生效。</li>
 </ul>
-<p>示例：  </p>
+<p>示例：<br />
 <div class="codehilite"><pre><span></span><span class="nd">@Configuration</span>
 <span class="nd">@Import</span><span class="o">(</span><span class="n">ConfigA</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">BeanConfig</span> <span class="o">{</span>
@@ -2397,7 +2397,7 @@
     <span class="k">return</span> <span class="k">new</span> <span class="n">News</span><span class="o">();</span>
   <span class="o">}</span>
 <span class="o">}</span>
-</pre></div>
+</pre></div></p>
                 
                   
                 

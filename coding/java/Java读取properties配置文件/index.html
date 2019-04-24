@@ -2396,12 +2396,10 @@
 <span class="n">properties</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">in</span><span class="o">);</span>
 </pre></div>
 
-
 <h1 id="_2">读取任意路径下的配置文件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="n">BufferedReader</span> <span class="n">bufferedReader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="s">&quot;F:/config.properties&quot;</span><span class="o">));</span>
 <span class="n">properties</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">bufferedReader</span><span class="o">);</span>
 </pre></div>
-
 
 <h1 id="_3">国际化<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
 <h2 id="_4">定义语言资源文件：<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
@@ -2415,7 +2413,6 @@
 <span class="na">info.success</span><span class="o">=</span><span class="s">\u6B22\u8FCE\uff0c{0}</span>
 <span class="na">info.error</span><span class="o">=</span><span class="s">\u767B\u5f55</span>
 </pre></div>
-
 
 <blockquote>
 <p><strong>Tips:</strong> 在<code>IDEA - File - Settings - Editor - File Encodings</code>，设置<code>Global Encoding/Project Encoding/Properties Files - Default encoding for properties files</code>为 <strong>UTF-8</strong>，并勾选<code>Transparent native-to-ascii conversion</code>。</p>
@@ -2436,17 +2433,14 @@
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;language: &quot;</span> <span class="o">+</span> <span class="n">locale</span><span class="o">.</span><span class="na">getLanguage</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot;, country: &quot;</span> <span class="o">+</span> <span class="n">locale</span><span class="o">.</span><span class="na">getCountry</span><span class="o">());</span>
 </pre></div>
 
-
 <h1 id="_6">绑定资源文件<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="n">ResourceBundle</span> <span class="n">res</span> <span class="o">=</span> <span class="n">ResourceBundle</span><span class="o">.</span><span class="na">getBundle</span><span class="o">(</span><span class="s">&quot;localize.info&quot;</span><span class="o">,</span> <span class="n">locale</span><span class="o">);</span>
 </pre></div>
-
 
 <h1 id="_7">读取资源<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="n">String</span> <span class="n">input</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">&quot;input&quot;</span><span class="o">);</span>
 <span class="n">String</span> <span class="n">success</span> <span class="o">=</span> <span class="n">MessageFormat</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">res</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">key</span><span class="o">),</span> <span class="n">param</span><span class="o">);</span>  <span class="c1">//动态处理文本</span>
 </pre></div>
-
 
 <h1 id="_8">代码<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.FileNotFoundException</span><span class="o">;</span>

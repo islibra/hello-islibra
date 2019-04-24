@@ -2394,19 +2394,17 @@
 <span class="o">}</span>
 </pre></div>
 
-
 <h1 id="_2">使用<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="nd">@DemoAnno</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestAnno</span> <span class="o">{</span>
 <span class="o">}</span>
 </pre></div>
 
-
 <h1 id="_3">属性<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
 <blockquote>
 <ul>
-<li>注解的属性也叫做成员变量。注解<strong>只有成员变量</strong>，没有方法。</li>
-<li>注解的成员变量在注解的定义中以<strong>无形参的方法</strong>形式来声明。</li>
+<li>注解的属性也叫做成员变量。注解**只有成员变量**，没有方法。</li>
+<li>注解的成员变量在注解的定义中以**无形参的方法**形式来声明。</li>
 <li>方法名定义了该成员变量的名字。</li>
 <li>返回值定义了该成员变量的类型。</li>
 </ul>
@@ -2420,7 +2418,6 @@
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestAnno</span> <span class="o">{</span>
 <span class="o">}</span>
 </pre></div>
-
 
 <h1 id="_4">元注解<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
 <ul>
@@ -2460,21 +2457,18 @@
 <span class="o">}</span>
 </pre></div>
 
-
 <h1 id="_5">预置的注解<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
 <ul>
 <li>@Deprecated 已过时</li>
 <li>@Override 标明该方法是重写父类的方法</li>
 <li>@SuppressWarnings("deprecation") 屏蔽告警</li>
-<li>函数式接口</li>
-</ul>
+<li>函数式接口
 <div class="codehilite"><pre><span></span><span class="nd">@FunctionalInterface</span>
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Runnable</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">();</span>
 <span class="o">}</span>
-</pre></div>
-
-
+</pre></div></li>
+</ul>
 <h1 id="_6">注解与反射<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p><strong>注意</strong> 注解需要添加上<code>@Retention(RetentionPolicy.RUNTIME)</code>才能在运行时被读取到。</p>
@@ -2513,7 +2507,6 @@
         <span class="o">}</span>
 </pre></div>
 
-
 <h1 id="_7">典型应用<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span>            <span class="n">TestAnno</span> <span class="n">ta</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TestAnno</span><span class="o">();</span>
             <span class="n">Class</span> <span class="n">clazz</span> <span class="o">=</span> <span class="n">ta</span><span class="o">.</span><span class="na">getClass</span><span class="o">();</span>
@@ -2527,7 +2520,6 @@
                 <span class="o">}</span>
             <span class="o">}</span>
 </pre></div>
-
 
 <p>参考原文：<a href="https://blog.csdn.net/briblue/article/details/73824058">https://blog.csdn.net/briblue/article/details/73824058</a></p>
                 

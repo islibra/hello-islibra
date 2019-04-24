@@ -2435,7 +2435,6 @@
 <span class="o">}</span>
 </pre></div>
 
-
 <p>示例代码（客户端）：</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.DataInputStream</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.io.DataOutputStream</span><span class="o">;</span>
@@ -2462,7 +2461,6 @@
 
 <span class="o">}</span>
 </pre></div>
-
 
 <h1 id="_1">多线程通信<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>示例代码（服务端）：</p>
@@ -2525,7 +2523,6 @@
 <span class="o">}</span>
 </pre></div>
 
-
 <p>示例代码（客户端）：</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
@@ -2560,7 +2557,6 @@
 
 <span class="o">}</span>
 </pre></div>
-
 
 <h1 id="nio">NIO<a class="headerlink" href="#nio" title="Permanent link">&para;</a></h1>
 <h2 id="_2">核心要素<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
@@ -2602,7 +2598,6 @@
 <span class="o">}</span>
 </pre></div>
 
-
 <blockquote>
 <p>关闭ServerSocketChannel通道：<code>serverSocketChannel.close();</code></p>
 </blockquote>
@@ -2633,7 +2628,6 @@
 <span class="o">}</span>
 </pre></div>
 
-
 <blockquote>
 <p>SelectionKey对象，检测Channel事件类型</p>
 </blockquote>
@@ -2643,14 +2637,12 @@
 <span class="n">selectionKey</span><span class="o">.</span><span class="na">isWritable</span><span class="o">();</span>
 </pre></div>
 
-
 <blockquote>
 <p>通过SelectionKey获取Channel和Selector</p>
 </blockquote>
 <div class="codehilite"><pre><span></span><span class="n">Channel</span>  <span class="n">channel</span>  <span class="o">=</span> <span class="n">selectionKey</span><span class="o">.</span><span class="na">channel</span><span class="o">();</span>
 <span class="n">Selector</span> <span class="n">selector</span> <span class="o">=</span> <span class="n">selectionKey</span><span class="o">.</span><span class="na">selector</span><span class="o">();</span>
 </pre></div>
-
 
 <blockquote>
 <p>在Channel上注册事件并绑定一个Buffer：<code>clientChannel.register(key.selector(), SelectionKey.OP_READ,ByteBuffer.allocateDirect(1024));</code>
@@ -2659,7 +2651,6 @@
 <div class="codehilite"><pre><span></span><span class="n">selectionKey</span><span class="o">.</span><span class="na">attach</span><span class="o">(</span><span class="n">Object</span><span class="o">);</span>
 <span class="n">Object</span> <span class="n">anthorObj</span> <span class="o">=</span> <span class="n">selectionKey</span><span class="o">.</span><span class="na">attachment</span><span class="o">();</span>
 </pre></div>
-
 
 <h2 id="_3">示例代码<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="_4">服务端<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
@@ -2754,7 +2745,6 @@
 <span class="o">}</span>
 </pre></div>
 
-
 <h3 id="_5">客户端<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.net.InetSocketAddress</span><span class="o">;</span>
@@ -2824,7 +2814,6 @@
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-
 
 <p>参考文献：<a href="https://segmentfault.com/a/1190000012316621">Java NIO详解</a></p>
                 

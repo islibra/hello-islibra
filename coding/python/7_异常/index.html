@@ -2409,7 +2409,6 @@
   <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 
-
 <h1 id="_1">自定义异常<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">MyError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>  <span class="c1"># 继承Exception</span>
   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>  <span class="c1"># value 初始化参数，可以有多个</span>
@@ -2422,7 +2421,6 @@
 <span class="k">except</span> <span class="n">MyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
   <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 </pre></div>
-
 
 <h1 id="_2">预定义的清理行为<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/tmp/sudoscript/subdir/status.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>

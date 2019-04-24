@@ -2424,7 +2424,6 @@ HotSpot虚拟机的设计团队把GC扩展至方法区，并成为永久代（Pe
 <div class="codehilite"><pre><span></span><span class="n">Object</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="o">();</span>
 </pre></div>
 
-
 <p>如果在方法体中，<code>Object obj</code>在Java栈的本地变量表中，作为reference类型。
 <code>new Object()</code>在Java堆中形成一块存储Instance Data的结构化内存。
 在方法区中存放该对象 <strong>类型数据</strong> （对象类型、父类、实现的接口、方法等），在Java堆中包含能查找到这些对象类型数据的地址信息。
@@ -2438,7 +2437,7 @@ HotSpot虚拟机的设计团队把GC扩展至方法区，并成为永久代（Pe
 <h2 id="-x">非标准参数（-X）<a class="headerlink" href="#-x" title="Permanent link">&para;</a></h2>
 <p>-Xms20M Java堆初始值
 -Xmx200M Java堆最大值（可以设置与-Xms相同，避免每次GC后重新分配内存）
--Xmn2g 新生代大小，推荐整个堆大小的3/8
+-Xmn2g 新生代大小，推荐整个堆大小的&#8540;
 -Xss128k 每个线程的栈大小。在相同的物理内存下，每个线程栈越小，可以生成更多线程，但受操作系统一个进程内的线程数限制。</p>
 <h2 id="-xx">非稳定参数（-XX）<a class="headerlink" href="#-xx" title="Permanent link">&para;</a></h2>
 <p>-XX:NewSize=1024m 新生代初始值

@@ -2528,7 +2528,6 @@ $ keytool -export -alias CAPS -keystore keystore_filename -rfc -file self_signed
 $ keytool -import -trustcacerts -alias CAPS -file ca-certificate-filename -keystore keystore_filename
 </pre></div>
 
-
 <blockquote>
 <p><strong>Tips:</strong> 某些CA会校验first and last name是否为正确的domain。</p>
 </blockquote>
@@ -2537,8 +2536,7 @@ $ keytool -import -trustcacerts -alias CAPS -file ca-certificate-filename -keyst
 $ keytool -import -file C:<span class="se">\c</span>ascerts<span class="se">\f</span>irstCA.cert -alias firstCA -keystore myTrustStore
 </pre></div>
 
-
-<h1 id="opensslhttpwwwopensslorg">OpenSSL，http://www.openssl.org<a class="headerlink" href="#opensslhttpwwwopensslorg" title="Permanent link">&para;</a></h1>
+<h1 id="opensslhttpwwwopensslorg">OpenSSL，<a href="http://www.openssl.org">http://www.openssl.org</a><a class="headerlink" href="#opensslhttpwwwopensslorg" title="Permanent link">&para;</a></h1>
 <p>SSL/TLS协议的开源实现，可用命令：<br />
 - pkcs12，解析或生成PKCS #12文件<br />
 - req，创建或处理证书请求（PKCS #10格式）  </p>
@@ -2564,7 +2562,6 @@ $ keytool -import -file C:<span class="se">\c</span>ascerts<span class="se">\f</
    <span class="na">acceptCount=</span><span class="s">&quot;100&quot;</span> <span class="na">debug=</span><span class="s">&quot;0&quot;</span> <span class="na">scheme=</span><span class="s">&quot;https&quot;</span> <span class="na">secure=</span><span class="s">&quot;true&quot;</span>
    <span class="na">clientAuth=</span><span class="s">&quot;false&quot;</span> <span class="na">sslProtocol=</span><span class="s">&quot;TLS&quot;</span> <span class="nt">/&gt;</span>
 </pre></div>
-
 
 <h1 id="java">修改Java启动参数<a class="headerlink" href="#java" title="Permanent link">&para;</a></h1>
 <p>增加truststore路径，如：<code>set JAVA_OPTS=-Xmx512m -Djavax.net.ssl.trustStore=C:\JavaCAPS\keystore\cacerts.jks</code></p>

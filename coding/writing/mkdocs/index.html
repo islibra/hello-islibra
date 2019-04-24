@@ -2392,38 +2392,30 @@
                 <p>内置开发服务器，实时预览。</p>
 <h1 id="_1">安装<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <ol>
-<li>安装Python和包管理器pip  </li>
-</ol>
+<li>安装Python和包管理器pip<br />
 <div class="codehilite"><pre><span></span>$ python --version
 Python <span class="m">2</span>.7.2
 $ pip --version
 pip <span class="m">1</span>.5.2
-</pre></div>
-
-
-<ol>
-<li>安装mkdocs  </li>
-</ol>
+</pre></div></li>
+<li>安装mkdocs<br />
 <div class="codehilite"><pre><span></span>pip --proxy<span class="o">=</span>http://l0025xxxx:pass<span class="se">\@</span>word@proxy.xxx.com:8080 install mkdocs
 
 $ mkdocs --version
 mkdocs, version <span class="m">0</span>.15.3
-</pre></div>
-
-
+</pre></div></li>
+</ol>
 <h1 id="_2">创建项目<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span>mkdocs new my-project
 <span class="nb">cd</span> my-project
 $ mkdocs serve  <span class="c1">#启动服务器</span>
 </pre></div>
 
-
 <h1 id="_3">目录组织方式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">mkdocs.yml</span><span class="err"> </span> <span class="c1">#配置nav菜单，默认所有目录按字母排序</span>
 <span class="l l-Scalar l-Scalar-Plain">docs/</span>
 <span class="err">   </span><span class="l l-Scalar l-Scalar-Plain"> index.md</span><span class="err"> </span> <span class="c1">#会被渲染为index.html，也可用README.md代替</span>
 </pre></div>
-
 
 <h1 id="_4">导航配置示例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="nt">nav</span><span class="p">:</span>
@@ -2436,13 +2428,11 @@ $ mkdocs serve  <span class="c1">#启动服务器</span>
 <span class="err">   </span> <span class="p p-Indicator">-</span> <span class="nt">&#39;Release Notes&#39;</span><span class="p">:</span> <span class="s">&#39;release-notes.md&#39;</span>
 </pre></div>
 
-
 <h1 id="_5">更换主题<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span>pip install mkdocs-material
 </pre></div>
 
-
-<p>修改配置  </p>
+<p>修改配置<br />
 <div class="codehilite"><pre><span></span><span class="nt">site_name</span><span class="p">:</span> <span class="s">&#39;islibra&#39;</span>
 <span class="nt">site_author</span><span class="p">:</span> <span class="s">&#39;李晓龙&#39;</span>
 <span class="nt">site_url</span><span class="p">:</span> <span class="s">&#39;https://islibra.github.io/hello-islibra/&#39;</span>
@@ -2480,20 +2470,16 @@ $ mkdocs serve  <span class="c1">#启动服务器</span>
       <span class="nt">guess_lang</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
   <span class="p p-Indicator">-</span> <span class="nt">toc</span><span class="p">:</span>  <span class="c1"># 锚点</span>
       <span class="nt">permalink</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-</pre></div>
-
-
+</pre></div></p>
 <h2 id="admonition">Admonition<a class="headerlink" href="#admonition" title="Permanent link">&para;</a></h2>
-<p>示例：  </p>
+<p>示例：<br />
 <div class="codehilite"><pre><span></span>!!! type [&quot;custom title or blank&quot;]
     text
 
 # 可折叠
 ??? type [&quot;custom title or blank&quot;] [+]
     text
-</pre></div>
-
-
+</pre></div></p>
 <ul>
 <li>abstract, summary, tldr: 摘要，段落</li>
 <li>tip, hint, important: 贴士，火种</li>
@@ -2528,25 +2514,21 @@ some_url: https://example.com
 This is the first paragraph of the document.
 </pre></div>
 
-
 <h1 id="_6">构建<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span>mkdocs build  <span class="c1"># 生成site目录</span>
 <span class="nb">echo</span> <span class="s2">&quot;site/&quot;</span> &gt;&gt; .gitignore  <span class="c1"># 忽略site文件夹提交</span>
 mkdocs build --clean  <span class="c1"># 清理目录</span>
 </pre></div>
 
-
 <h1 id="_7">部署<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
 <h2 id="_8">分支部署<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>mkdocs gh-deploy  <span class="c1"># 新建gh-pages分支</span>
 </pre></div>
 
-
 <h2 id="_9">单独仓部署<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="nb">cd</span> ../orgname.github.io/  <span class="c1"># 切换到仓目录</span>
 mkdocs gh-deploy --config-file ../my-project/mkdocs.yml --remote-branch master
 </pre></div>
-
 
 <h1 id="_10">参考链接：<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h1>
 <ul>

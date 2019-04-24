@@ -2482,7 +2482,6 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
   <span class="nt">&lt;/activeProfiles&gt;</span>
 </pre></div>
 
-
 <h1 id="maven">maven工程典型目录结构<a class="headerlink" href="#maven" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>/src/main/java  <strong>--源码</strong>
@@ -2498,7 +2497,6 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
 <span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
 </pre></div>
-
 
 <h2 id="_5">依赖管理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>在parent中配置dependencyManagement，统一管理jar版本。</p>
@@ -2521,7 +2519,6 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
     <span class="nt">&lt;/dependencies&gt;</span>
 <span class="nt">&lt;/dependencyManagement&gt;</span>
 </pre></div>
-
 
 <p>子项目中引用依赖无需显示的列出版本号，继承父项目。</p>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;parent&gt;</span>  
@@ -2548,7 +2545,6 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
 <span class="nt">&lt;/dependencies&gt;</span>
 </pre></div>
 
-
 <p>使用专门的POM来进行依赖管理。</p>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;project&gt;</span>
   <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
@@ -2574,7 +2570,6 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
 <span class="nt">&lt;/project&gt;</span>
 </pre></div>
 
-
 <p>通过import scope方式引入依赖管理，不继承父项目。</p>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;dependencyManagement&gt;</span>
     <span class="nt">&lt;dependencies&gt;</span>
@@ -2597,7 +2592,6 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 
-
 <h2 id="_6">插件管理<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>在parent中统一配置pluginManagement，与dependencyManagement类似，子项目继承父项目配置。</p>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;build&gt;</span>
@@ -2618,11 +2612,9 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
 <span class="nt">&lt;/build&gt;</span>
 </pre></div>
 
-
 <h1 id="_7">常用命令<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span>mvn clean package/install -DskipTests
 </pre></div>
-
 
 <p>参考：<a href="https://zhuanlan.zhihu.com/p/31020263">Maven 中 dependencies 与 dependencyManagement 的区别</a></p>
                 
