@@ -69,31 +69,6 @@
     
     
       
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
     
     
   </head>
@@ -1911,6 +1886,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../environment/os/Shebang/" title="Shebang" class="md-nav__link">
+      Shebang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../environment/os/Tips/" title="Tips" class="md-nav__link">
       Tips
     </a>
@@ -2234,6 +2221,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Health
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Health
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
+      鼻炎
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2343,6 +2366,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
+      CRC碰撞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
       构建字典
     </a>
@@ -2412,7 +2447,28 @@
 <li>virsh，KVM命令行工具。</li>
 </ul>
 <h2 id="kvm_1">安装KVM包<a class="headerlink" href="#kvm_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="c1">#qemu-kvm qemu-system：KVM 和 QEMU 的核心包，提供 CPU、内存和 IO 虚拟化功能</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#qemu-kvm qemu-system：KVM 和 QEMU 的核心包，提供 CPU、内存和 IO 虚拟化功能</span>
 <span class="c1">#libvirt-bin：libvirt命令行管理工具</span>
 <span class="c1">#virt-manager：KVM图形化管理工具</span>
 <span class="c1">#bridge-utils vlan：网络虚拟化</span>
@@ -2435,9 +2491,10 @@ deb-src http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe
 <span class="c1">#更新安装包</span>
 apt update
 </pre></div>
+</td></tr></table>
 
 <p>参考：<a href="http://www.cnblogs.com/CloudMan6/">http://www.cnblogs.com/CloudMan6/</a>
-已读：<a href="https://www.cnblogs.com/CloudMan6/p/5233484.html">https://www.cnblogs.com/CloudMan6/p/5233484.html</a></p>
+已读：https://www.cnblogs.com/CloudMan6/p/5233484.html</p>
                 
                   
                 
@@ -2445,22 +2502,6 @@ apt update
               
                 
 
-
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/cloud/openstack/虚拟化/";
-      this.page.identifier =
-        "cloud/openstack/虚拟化/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>

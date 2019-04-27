@@ -69,31 +69,6 @@
     
     
       
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
     
     
   </head>
@@ -1911,6 +1886,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../environment/os/Shebang/" title="Shebang" class="md-nav__link">
+      Shebang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../environment/os/Tips/" title="Tips" class="md-nav__link">
       Tips
     </a>
@@ -2234,6 +2221,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Health
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Health
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
+      鼻炎
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2343,6 +2366,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
+      CRC碰撞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
       构建字典
     </a>
@@ -2390,7 +2425,38 @@
                 
                 
                 <h1 id="1-broker">1. 服务订购失败，查询broker日志，报错信息为：<a class="headerlink" href="#1-broker" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span>06-29 07:29:53,747 INFO (vert.x-worker-thread-0) Submit create instance request: uri=https://10.186.86.79:8443/fst/rest/v1.0/d387a958e8f04967a501530872c8462e/instances, body={&quot;instance&quot;:{&quot;project_id&quot;:&quot;d387a
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>06-29 07:29:53,747 INFO (vert.x-worker-thread-0) Submit create instance request: uri=https://10.186.86.79:8443/fst/rest/v1.0/d387a958e8f04967a501530872c8462e/instances, body={&quot;instance&quot;:{&quot;project_id&quot;:&quot;d387a
 958e8f04967a501530872c8462e&quot;,&quot;organization_guid&quot;:&quot;ddmtest&quot;,&quot;space_guid&quot;:&quot;bilibili&quot;,&quot;plan_name&quot;:&quot;default&quot;,&quot;service_guid&quot;:&quot;790b1219-9fb5-935c-f2bb-0e6ae9139594&quot;,&quot;service_name&quot;:&quot;ddm-serviceddddd&quot;,&quot;instance_id&quot;
 :null,&quot;instance_name&quot;:&quot;dddddd&quot;,&quot;parameters&quot;:{&quot;ams_ip&quot;:&quot;10.186.144.34&quot;,&quot;console_address&quot;:&quot;10.186.86.79:7443&quot;,&quot;ddm_core_package&quot;:&quot;https://10.186.144.34:20202/swr/v2/domains/paas-ddmtest/namespaces/ddm-namespa
 ce/repositories/ddm-ware/packages/ddm-pkg/versions/1.0.0.B005/file_paths/DDM-CORE-AOS-1.0.0.B006.zip&quot;,&quot;manager_address&quot;:&quot;10.186.86.79:8443&quot;,&quot;pod_etcd01&quot;:&quot;10.162.249.97&quot;,&quot;pod_etcd02&quot;:&quot;10.186.99.212&quot;,&quot;pod_etc
@@ -2423,6 +2489,7 @@ Caused by: javax.net.ssl.SSLException: handshake timed out
  (VertxHttpClientUtils:70)
 06-29 07:30:04,919 ERROR(vert.x-worker-thread-0) Create instance request failed: non-response (DdmManagerHttpClient:53)
 </pre></div>
+</td></tr></table>
 
 <p>从报错信息得知，broker在发起https请求时，与manager <strong>建立SSL连接超时</strong> 。</p>
 <h1 id="2-manager">2. 测试网络连接和manager服务<a class="headerlink" href="#2-manager" title="Permanent link">&para;</a></h1>
@@ -2430,7 +2497,13 @@ Caused by: javax.net.ssl.SSLException: handshake timed out
 <li>测试broker与manager：<code>curl -kv https://10.162.61.211:8443</code>，连接正常。</li>
 <li>测试broker与LVS：<code>curl -kv https://10.186.86.79:8443</code>，连接失败。此为 <strong>疑问点1</strong> 。</li>
 </ul>
-<div class="codehilite"><pre><span></span>*   Trying 10.186.86.79...
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>*   Trying 10.186.86.79...
 * Connected to 10.186.86.79 (10.186.86.79) port 8443 (#0)
 * Initializing NSS with certpath: sql:/etc/pki/nssdb
 * NSS error -5961 (PR_CONNECT_RESET_ERROR)
@@ -2438,17 +2511,37 @@ Caused by: javax.net.ssl.SSLException: handshake timed out
 * Closing connection 0
 curl: (35) TCP connection reset
 </pre></div>
+</td></tr></table>
 
 <h1 id="3-keepalived">3. 查询keepalived进程，正常：<a class="headerlink" href="#3-keepalived" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="o">[</span>root@szvphicpra57487 ~<span class="o">]</span><span class="c1"># ps -ef | grep keepalived</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">[</span>root@szvphicpra57487 ~<span class="o">]</span><span class="c1"># ps -ef | grep keepalived</span>
 paas      <span class="m">70663</span>      <span class="m">1</span>  <span class="m">0</span> 6月29 ?       <span class="m">00</span>:00:02 /usr/sbin/keepalived -D -f /etc/keepalived/keepalived.conf -p /etc/keepalived/run/keepalived.pid -r /etc/keepalived/run/vrrp.pid -c /etc/keepalived/run/checkers.pid
 paas      <span class="m">70668</span>  <span class="m">70663</span>  <span class="m">0</span> 6月29 ?       <span class="m">00</span>:00:14 /usr/sbin/keepalived -D -f /etc/keepalived/keepalived.conf -p /etc/keepalived/run/keepalived.pid -r /etc/keepalived/run/vrrp.pid -c /etc/keepalived/run/checkers.pid
 paas      <span class="m">70669</span>  <span class="m">70663</span>  <span class="m">0</span> 6月29 ?       <span class="m">00</span>:00:14 /usr/sbin/keepalived -D -f /etc/keepalived/keepalived.conf -p /etc/keepalived/run/keepalived.pid -r /etc/keepalived/run/vrrp.pid -c /etc/keepalived/run/checkers.pid
 root     <span class="m">104754</span> <span class="m">104025</span>  <span class="m">0</span> <span class="m">10</span>:57 pts/0    <span class="m">00</span>:00:00 grep --color<span class="o">=</span>auto keepalived
 </pre></div>
+</td></tr></table>
 
 <h1 id="4-vip">4. 查询VIP绑定情况，正常：<a class="headerlink" href="#4-vip" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="o">[</span>root@szvphicpra57487 ~<span class="o">]</span><span class="c1"># ip a</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">[</span>root@szvphicpra57487 ~<span class="o">]</span><span class="c1"># ip a</span>
 <span class="m">1</span>: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span class="m">65536</span> qdisc noqueue state UNKNOWN
     link/loopback <span class="m">00</span>:00:00:00:00:00 brd <span class="m">00</span>:00:00:00:00:00
     inet <span class="m">127</span>.0.0.1/8 scope host lo
@@ -2464,9 +2557,18 @@ root     <span class="m">104754</span> <span class="m">104025</span>  <span clas
     inet6 fe80::2a6e:d4ff:fe89:1ad4/64 scope link
        valid_lft forever preferred_lft forever
 </pre></div>
+</td></tr></table>
 
 <h1 id="5-lvs">5. 查询LVS转发：<a class="headerlink" href="#5-lvs" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="o">[</span>root@szvphicpra57487 ~<span class="o">]</span><span class="c1"># ipvsadm -L -n --stats</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">[</span>root@szvphicpra57487 ~<span class="o">]</span><span class="c1"># ipvsadm -L -n --stats</span>
 IP Virtual Server version <span class="m">1</span>.2.1 <span class="o">(</span><span class="nv">size</span><span class="o">=</span><span class="m">4194304</span><span class="o">)</span>
 Prot LocalAddress:Port               Conns   InPkts  OutPkts  InBytes OutBytes
   -&gt; RemoteAddress:Port
@@ -2476,10 +2578,58 @@ TCP  <span class="m">10</span>.186.86.79:7443                  <span class="m">2
 TCP  <span class="m">10</span>.186.86.79:8443                   <span class="m">6</span>       <span class="m">72</span>       <span class="m">0</span>    <span class="m">16952</span>    <span class="m">0</span>
   -&gt; <span class="m">10</span>.162.61.211:8443                  <span class="m">6</span>       <span class="m">72</span>       <span class="m">0</span>    <span class="m">16952</span>    <span class="m">0</span>
 </pre></div>
+</td></tr></table>
 
 <p>发现 <strong>只有输入的包，没有输出的包</strong>，此为 <strong>疑问点2</strong> 。</p>
 <h1 id="6-lvs">6. 在LVS节点上查询防火墙信息，未发现异常：<a class="headerlink" href="#6-lvs" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="o">[</span>root@szvphicpra57487 ~<span class="o">]</span><span class="c1"># iptables -L -n -v</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">[</span>root@szvphicpra57487 ~<span class="o">]</span><span class="c1"># iptables -L -n -v</span>
 Chain INPUT <span class="o">(</span>policy ACCEPT <span class="m">47</span> packets, <span class="m">11299</span> bytes<span class="o">)</span>
  pkts bytes target     prot opt in     out     <span class="nb">source</span>               destination
 4462K 2468M KUBE-FIREWALL  all  --  *      *       <span class="m">0</span>.0.0.0/0            <span class="m">0</span>.0.0.0/0
@@ -2528,6 +2678,7 @@ Chain KUBE-SERVICES <span class="o">(</span><span class="m">1</span> references<
     <span class="m">0</span>     <span class="m">0</span> REJECT     tcp  --  *      *       <span class="m">0</span>.0.0.0/0            <span class="m">10</span>.247.37.237        /* kube-system/ingress-controller:ingress-controller-secure has no endpoints */ tcp dpt:30280 reject-with icmp-port-unreachable
     <span class="m">0</span>     <span class="m">0</span> REJECT     tcp  --  *      *       <span class="m">0</span>.0.0.0/0            <span class="m">10</span>.247.37.237        /* kube-system/ingress-controller:ingress-controller-insecure has no endpoints */ tcp dpt:30281 reject-with icmp-port-unreachable
 </pre></div>
+</td></tr></table>
 
 <h1 id="7">7. 抓包查看报文转发情况<a class="headerlink" href="#7" title="Permanent link">&para;</a></h1>
 <h2 id="1-tcpdump">1. 安装tcpdump<a class="headerlink" href="#1-tcpdump" title="Permanent link">&para;</a></h2>
@@ -2538,25 +2689,108 @@ Chain KUBE-SERVICES <span class="o">(</span><span class="m">1</span> references<
 <li>执行安装<code>rpm -hvi libpcap0-0.9.8-50.10.1.x86_64.rpm</code>和<code>rpm -hvi tcpdump-3.9.8-1.21.x86_64.rpm</code>；</li>
 </ul>
 <h2 id="2">2. 执行抓包程序<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>tcpdump -v -n -i eth0 -w /opt/tmp.cap -s <span class="m">0</span>  <span class="c1">#-i为网络接口名称，-w为输出文件路径</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tcpdump -v -n -i eth0 -w /opt/tmp.cap -s <span class="m">0</span>  <span class="c1">#-i为网络接口名称，-w为输出文件路径</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="3">3. 抓包分析<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <ul>
 <li>使用<code>Ctrl + C</code>停止抓包，并将抓包文件使用WinSCP拷贝回Windows机器上，使用<code>WireShark</code>进行分析，安装包已分享至OneBox：<a href="https://onebox.huawei.com/p/711f01fe1344b866d2c7d5ec152ff5d3">https://onebox.huawei.com/p/711f01fe1344b866d2c7d5ec152ff5d3</a></li>
 <li>使用过滤条件进行报文过滤：<code>tcp &amp;&amp; ((ip.src == 10.186.127.176 &amp;&amp; ip.dst == 10.162.61.211) || (ip.src == 10.162.61.211 &amp;&amp; ip.dst == 10.186.127.176))</code></li>
 </ul>
-<p>通过分析broker报文发现，在broker发送了PSH<a href="TCP协议字段详解：">^1</a>推送报文后，就一直在重传， <strong>没有得到manager的响应</strong> ，此为 <strong>疑问点3</strong> 。</p>
-<p><img alt="" src="~/11-33-06.jpg" /></p>
-<p>分析LVS报文，发现LVS向manager发送了RST<a href="TCP协议字段详解：">^1</a>报文。</p>
-<p><img alt="" src="~/14-43-57.jpg" /></p>
-<p>查阅资料得知，这是keepalived的健康检查机制，LVS会定期（默认6秒，可以修改keepalived.conf中字段<code>delay_loop 6</code>）向manager发送一个TCP连接来检测http是否正常，为了减少TCP连接带来的资源浪费，所以检测（TCP三次握手<a href="TCP三次握手">^2</a>）完毕后会发送一个RST报文来断开这个连接，释放资源。因此该报文为正常报文，且未接收到LVS发送的请求报文。</p>
+<p>通过分析broker报文发现，在broker发送了PSH<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>推送报文后，就一直在重传， <strong>没有得到manager的响应</strong> ，此为 <strong>疑问点3</strong> 。</p>
+<p><img alt="" src="../../../img/11-33-06.jpg" /></p>
+<p>分析LVS报文，发现LVS向manager发送了RST<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup>报文。</p>
+<p><img alt="" src="../../../img/14-43-57.jpg" /></p>
+<p>查阅资料得知，这是keepalived的健康检查机制，LVS会定期（默认6秒，可以修改keepalived.conf中字段<code>delay_loop 6</code>）向manager发送一个TCP连接来检测http是否正常，为了减少TCP连接带来的资源浪费，所以检测（TCP三次握手<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>）完毕后会发送一个RST报文来断开这个连接，释放资源。因此该报文为正常报文，且未接收到LVS发送的请求报文。</p>
 <p>尝试不使用LVS，broker直连manager，订购成功。</p>
-<p><img alt="" src="~/14-52-41.jpg" /></p>
+<p><img alt="" src="../../../img/14-52-41.jpg" /></p>
 <p>在broker向manager发送了PSH报文后，manager向broker返回PSH应答报文。</p>
 <p>综合报文分析，原因仍是出在LVS。</p>
 <h1 id="8-keepalived">8. 查看keepalived配置<a class="headerlink" href="#8-keepalived" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span>cat /etc/keepalived/keepalived.conf
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cat /etc/keepalived/keepalived.conf
 global_defs <span class="o">{</span>
    router_id DDM_LVS_205
 <span class="o">}</span>
@@ -2640,6 +2874,7 @@ virtual_server <span class="m">10</span>.186.86.79 <span class="m">8443</span> <
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
+</td></tr></table>
 
 <p>发现<code>local_address_group laddr_g1</code>中的IP非本机IP，而是另一个LVS的IP。再查看堆栈部署参数，发现<code>lvs_node1</code>参数填写的是节点标签为<code>ddm_lvs2</code>的地址，而<code>lvs_node2</code>参数填写的是节点标签为<code>ddm_lvs1</code>的地址。</p>
 <p>问题明确，手动修改keepalived.conf，将IP修改正确，重启keepalived服务，问题解决。</p>
@@ -2651,21 +2886,26 @@ virtual_server <span class="m">10</span>.186.86.79 <span class="m">8443</span> <
 <p>执行<code>iptables -t raw -L -nv --line-numbers</code>，查看规则行号，如1。</p>
 <p>执行<code>iptables -t raw -D PREROUTING 1</code>，删除该规则，问题解决。</p>
 <p>END</p>
-<ul>
-<li>SYN 建立连接，仅用于三次握手</li>
-<li>FIN 关闭连接</li>
-<li>ACK 确认标志</li>
-<li>PSH 数据传输</li>
-<li>RST 连接重置</li>
-<li>
-<p>URG 紧急标志</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>TCP协议字段详解：
+* SYN 建立连接，仅用于三次握手
+* FIN 关闭连接
+* ACK 确认标志
+* PSH 数据传输
+* RST 连接重置
+* URG 紧急标志&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
-<li>
-<p>发送端发送SYN=1，ACK=0请求建立连接</p>
+<li id="fn:2">
+<p>TCP三次握手
+* 发送端发送SYN=1，ACK=0请求建立连接
+* 接收端发送SYN=1，ACK=1应答
+* 发送端发送SYN=0，ACK=1确认连接&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
-<li>接收端发送SYN=1，ACK=1应答</li>
-<li>发送端发送SYN=0，ACK=1确认连接</li>
-</ul>
+</ol>
+</div>
                 
                   
                 
@@ -2673,22 +2913,6 @@ virtual_server <span class="m">10</span>.186.86.79 <span class="m">8443</span> <
               
                 
 
-
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/coding/web/LVS转发问题抓包定位/";
-      this.page.identifier =
-        "coding/web/LVS转发问题抓包定位/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>

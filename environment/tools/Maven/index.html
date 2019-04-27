@@ -69,31 +69,6 @@
     
     
       
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
     
     
   </head>
@@ -1900,6 +1875,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../os/Shebang/" title="Shebang" class="md-nav__link">
+      Shebang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../os/Tips/" title="Tips" class="md-nav__link">
       Tips
     </a>
@@ -2234,6 +2221,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Health
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Health
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
+      鼻炎
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2343,6 +2366,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
+      CRC碰撞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
       构建字典
     </a>
@@ -2405,7 +2440,81 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
 </ul>
 <h1 id="_4">配置文件<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
 <p>配置文件路径：<code>/conf/setting.xml</code></p>
-<div class="codehilite"><pre><span></span><span class="c">&lt;!--本地仓路径--&gt;</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c">&lt;!--本地仓路径--&gt;</span>
 <span class="nt">&lt;localRepository&gt;</span>D:\software\apache-maven-3.3.3\repo<span class="nt">&lt;/localRepository&gt;</span>
 
 <span class="c">&lt;!--从远程仓下载使用的镜像--&gt;</span>
@@ -2481,6 +2590,7 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
     <span class="nt">&lt;activeProfile&gt;</span>env-test<span class="nt">&lt;/activeProfile&gt;</span>
   <span class="nt">&lt;/activeProfiles&gt;</span>
 </pre></div>
+</td></tr></table>
 
 <h1 id="maven">maven工程典型目录结构<a class="headerlink" href="#maven" title="Permanent link">&para;</a></h1>
 <blockquote>
@@ -2492,15 +2602,36 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
 /pom.xml</p>
 </blockquote>
 <h1 id="pom">POM<a class="headerlink" href="#pom" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;groupId&gt;</span>com.aaron<span class="nt">&lt;/groupId&gt;</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">&lt;groupId&gt;</span>com.aaron<span class="nt">&lt;/groupId&gt;</span>
 <span class="nt">&lt;artifactId&gt;</span>springBootDemo<span class="nt">&lt;/artifactId&gt;</span>
 <span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="_5">依赖管理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>在parent中配置dependencyManagement，统一管理jar版本。</p>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;properties&gt;</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">&lt;properties&gt;</span>
     <span class="nt">&lt;version.framework&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version.framework&gt;</span>
     <span class="nt">&lt;javaee-api.version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/javaee-api.version&gt;</span>
 <span class="nt">&lt;/properties&gt;</span>
@@ -2519,9 +2650,31 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
     <span class="nt">&lt;/dependencies&gt;</span>
 <span class="nt">&lt;/dependencyManagement&gt;</span>
 </pre></div>
+</td></tr></table>
 
 <p>子项目中引用依赖无需显示的列出版本号，继承父项目。</p>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;parent&gt;</span>  
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">&lt;parent&gt;</span>  
     <span class="nt">&lt;artifactId&gt;</span>parent<span class="nt">&lt;/artifactId&gt;</span>  
     <span class="nt">&lt;groupId&gt;</span>com.zhisheng<span class="nt">&lt;/groupId&gt;</span>
     <span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>  
@@ -2544,9 +2697,31 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
     <span class="nt">&lt;/dependency&gt;</span>  
 <span class="nt">&lt;/dependencies&gt;</span>
 </pre></div>
+</td></tr></table>
 
 <p>使用专门的POM来进行依赖管理。</p>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;project&gt;</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">&lt;project&gt;</span>
   <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>com.zhisheng.sample<span class="nt">&lt;/groupId&gt;</span>
   <span class="nt">&lt;artifactId&gt;</span>sample-dependency-infrastructure<span class="nt">&lt;/artifactId&gt;</span>
@@ -2569,9 +2744,28 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
   <span class="nt">&lt;/dependencyManagement&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </pre></div>
+</td></tr></table>
 
 <p>通过import scope方式引入依赖管理，不继承父项目。</p>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;dependencyManagement&gt;</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">&lt;dependencyManagement&gt;</span>
     <span class="nt">&lt;dependencies&gt;</span>
         <span class="nt">&lt;dependency&gt;</span>
           <span class="nt">&lt;groupId&gt;</span>com.zhisheng.sample<span class="nt">&lt;/groupId&gt;</span>
@@ -2591,10 +2785,26 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
     <span class="nt">&lt;artifactid&gt;</span>log4j<span class="nt">&lt;/artifactId&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="_6">插件管理<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>在parent中统一配置pluginManagement，与dependencyManagement类似，子项目继承父项目配置。</p>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;build&gt;</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">&lt;build&gt;</span>
   <span class="nt">&lt;pluginManagement&gt;</span>
     <span class="nt">&lt;plugins&gt;</span>
       <span class="nt">&lt;plugin&gt;</span>
@@ -2611,10 +2821,12 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
   <span class="nt">&lt;/pluginManagement&gt;</span>
 <span class="nt">&lt;/build&gt;</span>
 </pre></div>
+</td></tr></table>
 
 <h1 id="_7">常用命令<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span>mvn clean package/install -DskipTests
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mvn clean package/install -DskipTests
 </pre></div>
+</td></tr></table>
 
 <p>参考：<a href="https://zhuanlan.zhihu.com/p/31020263">Maven 中 dependencies 与 dependencyManagement 的区别</a></p>
                 
@@ -2624,22 +2836,6 @@ MAVEN_OPTS=-Xms256m -Xmx512m</p>
               
                 
 
-
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/environment/tools/Maven/";
-      this.page.identifier =
-        "environment/tools/Maven/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>

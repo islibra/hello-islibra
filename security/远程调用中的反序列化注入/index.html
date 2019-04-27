@@ -69,31 +69,6 @@
     
     
       
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
     
     
   </head>
@@ -1898,6 +1873,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../environment/os/Shebang/" title="Shebang" class="md-nav__link">
+      Shebang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../environment/os/Tips/" title="Tips" class="md-nav__link">
       Tips
     </a>
@@ -2221,6 +2208,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Health
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Health
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
+      鼻炎
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2341,6 +2364,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
+      CRC碰撞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../code/构建字典/" title="构建字典" class="md-nav__link">
       构建字典
     </a>
@@ -2396,27 +2431,39 @@
 <p>JVM之间通信时，服务端把远程对象封装为代理Stub（包含服务端地址端口等信息）传递给客户端。<br />
 server随机监听端口，client调用stub提供的方法，stub连接到server端口，server执行方法返回结果给stub，stub返回结果给client。</p>
 <p>RMI注册表是默认远程对象，监听在1099端口。注册：<br />
-<div class="codehilite"><pre><span></span><span class="n">IHello</span> <span class="n">rhello</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HelloImpl</span><span class="o">();</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">IHello</span> <span class="n">rhello</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HelloImpl</span><span class="o">();</span>
 <span class="n">LocateRegistry</span><span class="o">.</span><span class="na">createRegistry</span><span class="o">(</span><span class="mi">1099</span><span class="o">);</span>  <span class="c1">//服务器创建注册表</span>
 <span class="n">Naming</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="s">&quot;rmi://0.0.0.0:1099/hello&quot;</span><span class="o">,</span> <span class="n">rhello</span><span class="o">);</span>  <span class="c1">//将对象引用和URL绑定</span>
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <p>client通过注册表创建stub，通过stub访问随机端口远程调用对象方法：<br />
-<div class="codehilite"><pre><span></span><span class="n">Registry</span> <span class="n">registry</span> <span class="o">=</span> <span class="n">LocateRegistry</span><span class="o">.</span><span class="na">getRegistry</span><span class="o">(</span><span class="s">&quot;192.168.1.110&quot;</span><span class="o">,</span><span class="mi">1099</span><span class="o">);</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Registry</span> <span class="n">registry</span> <span class="o">=</span> <span class="n">LocateRegistry</span><span class="o">.</span><span class="na">getRegistry</span><span class="o">(</span><span class="s">&quot;192.168.1.110&quot;</span><span class="o">,</span><span class="mi">1099</span><span class="o">);</span>
 <span class="n">IHello</span> <span class="n">rhello</span> <span class="o">=</span> <span class="o">(</span><span class="n">IHello</span><span class="o">)</span> <span class="n">registry</span><span class="o">.</span><span class="na">lookup</span><span class="o">(</span><span class="s">&quot;hello&quot;</span><span class="o">);</span>  <span class="c1">//在注册表中查找</span>
 <span class="n">rhello</span><span class="o">.</span><span class="na">sayHello</span><span class="o">(</span><span class="s">&quot;test&quot;</span><span class="o">);</span>  <span class="c1">//远程调用</span>
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <p>client JVM中如果不存在class，则通过http请求下载类class，动态加载。</p>
 <h1 id="jndi">JNDI<a class="headerlink" href="#jndi" title="Permanent link">&para;</a></h1>
 <p>查找和访问资源通用接口，可用来调用远程对象。<br />
 支持多种naming and directory providers，如rmi registry service provider</p>
 <p>控制lookup参数注入攻击
-<div class="codehilite"><pre><span></span><span class="n">Hashtable</span> <span class="n">env</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Hashtable</span><span class="o">();</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Hashtable</span> <span class="n">env</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Hashtable</span><span class="o">();</span>
 <span class="n">env</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">Context</span><span class="o">.</span><span class="na">INITIAL_CONTEXT_FACTORY</span><span class="o">,</span> <span class="s">&quot;com.sun.jndi.rmi.registry.RegistryContextFactory&quot;</span><span class="o">);</span>
 <span class="c1">//com.sun.jndi.rmi.registry.RegistryContextFactory 是RMI Registry Service Provider对应的Factory</span>
 <span class="n">env</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">Context</span><span class="o">.</span><span class="na">PROVIDER_URL</span><span class="o">,</span> <span class="s">&quot;rmi://172.16.240.135:8080&quot;</span><span class="o">);</span>
 <span class="n">Context</span> <span class="n">ctx</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InitialContext</span><span class="o">(</span><span class="n">env</span><span class="o">);</span>
 <span class="n">Object</span> <span class="n">local_obj</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">lookup</span><span class="o">(</span><span class="s">&quot;rmi://172.16.240.135:8080/test&quot;</span><span class="o">);</span>  <span class="c1">//该URL为攻击者可控</span>
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <ol>
 <li>目标代码调用InitialContext.lookup(URL)，URL可控</li>
 <li>RMI服务地址：rmi://server/name ，通过References绑定外部的远程对象，服务端通过Referenceable.getReference()获取绑定对象的引用并保存在目录中。</li>
@@ -2429,7 +2476,7 @@ server随机监听端口，client调用stub提供的方法，stub连接到server
 <li>com.sun.rowset.JdbcRowSetImpl.execute() -&gt; JdbcRowSetImpl.prepare() -&gt; JdbcRowSetImpl.connect() -&gt; InitialContext.lookup(dataSource)</li>
 </ul>
 <p>当使用json格式传输参数时，利用FastJon控制set方法，将伪造的RMI服务地址传入lookup方法。</p>
-<p>参考：<a href="https://mp.weixin.qq.com/s/cyeEAv31GO_hZCTXVRBkxw">https://mp.weixin.qq.com/s/cyeEAv31GO_hZCTXVRBkxw</a></p>
+<p>参考：https://mp.weixin.qq.com/s/cyeEAv31GO_hZCTXVRBkxw</p>
                 
                   
                 
@@ -2437,22 +2484,6 @@ server随机监听端口，client调用stub提供的方法，stub连接到server
               
                 
 
-
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/security/远程调用中的反序列化注入/";
-      this.page.identifier =
-        "security/远程调用中的反序列化注入/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>
@@ -2481,13 +2512,13 @@ server随机监听端口，client调用stub提供的方法，stub连接到server
           </a>
         
         
-          <a href="../code/构建字典/" title="构建字典" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../code/CRC碰撞/" title="CRC碰撞" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                构建字典
+                CRC碰撞
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

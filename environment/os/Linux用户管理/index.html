@@ -69,31 +69,6 @@
     
     
       
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
     
     
   </head>
@@ -1911,6 +1886,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../Shebang/" title="Shebang" class="md-nav__link">
+      Shebang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../Tips/" title="Tips" class="md-nav__link">
       Tips
     </a>
@@ -2234,6 +2221,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Health
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Health
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
+      鼻炎
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2343,6 +2366,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
+      CRC碰撞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
       构建字典
     </a>
@@ -2395,24 +2430,38 @@
 - 用户标识号：是一个整数，系统内部用它来标识用户。一般情况下它与用户名是一一对应的。如果几个用户名对应的用户标识号是一样的，系统内部将把它们视为同一个用户，但是它们可以有不同的口令、不同的主目录以及不同的登录Shell等。通常用户标识号的取值范围是<code>0～65535</code>。0是超级用户root的标识号，1～99由系统保留，作为管理账号，普通用户的标识号从100开始。在Linux系统中，这个界限是500。</p>
 <h1 id="etcgroup">用户组/etc/group<a class="headerlink" href="#etcgroup" title="Permanent link">&para;</a></h1>
 <h1 id="_1">增加用户<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span>useradd kk  <span class="c1">#添加用户kk</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>useradd kk  <span class="c1">#添加用户kk</span>
 </pre></div>
+</td></tr></table>
 
 <h1 id="_2">切换用户<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span>whoami  <span class="c1">#显示当前用户</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>whoami  <span class="c1">#显示当前用户</span>
 <span class="nb">pwd</span>  <span class="c1">#显示当前目录</span>
 su root  <span class="c1">#切换到root用户</span>
 </pre></div>
+</td></tr></table>
 
 <h1 id="_3">修改密码<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span>passwd w3cschool  <span class="c1">#设置w3cschool用户的密码</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>passwd w3cschool  <span class="c1">#设置w3cschool用户的密码</span>
 Enter new UNIX password:  <span class="c1">#输入新密码，输入的密码无回显</span>
 Retype new UNIX password:  <span class="c1">#确认密码</span>
 passwd: password updated successfully
 </pre></div>
+</td></tr></table>
 
 <h1 id="_4">更改个人资讯<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span>chfn
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>chfn
 Changing finger information <span class="k">for</span> root.
 Name <span class="o">[</span>root<span class="o">]</span>: hnlinux
 Office <span class="o">[]</span>: hn
@@ -2420,10 +2469,12 @@ Office Phone <span class="o">[]</span>: <span class="m">888888</span>
 Home Phone <span class="o">[]</span>: <span class="m">9999999</span>
 Finger information changed.
 </pre></div>
+</td></tr></table>
 
 <h1 id="_5">修改用户属性<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span>usermod -g usergroup username
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>usermod -g usergroup username
 </pre></div>
+</td></tr></table>
                 
                   
                 
@@ -2431,22 +2482,6 @@ Finger information changed.
               
                 
 
-
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/environment/os/Linux用户管理/";
-      this.page.identifier =
-        "environment/os/Linux用户管理/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>

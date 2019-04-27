@@ -69,31 +69,6 @@
     
     
       
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
     
     
   </head>
@@ -1911,6 +1886,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../environment/os/Shebang/" title="Shebang" class="md-nav__link">
+      Shebang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../environment/os/Tips/" title="Tips" class="md-nav__link">
       Tips
     </a>
@@ -2234,6 +2221,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Health
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Health
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
+      鼻炎
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2343,6 +2366,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
+      CRC碰撞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
       构建字典
     </a>
@@ -2391,15 +2426,20 @@
                 
                 <h1 id="_1">读取类路径下的配置文件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>配置文件路径：<code>src\main\resources\config\application.properties</code></p>
-<div class="codehilite"><pre><span></span><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">PATH</span> <span class="o">=</span> <span class="s">&quot;config/application.properties&quot;</span><span class="o">;</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">PATH</span> <span class="o">=</span> <span class="s">&quot;config/application.properties&quot;</span><span class="o">;</span>
 <span class="n">InputStream</span> <span class="n">in</span> <span class="o">=</span> <span class="n">PropertiesUtil</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getClassLoader</span><span class="o">().</span><span class="na">getResourceAsStream</span><span class="o">(</span><span class="n">PATH</span><span class="o">);</span>
 <span class="n">properties</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">in</span><span class="o">);</span>
 </pre></div>
+</td></tr></table>
 
 <h1 id="_2">读取任意路径下的配置文件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="n">BufferedReader</span> <span class="n">bufferedReader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="s">&quot;F:/config.properties&quot;</span><span class="o">));</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">BufferedReader</span> <span class="n">bufferedReader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="s">&quot;F:/config.properties&quot;</span><span class="o">));</span>
 <span class="n">properties</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">bufferedReader</span><span class="o">);</span>
 </pre></div>
+</td></tr></table>
 
 <h1 id="_3">国际化<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
 <h2 id="_4">定义语言资源文件：<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
@@ -2407,12 +2447,17 @@
 <ul>
 <li>info_zh_CN.properties</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="na">username</span><span class="o">=</span><span class="s">\u7528\u6237\u540d</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="na">username</span><span class="o">=</span><span class="s">\u7528\u6237\u540d</span>
 <span class="na">passwd</span><span class="o">=</span><span class="s">\u5BC6\u7801</span>
 <span class="na">input</span><span class="o">=</span><span class="s">\u8BF7\u8F93\u5165</span>
 <span class="na">info.success</span><span class="o">=</span><span class="s">\u6B22\u8FCE\uff0c{0}</span>
 <span class="na">info.error</span><span class="o">=</span><span class="s">\u767B\u5f55</span>
 </pre></div>
+</td></tr></table>
 
 <blockquote>
 <p><strong>Tips:</strong> 在<code>IDEA - File - Settings - Editor - File Encodings</code>，设置<code>Global Encoding/Project Encoding/Properties Files - Default encoding for properties files</code>为 <strong>UTF-8</strong>，并勾选<code>Transparent native-to-ascii conversion</code>。</p>
@@ -2421,7 +2466,16 @@
 <li>info_en_US.properties</li>
 </ul>
 <h2 id="_5">创建本地语言环境对象：<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="n">Locale</span> <span class="n">locale</span> <span class="o">=</span> <span class="n">Locale</span><span class="o">.</span><span class="na">getDefault</span><span class="o">();</span>  <span class="c1">//获取默认的系统语言</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Locale</span> <span class="n">locale</span> <span class="o">=</span> <span class="n">Locale</span><span class="o">.</span><span class="na">getDefault</span><span class="o">();</span>  <span class="c1">//获取默认的系统语言</span>
 <span class="k">if</span> <span class="o">(</span><span class="s">&quot;zh&quot;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">language</span><span class="o">))</span>
 <span class="o">{</span>
     <span class="n">locale</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Locale</span><span class="o">(</span><span class="s">&quot;zh&quot;</span><span class="o">,</span> <span class="s">&quot;CN&quot;</span><span class="o">);</span>
@@ -2432,18 +2486,110 @@
 <span class="o">}</span>
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;language: &quot;</span> <span class="o">+</span> <span class="n">locale</span><span class="o">.</span><span class="na">getLanguage</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot;, country: &quot;</span> <span class="o">+</span> <span class="n">locale</span><span class="o">.</span><span class="na">getCountry</span><span class="o">());</span>
 </pre></div>
+</td></tr></table>
 
 <h1 id="_6">绑定资源文件<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="n">ResourceBundle</span> <span class="n">res</span> <span class="o">=</span> <span class="n">ResourceBundle</span><span class="o">.</span><span class="na">getBundle</span><span class="o">(</span><span class="s">&quot;localize.info&quot;</span><span class="o">,</span> <span class="n">locale</span><span class="o">);</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ResourceBundle</span> <span class="n">res</span> <span class="o">=</span> <span class="n">ResourceBundle</span><span class="o">.</span><span class="na">getBundle</span><span class="o">(</span><span class="s">&quot;localize.info&quot;</span><span class="o">,</span> <span class="n">locale</span><span class="o">);</span>
 </pre></div>
+</td></tr></table>
 
 <h1 id="_7">读取资源<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="n">String</span> <span class="n">input</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">&quot;input&quot;</span><span class="o">);</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">String</span> <span class="n">input</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">&quot;input&quot;</span><span class="o">);</span>
 <span class="n">String</span> <span class="n">success</span> <span class="o">=</span> <span class="n">MessageFormat</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">res</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">key</span><span class="o">),</span> <span class="n">param</span><span class="o">);</span>  <span class="c1">//动态处理文本</span>
 </pre></div>
+</td></tr></table>
 
 <h1 id="_8">代码<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.FileNotFoundException</span><span class="o">;</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.FileNotFoundException</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.text.MessageFormat</span><span class="o">;</span>
@@ -2533,6 +2679,7 @@
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
+</td></tr></table>
                 
                   
                 
@@ -2540,22 +2687,6 @@
               
                 
 
-
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/coding/java/Java读取properties配置文件/";
-      this.page.identifier =
-        "coding/java/Java读取properties配置文件/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>

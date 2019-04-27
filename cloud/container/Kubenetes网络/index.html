@@ -69,31 +69,6 @@
     
     
       
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
     
     
   </head>
@@ -1911,6 +1886,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../environment/os/Shebang/" title="Shebang" class="md-nav__link">
+      Shebang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../environment/os/Tips/" title="Tips" class="md-nav__link">
       Tips
     </a>
@@ -2234,6 +2221,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Health
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Health
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
+      鼻炎
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2343,6 +2366,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
+      CRC碰撞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
       构建字典
     </a>
@@ -2390,7 +2425,15 @@
                 
                 
                 <p>假设创建Deployment的yaml为：</p>
-<div class="codehilite"><pre><span></span><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>
 <span class="nt">metadata</span><span class="p">:</span>
     <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">httpd</span>
 <span class="nt">spec</span><span class="p">:</span>
@@ -2400,9 +2443,21 @@
             <span class="nt">labels</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">//设置应用的label</span>
                 <span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">httpd</span>
 </pre></div>
+</td></tr></table>
 
 <h1 id="service-httpd-svcyaml">定义Service httpd-svc.yaml：<a class="headerlink" href="#service-httpd-svcyaml" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1  //Service的apiVersion</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1  //Service的apiVersion</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service  //资源类型为Service</span>
 <span class="nt">metadata</span><span class="p">:</span>
     <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">httpd-svc  //Service的名称</span>
@@ -2415,6 +2470,7 @@
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
         <span class="nt">targetPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
 </pre></div>
+</td></tr></table>
 
 <p>创建Service：<code>kubectl apply -f httpd-svc.yaml</code><br />
 查看Service：<code>kubectl get service</code>，Cluster通过kubernetes Service访问API Server。<br />
@@ -2425,7 +2481,27 @@
 Service的selector持续检查并通知同名Endpoints，修改为正确的Pod IP和端口。</p>
 </blockquote>
 <h1 id="endpointnamespaceservicekubenetesbackend">自定义Endpoint，访问其他namespace的service或非kubenetes的backend：<a class="headerlink" href="#endpointnamespaceservicekubenetesbackend" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-service</span>
@@ -2447,12 +2523,28 @@ Service的selector持续检查并通知同名Endpoints，修改为正确的Pod I
     <span class="nt">ports</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9376</span>
 </pre></div>
+</td></tr></table>
 
 <blockquote>
 <p><strong>Tips:</strong> 多个资源在同一个YAML文件中以---分割。</p>
 </blockquote>
 <h1 id="_1">定义多个端口映射<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-service</span>
@@ -2469,18 +2561,33 @@ Service的selector持续检查并通知同名Endpoints，修改为正确的Pod I
         <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">443</span>
         <span class="nt">targetPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9377</span>
 </pre></div>
+</td></tr></table>
 
 <h1 id="dnsservice">DNS访问Service<a class="headerlink" href="#dnsservice" title="Permanent link">&para;</a></h1>
 <p>kubeadm部署时默认安装kube-dns：<code>kubectl get deployment --namespace=kube-system</code>，监视创建Service时，自动添加DNS记录。<br />
 DNS服务器在kube-system中部署一个Service，域名访问<code>kube-dns.kube-system.svc.cluster.local</code>。<br />
 查看namespace：<code>kubectl get namespace</code>。</p>
 <p>httpd-svc的完整域名是<code>httpd-svc.default.svc.cluster.local</code>，在Pod中访问：<br />
-<div class="codehilite"><pre><span></span>kubectl run busybox --rm -ti --image<span class="o">=</span>busybox /bin/sh
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>kubectl run busybox --rm -ti --image<span class="o">=</span>busybox /bin/sh
 wget httpd-svc.default:8080  //&lt;SERVICE_NAME&gt;.&lt;NAMESPACE_NAME&gt;
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <p>在Pod中直接查找DNS信息：<code>nslookup httpd-svc</code>。  </p>
 <h1 id="nodeportkubenetes">NodePort对非Kubenetes提供服务<a class="headerlink" href="#nodeportkubenetes" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
 <span class="nt">metadata</span><span class="p">:</span>
     <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">httpd-svc</span>
@@ -2494,10 +2601,30 @@ wget httpd-svc.default:8080  //&lt;SERVICE_NAME&gt;.&lt;NAMESPACE_NAME&gt;
     <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
     <span class="nt">targetPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
 </pre></div>
+</td></tr></table>
 
 <p>查看Service：<code>kubectl get service httpd-svc</code>，将Service的8080端口映射到 <strong>每个Node的30000-32767端口。</strong></p>
 <h1 id="loadbalancerservice">LoadBalancer通过外部负载均衡访问该Service<a class="headerlink" href="#loadbalancerservice" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-service</span>
@@ -2518,9 +2645,17 @@ wget httpd-svc.default:8080  //&lt;SERVICE_NAME&gt;.&lt;NAMESPACE_NAME&gt;
     <span class="nt">ingress</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">146.148.47.155</span>  <span class="c1">#LB真实IP</span>
 </pre></div>
+</td></tr></table>
 
 <h1 id="externalname">ExternalName指定外部域名<a class="headerlink" href="#externalname" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-service</span>
@@ -2529,9 +2664,23 @@ wget httpd-svc.default:8080  //&lt;SERVICE_NAME&gt;.&lt;NAMESPACE_NAME&gt;
   <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ExternalName</span>
   <span class="nt">externalName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my.database.example.com</span>
 </pre></div>
+</td></tr></table>
 
 <h1 id="ip">外部IP<a class="headerlink" href="#ip" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-service</span>
@@ -2546,6 +2695,7 @@ wget httpd-svc.default:8080  //&lt;SERVICE_NAME&gt;.&lt;NAMESPACE_NAME&gt;
   <span class="nt">externalIPs</span><span class="p">:</span> 
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">80.11.12.10  //可以通过80.11.12.10:80访问该Service</span>
 </pre></div>
+</td></tr></table>
 
 <p>参考：
 <a href="https://kubernetes.io/zh/docs/concepts/services-networking/service/">https://kubernetes.io/zh/docs/concepts/services-networking/service/</a><br />
@@ -2554,7 +2704,20 @@ wget httpd-svc.default:8080  //&lt;SERVICE_NAME&gt;.&lt;NAMESPACE_NAME&gt;
 <p>提供集群外部访问service的URLs，使用GCE或nginx做负载均衡，还可提供SSL/TLS加密通道，虚拟host等功能。<br />
 需节点上单独启动/home/paas/ingress-controller进程，可部署多个，通过添加annotations: ingress-class指定默认使用的ingress-controller。  </p>
 <h2 id="single-service-ingress">创建Single Service Ingress：<a class="headerlink" href="#single-service-ingress" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">extensions/v1beta1</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">extensions/v1beta1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Ingress</span>
 <span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test-ingress</span>
@@ -2569,17 +2732,39 @@ wget httpd-svc.default:8080  //&lt;SERVICE_NAME&gt;.&lt;NAMESPACE_NAME&gt;
           <span class="nt">serviceName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
           <span class="nt">servicePort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
 </pre></div>
+</td></tr></table>
 
 <p>查看ingress信息：</p>
-<div class="codehilite"><pre><span></span>$ kubectl get ingress -nxxx -owide <span class="p">|</span> grep aaa
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ kubectl get ingress -nxxx -owide <span class="p">|</span> grep aaa
 NAME                         HOSTS     ADDRESS          PORTS     AGE
 aaa-ingress     *         <span class="m">127</span>.0.0.1,172.16.35.53      <span class="m">80</span>, <span class="m">443</span>   11h
 </pre></div>
+</td></tr></table>
 
 <p>ADDRESS为ingress controller为ingress分配的IP地址。  </p>
 <h2 id="simple-fanout">Simple fanout<a class="headerlink" href="#simple-fanout" title="Permanent link">&para;</a></h2>
 <p>根据HTTP请求的URL，将流量从单个IP路由到多个service。</p>
-<div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">extensions/v1beta1</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">extensions/v1beta1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Ingress</span>
 <span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">simple-fanout-example</span>
@@ -2599,10 +2784,33 @@ aaa-ingress     *         <span class="m">127</span>.0.0.1,172.16.35.53      <sp
           <span class="nt">serviceName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">service2</span>
           <span class="nt">servicePort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="name-based-virtual-hosting">Name based virtual hosting<a class="headerlink" href="#name-based-virtual-hosting" title="Permanent link">&para;</a></h2>
 <p>根据域名分别路由到不同的service。</p>
-<div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">extensions/v1beta1</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">extensions/v1beta1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Ingress</span>
 <span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">name-virtual-host-ingress</span>
@@ -2626,10 +2834,19 @@ aaa-ingress     *         <span class="m">127</span>.0.0.1,172.16.35.53      <sp
           <span class="nt">serviceName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">service3</span>
           <span class="nt">servicePort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="tls">TLS<a class="headerlink" href="#tls" title="Permanent link">&para;</a></h2>
 <p>创建一个包含TLS私钥和证书的secret。</p>
-<div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">data</span><span class="p">:</span>
   <span class="nt">tls.crt</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">base64 encoded cert</span>
   <span class="nt">tls.key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">base64 encoded key</span>
@@ -2639,9 +2856,26 @@ aaa-ingress     *         <span class="m">127</span>.0.0.1,172.16.35.53      <sp
   <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
 <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Opaque</span>
 </pre></div>
+</td></tr></table>
 
 <p>创建ingress并指定secret。</p>
-<div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">extensions/v1beta1</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">extensions/v1beta1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Ingress</span>
 <span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tls-example-ingress</span>
@@ -2659,6 +2893,7 @@ aaa-ingress     *         <span class="m">127</span>.0.0.1,172.16.35.53      <sp
             <span class="nt">serviceName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">service1</span>
             <span class="nt">servicePort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
 </pre></div>
+</td></tr></table>
 
 <p>参考：<br />
 <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">https://kubernetes.io/docs/concepts/services-networking/ingress/</a>  </p>
@@ -2669,22 +2904,6 @@ aaa-ingress     *         <span class="m">127</span>.0.0.1,172.16.35.53      <sp
               
                 
 
-
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/cloud/container/Kubenetes网络/";
-      this.page.identifier =
-        "cloud/container/Kubenetes网络/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>

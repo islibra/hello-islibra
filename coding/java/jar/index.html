@@ -69,31 +69,6 @@
     
     
       
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
     
     
   </head>
@@ -1911,6 +1886,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../environment/os/Shebang/" title="Shebang" class="md-nav__link">
+      Shebang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../environment/os/Tips/" title="Tips" class="md-nav__link">
       Tips
     </a>
@@ -2234,6 +2221,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Health
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Health
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
+      鼻炎
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2343,6 +2366,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
+      CRC碰撞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
       构建字典
     </a>
@@ -2390,13 +2425,19 @@
                 
                 
                 <h1 id="linuxjar">Linux后台运行jar<a class="headerlink" href="#linuxjar" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span>java -jar XXX.jar  <span class="c1">#当前ssh窗口被锁定；使用Ctrl + C打断程序运行；窗口关闭，程序退出。</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>java -jar XXX.jar  <span class="c1">#当前ssh窗口被锁定；使用Ctrl + C打断程序运行；窗口关闭，程序退出。</span>
 java -jar XXX.jar <span class="p">&amp;</span>  <span class="c1">#后台运行；窗口关闭，程序退出。</span>
 nohup java -jar XXX.jar <span class="p">&amp;</span>  <span class="c1">#终端关闭，程序仍然运行。所有输出被重定向到nohup.out。</span>
 nohup java -jar XXX.jar &gt;temp.txt <span class="p">&amp;</span>  <span class="c1">#输出重定向。</span>
 <span class="nb">jobs</span>  <span class="c1">#查看后台运行的任务，显示编号。</span>
 <span class="nb">fg</span> <span class="m">23</span>  <span class="c1">#将编号指定任务调回到前台控制。</span>
 </pre></div>
+</td></tr></table>
 
 <h1 id="shelljar">使用批处理或shell启动jar<a class="headerlink" href="#shelljar" title="Permanent link">&para;</a></h1>
 <ol>
@@ -2405,16 +2446,28 @@ nohup java -jar XXX.jar &gt;temp.txt <span class="p">&amp;</span>  <span class="
 <li>拷贝依赖的库文件，到<code>${ROOT}\lib</code></li>
 <li>在<code>${ROOT}</code>创建bat文件：</li>
 </ol>
-<div class="codehilite"><pre><span></span>@echo off
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>@echo off
 start .<span class="se">\j</span>re<span class="se">\b</span>in<span class="se">\j</span>avaw.exe -jar .<span class="se">\t</span>est.jar
 @pause
 </pre></div>
+</td></tr></table>
 
 <blockquote>
 <p>如果是java.exe，默认显示运行窗口；javaw.exe默认不显示。</p>
 </blockquote>
 <p>或在<code>${ROOT}</code>创建sh文件：</p>
-<div class="codehilite"><pre><span></span>chmod -R <span class="m">740</span> *
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>chmod -R <span class="m">740</span> *
 <span class="nv">CLASSPATH</span><span class="o">=</span><span class="nv">$CLASSPATH</span>:./lib/com.springsource.oracle.jdbc-11.1.0.7.jar
 <span class="nv">CLASSPATH</span><span class="o">=</span><span class="nv">$CLASSPATH</span>:./lib/com.springsource.org.apache.log4j-1.2.16.jar
 <span class="nv">CLASSPATH</span><span class="o">=</span><span class="nv">$CLASSPATH</span>:./lib/dom4j-1.6.1.jar
@@ -2425,6 +2478,7 @@ start .<span class="se">\j</span>re<span class="se">\b</span>in<span class="se">
 <span class="nb">export</span> <span class="nv">classpath</span><span class="o">=</span><span class="nv">$CLASSPATH</span>
 ./jre/bin/java -Xms256m -Xmx1024m -classpath <span class="s2">&quot;</span><span class="nv">$CLASSPATH</span><span class="s2">&quot;</span> com.test.DBSync
 </pre></div>
+</td></tr></table>
 
 <blockquote>
 <p>bat启动需要在工程打包的时候，将<code>classpath</code>路径写入jar中的<code>META-INF</code>中的<code>MANIFEST.MF</code>文件，否则会报找不到类。</p>
@@ -2479,22 +2533,6 @@ start .<span class="se">\j</span>re<span class="se">\b</span>in<span class="se">
               
                 
 
-
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/coding/java/jar/";
-      this.page.identifier =
-        "coding/java/jar/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>

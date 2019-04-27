@@ -69,31 +69,6 @@
     
     
       
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
     
     
   </head>
@@ -1911,6 +1886,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../environment/os/Shebang/" title="Shebang" class="md-nav__link">
+      Shebang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../environment/os/Tips/" title="Tips" class="md-nav__link">
       Tips
     </a>
@@ -2234,6 +2221,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Health
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Health
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
+      鼻炎
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2343,6 +2366,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
+      CRC碰撞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
       构建字典
     </a>
@@ -2392,7 +2427,14 @@
                 <p>在XML中，<code>&lt;</code>和<code>&amp;</code>是非法的。<br />
 使用<code>&lt;![CDATA[xxx]]&gt;</code>忽略XML解析，常用于嵌入其他语言如SQL。</p>
 <h1 id="mybatis">示例：mybatis<a class="headerlink" href="#mybatis" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;allUserInfo&quot;</span> <span class="na">parameterType=</span><span class="s">&quot;java.util.HashMap&quot;</span> <span class="na">resultMap=</span><span class="s">&quot;userInfo1&quot;</span><span class="nt">&gt;</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;allUserInfo&quot;</span> <span class="na">parameterType=</span><span class="s">&quot;java.util.HashMap&quot;</span> <span class="na">resultMap=</span><span class="s">&quot;userInfo1&quot;</span><span class="nt">&gt;</span>
   <span class="cp">&lt;![CDATA[</span>
 <span class="cp">  SELECT newsEdit,newsId, newstitle FROM shoppingGuide  WHERE 1=1  AND  newsday &gt; #{startTime} AND newsday &lt;= #{endTime}</span>
 <span class="cp">  ]]&gt;</span>
@@ -2401,6 +2443,7 @@
   <span class="nt">&lt;/if&gt;</span>
 <span class="nt">&lt;/select&gt;</span>
 </pre></div>
+</td></tr></table>
                 
                   
                 
@@ -2408,22 +2451,6 @@
               
                 
 
-
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/coding/xml/CDATA/";
-      this.page.identifier =
-        "coding/xml/CDATA/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>

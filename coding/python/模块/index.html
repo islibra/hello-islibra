@@ -69,31 +69,6 @@
     
     
       
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
     
     
   </head>
@@ -1911,6 +1886,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../environment/os/Shebang/" title="Shebang" class="md-nav__link">
+      Shebang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../environment/os/Tips/" title="Tips" class="md-nav__link">
       Tips
     </a>
@@ -2234,6 +2221,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Health
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Health
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
+      鼻炎
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2343,6 +2366,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
+      CRC碰撞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
       构建字典
     </a>
@@ -2391,7 +2426,23 @@
                 
                 <h1 id="_1">导入<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>文件名即模块名，通过import导入，即可使用模块名.def定义的函数。</p>
-<div class="codehilite"><pre><span></span><span class="ch">#!/usr/local/bin/python</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="ch">#!/usr/local/bin/python</span>
 <span class="c1"># filename: func.py</span>
 <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="o">*</span><span class="n">arg</span><span class="p">):</span>
   <span class="nb">sum</span> <span class="o">=</span> <span class="n">w</span> <span class="o">+</span> <span class="n">h</span>
@@ -2409,18 +2460,44 @@
 <span class="n">localsum</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="n">area</span>
 <span class="k">print</span><span class="p">(</span><span class="n">localsum</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </pre></div>
+</td></tr></table>
 
 <h1 id="_2">只导入模块中的部分功能<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">func</span> <span class="kn">import</span> <span class="n">area</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">func</span> <span class="kn">import</span> <span class="n">area</span>
 <span class="k">print</span><span class="p">(</span><span class="n">area</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
+</td></tr></table>
 
 <ul>
 <li>模块内除方法外的代码用来初始化模块，在导入时被执行。</li>
 <li>全局变量只在模块内部有效。</li>
 </ul>
 <h1 id="_3">只在自身模块运行时执行<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="ch">#!/usr/local/bin/python</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="ch">#!/usr/local/bin/python</span>
 <span class="c1"># filename: func.py</span>
 
 <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="o">*</span><span class="n">arg</span><span class="p">):</span>
@@ -2445,18 +2522,32 @@
 
 <span class="k">print</span><span class="p">(</span><span class="n">area</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
+</td></tr></table>
 
 <p>执行结果：<br />
-<div class="codehilite"><pre><span></span>$ python mo.py
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ python mo.py
 inited..
 <span class="m">3</span>
 $ python func.py
 <span class="m">3</span>
 <span class="m">7</span>
 <span class="m">12</span>
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <h1 id="_4">打印模块内所有属性<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">demoFunc</span><span class="p">():</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">demoFunc</span><span class="p">():</span>
   <span class="k">return</span> <span class="mi">1</span>
 
 <span class="k">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">())</span>
@@ -2464,12 +2555,15 @@ $ python func.py
 <span class="c1">###</span>
 <span class="p">[</span><span class="s1">&#39;__annotations__&#39;</span><span class="p">,</span> <span class="s1">&#39;__builtins__&#39;</span><span class="p">,</span> <span class="s1">&#39;__cached__&#39;</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">,</span> <span class="s1">&#39;__file__&#39;</span><span class="p">,</span> <span class="s1">&#39;__loader__&#39;</span><span class="p">,</span> <span class="s1">&#39;__name__&#39;</span><span class="p">,</span> <span class="s1">&#39;__package__&#39;</span><span class="p">,</span> <span class="s1">&#39;__spec__&#39;</span><span class="p">,</span> <span class="s1">&#39;demoFunc&#39;</span><span class="p">]</span>
 </pre></div>
+</td></tr></table>
 
 <h1 id="_5">包<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
 <p>目录下需包含<code>__init__.py</code><br />
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">sound.effect</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">sound.effect</span>
 <span class="n">sound</span><span class="o">.</span><span class="n">effect</span><span class="o">.</span><span class="n">area</span><span class="p">()</span>
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
                 
                   
                 
@@ -2477,22 +2571,6 @@ $ python func.py
               
                 
 
-
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/coding/python/模块/";
-      this.page.identifier =
-        "coding/python/模块/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>

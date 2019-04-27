@@ -69,31 +69,6 @@
     
     
       
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
     
     
   </head>
@@ -1898,12 +1873,6 @@
       
       
       
-        <li class="md-nav__item">
-          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
-            评论
-          </a>
-        </li>
-      
     </ul>
   
 </nav>
@@ -1943,6 +1912,18 @@
   <li class="md-nav__item">
     <a href="../Linux软件管理/" title="Linux软件管理" class="md-nav__link">
       Linux软件管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Shebang/" title="Shebang" class="md-nav__link">
+      Shebang
     </a>
   </li>
 
@@ -2276,6 +2257,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Health
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Health
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
+      鼻炎
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2385,6 +2402,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
+      CRC碰撞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
       构建字典
     </a>
@@ -2439,12 +2468,6 @@
       
       
       
-        <li class="md-nav__item">
-          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
-            评论
-          </a>
-        </li>
-      
     </ul>
   
 </nav>
@@ -2461,15 +2484,27 @@
                 
                 
                 <h1 id="_1">添加磁盘并开机自动挂载<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span>fdisk -l  <span class="c1">#查看磁盘名称</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>fdisk -l  <span class="c1">#查看磁盘名称</span>
 pvcreate /dev/xvde  <span class="c1">#创建PV</span>
 vgcreate vg1 /dev/xvde  <span class="c1">#创建VG</span>
 vgdisplay  <span class="c1">#查看VG大小</span>
 lvcreate -l ***** -n lv1 vg1  <span class="c1">#创建LV，*为VG大小</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="suse">SUSE<a class="headerlink" href="#suse" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>mkfs.ext3 -j /dev/vg1/lv1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mkfs.ext3 -j /dev/vg1/lv1
 tune2fs -c <span class="m">0</span> -i <span class="m">0</span> /dev/vg1/lv1  <span class="c1">#格式化磁盘</span>
 fdisk -l  <span class="c1">#查看磁盘状态，生成/dev/dm-0</span>
 mkdir /data  <span class="c1">#创建挂载目录</span>
@@ -2478,19 +2513,27 @@ vim /etc/fstab  <span class="c1">#重启后自动挂载</span>
 /dev/dm-0 /data ext3 defaults <span class="m">0</span> <span class="m">0</span>  <span class="c1">#在最后一行增加</span>
 df -h  <span class="c1">#查看磁盘挂载状态</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="ubuntu">Ubuntu<a class="headerlink" href="#ubuntu" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>mkfs.ext4 -j /dev/vg1/lv1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mkfs.ext4 -j /dev/vg1/lv1
 tune2fs -c <span class="m">0</span> -i <span class="m">0</span> /dev/vg1/lv1  <span class="c1">#格式化磁盘</span>
 mkdir /data  <span class="c1">#创建挂载目录</span>
 mount /dev/vg1/lv1 /data  <span class="c1">#挂载磁盘（注意如果目录中存在内容，将会被隐藏）</span>
 <span class="nb">echo</span> <span class="s2">&quot;/dev/mapper/vg1-lv1 /data ext4 defaults 0 0&quot;</span> &gt;&gt; /etc/fstab  <span class="c1">#开机自动挂载磁盘</span>
 </pre></div>
+</td></tr></table>
 
 <h1 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span>ll /dev/mapper/
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ll /dev/mapper/
 dmsetup remove vg1-lv1
 </pre></div>
+</td></tr></table>
                 
                   
                 
@@ -2498,22 +2541,6 @@ dmsetup remove vg1-lv1
               
                 
 
-
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/environment/os/Linux磁盘管理/";
-      this.page.identifier =
-        "environment/os/Linux磁盘管理/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>

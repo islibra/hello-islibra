@@ -69,31 +69,6 @@
     
     
       
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
     
     
   </head>
@@ -1561,12 +1536,6 @@
       
       
       
-        <li class="md-nav__item">
-          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
-            评论
-          </a>
-        </li>
-      
     </ul>
   
 </nav>
@@ -2000,6 +1969,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../environment/os/Shebang/" title="Shebang" class="md-nav__link">
+      Shebang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../environment/os/Tips/" title="Tips" class="md-nav__link">
       Tips
     </a>
@@ -2323,6 +2304,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Health
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Health
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
+      鼻炎
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2432,6 +2449,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
+      CRC碰撞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
       构建字典
     </a>
@@ -2533,12 +2562,6 @@
       
       
       
-        <li class="md-nav__item">
-          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
-            评论
-          </a>
-        </li>
-      
     </ul>
   
 </nav>
@@ -2564,6 +2587,7 @@
 <h2 id="_1">配置<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li>显示空格，TAB，换行符：<code>File - Settings - Editor</code>，勾选<code>Show Invisibles</code>。  </li>
+<li>更改Tab转换的空格数量：<code>File - Settings - Editor</code>，修改<code>Tab Length</code>为4。  </li>
 </ul>
 <h2 id="_2">快捷键<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2583,7 +2607,19 @@
 <h4 id="_6">方式一<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <p>解压后直接将文件夹拷贝到路径：<code>C:\Users\&lt;username&gt;\.atom\packages</code>，如在剪贴板粘贴截图：<code>Ctrl + Shift + V</code>  </p>
 <h4 id="_7">方式二<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>apm config list  <span class="c1"># 查看代理配置</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>apm config list  <span class="c1"># 查看代理配置</span>
 apm config <span class="nb">set</span> strict-ssl <span class="nb">false</span>
 apm config <span class="nb">set</span> http-proxy http://l0025xxxx:pass<span class="se">\@</span>word@proxy.xxx.com:8080
 apm config <span class="nb">set</span> https-proxy http://l0025xxxx:pass<span class="se">\@</span>word@proxy.xxx.com:8080
@@ -2597,6 +2633,7 @@ apm install minimap  <span class="c1"># 安装插件</span>
 <span class="c1"># npm config set https-proxy http://l0025xxxx:pass\@word@proxy.xxx.com:8080</span>
 <span class="c1"># npm install minimap -g  # 全局安装</span>
 </pre></div>
+</td></tr></table>
                 
                   
                 
@@ -2604,22 +2641,6 @@ apm install minimap  <span class="c1"># 安装插件</span>
               
                 
 
-
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/coding/writing/atom/";
-      this.page.identifier =
-        "coding/writing/atom/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>

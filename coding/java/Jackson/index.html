@@ -69,31 +69,6 @@
     
     
       
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
     
     
   </head>
@@ -1911,6 +1886,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../environment/os/Shebang/" title="Shebang" class="md-nav__link">
+      Shebang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../environment/os/Tips/" title="Tips" class="md-nav__link">
       Tips
     </a>
@@ -2234,6 +2221,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Health
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Health
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
+      鼻炎
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2343,6 +2366,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
+      CRC碰撞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
       构建字典
     </a>
@@ -2404,44 +2439,85 @@ Java实现的JSON库，用来解析或生成JSON，和POJO互转，或其他格�
 <h1 id="_1">使用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <ol>
 <li>创建POJO<br />
-<div class="codehilite"><pre><span></span><span class="c1">// Note: can use getters/setters as well; here we just use public fields directly:</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Note: can use getters/setters as well; here we just use public fields directly:</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyValue</span> <span class="o">{</span>
   <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
   <span class="kd">public</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
   <span class="c1">// NOTE: if using getters/setters, can keep fields `protected` or `private`</span>
 <span class="o">}</span>
-</pre></div></li>
+</pre></div>
+</td></tr></table></li>
 <li>创建<code>com.fasterxml.jackson.databind.ObjectMapper</code>实例<br />
-<div class="codehilite"><pre><span></span><span class="n">ObjectMapper</span> <span class="n">mapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectMapper</span><span class="o">();</span> <span class="c1">// create once, reuse</span>
-</pre></div></li>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ObjectMapper</span> <span class="n">mapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectMapper</span><span class="o">();</span> <span class="c1">// create once, reuse</span>
+</pre></div>
+</td></tr></table></li>
 <li>使用ObjectMapper读取JSON<br />
-<div class="codehilite"><pre><span></span><span class="n">MyValue</span> <span class="n">value</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">readValue</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;data.json&quot;</span><span class="o">),</span> <span class="n">MyValue</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">MyValue</span> <span class="n">value</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">readValue</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;data.json&quot;</span><span class="o">),</span> <span class="n">MyValue</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 <span class="c1">// or:</span>
 <span class="n">value</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">readValue</span><span class="o">(</span><span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">&quot;http://some.com/api/entry.json&quot;</span><span class="o">),</span> <span class="n">MyValue</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 <span class="c1">// or:</span>
 <span class="n">value</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">readValue</span><span class="o">(</span><span class="s">&quot;{\&quot;name\&quot;:\&quot;Bob\&quot;, \&quot;age\&quot;:13}&quot;</span><span class="o">,</span> <span class="n">MyValue</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-</pre></div></li>
+</pre></div>
+</td></tr></table></li>
 <li>将POJO格式化为JSON<br />
-<div class="codehilite"><pre><span></span><span class="n">mapper</span><span class="o">.</span><span class="na">writeValue</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;result.json&quot;</span><span class="o">),</span> <span class="n">myResultObject</span><span class="o">);</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">mapper</span><span class="o">.</span><span class="na">writeValue</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;result.json&quot;</span><span class="o">),</span> <span class="n">myResultObject</span><span class="o">);</span>
 <span class="c1">// or:</span>
 <span class="kt">byte</span><span class="o">[]</span> <span class="n">jsonBytes</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">writeValueAsBytes</span><span class="o">(</span><span class="n">myResultObject</span><span class="o">);</span>
 <span class="c1">// or:</span>
 <span class="n">String</span> <span class="n">jsonString</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">writeValueAsString</span><span class="o">(</span><span class="n">myResultObject</span><span class="o">);</span>
-</pre></div></li>
+</pre></div>
+</td></tr></table></li>
 <li>使用<code>Map</code>, <code>List</code>进行读写<br />
-<div class="codehilite"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">scoreByName</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">readValue</span><span class="o">(</span><span class="n">jsonSource</span><span class="o">,</span> <span class="n">Map</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">scoreByName</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">readValue</span><span class="o">(</span><span class="n">jsonSource</span><span class="o">,</span> <span class="n">Map</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">names</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">readValue</span><span class="o">(</span><span class="n">jsonSource</span><span class="o">,</span> <span class="n">List</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 
 <span class="c1">// and can obviously write out as well</span>
 <span class="n">mapper</span><span class="o">.</span><span class="na">writeValue</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;names.json&quot;</span><span class="o">),</span> <span class="n">names</span><span class="o">);</span>
-</pre></div></li>
+</pre></div>
+</td></tr></table></li>
 <li>使用POJO作为<code>Map</code>, <code>List</code>的value<br />
-<div class="codehilite"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">ResultValue</span><span class="o">&gt;</span> <span class="n">results</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">readValue</span><span class="o">(</span><span class="n">jsonSource</span><span class="o">,</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">ResultValue</span><span class="o">&gt;</span> <span class="n">results</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">readValue</span><span class="o">(</span><span class="n">jsonSource</span><span class="o">,</span>
    <span class="k">new</span> <span class="n">TypeReference</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">ResultValue</span><span class="o">&gt;&gt;()</span> <span class="o">{</span> <span class="o">}</span> <span class="o">);</span>
 <span class="c1">// why extra work? Java Type Erasure will prevent type detection otherwise</span>
-</pre></div></li>
+</pre></div>
+</td></tr></table></li>
 <li>解析JSON tree<br />
-<div class="codehilite"><pre><span></span><span class="c1">// can be read as generic JsonNode, if it can be Object or Array; or,</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// can be read as generic JsonNode, if it can be Object or Array; or,</span>
 <span class="c1">// if known to be Object, as ObjectNode, if array, ArrayNode etc:</span>
 <span class="n">ObjectNode</span> <span class="n">root</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">readTree</span><span class="o">(</span><span class="s">&quot;stuff.json&quot;</span><span class="o">);</span>
 <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">).</span><span class="na">asText</span><span class="o">();</span>
@@ -2458,9 +2534,35 @@ Java实现的JSON库，用来解析或生成JSON，和POJO互转，或其他格�
 <span class="c1">//      &quot;type&quot; : &quot;student&quot;</span>
 <span class="c1">//   }</span>
 <span class="c1">// }</span>
-</pre></div></li>
+</pre></div>
+</td></tr></table></li>
 <li>通过流解析<br />
-<div class="codehilite"><pre><span></span><span class="n">JsonFactory</span> <span class="n">f</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">getFactory</span><span class="o">();</span> <span class="c1">// may alternatively construct directly too</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">JsonFactory</span> <span class="n">f</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">getFactory</span><span class="o">();</span> <span class="c1">// may alternatively construct directly too</span>
 
 <span class="c1">// First: write simple JSON output</span>
 <span class="n">File</span> <span class="n">jsonFile</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;test.json&quot;</span><span class="o">);</span>
@@ -2486,9 +2588,21 @@ Java实现的JSON库，用来解析或生成JSON，和POJO互转，或其他格�
 <span class="n">String</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">getText</span><span class="o">();</span>
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;My message to you is: %s!\n&quot;</span><span class="o">,</span> <span class="n">msg</span><span class="o">);</span>
 <span class="n">p</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-</pre></div></li>
+</pre></div>
+</td></tr></table></li>
 <li>将POJO通过JSON转换为另一个POJO<br />
-<div class="codehilite"><pre><span></span><span class="n">ResultType</span> <span class="n">result</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">convertValue</span><span class="o">(</span><span class="n">sourceObject</span><span class="o">,</span> <span class="n">ResultType</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ResultType</span> <span class="n">result</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">convertValue</span><span class="o">(</span><span class="n">sourceObject</span><span class="o">,</span> <span class="n">ResultType</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 <span class="c1">// 例：</span>
 <span class="c1">// Convert from List&lt;Integer&gt; to int[]</span>
 <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">sourceList</span> <span class="o">=</span> <span class="o">...;</span>
@@ -2500,10 +2614,43 @@ Java实现的JSON库，用来解析或生成JSON，和POJO互转，或其他格�
 <span class="c1">// decode Base64! (default byte[] representation is base64-encoded String)</span>
 <span class="n">String</span> <span class="n">base64</span> <span class="o">=</span> <span class="s">&quot;TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlz&quot;</span><span class="o">;</span>
 <span class="kt">byte</span><span class="o">[]</span> <span class="n">binary</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">convertValue</span><span class="o">(</span><span class="n">base64</span><span class="o">,</span> <span class="kt">byte</span><span class="o">[].</span><span class="na">class</span><span class="o">);</span>
-</pre></div></li>
+</pre></div>
+</td></tr></table></li>
 </ol>
 <h1 id="_2">配置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="c1">// higher-level</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// higher-level</span>
 <span class="c1">// SerializationFeature for changing how JSON is written</span>
 
 <span class="c1">// to enable standard indentation (&quot;pretty-printing&quot;):</span>
@@ -2537,10 +2684,21 @@ Java实现的JSON库，用来解析或生成JSON，和POJO互转，或其他格�
 <span class="c1">// to force escaping of non-ASCII characters:</span>
 <span class="n">mapper</span><span class="o">.</span><span class="na">configure</span><span class="o">(</span><span class="n">JsonGenerator</span><span class="o">.</span><span class="na">Feature</span><span class="o">.</span><span class="na">ESCAPE_NON_ASCII</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
 </pre></div>
+</td></tr></table>
 
 <h1 id="_3">注解<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
 <h2 id="pojojsonproperty">修改POJO与JSON中映射的property名称<a class="headerlink" href="#pojojsonproperty" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyBean</span> <span class="o">{</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyBean</span> <span class="o">{</span>
    <span class="kd">private</span> <span class="n">String</span> <span class="n">_name</span><span class="o">;</span>
 
    <span class="c1">// without annotation, we&#39;d get &quot;theName&quot;, but we want &quot;name&quot;:</span>
@@ -2552,9 +2710,27 @@ Java实现的JSON库，用来解析或生成JSON，和POJO互转，或其他格�
    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setTheName</span><span class="o">(</span><span class="n">String</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span> <span class="n">_name</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span> <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="properties">忽略properties<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="c1">// means that if we see &quot;foo&quot; or &quot;bar&quot; in JSON, they will be quietly skipped</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// means that if we see &quot;foo&quot; or &quot;bar&quot; in JSON, they will be quietly skipped</span>
 <span class="c1">// regardless of whether POJO has such properties</span>
 <span class="nd">@JsonIgnoreProperties</span><span class="o">({</span> <span class="s">&quot;foo&quot;</span><span class="o">,</span> <span class="s">&quot;bar&quot;</span> <span class="o">})</span>  <span class="c1">//忽略多个</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyBean</span>
@@ -2573,9 +2749,32 @@ Java实现的JSON库，用来解析或生成JSON，和POJO互转，或其他格�
    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getCode</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">_code</span><span class="o">;</span> <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="_4">定义构造方法<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CtorBean</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CtorBean</span>
 <span class="o">{</span>
   <span class="kd">public</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
   <span class="kd">public</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
@@ -2599,6 +2798,7 @@ Java实现的JSON库，用来解析或生成JSON，和POJO互转，或其他格�
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
+</td></tr></table>
 
 <p>参考：<a href="https://github.com/FasterXML/jackson-databind/">Jackson in N minutes</a></p>
                 
@@ -2608,22 +2808,6 @@ Java实现的JSON库，用来解析或生成JSON，和POJO互转，或其他格�
               
                 
 
-
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/coding/java/Jackson/";
-      this.page.identifier =
-        "coding/java/Jackson/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>

@@ -69,31 +69,6 @@
     
     
       
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
     
     
   </head>
@@ -1902,6 +1877,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../Shebang/" title="Shebang" class="md-nav__link">
+      Shebang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../Tips/" title="Tips" class="md-nav__link">
       Tips
     </a>
@@ -2234,6 +2221,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Health
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Health
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
+      鼻炎
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2343,6 +2366,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
+      CRC碰撞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
       构建字典
     </a>
@@ -2404,7 +2439,13 @@
 <blockquote>
 <p>%groupname  #用户组</p>
 </blockquote>
-<div class="codehilite"><pre><span></span>user    <span class="nv">MACHINE</span><span class="o">=</span>COMMANDS
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>user    <span class="nv">MACHINE</span><span class="o">=</span>COMMANDS
 root    <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span>       ALL  <span class="c1">#允许root在所有机器上执行所有命令</span>
 %sys <span class="nv">ALL</span> <span class="o">=</span> NETWORKING, SOFTWARE, SERVICES, STORAGE, DELEGATING, PROCESSES, LOCATE, DRIVERS  <span class="c1">#允许sys用户组执行网络等命令</span>
 %wheel        <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span>       NOPASSWD: ALL  <span class="c1">#允许wheel用户组在不输入自己密码的情况下执行所有命令</span>
@@ -2412,10 +2453,19 @@ root    <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)
 %users  <span class="nv">localhost</span><span class="o">=</span>/sbin/shutdown -h now  <span class="c1">#允许users用户组在本机执行关机操作</span>
 xxx <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span> NOPASSWD: /usr/bin/su  <span class="c1">#允许xxx用户在不输入自己密码的情况下执行/usr/bin/su命令</span>
 </pre></div>
+</td></tr></table>
 
 <blockquote>
-<p><code>#include /etc/sudoers.d/sudoers.paas</code>  #包含其他文件<a href="前面的#不是注释。">^1</a></p>
+<p><code>#include /etc/sudoers.d/sudoers.paas</code>  #包含其他文件<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 </blockquote>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>前面的#不是注释。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 
@@ -2423,22 +2473,6 @@ xxx <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</sp
               
                 
 
-
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/environment/os/sudoers文件/";
-      this.page.identifier =
-        "environment/os/sudoers文件/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>

@@ -69,31 +69,6 @@
     
     
       
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
     
     
   </head>
@@ -1911,6 +1886,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../environment/os/Shebang/" title="Shebang" class="md-nav__link">
+      Shebang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../environment/os/Tips/" title="Tips" class="md-nav__link">
       Tips
     </a>
@@ -2234,6 +2221,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Health
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Health
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
+      鼻炎
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2343,6 +2366,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
+      CRC碰撞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
       构建字典
     </a>
@@ -2390,7 +2425,15 @@
                 
                 
                 <h1 id="if">if<a class="headerlink" href="#if" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please input:&quot;</span><span class="p">))</span>  <span class="c1"># 从标准输入，并转化为数字</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please input:&quot;</span><span class="p">))</span>  <span class="c1"># 从标准输入，并转化为数字</span>
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">data</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
@@ -2400,9 +2443,21 @@
 <span class="k">else</span><span class="p">:</span>
   <span class="k">print</span><span class="p">(</span><span class="s1">&#39;positive&#39;</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>输出结果：<br />
-<div class="codehilite"><pre><span></span>python stepone.py
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>python stepone.py
 Please input:-1
 -1
 negetive
@@ -2414,12 +2469,21 @@ python stepone.py
 Please input:2
 <span class="m">2</span>
 positive
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <blockquote>
 <p><strong>Tips:</strong> 无switch-case语句</p>
 </blockquote>
 <h1 id="while">while<a class="headerlink" href="#while" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please input:&quot;</span><span class="p">))</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please input:&quot;</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
 <span class="nb">sum</span><span class="p">,</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
@@ -2429,18 +2493,34 @@ positive
 
 <span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>输出结果：<br />
-<div class="codehilite"><pre><span></span>python stepone.py
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>python stepone.py
 Please input:5
 <span class="m">5</span>
 <span class="m">15</span>
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <blockquote>
 <p><strong>Tips:</strong> 无do..while语句</p>
 </blockquote>
 <h1 id="for">for<a class="headerlink" href="#for" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Cavin&#39;</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">]</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Cavin&#39;</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
   <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
@@ -2453,9 +2533,17 @@ Please input:5
   <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Sorry, cannot find Bob&#39;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;done&#39;</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>输出结果：<br />
-<div class="codehilite"><pre><span></span>python stepone.py
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>python stepone.py
 Alice
 Bob
 Cavin
@@ -2463,9 +2551,28 @@ David
 find Alice
 Great! I find Bob!
 <span class="k">done</span>
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <h1 id="range">range<a class="headerlink" href="#range" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="c1"># 左闭右开区间</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 左闭右开区间</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
   <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 
@@ -2485,9 +2592,25 @@ Great! I find Bob!
 <span class="n">ages</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>输出结果：<br />
-<div class="codehilite"><pre><span></span>python range.py
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>python range.py
 <span class="m">0</span>
 <span class="m">1</span>
 <span class="m">2</span>
@@ -2503,7 +2626,8 @@ Great! I find Bob!
 <span class="m">1</span> Bob
 <span class="m">2</span> David
 <span class="o">[</span><span class="m">0</span>, <span class="m">1</span>, <span class="m">2</span><span class="o">]</span>
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
                 
                   
                 
@@ -2511,22 +2635,6 @@ Great! I find Bob!
               
                 
 
-
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/coding/python/流程控制/";
-      this.page.identifier =
-        "coding/python/流程控制/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>

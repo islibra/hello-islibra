@@ -69,31 +69,6 @@
     
     
       
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
     
     
   </head>
@@ -1911,6 +1886,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../environment/os/Shebang/" title="Shebang" class="md-nav__link">
+      Shebang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../environment/os/Tips/" title="Tips" class="md-nav__link">
       Tips
     </a>
@@ -2234,6 +2221,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Health
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Health
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
+      鼻炎
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2343,6 +2366,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
+      CRC碰撞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
       构建字典
     </a>
@@ -2394,21 +2429,30 @@
 <li>在GitHub注册个人账号，并跟随向导创建Repository。</li>
 <li>安装<a href="https://git-scm.com/download/win">Git</a>。</li>
 <li>创建SSH KEY
-<div class="codehilite"><pre><span></span>git config --global user.name <span class="s2">&quot;username&quot;</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git config --global user.name <span class="s2">&quot;username&quot;</span>
 git config --global user.email <span class="s2">&quot;usermail&quot;</span>
 git config --global --list
 ssh-keygen -t rsa -C <span class="s2">&quot;usermail&quot;</span>  <span class="c1">#在默认路径生成.ssh/id_rsa.pub，使用记事本打开并拷贝内容，添加到GitHub上的SSH and GPG keys里。</span>
-</pre></div></li>
+</pre></div>
+</td></tr></table></li>
 </ul>
 <h1 id="nodejs">二、Node.js<a class="headerlink" href="#nodejs" title="Permanent link">&para;</a></h1>
 <p><a href="http://nodejs.org/">下载地址</a></p>
 <h1 id="hexo">三、Hexo<a class="headerlink" href="#hexo" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span>npm install -g hexo-cli  <span class="c1">#使用npm安装Hexo</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>npm install -g hexo-cli  <span class="c1">#使用npm安装Hexo</span>
 hexo init &lt;folder&gt;  <span class="c1">#初始化根目录</span>
 <span class="nb">cd</span> &lt;folder&gt;
 npm install
 npm install --save hexo-deployer-git  <span class="c1">#安装Git部署服务</span>
 </pre></div>
+</td></tr></table>
 
 <h1 id="_1">四、目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <blockquote>
@@ -2423,19 +2467,28 @@ npm install --save hexo-deployer-git  <span class="c1">#安装Git部署服务</s
 </blockquote>
 <h1 id="github-pages">五、与GitHub Pages关联<a class="headerlink" href="#github-pages" title="Permanent link">&para;</a></h1>
 <p>编辑<code>_config.yml</code>文件，添加</p>
-<div class="codehilite"><pre><span></span><span class="nt">deploy</span><span class="p">:</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">deploy</span><span class="p">:</span>
   <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">git</span>
   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">git@github.com:xxx.git</span>
   <span class="nt">branch</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
 </pre></div>
+</td></tr></table>
 
 <h1 id="_2">六、写作<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span>hexo new <span class="s2">&quot;My New Post&quot;</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>hexo new <span class="s2">&quot;My New Post&quot;</span>
 hexo server -p <span class="m">5000</span>
 hexo generate
 hexo deploy
 hexo clean
 </pre></div>
+</td></tr></table>
 
 <h1 id="_3">七、主题<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
 <p><a href="https://github.com/iissnan/hexo-theme-next/releases">NexT</a></p>
@@ -2446,22 +2499,6 @@ hexo clean
               
                 
 
-
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/coding/writing/使用Hexo搭建个人博客/";
-      this.page.identifier =
-        "coding/writing/使用Hexo搭建个人博客/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>

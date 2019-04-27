@@ -69,31 +69,6 @@
     
     
       
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
     
     
   </head>
@@ -1911,6 +1886,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../environment/os/Shebang/" title="Shebang" class="md-nav__link">
+      Shebang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../environment/os/Tips/" title="Tips" class="md-nav__link">
       Tips
     </a>
@@ -2234,6 +2221,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Health
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Health
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
+      鼻炎
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2343,6 +2366,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
+      CRC碰撞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
       构建字典
     </a>
@@ -2390,17 +2425,24 @@
                 
                 
                 <h1 id="_1">参数列表<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># 代码文件本身</span>
 <span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># 第一个参数</span>
 </pre></div>
+</td></tr></table>
 
 <p>执行结果：<br />
-<div class="codehilite"><pre><span></span>python stepone.py <span class="nb">test</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>python stepone.py <span class="nb">test</span>
 stepone.py
 <span class="nb">test</span>
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <h1 id="_2">子进程<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
 <p>subprocess，类似于shell，执行外部命令和程序。</p>
 <ul>
@@ -2408,43 +2450,76 @@ stepone.py
 <li>subprocess.check_call()，父进程等待子进程完成，返回0，如果returncode不为0，抛出错误<code>subprocess.CalledProcessError</code>，对象包含returncode属性，可用<code>try...except...</code>检查。</li>
 <li>subprocess.check_output()，父进程等待子进程完成，返回子进程向标准输出的输出结果，如果returncode不为0，抛出错误<code>subprocess.CalledProcessError</code>，对象包含returncode和output属性，可用<code>try...except...</code>检查。</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
 
 <span class="n">rs</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="s1">&#39;-l&#39;</span><span class="p">])</span>
 <span class="k">print</span><span class="p">(</span><span class="n">rs</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>执行结果：<br />
-<div class="codehilite"><pre><span></span>python subp.py
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>python subp.py
 total <span class="m">8</span>
 -rw-r--r-- <span class="m">1</span> root root <span class="m">70</span> Mar <span class="m">28</span> <span class="m">17</span>:05 stepone.py
 -rw-r--r-- <span class="m">1</span> root root <span class="m">83</span> Mar <span class="m">28</span> <span class="m">17</span>:19 subp.py
 <span class="m">0</span>
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <h2 id="shell">起一个shell运行<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
 
 <span class="n">rs</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;ls -l&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">rs</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>执行结果：<br />
-<div class="codehilite"><pre><span></span>python subp.py
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>python subp.py
 total <span class="m">8</span>
 -rw-r--r-- <span class="m">1</span> root root <span class="m">70</span> Mar <span class="m">28</span> <span class="m">17</span>:05 stepone.py
 -rw-r--r-- <span class="m">1</span> root root <span class="m">90</span> Mar <span class="m">28</span> <span class="m">17</span>:23 subp.py
 <span class="m">0</span>
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <h2 id="_3">底层调用<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>返回子进程，主程序不会自动等待子进程完成，必须调用wait()。</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
 
 <span class="n">child</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;ping&#39;</span><span class="p">,</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span><span class="s1">&#39;5&#39;</span><span class="p">,</span><span class="s1">&#39;www.huawei.com&#39;</span><span class="p">])</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;parent process&quot;</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>执行结果：<br />
-<div class="codehilite"><pre><span></span>python subp.py
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>python subp.py
 parent process
 root@SZX1000451827:/home/islibra/python# PING www.huawei.com <span class="o">(</span><span class="m">10</span>.3.42.32<span class="o">)</span> <span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span> bytes of data.
 <span class="m">64</span> bytes from <span class="m">10</span>.3.42.32: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">250</span> <span class="nv">time</span><span class="o">=</span><span class="m">2</span>.70 ms
@@ -2456,16 +2531,33 @@ root@SZX1000451827:/home/islibra/python# PING www.huawei.com <span class="o">(</
 --- www.huawei.com ping statistics ---
 <span class="m">5</span> packets transmitted, <span class="m">5</span> received, <span class="m">0</span>% packet loss, <span class="nb">time</span> 4006ms
 rtt min/avg/max/mdev <span class="o">=</span> <span class="m">2</span>.553/2.633/2.704/0.080 ms
-</pre></div></p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+</pre></div>
+</td></tr></table></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
 
 <span class="n">child</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;ping&#39;</span><span class="p">,</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span><span class="s1">&#39;5&#39;</span><span class="p">,</span><span class="s1">&#39;www.huawei.com&#39;</span><span class="p">])</span>
 <span class="n">child</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;parent process&quot;</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>执行结果：<br />
-<div class="codehilite"><pre><span></span>python subp.py
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>python subp.py
 PING www.huawei.com <span class="o">(</span><span class="m">10</span>.3.42.32<span class="o">)</span> <span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span> bytes of data.
 <span class="m">64</span> bytes from <span class="m">10</span>.3.42.32: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">250</span> <span class="nv">time</span><span class="o">=</span><span class="m">2</span>.86 ms
 <span class="m">64</span> bytes from <span class="m">10</span>.3.42.32: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">250</span> <span class="nv">time</span><span class="o">=</span><span class="m">2</span>.59 ms
@@ -2477,7 +2569,8 @@ PING www.huawei.com <span class="o">(</span><span class="m">10</span>.3.42.32<sp
 <span class="m">5</span> packets transmitted, <span class="m">5</span> received, <span class="m">0</span>% packet loss, <span class="nb">time</span> 4005ms
 rtt min/avg/max/mdev <span class="o">=</span> <span class="m">2</span>.594/2.823/2.960/0.133 ms
 parent process
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <ul>
 <li>child.poll()  # 检查子进程状态</li>
 <li>child.kill()  # 终止子进程</li>
@@ -2486,28 +2579,42 @@ parent process
 <li>child.pid  # 子进程ID</li>
 </ul>
 <h2 id="_4">控制输入输出流<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
 
 <span class="n">child1</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span><span class="s1">&#39;-l&#39;</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
 <span class="n">child2</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;grep&#39;</span><span class="p">,</span><span class="s1">&#39;sub&#39;</span><span class="p">],</span> <span class="n">stdin</span><span class="o">=</span><span class="n">child1</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
 <span class="n">out</span> <span class="o">=</span> <span class="n">child2</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>执行结果：<br />
-<div class="codehilite"><pre><span></span>python subp.py
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>python subp.py
 <span class="o">(</span>b<span class="s1">&#39;-rw-r--r-- 1 root root 226 Mar 28 18:58 subp.py\n&#39;</span>, None<span class="o">)</span>
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <p>communicate为阻塞式，可通过communicate为子进程作为输入：<br />
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
 
 <span class="n">child</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;wc&#39;</span><span class="p">],</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
 <span class="n">child</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="s2">&quot;home islibra python&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <p>执行结果：<br />
-<div class="codehilite"><pre><span></span>python subp.py
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>python subp.py
       <span class="m">0</span>       <span class="m">3</span>      <span class="m">19</span>
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
                 
                   
                 
@@ -2515,22 +2622,6 @@ parent process
               
                 
 
-
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/coding/python/subprocess/";
-      this.page.identifier =
-        "coding/python/subprocess/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>

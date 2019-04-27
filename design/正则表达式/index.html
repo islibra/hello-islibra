@@ -69,31 +69,6 @@
     
     
       
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
     
     
   </head>
@@ -1909,6 +1884,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../environment/os/Shebang/" title="Shebang" class="md-nav__link">
+      Shebang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../environment/os/Tips/" title="Tips" class="md-nav__link">
       Tips
     </a>
@@ -2232,6 +2219,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Health
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Health
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
+      鼻炎
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2341,6 +2364,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../security/code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
+      CRC碰撞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../security/code/构建字典/" title="构建字典" class="md-nav__link">
       构建字典
     </a>
@@ -2388,7 +2423,27 @@
                 
                 
                 <h1 id="java">Java<a class="headerlink" href="#java" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&quot;This is 1 string to test regex.&quot;</span><span class="o">;</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&quot;This is 1 string to test regex.&quot;</span><span class="o">;</span>
 <span class="n">String</span> <span class="n">pat</span> <span class="o">=</span> <span class="s">&quot;(.*)(\\d+)(.*)&quot;</span><span class="o">;</span>
 
 <span class="n">Pattern</span> <span class="n">pattern</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="n">pat</span><span class="o">);</span>  <span class="c1">//创建 Pattern 对象</span>
@@ -2410,6 +2465,7 @@
 <span class="kd">public</span> <span class="n">String</span> <span class="nf">replaceFirst</span><span class="o">(</span><span class="n">String</span> <span class="n">replacement</span><span class="o">)</span>  <span class="c1">//替换第一个匹配</span>
 <span class="kd">public</span> <span class="n">String</span> <span class="nf">replaceAll</span><span class="o">(</span><span class="n">String</span> <span class="n">replacement</span><span class="o">)</span>  <span class="c1">//替换所有匹配</span>
 </pre></div>
+</td></tr></table>
 
 <blockquote>
 <p><code>(?i)abc</code> 表示abc都忽略大小写
@@ -2418,7 +2474,21 @@
 </blockquote>
 <p>也可以用<code>Pattern.compile(rexp,Pattern.CASE_INSENSITIVE)</code>表示整体都忽略大小写。</p>
 <h1 id="javascript">JavaScript<a class="headerlink" href="#javascript" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s1">&#39;BoxShow,(,REBOOT,STOP,30,),BoxConfirm,BoxShow,(,HOME,UP,ENTER,MENU,RIGHT,RIGHT,RIGHT,ENTER,DOWN,ENTER,ENTER,ENTER,STOP,50,DOWN,STOP,5,DOWN,STOP,5,),BoxConfirm,(,HOME,UP,ENTER,MENU,RIGHT,RIGHT,RIGHT,DOWN,DOWN,ENTER,ENTER,ENTER,STOP,50,DOWN,STOP,120,),BoxConfirm,BoxConfirm,BoxConfirm&#39;</span><span class="p">;</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s1">&#39;BoxShow,(,REBOOT,STOP,30,),BoxConfirm,BoxShow,(,HOME,UP,ENTER,MENU,RIGHT,RIGHT,RIGHT,ENTER,DOWN,ENTER,ENTER,ENTER,STOP,50,DOWN,STOP,5,DOWN,STOP,5,),BoxConfirm,(,HOME,UP,ENTER,MENU,RIGHT,RIGHT,RIGHT,DOWN,DOWN,ENTER,ENTER,ENTER,STOP,50,DOWN,STOP,120,),BoxConfirm,BoxConfirm,BoxConfirm&#39;</span><span class="p">;</span>
 <span class="c1">//var reg=new RegExp(&#39;regstr&#39;);</span>
 <span class="c1">//var reg=/regstr/ig;  //直接量法创建正则表达式</span>
 <span class="kd">var</span> <span class="nx">reg</span><span class="o">=</span><span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s1">&#39;\\(,[a-zA-Z0-9,]+,\\)&#39;</span><span class="p">,</span><span class="s1">&#39;ig&#39;</span><span class="p">);</span>  <span class="c1">//匹配 (,字母数字英文都好,) 并替换为#</span>
@@ -2434,6 +2504,7 @@
 <span class="kd">var</span> <span class="nx">ary</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">reg</span><span class="p">);</span>  <span class="c1">//查找字符串中的匹配项并返回数组</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ary</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
 </pre></div>
+</td></tr></table>
                 
                   
                 
@@ -2441,22 +2512,6 @@
               
                 
 
-
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/design/正则表达式/";
-      this.page.identifier =
-        "design/正则表达式/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>

@@ -69,31 +69,6 @@
     
     
       
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
     
     
   </head>
@@ -1911,6 +1886,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../environment/os/Shebang/" title="Shebang" class="md-nav__link">
+      Shebang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../environment/os/Tips/" title="Tips" class="md-nav__link">
       Tips
     </a>
@@ -2234,6 +2221,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Health
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Health
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
+      鼻炎
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2343,6 +2366,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
+      CRC碰撞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
       构建字典
     </a>
@@ -2391,9 +2426,11 @@
                 
                 <h1 id="_1">安装<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>下载<a href="https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz">源码包</a>，解压，执行<br />
-<div class="codehilite"><pre><span></span>./configure
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>./configure
 make <span class="p">&amp;</span> make install
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <p>报错：<code>zipimport.ZipImportError: can't decompress data; zlib not available</code><br />
 1. 安装<a href="https://www.zlib.net/zlib-1.2.11.tar.gz">zlib</a>
 1. 修改<code>Modules/Setup</code>中的<code>zlib zlibmodule.c -I$(prefix)/include -L$(exec_prefix)/lib -lz</code>，去掉前面注释。</p>
@@ -2402,9 +2439,11 @@ make <span class="p">&amp;</span> make install
 1. <code>apt-get install --reinstall zlibc zlib1g zlib1g-dev</code>
 1. <code>apt-get install libffi-dev libssl-dev libreadline-dev -y</code></p>
 <p>执行：<br />
-<div class="codehilite"><pre><span></span>/usr/local/bin/python3 -V
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>/usr/local/bin/python3 -V
 Python <span class="m">3</span>.7.2
 </pre></div>
+</td></tr></table>
 Done!</p>
 <h1 id="start">Start<a class="headerlink" href="#start" title="Permanent link">&para;</a></h1>
 <ul>
@@ -2414,7 +2453,17 @@ Done!</p>
 <li>复合赋值</li>
 </ul>
 <p>示例代码：<br />
-<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/python3</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/python3</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;hello world!&quot;</span><span class="p">)</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
 <span class="k">while</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
@@ -2425,10 +2474,19 @@ Done!</p>
 <span class="k">while</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
   <span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>  <span class="c1">#end关键字，控制单行输出，末尾添加指定字符。</span>
   <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <p>执行代码：<code>python hello.py</code></p>
 <h2 id="_2">注释<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="c1"># 这是单行注释</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 这是单行注释</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">这是多行注释</span>
@@ -2438,11 +2496,20 @@ Done!</p>
 <span class="sd">这也是多行注释</span>
 <span class="sd">&#39;&#39;&#39;</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="_3">数据类型<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Numbers: int, float, bool, complex，使用内置函数type()查询变量指向的 <strong>对象类型</strong>，如：<br />
-<div class="codehilite"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="mi">2j</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="mi">2j</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
 
 <span class="c1"># 数值运算</span>
@@ -2451,7 +2518,8 @@ Done!</p>
 <span class="mi">2</span><span class="o">*</span><span class="mi">3</span>  <span class="c1">#乘法</span>
 <span class="mi">2</span><span class="o">**</span><span class="mi">3</span>  <span class="c1">#乘方</span>
 <span class="mi">5</span><span class="o">+</span><span class="mf">4.2</span>  <span class="c1">#混合计算时，总是转换成浮点数</span>
-</pre></div></li>
+</pre></div>
+</td></tr></table></li>
 <li>String: 字符串：单引号，双引号，三引号指定多行字符串，自然字符串r"this is a line with \n"</li>
 <li>List</li>
 <li>Tuple</li>
@@ -2466,22 +2534,6 @@ Done!</p>
               
                 
 
-
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/coding/python/python/";
-      this.page.identifier =
-        "coding/python/python/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>

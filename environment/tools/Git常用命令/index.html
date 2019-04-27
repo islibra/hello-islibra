@@ -69,31 +69,6 @@
     
     
       
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
     
     
   </head>
@@ -1900,6 +1875,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../os/Shebang/" title="Shebang" class="md-nav__link">
+      Shebang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../os/Tips/" title="Tips" class="md-nav__link">
       Tips
     </a>
@@ -2234,6 +2221,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Health
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Health
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
+      鼻炎
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2343,6 +2366,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
+      CRC碰撞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
       构建字典
     </a>
@@ -2390,7 +2425,17 @@
                 
                 
                 <h1 id="merge">一、通过分支MERGE<a class="headerlink" href="#merge" title="Permanent link">&para;</a></h1>
-<p><div class="codehilite"><pre><span></span>git clone xxx.git <span class="c1">#将要提交代码仓路径clone到本地</span>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git clone xxx.git <span class="c1">#将要提交代码仓路径clone到本地</span>
 <span class="nb">cd</span> <span class="c1">#进入代码目录</span>
 git branch <span class="c1">#查看当前分支</span>
 git pull origin master <span class="c1">#更新本地分支</span>
@@ -2402,10 +2447,22 @@ git add -A . <span class="c1">#将本地修改的文件add到本地仓个人分�
 git commit -m <span class="s2">&quot;xxx&quot;</span> <span class="c1">#将本地修改的文件提交到本地仓个人分支</span>
 git push origin newbranch <span class="c1">#将本地修改的文件提交到远程仓个人分支</span>
 </pre></div>
+</td></tr></table>
 发起merge，从远程仓个人分支merge到远程仓主干分支</p>
 <h1 id="fork">二、Fork个人仓<a class="headerlink" href="#fork" title="Permanent link">&para;</a></h1>
 <p>将主干仓Fork到个人仓
-<div class="codehilite"><pre><span></span>git clone xxx.git <span class="c1">#将个人仓clone到本地</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git clone xxx.git <span class="c1">#将个人仓clone到本地</span>
 <span class="nb">cd</span> <span class="c1">#进入代码目录</span>
 git remote -v <span class="c1">#查看远程分支列表</span>
 git remote add projorigin projxxx.git <span class="c1">#增加主库分支到本地</span>
@@ -2418,6 +2475,7 @@ git add -A . <span class="c1">#将本地修改的文件add到本地仓</span>
 git commit -m <span class="s2">&quot;xxx&quot;</span> <span class="c1">#将本地修改的文件提交到本地仓</span>
 git push origin branchname <span class="c1">#将本地修改的文件提交到远程个人仓</span>
 </pre></div>
+</td></tr></table>
 发起merge，从远程个人仓merge到远程主干仓</p>
 <p>END</p>
                 
@@ -2427,22 +2485,6 @@ git push origin branchname <span class="c1">#将本地修改的文件提交到�
               
                 
 
-
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/environment/tools/Git常用命令/";
-      this.page.identifier =
-        "environment/tools/Git常用命令/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>
