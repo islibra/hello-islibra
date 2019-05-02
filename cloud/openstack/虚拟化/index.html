@@ -40,7 +40,7 @@
     
     
       
-        <title>虚拟化</title>
+        <title>虚拟化 - islibra</title>
       
     
     
@@ -106,7 +106,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#1" tabindex="1" class="md-skip">
+      <a href="#_1" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -553,9 +553,65 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        虚拟化
+      </label>
+    
     <a href="./" title="虚拟化" class="md-nav__link md-nav__link--active">
       虚拟化
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1型虚拟化" class="md-nav__link">
+    1型虚拟化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2型虚拟化" class="md-nav__link">
+    2型虚拟化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kvm" title="KVM" class="md-nav__link">
+    KVM
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kvm_1" title="安装KVM包" class="md-nav__link">
+    安装KVM包
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -2210,8 +2266,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../other/dts/SVN：Previous operation has not finished; run 'cleanup' if it was interrupted/" title="SVN：Previous operation has not finished; run 'cleanup' if it was interrupted" class="md-nav__link">
-      SVN：Previous operation has not finished; run 'cleanup' if it was interrupted
+    <a href="../../../other/dts/SVN_cleanup/" title="SVN_cleanup" class="md-nav__link">
+      SVN_cleanup
     </a>
   </li>
 
@@ -2435,6 +2491,49 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1型虚拟化" class="md-nav__link">
+    1型虚拟化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2型虚拟化" class="md-nav__link">
+    2型虚拟化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kvm" title="KVM" class="md-nav__link">
+    KVM
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kvm_1" title="安装KVM包" class="md-nav__link">
+    安装KVM包
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2448,7 +2547,8 @@
                   <a href="https://github.com/islibra/wiki/blob/master/docs/cloud/openstack/虚拟化.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <p>通过<code>Hypervisor</code>将物理机/宿主机（<code>Host</code>）的硬件资源虚拟化，并提供给虚拟机/客户机（<code>Guest</code>）使用。</p>
+                <h1 id="_1">虚拟化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>通过<code>Hypervisor</code>将物理机/宿主机（<code>Host</code>）的硬件资源虚拟化，并提供给虚拟机/客户机（<code>Guest</code>）使用。</p>
 <h2 id="1">1型虚拟化<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>直接安装在物理机上，如：</p>
 <ul>
@@ -2462,7 +2562,7 @@
 <li>VirualBox</li>
 <li>VMWare Workstation</li>
 </ul>
-<h1 id="kvm">KVM<a class="headerlink" href="#kvm" title="Permanent link">&para;</a></h1>
+<h2 id="kvm">KVM<a class="headerlink" href="#kvm" title="Permanent link">&para;</a></h2>
 <p>基于Linux内核实现，内核模块kvm.io用于管理CPU和内存，而存储和网络等IO由Linux内核和Qemu实现。</p>
 <p>KVM的管理工具：<code>Libvirt</code></p>
 <ul>
@@ -2470,7 +2570,11 @@
 <li>API库，可基于libvirt开发，如图形化的KVM管理工具virt-manager。启动图形化界面：<code>virt-manager</code></li>
 <li>virsh，KVM命令行工具。</li>
 </ul>
-<h2 id="kvm_1">安装KVM包<a class="headerlink" href="#kvm_1" title="Permanent link">&para;</a></h2>
+<h3 id="kvm_1">安装KVM包<a class="headerlink" href="#kvm_1" title="Permanent link">&para;</a></h3>
+<div class="admonition quote">
+<p class="admonition-title">参考链接</p>
+<p><a href="https://blog.csdn.net/shenhaifeiniao/article/details/69397000">在Mac上使用virtualbox虚拟机安装ubuntu</a></p>
+</div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -2517,8 +2621,8 @@ apt update
 </pre></div>
 </td></tr></table>
 
-<p>参考：<a href="http://www.cnblogs.com/CloudMan6/">http://www.cnblogs.com/CloudMan6/</a>
-已读：https://www.cnblogs.com/CloudMan6/p/5233484.html</p>
+<details class="quote"><summary>待阅读</summary><p><a href="https://www.cnblogs.com/CloudMan6/p/5233484.html">https://www.cnblogs.com/CloudMan6/p/5233484.html</a></p>
+</details>
                 
                   
                 
