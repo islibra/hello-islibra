@@ -541,9 +541,45 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        实验环境
+      </label>
+    
     <a href="./" title="实验环境" class="md-nav__link md-nav__link--active">
       实验环境
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#controller" title="controller" class="md-nav__link">
+    controller
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compute" title="compute" class="md-nav__link">
+    compute
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -2471,6 +2507,29 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#controller" title="controller" class="md-nav__link">
+    controller
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compute" title="compute" class="md-nav__link">
+    compute
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2486,6 +2545,39 @@
                 
                 <h1 id="_1">实验环境<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p><a href="https://docs.openstack.org/devstack/latest/">DevStack</a></p>
+<h2 id="controller">controller<a class="headerlink" href="#controller" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ubuntu</li>
+<li>4G</li>
+<li>80G(VDI, Dynamically allocated)</li>
+<li>eth0: 管理网络，internet, Bridged Adapter</li>
+<li>eth1: 租户网络，控制节点和计算节点互通，Internal Network</li>
+<li>eth2: 外网，Host-only Adapter</li>
+<li>安装光盘：ubuntu-16.04.1-server-amd64.iso</li>
+<li>开机安装操作系统，安装组件：<code>OpenSSH server</code>, <code>Virtual Machine host</code></li>
+<li>开启wifi，VM获取IP后，在终端ssh登录，sudo到root，设置root密码，配置<code>/etc/ssh/sshd_config</code>，修改<code>PermitRootLogin</code>为<code>yes</code>，重启ssh服务：<code>systemctl restart sshd.service</code>，使用root登录。</li>
+<li>配置IP，<code>/etc/network/interfaces</code>，<code>reboot</code>重启操作系统，使用固定IP登录。<ul>
+<li>eth0: DHCP修改为固定IP。</li>
+<li>eth1: 启用</li>
+<li>eth2: 启用</li>
+</ul>
+</li>
+<li>修改apt源：<code>/etc/apt/sources.list</code>，<code>apt-get update</code></li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li>ubuntu默认不允许root登录，因此需创建普通用户。</li>
+<li>安装过程中关闭wifi。</li>
+</ul>
+</div>
+<h2 id="compute">compute<a class="headerlink" href="#compute" title="Permanent link">&para;</a></h2>
+<ul>
+<li>2G</li>
+<li>40G</li>
+<li>eth0: Bridged Adapter</li>
+<li>eth1: Internal Network</li>
+</ul>
                 
                   
                 
