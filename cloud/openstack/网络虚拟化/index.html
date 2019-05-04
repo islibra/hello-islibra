@@ -533,8 +533,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../架构/" title="keystone" class="md-nav__link">
-      keystone
+    <a href="../实验环境/" title="实验环境" class="md-nav__link">
+      实验环境
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../架构/" title="架构" class="md-nav__link">
+      架构
     </a>
   </li>
 
@@ -615,6 +627,33 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kvmvlan" title="KVM实现VLAN" class="md-nav__link">
+    KVM实现VLAN
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="配置" class="md-nav__link">
+    配置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="总结" class="md-nav__link">
+    总结
+  </a>
   
 </li>
       
@@ -2578,6 +2617,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#kvmvlan" title="KVM实现VLAN" class="md-nav__link">
+    KVM实现VLAN
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="配置" class="md-nav__link">
+    配置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="总结" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
       
       
       
@@ -2637,7 +2703,10 @@
 </ul>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>启用VLAN虚拟网卡时，物理网卡接口上必须没有IP，且不能启用子网卡。</p>
+<ol>
+<li>VIP使用的是子网卡：<code>ifconfig eth0:0 x.x.x.x netmask 255.255.255.0 up</code></li>
+<li>启用VLAN虚拟网卡时，物理网卡接口上必须没有IP，且不能启用子网卡。</li>
+</ol>
 </div>
 <h3 id="ifconfig">ifconfig<a class="headerlink" href="#ifconfig" title="Permanent link">&para;</a></h3>
 <p>/sbin/ifconfig: 查看，配置，启用，禁用网络接口的工具。</p>
@@ -2646,6 +2715,31 @@
 <p>通过ifconfig为网卡指定的IP地址，只是用来调试网络用的，不会更改系统关于网卡的配置文件。</p>
 </div>
 <p>语法：ifconfig 接口 IP hw MAC netmask 掩码 broadcast 广播 [up/down]</p>
+<ul>
+<li>ifconfig -a: 查看所有网络接口状态。</li>
+<li>ifconfig eth0: 查看特定网络接口状态。</li>
+<li>ifconfig eth1 hw ether xx:xx:xx:xx:xx:xx: 设置网卡MAC地址，其中hw后面所接的是网络接口类型：ether表示以太网，其他如ax25, ARCnet, netrom...</li>
+</ul>
+<div class="admonition quote">
+<p class="admonition-title">参考链接</p>
+<p><a href="https://www.cnblogs.com/JohnABC/p/5951340.html">https://www.cnblogs.com/JohnABC/p/5951340.html</a></p>
+</div>
+<h2 id="kvmvlan">KVM实现VLAN<a class="headerlink" href="#kvmvlan" title="Permanent link">&para;</a></h2>
+<p>设置eth0的虚拟VLAN网卡eth0.10，VLANID为10。<br />
+eth0.10, vnet0都挂在brvlan10上。<br />
+Bridge上其他网络设备都自动加入到VLAN10中。</p>
+<h3 id="_4">配置<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>在HOST上配置文件路径：<code>/etc/network/interfaces</code>，增加eth0.10, brvlan10, eth0.20, brvlan20，重启HOST。<br />
+使用virt-manager分别将VM1, VM2的网卡挂到brvlan10, brvlan20上。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol>
+<li>通过VLAN隔离后，即使配置同一网段，VM1和VM2也不能互通。</li>
+<li>物理交换机可以进行数据交换和隔离，而Linux VLAN只能隔离，因为eth0不能拥有同一个VLANID的虚拟VLAN网卡。Linux Bridge实现交换，将同一VLAN的子设备挂到同一个Bridge上。</li>
+</ol>
+</div>
+<h2 id="_5">总结<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Linux Bridge + VLAN = 二层交换机</p>
                 
                   
                 
@@ -2666,7 +2760,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../架构/" title="keystone" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../架构/" title="架构" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -2675,7 +2769,7 @@
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                keystone
+                架构
               </span>
             </div>
           </a>
