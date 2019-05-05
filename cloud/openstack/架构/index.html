@@ -533,6 +533,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../neutron/" title="neutron" class="md-nav__link">
+      neutron
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../实验环境/" title="实验环境" class="md-nav__link">
       实验环境
     </a>
@@ -617,6 +629,13 @@
           <li class="md-nav__item">
   <a href="#_4" title="组件" class="md-nav__link">
     组件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="部署" class="md-nav__link">
+    部署
   </a>
   
 </li>
@@ -2039,6 +2058,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../environment/os/PXE/" title="PXE" class="md-nav__link">
+      PXE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../environment/os/Shebang/" title="Shebang" class="md-nav__link">
       Shebang
     </a>
@@ -2629,6 +2660,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_5" title="部署" class="md-nav__link">
+    部署
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2734,15 +2772,39 @@ nova-其他子服务和rabbitmq, mysql安装在控制节点上。</p>
 <p>提供网络服务，创建和管理L2, L3网络。</p>
 <h3 id="_4">组件<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ul>
-<li>neutron server, neutron plugins, neutron agents</li>
-<li>network provider</li>
-<li>message queue</li>
-<li>neutron database</li>
+<li>neutron server: 对外提供API，接收请求，调用plugin处理请求。</li>
+<li>neutron plugins: 处理server请求，维护逻辑网络状态，调用agent。<ul>
+<li>core plugin: 维护network, subnet, port</li>
+<li>service plugin: 维护routing, firewall, load balance</li>
+</ul>
+</li>
+<li>neutron agents: 运行在各节点。处理plugin请求，在provider上实现网络功能。</li>
+<li>network provider: 网络设备如Linux Bridge, Open vSwitch(OVS)或物理交换机。</li>
+<li>message queue: server, plugin, agent之间通信。</li>
+<li>neutron database(mysql): 存放network, subnet, port, router。</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>各服务的各组件都可以部署到不同的物理节点上。</p>
+<ul>
+<li>各服务的各组件都可以部署到不同的物理节点上。</li>
+<li>plugin定义network，agent创建network。</li>
+<li>plugin, agent, provider配套使用。</li>
+</ul>
 </div>
+<div class="admonition example">
+<p class="admonition-title">创建一个VLAN=100的network</p>
+<ol>
+<li>server接收到创建请求，通过queue(RabbitMQ)通知plugin</li>
+<li>plugin将network信息（名称，VLAN ID）保存到数据库，通过queue通知agent</li>
+<li>agent在节点的物理网卡上创建虚拟VLAN网卡如eth0.100，并创建bridge如brqxxx</li>
+</ol>
+</div>
+<h3 id="_5">部署<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ol>
+<li>控制节点：neutron server（集成core plugin, service plugin）</li>
+<li>控制节点或网络节点：core agent, service agent</li>
+<li>计算节点：core agent</li>
+</ol>
 <h2 id="cinder">cinder<a class="headerlink" href="#cinder" title="Permanent link">&para;</a></h2>
 <p>为VM提供Volume块存储。</p>
 <h2 id="swift">* swift<a class="headerlink" href="#swift" title="Permanent link">&para;</a></h2>
