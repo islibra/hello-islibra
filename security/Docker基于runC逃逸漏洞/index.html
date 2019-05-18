@@ -1395,8 +1395,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../coding/web/nginx/" title="架构" class="md-nav__link">
-      架构
+    <a href="../../coding/web/nginx/" title="nginx" class="md-nav__link">
+      nginx
     </a>
   </li>
 
@@ -1755,6 +1755,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../environment/net/greatwall/" title="greatwall" class="md-nav__link">
+      greatwall
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../environment/net/私网IP地址范围/" title="私网IP地址范围" class="md-nav__link">
       私网IP地址范围
     </a>
@@ -2055,6 +2067,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../environment/tools/virtualbox/" title="virtualbox" class="md-nav__link">
+      virtualbox
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../environment/tools/创建VPN/" title="创建VPN" class="md-nav__link">
       创建VPN
     </a>
@@ -2271,6 +2295,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../other/health/挂号/" title="挂号" class="md-nav__link">
+      挂号
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../other/health/鼻炎/" title="鼻炎" class="md-nav__link">
       鼻炎
     </a>
@@ -2397,6 +2433,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../adworld/" title="adworld" class="md-nav__link">
+      adworld
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ctf/" title="ctf" class="md-nav__link">
       ctf
     </a>
@@ -2445,6 +2493,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../rctf2019/" title="rctf2019" class="md-nav__link">
+      rctf2019
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../远程调用中的反序列化注入/" title="RMI" class="md-nav__link">
       RMI
     </a>
@@ -2458,13 +2518,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-8" type="checkbox" id="nav-7-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-10" type="checkbox" id="nav-7-10">
     
-    <label class="md-nav__link" for="nav-7-8">
+    <label class="md-nav__link" for="nav-7-10">
       Code
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-8">
+      <label class="md-nav__title" for="nav-7-10">
         Code
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2573,6 +2633,8 @@
                 
                 <h1 id="dockerrunc">Docker基于runC逃逸漏洞<a class="headerlink" href="#dockerrunc" title="Permanent link">&para;</a></h1>
 <h2 id="_1">触发条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>通过<code>docker exec -it &lt;CONTAINER ID&gt; /bin/bash</code>进入容器执行<code>/bin/bash</code>文件，将其覆盖为<code>#!/proc/self/exe</code>。</p>
+<p>添加可执行权限。</p>
 <p>容器中的进程以root权限运行。</p>
 <h2 id="proc">proc<a class="headerlink" href="#proc" title="Permanent link">&para;</a></h2>
 <p>系统自动将进程信息挂载到<code>/proc</code>。</p>
@@ -2818,6 +2880,15 @@ pwn
 <ul>
 <li>kubernetes: <a href="https://kubernetes.io/blog/2019/02/11/runc-and-cve-2019-5736/">https://kubernetes.io/blog/2019/02/11/runc-and-cve-2019-5736/</a></li>
 </ul>
+<div class="admonition quote">
+<p class="admonition-title">参考链接</p>
+<ul>
+<li>Go语言POC：<a href="https://github.com/Frichetten/CVE-2019-5736-PoC">https://github.com/Frichetten/CVE-2019-5736-PoC</a></li>
+<li>容器镜像：<a href="https://github.com/q3k/cve-2019-5736-poc">https://github.com/q3k/cve-2019-5736-poc</a></li>
+<li>touch文件POC：<a href="https://x3fwy.bitcron.com/post/runc-malicious-container-escape">https://x3fwy.bitcron.com/post/runc-malicious-container-escape</a></li>
+<li>嘶吼：<a href="https://www.4hou.com/vulnerable/16243.html">https://www.4hou.com/vulnerable/16243.html</a></li>
+</ul>
+</div>
                 
                   
                 
