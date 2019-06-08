@@ -686,7 +686,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="模板" class="md-nav__link">
+  <a href="#_5" title="导入包" class="md-nav__link">
+    导入包
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="模板" class="md-nav__link">
     模板
   </a>
   
@@ -1400,18 +1407,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../python/0x06_io/" title="0x06_io" class="md-nav__link">
-      0x06_io
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../python/0x06_模块/" title="0x06_模块" class="md-nav__link">
       0x06_模块
     </a>
@@ -1424,8 +1419,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../python/10_socket/" title="10_socket" class="md-nav__link">
-      10_socket
+    <a href="../python/0x07_io/" title="0x07_io" class="md-nav__link">
+      0x07_io
     </a>
   </li>
 
@@ -1436,8 +1431,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../python/7_异常/" title="7 异常" class="md-nav__link">
-      7 异常
+    <a href="../python/0x08_异常/" title="0x08_异常" class="md-nav__link">
+      0x08_异常
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../python/10_socket/" title="10_socket" class="md-nav__link">
+      10_socket
     </a>
   </li>
 
@@ -1495,10 +1502,46 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-7-15" type="checkbox" id="nav-3-7-15">
+    
+    <label class="md-nav__link" for="nav-3-7-15">
+      Spider
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-7-15">
+        Spider
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../python/爬虫/" title="爬虫" class="md-nav__link">
-      爬虫
+    <a href="../python/spider/0x00_请求/" title="0x00_请求" class="md-nav__link">
+      0x00_请求
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../python/spider/0x01_正则表达式/" title="0x01_正则表达式" class="md-nav__link">
+      0x01_正则表达式
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -3058,7 +3101,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="模板" class="md-nav__link">
+  <a href="#_5" title="导入包" class="md-nav__link">
+    导入包
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="模板" class="md-nav__link">
     模板
   </a>
   
@@ -3237,7 +3287,70 @@
 </pre></div>
 </td></tr></table></div>
 </div>
-<h2 id="_5">模板<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_5">导入包<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<div class="superfences-tabs">
+<input name="__tabs_6" type="radio" id="__tab_6_0" checked="checked" />
+<label for="__tab_6_0">python</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 0x00_导入文件名</span>
+<span class="kn">import</span> <span class="nn">filename</span>
+
+<span class="n">filename</span><span class="o">.</span><span class="n">func</span><span class="p">()</span>
+
+<span class="c1"># 0x01_只导入文件中def定义的方法</span>
+<span class="kn">from</span> <span class="nn">filename</span> <span class="kn">import</span> <span class="n">func</span>
+
+<span class="n">func</span><span class="p">()</span>
+
+<span class="c1"># 0x02_包目录下需包含空的__init__.py</span>
+<span class="kn">import</span> <span class="nn">sound.effect</span>
+<span class="n">sound</span><span class="o">.</span><span class="n">effect</span><span class="o">.</span><span class="n">area</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_6" type="radio" id="__tab_6_1" />
+<label for="__tab_6_1">go</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// project/src下的main.go</span>
+<span class="kn">package</span> <span class="nx">main</span>
+
+<span class="c1">// 创建包路径如：math/rand，目录内所有文件都是</span>
+<span class="kn">package</span> <span class="nx">rand</span>
+
+<span class="c1">//////</span>
+
+<span class="c1">// 导入包</span>
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;math/rand&quot;</span>
+<span class="p">)</span>
+
+<span class="nx">rand</span><span class="p">.</span><span class="nx">xxx</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<h2 id="_6">模板<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>
 </pre></div>
 </td></tr></table>

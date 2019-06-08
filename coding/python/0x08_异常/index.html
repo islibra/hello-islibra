@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://islibra.github.io/hello-islibra/coding/python/7_异常/">
+        <link rel="canonical" href="https://islibra.github.io/hello-islibra/coding/python/0x08_异常/">
       
       
         <meta name="author" content="李晓龙">
@@ -40,7 +40,7 @@
     
     
       
-        <title>7 异常 - islibra</title>
+        <title>0x08_异常 - islibra</title>
       
     
     
@@ -106,7 +106,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#0x08_" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -131,7 +131,7 @@
               islibra
             </span>
             <span class="md-header-nav__topic">
-              7 异常
+              0x08_异常
             </span>
           
         </div>
@@ -1315,18 +1315,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../0x06_io/" title="0x06_io" class="md-nav__link">
-      0x06_io
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../0x06_模块/" title="0x06_模块" class="md-nav__link">
       0x06_模块
     </a>
@@ -1339,8 +1327,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../10_socket/" title="10_socket" class="md-nav__link">
-      10_socket
+    <a href="../0x07_io/" title="0x07_io" class="md-nav__link">
+      0x07_io
     </a>
   </li>
 
@@ -1359,10 +1347,58 @@
       
     
     
-    <a href="./" title="7 异常" class="md-nav__link md-nav__link--active">
-      7 异常
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        0x08_异常
+      </label>
+    
+    <a href="./" title="0x08_异常" class="md-nav__link md-nav__link--active">
+      0x08_异常
     </a>
     
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="自定义异常" class="md-nav__link">
+    自定义异常
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="预定义的清理行为" class="md-nav__link">
+    预定义的清理行为
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../10_socket/" title="10_socket" class="md-nav__link">
+      10_socket
+    </a>
   </li>
 
         
@@ -1419,10 +1455,46 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-7-15" type="checkbox" id="nav-3-7-15">
+    
+    <label class="md-nav__link" for="nav-3-7-15">
+      Spider
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-7-15">
+        Spider
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../爬虫/" title="爬虫" class="md-nav__link">
-      爬虫
+    <a href="../spider/0x00_请求/" title="0x00_请求" class="md-nav__link">
+      0x00_请求
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../spider/0x01_正则表达式/" title="0x01_正则表达式" class="md-nav__link">
+      0x01_正则表达式
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -2929,6 +3001,29 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="自定义异常" class="md-nav__link">
+    自定义异常
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="预定义的清理行为" class="md-nav__link">
+    预定义的清理行为
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2939,10 +3034,11 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/islibra/wiki/blob/master/docs/coding/python/7_异常.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/islibra/wiki/blob/master/docs/coding/python/0x08_异常.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+                <h1 id="0x08_">0x08_异常<a class="headerlink" href="#0x08_" title="Permanent link">&para;</a></h1>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -2980,7 +3076,7 @@
 </pre></div>
 </td></tr></table>
 
-<h1 id="_1">自定义异常<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_1">自定义异常<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -3003,7 +3099,7 @@
 </pre></div>
 </td></tr></table>
 
-<h1 id="_2">预定义的清理行为<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<h2 id="_2">预定义的清理行为<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/tmp/sudoscript/subdir/status.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -3031,7 +3127,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../10_socket/" title="10_socket" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../0x07_io/" title="0x07_io" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -3040,19 +3136,19 @@
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                10_socket
+                0x07_io
               </span>
             </div>
           </a>
         
         
-          <a href="../8_类/" title="8 类" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../10_socket/" title="10_socket" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                8 类
+                10_socket
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
