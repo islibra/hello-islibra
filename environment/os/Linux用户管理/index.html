@@ -40,7 +40,7 @@
     
     
       
-        <title>Linux用户管理</title>
+        <title>Linux用户管理 - islibra</title>
       
     
     
@@ -106,7 +106,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#etcpasswd" tabindex="1" class="md-skip">
+      <a href="#linux" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -339,18 +339,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../cloud/container/Kubenetes常用命令/" title="Kubenetes常用命令" class="md-nav__link">
-      Kubenetes常用命令
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../../cloud/container/Kubenetes网络/" title="Kubenetes网络" class="md-nav__link">
       Kubenetes网络
     </a>
@@ -363,8 +351,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../cloud/container/docker常用命令/" title="docker常用命令" class="md-nav__link">
-      docker常用命令
+    <a href="../../../cloud/container/Kubernetes/" title="Kubernetes" class="md-nav__link">
+      Kubernetes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../cloud/container/docker/" title="docker" class="md-nav__link">
+      docker
     </a>
   </li>
 
@@ -483,6 +483,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../cloud/openstack/0x00_实验环境/" title="0x00_实验环境" class="md-nav__link">
+      0x00_实验环境
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../cloud/openstack/Neutron_LBaaS/" title="Neutron_LBaaS" class="md-nav__link">
       Neutron_LBaaS
     </a>
@@ -509,18 +521,6 @@
   <li class="md-nav__item">
     <a href="../../../cloud/openstack/neutron/" title="neutron" class="md-nav__link">
       neutron
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../cloud/openstack/实验环境/" title="实验环境" class="md-nav__link">
-      实验环境
     </a>
   </li>
 
@@ -821,6 +821,18 @@
   <li class="md-nav__item">
     <a href="../../../coding/go/beego/" title="beego" class="md-nav__link">
       beego
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coding/go/go语言安全编程/" title="go语言安全编程" class="md-nav__link">
+      go语言安全编程
     </a>
   </li>
 
@@ -2047,8 +2059,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Linux基本命令/" title="Linux基本命令" class="md-nav__link">
-      Linux基本命令
+    <a href="../Linux基本命令_shell/" title="Linux基本命令_shell" class="md-nav__link">
+      Linux基本命令_shell
     </a>
   </li>
 
@@ -2079,9 +2091,132 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Linux用户管理
+      </label>
+    
     <a href="./" title="Linux用户管理" class="md-nav__link md-nav__link--active">
       Linux用户管理
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="配置文件" class="md-nav__link">
+    配置文件
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etcpasswd" title="用户/etc/passwd" class="md-nav__link">
+    用户/etc/passwd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etcgroup" title="用户组/etc/group" class="md-nav__link">
+    用户组/etc/group
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="用户操作" class="md-nav__link">
+    用户操作
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0x00_" title="0x00_增加用户" class="md-nav__link">
+    0x00_增加用户
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x01_" title="0x01_修改用户" class="md-nav__link">
+    0x01_修改用户
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="修改密码" class="md-nav__link">
+    修改密码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="修改用户所属组" class="md-nav__link">
+    修改用户所属组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="修改用户描述信息" class="md-nav__link">
+    修改用户描述信息
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x02_" title="0x02_切换用户" class="md-nav__link">
+    0x02_切换用户
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="更改个人资讯" class="md-nav__link">
+    更改个人资讯
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -2176,8 +2311,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../grep_awk_sed/" title="grep_awk_sed" class="md-nav__link">
-      grep_awk_sed
+    <a href="../find_grep_awk_sed/" title="find_grep_awk_sed" class="md-nav__link">
+      find_grep_awk_sed
     </a>
   </li>
 
@@ -2637,18 +2772,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../security/go语言安全编程/" title="go语言安全编程" class="md-nav__link">
-      go语言安全编程
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../../security/kali/" title="kali" class="md-nav__link">
       kali
     </a>
@@ -2698,13 +2821,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9" type="checkbox" id="nav-7-9">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-8" type="checkbox" id="nav-7-8">
     
-    <label class="md-nav__link" for="nav-7-9">
+    <label class="md-nav__link" for="nav-7-8">
       Code
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-9">
+      <label class="md-nav__title" for="nav-7-8">
         Code
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2746,13 +2869,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-10" type="checkbox" id="nav-7-10">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9" type="checkbox" id="nav-7-9">
     
-    <label class="md-nav__link" for="nav-7-10">
+    <label class="md-nav__link" for="nav-7-9">
       Ctf
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-10">
+      <label class="md-nav__title" for="nav-7-9">
         Ctf
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2777,13 +2900,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-10-2" type="checkbox" id="nav-7-10-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9-2" type="checkbox" id="nav-7-9-2">
     
-    <label class="md-nav__link" for="nav-7-10-2">
+    <label class="md-nav__link" for="nav-7-9-2">
       Hwctf
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-7-10-2">
+      <label class="md-nav__title" for="nav-7-9-2">
         Hwctf
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2813,13 +2936,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-10-3" type="checkbox" id="nav-7-10-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9-3" type="checkbox" id="nav-7-9-3">
     
-    <label class="md-nav__link" for="nav-7-10-3">
+    <label class="md-nav__link" for="nav-7-9-3">
       Xctf
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-7-10-3">
+      <label class="md-nav__title" for="nav-7-9-3">
         Xctf
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2854,13 +2977,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-11" type="checkbox" id="nav-7-11">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-10" type="checkbox" id="nav-7-10">
     
-    <label class="md-nav__link" for="nav-7-11">
+    <label class="md-nav__link" for="nav-7-10">
       Cve
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-11">
+      <label class="md-nav__title" for="nav-7-10">
         Cve
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2902,13 +3025,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-12" type="checkbox" id="nav-7-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-11" type="checkbox" id="nav-7-11">
     
-    <label class="md-nav__link" for="nav-7-12">
+    <label class="md-nav__link" for="nav-7-11">
       Experience
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-12">
+      <label class="md-nav__title" for="nav-7-11">
         Experience
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2938,13 +3061,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-13" type="checkbox" id="nav-7-13">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-12" type="checkbox" id="nav-7-12">
     
-    <label class="md-nav__link" for="nav-7-13">
+    <label class="md-nav__link" for="nav-7-12">
       Sec tools
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-13">
+      <label class="md-nav__title" for="nav-7-12">
         Sec tools
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2989,6 +3112,116 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="配置文件" class="md-nav__link">
+    配置文件
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etcpasswd" title="用户/etc/passwd" class="md-nav__link">
+    用户/etc/passwd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etcgroup" title="用户组/etc/group" class="md-nav__link">
+    用户组/etc/group
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="用户操作" class="md-nav__link">
+    用户操作
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0x00_" title="0x00_增加用户" class="md-nav__link">
+    0x00_增加用户
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x01_" title="0x01_修改用户" class="md-nav__link">
+    0x01_修改用户
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="修改密码" class="md-nav__link">
+    修改密码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="修改用户所属组" class="md-nav__link">
+    修改用户所属组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="修改用户描述信息" class="md-nav__link">
+    修改用户描述信息
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x02_" title="0x02_切换用户" class="md-nav__link">
+    0x02_切换用户
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="更改个人资讯" class="md-nav__link">
+    更改个人资讯
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3002,37 +3235,59 @@
                   <a href="https://github.com/islibra/wiki/blob/master/docs/environment/os/Linux用户管理.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="etcpasswd">用户/etc/passwd<a class="headerlink" href="#etcpasswd" title="Permanent link">&para;</a></h1>
-<p>共7个字段，以冒号分隔。<br />
-用户名:口令:用户标识号:组标识号:注释性描述:主目录:登录Shell<br />
-- 用户标识号：是一个整数，系统内部用它来标识用户。一般情况下它与用户名是一一对应的。如果几个用户名对应的用户标识号是一样的，系统内部将把它们视为同一个用户，但是它们可以有不同的口令、不同的主目录以及不同的登录Shell等。通常用户标识号的取值范围是<code>0～65535</code>。0是超级用户root的标识号，1～99由系统保留，作为管理账号，普通用户的标识号从100开始。在Linux系统中，这个界限是500。</p>
-<h1 id="etcgroup">用户组/etc/group<a class="headerlink" href="#etcgroup" title="Permanent link">&para;</a></h1>
-<h1 id="_1">增加用户<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>useradd kk  <span class="c1">#添加用户kk</span>
+                <h1 id="linux">Linux用户管理<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h1>
+<h2 id="_1">配置文件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="etcpasswd">用户/etc/passwd<a class="headerlink" href="#etcpasswd" title="Permanent link">&para;</a></h3>
+<p>共7个字段，以冒号分隔。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>用户名:口令:用户标识号:组标识号:注释性描述:主目录:登录Shell
 </pre></div>
 </td></tr></table>
 
-<h1 id="_2">切换用户<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>whoami  <span class="c1">#显示当前用户</span>
-<span class="nb">pwd</span>  <span class="c1">#显示当前目录</span>
-su root  <span class="c1">#切换到root用户</span>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>用户标识号：是一个整数，系统内部用它来标识用户。一般情况下它与用户名是一一对应的。如果几个用户名对应的用户标识号是一样的，系统内部将把它们视为同一个用户，但是它们可以有不同的口令、不同的主目录以及不同的登录Shell等。通常用户标识号的取值范围是<code>0～65535</code>。0是超级用户root的标识号，1～99由系统保留，作为管理账号，普通用户的标识号从100开始。在Linux系统中，这个界限是500。</li>
+</ul>
+</div>
+<h3 id="etcgroup">用户组/etc/group<a class="headerlink" href="#etcgroup" title="Permanent link">&para;</a></h3>
+<h2 id="_2">用户操作<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="0x00_">0x00_增加用户<a class="headerlink" href="#0x00_" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>useradd xxx  <span class="c1"># 添加用户xxx</span>
 </pre></div>
 </td></tr></table>
 
-<h1 id="_3">修改密码<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<h3 id="0x01_">0x01_修改用户<a class="headerlink" href="#0x01_" title="Permanent link">&para;</a></h3>
+<h4 id="_3">修改密码<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>passwd w3cschool  <span class="c1">#设置w3cschool用户的密码</span>
-Enter new UNIX password:  <span class="c1">#输入新密码，输入的密码无回显</span>
-Retype new UNIX password:  <span class="c1">#确认密码</span>
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>passwd w3cschool  <span class="c1"># 设置w3cschool用户的密码</span>
+Enter new UNIX password:  <span class="c1"># 输入新密码，输入的密码无回显</span>
+Retype new UNIX password:  <span class="c1"># 确认密码</span>
 passwd: password updated successfully
 </pre></div>
 </td></tr></table>
 
-<h1 id="_4">更改个人资讯<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<h4 id="_4">修改用户所属组<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>usermod -g usergroup username
+</pre></div>
+</td></tr></table>
+
+<h4 id="_5">修改用户描述信息<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>usermod -c <span class="o">{</span>description<span class="o">}</span> xxx
+</pre></div>
+</td></tr></table>
+
+<h3 id="0x02_">0x02_切换用户<a class="headerlink" href="#0x02_" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>whoami  <span class="c1"># 显示当前用户</span>
+<span class="nb">pwd</span>  <span class="c1"># 显示当前目录</span>
+su - root  <span class="c1"># 切换到root用户</span>
+</pre></div>
+</td></tr></table>
+
+<h4 id="_6">更改个人资讯<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -3046,11 +3301,6 @@ Office <span class="o">[]</span>: hn
 Office Phone <span class="o">[]</span>: <span class="m">888888</span>
 Home Phone <span class="o">[]</span>: <span class="m">9999999</span>
 Finger information changed.
-</pre></div>
-</td></tr></table>
-
-<h1 id="_5">修改用户属性<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>usermod -g usergroup username
 </pre></div>
 </td></tr></table>
                 
