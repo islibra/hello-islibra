@@ -3367,46 +3367,72 @@
 <p class="admonition-title">Example</p>
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
-<label for="__tab_1_0">code</label>
-<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="hll"><span class="nx">size</span> <span class="o">:=</span> <span class="o">-</span><span class="mi">1</span>
-</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;size: &quot;</span><span class="p">,</span> <span class="nx">size</span><span class="p">)</span>
+<label for="__tab_1_0">错误的做法</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="hll"><span class="nx">size</span> <span class="o">:=</span> <span class="o">-</span><span class="mi">1</span>
+</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;size:&quot;</span><span class="p">,</span> <span class="nx">size</span><span class="p">)</span>
 <span class="hll"><span class="nx">ary</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">size</span><span class="p">)</span>
-</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;i made an array with -1&quot;</span><span class="p">)</span>
+</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;i made a slice with -1&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">ary</span> <span class="p">{</span>
-    <span class="nx">i</span> <span class="p">=</span> <span class="mi">0</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
 <span class="p">}</span>
+
+<span class="c1">////// output</span>
+<span class="nx">size</span><span class="p">:</span>  <span class="o">-</span><span class="mi">1</span>
+<span class="nx">panic</span><span class="p">:</span> <span class="nx">runtime</span> <span class="kt">error</span><span class="p">:</span> <span class="nx">makeslice</span><span class="p">:</span> <span class="nx">len</span> <span class="nx">out</span> <span class="nx">of</span> <span class="k">range</span>
+
+<span class="nx">goroutine</span> <span class="mi">1</span> <span class="p">[</span><span class="nx">running</span><span class="p">]:</span>
+<span class="nx">main</span><span class="p">.</span><span class="nx">main</span><span class="p">()</span>
+    <span class="nx">F</span><span class="p">:</span><span class="o">/</span><span class="k">go</span><span class="o">/</span><span class="nx">src</span><span class="o">/</span><span class="nx">hello</span><span class="o">/</span><span class="nx">hello</span><span class="p">.</span><span class="k">go</span><span class="p">:</span><span class="mi">129</span> <span class="o">+</span><span class="mh">0xca</span>
 </pre></div>
 </td></tr></table></div>
 <input name="__tabs_1" type="radio" id="__tab_1_1" />
-<label for="__tab_1_1">output</label>
-<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ hello.exe
-size:  -1
-panic: runtime error: makeslice: len out of range
+<label for="__tab_1_1">推荐的做法</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// make size为负值造成程序崩溃</span>
+<span class="nx">size</span> <span class="o">:=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;size:&quot;</span><span class="p">,</span> <span class="nx">size</span><span class="p">)</span>
 
-goroutine 1 [running]:
-main.main()
-    F:/go/src/hello/hello.go:129 +0xca
+<span class="hll"><span class="k">if</span> <span class="nx">size</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">size</span> <span class="p">&gt;</span> <span class="nx">math</span><span class="p">.</span><span class="nx">MaxInt32</span> <span class="p">{</span>
+</span>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;error&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">ary</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">size</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;i made a slice with -1&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">ary</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
 </div>
 </div>
-<ul>
-<li>循环计数器</li>
-</ul>
+</li>
+<li>
+<p>循环计数器</p>
 </li>
 </ul>
 </div>
