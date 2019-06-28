@@ -514,21 +514,14 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="官方指南" class="md-nav__link">
-    官方指南
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="部署拓扑" class="md-nav__link">
+  <a href="#_1" title="部署拓扑" class="md-nav__link">
     部署拓扑
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="网络规划" class="md-nav__link">
+  <a href="#_2" title="网络规划" class="md-nav__link">
     网络规划
   </a>
   
@@ -558,6 +551,19 @@
   <a href="#openstack" title="安装OpenStack" class="md-nav__link">
     安装OpenStack
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="官方指南" class="md-nav__link">
+    官方指南
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3111,21 +3117,14 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="官方指南" class="md-nav__link">
-    官方指南
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="部署拓扑" class="md-nav__link">
+  <a href="#_1" title="部署拓扑" class="md-nav__link">
     部署拓扑
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="网络规划" class="md-nav__link">
+  <a href="#_2" title="网络规划" class="md-nav__link">
     网络规划
   </a>
   
@@ -3156,6 +3155,19 @@
     安装OpenStack
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="官方指南" class="md-nav__link">
+    官方指南
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -3178,37 +3190,7 @@
                 
                 
                 <h1 id="0x00_">0x00_实验环境<a class="headerlink" href="#0x00_" title="Permanent link">&para;</a></h1>
-<p><a href="https://docs.openstack.org/devstack/latest/">DevStack</a></p>
-<h2 id="_1">官方指南<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<ol>
-<li>虚拟机镜像使用<code>ubuntu-18.04.2-desktop-amd64.iso</code></li>
-<li>增加用户<code>sudo useradd -s /bin/bash -d /opt/stack -m stack</code></li>
-<li>增加sudo权限<code>echo "stack ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/stack</code></li>
-<li>切换到stack用户<code>sudo su - stack</code></li>
-<li>下载DevStack<code>git clone https://git.openstack.org/openstack-dev/devstack</code>, <code>cd devstack</code> <span class="critic comment">以上已完成</span></li>
-<li>
-<p>在devstack目录下创建配置文件local.conf<br />
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>[[local|localrc]]
-ADMIN_PASSWORD=secret
-DATABASE_PASSWORD=$ADMIN_PASSWORD
-RABBIT_PASSWORD=$ADMIN_PASSWORD
-SERVICE_PASSWORD=$ADMIN_PASSWORD
-</pre></div>
-</td></tr></table></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>示例文件路径<code>/opt/stack/devstack/samples/local.conf</code></p>
-</div>
-</li>
-<li>
-<p>安装<code>./stack.sh</code></p>
-</li>
-</ol>
-<h2 id="_2">部署拓扑<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_1">部署拓扑<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ol>
 <li>控制节点：管理OpenStack，服务包含keystone, glance, horizon和部分nova, neutron，支撑服务MySQL, RabbitMQ, NTP。</li>
 <li>网络节点：neutron，提供虚拟机网络，DHCP，路由，NAT。</li>
@@ -3222,7 +3204,7 @@ SERVICE_PASSWORD=$ADMIN_PASSWORD
 <li>All-in-One: 四类节点部署在一个物理或虚拟服务器上。</li>
 </ul>
 </div>
-<h2 id="_3">网络规划<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_2">网络规划<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Management + API Network: OpenStack内部各服务之间通信。</li>
 <li>VM(Tenant) Network: 租户创建的VM使用的网络。</li>
@@ -3341,13 +3323,224 @@ deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe 
 </ul>
 <h2 id="openstack">安装OpenStack<a class="headerlink" href="#openstack" title="Permanent link">&para;</a></h2>
 <ol>
-<li>安装pip</li>
+<li>
+<p>安装pip: <code>apt-get update</code>, <code>apt-get install python-pip</code></p>
+<details class="note"><summary>配置pip国内镜像源</summary><ol>
+<li><code>vim ~/.pip/pip.conf</code></li>
+</ol>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>```
+[global]
+index-url = https://pypi.douban.com/simple
+download_cache = ~/.cache/pip
+[install]
+use-mirrors = true
+mirrors = http://pypi.douban.com/
+```
+</pre></div>
+</td></tr></table>
+
+<ol>
+<li>root和stack同样配置。</li>
+</ol>
+</details>
+</li>
+<li>
+<p>参考官方指南下载安装OpenStack。</p>
+</li>
+</ol>
+<p><a href="https://docs.openstack.org/devstack/latest/">DevStack</a></p>
+<h3 id="_3">官方指南<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ol>
+<li>虚拟机镜像使用<code>ubuntu-18.04.2-desktop-amd64.iso</code></li>
+<li>增加用户<code>sudo useradd -s /bin/bash -d /opt/stack -m stack</code></li>
+<li>增加sudo权限<code>echo "stack ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/stack</code></li>
+<li>切换到stack用户<code>sudo su - stack</code></li>
+<li>下载DevStack<code>git clone https://git.openstack.org/openstack-dev/devstack -b stable/newton</code>, <code>cd devstack</code> <span class="critic comment">以上已完成</span></li>
+<li>
+<p>在devstack目录下创建配置文件local.conf</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>[[local|localrc]]
+ADMIN_PASSWORD=secret
+DATABASE_PASSWORD=$ADMIN_PASSWORD
+RABBIT_PASSWORD=$ADMIN_PASSWORD
+SERVICE_PASSWORD=$ADMIN_PASSWORD
+</pre></div>
+</td></tr></table>
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>示例文件路径<code>/opt/stack/devstack/samples/local.conf</code></p>
+</div>
+<details class="example"><summary>local.conf</summary><div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">controller</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>[[local|localrc]]
+
+<span class="hll">MULTI_HOST=true  # 多个节点
+</span><span class="hll">HOST_IP=100.70.30.80  # 当前节点的IP, management &amp; api network
+</span>LOGFILE=/opt/stack/logs/stack.sh.log
+
+# Credentials
+<span class="hll">ADMIN_PASSWORD=admin
+</span>MYSQL_PASSWORD=secret
+RABBIT_PASSWORD=secret
+SERVICE_PASSWORD=secret
+SERVICE_TOKEN=abcdefghijklmnopqrstuvwxyz
+
+# enable neutron-ml2-vlan
+disable_service n-net
+# 安装和启动neutron服务
+<span class="hll">enable_service q-svc,q-agt,q-dhcp,q-l3,q-meta,neutron,q-lbaas,q-fwaas,q-vpn
+</span><span class="hll">Q_AGENT=linuxbridge
+</span>ENABLE_TENANT_VLANS=True
+TENANT_VLAN_RANGE=3001:4000
+PHYSICAL_NETWORK=default
+
+LOG_COLOR=False
+LOGDIR=$DEST/logs
+SCREEN_LOGDIR=$LOGDIR/screen
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">compute</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>[[local|localrc]]
+
+MULTI_HOST=true
+<span class="hll">HOST_IP=100.70.31.128  # management &amp; api network
+</span>
+# Credentials
+ADMIN_PASSWORD=admin
+MYSQL_PASSWORD=secret
+RABBIT_PASSWORD=secret
+SERVICE_PASSWORD=secret
+SERVICE_TOKEN=abcdefghijklmnopqrstuvwxyz
+
+<span class="hll"># 访问控制节点 Service information
+</span><span class="hll">SERVICE_HOST=100.70.30.80
+</span><span class="hll">MYSQL_HOST=$SERVICE_HOST
+</span><span class="hll">RABBIT_HOST=$SERVICE_HOST
+</span><span class="hll">GLANCE_HOSTPORT=$SERVICE_HOST:9292
+</span><span class="hll">Q_HOST=$SERVICE_HOST
+</span><span class="hll">KEYSTONE_AUTH_HOST=$SERVICE_HOST
+</span><span class="hll">KEYSTONE_SERVICE_HOST=$SERVICE_HOST
+</span>
+CEILOMETER_BACKEND=mongodb
+DATABASE_TYPE=mysql
+
+# 在计算节点中安装nova, neutron
+<span class="hll">ENABLED_SERVICES=n-cpu,q-agt,neutron
+</span>Q_AGENT=linuxbridge
+ENABLE_TENANT_VLANS=True
+TENANT_VLAN_RANGE=3001:4000
+PHYSICAL_NETWORK=default
+
+# vnc config
+NOVA_VNC_ENABLED=True
+NOVNCPROXY_URL=&quot;http://$SERVICE_HOST:6080/vnc_auto.html&quot;
+VNCSERVER_LISTEN=$HOST_IP
+VNCSERVER_PROXYCLIENT_ADDRESS=$VNCSERVER_LISTEN
+
+LOG_COLOR=False
+LOGDIR=$DEST/logs
+SCREEN_LOGDIR=$LOGDIR/screen
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_2" />
+<label for="__tab_1_2">devstack国内镜像</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span># use TryStack git mirror
+GIT_BASE=http://git.trystack.cn
+NOVNC_REPO=http://git.trystack.cn/kanaka/noVNC.git
+SPICE_REPO=http://git.trystack.cn/git/spice/spice-html5.git
+</pre></div>
+</td></tr></table></div>
+</div>
+</details>
+</li>
+<li>
+<p>安装<code>./stack.sh</code></p>
+</li>
 </ol>
 <div class="admonition quote">
 <p class="admonition-title">已读</p>
 <ul>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587901&amp;idx=1&amp;sn=21a38340604708a11f1d203b5500ccfb&amp;chksm=8d3081a4ba4708b292d285cddf18455870a28a2a7585b73d21507529e71fcc8c683a8c0169c2&amp;scene=21#wechat_redirect">搭建 OpenStack 实验环境 - 每天5分钟玩转 OpenStack（16）</a></li>
-<li><a href="https://mp.weixin.qq.com/s/g-bKZqRFUGXDghIfGJ16_g">视频 - 在 VirtualBox 中部署 OpenStack - 2 创建虚拟机并安装 Linux 已完成</a></li>
+<li><a href="https://mp.weixin.qq.com/s/g-bKZqRFUGXDghIfGJ16_g">视频 - 在 VirtualBox 中部署 OpenStack - 3 部署OpenStack 已完成</a></li>
 </ul>
 </div>
                 
