@@ -584,6 +584,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../0x01_架构/" title="0x01_架构" class="md-nav__link">
+      0x01_架构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../Neutron_LBaaS/" title="Neutron_LBaaS" class="md-nav__link">
       Neutron_LBaaS
     </a>
@@ -610,18 +622,6 @@
   <li class="md-nav__item">
     <a href="../neutron/" title="neutron" class="md-nav__link">
       neutron
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../架构/" title="架构" class="md-nav__link">
-      架构
     </a>
   </li>
 
@@ -3357,12 +3357,16 @@ deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe 
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>[global]
-index-url = https://pypi.douban.com/simple
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>[global]
+<span class="hll">index-url = https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/
+</span># https://pypi.douban.com/simple
 download_cache = ~/.cache/pip
 [install]
 use-mirrors = true
-mirrors = http://pypi.douban.com/
+<span class="hll">mirrors = http://mirrors.tuna.tsinghua.edu.cn/
+</span># http://pypi.douban.com/
 </pre></div>
 </td></tr></table></p>
 </li>
@@ -3564,7 +3568,15 @@ SPICE_REPO=http://git.trystack.cn/git/spice/spice-html5.git
 <li>Can't find package systemd-python in requirements<br />
 <code>cd requirements; git checkout stable/rocky;</code></li>
 <li>could not install deps
-    <a href="https://www.cnblogs.com/longchang/p/10980745.html">https://www.cnblogs.com/longchang/p/10980745.html</a></li>
+    <a href="https://www.cnblogs.com/longchang/p/10980745.html">https://www.cnblogs.com/longchang/p/10980745.html</a><br />
+<code>sudo pip install pbr==5.3.1 -i https://pypi.mirrors.ustc.edu.cn/simple/</code>
+    <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Collecting wrapt===1.11.2 (from -c https://releases.openstack.org/constraints/upper/master (line 550))
+Could not find a version that satisfies the requirement wrapt===1.11.2 (from -c https://releases.openstack.org/constraints/upper/master (line 550)) (from versions: 1.0.0, 1.1.0, 1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.2.0, 1.2.1, 1.3.0, 1.3.1, 1.4.0, 1.4.1, 1.4.2, 1.5.0, 1.5.1, 1.6.0, 1.7.0, 1.8.0, 1.9.0, 1.10.0, 1.10.1, 1.10.2, 1.10.4, 1.10.5, 1.10.6, 1.10.7, 1.10.8, 1.10.9, 1.10.10, 1.10.11, 1.11.0, 1.11.1)
+No matching distribution found for wrapt===1.11.2 (from -c https://releases.openstack.org/constraints/upper/master (line 550))
+</pre></div>
+</td></tr></table></li>
 </ol>
 </details>
 </li>
@@ -3611,13 +3623,13 @@ SPICE_REPO=http://git.trystack.cn/git/spice/spice-html5.git
           </a>
         
         
-          <a href="../Neutron_LBaaS/" title="Neutron_LBaaS" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../0x01_架构/" title="0x01_架构" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                Neutron_LBaaS
+                0x01_架构
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

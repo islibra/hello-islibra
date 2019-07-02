@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://islibra.github.io/hello-islibra/cloud/openstack/架构/">
+        <link rel="canonical" href="https://islibra.github.io/hello-islibra/cloud/openstack/0x01_架构/">
       
       
         <meta name="author" content="李晓龙">
@@ -40,7 +40,7 @@
     
     
       
-        <title>架构 - islibra</title>
+        <title>0x01_架构 - islibra</title>
       
     
     
@@ -106,7 +106,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#0x01_" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -131,7 +131,7 @@
               islibra
             </span>
             <span class="md-header-nav__topic">
-              架构
+              0x01_架构
             </span>
           
         </div>
@@ -497,42 +497,6 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="../Neutron_LBaaS/" title="Neutron_LBaaS" class="md-nav__link">
-      Neutron_LBaaS
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../VxLAN/" title="VxLAN" class="md-nav__link">
-      VxLAN
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../neutron/" title="neutron" class="md-nav__link">
-      neutron
-    </a>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
@@ -544,11 +508,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        架构
+        0x01_架构
       </label>
     
-    <a href="./" title="架构" class="md-nav__link md-nav__link--active">
-      架构
+    <a href="./" title="0x01_架构" class="md-nav__link md-nav__link--active">
+      0x01_架构
     </a>
     
       
@@ -591,14 +555,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" title="组件" class="md-nav__link">
+  <a href="#_1" title="组件" class="md-nav__link">
     组件
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" title="部署" class="md-nav__link">
+  <a href="#_2" title="部署" class="md-nav__link">
     部署
   </a>
   
@@ -645,6 +609,42 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Neutron_LBaaS/" title="Neutron_LBaaS" class="md-nav__link">
+      Neutron_LBaaS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../VxLAN/" title="VxLAN" class="md-nav__link">
+      VxLAN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../neutron/" title="neutron" class="md-nav__link">
+      neutron
+    </a>
   </li>
 
         
@@ -3192,14 +3192,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" title="组件" class="md-nav__link">
+  <a href="#_1" title="组件" class="md-nav__link">
     组件
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" title="部署" class="md-nav__link">
+  <a href="#_2" title="部署" class="md-nav__link">
     部署
   </a>
   
@@ -3254,14 +3254,17 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/islibra/wiki/blob/master/docs/cloud/openstack/架构.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/islibra/wiki/blob/master/docs/cloud/openstack/0x01_架构.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">架构<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="0x01_">0x01_架构<a class="headerlink" href="#0x01_" title="Permanent link">&para;</a></h1>
 <h2 id="keystone">keystone<a class="headerlink" href="#keystone" title="Permanent link">&para;</a></h2>
 <p>认证和权限管理。</p>
 <ul>
-<li>user: person system service</li>
+<li>user: person system service<ul>
+<li>admin, demo, nova, neutron, galance, cinder</li>
+</ul>
+</li>
 <li>credentials</li>
 <li>authentication</li>
 <li>token</li>
@@ -3288,7 +3291,7 @@ nova-其他子服务和rabbitmq, mysql安装在控制节点上。</p>
 </ul>
 <h2 id="neutron">neutron<a class="headerlink" href="#neutron" title="Permanent link">&para;</a></h2>
 <p>提供网络服务，创建和管理L2, L3网络。</p>
-<h3 id="_2">组件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_1">组件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>neutron server: 对外提供API，接收请求，调用plugin处理请求。</li>
 <li>neutron plugins: 处理server请求，维护逻辑网络状态，调用agent。<ul>
@@ -3317,7 +3320,7 @@ nova-其他子服务和rabbitmq, mysql安装在控制节点上。</p>
 <li>agent在节点的物理网卡上创建虚拟VLAN网卡如eth0.100，并创建bridge如brqxxx</li>
 </ol>
 </div>
-<h3 id="_3">部署<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_2">部署<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <ol>
 <li>控制节点：neutron server（集成core plugin, service plugin）</li>
 <li>控制节点或网络节点：core agent, service agent</li>
@@ -3331,6 +3334,10 @@ nova-其他子服务和rabbitmq, mysql安装在控制节点上。</p>
 <p>监控，告警，计量。</p>
 <h2 id="horizon">horizon<a class="headerlink" href="#horizon" title="Permanent link">&para;</a></h2>
 <p>portal</p>
+<div class="admonition quote">
+<p class="admonition-title">已读</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587909&amp;idx=1&amp;sn=b1297dc5cb49323a36a367122c1b1c4f&amp;chksm=8d3081dcba4708ca61eacafb9d312e8278cbe380a00f01cc8f7cdba0bc1da1797f90df133051&amp;scene=21#wechat_redirect">OpenStack 架构 - 每天5分钟玩转 OpenStack（15）</a></p>
+</div>
                 
                   
                 
@@ -3351,7 +3358,7 @@ nova-其他子服务和rabbitmq, mysql安装在控制节点上。</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../neutron/" title="neutron" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../0x00_实验环境/" title="0x00_实验环境" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -3360,19 +3367,19 @@ nova-其他子服务和rabbitmq, mysql安装在控制节点上。</p>
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                neutron
+                0x00_实验环境
               </span>
             </div>
           </a>
         
         
-          <a href="../网络虚拟化/" title="网络虚拟化" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Neutron_LBaaS/" title="Neutron_LBaaS" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                网络虚拟化
+                Neutron_LBaaS
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
