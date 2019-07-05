@@ -67,6 +67,8 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
     
       
     
@@ -369,6 +371,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../cloud/container/docker_cgroup/" title="docker_cgroup" class="md-nav__link">
+      docker_cgroup
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -392,6 +406,18 @@
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../cloud/gfw/proxy/" title="proxy" class="md-nav__link">
+      proxy
+    </a>
+  </li>
+
         
           
           
@@ -1001,6 +1027,12 @@
       
       
       
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
       
     </ul>
   
@@ -1656,6 +1688,18 @@
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../springboot/aop/" title="aop" class="md-nav__link">
+      aop
+    </a>
+  </li>
+
         
           
           
@@ -3364,6 +3408,12 @@
       
       
       
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
     </ul>
   
 </nav>
@@ -3721,14 +3771,113 @@
 </td></tr></table></div>
 </div>
 <h2 id="sql">SQL注入<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h2>
-<p>参见<a href="../../../../paas/icsl/%E5%B8%B8%E7%94%A8%E6%94%BB%E5%87%BB%E5%91%BD%E4%BB%A4/#sql">SQL注入</a></p>
+<div class="superfences-tabs">
+<input name="__tabs_6" type="radio" id="__tab_6_0" checked="checked" />
+<label for="__tab_6_0">错误的做法</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;database/sql&quot;</span>
+    <span class="c1">//...</span>
+<span class="p">)</span>
+
+<span class="c1">//db *sql.DB</span>
+<span class="nx">db</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">sql</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="s">&quot;mysql&quot;</span><span class="p">,</span> <span class="s">&quot;root:root@tcp(localhost:3306)/demo?charset=utf8&quot;</span><span class="p">)</span>
+<span class="c1">//...</span>
+
+<span class="hll"><span class="kd">var</span> <span class="nx">sqlStr</span> <span class="p">=</span> <span class="s">&quot;SELECT xxx FROM xxx WHERE x = &#39;&quot;</span> <span class="o">+</span> <span class="nx">x</span> <span class="o">+</span> <span class="s">&quot;&#39;&quot;</span>
+</span><span class="nx">rows</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">Query</span><span class="p">(</span><span class="nx">sqlStr</span><span class="p">)</span>
+<span class="c1">//...</span>
+
+<span class="kd">var</span> <span class="nx">result</span> <span class="kt">string</span>
+<span class="k">for</span> <span class="nx">rows</span><span class="p">.</span><span class="nx">Next</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">xxx</span> <span class="kt">string</span>
+    <span class="nx">rows</span><span class="p">.</span><span class="nx">Scan</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">xxx</span><span class="p">)</span>
+    <span class="nx">result</span> <span class="o">+=</span> <span class="nx">xxx</span> <span class="o">+</span> <span class="s">&quot;\n&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_6" type="radio" id="__tab_6_1" />
+<label for="__tab_6_1">正确的做法</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">sqlStr</span> <span class="p">=</span> <span class="s">&quot;SELECT xxx FROM xxx WHERE x = ?&quot;</span>
+<span class="nx">rows</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">Query</span><span class="p">(</span><span class="nx">sqlStr</span><span class="p">,</span> <span class="nx">x</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
 <h2 id="os">OS命令注入<a class="headerlink" href="#os" title="Permanent link">&para;</a></h2>
-<p>参见<a href="../../../../paas/icsl/%E5%B8%B8%E7%94%A8%E6%94%BB%E5%87%BB%E5%91%BD%E4%BB%A4/#_11">命令注入</a></p>
+<div class="superfences-tabs">
+<input name="__tabs_7" type="radio" id="__tab_7_0" checked="checked" />
+<label for="__tab_7_0">错误的做法</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="s">&quot;os/exec&quot;</span>
+
+<span class="c1">//param: rm -f /opt/pwm/limit.txt &amp;&amp; touch /opt/pwm/attack.txt</span>
+<span class="hll"><span class="nx">cmd</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nx">Command</span><span class="p">(</span><span class="s">&quot;/bin/sh&quot;</span><span class="p">,</span> <span class="s">&quot;-c&quot;</span><span class="p">,</span> <span class="nx">param</span><span class="p">)</span>
+</span><span class="nx">err</span> <span class="o">:=</span> <span class="nx">cmd</span><span class="p">.</span><span class="nx">Run</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_7" type="radio" id="__tab_7_1" />
+<label for="__tab_7_1">推荐的做法一</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="s">&quot;os&quot;</span>
+
+<span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Remove</span><span class="p">(</span><span class="nx">param</span><span class="p">)</span>  <span class="c1">//使用API</span>
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_7" type="radio" id="__tab_7_2" />
+<label for="__tab_7_2">推荐的做法二</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;os&quot;</span>
+    <span class="s">&quot;os/exec&quot;</span>
+<span class="p">)</span>
+
+<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Stat</span><span class="p">(</span><span class="nx">param</span><span class="p">)</span>  <span class="c1">//返回文件描述信息</span>
+<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="o">||</span> <span class="nx">os</span><span class="p">.</span><span class="nx">IsNotExist</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//...</span>
+<span class="p">}</span>
+
+<span class="hll"><span class="nx">cmd</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nx">Command</span><span class="p">(</span><span class="s">&quot;rm&quot;</span><span class="p">,</span> <span class="s">&quot;-f&quot;</span><span class="p">,</span> <span class="nx">param</span><span class="p">)</span>  <span class="c1">//功能单一</span>
+</span><span class="nx">delErr</span> <span class="o">:=</span> <span class="nx">cmd</span><span class="p">.</span><span class="nx">Run</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
 <h2 id="io">IO安全<a class="headerlink" href="#io" title="Permanent link">&para;</a></h2>
 <h3 id="_6">临时文件及时删除<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <div class="superfences-tabs">
-<input name="__tabs_6" type="radio" id="__tab_6_0" checked="checked" />
-<label for="__tab_6_0">错误示例</label>
+<input name="__tabs_8" type="radio" id="__tab_8_0" checked="checked" />
+<label for="__tab_8_0">错误示例</label>
 <div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -3744,8 +3893,8 @@
 <span class="nx">f</span><span class="p">.</span><span class="nx">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&quot;This is an wrong example.&quot;</span><span class="p">))</span>
 </pre></div>
 </td></tr></table></div>
-<input name="__tabs_6" type="radio" id="__tab_6_1" />
-<label for="__tab_6_1">推荐做法</label>
+<input name="__tabs_8" type="radio" id="__tab_8_1" />
+<label for="__tab_8_1">推荐做法</label>
 <div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -3782,8 +3931,8 @@
 <p>go语言缺省创建文件权限为666，任何人可读写，但不可执行。</p>
 </div>
 <div class="superfences-tabs">
-<input name="__tabs_7" type="radio" id="__tab_7_0" checked="checked" />
-<label for="__tab_7_0">错误的做法</label>
+<input name="__tabs_9" type="radio" id="__tab_9_0" checked="checked" />
+<label for="__tab_9_0">错误的做法</label>
 <div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="s">&quot;os&quot;</span>
@@ -3791,8 +3940,8 @@
 <span class="nx">f</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Create</span><span class="p">(</span><span class="s">&quot;/opt/unlimit.txt&quot;</span><span class="p">)</span>  <span class="c1">//缺省权限666</span>
 </pre></div>
 </td></tr></table></div>
-<input name="__tabs_7" type="radio" id="__tab_7_1" />
-<label for="__tab_7_1">推荐的做法一</label>
+<input name="__tabs_9" type="radio" id="__tab_9_1" />
+<label for="__tab_9_1">推荐的做法一</label>
 <div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -3804,8 +3953,8 @@
 <span class="nx">f</span><span class="p">.</span><span class="nx">Chmod</span><span class="p">(</span><span class="mo">0600</span><span class="p">)</span>  <span class="c1">//调用chmod更改文件权限</span>
 </pre></div>
 </td></tr></table></div>
-<input name="__tabs_7" type="radio" id="__tab_7_2" />
-<label for="__tab_7_2">推荐的做法二</label>
+<input name="__tabs_9" type="radio" id="__tab_9_2" />
+<label for="__tab_9_2">推荐的做法二</label>
 <div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -3842,8 +3991,8 @@
 <h2 id="_11">序列化和反序列化<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <h3 id="_12">序列化敏感数据造成信息泄露<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <div class="superfences-tabs">
-<input name="__tabs_8" type="radio" id="__tab_8_0" checked="checked" />
-<label for="__tab_8_0">错误的做法</label>
+<input name="__tabs_10" type="radio" id="__tab_10_0" checked="checked" />
+<label for="__tab_10_0">错误的做法</label>
 <div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -3943,8 +4092,8 @@
 <span class="nx">Deserialize</span><span class="p">(</span><span class="nx">se</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<input name="__tabs_8" type="radio" id="__tab_8_1" />
-<label for="__tab_8_1">推荐的做法</label>
+<input name="__tabs_10" type="radio" id="__tab_10_1" />
+<label for="__tab_10_1">推荐的做法</label>
 <div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nx">Password</span> <span class="kt">string</span> <span class="s">`json:&quot;-&quot;`</span>  <span class="c1">// 阻止敏感信息被序列化</span>
 </pre></div>
 </td></tr></table></div>
@@ -3960,8 +4109,8 @@
 <h3 id="_13">反序列化恶意数据<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <h3 id="12">敏感数据序列化后1.传输或2.在硬盘上持久保存需先签名后加密<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
 <div class="superfences-tabs">
-<input name="__tabs_9" type="radio" id="__tab_9_0" checked="checked" />
-<label for="__tab_9_0">错误的做法</label>
+<input name="__tabs_11" type="radio" id="__tab_11_0" checked="checked" />
+<label for="__tab_11_0">错误的做法</label>
 <div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -3989,6 +4138,22 @@
               
                 
 
+
+  <h2 id="__comments">评论</h2>
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://islibra.github.io/hello-islibra/coding/go/go语言安全编程/";
+      this.page.identifier =
+        "coding/go/go语言安全编程/";
+    };
+    (function() {
+      var d = document, s = d.createElement("script");
+      s.src = "//islibra.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
               
             </article>

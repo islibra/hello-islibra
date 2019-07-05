@@ -67,6 +67,8 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
     
       
     
@@ -369,6 +371,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../cloud/container/docker_cgroup/" title="docker_cgroup" class="md-nav__link">
+      docker_cgroup
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -392,6 +406,18 @@
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../cloud/gfw/proxy/" title="proxy" class="md-nav__link">
+      proxy
+    </a>
+  </li>
+
         
           
           
@@ -1491,6 +1517,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../coding/springboot/aop/" title="aop" class="md-nav__link">
+      aop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../coding/springboot/注解/" title="注解" class="md-nav__link">
       注解
     </a>
@@ -2170,6 +2208,20 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#mount" title="mount" class="md-nav__link">
+    mount
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="以下未整理" class="md-nav__link">
+    以下未整理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ubuntu" title="Ubuntu" class="md-nav__link">
     Ubuntu
   </a>
@@ -2177,7 +2229,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" title="压缩解压文件" class="md-nav__link">
+  <a href="#_2" title="压缩解压文件" class="md-nav__link">
     压缩解压文件
   </a>
   
@@ -2290,6 +2342,12 @@
       
       
       
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
       
     </ul>
   
@@ -3205,6 +3263,20 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#mount" title="mount" class="md-nav__link">
+    mount
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="以下未整理" class="md-nav__link">
+    以下未整理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ubuntu" title="Ubuntu" class="md-nav__link">
     Ubuntu
   </a>
@@ -3212,7 +3284,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" title="压缩解压文件" class="md-nav__link">
+  <a href="#_2" title="压缩解压文件" class="md-nav__link">
     压缩解压文件
   </a>
   
@@ -3326,6 +3398,12 @@
       
       
       
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
     </ul>
   
 </nav>
@@ -3342,6 +3420,21 @@
                 
                 
                 <h1 id="linux">Linux软件管理<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h1>
+<h2 id="mount">mount<a class="headerlink" href="#mount" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 挂载iso文件</span>
+<span class="c1"># 先在/mnt/下新建一个名为cdrom的文件夹</span>
+<span class="c1"># -o 逗号分隔的选项列表</span>
+mount -o loop /xxx/xxx.iso /mnt/cdrom
+umount /mnt/cdrom
+</pre></div>
+</td></tr></table>
+
+<hr />
+<h2 id="_1">以下未整理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h2 id="ubuntu">Ubuntu<a class="headerlink" href="#ubuntu" title="Permanent link">&para;</a></h2>
 <ul>
 <li>查询软件有哪些版本可用：<code>sudo apt-cache madison &lt;&lt;packagename&gt;&gt;</code>, <code>sudo apt-cache policy &lt;&lt;packagename&gt;&gt;</code></li>
@@ -3357,7 +3450,7 @@ rpm -ivh xxx.rpm
 </pre></div>
 </td></tr></table>
 
-<h2 id="_1">压缩解压文件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_2">压缩解压文件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="1-tar">1. tar<a class="headerlink" href="#1-tar" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ tar xvf FileName.tar  <span class="c1">#解包</span>
@@ -3548,6 +3641,22 @@ dpkg-reconfigure package  <span class="c1">#重新配置已安装的包</span>
               
                 
 
+
+  <h2 id="__comments">评论</h2>
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://islibra.github.io/hello-islibra/environment/os/Linux软件管理/";
+      this.page.identifier =
+        "environment/os/Linux软件管理/";
+    };
+    (function() {
+      var d = document, s = d.createElement("script");
+      s.src = "//islibra.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
               
             </article>

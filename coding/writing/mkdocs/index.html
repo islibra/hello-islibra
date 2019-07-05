@@ -67,6 +67,8 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
     
       
     
@@ -369,6 +371,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../cloud/container/docker_cgroup/" title="docker_cgroup" class="md-nav__link">
+      docker_cgroup
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -392,6 +406,18 @@
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../cloud/gfw/proxy/" title="proxy" class="md-nav__link">
+      proxy
+    </a>
+  </li>
+
         
           
           
@@ -1493,6 +1519,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../springboot/aop/" title="aop" class="md-nav__link">
+      aop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../springboot/注解/" title="注解" class="md-nav__link">
       注解
     </a>
@@ -1877,6 +1915,12 @@
       
       
       
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
       
     </ul>
   
@@ -3364,6 +3408,12 @@
       
       
       
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
     </ul>
   
 </nav>
@@ -3513,7 +3563,11 @@ $ mkdocs serve -a <span class="m">127</span>.0.0.1:8001  <span class="c1"># 启�
 53
 54
 55
-56</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">site_name</span><span class="p">:</span> <span class="s">&#39;islibra&#39;</span>
+56
+57
+58
+59
+60</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">site_name</span><span class="p">:</span> <span class="s">&#39;islibra&#39;</span>
 <span class="nt">site_author</span><span class="p">:</span> <span class="s">&#39;李晓龙&#39;</span>
 <span class="nt">site_url</span><span class="p">:</span> <span class="s">&#39;https://islibra.github.io/hello-islibra/&#39;</span>
 
@@ -3536,6 +3590,10 @@ $ mkdocs serve -a <span class="m">127</span>.0.0.1:8001  <span class="c1"># 启�
     <span class="nt">icon</span><span class="p">:</span> <span class="s">&#39;cloud&#39;</span>
   <span class="nt">feature</span><span class="p">:</span>
     <span class="nt">tabs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>  <span class="c1"># 横向导航</span>
+
+<span class="c1"># 扩展样式</span>
+<span class="nt">extra_css</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="s">&#39;stylesheets/extra.css&#39;</span>
 
 <span class="nt">extra</span><span class="p">:</span>
   <span class="nt">disqus</span><span class="p">:</span> <span class="s">&#39;islibra&#39;</span>  <span class="c1"># 评论</span>
@@ -3797,6 +3855,22 @@ mkdocs gh-deploy --config-file ../my-project/mkdocs.yml --remote-branch master
               
                 
 
+
+  <h2 id="__comments">评论</h2>
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://islibra.github.io/hello-islibra/coding/writing/mkdocs/";
+      this.page.identifier =
+        "coding/writing/mkdocs/";
+    };
+    (function() {
+      var d = document, s = d.createElement("script");
+      s.src = "//islibra.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
               
             </article>
