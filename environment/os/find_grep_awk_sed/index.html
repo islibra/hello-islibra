@@ -3332,20 +3332,25 @@ sed -i <span class="s1">&#39;$a # This is a test&#39;</span> xxx.txt  //最后�
                 
 
 
-  <h2 id="__comments">评论</h2>
-  <div id="disqus_thread"></div>
+
+  <h2 id="__comments" data-no-instant>评论</h2>
+  <form id="gitalk-form" onsubmit="return false;" data-no-instant>
+    <div id="gitalk-container" data-no-instant></div>
+  </form>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
   <script>
-    var disqus_config = function () {
-      this.page.url = "https://islibra.github.io/hello-islibra/environment/os/find_grep_awk_sed/";
-      this.page.identifier =
-        "environment/os/find_grep_awk_sed/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//islibra.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
+    const gitalk = new Gitalk({
+      clientID: '731aec4fb0d6c910ea1c',
+      clientSecret: '0122498e12a52f99bd3356ac3ad2da17b5e4d322',
+      repo: 'comment',
+      owner: 'islibra',
+      admin: ['islibra'],
+      id: 'find_grep_awk_sed',
+      distractionFreeMode: false,
+      pagerDirection: 'last'
+    })
+    gitalk.render('gitalk-container')
   </script>
 
               
