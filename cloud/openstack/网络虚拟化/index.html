@@ -3395,6 +3395,7 @@ Bridge上其他网络设备都自动加入到VLAN10中。</p>
   </form>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
   <script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+  <script src="https://cdnjs.loli.net/ajax/libs/blueimp-md5/2.10.0/js/md5.min.js"></script>
   <script>
     const gitalk = new Gitalk({
       clientID: '731aec4fb0d6c910ea1c',
@@ -3402,7 +3403,7 @@ Bridge上其他网络设备都自动加入到VLAN10中。</p>
       repo: 'comment',
       owner: 'islibra',
       admin: ['islibra'],
-      id: '网络虚拟化',
+      id: md5(location.pathname),
       distractionFreeMode: false,
       pagerDirection: 'last'
     })

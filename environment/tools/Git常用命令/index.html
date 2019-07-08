@@ -3302,6 +3302,7 @@ git push origin branchname <span class="c1">#将本地修改的文件提交到�
   </form>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
   <script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+  <script src="https://cdnjs.loli.net/ajax/libs/blueimp-md5/2.10.0/js/md5.min.js"></script>
   <script>
     const gitalk = new Gitalk({
       clientID: '731aec4fb0d6c910ea1c',
@@ -3309,7 +3310,7 @@ git push origin branchname <span class="c1">#将本地修改的文件提交到�
       repo: 'comment',
       owner: 'islibra',
       admin: ['islibra'],
-      id: 'git常用命令',
+      id: md5(location.pathname),
       distractionFreeMode: false,
       pagerDirection: 'last'
     })

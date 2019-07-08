@@ -3690,7 +3690,9 @@ $ mkdocs serve -a <span class="m">127</span>.0.0.1:8001  <span class="c1"># 启�
 28
 29
 30
-31</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c">&lt;!--读取配置文件--&gt;</span>
+31
+32
+33</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c">&lt;!--读取配置文件--&gt;</span>
 {% set disqus = config.extra.disqus %}
 <span class="c">&lt;!--meta可以覆盖全局配置--&gt;</span>
 {% if page and page.meta and page.meta.disqus is string %}
@@ -3707,6 +3709,7 @@ $ mkdocs serve -a <span class="m">127</span>.0.0.1:8001  <span class="c1"># 启�
   <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css&quot;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.loli.net/ajax/libs/blueimp-md5/2.10.0/js/md5.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
     <span class="kr">const</span> <span class="nx">gitalk</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Gitalk</span><span class="p">({</span>
       <span class="nx">clientID</span><span class="o">:</span> <span class="s1">&#39;xxx&#39;</span><span class="p">,</span>
@@ -3714,7 +3717,8 @@ $ mkdocs serve -a <span class="m">127</span>.0.0.1:8001  <span class="c1"># 启�
       <span class="nx">repo</span><span class="o">:</span> <span class="s1">&#39;comment&#39;</span><span class="p">,</span>  <span class="c1">// 使用单独的仓评论</span>
       <span class="nx">owner</span><span class="o">:</span> <span class="s1">&#39;islibra&#39;</span><span class="p">,</span>  <span class="c1">// 仓库所有者</span>
       <span class="nx">admin</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;islibra&#39;</span><span class="p">],</span>  <span class="c1">// 仓库管理员列表</span>
-      <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;{{ page.title | default(&quot;404&quot;, true)  }}&#39;</span><span class="p">,</span>  <span class="c1">// 页面唯一标识</span>
+      <span class="c1">//id: &#39;{{ page.title | default(&quot;404&quot;, true)  }}&#39;,  // 页面唯一标识</span>
+      <span class="nx">id</span><span class="o">:</span> <span class="nx">md5</span><span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">pathname</span><span class="p">),</span>
       <span class="nx">distractionFreeMode</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>  <span class="c1">// 全屏遮罩效果</span>
       <span class="nx">pagerDirection</span><span class="o">:</span> <span class="s1">&#39;last&#39;</span>  <span class="c1">// 排序方式：first按评论创建时间正序，last倒序</span>
     <span class="p">})</span>
@@ -3957,6 +3961,7 @@ mkdocs gh-deploy --config-file ../my-project/mkdocs.yml --remote-branch master
   </form>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
   <script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+  <script src="https://cdnjs.loli.net/ajax/libs/blueimp-md5/2.10.0/js/md5.min.js"></script>
   <script>
     const gitalk = new Gitalk({
       clientID: '731aec4fb0d6c910ea1c',
@@ -3964,7 +3969,7 @@ mkdocs gh-deploy --config-file ../my-project/mkdocs.yml --remote-branch master
       repo: 'comment',
       owner: 'islibra',
       admin: ['islibra'],
-      id: 'mkdocs',
+      id: md5(location.pathname),
       distractionFreeMode: false,
       pagerDirection: 'last'
     })

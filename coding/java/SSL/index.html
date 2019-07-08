@@ -3365,6 +3365,7 @@ $ keytool -import -file C:<span class="se">\c</span>ascerts<span class="se">\f</
   </form>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
   <script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+  <script src="https://cdnjs.loli.net/ajax/libs/blueimp-md5/2.10.0/js/md5.min.js"></script>
   <script>
     const gitalk = new Gitalk({
       clientID: '731aec4fb0d6c910ea1c',
@@ -3372,7 +3373,7 @@ $ keytool -import -file C:<span class="se">\c</span>ascerts<span class="se">\f</
       repo: 'comment',
       owner: 'islibra',
       admin: ['islibra'],
-      id: 'SSL',
+      id: md5(location.pathname),
       distractionFreeMode: false,
       pagerDirection: 'last'
     })

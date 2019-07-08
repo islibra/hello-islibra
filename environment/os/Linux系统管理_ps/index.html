@@ -3268,6 +3268,7 @@ ssh start/running, process <span class="m">27639</span>
   </form>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
   <script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+  <script src="https://cdnjs.loli.net/ajax/libs/blueimp-md5/2.10.0/js/md5.min.js"></script>
   <script>
     const gitalk = new Gitalk({
       clientID: '731aec4fb0d6c910ea1c',
@@ -3275,7 +3276,7 @@ ssh start/running, process <span class="m">27639</span>
       repo: 'comment',
       owner: 'islibra',
       admin: ['islibra'],
-      id: 'Linux系统管理_ps',
+      id: md5(location.pathname),
       distractionFreeMode: false,
       pagerDirection: 'last'
     })
