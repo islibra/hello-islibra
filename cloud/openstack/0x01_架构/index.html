@@ -552,6 +552,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" title="版本" class="md-nav__link">
+    版本
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#keystone" title="keystone" class="md-nav__link">
     keystone
   </a>
@@ -581,14 +588,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" title="组件" class="md-nav__link">
+  <a href="#_2" title="组件" class="md-nav__link">
     组件
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" title="部署" class="md-nav__link">
+  <a href="#_3" title="部署" class="md-nav__link">
     部署
   </a>
   
@@ -650,6 +657,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../0x02_neutron/" title="0x02_neutron" class="md-nav__link">
+      0x02_neutron
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../Neutron_LBaaS/" title="Neutron_LBaaS" class="md-nav__link">
       Neutron_LBaaS
     </a>
@@ -664,18 +683,6 @@
   <li class="md-nav__item">
     <a href="../VxLAN/" title="VxLAN" class="md-nav__link">
       VxLAN
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../neutron/" title="neutron" class="md-nav__link">
-      neutron
     </a>
   </li>
 
@@ -3207,6 +3214,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" title="版本" class="md-nav__link">
+    版本
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#keystone" title="keystone" class="md-nav__link">
     keystone
   </a>
@@ -3236,14 +3250,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" title="组件" class="md-nav__link">
+  <a href="#_2" title="组件" class="md-nav__link">
     组件
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" title="部署" class="md-nav__link">
+  <a href="#_3" title="部署" class="md-nav__link">
     部署
   </a>
   
@@ -3308,6 +3322,8 @@
                 
                 
                 <h1 id="0x01_">0x01_架构<a class="headerlink" href="#0x01_" title="Permanent link">&para;</a></h1>
+<h2 id="_1">版本<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../../../img/openstack_version.png" /></p>
 <h2 id="keystone">keystone<a class="headerlink" href="#keystone" title="Permanent link">&para;</a></h2>
 <p>认证和权限管理。</p>
 <ul>
@@ -3341,7 +3357,7 @@ nova-其他子服务和rabbitmq, mysql安装在控制节点上。</p>
 </ul>
 <h2 id="neutron">neutron<a class="headerlink" href="#neutron" title="Permanent link">&para;</a></h2>
 <p>提供网络服务，创建和管理L2, L3网络。</p>
-<h3 id="_1">组件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h3 id="_2">组件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>neutron server: 对外提供API，接收请求，调用plugin处理请求。</li>
 <li>neutron plugins: 处理server请求，维护逻辑网络状态，调用agent。<ul>
@@ -3370,7 +3386,7 @@ nova-其他子服务和rabbitmq, mysql安装在控制节点上。</p>
 <li>agent在节点的物理网卡上创建虚拟VLAN网卡如eth0.100，并创建bridge如brqxxx</li>
 </ol>
 </div>
-<h3 id="_2">部署<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_3">部署<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <ol>
 <li>控制节点：neutron server（集成core plugin, service plugin）</li>
 <li>控制节点或网络节点：core agent, service agent</li>
@@ -3445,13 +3461,13 @@ nova-其他子服务和rabbitmq, mysql安装在控制节点上。</p>
           </a>
         
         
-          <a href="../Neutron_LBaaS/" title="Neutron_LBaaS" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../0x02_neutron/" title="0x02_neutron" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                Neutron_LBaaS
+                0x02_neutron
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
