@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://islibra.github.io/hello-islibra/environment/os/Linux基本命令_shell/">
+        <link rel="canonical" href="https://islibra.github.io/hello-islibra/environment/os/linux_namespace/">
       
       
         <meta name="author" content="李晓龙">
@@ -40,7 +40,7 @@
     
     
       
-        <title>Linux基本命令_shell - islibra</title>
+        <title>linux_namespace - islibra</title>
       
     
     
@@ -108,7 +108,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#linux_shell" tabindex="1" class="md-skip">
+      <a href="#linux_namespace" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -133,7 +133,7 @@
               islibra
             </span>
             <span class="md-header-nav__topic">
-              Linux基本命令_shell
+              linux_namespace
             </span>
           
         </div>
@@ -2119,55 +2119,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Linux基本命令_shell
-      </label>
-    
-    <a href="./" title="Linux基本命令_shell" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../Linux基本命令_shell/" title="Linux基本命令_shell" class="md-nav__link">
       Linux基本命令_shell
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#shell" title="Shell" class="md-nav__link">
-    Shell
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-        <li class="md-nav__item">
-          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
-            评论
-          </a>
-        </li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -2307,11 +2263,96 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../linux_namespace/" title="linux_namespace" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        linux_namespace
+      </label>
+    
+    <a href="./" title="linux_namespace" class="md-nav__link md-nav__link--active">
       linux_namespace
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="分类" class="md-nav__link">
+    分类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#namespace" title="查看当前进程所属的namespace" class="md-nav__link">
+    查看当前进程所属的namespace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" title="API" class="md-nav__link">
+    API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user" title="user" class="md-nav__link">
+    user
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-namespace" title="创建user namespace" class="md-nav__link">
+    创建user namespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uid" title="添加uid映射" class="md-nav__link">
+    添加uid映射
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -3174,9 +3215,50 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#shell" title="Shell" class="md-nav__link">
-    Shell
+  <a href="#_1" title="分类" class="md-nav__link">
+    分类
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#namespace" title="查看当前进程所属的namespace" class="md-nav__link">
+    查看当前进程所属的namespace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" title="API" class="md-nav__link">
+    API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user" title="user" class="md-nav__link">
+    user
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-namespace" title="创建user namespace" class="md-nav__link">
+    创建user namespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uid" title="添加uid映射" class="md-nav__link">
+    添加uid映射
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3202,16 +3284,112 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/islibra/wiki/blob/master/docs/environment/os/Linux基本命令_shell.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/islibra/wiki/blob/master/docs/environment/os/linux_namespace.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="linux_shell">Linux基本命令_shell<a class="headerlink" href="#linux_shell" title="Permanent link">&para;</a></h1>
-<ul>
-<li>设置别名：<code>alias ll='ls -al'</code>，添加到<code>/etc/profile</code>并执行<code>source /etc/profile</code>永久生效。</li>
-<li>读取符号链接指向的文件：<code>readlink xxxlinkfile</code></li>
-</ul>
-<h2 id="shell">Shell<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h2>
+                <h1 id="linux_namespace">linux_namespace<a class="headerlink" href="#linux_namespace" title="Permanent link">&para;</a></h1>
+<p>对于 <strong>进程</strong> 而言，namespace用来隔离资源。</p>
+<h2 id="_1">分类<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>宏定义</th>
+<th>隔离的资源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IPC</td>
+<td>CLONE_NEWIPC</td>
+<td>System V IPC(信号量，消息队列，共享内存)和POSIX message queues</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>CLONE_NEWNET</td>
+<td>Network devices, stacks, ports, etc(网络设备，网络栈，端口)</td>
+</tr>
+<tr>
+<td>Mount</td>
+<td>CLONE_NEWNS</td>
+<td>Mount points(文件系统挂载点)</td>
+</tr>
+<tr>
+<td>PID</td>
+<td>CLONE_NEWPID</td>
+<td>Process IDs(进程编号)</td>
+</tr>
+<tr>
+<td>User</td>
+<td>CLONE_NEWUSER</td>
+<td>User and group IDs(用户和用户组)</td>
+</tr>
+<tr>
+<td>UTS</td>
+<td>CLONE_NEWUTS</td>
+<td>Hostname and NIS domain name(主机名与NIS域名)</td>
+</tr>
+<tr>
+<td>Cgroup</td>
+<td>CLONE_NEWCGROUP</td>
+<td>Cgroup root directory(cgroup根目录)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="namespace">查看当前进程所属的namespace<a class="headerlink" href="#namespace" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="hll"># ll /proc/$$/ns
+</span>total 0
+dr-x--x--x 2 root root 0 Jul 10 15:17 ./
+dr-xr-xr-x 9 root root 0 Jul 10 15:17 ../
+lrwxrwxrwx 1 root root 0 Jul 10 15:17 cgroup -&gt; cgroup:[4026531835]
+lrwxrwxrwx 1 root root 0 Jul 10 15:17 ipc -&gt; ipc:[4026531839]
+lrwxrwxrwx 1 root root 0 Jul 10 15:17 mnt -&gt; mnt:[4026531840]
+lrwxrwxrwx 1 root root 0 Jul 10 15:17 net -&gt; net:[4026532101]
+lrwxrwxrwx 1 root root 0 Jul 10 15:17 pid -&gt; pid:[4026531836]
+lrwxrwxrwx 1 root root 0 Jul 10 15:17 user -&gt; user:[4026531837]
+lrwxrwxrwx 1 root root 0 Jul 10 15:17 uts -&gt; uts:[4026531838]
+</pre></div>
+</td></tr></table>
+
+<details class="note"><summary>阻止namespace下所有进程结束后被删除，后续进程可以再加入</summary><ul>
+<li>方式1. <code>/proc/{pid}/ns</code>中的链接文件被打开，存在文件描述符（fd）</li>
+<li>方式2. 挂载<code>/proc/{pid}/ns/xxx</code>，如：<br />
+    <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>touch ~/uts
+sudo mount --bind /proc/$$/ns/uts ~/uts
+</pre></div>
+</td></tr></table></li>
+</ul>
+</details>
+<h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<details class="note" open="open"><summary>API调用</summary><ul>
+<li>使用时指定参数：CLONE_NEWIPC、CLONE_NEWNET、CLONE_NEWNS、CLONE_NEWPID、CLONE_NEWUSER、CLONE_NEWUTS、CLONE_NEWCGROUP</li>
+<li>多个参数使用 <code>|</code> 组合。</li>
+</ul>
+</details>
+<ul>
+<li>clone(): c lib中创建新进程的同时创建namespace.</li>
+<li>
+<p>setns(): c lib中将当前进程加入到已有的namespace中。</p>
+<details class="tip" open="open"><summary>Tip</summary><p><code>docker exec</code>命令调用<code>setns()</code>在已运行的容器中执行新的命令。</p>
+</details>
+</li>
+<li>
+<p>unshare()和unshare命令：<strong>不启动新的进程</strong> 创建并加入新的namespace.</p>
+<details class="note" open="open"><summary>选项</summary><ul>
+<li>使用格式：<code>unshare [options] &lt;program&gt; [&lt;argument&gt;...]</code></li>
+<li><code>-r, --map-root-user</code>: 映射当前用户到新user namespace中的root，如：<br />
+    <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -3235,41 +3413,88 @@
 22
 23
 24
-25</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
-
-<span class="c1"># bash xxx.sh 123 abc</span>
-<span class="nb">printf</span> <span class="s2">&quot;</span>$<span class="s2"> with </span>$<span class="s2"> is %s\n&quot;</span> <span class="s2">&quot;</span><span class="nv">$$</span><span class="s2">&quot;</span>  <span class="c1"># 脚本当前运行的进程ID</span>
-<span class="nb">printf</span> <span class="s2">&quot;</span>$<span class="s2"> with ! is %s\n&quot;</span> <span class="s2">&quot;</span><span class="nv">$!</span><span class="s2">&quot;</span>  <span class="c1"># 后台运行的最后一个进程的进程ID</span>
-<span class="nb">printf</span> <span class="s2">&quot;</span>$<span class="s2"> with ? is %s\n&quot;</span> <span class="s2">&quot;</span><span class="nv">$?</span><span class="s2">&quot;</span>  <span class="c1"># 命令退出状态，0表示正常退出</span>
-<span class="nb">printf</span> <span class="s2">&quot;</span>$<span class="s2"> with * is %s\n&quot;</span> <span class="s2">&quot;</span><span class="nv">$*</span><span class="s2">&quot;</span>  <span class="c1"># 所有参数字符串汇总输出</span>
-<span class="nb">printf</span> <span class="s2">&quot;</span>$<span class="s2"> with @ is %s\n&quot;</span> <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>  <span class="c1"># 所有参数字符串单个输出</span>
-<span class="nb">printf</span> <span class="s2">&quot;</span>$<span class="s2"> with # is %s\n&quot;</span> <span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span>  <span class="c1"># 参数个数</span>
-<span class="nb">printf</span> <span class="s2">&quot;</span>$<span class="s2"> with 0 is %s\n&quot;</span> <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span>  <span class="c1"># 脚本名称</span>
-<span class="nb">printf</span> <span class="s2">&quot;</span>$<span class="s2"> with 1 is %s\n&quot;</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>  <span class="c1"># 参数列表</span>
-<span class="nb">printf</span> <span class="s2">&quot;</span>$<span class="s2"> with 2 is %s\n&quot;</span> <span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>  <span class="c1">#</span>
-
-<span class="c1">######</span>
-
-$ with $ is <span class="m">61952</span>
-$ with ! is
-$ with ? is <span class="m">0</span>
-$ with * is <span class="m">123</span> abc
-$ with @ is <span class="m">123</span>
-$ with @ is abc
-$ with <span class="c1"># is 2</span>
-$ with <span class="m">0</span> is test.sh
-$ with <span class="m">1</span> is <span class="m">123</span>
-$ with <span class="m">2</span> is abc
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 当前用户</span>
+islibra@SZX1000451827:/proc/15787/ns$ id
+<span class="nv">uid</span><span class="o">=</span><span class="m">1002</span><span class="o">(</span>islibra<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">1002</span><span class="o">(</span>islibra<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">1002</span><span class="o">(</span>islibra<span class="o">)</span>
+<span class="c1"># 当前进程ID</span>
+islibra@SZX1000451827:/proc/15787/ns$ <span class="nb">echo</span> <span class="nv">$$</span>
+<span class="m">15787</span>
+<span class="c1"># 当前进程所属namespace</span>
+islibra@SZX1000451827:/proc/15787/ns$ ls -al /proc/<span class="nv">$$</span>/ns
+total <span class="m">0</span>
+dr-x--x--x <span class="m">2</span> islibra islibra <span class="m">0</span> Jul <span class="m">11</span> <span class="m">08</span>:58 .
+dr-xr-xr-x <span class="m">9</span> islibra islibra <span class="m">0</span> Jul <span class="m">11</span> <span class="m">08</span>:56 ..
+lrwxrwxrwx <span class="m">1</span> islibra islibra <span class="m">0</span> Jul <span class="m">11</span> <span class="m">08</span>:58 cgroup -&gt; cgroup:<span class="o">[</span><span class="m">4026531835</span><span class="o">]</span>
+lrwxrwxrwx <span class="m">1</span> islibra islibra <span class="m">0</span> Jul <span class="m">11</span> <span class="m">08</span>:58 ipc -&gt; ipc:<span class="o">[</span><span class="m">4026531839</span><span class="o">]</span>
+lrwxrwxrwx <span class="m">1</span> islibra islibra <span class="m">0</span> Jul <span class="m">11</span> <span class="m">08</span>:58 mnt -&gt; mnt:<span class="o">[</span><span class="m">4026531840</span><span class="o">]</span>
+lrwxrwxrwx <span class="m">1</span> islibra islibra <span class="m">0</span> Jul <span class="m">11</span> <span class="m">08</span>:58 net -&gt; net:<span class="o">[</span><span class="m">4026532101</span><span class="o">]</span>
+lrwxrwxrwx <span class="m">1</span> islibra islibra <span class="m">0</span> Jul <span class="m">11</span> <span class="m">08</span>:58 pid -&gt; pid:<span class="o">[</span><span class="m">4026531836</span><span class="o">]</span>
+lrwxrwxrwx <span class="m">1</span> islibra islibra <span class="m">0</span> Jul <span class="m">11</span> <span class="m">08</span>:58 user -&gt; user:<span class="o">[</span><span class="m">4026531837</span><span class="o">]</span>
+lrwxrwxrwx <span class="m">1</span> islibra islibra <span class="m">0</span> Jul <span class="m">11</span> <span class="m">08</span>:58 uts -&gt; uts:<span class="o">[</span><span class="m">4026531838</span><span class="o">]</span>
+<span class="c1"># 创建新的namespace并映射root用户</span>
+<span class="hll">islibra@SZX1000451827:/proc/15787/ns$ unshare --user -r sh -c <span class="s2">&quot;id;echo </span><span class="nv">$$</span><span class="s2">;ls -al /proc/</span><span class="nv">$$</span><span class="s2">/ns&quot;</span>
+</span><span class="c1"># 新namespace中的用户</span>
+<span class="hll"><span class="nv">uid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span>
+</span><span class="c1"># 进程ID不改变</span>
+<span class="hll"><span class="m">15787</span>
+</span><span class="c1"># 无法跨namespace访问</span>
+ls: cannot <span class="nb">read</span> symbolic link <span class="s1">&#39;/proc/15787/ns/net&#39;</span>: Permission denied
+ls: cannot <span class="nb">read</span> symbolic link <span class="s1">&#39;/proc/15787/ns/uts&#39;</span>: Permission denied
+ls: cannot <span class="nb">read</span> symbolic link <span class="s1">&#39;/proc/15787/ns/ipc&#39;</span>: Permission denied
+ls: cannot <span class="nb">read</span> symbolic link <span class="s1">&#39;/proc/15787/ns/pid&#39;</span>: Permission denied
+ls: cannot <span class="nb">read</span> symbolic link <span class="s1">&#39;/proc/15787/ns/user&#39;</span>: Permission denied
+ls: cannot <span class="nb">read</span> symbolic link <span class="s1">&#39;/proc/15787/ns/mnt&#39;</span>: Permission denied
+ls: cannot <span class="nb">read</span> symbolic link <span class="s1">&#39;/proc/15787/ns/cgroup&#39;</span>: Permission denied
+total <span class="m">0</span>
+dr-x--x--x <span class="m">2</span> root root <span class="m">0</span> Jul <span class="m">11</span> <span class="m">08</span>:58 .
+dr-xr-xr-x <span class="m">9</span> root root <span class="m">0</span> Jul <span class="m">11</span> <span class="m">08</span>:56 ..
+lrwxrwxrwx <span class="m">1</span> root root <span class="m">0</span> Jul <span class="m">11</span> <span class="m">08</span>:58 cgroup
+lrwxrwxrwx <span class="m">1</span> root root <span class="m">0</span> Jul <span class="m">11</span> <span class="m">08</span>:58 ipc
+lrwxrwxrwx <span class="m">1</span> root root <span class="m">0</span> Jul <span class="m">11</span> <span class="m">08</span>:58 mnt
+lrwxrwxrwx <span class="m">1</span> root root <span class="m">0</span> Jul <span class="m">11</span> <span class="m">08</span>:58 net
+lrwxrwxrwx <span class="m">1</span> root root <span class="m">0</span> Jul <span class="m">11</span> <span class="m">08</span>:58 pid
+lrwxrwxrwx <span class="m">1</span> root root <span class="m">0</span> Jul <span class="m">11</span> <span class="m">08</span>:58 user
+lrwxrwxrwx <span class="m">1</span> root root <span class="m">0</span> Jul <span class="m">11</span> <span class="m">08</span>:58 uts
+<span class="c1"># sh -c 执行结束后，新的namespace自动删除</span>
+islibra@SZX1000451827:/proc/15787/ns$ id
+<span class="nv">uid</span><span class="o">=</span><span class="m">1002</span><span class="o">(</span>islibra<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">1002</span><span class="o">(</span>islibra<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">1002</span><span class="o">(</span>islibra<span class="o">)</span>
 </pre></div>
-</td></tr></table>
-
-<ul>
-<li>${var_name} 变量</li>
-<li><code>#</code> 单行注释</li>
-<li>单引号字符串中不能包含变量和反转义</li>
-<li>标准输入0，标准输出1，标准错误2，&gt; 重定向，&gt;&gt; 追加，如：<code>cmd 1 &gt; file</code>, <code>cmd &gt; file 2&gt;&amp;1</code></li>
-<li>命令替换：<code>USERID=反引号id -u反引号</code>, <code>USERID=$(uname -a)</code></li>
-<li>条件测试：[ condition ], -d目录，-s文件非空，-f文件，-L符号链接，-x可执行，-r可读，-w可写，-a与，-o或，!非，==字符串相等，!=字符串不等，-z空串，-n非空串，-eq数值相等，-ne不等，-gt大于，-lt小于，-ge大于等于，-le小于等于<br />
+</td></tr></table></li>
+</ul>
+</details>
+</li>
+</ul>
+<details class="quote" open="open"><summary>参考链接</summary><p><a href="https://www.cnblogs.com/sparkdev/p/9365405.html">Linux Namespace : 简介</a></p>
+</details>
+<h2 id="user">user<a class="headerlink" href="#user" title="Permanent link">&para;</a></h2>
+<p>同一个用户的uid和gid在不同的namespace中可以不同，通过映射关系对应。</p>
+<p>namespace可以嵌套（最多32层）。</p>
+<h3 id="user-namespace">创建user namespace<a class="headerlink" href="#user-namespace" title="Permanent link">&para;</a></h3>
+<details class="fail" open="open"><summary>Fail</summary><ul>
+<li>在Linux 3.10.0版本中调用<code>unshare --user -r /bin/bash</code>报错<code>unshare failed: Invalid argument</code>，<mark class="critic">Linux 3.10.0版本不支持user namespace</mark>。</li>
+<li>在Ubuntu Linux 4.4.0中正常。</li>
+</ul>
+</details>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -3287,65 +3512,146 @@ $ with <span class="m">2</span> is abc
 15
 16
 17
-18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span> condition1
-<span class="k">then</span>
-  command1
-<span class="k">elif</span> condition2
-  command2
-<span class="k">else</span>
-  commandn
-<span class="k">fi</span>
-
-<span class="k">for</span> var in <span class="m">1</span> <span class="m">2</span> ... n
-<span class="k">do</span>
-  <span class="nb">command</span>
-<span class="k">done</span>
-
-<span class="k">while</span> condition
-<span class="k">do</span>
-  <span class="nb">command</span>
-<span class="k">done</span>
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>islibra@SZX1000451827:/proc/15787/ns$ id
+<span class="nv">uid</span><span class="o">=</span><span class="m">1002</span><span class="o">(</span>islibra<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">1002</span><span class="o">(</span>islibra<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">1002</span><span class="o">(</span>islibra<span class="o">)</span>
+islibra@SZX1000451827:/proc/15787/ns$ <span class="nb">echo</span> <span class="nv">$$</span>
+<span class="m">15787</span>
+islibra@SZX1000451827:/proc/15787/ns$ readlink user
+<span class="hll">user:<span class="o">[</span><span class="m">4026531837</span><span class="o">]</span>
+</span><span class="c1"># 创建新的namespace并启动新的bash</span>
+islibra@SZX1000451827:/proc/15787/ns$ unshare --user -r /bin/bash
+root@SZX1000451827:/proc/15787/ns# id
+<span class="nv">uid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span>
+<span class="c1"># 进程ID</span>
+root@SZX1000451827:/proc/15787/ns# <span class="nb">echo</span> <span class="nv">$$</span>
+<span class="m">21730</span>
+<span class="c1"># 新的namespace ID</span>
+root@SZX1000451827:/proc/15787/ns# <span class="nb">cd</span> /proc/<span class="nv">$$</span>/ns
+root@SZX1000451827:/proc/21730/ns# readlink user
+<span class="hll">user:<span class="o">[</span><span class="m">4026532317</span><span class="o">]</span>
+</span><span class="c1"># 进程ID关系</span>
+root@SZX1000451827:/proc/21730/ns# ps -efw <span class="p">|</span> grep <span class="m">21730</span>
+root      <span class="m">21730</span>  <span class="m">15787</span>  <span class="m">0</span> <span class="m">09</span>:32 pts/0    <span class="m">00</span>:00:00 /bin/bash
+root      <span class="m">21903</span>  <span class="m">21730</span>  <span class="m">0</span> <span class="m">09</span>:33 pts/0    <span class="m">00</span>:00:00 ps -efw
+root      <span class="m">21904</span>  <span class="m">21730</span>  <span class="m">0</span> <span class="m">09</span>:33 pts/0    <span class="m">00</span>:00:00 grep <span class="m">21730</span>
 </pre></div>
-</td></tr></table></li>
-<li>函数，在脚本中直接调用<br />
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>function_name<span class="o">()</span>
-<span class="o">{</span>
-  <span class="c1">#statements</span>
-<span class="o">}</span>
-function_name arg1 arg2
-</pre></div>
-</td></tr></table></li>
-<li>文件包含：<code>source file.sh</code>, <code>. file.sh</code></li>
+</td></tr></table>
+
+<h3 id="uid">添加uid映射<a class="headerlink" href="#uid" title="Permanent link">&para;</a></h3>
+<ul>
+<li>配置路径：<code>/proc/{pid}/uid_map</code>, <code>/proc/{pid}/gid_map</code>, pid为新的namespace中新的进程ID</li>
+<li>配置格式：<code>ID-inside-ns ID-outside-ns length</code></li>
 </ul>
-<p>显示命令历史记录：<code>HISTSIZE=1000</code></p>
-<h1 id="_1">字符串处理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">转换大小写<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">echo</span> <span class="s1">&#39;hello&#39;</span> <span class="p">|</span> tr <span class="s1">&#39;a-z&#39;</span> <span class="s1">&#39;A-Z&#39;</span>
-<span class="nb">echo</span> <span class="s1">&#39;HELLO&#39;</span> <span class="p">|</span> tr <span class="s1">&#39;A-Z&#39;</span> <span class="s1">&#39;a-z&#39;</span>
-</pre></div>
-</td></tr></table>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">自动映射到root</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>islibra@SZX1000451827:/proc/15787/ns$ id
+<span class="nv">uid</span><span class="o">=</span><span class="m">1002</span><span class="o">(</span>islibra<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">1002</span><span class="o">(</span>islibra<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">1002</span><span class="o">(</span>islibra<span class="o">)</span>
+<span class="c1"># 映射当前用户到新user namespace中的root</span>
+islibra@SZX1000451827:/proc/15787/ns$ unshare --user -r /bin/bash
+root@SZX1000451827:/proc/15787/ns# id
+<span class="nv">uid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span>
+root@SZX1000451827:/proc/15787/ns# <span class="nb">cd</span> /proc/<span class="nv">$$</span>
+<span class="c1"># 将新namespace中的root(0)映射到外层的islibra(1002)</span>
+root@SZX1000451827:/proc/21730# cat uid_map
+<span class="hll">         <span class="m">0</span>       <span class="m">1002</span>          <span class="m">1</span>
+</span></pre></div>
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">默认并手动添加映射</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 默认映射到nobody(65534)</span>
+islibra@SZX1000451827:/proc$ unshare --user /bin/bash
+nobody@SZX1000451827:/proc$ id
+<span class="nv">uid</span><span class="o">=</span><span class="m">65534</span><span class="o">(</span>nobody<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">65534</span><span class="o">(</span>nogroup<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">65534</span><span class="o">(</span>nogroup<span class="o">)</span>
+nobody@SZX1000451827:/proc$ <span class="nb">echo</span> <span class="nv">$$</span>
+<span class="m">29378</span>
 
-<h1 id="_3">文件处理<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
-<h2 id="_4">远程拷贝<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>scp file.xxx user@hostip:/home/user
-</pre></div>
-</td></tr></table>
-
-<h2 id="_5">显示文件内容<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<span class="c1"># 需要使用创建新namespace的用户并为bash添加权限</span>
+<span class="hll">root@SZX1000451827:/proc/29378# setcap cap_setgid,cap_setuid+ep /bin/bash
+</span>root@SZX1000451827:/proc/29378# getcap /bin/bash
+/bin/bash <span class="o">=</span> cap_setgid,cap_setuid+ep
+<span class="hll">root@SZX1000451827:/proc/29378# su - islibra
+</span>islibra@SZX1000451827:~$ <span class="nb">cd</span> /proc/29378
+islibra@SZX1000451827:/proc/29378$ cat uid_map
+islibra@SZX1000451827:/proc/29378$ <span class="nb">echo</span> <span class="s1">&#39;0 1002 1&#39;</span> &gt; uid_map
+islibra@SZX1000451827:/proc/29378$ <span class="nb">echo</span> <span class="s1">&#39;0 1002 1&#39;</span> &gt; gid_map
+islibra@SZX1000451827:/proc/29378$ <span class="nb">exit</span>
+<span class="nb">logout</span>
+root@SZX1000451827:/proc/29378# setcap cap_setgid,cap_setuid-ep /bin/bash
+root@SZX1000451827:/proc/29378# getcap /bin/bash
+/bin/bash <span class="o">=</span>
+<span class="c1"># 重新加载bash</span>
+nobody@SZX1000451827:/proc$ <span class="nb">exec</span> bash
+root@SZX1000451827:/proc# id
+<span class="nv">uid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span>
+root@SZX1000451827:/proc# cat /proc/<span class="nv">$$</span>/uid_map
+<span class="hll">         <span class="m">0</span>       <span class="m">1002</span>          <span class="m">1</span>
+</span></pre></div>
+</td></tr></table></div>
+</div>
+<details class="tip" open="open"><summary>实际在/etc/subuid配置了从属用户</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cat file <span class="c1">#查看全部内容</span>
-more file, file <span class="p">|</span> more <span class="c1">#分页查看</span>
-tail file, tail -f file <span class="c1">#查看末尾几行</span>
-less file <span class="c1">#滚动查看</span>
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>root@SZX1000451827:~# cat /etc/subuid
+root:100000:65536
+<span class="c1"># 将子user namespace中的0-65535映射为当前namespace中的165536-231071</span>
+islibra:165536:65536
 </pre></div>
 </td></tr></table>
+
+</details>
+<details class="warning" open="open"><summary>无法访问原namespace中的数据，即使映射为同一个用户</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>root@SZX1000451827:~# <span class="nb">cd</span> /root
+<span class="hll">bash: cd: /root: Permission denied
+</span>root@SZX1000451827:~# ls -al / <span class="p">|</span> grep root
+<span class="hll">drwx------  <span class="m">11</span> nobody nogroup  <span class="m">4096</span> Jul <span class="m">11</span> <span class="m">10</span>:03 root
+</span></pre></div>
+</td></tr></table>
+
+</details>
+<details class="quote" open="open"><summary>参考链接</summary><p><a href="https://www.cnblogs.com/sparkdev/p/9462838.html">Linux Namespace : User</a></p>
+</details>
                 
                   
                 
@@ -3388,7 +3694,7 @@ less file <span class="c1">#滚动查看</span>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../Linux中sh和bash的区别/" title="Linux中sh和bash的区别" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../homebrew/" title="homebrew" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -3397,19 +3703,19 @@ less file <span class="c1">#滚动查看</span>
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                Linux中sh和bash的区别
+                homebrew
               </span>
             </div>
           </a>
         
         
-          <a href="../Linux文件系统/" title="Linux文件系统" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../sudoers文件/" title="sudoers文件" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                Linux文件系统
+                sudoers文件
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
