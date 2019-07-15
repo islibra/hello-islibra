@@ -2216,7 +2216,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="关机" class="md-nav__link">
+  <a href="#_2" title="重启服务" class="md-nav__link">
+    重启服务
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="关机" class="md-nav__link">
     关机
   </a>
   
@@ -2593,6 +2600,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../other/something/" title="something" class="md-nav__link">
+      something
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../other/买房的事情/" title="买房的事情" class="md-nav__link">
       买房的事情
     </a>
@@ -2630,13 +2649,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-5" type="checkbox" id="nav-6-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
     
-    <label class="md-nav__link" for="nav-6-5">
+    <label class="md-nav__link" for="nav-6-6">
       Dts
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-5">
+      <label class="md-nav__title" for="nav-6-6">
         Dts
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2690,13 +2709,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-7" type="checkbox" id="nav-6-7">
     
-    <label class="md-nav__link" for="nav-6-6">
+    <label class="md-nav__link" for="nav-6-7">
       Health
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-6">
+      <label class="md-nav__title" for="nav-6-7">
         Health
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3221,7 +3240,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="关机" class="md-nav__link">
+  <a href="#_2" title="重启服务" class="md-nav__link">
+    重启服务
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="关机" class="md-nav__link">
     关机
   </a>
   
@@ -3272,7 +3298,18 @@
 <li>-p {PID1} {PID2}, 查询指定进程ID</li>
 <li>-u {UID1},{UID2} 查询指定用户</li>
 </ul>
-<h2 id="_2">关机<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">重启服务<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 方式一</span>
+service xxx restart
+<span class="c1"># 方式二</span>
+systemctl restart xxx.service
+</pre></div>
+</td></tr></table>
+
+<h2 id="_3">关机<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>shutdown -h now  <span class="c1"># 将系统服务停掉后立刻关机</span>
 </pre></div>
 </td></tr></table>

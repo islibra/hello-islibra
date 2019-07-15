@@ -2661,6 +2661,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../other/something/" title="something" class="md-nav__link">
+      something
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../other/买房的事情/" title="买房的事情" class="md-nav__link">
       买房的事情
     </a>
@@ -2698,13 +2710,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-5" type="checkbox" id="nav-6-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
     
-    <label class="md-nav__link" for="nav-6-5">
+    <label class="md-nav__link" for="nav-6-6">
       Dts
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-5">
+      <label class="md-nav__title" for="nav-6-6">
         Dts
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2758,13 +2770,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-7" type="checkbox" id="nav-6-7">
     
-    <label class="md-nav__link" for="nav-6-6">
+    <label class="md-nav__link" for="nav-6-7">
       Health
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-6">
+      <label class="md-nav__title" for="nav-6-7">
         Health
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3659,12 +3671,12 @@ user:<span class="o">[</span><span class="m">4026531837</span><span class="o">]<
 <p>命令格式：<code>docker run [OPTIONS] IMAGE [COMMAND] [ARG...]</code></p>
 <details class="note" open="open"><summary>OPTIONS</summary><ul>
 <li><code>-d, --detach</code>, 后台运行容器并打印容器ID。</li>
-<li><code>-u, --user</code>, 指定 <mark class="critic">容器中</mark> 的Username或UID，格式：<code>&lt;name|uid&gt;[:&lt;group|gid&gt;]</code></li>
 <li><code>--rm</code>, 容器退出时自动删除。</li>
-<li><code>--ulimit &lt;type&gt;=&lt;soft limit&gt;[:&lt;hard limit&gt;]</code>, 如<code>$ docker run --ulimit nofile=1024:1024 --rm debian sh -c "ulimit -n"</code>, 限制打开文件数。<ul>
+<li><code>-u, --user</code>, 指定运行容器的Username或UID <sup>容器和host共用一套UID</sup>，格式：<code>&lt;name|uid&gt;[:&lt;group|gid&gt;]</code></li>
+<li><code>--ulimit &lt;type&gt;=&lt;soft limit&gt;[:&lt;hard limit&gt;]</code>, 如<code>$ docker run --ulimit nofile=1024:1024 --rm ubuntu sh -c "ulimit -n"</code>, 限制打开文件数。<ul>
 <li>如果未设置<code>hard limit</code>, 以<code>soft limit</code>为准。</li>
-<li><strong>如果未设置，继承自daemon默认值。</strong></li>
-<li><strong>docker对设置值不做任何转换，直接传递给linux系统调用。</strong></li>
+<li><strong>如果未设置，继承自daemon默认值。</strong> 配置文件路径：<code>/etc/sysconfig/docker</code></li>
+<li>docker对设置值不做任何转换，直接传递给linux系统调用。</li>
 </ul>
 </li>
 </ul>
