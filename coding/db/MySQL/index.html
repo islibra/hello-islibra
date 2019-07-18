@@ -40,7 +40,7 @@
     
     
       
-        <title>MySQL</title>
+        <title>MySQL - islibra</title>
       
     
     
@@ -108,7 +108,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#mysql" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -773,9 +773,286 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        MySQL
+      </label>
+    
     <a href="./" title="MySQL" class="md-nav__link md-nav__link--active">
       MySQL
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="术语" class="md-nav__link">
+    术语
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="注释" class="md-nav__link">
+    注释
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#information_schema" title="information_schema数据库" class="md-nav__link">
+    information_schema数据库
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="字符集" class="md-nav__link">
+    字符集
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="设置级别" class="md-nav__link">
+    设置级别
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server" title="server" class="md-nav__link">
+    server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" title="database" class="md-nav__link">
+    database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table" title="table" class="md-nav__link">
+    table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#column" title="column" class="md-nav__link">
+    column
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="权限" class="md-nav__link">
+    权限
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="权限分配" class="md-nav__link">
+    权限分配
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="实体对象" class="md-nav__link">
+    实体对象
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysql_1" title="MySQL协议" class="md-nav__link">
+    MySQL协议
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="基本数据类型" class="md-nav__link">
+    基本数据类型
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integers" title="Integers" class="md-nav__link">
+    Integers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed-length-integers" title="Fixed-length integers" class="md-nav__link">
+    Fixed-length integers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#length-encoded-integers" title="Length-encoded integers" class="md-nav__link">
+    Length-encoded integers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strings" title="Strings" class="md-nav__link">
+    Strings
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixedlengthstring" title="FixedLengthString" class="md-nav__link">
+    FixedLengthString
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nulterminatedstring" title="NulTerminatedString" class="md-nav__link">
+    NulTerminatedString
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variablelengthstring" title="VariableLengthString" class="md-nav__link">
+    VariableLengthString
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lengthencodedstring" title="LengthEncodedString" class="md-nav__link">
+    LengthEncodedString
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restofpacketstring" title="RestOfPacketString" class="md-nav__link">
+    RestOfPacketString
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packets" title="Packets" class="md-nav__link">
+    Packets
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#payload" title="Payload" class="md-nav__link">
+    Payload
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#innodb" title="InnoDB, 数据库引擎" class="md-nav__link">
+    InnoDB, 数据库引擎
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="文件系统" class="md-nav__link">
+    文件系统
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1947,10 +2224,70 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
     
     <label class="md-nav__link" for="nav-4-4">
-      Data structure
+      Algorithm
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
       <label class="md-nav__title" for="nav-4-4">
+        Algorithm
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4-1" type="checkbox" id="nav-4-4-1">
+    
+    <label class="md-nav__link" for="nav-4-4-1">
+      Sort
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-4-1">
+        Sort
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../design/algorithm/sort/0x00_bubble/" title="0x00_bubble" class="md-nav__link">
+      0x00_bubble
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-5" type="checkbox" id="nav-4-5">
+    
+    <label class="md-nav__link" for="nav-4-5">
+      Data structure
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-5">
         Data structure
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2028,13 +2365,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-5" type="checkbox" id="nav-4-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-6" type="checkbox" id="nav-4-6">
     
-    <label class="md-nav__link" for="nav-4-5">
+    <label class="md-nav__link" for="nav-4-6">
       Design pattern
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-5">
+      <label class="md-nav__title" for="nav-4-6">
         Design pattern
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2676,6 +3013,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../other/dts/request.getParameter()获取不到数据/" title="request.getParameter()获取不到数据" class="md-nav__link">
+      request.getParameter()获取不到数据
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -3195,6 +3544,270 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="术语" class="md-nav__link">
+    术语
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="注释" class="md-nav__link">
+    注释
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#information_schema" title="information_schema数据库" class="md-nav__link">
+    information_schema数据库
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="字符集" class="md-nav__link">
+    字符集
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="设置级别" class="md-nav__link">
+    设置级别
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server" title="server" class="md-nav__link">
+    server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" title="database" class="md-nav__link">
+    database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table" title="table" class="md-nav__link">
+    table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#column" title="column" class="md-nav__link">
+    column
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="权限" class="md-nav__link">
+    权限
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="权限分配" class="md-nav__link">
+    权限分配
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="实体对象" class="md-nav__link">
+    实体对象
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysql_1" title="MySQL协议" class="md-nav__link">
+    MySQL协议
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="基本数据类型" class="md-nav__link">
+    基本数据类型
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integers" title="Integers" class="md-nav__link">
+    Integers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed-length-integers" title="Fixed-length integers" class="md-nav__link">
+    Fixed-length integers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#length-encoded-integers" title="Length-encoded integers" class="md-nav__link">
+    Length-encoded integers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strings" title="Strings" class="md-nav__link">
+    Strings
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixedlengthstring" title="FixedLengthString" class="md-nav__link">
+    FixedLengthString
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nulterminatedstring" title="NulTerminatedString" class="md-nav__link">
+    NulTerminatedString
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variablelengthstring" title="VariableLengthString" class="md-nav__link">
+    VariableLengthString
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lengthencodedstring" title="LengthEncodedString" class="md-nav__link">
+    LengthEncodedString
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restofpacketstring" title="RestOfPacketString" class="md-nav__link">
+    RestOfPacketString
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packets" title="Packets" class="md-nav__link">
+    Packets
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#payload" title="Payload" class="md-nav__link">
+    Payload
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#innodb" title="InnoDB, 数据库引擎" class="md-nav__link">
+    InnoDB, 数据库引擎
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="文件系统" class="md-nav__link">
+    文件系统
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3208,7 +3821,8 @@
                   <a href="https://github.com/islibra/wiki/blob/master/docs/coding/db/MySQL.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">术语<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="mysql">MySQL<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h1>
+<h2 id="_1">术语<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>schema：数据库，例如查询所有数据库名称和默认编码：</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -3236,17 +3850,18 @@
 </pre></div>
 </td></tr></table>
 
-<h1 id="_2">注释<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<h2 id="_2">注释<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/* ... */</span>
 </pre></div>
 </td></tr></table>
 
-<blockquote>
-<p><code>/*! ... */</code> 仅在MySQL中执行。如：<code>/*! select * from user*/;</code>
-<code>/*!50001 select * from user*/;</code> 仅在5.00.01以上的MySQL版本中执行。</p>
-</blockquote>
-<h1 id="information_schema">information_schema数据库<a class="headerlink" href="#information_schema" title="Permanent link">&para;</a></h1>
-<h2 id="_3">字符集<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<details class="tip" open="open"><summary>Tip</summary><ul>
+<li><code>/*! ... */</code> 仅在MySQL中执行。如：<code>/*! select * from user*/;</code></li>
+<li><code>/*!50001 select * from user*/;</code> 仅在5.00.01以上的MySQL版本中执行。</li>
+</ul>
+</details>
+<h2 id="information_schema">information_schema数据库<a class="headerlink" href="#information_schema" title="Permanent link">&para;</a></h2>
+<h3 id="_3">字符集<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <ul>
 <li>CHARACTER_SETS: 字符集</li>
 </ul>
@@ -3275,8 +3890,8 @@
 </pre></div>
 </td></tr></table>
 
-<h3 id="_4">设置级别<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<h4 id="server">server<a class="headerlink" href="#server" title="Permanent link">&para;</a></h4>
+<h4 id="_4">设置级别<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<h5 id="server">server<a class="headerlink" href="#server" title="Permanent link">&para;</a></h5>
 <p>创建数据库时未指定字符集，字符序，默认使用server字符集，字符序。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -3331,7 +3946,7 @@
 </pre></div>
 </td></tr></table>
 
-<h4 id="database">database<a class="headerlink" href="#database" title="Permanent link">&para;</a></h4>
+<h5 id="database">database<a class="headerlink" href="#database" title="Permanent link">&para;</a></h5>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -3350,7 +3965,7 @@
 </pre></div>
 </td></tr></table>
 
-<h4 id="table">table<a class="headerlink" href="#table" title="Permanent link">&para;</a></h4>
+<h5 id="table">table<a class="headerlink" href="#table" title="Permanent link">&para;</a></h5>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -3377,7 +3992,7 @@
 </pre></div>
 </td></tr></table>
 
-<h4 id="column">column<a class="headerlink" href="#column" title="Permanent link">&para;</a></h4>
+<h5 id="column">column<a class="headerlink" href="#column" title="Permanent link">&para;</a></h5>
 <p>类型为CHAR, VARCHAR, TEXT的列，可以指定字符集，字符序。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -3389,20 +4004,21 @@
 </pre></div>
 </td></tr></table>
 
-<p>参考链接：<a href="https://dev.mysql.com/doc/refman/5.7/en/charset.html">Character Sets, Collations, Unicode</a></p>
-<h2 id="_5">权限<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<blockquote>
+<details class="quote" open="open"><summary>参考链接</summary><p><a href="https://dev.mysql.com/doc/refman/5.7/en/charset.html">Character Sets, Collations, Unicode</a></p>
+</details>
+<h3 id="_5">权限<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <ul>
 <li>SCHEMA_PRIVILEGES 数据库相关权限，mysql.db</li>
 <li>TABLE_PRIVILEGES 表相关权限，mysql.tables_priv</li>
 <li>COLUMN_PRIVILEGES 表授权的用户对象</li>
-<li>USER_PRIVILEGES 用户相关权限，mysql.user</li>
+<li>USER_PRIVILEGES 用户相关权限，mysql.user<ul>
 <li>Select_priv</li>
 <li>Insert_priv</li>
 <li>Update_priv</li>
 <li>Delete_priv</li>
 </ul>
-</blockquote>
+</li>
+</ul>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -3413,7 +4029,7 @@
 </pre></div>
 </td></tr></table>
 
-<h3 id="_6">权限分配<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h4 id="_6">权限分配<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <p><code>GRANT 权限 ON 数据库.* TO 用户名@'登录主机' IDENTIFIED BY '密码'</code></p>
 <ul>
 <li>权限：<code>ALL,ALTER,CREATE,DROP,SELECT,UPDATE,DELETE</code></li>
@@ -3428,20 +4044,18 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="_7">实体对象<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<blockquote>
+<h3 id="_7">实体对象<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <ul>
 <li>COLUMNS 表字段</li>
 <li>SCHEMATA 所有数据库及默认字符集</li>
 </ul>
-</blockquote>
-<h1 id="mysql">MySQL协议<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h1>
-<h2 id="_8">基本数据类型<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<h3 id="integers">Integers<a class="headerlink" href="#integers" title="Permanent link">&para;</a></h3>
-<h4 id="fixed-length-integers">Fixed-length integers<a class="headerlink" href="#fixed-length-integers" title="Permanent link">&para;</a></h4>
-<p>定长，例 int&lt;3&gt; 
+<h2 id="mysql_1">MySQL协议<a class="headerlink" href="#mysql_1" title="Permanent link">&para;</a></h2>
+<h3 id="_8">基本数据类型<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h4 id="integers">Integers<a class="headerlink" href="#integers" title="Permanent link">&para;</a></h4>
+<h5 id="fixed-length-integers">Fixed-length integers<a class="headerlink" href="#fixed-length-integers" title="Permanent link">&para;</a></h5>
+<p>定长，例 int&lt;3&gt;
 <code>01 00 00</code></p>
-<h4 id="length-encoded-integers">Length-encoded integers<a class="headerlink" href="#length-encoded-integers" title="Permanent link">&para;</a></h4>
+<h5 id="length-encoded-integers">Length-encoded integers<a class="headerlink" href="#length-encoded-integers" title="Permanent link">&para;</a></h5>
 <p>用第一个字节代表存储长度。例：</p>
 <p><code>fa</code>       -- 250
 <code>fc fb 00</code> -- 251</p>
@@ -3451,20 +4065,20 @@
 <li>0xfd 3字节</li>
 <li>0xfe 8字节</li>
 </ul>
-<h3 id="strings">Strings<a class="headerlink" href="#strings" title="Permanent link">&para;</a></h3>
-<h4 id="fixedlengthstring">FixedLengthString<a class="headerlink" href="#fixedlengthstring" title="Permanent link">&para;</a></h4>
+<h4 id="strings">Strings<a class="headerlink" href="#strings" title="Permanent link">&para;</a></h4>
+<h5 id="fixedlengthstring">FixedLengthString<a class="headerlink" href="#fixedlengthstring" title="Permanent link">&para;</a></h5>
 <p>定长，例 <code>string&lt;fix&gt;</code></p>
-<h4 id="nulterminatedstring">NulTerminatedString<a class="headerlink" href="#nulterminatedstring" title="Permanent link">&para;</a></h4>
+<h5 id="nulterminatedstring">NulTerminatedString<a class="headerlink" href="#nulterminatedstring" title="Permanent link">&para;</a></h5>
 <p><code>string&lt;NUL&gt;</code> ，以 <code>00</code> 结尾。</p>
-<h4 id="variablelengthstring">VariableLengthString<a class="headerlink" href="#variablelengthstring" title="Permanent link">&para;</a></h4>
+<h5 id="variablelengthstring">VariableLengthString<a class="headerlink" href="#variablelengthstring" title="Permanent link">&para;</a></h5>
 <p><code>string&lt;var&gt;</code></p>
-<h4 id="lengthencodedstring">LengthEncodedString<a class="headerlink" href="#lengthencodedstring" title="Permanent link">&para;</a></h4>
+<h5 id="lengthencodedstring">LengthEncodedString<a class="headerlink" href="#lengthencodedstring" title="Permanent link">&para;</a></h5>
 <p><code>string&lt;lenenc&gt;</code></p>
-<h4 id="restofpacketstring">RestOfPacketString<a class="headerlink" href="#restofpacketstring" title="Permanent link">&para;</a></h4>
+<h5 id="restofpacketstring">RestOfPacketString<a class="headerlink" href="#restofpacketstring" title="Permanent link">&para;</a></h5>
 <p><code>string&lt;EOF&gt;</code></p>
-<h2 id="packets">Packets<a class="headerlink" href="#packets" title="Permanent link">&para;</a></h2>
+<h3 id="packets">Packets<a class="headerlink" href="#packets" title="Permanent link">&para;</a></h3>
 <p>MySQL协议包被切分为最多2^24-1字节，每个分片携带包头。</p>
-<h3 id="payload">Payload<a class="headerlink" href="#payload" title="Permanent link">&para;</a></h3>
+<h4 id="payload">Payload<a class="headerlink" href="#payload" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -3506,6 +4120,24 @@
 <li>命令类型：0x03</li>
 <li>命令：0x53 ...</li>
 </ul>
+<h2 id="innodb">InnoDB, 数据库引擎<a class="headerlink" href="#innodb" title="Permanent link">&para;</a></h2>
+<h3 id="_9">文件系统<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>datafile, 数据文件，划分为64个page，默认非压缩表的page size为16Kb，总共1M（一个Extent）。</p>
+<ul>
+<li>主系统表空间文件ibdata。</li>
+<li>用户创建表产生ibd文件，归属于独立的表空间tablespace（一般一个表空间一个文件）。</li>
+</ul>
+</li>
+<li>
+<p>redo日志，默认以512字节-4KB的block单位写入。</p>
+</li>
+<li>undo tablespace文件。</li>
+<li>临时表空间ibtmp1。</li>
+</ul>
+<details class="quote" open="open"><summary>参考链接</summary><p><a href="http://mysql.taobao.org/monthly/2016/02/01/">MySQL · 引擎特性 · InnoDB 文件系统之文件物理结构</a></p>
+</details>
                 
                   
                 
