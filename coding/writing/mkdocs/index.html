@@ -2650,8 +2650,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../environment/tools/Git常用命令/" title="git常用命令" class="md-nav__link">
-      git常用命令
+    <a href="../../../environment/tools/Git常用命令/" title="Git常用命令" class="md-nav__link">
+      Git常用命令
     </a>
   </li>
 
@@ -3951,17 +3951,22 @@ disqus:空disable
 </pre></div>
 </td></tr></table></li>
 <li>使用H1做title</li>
-<li>自定义标签：<a href="https://shields.io/">https://shields.io/</a>，<code>https://img.shields.io/badge/&lt;LABEL&gt;-&lt;MESSAGE&gt;-&lt;COLOR&gt;.svg</code></li>
-<li>符号参见<a href="#smartsymbols">SmartSymbols</a></li>
-<li>文本修饰<ul>
-<li>高亮<code>==mark me==</code>, 下划线<code>^^Insert me^^</code>, 删除线<code>~~Delete me~~</code></li>
-<li>增加<code>{+</code> <code>+</code> <code>add</code> <code>+</code> <code>+}</code>, 删除<code>{-</code> <code>-</code> <code>del</code> <code>-</code> <code>-}</code>, 修改<code>{~</code> <code>~</code> <code>is</code> <code>~</code> <code>&gt;</code> <code>are</code> <code>~</code> <code>~}</code>, 高亮<code>{=</code> <code>=</code> <code>highlight</code> <code>=</code> <code>=}</code>, 注释<code>{&gt;</code> <code>&gt;</code> <code>comment</code> <code>&lt;</code> <code>&lt;}</code>，可修饰行内或段落</li>
-<li>上标<code>H^2^0</code>, <code>text^a\ superscript^</code>, 下标<code>CH~3~CH~2~OH</code>, <code>text~a\ subscript~</code></li>
+<li>自定义标签：<a href="https://shields.io/">https://shields.io/</a>，如：<code>https://img.shields.io/badge/&lt;LABEL&gt;-&lt;MESSAGE&gt;-&lt;COLOR&gt;.svg</code></li>
+<li>文本修饰（带 <ins>下划线</ins> 的可修饰行内或段落）<ul>
+<li>加粗<code>**bold**</code>, 高亮<code>==mark me==</code></li>
+<li>下划线<code>^^Insert me^^</code></li>
+<li>删除线<code>~~Delete me~~</code></li>
+<li><ins>增加</ins><code>{+ + add + +}</code>, <ins>修改</ins><code>{~ ~ is ~&gt; are ~ ~}</code></li>
+<li><ins>删除</ins><code>{- - del - -}</code></li>
+<li><ins>高亮</ins><code>{= = highlight = =}</code></li>
+<li><ins>注释</ins><code>{&gt; &gt; comment &lt; &lt;}</code></li>
+<li>上标<code>H^2^0</code>, <code>text^a\ superscript^</code></li>
+<li>下标<code>CH~3~CH~2~OH</code>, <code>text~a\ subscript~</code></li>
 <li>行内代码高亮：<code>`:::language mycode`</code> or <code>`#!language mycode`</code></li>
 </ul>
 </li>
-<li>一级列表使用<code>-</code>，二级列表使用<code>*</code>，三级列表使用<code>+</code>，子级列表缩进 <strong>4</strong> 个空格，使用复选框：<code>- [x] item</code><br />
-列表内容换行：<mark>行尾2个空格</mark>。</li>
+<li>符号参见<a href="#smartsymbols">SmartSymbols</a></li>
+<li>注释块使用<code>&gt;</code></li>
 <li>代码块添加<code>tab="xxx"</code>分组，添加<code>hl_lines="3 4"</code>高亮行<ul>
 <li>代码块嵌套在列表中，<mark>缩进4个空格</mark>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -3981,6 +3986,9 @@ disqus:空disable
 </td></tr></table></li>
 </ul>
 </li>
+<li>一级列表使用<code>-</code>，二级列表使用<code>*</code>，三级列表使用<code>+</code>，子级列表缩进 <strong>4</strong> 个空格<br />
+使用复选框：<code>- [x] item</code><br />
+列表内容换行：<mark>行尾2个空格</mark>。</li>
 <li>表格<br />
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -4013,7 +4021,7 @@ Left         | Center        | Right
 </details>
 <details class="note"><summary>注释，代码片段，说明</summary><p>note, snippet, seealso</p>
 </details>
-<details class="example"><summary>举例</summary><p>example</p>
+<details class="example"><summary>举例，列表</summary><p>example</p>
 </details>
 <details class="quote"><summary>引用，参考链接</summary><p>quote, cite</p>
 </details>
