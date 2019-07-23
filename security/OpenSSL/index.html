@@ -40,7 +40,7 @@
     
     
       
-        <title>1. 标准命令 - islibra</title>
+        <title>OpenSSL - islibra</title>
       
     
     
@@ -108,7 +108,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#1" tabindex="1" class="md-skip">
+      <a href="#openssl" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -133,7 +133,7 @@
               islibra
             </span>
             <span class="md-header-nav__topic">
-              1. 标准命令
+              OpenSSL
             </span>
           
         </div>
@@ -2828,9 +2828,58 @@
       
     
     
-    <a href="./" title="1. 标准命令" class="md-nav__link md-nav__link--active">
-      1. 标准命令
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        OpenSSL
+      </label>
+    
+    <a href="./" title="OpenSSL" class="md-nav__link md-nav__link--active">
+      OpenSSL
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0x00_" title="0x00_标准命令" class="md-nav__link">
+    0x00_标准命令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0x01_" title="0x01_哈希命令" class="md-nav__link">
+    0x01_哈希命令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0x02_" title="0x02_加密命令" class="md-nav__link">
+    0x02_加密命令
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -3265,6 +3314,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0x00_" title="0x00_标准命令" class="md-nav__link">
+    0x00_标准命令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0x01_" title="0x01_哈希命令" class="md-nav__link">
+    0x01_哈希命令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0x02_" title="0x02_加密命令" class="md-nav__link">
+    0x02_加密命令
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3278,18 +3363,26 @@
                   <a href="https://github.com/islibra/wiki/blob/master/docs/security/OpenSSL.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="1">1. 标准命令<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
+                <h1 id="openssl">OpenSSL<a class="headerlink" href="#openssl" title="Permanent link">&para;</a></h1>
+<h2 id="0x00_">0x00_标准命令<a class="headerlink" href="#0x00_" title="Permanent link">&para;</a></h2>
 <ul>
-<li>genrsa，使用RSA算法生成私钥，如：<code>openssl genrsa -aes256 -out ca.key 3072</code>。  </li>
-<li>-aes256使用AES256CBC加密输出的PEM格式的私钥。  </li>
-<li>-out生成的文件。  </li>
-<li>numbits，私钥位数。  </li>
-<li>pkcs12，导入证书，如：<code>openssl pkcs12 -export -out etcd_client.p12 -in client.pem -inkey client.key</code>。提示输入私钥口令和p12口令。  </li>
-<li>-export生成PKCS12文件。</li>
-<li>-out outfile输出文件。</li>
-<li>-in  infile输入文件。</li>
-<li>-inkey file证书私钥。</li>
-<li>req，创建证书或证书请求，如：创建CA证书<code>openssl req -new -x509 -days 3650 -key  ca.key -out  ca.pem</code>或<code>openssl req -config c:\openssl\bin\openssl.cnf -new -x509 -keyout ca-key.pem.txt -out ca-certificate.pem.txt -days 365</code>，创建证书请求<code>openssl req -new -key server.key -out server.csr</code>。  </li>
+<li>genrsa，使用RSA算法生成私钥，如：<code>openssl genrsa -aes256 -out ca.key 3072</code>。  <ul>
+<li>-aes256, 使用AES256CBC加密输出的PEM格式的私钥。  </li>
+<li>-out, 生成的文件名。  </li>
+<li>numbits, 私钥位数。  </li>
+</ul>
+</li>
+<li>pkcs12，导入证书和私钥生成密钥库，如：<code>openssl pkcs12 -export -out etcd_client.p12 -in client.pem -inkey client.key</code>。提示输入私钥口令和p12口令。  <ul>
+<li>-export, 生成PKCS12文件。</li>
+<li>-out outfile, 输出文件名。</li>
+<li>-in infile, 输入证书。</li>
+<li>-inkey file, 输入证书私钥。</li>
+</ul>
+</li>
+<li>req，创建证书或证书请求，如：  <ul>
+<li>创建CA证书<code>openssl req -new -x509 -days 3650 -key ca.key -out ca.pem</code>  </li>
+<li>或<code>openssl req -config c:\openssl\bin\openssl.cnf -new -x509 -keyout ca-key.pem.txt -out ca-certificate.pem.txt -days 365</code>  </li>
+<li>创建证书请求<code>openssl req -new -key server.key -out server.csr</code><ul>
 <li>-config file请求模板文件，可添加subjectAltName中的DNS和IP。</li>
 <li>-new新请求。</li>
 <li>-x509直接生成证书。</li>
@@ -3297,8 +3390,12 @@
 <li>-key file证书对应的私钥。</li>
 <li>-keyout file生成私钥并输出到文件。</li>
 <li>-out输出文件。</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>version</li>
-<li>x509，根据请求创建证书，如：<code>openssl x509 -req -days 3650 -sha256 -extensions v3_req -CA ca.pem -CAkey ca.key -in server.csr -out server.pem -CAcreateserial -extfile server.cnf</code>。</li>
+<li>x509，根据请求创建证书，如：<code>openssl x509 -req -days 3650 -sha256 -extensions v3_req -CA ca.pem -CAkey ca.key -in server.csr -out server.pem -CAcreateserial -extfile server.cnf</code>。<ul>
 <li>-req通过请求创建证书。</li>
 <li>-days arg证书有效期。</li>
 <li>-sha256签名算法。</li>
@@ -3310,15 +3407,21 @@
 <li>-CAcreateserial生成证书序列号。</li>
 <li>-extfile使用的模板文件。</li>
 <li>-extensions根据模板中添加的X509V3 extensions。</li>
-<li>ecparam，生成ec密钥参数，如<code>openssl ecparam -genkey -name prime256v1 -out ca.pem</code>。</li>
+</ul>
+</li>
+<li>ecparam，生成ec密钥参数，如<code>openssl ecparam -genkey -name prime256v1 -out ca.pem</code>。<ul>
 <li>-genkey生成ec key。</li>
 <li>-name arg</li>
 <li>-out arg输出文件名称，默认stdout。</li>
-<li>ec，生成ec密钥，如<code>openssl ec -in ca.pem -out ca.key -aes256</code>。</li>
+</ul>
+</li>
+<li>ec，生成ec密钥，如<code>openssl ec -in ca.pem -out ca.key -aes256</code>。<ul>
 <li>-in arg输入文件。</li>
 <li>-out arg输出文件。</li>
 <li>-aes256使用AES256CBC加密输出的PEM格式的私钥。</li>
-<li>cms</li>
+</ul>
+</li>
+<li>cms<ul>
 <li>-verify校验由证书签名的内容。</li>
 <li>-certfile file证书文件。</li>
 <li>-CAfile file信任的根证书文件。</li>
@@ -3328,12 +3431,14 @@
 <li>-nocerts签名时不包含签发者证书。</li>
 <li>-noattr不包含签名属性。</li>
 </ul>
-<h1 id="2">2. 哈希命令<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
+</li>
+</ul>
+<h2 id="0x01_">0x01_哈希命令<a class="headerlink" href="#0x01_" title="Permanent link">&para;</a></h2>
 <ul>
 <li>md5  </li>
 <li>sha1</li>
 </ul>
-<h1 id="3">3. 加密命令<a class="headerlink" href="#3" title="Permanent link">&para;</a></h1>
+<h2 id="0x02_">0x02_加密命令<a class="headerlink" href="#0x02_" title="Permanent link">&para;</a></h2>
 <ul>
 <li>aes-256-cbc</li>
 <li>base64</li>

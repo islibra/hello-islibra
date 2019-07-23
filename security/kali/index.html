@@ -2820,8 +2820,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../OpenSSL/" title="1. 标准命令" class="md-nav__link">
-      1. 标准命令
+    <a href="../OpenSSL/" title="OpenSSL" class="md-nav__link">
+      OpenSSL
     </a>
   </li>
 
@@ -3071,6 +3071,19 @@
   <a href="#_10" title="一、身份验证" class="md-nav__link">
     一、身份验证
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#burp-suite-intruder" title="使用Burp Suite intruder字典攻击" class="md-nav__link">
+    使用Burp Suite intruder字典攻击
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3713,6 +3726,19 @@
     一、身份验证
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#burp-suite-intruder" title="使用Burp Suite intruder字典攻击" class="md-nav__link">
+    使用Burp Suite intruder字典攻击
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -3868,7 +3894,7 @@
 <img alt="" src="../../img/nmap_ssl_1.png" /><br />
 <img alt="" src="../../img/nmap_ssl_2.png" /><br />
 <mark class="critic">在warnings中查看不安全选项</mark></li>
-<li>使用sslscan查看 <mark class="critic">是否存在heartbleed漏洞，弱加密套件，证书信息</mark>, <code>sslscan x.x.x.x</code><br />
+<li>使用<a href="https://github.com/rbsec/sslscan/releases">sslscan</a>查看 <mark class="critic">是否存在heartbleed漏洞，弱加密套件，证书信息</mark>, <code>sslscan x.x.x.x[:port]</code><br />
 <img alt="" src="../../img/sslscan_1.png" /><br />
 <img alt="" src="../../img/sslscan_2.png" /></li>
 <li><a href="https://testssl.sh/">testSSL</a><ul>
@@ -3992,6 +4018,16 @@ run
 <li>Bearer tokens</li>
 <li>爆破tomcat部署webshell</li>
 </ul>
+<h4 id="burp-suite-intruder">使用Burp Suite intruder字典攻击<a class="headerlink" href="#burp-suite-intruder" title="Permanent link">&para;</a></h4>
+<ol>
+<li>使用<code>Burp Suite</code>代理。</li>
+<li>访问目标网站，找到login的url发送到<code>Intruder</code>。</li>
+<li>进入<code>Positions</code>页签，点击<code>Clear</code>清除占位符。</li>
+<li>在需要字典攻击的参数值位置点击<code>Add</code>添加占位符。</li>
+<li>攻击类型选择<code>Cluster bomb</code>。</li>
+<li>进去<code>Payloads</code>页签，选择<code>Payload set</code> - <code>1</code>，设置为<code>Simple list</code>，点击<code>Load</code>导入用户名；选择<code>2</code>，设置为<code>Simple list</code>，点击<code>Load</code>导入密码。</li>
+<li>菜单<code>Intruder</code>，<code>Start attack</code>。</li>
+</ol>
 <h3 id="_11">二、会话管理<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <h4 id="cookie">cookie中的会话标识<a class="headerlink" href="#cookie" title="Permanent link">&para;</a></h4>
 <div class="admonition warning">

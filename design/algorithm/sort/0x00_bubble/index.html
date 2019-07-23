@@ -2833,8 +2833,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../security/OpenSSL/" title="1. 标准命令" class="md-nav__link">
-      1. 标准命令
+    <a href="../../../../security/OpenSSL/" title="OpenSSL" class="md-nav__link">
+      OpenSSL
     </a>
   </li>
 
@@ -3284,7 +3284,10 @@
                 
                 <h1 id="0x00_bubble">0x00_bubble<a class="headerlink" href="#0x00_bubble" title="Permanent link">&para;</a></h1>
 <p>冒泡排序：两重循环不断将相邻元素中较大的元素交换到最后。</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">标准版</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -3324,7 +3327,161 @@
 
 <span class="k">print</span><span class="p">(</span><span class="n">bubble</span><span class="p">(</span><span class="n">input_list</span><span class="p">))</span>
 </pre></div>
-</td></tr></table>
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">已排序提前退出</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="ch">#!/usr/local/bin/python3</span>
+
+
+<span class="c1"># 冒泡排序方法定义</span>
+<span class="k">def</span> <span class="nf">bubble</span><span class="p">(</span><span class="n">inlist</span><span class="p">):</span>
+    <span class="c1"># 2. 总共进行1~length-1次比较即可</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">inlist</span><span class="p">)):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;round: &quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+        <span class="c1"># 优化1.1:</span>
+<span class="hll">        <span class="n">isSorted</span> <span class="o">=</span> <span class="bp">True</span>
+</span>        <span class="c1"># 1. 每轮循环从第一个元素开始比较，一直比到数组长度-循环次数，把最大元素移到最后</span>
+        <span class="c1"># 如第一轮比到length-1-1，即去掉最后一个元素，range是左开右闭区间</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">inlist</span><span class="p">)</span><span class="o">-</span><span class="n">i</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">inlist</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">inlist</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="c1"># 复合赋值</span>
+                <span class="n">inlist</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">inlist</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">inlist</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">inlist</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                <span class="c1"># 优化1.2:</span>
+<span class="hll">                <span class="n">isSorted</span> <span class="o">=</span> <span class="bp">False</span>
+</span>        <span class="c1"># 优化1.3:</span>
+<span class="hll">        <span class="k">if</span> <span class="n">isSorted</span><span class="p">:</span>
+</span>            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;already sorted, break&quot;</span><span class="p">)</span>
+<span class="hll">            <span class="k">break</span>
+</span>    <span class="k">return</span> <span class="n">inlist</span>
+
+
+<span class="c1"># 测试列表</span>
+<span class="n">input_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">bubble</span><span class="p">(</span><span class="n">input_list</span><span class="p">))</span>
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_2" />
+<label for="__tab_1_2">记录有序区索引</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="ch">#!/usr/local/bin/python3</span>
+
+
+<span class="c1"># 冒泡排序方法定义</span>
+<span class="k">def</span> <span class="nf">bubble</span><span class="p">(</span><span class="n">inlist</span><span class="p">):</span>
+    <span class="c1"># 优化2.1:</span>
+<span class="hll">    <span class="n">indexLimit</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">inlist</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+</span><span class="hll">    <span class="n">lastExchangeIndex</span> <span class="o">=</span> <span class="mi">0</span>
+</span>    <span class="c1"># 2. 总共进行1~length-1次比较即可，range是左开右闭区间</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">inlist</span><span class="p">)):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;round:&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+        <span class="c1"># 优化1.1:</span>
+        <span class="n">isSorted</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="c1"># 1. 每轮循环从第一个元素开始比较，一直比到数组长度-循环次数，把最大元素移到最后</span>
+        <span class="c1"># 如第一轮比到length-1-1，即去掉最后一个元素</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;index limit:&quot;</span><span class="p">,</span> <span class="n">indexLimit</span><span class="p">)</span>
+        <span class="c1"># 优化2.2:</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="hll">        <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">indexLimit</span><span class="p">:</span>
+</span>            <span class="k">if</span> <span class="n">inlist</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">inlist</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="c1"># 复合赋值</span>
+                <span class="n">inlist</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">inlist</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">inlist</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">inlist</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                <span class="c1"># 优化1.2:</span>
+                <span class="n">isSorted</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="c1"># 优化2.3:</span>
+<span class="hll">                <span class="n">lastExchangeIndex</span> <span class="o">=</span> <span class="n">j</span>
+</span>            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c1"># 优化2.4:</span>
+<span class="hll">        <span class="n">indexLimit</span> <span class="o">=</span> <span class="n">lastExchangeIndex</span>
+</span>        <span class="c1"># 优化1.3:</span>
+        <span class="k">if</span> <span class="n">isSorted</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;already sorted, break&quot;</span><span class="p">)</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="n">inlist</span>
+
+
+<span class="c1"># 测试列表</span>
+<span class="n">input_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">bubble</span><span class="p">(</span><span class="n">input_list</span><span class="p">))</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<ul>
+<li>时间复杂度：O(n<sup>2</sup>)</li>
+<li>空间复杂度：O(1)</li>
+</ul>
+<details class="quote" open="open"><summary>参考链接</summary><ul>
+<li><a href="https://mp.weixin.qq.com/s/wO11PDZSM5pQ0DfbQjKRQA">漫画：什么是冒泡排序？</a></li>
+<li><a href="https://mp.weixin.qq.com/s/CoVZrvis6BnxBQgQrdc5kA">漫画：什么是鸡尾酒排序？（修订版）</a></li>
+</ul>
+</details>
                 
                   
                 
