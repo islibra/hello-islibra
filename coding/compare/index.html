@@ -757,8 +757,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" title="模板" class="md-nav__link">
-    模板
+  <a href="#_8" title="类" class="md-nav__link">
+    类
   </a>
   
 </li>
@@ -891,6 +891,18 @@
   <li class="md-nav__item">
     <a href="../db/SQL/" title="SQL" class="md-nav__link">
       SQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../db/SQLite/" title="SQLite" class="md-nav__link">
+      SQLite
     </a>
   </li>
 
@@ -1561,6 +1573,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../python/Flask/" title="Flask" class="md-nav__link">
+      Flask
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../python/django/" title="django" class="md-nav__link">
       django
     </a>
@@ -1586,13 +1610,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-7-15" type="checkbox" id="nav-3-7-15">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-7-16" type="checkbox" id="nav-3-7-16">
     
-    <label class="md-nav__link" for="nav-3-7-15">
+    <label class="md-nav__link" for="nav-3-7-16">
       Spider
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-7-15">
+      <label class="md-nav__title" for="nav-3-7-16">
         Spider
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1849,8 +1873,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../writing/Markdown/" title="Markdown" class="md-nav__link">
-      Markdown
+    <a href="../writing/Atom/" title="Atom" class="md-nav__link">
+      Atom
     </a>
   </li>
 
@@ -1861,8 +1885,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../writing/atom/" title="atom" class="md-nav__link">
-      atom
+    <a href="../writing/Markdown/" title="Markdown" class="md-nav__link">
+      Markdown
     </a>
   </li>
 
@@ -2149,8 +2173,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../design/data_structure/堆/" title="最大堆" class="md-nav__link">
-      最大堆
+    <a href="../../design/data_structure/堆/" title="堆" class="md-nav__link">
+      堆
     </a>
   </li>
 
@@ -2401,8 +2425,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../environment/os/Linux网络管理/" title="Linux网络管理" class="md-nav__link">
-      Linux网络管理
+    <a href="../../environment/os/Linux网络管理_DNS/" title="Linux网络管理_DNS" class="md-nav__link">
+      Linux网络管理_DNS
     </a>
   </li>
 
@@ -2451,6 +2475,18 @@
   <li class="md-nav__item">
     <a href="../../environment/os/Tips/" title="Tips" class="md-nav__link">
       Tips
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../environment/os/Windows/" title="Windows" class="md-nav__link">
+      Windows
     </a>
   </li>
 
@@ -2511,18 +2547,6 @@
   <li class="md-nav__item">
     <a href="../../environment/os/vim/" title="vim" class="md-nav__link">
       vim
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../environment/os/windows/" title="重启" class="md-nav__link">
-      重启
     </a>
   </li>
 
@@ -3444,8 +3468,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" title="模板" class="md-nav__link">
-    模板
+  <a href="#_8" title="类" class="md-nav__link">
+    类
   </a>
   
 </li>
@@ -3734,16 +3758,40 @@
 </pre></div>
 </td></tr></table></div>
 </div>
-<h2 id="_8">模板<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h2 id="_8">类<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<div class="superfences-tabs">
+<input name="__tabs_8" type="radio" id="__tab_8_0" checked="checked" />
+<label for="__tab_8_0">python</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 定义类</span>
+<span class="c1"># (object)代表继承自object</span>
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># 定义构造方法</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nm</span><span class="p">,</span> <span class="n">pd</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">nm</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">pd</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="s1">&#39;alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Admin@123&#39;</span><span class="p">)</span>
+
+<span class="c1"># output: alice, Admin@123</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;{user.name}, {user.password}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">))</span>
+</pre></div>
+</td></tr></table></div>
+</div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>
 </pre></div>
 </td></tr></table>
 
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>
-</pre></div>
-</td></tr></table>
-
-<p>tab="python"</p>
 <p>tab="go"</p>
                 
                   
