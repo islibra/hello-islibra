@@ -1368,6 +1368,53 @@
     字符串处理
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="格式化字符串" class="md-nav__link">
+    格式化字符串
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0x00_" title="0x00_%操作符" class="md-nav__link">
+    0x00_%操作符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x01_stringtemplate1" title="0x01_标准库string.Template1" class="md-nav__link">
+    0x01_标准库string.Template1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x02_format" title="0x02_format方法" class="md-nav__link">
+    0x02_format方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x03_f-strings" title="0x03_f-Strings" class="md-nav__link">
+    0x03_f-Strings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1376,28 +1423,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="列表" class="md-nav__link">
+  <a href="#_4" title="列表" class="md-nav__link">
     列表
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="元组" class="md-nav__link">
+  <a href="#_5" title="元组" class="md-nav__link">
     元组
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="集合" class="md-nav__link">
+  <a href="#_6" title="集合" class="md-nav__link">
     集合
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" title="字典" class="md-nav__link">
+  <a href="#_7" title="字典" class="md-nav__link">
     字典
   </a>
   
@@ -3383,6 +3430,53 @@
     字符串处理
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="格式化字符串" class="md-nav__link">
+    格式化字符串
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0x00_" title="0x00_%操作符" class="md-nav__link">
+    0x00_%操作符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x01_stringtemplate1" title="0x01_标准库string.Template1" class="md-nav__link">
+    0x01_标准库string.Template1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x02_format" title="0x02_format方法" class="md-nav__link">
+    0x02_format方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x03_f-strings" title="0x03_f-Strings" class="md-nav__link">
+    0x03_f-Strings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -3391,28 +3485,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="列表" class="md-nav__link">
+  <a href="#_4" title="列表" class="md-nav__link">
     列表
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="元组" class="md-nav__link">
+  <a href="#_5" title="元组" class="md-nav__link">
     元组
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="集合" class="md-nav__link">
+  <a href="#_6" title="集合" class="md-nav__link">
     集合
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" title="字典" class="md-nav__link">
+  <a href="#_7" title="字典" class="md-nav__link">
     字典
   </a>
   
@@ -3447,21 +3541,65 @@
 <h2 id="_1">字符串<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li>重复：<code>"repeatstring"*3</code></li>
-<li>索引：<br />
+<li>
+<p>索引：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;abcdefg&quot;</span>
+<span class="c1"># 切片前闭后开</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">str</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="nb">str</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>  <span class="c1"># a g cde</span>
+</pre></div>
+</td></tr></table>
+
+</li>
+</ul>
+<details class="error" open="open"><summary>Error</summary><p>字符串不能改变，如<code>word[0] = 'm'</code>会导致错误。</p>
+</details>
+<h3 id="_2">字符串处理<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;abcdefg&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">str</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="nb">str</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>  <span class="c1">#切片前闭后开</span>
-
-<span class="c1">###</span>
-<span class="n">a</span> <span class="n">g</span> <span class="n">cde</span>
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 转换为字符串</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;hello &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">99</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;hello2 &#39;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># 右对齐</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># 居中</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># 左对齐</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;12&#39;</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># 0填充</span>
 </pre></div>
-</td></tr></table></li>
-</ul>
-<p>字符串不能改变，如<code>word[0] = 'm'</code>会导致错误。</p>
-<h3 id="_2">字符串处理<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+</td></tr></table>
+
+<h4 id="_3">格式化字符串<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<h5 id="0x00_">0x00_%操作符<a class="headerlink" href="#0x00_" title="Permanent link">&para;</a></h5>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Alice&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello, </span><span class="si">%s</span><span class="s1">!&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>  <span class="c1"># Hello, Alice!</span>
+</pre></div>
+</td></tr></table>
+
+<h5 id="0x01_stringtemplate1">0x01_标准库string.Template<sup id="fnref:template"><a class="footnote-ref" href="#fn:template">1</a></sup><a class="headerlink" href="#0x01_stringtemplate1" title="Permanent link">&para;</a></h5>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">Template</span>
+
+
+<span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Alice&#39;</span>
+<span class="n">good</span> <span class="o">=</span> <span class="s1">&#39;car&#39;</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="s1">&#39;Hello, ${nm}, i have $$10 to buy the $gd!&#39;</span><span class="p">)</span>
+<span class="c1"># Hello, Alice, i have $10 to buy the car!</span>
+<span class="k">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span><span class="n">nm</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">gd</span><span class="o">=</span><span class="n">good</span><span class="p">))</span>
+</pre></div>
+</td></tr></table>
+
+<h5 id="0x02_format">0x02_format方法<a class="headerlink" href="#0x02_format" title="Permanent link">&para;</a></h5>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -3474,23 +3612,90 @@
 10
 11
 12
-13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 转换为字符串</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;hello &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">99</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;hello2 &#39;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># 右对齐</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># 居中</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># 左对齐</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;12&#39;</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># 0填充</span>
-<span class="c1"># 格式化字符串</span>
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># This is a 3 length string, and its value is abc</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;This is a {} length string, and its value is {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">))</span>
+
 <span class="c1"># 指定位置和关键字</span>
+<span class="c1"># This is another 3 length string, and its value is abc, also def is 3.</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;This is another {1} length string, and its value is {0}, also {str} is 3.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;def&#39;</span><span class="p">))</span>
+
 <span class="c1"># 宽度和类型</span>
+<span class="c1"># jack       ==&gt;       4097</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;{0:10} ==&gt; {1:10d}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;jack&#39;</span><span class="p">,</span> <span class="mi">4097</span><span class="p">))</span>
+<span class="n">errorno</span> <span class="o">=</span> <span class="mi">50159747054</span>
+<span class="c1"># There is an badc0ffee error!</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;There is an {erno:x} error!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">erno</span><span class="o">=</span><span class="n">errorno</span><span class="p">))</span>
+
+<span class="c1"># 输出类属性</span>
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nm</span><span class="p">,</span> <span class="n">pd</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">nm</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">pd</span>
+
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="s1">&#39;Jack&#39;</span><span class="p">,</span> <span class="s1">&#39;Changeme123&#39;</span><span class="p">)</span>
+<span class="c1"># Jack, Changeme123</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;{u.name}, {u.password}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">u</span><span class="o">=</span><span class="n">user</span><span class="p">))</span>
 </pre></div>
 </td></tr></table>
 
-<h2 id="_3">列表<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<details class="danger" open="open"><summary>安全风险</summary><p><mark class="critic">控制格式化字符串, 泄露敏感信息</mark></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;SECRET_KEY&#39;</span><span class="p">:</span> <span class="s1">&#39;CHANGEME123&#39;</span><span class="p">}</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nm</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">nm</span>
+
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="s1">&#39;Jack&#39;</span><span class="p">)</span>
+
+<span class="c1"># {&#39;SECRET_KEY&#39;: &#39;CHANGEME123&#39;}</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;{0.__class__.__init__.__globals__[config]}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="p">))</span>
+</pre></div>
+</td></tr></table>
+
+</details>
+<h5 id="0x03_f-strings">0x03_f-Strings<a class="headerlink" href="#0x03_f-strings" title="Permanent link">&para;</a></h5>
+<details class="danger" open="open"><summary>安全风险</summary><p><mark class="critic">执行字符串表达式</mark></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span>
+<span class="c1"># Five plus ten is 15 and not 50.</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Five plus ten is {a + b} and not {a * b}.&#39;</span><span class="p">)</span>
+<span class="c1"># ...</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{__import__(&quot;os&quot;).system(&quot;dir&quot;)}&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+</details>
+<details class="quote" open="open"><summary>参考链接</summary><p><a href="https://xz.aliyun.com/t/3569">Python Web之flask session&amp;格式化字符串漏洞</a></p>
+</details>
+<h2 id="_4">列表<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -3504,7 +3709,7 @@
 </td></tr></table>
 
 <p>与字符串一样可以索引，切片，使用<code>+</code>串联，元素可以改变如<code>a[0] = 9</code>, <code>a[2:5] = [13, 14, 15]</code>, <code>a[2:5] = []</code>。</p>
-<h2 id="_4">元组<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_5">元组<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -3522,7 +3727,7 @@
 </td></tr></table>
 
 <p>元素不可修改</p>
-<h2 id="_5">集合<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_6">集合<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>无序，去重</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -3552,7 +3757,7 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="_6">字典<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_7">字典<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>无序，键值对集合</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -3632,6 +3837,15 @@
 <span class="p">{</span><span class="s1">&#39;sape&#39;</span><span class="p">:</span> <span class="mi">4139</span><span class="p">,</span> <span class="s1">&#39;guido&#39;</span><span class="p">:</span> <span class="mi">4127</span><span class="p">,</span> <span class="s1">&#39;jack&#39;</span><span class="p">:</span> <span class="mi">4098</span><span class="p">}</span>
 </pre></div>
 </td></tr></table>
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:template">
+<p><a href="https://docs.python.org/zh-cn/3/tutorial/stdlib2.html#templating">https://docs.python.org/zh-cn/3/tutorial/stdlib2.html#templating</a>&#160;<a class="footnote-backref" href="#fnref:template" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 
