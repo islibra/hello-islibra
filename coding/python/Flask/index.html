@@ -1529,6 +1529,46 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#api" title="API" class="md-nav__link">
+    API
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flaskrequest1" title="flask.Request1" class="md-nav__link">
+    flask.Request1
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property" title="property" class="md-nav__link">
+    property
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classmethod" title="classmethod" class="md-nav__link">
+    classmethod
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_5" title="加盐哈希口令生成和验证" class="md-nav__link">
     加盐哈希口令生成和验证
   </a>
@@ -3446,6 +3486,46 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#api" title="API" class="md-nav__link">
+    API
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flaskrequest1" title="flask.Request1" class="md-nav__link">
+    flask.Request1
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property" title="property" class="md-nav__link">
+    property
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classmethod" title="classmethod" class="md-nav__link">
+    classmethod
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_5" title="加盐哈希口令生成和验证" class="md-nav__link">
     加盐哈希口令生成和验证
   </a>
@@ -3662,6 +3742,21 @@ $ python -m flask run
 <li>开始 - 运行 - cmd, 执行<code>flask run</code></li>
 </ol>
 </details>
+<h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<h3 id="flaskrequest1">flask.Request<sup id="fnref:request"><a class="footnote-ref" href="#fn:request">1</a></sup><a class="headerlink" href="#flaskrequest1" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>继承自<code>werkzeug.wrappers.Request</code>类.<br />
+flask.request全局对象, 接收并解析客户端发来的请求, 线程安全.</p>
+</blockquote>
+<h4 id="property">property<a class="headerlink" href="#property" title="Permanent link">&para;</a></h4>
+<ol>
+<li>args: URL参数</li>
+<li>data: body中的数据</li>
+<li>is_json: 判断body中的数据是否JSON格式</li>
+<li>json: 返回解析JSON后的body数据</li>
+<li>remote_addr: 客户端IP</li>
+</ol>
+<h4 id="classmethod">classmethod<a class="headerlink" href="#classmethod" title="Permanent link">&para;</a></h4>
 <h2 id="_5">加盐哈希口令生成和验证<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>Flask内置函数:</p>
 <ul>
@@ -4114,7 +4209,7 @@ $ python -m flask run
 </div>
 <details class="quote" open="open"><summary>参考链接</summary><p><a href="https://flask-sqlalchemy.palletsprojects.com/en/2.x/">https://flask-sqlalchemy.palletsprojects.com/en/2.x/</a></p>
 </details>
-<details class="danger" open="open"><summary>安全风险</summary><p>数据表对象继承自<code>SQLAlchemy</code>, 导入了<code>flask.current_app</code><sup id="fnref:app"><a class="footnote-ref" href="#fn:app">1</a></sup>, 其<code>config</code>中存放了<code>SECRET_KEY</code>, 如果存在格式化字符串漏洞, 可以泄露该敏感信息.</p>
+<details class="danger" open="open"><summary>安全风险</summary><p>数据表对象继承自<code>SQLAlchemy</code>, 导入了<code>flask.current_app</code><sup id="fnref:app"><a class="footnote-ref" href="#fn:app">2</a></sup>, 其<code>config</code>中存放了<code>SECRET_KEY</code>, 如果存在格式化字符串漏洞, 可以泄露该敏感信息.</p>
 <p>payload:</p>
 <ul>
 <li><code>{user_m.__class__.__base__.__class__.__init__.__globals__[current_app].config}</code></li>
@@ -4126,8 +4221,11 @@ $ python -m flask run
 <div class="footnote">
 <hr />
 <ol>
+<li id="fn:request">
+<p><a href="https://flask.palletsprojects.com/en/1.1.x/api/?highlight=request%20data#incoming-request-data">https://flask.palletsprojects.com/en/1.1.x/api/?highlight=request%20data#incoming-request-data</a>&#160;<a class="footnote-backref" href="#fnref:request" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
 <li id="fn:app">
-<p><a href="https://flask.palletsprojects.com/en/1.1.x/api/?highlight=current_app#flask.current_app">https://flask.palletsprojects.com/en/1.1.x/api/?highlight=current_app#flask.current_app</a>&#160;<a class="footnote-backref" href="#fnref:app" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><a href="https://flask.palletsprojects.com/en/1.1.x/api/?highlight=current_app#flask.current_app">https://flask.palletsprojects.com/en/1.1.x/api/?highlight=current_app#flask.current_app</a>&#160;<a class="footnote-backref" href="#fnref:app" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

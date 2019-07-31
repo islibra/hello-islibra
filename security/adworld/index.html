@@ -2959,6 +2959,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#xff_referer" title="xff_referer" class="md-nav__link">
+    xff_referer
+  </a>
+  
+</li>
+      
       
       
       
@@ -3498,6 +3505,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#xff_referer" title="xff_referer" class="md-nav__link">
+    xff_referer
+  </a>
+  
+</li>
+      
       
       
       
@@ -3607,6 +3621,17 @@
 <span class="c1"># 786OsErtk12</span>
 </pre></div>
 </td></tr></table>
+
+<h2 id="xff_referer">xff_referer<a class="headerlink" href="#xff_referer" title="Permanent link">&para;</a></h2>
+<ul>
+<li>X-Forwarded-For: 123.123.123.123, 简称XFF, 在通过http代理或负载均衡服务器时, 添加该项代表客户端真实IP.</li>
+<li>Referer: https://www.google.com, 请求链接所属页面地址.</li>
+</ul>
+<blockquote>
+<p>这两个值都可以伪造.</p>
+</blockquote>
+<details class="tip" open="open"><summary>Tip</summary><p>使用 <strong>Burp Suite</strong> 拦截修改时, 直接在<code>Raw</code>中添加无效, 需要在<code>Headers</code>中点击<code>Add</code>添加.</p>
+</details>
                 
                   
                 
