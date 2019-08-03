@@ -1253,6 +1253,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../coding/javascript/AngularJS/" title="AngularJS" class="md-nav__link">
+      AngularJS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../coding/javascript/Node.js/" title="Node.js" class="md-nav__link">
       Node.js
     </a>
@@ -1267,18 +1279,6 @@
   <li class="md-nav__item">
     <a href="../../coding/javascript/Vue.js/" title="Vue.js" class="md-nav__link">
       Vue.js
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../coding/javascript/angularjs/" title="angularjs" class="md-nav__link">
-      angularjs
     </a>
   </li>
 
@@ -1433,8 +1433,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../coding/python/10_socket/" title="10_socket" class="md-nav__link">
-      10_socket
+    <a href="../../coding/python/0x0B_socket/" title="0x0B_socket" class="md-nav__link">
+      0x0B_socket
     </a>
   </li>
 
@@ -1649,8 +1649,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../coding/web/curl/" title="curl" class="md-nav__link">
-      curl
+    <a href="../../coding/web/curl_wget/" title="curl_wget" class="md-nav__link">
+      curl_wget
     </a>
   </li>
 
@@ -2549,18 +2549,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../environment/tools/将TAB转换为4个空格/" title="将TAB转换为4个空格" class="md-nav__link">
-      将TAB转换为4个空格
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../environment/tools/工具/" title="工具" class="md-nav__link">
       工具
     </a>
@@ -2881,6 +2869,26 @@
   
     <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#xss" title="XSS" class="md-nav__link">
+    XSS
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jquery" title="jQuery" class="md-nav__link">
+    jQuery
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#ssrf" title="SSRF" class="md-nav__link">
@@ -3422,6 +3430,26 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#xss" title="XSS" class="md-nav__link">
+    XSS
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jquery" title="jQuery" class="md-nav__link">
+    jQuery
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ssrf" title="SSRF" class="md-nav__link">
     SSRF
   </a>
@@ -3548,6 +3576,104 @@
                 
                 
                 <h1 id="attack_pattern">attack_pattern<a class="headerlink" href="#attack_pattern" title="Permanent link">&para;</a></h1>
+<h2 id="xss">XSS<a class="headerlink" href="#xss" title="Permanent link">&para;</a></h2>
+<details class="tip" open="open"><summary>Tip</summary><p>使用 <strong>AngularJS</strong> 框架的应用, 检查页面元素, 属性中携带<code>class="ng-binding"</code>的即为绑定输出, 已经过输出编码, 不存在XSS.</p>
+</details>
+<h3 id="jquery">jQuery<a class="headerlink" href="#jquery" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>如果使用<code>$('#id').text()</code>或<code>$('#id').val()</code>, 则不存在XSS.</p>
+</blockquote>
+<details class="danger" open="open"><summary>Danger</summary><p>存在XSS的方法:</p>
+<ul>
+<li><code>$('#id').append()</code></li>
+<li><code>$('#id').html()</code></li>
+<li>after</li>
+<li>appendTo</li>
+<li>before</li>
+<li>insertAfter</li>
+<li>insertBefore</li>
+<li>prepend</li>
+<li>prependTo</li>
+<li>replaceAll</li>
+<li>replaceWith</li>
+<li>unwrap</li>
+<li>wrap</li>
+<li>wrapAll</li>
+<li>wrapInner</li>
+</ul>
+</details>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#textbtn&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#test1&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;&lt;h1&gt;Hello islibra world!&lt;/h1&gt;&quot;</span><span class="p">);</span>
+  <span class="p">});</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#appendbtn&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<span class="hll">    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#test1&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;h1&gt;Hello islibra world!&lt;/h1&gt;&lt;script&gt;alert(&#39;xss&#39;)&lt;\/script&gt;&quot;</span><span class="p">);</span>
+</span>  <span class="p">});</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#htmlbtn&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<span class="hll">    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#test2&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">&quot;&lt;b&gt;Hello world!&lt;/b&gt;&quot;</span><span class="p">);</span>
+</span>  <span class="p">});</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#valuebtn&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#test3&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s2">&quot;\&quot;&gt;&lt;h1&gt;Dolly&lt;/h1&gt; Duck&quot;</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;test1&quot;</span><span class="p">&gt;</span>This is a paragraph.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;test2&quot;</span><span class="p">&gt;</span>This is another paragraph.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Input field: <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;test3&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Mickey Mouse&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;textbtn&quot;</span><span class="p">&gt;</span>Set Text<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;appendbtn&quot;</span><span class="p">&gt;</span>Append Text<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;htmlbtn&quot;</span><span class="p">&gt;</span>Set HTML<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;valuebtn&quot;</span><span class="p">&gt;</span>Set Value<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table>
+
 <h2 id="ssrf">SSRF<a class="headerlink" href="#ssrf" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>所有场景都可攻击 <strong>内网</strong> 或 <strong>本地</strong></p>
