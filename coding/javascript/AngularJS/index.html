@@ -1406,7 +1406,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" title="安全函数" class="md-nav__link">
+  <a href="#_9" title="过滤器" class="md-nav__link">
+    过滤器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" title="自定义过滤器" class="md-nav__link">
+    自定义过滤器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service" title="service" class="md-nav__link">
+    service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="安全函数" class="md-nav__link">
     安全函数
   </a>
   
@@ -3569,7 +3590,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" title="安全函数" class="md-nav__link">
+  <a href="#_9" title="过滤器" class="md-nav__link">
+    过滤器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" title="自定义过滤器" class="md-nav__link">
+    自定义过滤器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service" title="service" class="md-nav__link">
+    service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="安全函数" class="md-nav__link">
     安全函数
   </a>
   
@@ -3794,6 +3836,8 @@ latest: <a href="https://angular.io/">https://angular.io/</a></p>
 </pre></div>
 </td></tr></table>
 
+<details class="tip" open="open"><summary>Tip</summary><p>script放入外部文件, 在body内底部引用, 如: <code>&lt;script src="personController.js"&gt;&lt;/script&gt;</code></p>
+</details>
 <h3 id="_5">在控制器中可定义方法改变属性值<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -3944,7 +3988,396 @@ latest: <a href="https://angular.io/">https://angular.io/</a></p>
 
 </li>
 </ul>
-<h2 id="_9">安全函数<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h2 id="_9">过滤器<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>添加到表达式或指令中.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>过滤器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>currency</td>
+<td>格式化数字为货币格式。</td>
+</tr>
+<tr>
+<td>lowercase</td>
+<td>格式化字符串为小写。</td>
+</tr>
+<tr>
+<td>uppercase</td>
+<td>格式化字符串为大写。</td>
+</tr>
+<tr>
+<td>filter</td>
+<td>从数组项中选择一个子集。</td>
+</tr>
+<tr>
+<td>orderBy</td>
+<td>根据某个表达式排列数组。</td>
+</tr>
+</tbody>
+</table>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">currency</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">ng-app</span><span class="o">=</span><span class="s">&quot;myApp&quot;</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&quot;myCtrl&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;number&quot;</span> <span class="na">ng-model</span><span class="o">=</span><span class="s">&quot;quantity&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;number&quot;</span> <span class="na">ng-model</span><span class="o">=</span><span class="s">&quot;price&quot;</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>总价 = {{ (quantity * price) | currency }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">orderBy</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">ng-repeat</span><span class="o">=</span><span class="s">&quot;x in names | orderBy:&#39;country&#39;&quot;</span><span class="p">&gt;</span>
+        {{ x.name + &#39;, &#39; + x.country }}
+    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nx">$scope</span><span class="p">.</span><span class="nx">names</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Emil&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;country&quot;</span><span class="o">:</span> <span class="s2">&quot;India&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Tobias&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;country&quot;</span><span class="o">:</span> <span class="s2">&quot;China&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Linus&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;country&quot;</span><span class="o">:</span> <span class="s2">&quot;American&quot;</span>
+    <span class="p">}];</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_2" />
+<label for="__tab_1_2">filter</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">ng-model</span><span class="o">=</span><span class="s">&quot;filterStr&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">ng-repeat</span><span class="o">=</span><span class="s">&quot;x in names | filter:filterStr | orderBy:&#39;country&#39;&quot;</span><span class="p">&gt;</span>
+        {{ (x.name | uppercase) + &#39;, &#39; + x.country }}
+    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nx">$scope</span><span class="p">.</span><span class="nx">names</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Emil&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;country&quot;</span><span class="o">:</span> <span class="s2">&quot;India&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Tobias&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;country&quot;</span><span class="o">:</span> <span class="s2">&quot;China&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Linus&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;country&quot;</span><span class="o">:</span> <span class="s2">&quot;American&quot;</span>
+    <span class="p">}];</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<h2 id="_10">自定义过滤器<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>名: <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">ng-model</span><span class="o">=</span><span class="s">&quot;firstName&quot;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+姓: <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">ng-model</span><span class="o">=</span><span class="s">&quot;lastName&quot;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+姓名: {{(firstName | reverse) + &quot; &quot; + lastName}}<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">,</span> <span class="p">[]);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;myCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">firstName</span><span class="o">=</span> <span class="s2">&quot;John&quot;</span><span class="p">;</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">lastName</span><span class="o">=</span> <span class="s2">&quot;Doe&quot;</span><span class="p">;</span>
+<span class="p">});</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="s1">&#39;reverse&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>  <span class="c1">// 可以注入依赖</span>
+    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">text</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="service">service<a class="headerlink" href="#service" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>通过参数传入controller.</p>
+</blockquote>
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">location</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>{{myUrl}}
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">,</span> <span class="p">[]);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;myCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$location</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">myUrl</span> <span class="o">=</span> <span class="nx">$location</span><span class="p">.</span><span class="nx">absUrl</span><span class="p">();</span>
+<span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>{{myWelcome}}
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">,</span> <span class="p">[]);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;myCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$http</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;bnv.html&quot;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">myWelcome</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table>
+
+<p>// 简单的 GET 请求，可以改为 POST
+$http({
+    method: 'GET',
+    url: '/someUrl'
+}).then(function successCallback(response) {
+        // 请求成功执行代码
+    }, function errorCallback(response) {
+        // 请求失败执行代码
+});</p>
+<p>var app = angular.module('myApp', []);</p>
+<p>app.controller('siteCtrl', function($scope, $http) {
+    $http({
+        method: 'GET',
+        url: 'https://www.runoob.com/try/angularjs/data/sites.php'
+    }).then(function successCallback(response) {
+            $scope.names = response.data.sites;
+        }, function errorCallback(response) {
+            // 请求失败执行代码
+    });</p>
+<p>});</p>
+<p>$http.get('/someUrl', config).then(successCallback, errorCallback);
+$http.post('/someUrl', data, config).then(successCallback, errorCallback);</p>
+<div ng-app="myApp" ng-controller="siteCtrl">
+
+<ul>
+  <li ng-repeat="x in names">
+    {{ x.Name + ', ' + x.Country }}
+  </li>
+</ul>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('siteCtrl', function($scope, $http) {
+  $http.get("https://www.runoob.com/try/angularjs/data/sites.php")
+  .then(function (response) {$scope.names = response.data.sites;});
+});
+</script>
+
+<p>$http.get
+$http.head
+$http.post
+$http.put
+$http.delete
+$http.jsonp
+$http.patch</p>
+<p>var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $timeout) {
+    $scope.myHeader = "Hello World!";
+    $timeout(function () {
+        $scope.myHeader = "How are you today?";
+    }, 2000);
+});</p>
+<p>var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $interval) {
+    $scope.theTime = new Date().toLocaleTimeString();
+    $interval(function () {
+        $scope.theTime = new Date().toLocaleTimeString();
+    }, 1000);
+});</p>
+<p>自定义
+app.service('hexafy', function() {
+    this.myFunc = function (x) {
+        return x.toString(16);
+    }
+});
+app.controller('myCtrl', function($scope, hexafy) {
+    $scope.hex = hexafy.myFunc(255);
+});
+在过滤器中使用
+app.filter('myFormat',['hexafy', function(hexafy) {
+    return function(x) {
+        return hexafy.myFunc(x);
+    };
+}]);
+<ul>
+<li ng-repeat="x in counts">{{x | myFormat}}</li>
+</ul></p>
+<p>允许跨域请求访问
+响应头添加客户端域名
+header('Access-Control-Allow-Origin:http://client.runoob.com');
+header('Access-Control-Allow-Origin:*');</p>
+<p>利用数组和ng-options创建下拉列表
+<div ng-app="myApp" ng-controller="myCtrl"></p>
+<p><select ng-init="selectedName = names[0]" ng-model="selectedName" ng-options="x for x in names">
+</select></p>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.names = ["Google", "Runoob", "Taobao"];
+});
+</script>
+
+<p>$scope.sites = [
+    {site : "Google", url : "http://www.google.com"},
+    {site : "Runoob", url : "http://www.runoob.com"},
+    {site : "Taobao", url : "http://www.taobao.com"}
+];
+<select ng-model="selectedSite" ng-options="x.site for x in sites">
+</select></p>
+<h1>你选择的是: {{selectedSite.site}}</h1>
+
+<p>网址为: {{selectedSite.url}}</p>
+
+<p>对象作为数据源
+$scope.cars = {
+car01 : {brand : "Ford", model : "Mustang", color : "red"},
+car02 : {brand : "Fiat", model : "500", color : "white"},
+car03 : {brand : "Volvo", model : "XC90", color : "black"}
+};
+<select ng-model="selectedCar" ng-options="y.brand for (x, y) in cars">
+</select></p>
+<p>表格
+<table>
+  <tr ng-repeat="x in names">
+<td>{{ $index + 1 }}</td>
+    <td>{{ x.Name }}</td>
+    <td>{{ x.Country }}</td>
+  </tr>
+</table></p>
+<p><button ng-disabled="mySwitch">点我!</button></p>
+<p ng-show="true">我是可见的。</p>
+
+<p ng-hide="true">我是不可见的。</p>
+
+<p ng-show="hour > 12">我是可见的。</p>
+
+<p><button ng-click="count = count + 1">点我！</button></p>
+<p>{{ count }}</p>
+
+<p>定义模块依赖关系
+var app = angular.module("myApp", []);</p>
+<p>表单验证
+<form  ng-app="myApp"  ng-controller="validateCtrl"
+name="myForm" novalidate></p>
+<p>用户名:<br>
+  <input type="text" name="user" ng-model="user" required>
+  <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+  <span ng-show="myForm.user.$error.required">用户名是必须的。</span>
+  </span>
+</p>
+
+<p>邮箱:<br>
+  <input type="email" name="email" ng-model="email" required>
+  <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+  <span ng-show="myForm.email.$error.required">邮箱是必须的。</span>
+  <span ng-show="myForm.email.$error.email">非法的邮箱。</span>
+  </span>
+</p>
+
+<p>
+  <input type="submit"
+  ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||
+  myForm.email.$dirty && myForm.email.$invalid">
+</p>
+
+</form>
+
+<p>属性描述
+$dirty表单有填写记录
+$valid字段内容合法的
+$invalid字段内容是非法的
+$pristine表单没有填写记录</p>
+<p>API
+API描述
+angular.lowercase (&lt;angular1.7）
+angular.$$lowercase()（angular1.7+）转换字符串为小写
+angular.uppercase() (&lt;angular1.7）
+angular.$$uppercase()（angular1.7+）转换字符串为大写
+angular.isString()判断给定的对象是否为字符串，如果是返回 true。
+angular.isNumber()判断给定的对象是否为数字，如果是返回 true。
+app.controller('myCtrl', function($scope) {
+    $scope.x1 = "RUNOOB";
+    $scope.x2 = angular.$$lowercase($scope.x1);
+});</p>
+<p>监控模型变量
+$scope.$watch('passw1',function() {$scope.test();});
+$scope.test = function() {
+...}</p>
+<h2 id="_11">安全函数<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <ul>
 <li>ensureSafeObject：检测对象是否为函数构造方法，窗口对象，DOM参数，对象构造方法</li>
 <li>ensureSafeMemberName：检测属性不包含__proto__</li>

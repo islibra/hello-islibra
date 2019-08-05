@@ -1033,6 +1033,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_9" title="日志" class="md-nav__link">
+    日志
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#innodb" title="InnoDB, 数据库引擎" class="md-nav__link">
     InnoDB, 数据库引擎
   </a>
@@ -1041,7 +1048,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" title="文件系统" class="md-nav__link">
+  <a href="#_10" title="事务日志" class="md-nav__link">
+    事务日志
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" title="文件系统" class="md-nav__link">
     文件系统
   </a>
   
@@ -3789,6 +3803,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_9" title="日志" class="md-nav__link">
+    日志
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#innodb" title="InnoDB, 数据库引擎" class="md-nav__link">
     InnoDB, 数据库引擎
   </a>
@@ -3797,7 +3818,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" title="文件系统" class="md-nav__link">
+  <a href="#_10" title="事务日志" class="md-nav__link">
+    事务日志
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" title="文件系统" class="md-nav__link">
     文件系统
   </a>
   
@@ -4132,8 +4160,26 @@
 <li>命令类型：0x03</li>
 <li>命令：0x53 ...</li>
 </ul>
+<h2 id="_9">日志<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<ul>
+<li>error log: MySQL启停, 运行过程中的错误信息.</li>
+<li>general log: 查询日志, 建立的客户端连接和执行的语句.</li>
+<li>slow log: 执行时间超过long_query_time的查询和不使用索引的查询.</li>
+<li>bin log: 所有更改数据的语句.</li>
+<li>relay log: 主从复制时使用的日志.</li>
+</ul>
+<details class="quote" open="open"><summary>参考链接</summary><p><a href="https://www.cnblogs.com/f-ck-need-u/p/9001061.html">详细分析MySQL的日志(一)</a></p>
+</details>
 <h2 id="innodb">InnoDB, 数据库引擎<a class="headerlink" href="#innodb" title="Permanent link">&para;</a></h2>
-<h3 id="_9">文件系统<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h3 id="_10">事务日志<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>都是用来恢复数据.</p>
+</blockquote>
+<ul>
+<li>redo log, 前滚, 记录数据库中每页的修改.</li>
+<li>undo log, 回滚</li>
+</ul>
+<h3 id="_11">文件系统<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>datafile, 数据文件，划分为64个page，默认非压缩表的page size为16Kb，总共1M（一个Extent）。</p>
