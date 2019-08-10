@@ -720,86 +720,323 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" title="初始化" class="md-nav__link">
+    初始化
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#-bool" title="$-指针, 资源描述符, BOOL变量必须初始化" class="md-nav__link">
     $-指针, 资源描述符, BOOL变量必须初始化
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" title="资源句柄释放后立即赋初值" class="md-nav__link">
-    资源句柄释放后立即赋初值
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="资源句柄, 内存释放后立即赋初值" class="md-nav__link">
+    资源句柄, 内存释放后立即赋初值
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="类成员变量必须在构造函数中赋初值" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="类成员变量必须在构造函数中赋初值" class="md-nav__link">
     类成员变量必须在构造函数中赋初值
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
+  <a href="#malloc-newmemset_s" title="malloc, new出来的内存使用memset_s清零" class="md-nav__link">
+    malloc, new出来的内存使用memset_s清零
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#memsetsizeof" title="调用memset时禁止使用sizeof(指针)" class="md-nav__link">
     调用memset时禁止使用sizeof(指针)
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#new" title="有可能失败的操作不能放在构造函数里, 如: new" class="md-nav__link">
+    有可能失败的操作不能放在构造函数里, 如: new
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
+  <a href="#_4" title="断言" class="md-nav__link">
+    断言
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#-" title="$-断言要作为宏定义" class="md-nav__link">
     $-断言要作为宏定义
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="运行时错误严禁使用断言" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="运行时错误严禁使用断言" class="md-nav__link">
     运行时错误严禁使用断言
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#api" title="API参数校验严禁使用断言" class="md-nav__link">
     API参数校验严禁使用断言
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" title="严禁在断言内修改操作" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="严禁在断言内修改操作" class="md-nav__link">
     严禁在断言内修改操作
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" title="函数参数为指针时, 必须同时指定指针指向内存的大小" class="md-nav__link">
-    函数参数为指针时, 必须同时指定指针指向内存的大小
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#_7" title="函数参数" class="md-nav__link">
+    函数参数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="函数参数为指针时, 必须同时指定指针指向内存的大小" class="md-nav__link">
+    函数参数为指针时, 必须同时指定指针指向内存的大小
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#const" title="函数参数或返回值为指针时, 使用const修饰" class="md-nav__link">
     函数参数或返回值为指针时, 使用const修饰
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
+  <a href="#_9" title="数组越界" class="md-nav__link">
+    数组越界
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="字符串操作确保有足够的存储空间" class="md-nav__link">
+    字符串操作确保有足够的存储空间
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" title="索引来自外部输入, 防止数组越界" class="md-nav__link">
+    索引来自外部输入, 防止数组越界
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" title="禁止使用外部输入作为格式化字符串" class="md-nav__link">
+    禁止使用外部输入作为格式化字符串
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" title="整数" class="md-nav__link">
+    整数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-0" title="$-溢出, 反转, 除0" class="md-nav__link">
+    $-溢出, 反转, 除0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" title="运算结果赋值给更大类型之前先转换为更大类型" class="md-nav__link">
+    运算结果赋值给更大类型之前先转换为更大类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" title="禁止对有符号数进行位运算" class="md-nav__link">
+    禁止对有符号数进行位运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" title="禁止整数与指针相互转化" class="md-nav__link">
+    禁止整数与指针相互转化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#-_1" title="$-死循环" class="md-nav__link">
     $-死循环
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#new" title="有可能失败的操作不能放在构造函数里, 如: new" class="md-nav__link">
-    有可能失败的操作不能放在构造函数里, 如: new
+  <a href="#_17" title="内存" class="md-nav__link">
+    内存
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0" title="申请内存前对大小校验, 防止为0, 负, 过多申请" class="md-nav__link">
+    申请内存前对大小校验, 防止为0, 负, 过多申请
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" title="判断内存申请是否成功" class="md-nav__link">
+    判断内存申请是否成功
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" title="文件" class="md-nav__link">
+    文件
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" title="创建文件时指定访问权限" class="md-nav__link">
+    创建文件时指定访问权限
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" title="文件路径标准化" class="md-nav__link">
+    文件路径标准化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" title="敏感信息" class="md-nav__link">
+    敏感信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" title="随机数" class="md-nav__link">
+    随机数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string" title="禁用string类保存敏感信息" class="md-nav__link">
+    禁用string类保存敏感信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" title="危险函数" class="md-nav__link">
+    危险函数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#realloc" title="realloc" class="md-nav__link">
+    realloc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" title="命令注入" class="md-nav__link">
+    命令注入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql" title="SQL注入" class="md-nav__link">
+    SQL注入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" title="内存操作" class="md-nav__link">
+    内存操作
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1447,10 +1684,46 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7">
     
     <label class="md-nav__link" for="nav-3-7">
-      Python
+      Php
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
       <label class="md-nav__title" for="nav-3-7">
+        Php
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../php/hellophp/" title="hellophp" class="md-nav__link">
+      hellophp
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8" type="checkbox" id="nav-3-8">
+    
+    <label class="md-nav__link" for="nav-3-8">
+      Python
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-8">
         Python
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1643,13 +1916,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-7-16" type="checkbox" id="nav-3-7-16">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8-16" type="checkbox" id="nav-3-8-16">
     
-    <label class="md-nav__link" for="nav-3-7-16">
+    <label class="md-nav__link" for="nav-3-8-16">
       Spider
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-7-16">
+      <label class="md-nav__title" for="nav-3-8-16">
         Spider
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1696,13 +1969,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8" type="checkbox" id="nav-3-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-9" type="checkbox" id="nav-3-9">
     
-    <label class="md-nav__link" for="nav-3-8">
+    <label class="md-nav__link" for="nav-3-9">
       Springboot
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-8">
+      <label class="md-nav__title" for="nav-3-9">
         Springboot
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1744,13 +2017,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-9" type="checkbox" id="nav-3-9">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-10" type="checkbox" id="nav-3-10">
     
-    <label class="md-nav__link" for="nav-3-9">
+    <label class="md-nav__link" for="nav-3-10">
       Web
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-9">
+      <label class="md-nav__title" for="nav-3-10">
         Web
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1888,13 +2161,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-10" type="checkbox" id="nav-3-10">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-11" type="checkbox" id="nav-3-11">
     
-    <label class="md-nav__link" for="nav-3-10">
+    <label class="md-nav__link" for="nav-3-11">
       Writing
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-10">
+      <label class="md-nav__title" for="nav-3-11">
         Writing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1972,13 +2245,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-11" type="checkbox" id="nav-3-11">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-12" type="checkbox" id="nav-3-12">
     
-    <label class="md-nav__link" for="nav-3-11">
+    <label class="md-nav__link" for="nav-3-12">
       Xml
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-11">
+      <label class="md-nav__title" for="nav-3-12">
         Xml
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2008,13 +2281,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-12" type="checkbox" id="nav-3-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-13" type="checkbox" id="nav-3-13">
     
-    <label class="md-nav__link" for="nav-3-12">
+    <label class="md-nav__link" for="nav-3-13">
       Yaml
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-12">
+      <label class="md-nav__title" for="nav-3-13">
         Yaml
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3394,6 +3667,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/sec_tools/AntSword/" title="AntSword" class="md-nav__link">
+      AntSword
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/sec_tools/ncat/" title="ncat" class="md-nav__link">
       ncat
     </a>
@@ -3455,86 +3740,323 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" title="初始化" class="md-nav__link">
+    初始化
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#-bool" title="$-指针, 资源描述符, BOOL变量必须初始化" class="md-nav__link">
     $-指针, 资源描述符, BOOL变量必须初始化
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" title="资源句柄释放后立即赋初值" class="md-nav__link">
-    资源句柄释放后立即赋初值
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="资源句柄, 内存释放后立即赋初值" class="md-nav__link">
+    资源句柄, 内存释放后立即赋初值
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="类成员变量必须在构造函数中赋初值" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="类成员变量必须在构造函数中赋初值" class="md-nav__link">
     类成员变量必须在构造函数中赋初值
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
+  <a href="#malloc-newmemset_s" title="malloc, new出来的内存使用memset_s清零" class="md-nav__link">
+    malloc, new出来的内存使用memset_s清零
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#memsetsizeof" title="调用memset时禁止使用sizeof(指针)" class="md-nav__link">
     调用memset时禁止使用sizeof(指针)
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#new" title="有可能失败的操作不能放在构造函数里, 如: new" class="md-nav__link">
+    有可能失败的操作不能放在构造函数里, 如: new
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
+  <a href="#_4" title="断言" class="md-nav__link">
+    断言
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#-" title="$-断言要作为宏定义" class="md-nav__link">
     $-断言要作为宏定义
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="运行时错误严禁使用断言" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="运行时错误严禁使用断言" class="md-nav__link">
     运行时错误严禁使用断言
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#api" title="API参数校验严禁使用断言" class="md-nav__link">
     API参数校验严禁使用断言
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" title="严禁在断言内修改操作" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="严禁在断言内修改操作" class="md-nav__link">
     严禁在断言内修改操作
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" title="函数参数为指针时, 必须同时指定指针指向内存的大小" class="md-nav__link">
-    函数参数为指针时, 必须同时指定指针指向内存的大小
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#_7" title="函数参数" class="md-nav__link">
+    函数参数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="函数参数为指针时, 必须同时指定指针指向内存的大小" class="md-nav__link">
+    函数参数为指针时, 必须同时指定指针指向内存的大小
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#const" title="函数参数或返回值为指针时, 使用const修饰" class="md-nav__link">
     函数参数或返回值为指针时, 使用const修饰
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
+  <a href="#_9" title="数组越界" class="md-nav__link">
+    数组越界
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="字符串操作确保有足够的存储空间" class="md-nav__link">
+    字符串操作确保有足够的存储空间
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" title="索引来自外部输入, 防止数组越界" class="md-nav__link">
+    索引来自外部输入, 防止数组越界
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" title="禁止使用外部输入作为格式化字符串" class="md-nav__link">
+    禁止使用外部输入作为格式化字符串
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" title="整数" class="md-nav__link">
+    整数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-0" title="$-溢出, 反转, 除0" class="md-nav__link">
+    $-溢出, 反转, 除0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" title="运算结果赋值给更大类型之前先转换为更大类型" class="md-nav__link">
+    运算结果赋值给更大类型之前先转换为更大类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" title="禁止对有符号数进行位运算" class="md-nav__link">
+    禁止对有符号数进行位运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" title="禁止整数与指针相互转化" class="md-nav__link">
+    禁止整数与指针相互转化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#-_1" title="$-死循环" class="md-nav__link">
     $-死循环
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#new" title="有可能失败的操作不能放在构造函数里, 如: new" class="md-nav__link">
-    有可能失败的操作不能放在构造函数里, 如: new
+  <a href="#_17" title="内存" class="md-nav__link">
+    内存
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0" title="申请内存前对大小校验, 防止为0, 负, 过多申请" class="md-nav__link">
+    申请内存前对大小校验, 防止为0, 负, 过多申请
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" title="判断内存申请是否成功" class="md-nav__link">
+    判断内存申请是否成功
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" title="文件" class="md-nav__link">
+    文件
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" title="创建文件时指定访问权限" class="md-nav__link">
+    创建文件时指定访问权限
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" title="文件路径标准化" class="md-nav__link">
+    文件路径标准化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" title="敏感信息" class="md-nav__link">
+    敏感信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" title="随机数" class="md-nav__link">
+    随机数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string" title="禁用string类保存敏感信息" class="md-nav__link">
+    禁用string类保存敏感信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" title="危险函数" class="md-nav__link">
+    危险函数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#realloc" title="realloc" class="md-nav__link">
+    realloc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" title="命令注入" class="md-nav__link">
+    命令注入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql" title="SQL注入" class="md-nav__link">
+    SQL注入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" title="内存操作" class="md-nav__link">
+    内存操作
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3564,9 +4086,8 @@
                 
                 
                 <h1 id="c">C语言安全编程<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
-<details class="danger" open="open"><summary>Danger</summary><p>带<code>$-</code>的可导致程序崩溃</p>
-</details>
-<h2 id="-bool">$-指针, 资源描述符, BOOL变量必须初始化<a class="headerlink" href="#-bool" title="Permanent link">&para;</a></h2>
+<h2 id="_1">初始化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="-bool">$-指针, 资源描述符, BOOL变量必须初始化<a class="headerlink" href="#-bool" title="Permanent link">&para;</a></h3>
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
 <label for="__tab_1_0">正确的做法</label>
@@ -3619,19 +4140,34 @@
 <blockquote>
 <p>例外: 对于全局变量自动赋值为0.</p>
 </blockquote>
-<h2 id="_1">资源句柄释放后立即赋初值<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">fd</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<h3 id="_2">资源句柄, 内存释放后立即赋初值<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">fd</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <span class="c1">// ...</span>
 <span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
-<span class="n">fd</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-</pre></div>
+<span class="hll"><span class="n">fd</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span>
+<span class="kt">double</span> <span class="o">*</span><span class="n">dp</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="p">;</span>
+<span class="c1">// ...</span>
+<span class="c1">// 释放内存</span>
+<span class="k">delete</span> <span class="n">dp</span><span class="p">;</span>
+<span class="hll"><span class="n">dp</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></pre></div>
 </td></tr></table>
 
-<h2 id="_2">类成员变量必须在构造函数中赋初值<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h2 id="memsetsizeof">调用memset时禁止使用sizeof(指针)<a class="headerlink" href="#memsetsizeof" title="Permanent link">&para;</a></h2>
+<h3 id="_3">类成员变量必须在构造函数中赋初值<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="malloc-newmemset_s">malloc, new出来的内存使用memset_s清零<a class="headerlink" href="#malloc-newmemset_s" title="Permanent link">&para;</a></h3>
+<h3 id="memsetsizeof">调用memset时禁止使用sizeof(指针)<a class="headerlink" href="#memsetsizeof" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -3678,7 +4214,9 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="-">$-断言要作为宏定义<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
+<h3 id="new">有可能失败的操作不能放在构造函数里, 如: new<a class="headerlink" href="#new" title="Permanent link">&para;</a></h3>
+<h2 id="_4">断言<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="-">$-断言要作为宏定义<a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -3727,7 +4265,7 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="_3">运行时错误严禁使用断言<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_5">运行时错误严禁使用断言<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -3746,8 +4284,8 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="api">API参数校验严禁使用断言<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
-<h2 id="_4">严禁在断言内修改操作<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="api">API参数校验严禁使用断言<a class="headerlink" href="#api" title="Permanent link">&para;</a></h3>
+<h3 id="_6">严禁在断言内修改操作<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ASSERT</span><span class="p">(</span><span class="n">p1</span> <span class="o">=</span> <span class="n">p2</span><span class="p">);</span>
@@ -3756,7 +4294,8 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="_5">函数参数为指针时, 必须同时指定指针指向内存的大小<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_7">函数参数<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="_8">函数参数为指针时, 必须同时指定指针指向内存的大小<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -3818,9 +4357,162 @@
 <blockquote>
 <p>例外: <code>const char *msg</code></p>
 </blockquote>
-<h2 id="const">函数参数或返回值为指针时, 使用const修饰<a class="headerlink" href="#const" title="Permanent link">&para;</a></h2>
-<h2 id="-_1">$-死循环<a class="headerlink" href="#-_1" title="Permanent link">&para;</a></h2>
-<h2 id="new">有可能失败的操作不能放在构造函数里, 如: new<a class="headerlink" href="#new" title="Permanent link">&para;</a></h2>
+<h3 id="const">函数参数或返回值为指针时, 使用const修饰<a class="headerlink" href="#const" title="Permanent link">&para;</a></h3>
+<h2 id="_9">数组越界<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="_10">字符串操作确保有足够的存储空间<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// 源字符串</span>
+<span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="o">=</span> <span class="s">&quot;helloworld!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
+<span class="c1">// 目的字符串</span>
+<span class="kt">char</span> <span class="n">dst</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="c1">// 字符串以\0结束, \n换行, sizeof(dst)保证不会数组越界</span>
+<span class="k">while</span><span class="p">(</span><span class="o">*</span><span class="n">str</span> <span class="o">!=</span> <span class="sc">&#39;\0&#39;</span> <span class="o">&amp;&amp;</span> <span class="o">*</span><span class="n">str</span> <span class="o">!=</span> <span class="sc">&#39;\n&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">i</span><span class="o">&lt;</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">dst</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">dst</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="o">*</span><span class="n">str</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="hll"><span class="c1">// 保留最后一位存储\0</span>
+</span><span class="n">dst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">dst</span><span class="p">);</span>
+</pre></div>
+</td></tr></table>
+
+<blockquote>
+<p>memcpy、memmove、memcpy_s、memmove_s</p>
+</blockquote>
+<h3 id="_11">索引来自外部输入, 防止数组越界<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">char</span> <span class="nf">readCharFromArray</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">offset</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>  <span class="c1">// 偏移值来自外部输入</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">offset</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">offset</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">str</span><span class="p">[</span><span class="n">offset</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="kt">char</span> <span class="n">dst</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="c1">// ...</span>
+<span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">readCharFromArray</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">dst</span><span class="p">));</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+</pre></div>
+</td></tr></table>
+
+<h3 id="_12">禁止使用外部输入作为格式化字符串<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="o">=</span> <span class="s">&quot;helloworld!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="c1">// 如果str来自外部输入, 禁止使用print(str);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>格式化输出函数：xxxprintf</li>
+<li>格式化输入函数：xxxscanf</li>
+<li>格式化错误消息函数：err()，verr()，errx()，verrx()，warn()，vwarn()，warnx()，vwarnx()，error()，error_at_line()</li>
+<li>格式化日志函数：syslog()，vsyslog()</li>
+</ul>
+<blockquote>
+<p>格式化参数类型和个数必须与实参一致</p>
+</blockquote>
+<h2 id="_13">整数<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h3 id="-0">$-溢出, 反转, 除0<a class="headerlink" href="#-0" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="c1">// Floating point exception (core dumped)</span>
+<span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">5</span><span class="o">/</span><span class="n">i</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">5</span><span class="o">%</span><span class="n">i</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<h3 id="_14">运算结果赋值给更大类型之前先转换为更大类型<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">ia</span> <span class="o">=</span> <span class="mh">0x10000000</span><span class="p">;</span>
+<span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">lla</span> <span class="o">=</span> <span class="n">ia</span> <span class="o">*</span> <span class="mh">0xab</span><span class="p">;</span>
+<span class="c1">// B0000000</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%llX</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">lla</span><span class="p">);</span>
+<span class="n">lla</span> <span class="o">=</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span><span class="p">)</span><span class="n">ia</span> <span class="o">*</span> <span class="mh">0xab</span><span class="p">;</span>
+<span class="c1">// AB0000000</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%llX</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">lla</span><span class="p">);</span>
+</pre></div>
+</td></tr></table>
+
+<h3 id="_15">禁止对有符号数进行位运算<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<h3 id="_16">禁止整数与指针相互转化<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<h3 id="-_1">$-死循环<a class="headerlink" href="#-_1" title="Permanent link">&para;</a></h3>
+<h2 id="_17">内存<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<h3 id="0">申请内存前对大小校验, 防止为0, 负, 过多申请<a class="headerlink" href="#0" title="Permanent link">&para;</a></h3>
+<h3 id="_18">判断内存申请是否成功<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<h2 id="_19">文件<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<h3 id="_20">创建文件时指定访问权限<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<h3 id="_21">文件路径标准化<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<h2 id="_22">敏感信息<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<h2 id="_23">随机数<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<p>禁用rand(), 推荐<code>/dev/random</code></p>
+<h2 id="string">禁用string类保存敏感信息<a class="headerlink" href="#string" title="Permanent link">&para;</a></h2>
+<h2 id="_24">危险函数<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<h3 id="realloc">realloc<a class="headerlink" href="#realloc" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="o">*</span><span class="nf">realloc</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">);</span>
+<span class="mf">1.</span> <span class="n">ptr</span><span class="o">!=</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">size</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="err">重新申请内存</span>
+<span class="mf">2.</span> <span class="n">ptr</span><span class="o">==</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">size</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="n">malloc</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<span class="mf">3.</span> <span class="n">size</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="n">free</span><span class="p">(</span><span class="n">ptr</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<h3 id="_25">命令注入<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<p>system、popen、WinExec、ShellExecute、execl, execlp, execle, execv, execvp、CreateProcess</p>
+<blockquote>
+<p>建议linux使用exec系列函数, 禁用/bin/sh</p>
+</blockquote>
+<p>dlopen/LoadLibrary</p>
+<h3 id="sql">SQL注入<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h3>
+<ul>
+<li>连接MySQL时调用mysql_query(),Execute()时的入参</li>
+<li>连接SQL Server时调用db-library驱动的dbsqlexec()的入参</li>
+<li>调用ODBC驱动的SQLprepare()连接数据库时的SQL语句参数</li>
+<li>C++程序调用OTL类库中的otl_stream()，otl_column_desc()时的入参</li>
+<li>C++程序连接Oracle数据库时调用ExecuteWithResSQL()的入参</li>
+</ul>
+<h3 id="_26">内存操作<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<ul>
+<li>内存拷贝函数：memcpy(), wmemcpy(), memmove(), wmemmove()</li>
+<li>内存初始化函数：memset()</li>
+<li>字符串拷贝函数：strcpy(), wcscpy(),strncpy(), wcsncpy()</li>
+<li>字符串拼接函数：strcat(), wcscat(),strncat(), wcsncat()</li>
+<li>字符串格式化输出函数：sprintf(), swprintf(), vsprintf(), vswprintf(), snprintf(), vsnprintf()</li>
+<li>字符串格式化输入函数：scanf(), wscanf(), vscanf(), vwscanf(), fscanf(),</li>
+<li>fwscanf(),vfscanf(),vfwscanf(),sscanf(), swscanf(), vsscanf(), vswscanf()</li>
+<li>stdin流输入函数：gets()</li>
+</ul>
                 
                   
                 
