@@ -3347,6 +3347,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#003_mfw" title="003_mfw" class="md-nav__link">
+    003_mfw
+  </a>
+  
+</li>
+      
       
       
       
@@ -3698,6 +3705,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#003_mfw" title="003_mfw" class="md-nav__link">
+    003_mfw
+  </a>
+  
+</li>
+      
       
       
       
@@ -3914,6 +3928,18 @@ PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
 </ol>
 <p>参考链接: <a href="https://github.com/sqlmapproject/sqlmap/wiki/Usage">https://github.com/sqlmapproject/sqlmap/wiki/Usage</a></p>
 </details>
+<h2 id="003_mfw">003_mfw<a class="headerlink" href="#003_mfw" title="Permanent link">&para;</a></h2>
+<p>整个web没有输入, Cookies中无内容, 无robots.txt, 只在URL中有个page参数, 查看源码, 发现注释中存在<code>page=flag</code>但是被注释掉</p>
+<p>题目提示使用<code>Git</code>, <code>PHP</code>, <code>Bootstrap</code>, 访问<code>.git</code>存在源码泄露</p>
+<details class="success" open="open"><summary>工具</summary><p><a href="https://github.com/lijiejie/GitHack">GitHack</a>: 利用.git源码泄露还原工程代码</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 使用python 2执行</span>
+python /Users/lixiaolong/tools/GitHack/GitHack.py http://111.198.29.45:54372/.git/
+</pre></div>
+</td></tr></table>
+
+</details>
+<p>审计源码发现<code>flag.php</code>为空, <code>index.php</code>中使用<code>strpos()</code>对<code>$page</code>校验<code>..</code></p>
                 
                   
                 
