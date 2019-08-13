@@ -4104,8 +4104,26 @@ disqus:空disable
 </pre></div>
 </td></tr></table></li>
 <li>使用H1做title</li>
-<li>自定义标签：<a href="https://shields.io/">https://shields.io/</a>，如：<code>https://img.shields.io/badge/&lt;LABEL&gt;-&lt;MESSAGE&gt;-&lt;COLOR&gt;.svg</code></li>
-<li>文本修饰（带 <ins>下划线</ins> 的可修饰行内或段落）<ul>
+<li>
+<p>自定义标签：<a href="https://shields.io/">https://shields.io/</a>, 如: <img alt="" src="https://img.shields.io/badge/label-message-brightgreen.svg" /></p>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">格式</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>https://img.shields.io/badge/&lt;LABEL&gt;-&lt;MESSAGE&gt;-&lt;COLOR&gt;.svg
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">使用样例</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>![](https://img.shields.io/badge/attachment-assets-brightgreen.svg)
+![](https://img.shields.io/badge/style-tab-brightgreen.svg)
+</pre></div>
+</td></tr></table></div>
+</div>
+</li>
+<li>
+<p>文本修饰（带 <ins>下划线</ins> 的可修饰行内或段落）</p>
+<ul>
 <li>加粗<code>**bold**</code>, 高亮<code>==mark me==</code></li>
 <li>下划线<code>^^Insert me^^</code></li>
 <li>删除线<code>~~Delete me~~</code></li>
@@ -4139,6 +4157,7 @@ disqus:空disable
 </td></tr></table></li>
 </ul>
 </li>
+<li>提示块参见<a href="#admonition">Admonition</a></li>
 <li>一级列表使用<code>-</code>，二级列表使用<code>*</code>，三级列表使用<code>+</code>，子级列表缩进 <strong>4</strong> 个空格<br />
 使用复选框：<code>- [x] item</code><br />
 列表内容换行：<mark>行尾2个空格</mark>。</li>
@@ -4150,7 +4169,6 @@ disqus:空disable
 Left         | Center        | Right
 </pre></div>
 </td></tr></table></li>
-<li>提示块参见<a href="#admonition">Admonition</a></li>
 <li>脚注<code>[^1]</code>，脚注可定义在任意位置，单行<code>[^1]: xxx</code>，多行每行开头4个空格，链接形式<code>https://xxx/#fn:1</code></li>
 </ol>
 <h3 id="admonition">Admonition<a class="headerlink" href="#admonition" title="Permanent link">&para;</a></h3>

