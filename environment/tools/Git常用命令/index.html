@@ -2601,8 +2601,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#0x03_" title="0x03_其他" class="md-nav__link">
-    0x03_其他
+  <a href="#0x03_" title="0x03_拉取子目录" class="md-nav__link">
+    0x03_拉取子目录
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0x04_" title="0x04_其他" class="md-nav__link">
+    0x04_其他
   </a>
   
 </li>
@@ -3201,6 +3208,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/ctf/xctf/De1CTF2019/" title="De1CTF2019" class="md-nav__link">
+      De1CTF2019
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/ctf/xctf/rctf2019/" title="rctf2019" class="md-nav__link">
       rctf2019
     </a>
@@ -3214,13 +3233,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9-4-2" type="checkbox" id="nav-7-9-4-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9-4-3" type="checkbox" id="nav-7-9-4-3">
     
-    <label class="md-nav__link" for="nav-7-9-4-2">
+    <label class="md-nav__link" for="nav-7-9-4-3">
       Adworld
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
-      <label class="md-nav__title" for="nav-7-9-4-2">
+      <label class="md-nav__title" for="nav-7-9-4-3">
         Adworld
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3468,8 +3487,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#0x03_" title="0x03_其他" class="md-nav__link">
-    0x03_其他
+  <a href="#0x03_" title="0x03_拉取子目录" class="md-nav__link">
+    0x03_拉取子目录
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0x04_" title="0x04_其他" class="md-nav__link">
+    0x04_其他
   </a>
   
 </li>
@@ -3574,7 +3600,58 @@ git push origin branchname <span class="c1">#将本地修改的文件提交到�
 </td></tr></table>
 
 <p>发起merge，从远程个人仓merge到远程主干仓</p>
-<h2 id="0x03_">0x03_其他<a class="headerlink" href="#0x03_" title="Permanent link">&para;</a></h2>
+<h2 id="0x03_">0x03_拉取子目录<a class="headerlink" href="#0x03_" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">[</span>root@vm_test backup<span class="o">]</span><span class="c1"># mkdir devops</span>
+<span class="o">[</span>root@vm_test backup<span class="o">]</span><span class="c1"># cd devops/</span>
+<span class="o">[</span>root@vm_test devops<span class="o">]</span><span class="c1"># git init    #初始化空库</span>
+Initialized empty Git repository in /backup/devops/.git/
+<span class="o">[</span>root@vm_test devops<span class="o">]</span><span class="c1"># git remote add -f origin http://laijingli@192.168.1.1:90/scm/beeper/yunxxx_ops.git   #拉取remote的all objects信息</span>
+Updating origin
+remote: Counting objects: <span class="m">70</span>, <span class="k">done</span>.
+remote: Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">66</span>/66<span class="o">)</span>, <span class="k">done</span>.
+remote: Total <span class="m">70</span> <span class="o">(</span>delta <span class="m">15</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>
+Unpacking objects: <span class="m">100</span>% <span class="o">(</span><span class="m">70</span>/70<span class="o">)</span>, <span class="k">done</span>.
+From http://192.168.1.1:90/scm/beeper/yunxxx_ops
+ * <span class="o">[</span>new branch<span class="o">]</span>      master     -&gt; origin/master
+<span class="o">[</span>root@vm_test devops<span class="o">]</span><span class="c1"># git config core.sparsecheckout true   #开启sparse clone</span>
+<span class="o">[</span>root@vm_test devops<span class="o">]</span><span class="c1"># echo &quot;devops&quot; &gt;&gt; .git/info/sparse-checkout   #设置需要pull的目录，*表示所有，!表示匹配相反的</span>
+<span class="o">[</span>root@vm_test devops<span class="o">]</span><span class="c1"># more .git/info/sparse-checkout</span>
+devops
+<span class="o">[</span>root@vm_test devops<span class="o">]</span><span class="c1"># git pull origin master  #更新</span>
+From http://192.168.1.1:90/scm/beeper/yunxxx_ops
+ * branch            master     -&gt; FETCH_HEAD
+<span class="o">[</span>root@vm_test devops<span class="o">]</span><span class="c1"># ls</span>
+devops
+<span class="o">[</span>root@vm_test devops<span class="o">]</span><span class="c1"># cd devops/</span>
+<span class="o">[</span>root@vm_test devops<span class="o">]</span><span class="c1"># ls</span>
+monitor_in_web  test.1
+</pre></div>
+</td></tr></table>
+
+<h2 id="0x04_">0x04_其他<a class="headerlink" href="#0x04_" title="Permanent link">&para;</a></h2>
 <p>撤销并丢弃本地修改：<code>git checkout .</code></p>
                 
                   

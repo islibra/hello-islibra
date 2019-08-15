@@ -3420,6 +3420,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/ctf/xctf/De1CTF2019/" title="De1CTF2019" class="md-nav__link">
+      De1CTF2019
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/ctf/xctf/rctf2019/" title="rctf2019" class="md-nav__link">
       rctf2019
     </a>
@@ -3433,13 +3445,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9-4-2" type="checkbox" id="nav-7-9-4-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9-4-3" type="checkbox" id="nav-7-9-4-3">
     
-    <label class="md-nav__link" for="nav-7-9-4-2">
+    <label class="md-nav__link" for="nav-7-9-4-3">
       Adworld
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
-      <label class="md-nav__title" for="nav-7-9-4-2">
+      <label class="md-nav__title" for="nav-7-9-4-3">
         Adworld
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3969,7 +3981,10 @@
 <h3 id="notepad">Notepad++<a class="headerlink" href="#notepad" title="Permanent link">&para;</a></h3>
 <p>设置 - 首选项 - 制表符设置 - 勾选转换为空格</p>
 <h3 id="vim">vim<a class="headerlink" href="#vim" title="Permanent link">&para;</a></h3>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">Linux</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ vim /etc/vim/vimrc
@@ -3977,8 +3992,27 @@
 <span class="nb">set</span> expandtab
 <span class="nb">set</span> autoindent
 </pre></div>
-</td></tr></table>
-
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">macOS</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ cp /usr/share/vim/vimrc ./.vimrc
+$ vim .vimrc
+<span class="nb">set</span> <span class="nv">ts</span><span class="o">=</span><span class="m">4</span>
+<span class="nb">set</span> expandtab
+<span class="nb">set</span> autoindent
+<span class="nb">set</span> number
+syntax on
+$ <span class="nb">source</span> .vimrc
+</pre></div>
+</td></tr></table></div>
+</div>
 <h3 id="idea">IDEA<a class="headerlink" href="#idea" title="Permanent link">&para;</a></h3>
 <p>菜单<code>File &gt; Settings</code>，<code>Editor &gt; Code Style &gt; Java</code>，<code>Tabs and Indents</code>，去掉勾选<code>Use tab character</code>。</p>
 <details class="tip" open="open"><summary>Tip</summary><p>显示空格和TAB符号：<code>File &gt; Settings</code>，<code>Editor &gt; General &gt; Appearance</code>，勾选<code>Show whitespaces</code>。</p>
@@ -3990,7 +4024,16 @@
 <h2 id="sublime-text_1">Sublime Text<a class="headerlink" href="#sublime-text_1" title="Permanent link">&para;</a></h2>
 <p><a href="https://www.sublimetext.com/">https://www.sublimetext.com/</a></p>
 <ul>
-<li>Color Scheme: <a href="https://packagecontrol.io/packages/Neon%20Color%20Scheme">Neon</a></li>
+<li>
+<p>为格式化代码添加快捷键: Preferences - Key Bindings, 添加:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>{ &quot;keys&quot;: [&quot;ctrl+alt+l&quot;], &quot;command&quot;: &quot;reindent&quot;, &quot;args&quot;: {&quot;single_line&quot;: false} }
+</pre></div>
+</td></tr></table>
+
+</li>
+<li>
+<p>Color Scheme: <a href="https://packagecontrol.io/packages/Neon%20Color%20Scheme">Neon</a></p>
+</li>
 <li>语法高亮：<a href="https://packagecontrol.io/packages/PackageDev">Package​Dev</a></li>
 </ul>
 <h2 id="intellij-idea">IntelliJ IDEA<a class="headerlink" href="#intellij-idea" title="Permanent link">&para;</a></h2>

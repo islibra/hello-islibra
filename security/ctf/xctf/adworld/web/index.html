@@ -3138,6 +3138,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../De1CTF2019/" title="De1CTF2019" class="md-nav__link">
+      De1CTF2019
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../rctf2019/" title="rctf2019" class="md-nav__link">
       rctf2019
     </a>
@@ -3153,13 +3165,13 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9-4-2" type="checkbox" id="nav-7-9-4-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9-4-3" type="checkbox" id="nav-7-9-4-3" checked>
     
-    <label class="md-nav__link" for="nav-7-9-4-2">
+    <label class="md-nav__link" for="nav-7-9-4-3">
       Adworld
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
-      <label class="md-nav__title" for="nav-7-9-4-2">
+      <label class="md-nav__title" for="nav-7-9-4-3">
         Adworld
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3329,6 +3341,13 @@
         <li class="md-nav__item">
   <a href="#0x0c_simple_php" title="0x0C_simple_php" class="md-nav__link">
     0x0C_simple_php
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#001_cat" title="001_Cat" class="md-nav__link">
+    001_Cat
   </a>
   
 </li>
@@ -3692,6 +3711,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#001_cat" title="001_Cat" class="md-nav__link">
+    001_Cat
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#001_ics-06" title="001_ics-06" class="md-nav__link">
     001_ics-06
   </a>
@@ -3874,6 +3900,7 @@ PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
 </details>
 <h2 id="0x0c_simple_php">0x0C_simple_php<a class="headerlink" href="#0x0c_simple_php" title="Permanent link">&para;</a></h2>
 <p>通过控制GET参数<code>a=a&amp;b=1235a</code>显示flag.</p>
+<h2 id="001_cat">001_Cat<a class="headerlink" href="#001_cat" title="Permanent link">&para;</a></h2>
 <h2 id="001_ics-06">001_ics-06<a class="headerlink" href="#001_ics-06" title="Permanent link">&para;</a></h2>
 <p>只有<code>报表中心</code>菜单可以跳转到<code>index.php</code>, 选择日期点确认没有反应, 查看源码, cookie未果.</p>
 <p>URL中自动携带参数<code>id=1</code>, 将<code>id=1</code>改成<code>id=flag</code>, 自动跳回到<code>id=1</code>, 改成<code>id=2</code>, 不会自动跳转, 但内容无变化.</p>
@@ -3939,7 +3966,14 @@ python /Users/lixiaolong/tools/GitHack/GitHack.py http://111.198.29.45:54372/.gi
 </td></tr></table>
 
 </details>
-<p>审计源码发现<code>flag.php</code>为空, <code>index.php</code>中使用<code>assert()</code>对<code>$page</code>校验<code>..</code></p>
+<p>审计源码发现<code>flag.php</code>内容为</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// TODO
+// $FLAG = &#39;&#39;;
+</pre></div>
+</td></tr></table>
+
+<p>说明flag在该文件中, 但是git应该不是最新的代码, <code>index.php</code>中使用<code>assert()</code>对<code>$page</code>校验<code>..</code>, 存在命令执行漏洞.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -3977,6 +4011,8 @@ python /Users/lixiaolong/tools/GitHack/GitHack.py http://111.198.29.45:54372/.gi
 <span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 </td></tr></table>
+
+<p>构造输入<code>?page='.system("cat templates/flag.php").'</code>, 获取到最新的flag.php源码, 该内容被浏览器作为php解析, 所以查看源码, 拿到flag.</p>
                 
                   
                 
