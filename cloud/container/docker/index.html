@@ -3083,6 +3083,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/sec_codes/" title="sec_codes" class="md-nav__link">
+      sec_codes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/密码学/" title="密码学" class="md-nav__link">
       密码学
     </a>
@@ -3110,54 +3122,6 @@
     <a href="../../../security/远程调用中的反序列化注入/" title="RMI" class="md-nav__link">
       RMI
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-8" type="checkbox" id="nav-7-8">
-    
-    <label class="md-nav__link" for="nav-7-8">
-      Code
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-8">
-        Code
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../security/code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
-      CRC碰撞
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../security/code/构建字典/" title="构建字典" class="md-nav__link">
-      构建字典
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
         
@@ -3312,15 +3276,27 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../../security/ctf/xctf/suctf/" title="suctf" class="md-nav__link">
+      suctf
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9-4-3" type="checkbox" id="nav-7-9-4-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9-4-4" type="checkbox" id="nav-7-9-4-4">
     
-    <label class="md-nav__link" for="nav-7-9-4-3">
+    <label class="md-nav__link" for="nav-7-9-4-4">
       Adworld
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
-      <label class="md-nav__title" for="nav-7-9-4-3">
+      <label class="md-nav__title" for="nav-7-9-4-4">
         Adworld
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3699,6 +3675,20 @@
 <li>使用Docker ID登录<a href="https://hub.docker.com/editions/community/docker-ce-desktop-mac">Docker Hub</a></li>
 <li>下载<a href="https://download.docker.com/mac/stable/Docker.dmg">Docker Desktop for Mac</a></li>
 </ol>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ docker --version
+Docker version <span class="m">19</span>.03.1, build 74b1e89
+$ docker-compose --version
+docker-compose version <span class="m">1</span>.24.1, build 4667896b
+$ docker-machine --version
+docker-machine version <span class="m">0</span>.16.1, build cce350d7
+</pre></div>
+</td></tr></table>
+
 <details class="quote" open="open"><summary>参考链接</summary><p><a href="https://docs.docker.com/docker-for-mac/install/">Install Docker Desktop for Mac</a></p>
 </details>
 <h2 id="docker-compose">Docker Compose<a class="headerlink" href="#docker-compose" title="Permanent link">&para;</a></h2>
@@ -3727,6 +3717,7 @@ services:
 <p>应用文件</p>
 </li>
 </ul>
+<p>启动容器: <code>docker-compose up</code></p>
 <h2 id="uid">uid<a class="headerlink" href="#uid" title="Permanent link">&para;</a></h2>
 <details class="warning" open="open"><summary>Warning</summary><p>docker默认 <strong>以root启动容器</strong>，容器中的进程默认以 <mark class="critic">root</mark> 运行，且 <mark class="critic">与host共用一套uid</mark>。</p>
 <p>即容器中的root和host上的root是同一个用户。</p>
@@ -3984,6 +3975,7 @@ user:<span class="o">[</span><span class="m">4026531837</span><span class="o">]<
 <p>命令格式：<code>docker run [OPTIONS] IMAGE [COMMAND] [ARG...]</code></p>
 <details class="note" open="open"><summary>OPTIONS</summary><ul>
 <li><code>-d, --detach</code>, 后台运行容器并打印容器ID。</li>
+<li><code>-p 9090:80</code>, HOST port:container port</li>
 <li><code>--rm</code>, 容器退出时自动删除。</li>
 <li><code>-u, --user</code>, 指定运行容器的Username或UID <sup>容器和host共用一套UID</sup>，格式：<code>&lt;name|uid&gt;[:&lt;group|gid&gt;]</code></li>
 <li><code>--ulimit &lt;type&gt;=&lt;soft limit&gt;[:&lt;hard limit&gt;]</code>, 如<code>$ docker run --ulimit nofile=1024:1024 --rm ubuntu sh -c "ulimit -n"</code>, 限制打开文件数。<ul>

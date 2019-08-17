@@ -2928,6 +2928,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../sec_codes/" title="sec_codes" class="md-nav__link">
+      sec_codes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../密码学/" title="密码学" class="md-nav__link">
       密码学
     </a>
@@ -2955,54 +2967,6 @@
     <a href="../../../远程调用中的反序列化注入/" title="RMI" class="md-nav__link">
       RMI
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-8" type="checkbox" id="nav-7-8">
-    
-    <label class="md-nav__link" for="nav-7-8">
-      Code
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-8">
-        Code
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../code/CRC碰撞/" title="CRC碰撞" class="md-nav__link">
-      CRC碰撞
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../code/构建字典/" title="构建字典" class="md-nav__link">
-      构建字典
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
         
@@ -3205,15 +3169,27 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../suctf/" title="suctf" class="md-nav__link">
+      suctf
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9-4-3" type="checkbox" id="nav-7-9-4-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9-4-4" type="checkbox" id="nav-7-9-4-4">
     
-    <label class="md-nav__link" for="nav-7-9-4-3">
+    <label class="md-nav__link" for="nav-7-9-4-4">
       Adworld
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
-      <label class="md-nav__title" for="nav-7-9-4-3">
+      <label class="md-nav__title" for="nav-7-9-4-4">
         Adworld
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3473,6 +3449,27 @@
                 
                 <h1 id="de1ctf2019">De1CTF2019<a class="headerlink" href="#de1ctf2019" title="Permanent link">&para;</a></h1>
 <h2 id="shellshellshell">ShellShellShell<a class="headerlink" href="#shellshellshell" title="Permanent link">&para;</a></h2>
+<p>利用<code>dirsearch</code>扫描服务器还有哪些文件, 发现存在</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ cat 19-08-17_16-45-47 | grep 200
+200    16KB  http://127.0.0.1:11027/.config.php.swp
+200     0B   http://127.0.0.1:11027/config.php
+200    83KB  http://127.0.0.1:11027/phpinfo.php
+200   934B   http://127.0.0.1:11027/upload/
+200     0B   http://127.0.0.1:11027/upload/test.txt
+200     0B   http://127.0.0.1:11027/user.php
+</pre></div>
+</td></tr></table>
+
+<p>尝试把<code>.index.php.swp</code>, <code>.config.php.swp</code>, <code>.user.php.swp</code>下载下来</p>
+<p>使用<code>vim -r index.php</code>查看源码</p>
+<p>在<code>index.php</code>中发现还会require <code>delete|index|login|logout|phpinfo|profile|publish|register</code></p>
+<p>在<code>user.php</code>中发现需要下载<code>user.php.bak</code></p>
 <p>https://www.xctf.org.cn/library/details/79378efa88bff52451b2f822abe562d29ae7aade/</p>
 <p>https://github.com/De1ta-team/De1CTF2019/blob/master/writeup/web/ShellShellShell/README_zh.md</p>
 <p>https://github.com/De1ta-team/De1CTF2019/tree/master/writeup/web/ShellShellShell/dockerfile</p>
