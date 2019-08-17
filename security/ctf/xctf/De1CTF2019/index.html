@@ -3468,8 +3468,13 @@
 
 <p>尝试把<code>.index.php.swp</code>, <code>.config.php.swp</code>, <code>.user.php.swp</code>下载下来</p>
 <p>使用<code>vim -r index.php</code>查看源码</p>
-<p>在<code>index.php</code>中发现还会require <code>delete|index|login|logout|phpinfo|profile|publish|register</code></p>
-<p>在<code>user.php</code>中发现需要下载<code>user.php.bak</code></p>
+<p>在<code>index.php</code>中发现require <code>user.php</code>, 还会require <code>views</code>目录中的 <code>delete|index|login|logout|phpinfo|profile|publish|register</code>, 通过GET参数中的action控制页面跳转</p>
+<p>在<code>user.php</code>中发现需要下载<code>user.php.bak</code>, <code>user.php</code>中require <code>config.php</code></p>
+<p>使用<code>register</code>注册, 破解md5, 使用<code>login</code>登录, 到<code>index</code>. <code>profile</code>设置是否允许不同ip登录, <code>publish</code>允许输入两个参数<code>signature</code>和<code>mood</code>, 在<code>index</code>页面显示, <code>delete</code>删除, <code>logout</code>退出</p>
+<p><code>publish</code>调用<code>insert</code>往数据库中插入数据, SQL语句拼接, 且<code>signature</code>可控</p>
+<p><code>$columns</code>改成<code>`userid`,`username`,`signature`,`mood`</code>, <code>$value</code>改成<code>(...)</code>, 并且一对反引号中的内容如果不存在反引号+逗号, 就把反引号改为单引号</p>
+<p>md5解密为<code>jaivypassword</code></p>
+<p>但是使用admin登录返回<code>You can only login at the usual address</code></p>
 <p>https://www.xctf.org.cn/library/details/79378efa88bff52451b2f822abe562d29ae7aade/</p>
 <p>https://github.com/De1ta-team/De1CTF2019/blob/master/writeup/web/ShellShellShell/README_zh.md</p>
 <p>https://github.com/De1ta-team/De1CTF2019/tree/master/writeup/web/ShellShellShell/dockerfile</p>

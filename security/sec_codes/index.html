@@ -3527,7 +3527,7 @@
     <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
         <span class="c1"># print(md5(i)[md5start:md5length])</span>
-        <span class="k">if</span> <span class="n">md5</span><span class="p">(</span><span class="n">i</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="n">keymd5</span><span class="p">:</span>            <span class="c1"># 拿到加密字符串</span>
+        <span class="k">if</span> <span class="n">md5</span><span class="p">(</span><span class="n">i</span><span class="p">)[</span><span class="n">md5start</span><span class="p">:</span><span class="n">md5length</span><span class="p">]</span> <span class="o">==</span> <span class="n">keymd5</span><span class="p">:</span>            <span class="c1"># 拿到加密字符串</span>
             <span class="n">result</span> <span class="o">=</span> <span class="n">i</span>
             <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>    <span class="c1"># 打印</span>
             <span class="k">break</span>
