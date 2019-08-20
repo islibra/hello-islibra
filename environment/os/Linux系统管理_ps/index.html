@@ -3530,10 +3530,14 @@
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 方式一</span>
-service xxx restart
-<span class="c1"># 方式二</span>
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 方式一</span>
 systemctl restart xxx.service
+<span class="c1"># 方式二</span>
+service xxx restart
+<span class="c1"># 开机启动</span>
+systemctl <span class="nb">enable</span> xxx
 </pre></div>
 </td></tr></table>
 

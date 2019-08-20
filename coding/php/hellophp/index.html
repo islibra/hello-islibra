@@ -1451,6 +1451,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#addslashes" title="addslashes" class="md-nav__link">
+    addslashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ord" title="ord" class="md-nav__link">
+    ord
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3579,6 +3593,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#addslashes" title="addslashes" class="md-nav__link">
+    addslashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ord" title="ord" class="md-nav__link">
+    ord
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3795,6 +3823,38 @@
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="x">// 查找字符串第一次出现的位置, 区分大小写, 如果未找到返回FALSE</span>
 <span class="x">strpos(string, find, start)</span>
+</pre></div>
+</td></tr></table>
+
+<h3 id="addslashes">addslashes<a class="headerlink" href="#addslashes" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="c1">// 在每个单引号, 双引号, 反斜杠, NULL前添加反斜杠</span>
+<span class="nv">$str</span> <span class="o">=</span> <span class="nb">addslashes</span><span class="p">(</span><span class="s1">&#39;Shanghai is the &quot;biggest&quot; city in China.&#39;</span><span class="p">);</span>
+<span class="c1">// Shanghai is the \&quot;biggest\&quot; city in China.</span>
+<span class="k">echo</span><span class="p">(</span><span class="nv">$str</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table>
+
+<h3 id="ord">ord<a class="headerlink" href="#ord" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="c1">// 返回首个字符的ASCII</span>
+<span class="c1">// 83</span>
+<span class="k">echo</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;S&quot;</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="c1">// 83</span>
+<span class="k">echo</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;Shanghai&quot;</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 </td></tr></table>
                 
