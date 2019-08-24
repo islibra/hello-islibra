@@ -590,6 +590,19 @@
     controller: 控制 网络 块存储 计算
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip" title="配置IP" class="md-nav__link">
+    配置IP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -621,6 +634,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openstack_1" title="验证OpenStack" class="md-nav__link">
+    验证OpenStack
+  </a>
   
 </li>
       
@@ -685,6 +705,18 @@
   <li class="md-nav__item">
     <a href="../VxLAN/" title="VxLAN" class="md-nav__link">
       VxLAN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../常用命令/" title="常用命令" class="md-nav__link">
+      常用命令
     </a>
   </li>
 
@@ -3210,6 +3242,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../security/ctf/xctf/gettheshell/" title="gettheshell" class="md-nav__link">
+      gettheshell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../security/ctf/xctf/rctf2019/" title="rctf2019" class="md-nav__link">
       rctf2019
     </a>
@@ -3235,13 +3279,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9-4-4" type="checkbox" id="nav-7-9-4-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9-4-5" type="checkbox" id="nav-7-9-4-5">
     
-    <label class="md-nav__link" for="nav-7-9-4-4">
+    <label class="md-nav__link" for="nav-7-9-4-5">
       Adworld
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
-      <label class="md-nav__title" for="nav-7-9-4-4">
+      <label class="md-nav__title" for="nav-7-9-4-5">
         Adworld
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3494,6 +3538,19 @@
     controller: 控制 网络 块存储 计算
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip" title="配置IP" class="md-nav__link">
+    配置IP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -3525,6 +3582,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openstack_1" title="验证OpenStack" class="md-nav__link">
+    验证OpenStack
+  </a>
   
 </li>
       
@@ -3599,9 +3663,9 @@
 <li>在终端ssh登录<code>ssh paas@x.x.x.x</code>，<code>sudo su -</code>到root，<code>passwd</code>设置root密码，配置<code>/etc/ssh/sshd_config</code>，修改<code>PermitRootLogin</code>为<code>yes</code>，重启ssh服务<code>systemctl restart sshd.service</code>，使用root登录。</li>
 </ul>
 </li>
-<li>
-<p>配置IP</p>
-<ul>
+</ul>
+<h4 id="ip">配置IP<a class="headerlink" href="#ip" title="Permanent link">&para;</a></h4>
+<ol>
 <li>查询网卡列表<code>ip l</code><ul>
 <li>eth0: DHCP修改为固定IP。</li>
 <li>eth1: 启用(openstack负责管理)</li>
@@ -3659,8 +3723,6 @@ iface enp0s9 inet manual
 <li>
 <p><code>reboot</code>重启操作系统，使用固定IP登录。</p>
 </li>
-</ul>
-</li>
 <li>
 <p>修改apt源：<code>/etc/apt/sources.list</code>, <code>apt-get update</code></p>
 <details class="example"><summary>aliyun sources.list</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -3677,7 +3739,7 @@ deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe 
 
 </details>
 </li>
-</ul>
+</ol>
 <h3 id="compute">compute: 计算<a class="headerlink" href="#compute" title="Permanent link">&para;</a></h3>
 <ul>
 <li>4U</li>
@@ -3930,12 +3992,29 @@ No matching distribution found for wrapt===1.11.2 (from -c https://releases.open
 </ol>
 </details>
 </li>
+<li>
+<p>controller安装完成</p>
+</li>
+<li>compute安装完成<br />
+<img alt="" src="../assets/markdown-img-paste-20190824192758483.png" /></li>
+</ol>
+<h2 id="openstack_1">验证OpenStack<a class="headerlink" href="#openstack_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li>浏览器输入控制节点IP <code>http://192.168.1.107</code><br />
+<img alt="" src="../assets/markdown-img-paste-20190824180837907.png" /></li>
+<li>管理员用户名密码 <code>admin/admin</code></li>
+<li>项目: admin</li>
+<li>管理员 - 系统 - 系统信息, 查看各服务</li>
+<li>管理员 - 网络 - 路由, 删除默认路由</li>
+<li>管理员 - 网络 - 网络, 删除默认网络</li>
+<li>管理员 - 计算 - 镜像, 删除默认镜像</li>
 </ol>
 <div class="admonition quote">
 <p class="admonition-title">已读</p>
 <ul>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587901&amp;idx=1&amp;sn=21a38340604708a11f1d203b5500ccfb&amp;chksm=8d3081a4ba4708b292d285cddf18455870a28a2a7585b73d21507529e71fcc8c683a8c0169c2&amp;scene=21#wechat_redirect">搭建 OpenStack 实验环境 - 每天5分钟玩转 OpenStack（16）</a></li>
 <li><a href="https://mp.weixin.qq.com/s/g-bKZqRFUGXDghIfGJ16_g">视频 - 在 VirtualBox 中部署 OpenStack - 3 部署OpenStack 已完成</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587635&amp;idx=1&amp;sn=2a38f10a29c263b3d54464107e6a7a68&amp;chksm=8d3080aaba4709bcbd91f9c70cb38540e7a98f155946f4572eaf83af6b0791085a660ac04ba2&amp;scene=21#wechat_redirect">视频 - 部署 OpenStack 之 - 验证环境</a></li>
 </ul>
 </div>
                 
