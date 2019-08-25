@@ -594,8 +594,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ip" title="配置IP" class="md-nav__link">
-    配置IP
+  <a href="#ip" title="配置固定IP" class="md-nav__link">
+    配置固定IP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apt" title="修改apt源" class="md-nav__link">
+    修改apt源
   </a>
   
 </li>
@@ -3542,8 +3549,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ip" title="配置IP" class="md-nav__link">
-    配置IP
+  <a href="#ip" title="配置固定IP" class="md-nav__link">
+    配置固定IP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apt" title="修改apt源" class="md-nav__link">
+    修改apt源
   </a>
   
 </li>
@@ -3664,7 +3678,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="ip">配置IP<a class="headerlink" href="#ip" title="Permanent link">&para;</a></h4>
+<h4 id="ip">配置固定IP<a class="headerlink" href="#ip" title="Permanent link">&para;</a></h4>
 <ol>
 <li>查询网卡列表<code>ip l</code><ul>
 <li>eth0: DHCP修改为固定IP。</li>
@@ -3674,7 +3688,27 @@
 </li>
 <li>
 <p>修改配置<code>/etc/network/interfaces</code></p>
-<details class="example"><summary>/etc/network/interfaces</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">old</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>source /etc/network/interfaces.d/*
+
+auto lo
+iface lo inet loopback
+
+auto enp0s3
+iface enp0s3 inet dhcp
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">new</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -3685,25 +3719,7 @@
  9
 10
 11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>source /etc/network/interfaces.d/*
-
-auto lo
-iface lo inet loopback
-
-auto enp0s3
-iface enp0s3 inet dhcp
-
-# &gt;&gt;&gt;&gt;
-auto enp0s3
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>auto enp0s3
 iface enp0s3 inet static
 address x.x.x.x
 netmask 255.255.255.0
@@ -3716,30 +3732,33 @@ iface enp0s8 inet manual
 auto enp0s9
 iface enp0s9 inet manual
 </pre></div>
-</td></tr></table>
-
-</details>
+</td></tr></table></div>
+</div>
 </li>
 <li>
 <p><code>reboot</code>重启操作系统，使用固定IP登录。</p>
 </li>
-<li>
-<p>修改apt源：<code>/etc/apt/sources.list</code>, <code>apt-get update</code></p>
-<details class="example"><summary>aliyun sources.list</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+</ol>
+<h4 id="apt">修改apt源<a class="headerlink" href="#apt" title="Permanent link">&para;</a></h4>
+<p><code>/etc/apt/sources.list</code>, <code>apt-get update</code></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>??? example &quot;aliyun sources.list&quot;
+    ```
+    deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse
+    deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse
+    deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse
+    deb http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse
+    deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
+    ```
 </pre></div>
 </td></tr></table>
 
-</details>
-</li>
-</ol>
 <h3 id="compute">compute: 计算<a class="headerlink" href="#compute" title="Permanent link">&para;</a></h3>
 <ul>
 <li>4U</li>
@@ -3809,8 +3828,8 @@ SERVICE_PASSWORD=$ADMIN_PASSWORD
 <p>示例文件路径<code>/opt/stack/devstack/samples/local.conf</code></p>
 </div>
 <details class="example"><summary>local.conf</summary><div class="superfences-tabs">
-<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
-<label for="__tab_1_0">controller</label>
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">controller</label>
 <div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -3862,8 +3881,8 @@ LOGDIR=$DEST/logs
 SCREEN_LOGDIR=$LOGDIR/screen
 </pre></div>
 </td></tr></table></div>
-<input name="__tabs_1" type="radio" id="__tab_1_1" />
-<label for="__tab_1_1">compute</label>
+<input name="__tabs_2" type="radio" id="__tab_2_1" />
+<label for="__tab_2_1">compute</label>
 <div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -3945,8 +3964,8 @@ LOGDIR=$DEST/logs
 SCREEN_LOGDIR=$LOGDIR/screen
 </pre></div>
 </td></tr></table></div>
-<input name="__tabs_1" type="radio" id="__tab_1_2" />
-<label for="__tab_1_2">devstack国内镜像</label>
+<input name="__tabs_2" type="radio" id="__tab_2_2" />
+<label for="__tab_2_2">devstack国内镜像</label>
 <div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3

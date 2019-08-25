@@ -616,6 +616,19 @@
     组件
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vlan100network" title="流程示例: 创建一个VLAN=100的network" class="md-nav__link">
+    流程示例: 创建一个VLAN=100的network
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -3554,6 +3567,19 @@
     组件
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vlan100network" title="流程示例: 创建一个VLAN=100的network" class="md-nav__link">
+    流程示例: 创建一个VLAN=100的network
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -3667,10 +3693,30 @@ nova-其他子服务和rabbitmq, mysql安装在控制节点上。</p>
 </ul>
 </li>
 <li>neutron agents: 运行在各节点。处理plugin请求，在provider上实现网络功能。</li>
-<li>network provider: 网络设备如Linux Bridge, Open vSwitch(OVS)或物理交换机。</li>
+<li>network provider: <strong>网络设备</strong>, 如Linux Bridge, Open vSwitch(OVS)或物理交换机。</li>
 <li>message queue: server, plugin, agent之间通信。</li>
-<li>neutron database(mysql, 安装在控制节点): 存放network, subnet, port, router。</li>
+<li>
+<p>neutron database: 存放network, subnet, port, router。</p>
+<div class="admonition note">
+<p class="admonition-title">查看neutron数据库表</p>
+<ol>
+<li>在 <mark class="critic">控制节点</mark> <code>su - stack</code></li>
+<li>执行<code>mysql</code></li>
+<li><code>use neutron</code></li>
+<li><code>show tables;</code></li>
+</ol>
+</div>
+</li>
 </ul>
+<h4 id="vlan100network">流程示例: 创建一个VLAN=100的network<a class="headerlink" href="#vlan100network" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>假设network provider是linux bridge</p>
+</blockquote>
+<ol>
+<li>Neutron Server接收到创建network的请求，通过Message Queue(RabbitMQ)通知已注册的Linux Bridge Plugin</li>
+<li>plugin将要创建的network信息（名称，VLAN ID...）保存到数据库，通过queue通知运行在各节点上的Agent</li>
+<li>agent在节点的物理网卡上创建虚拟VLAN网卡如eth0.100，并创建bridge如brqxxx桥接VLAN设备</li>
+</ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
@@ -3678,14 +3724,6 @@ nova-其他子服务和rabbitmq, mysql安装在控制节点上。</p>
 <li>plugin定义network，agent创建network。</li>
 <li>plugin, agent, provider配套使用。</li>
 </ul>
-</div>
-<div class="admonition example">
-<p class="admonition-title">创建一个VLAN=100的network</p>
-<ol>
-<li>server接收到创建请求，通过queue(RabbitMQ)通知plugin</li>
-<li>plugin将network信息（名称，VLAN ID）保存到数据库，通过queue通知agent</li>
-<li>agent在节点的物理网卡上创建虚拟VLAN网卡如eth0.100，并创建bridge如brqxxx</li>
-</ol>
 </div>
 <h3 id="_3">部署<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <ol>
