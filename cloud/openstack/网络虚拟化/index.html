@@ -636,17 +636,50 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#linux-bridge" title="Linux bridge" class="md-nav__link">
-    Linux bridge
+  <a href="#linux-bridge" title="Linux Bridge" class="md-nav__link">
+    Linux Bridge
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" title="配置" class="md-nav__link">
-    配置
+  <a href="#_2" title="配置实现" class="md-nav__link">
+    配置实现
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux-bridge-br0" title="配置Linux Bridge br0" class="md-nav__link">
+    配置Linux Bridge br0
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nat" title="NAT" class="md-nav__link">
+    NAT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vm" title="配置VM" class="md-nav__link">
+    配置VM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3505,17 +3538,50 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#linux-bridge" title="Linux bridge" class="md-nav__link">
-    Linux bridge
+  <a href="#linux-bridge" title="Linux Bridge" class="md-nav__link">
+    Linux Bridge
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" title="配置" class="md-nav__link">
-    配置
+  <a href="#_2" title="配置实现" class="md-nav__link">
+    配置实现
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux-bridge-br0" title="配置Linux Bridge br0" class="md-nav__link">
+    配置Linux Bridge br0
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nat" title="NAT" class="md-nav__link">
+    NAT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vm" title="配置VM" class="md-nav__link">
+    配置VM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3604,17 +3670,58 @@
                 
                 
                 <h1 id="_1">网络虚拟化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="linux-bridge">Linux bridge<a class="headerlink" href="#linux-bridge" title="Permanent link">&para;</a></h2>
-<p>相当于二层交换机, 负责数据转发。<br />
+<h2 id="linux-bridge">Linux Bridge<a class="headerlink" href="#linux-bridge" title="Permanent link">&para;</a></h2>
+<p>相当于二层交换机, 负责数据转发, 多个网卡可以连接到同一个Linux Bridge, 当某个网卡接收到数据包时, Linux Bridge会将数据包转发给其他网卡。<br />
 为了让VM可以访问网络，为VM1分配虚拟网卡vnet0（host中的TAP设备）通过Bridge br0与host的eth0相连。</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>virbr0是KVM默认创建的bridge。使用dnsmasq提供DHCP服务，在HOST中查看进程：<code>ps -ef | grep dnsmasq</code></p>
+<h3 id="_2">配置实现<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h4 id="linux-bridge-br0">配置Linux Bridge br0<a class="headerlink" href="#linux-bridge-br0" title="Permanent link">&para;</a></h4>
+<p>在HOST上配置文件路径：<code>/etc/network/interfaces</code></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>auto eth0
+# 将dhcp获取方式改为manual
+iface eth0 inet manual
+
+# 新增网络设备
+auto br0
+# IP放到br0上
+iface br0 inet dhcp
+    bridge_stp off
+    bridge_waitport 0
+    bridge_fd 0
+    # 将eth0挂到br0上
+    bridge_ports eth0
+</pre></div>
+</td></tr></table>
+
+<p>重启HOST生效</p>
+<div class="admonition note">
+<p class="admonition-title">在HOST上查看bridge配置：<code>brctl show</code></p>
 </div>
-<h3 id="_2">配置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>在HOST上配置文件路径：<code>/etc/network/interfaces</code>，增加br0，并将dhcp配置到br0上。增加<code>bridge_ports eth0</code>，将eth0挂到br0上。<br />
-在HOST上查看bridge配置：<code>brctl show</code><br />
-使用virt-manager将VM1的网卡配置为br0。</p>
+<h5 id="nat">NAT<a class="headerlink" href="#nat" title="Permanent link">&para;</a></h5>
+<p>virbr0是KVM默认创建的bridge, 为虚拟机网卡提供NAT功能。</p>
+<p>默认分配一个IP, 并使用dnsmasq为虚拟机提供DHCP服务，在HOST中查看进程：<code>ps -ef | grep dnsmasq</code></p>
+<p>在<code>/var/lib/libvirt/dnsmasq/default.leases</code>中记录VM成功DHCP的IP</p>
+<div class="admonition check">
+<p class="admonition-title">使用NAT的VM只能访问外网, 但外网无法访问VM, 因为IP是virbr0 DHCP分配的, 经过了NAT转换</p>
+</div>
+<div class="admonition check">
+<p class="admonition-title">使用br0的VM可以通过自己的IP直接与外网通信</p>
+</div>
+<h4 id="vm">配置VM<a class="headerlink" href="#vm" title="Permanent link">&para;</a></h4>
+<ul>
+<li>方式一: 使用virt-manager图形化界面将VM1的网卡配置为br0。</li>
+</ul>
 <div class="admonition example">
 <p class="admonition-title">KVM命令行</p>
 <ul>
@@ -3680,6 +3787,14 @@ Bridge上其他网络设备都自动加入到VLAN10中。</p>
 </div>
 <h2 id="_5">总结<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>Linux Bridge + VLAN = 二层交换机</p>
+<div class="admonition quote">
+<p class="admonition-title">已读</p>
+<ul>
+<li>9</li>
+<li>10</li>
+<li>11</li>
+</ul>
+</div>
                 
                   
                 
