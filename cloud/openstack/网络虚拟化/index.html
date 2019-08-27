@@ -710,18 +710,12 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#kvmvlan" title="KVM实现VLAN" class="md-nav__link">
     KVM实现VLAN
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#_4" title="配置" class="md-nav__link">
@@ -3612,18 +3606,12 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#kvmvlan" title="KVM实现VLAN" class="md-nav__link">
     KVM实现VLAN
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#_4" title="配置" class="md-nav__link">
@@ -3671,8 +3659,9 @@
                 
                 <h1 id="_1">网络虚拟化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h2 id="linux-bridge">Linux Bridge<a class="headerlink" href="#linux-bridge" title="Permanent link">&para;</a></h2>
-<p>相当于二层交换机, 负责数据转发, 多个网卡可以连接到同一个Linux Bridge, 当某个网卡接收到数据包时, Linux Bridge会将数据包转发给其他网卡。<br />
-为了让VM可以访问网络，为VM1分配虚拟网卡vnet0（host中的TAP设备）通过Bridge br0与host的eth0相连。</p>
+<p>相当于二层交换机, 负责数据转发, 多个网卡可以连接到同一个Linux Bridge, 当某个网卡接收到数据包时, Linux Bridge会将数据包转发给其他网卡。  </p>
+<p><img alt="" src="../assets/markdown-img-paste-20190827210305179.png" /></p>
+<p>为了让VM可以访问网络，为VM1分配虚拟网卡vnet0（host中的TAP设备）通过Bridge br0与host的eth0相连。</p>
 <h3 id="_2">配置实现<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <h4 id="linux-bridge-br0">配置Linux Bridge br0<a class="headerlink" href="#linux-bridge-br0" title="Permanent link">&para;</a></h4>
 <p>在HOST上配置文件路径：<code>/etc/network/interfaces</code></p>
@@ -3730,13 +3719,20 @@ iface br0 inet dhcp
 <li>查看VM接口列表：<code>virsh domiflist VM1</code></li>
 </ul>
 </div>
+<div class="admonition quote">
+<p class="admonition-title">已读</p>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587933&amp;idx=1&amp;sn=958532f257d5b4ba575f297a0b66db25&amp;chksm=8d3081c4ba4708d2199ddfaa151e93da2905eab86e963f194d1a7f90bb77535e5de5b7f83d52&amp;scene=21#wechat_redirect">KVM 网络虚拟化基础 - 每天5分钟玩转 OpenStack（9）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587932&amp;idx=1&amp;sn=d8442e02c9d19114ed2a64b3375b07f6&amp;chksm=8d3081c5ba4708d326b27352349a01c2f2175c0cc7d56944f40af2fc2c64ffdc9a5548f1b89e&amp;scene=21#wechat_redirect">动手实践虚拟网络 - 每天5分钟玩转 OpenStack（10）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587925&amp;idx=1&amp;sn=13bc307ede2bcbfea15d9e2848680fa4&amp;chksm=8d3081ccba4708da3bb35c13788234640548bcc3d8fb8b880a248c8dcb8bf9a9e6504e804406&amp;scene=21#wechat_redirect">理解 virbr0 - 每天5分钟玩转 OpenStack（11）</a></li>
+</ul>
+</div>
 <h2 id="vlan">VLAN<a class="headerlink" href="#vlan" title="Permanent link">&para;</a></h2>
 <p>LAN: 使用Hub或Switch连接，同一个广播域。</p>
-<p>VLAN: Switch将端口划分出多个LAN。</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>不同VLAN在三层网络可以互通。</p>
-</div>
+<p>VLAN: Switch将端口划分出多个LAN, 相当于将一个交换机分成了多个交换机。</p>
+<blockquote>
+<p>不同VLAN在三层网络可以通过路由互通。</p>
+</blockquote>
 <p>交换机的端口有两种配置模式：Access和Trunk。</p>
 <ul>
 <li>Access口：端口属于VLAN，VLAN ID 1~4096。直接与计算机网卡相连，流入该口的数据包都被打上VLAN的标签。</li>
@@ -3745,21 +3741,23 @@ iface br0 inet dhcp
 <h3 id="_3">网卡<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <ul>
 <li>物理网卡eth0: 服务器上实际的网络接口设备eth0, eth1...</li>
-<li>子网卡eth0:1: 依赖于物理网卡，可以与物理网卡同时存在并使用不同的IP地址，使用自己的网络接口配置文件。<span class="critic comment">与物理网卡同时启用</span></li>
-<li><mark>虚拟VLAN</mark> 网卡eth0.1: 没有自己的配置文件，通过 <mark>vconfig</mark> 将物理网加入不同的VLAN自动生成。信息保存位置：<code>/proc/net/vlan/config</code></li>
-</ul>
+<li>
+<p>子网卡eth0:1: 依赖于物理网卡，可以与物理网卡同时存在并使用不同的IP地址，使用自己的网络接口配置文件。<span class="critic comment">与物理网卡同时启用</span></p>
 <div class="admonition info">
-<p class="admonition-title">Info</p>
-<ol>
-<li>VIP使用的是子网卡：<code>ifconfig eth0:0 x.x.x.x netmask 255.255.255.0 up</code></li>
-<li>启用VLAN虚拟网卡时，物理网卡接口上必须没有IP，且不能启用子网卡。</li>
-</ol>
+<p class="admonition-title">VIP使用的是子网卡：<code>ifconfig eth0:0 x.x.x.x netmask 255.255.255.0 up</code></p>
 </div>
+</li>
+<li>
+<p><mark>虚拟VLAN 10 网卡eth0.10</mark>: 没有自己的配置文件，通过 <mark>vconfig</mark> 将物理网加入不同的VLAN自动生成。信息保存位置：<code>/proc/net/vlan/config</code></p>
+<div class="admonition info">
+<p class="admonition-title">启用VLAN虚拟网卡时，物理网卡接口上必须没有IP，且不能启用子网卡。</p>
+</div>
+</li>
+</ul>
 <h3 id="ifconfig">ifconfig<a class="headerlink" href="#ifconfig" title="Permanent link">&para;</a></h3>
 <p>/sbin/ifconfig: 查看，配置，启用，禁用网络接口的工具。</p>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>通过ifconfig为网卡指定的IP地址，只是用来调试网络用的，不会更改系统关于网卡的配置文件。</p>
+<p class="admonition-title">通过ifconfig为网卡指定的IP地址，只是用来调试网络用的，不会更改系统关于网卡的配置文件。</p>
 </div>
 <p>语法：ifconfig 接口 IP hw MAC netmask 掩码 broadcast 广播 [up/down]</p>
 <ul>
@@ -3771,28 +3769,90 @@ iface br0 inet dhcp
 <p class="admonition-title">参考链接</p>
 <p><a href="https://www.cnblogs.com/JohnABC/p/5951340.html">https://www.cnblogs.com/JohnABC/p/5951340.html</a></p>
 </div>
-<h2 id="kvmvlan">KVM实现VLAN<a class="headerlink" href="#kvmvlan" title="Permanent link">&para;</a></h2>
-<p>设置eth0的虚拟VLAN网卡eth0.10，VLANID为10。<br />
-eth0.10, vnet0都挂在brvlan10上。<br />
-Bridge上其他网络设备都自动加入到VLAN10中。</p>
+<h3 id="kvmvlan">KVM实现VLAN<a class="headerlink" href="#kvmvlan" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="../assets/markdown-img-paste-20190827204814114.png" /></p>
+<ul>
+<li>eth0作为Trunk口, 允许多个VLAN数据通过。</li>
+<li>eth0.10，定义VLAN 10。</li>
+<li>eth0.10, brvlan10, vnet0都接到VLAN 10的Access口上。</li>
+<li>brvlan10上其他网络设备都自动加入到VLAN 10中。</li>
+</ul>
 <h3 id="_4">配置<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>在HOST上配置文件路径：<code>/etc/network/interfaces</code>，增加eth0.10, brvlan10, eth0.20, brvlan20，重启HOST。<br />
-使用virt-manager分别将VM1, VM2的网卡挂到brvlan10, brvlan20上。</p>
+<p>在HOST上配置文件路径：<code>/etc/network/interfaces</code></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="codehilite"><pre><span></span># 增加eth0.10
+auto eth0.10
+iface eth0.10 inet manual
+    vlan-raw-device eth0
+
+# brvlan10
+auto brvlan10
+iface brvlan10 inet manual
+    bridge_stp off
+    bridge_waitport 0
+    bridge_fd 0
+    bridge_ports eth0.10
+
+# eth0.20
+auto eth0.20
+iface eth0.20 inet manual
+    vlan-raw-device eth0
+
+# brvlan20
+auto brvlan20
+iface brvlan20 inet manual
+    bridge_stp off
+    bridge_waitport 0
+    bridge_fd 0
+    bridge_ports eth0.20
+</pre></div>
+</td></tr></table>
+
+<p>重启HOST生效</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<ol>
-<li>通过VLAN隔离后，即使配置同一网段，VM1和VM2也不能互通。</li>
-<li>物理交换机可以进行数据交换和隔离，而Linux VLAN只能隔离，因为eth0不能拥有同一个VLANID的虚拟VLAN网卡。Linux Bridge实现交换，将同一VLAN的子设备挂到同一个Bridge上。</li>
-</ol>
+<p class="admonition-title">在HOST上查看bridge配置：<code>brctl show</code></p>
 </div>
+<p>使用virt-manager分别将VM1, VM2的网卡挂到brvlan10, brvlan20上。</p>
+<blockquote>
+<p>通过VLAN隔离后，即使在VM内使用<code>ifconfig eth0 192.168.100.10 netmask 255.255.255.0 up</code>配置为同一网段，VM1和VM2也不能互通。  </p>
+</blockquote>
 <h2 id="_5">总结<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>Linux Bridge + VLAN = 二层交换机</p>
+<p>物理交换机可以进行数据交换和隔离。</p>
+<ul>
+<li>Linux Bridge实现交换，将同一VLAN的子设备挂到同一个Bridge上。</li>
+<li>Linux VLAN实现隔离，因为eth0不能拥有同一个VLANID的不同虚拟VLAN网卡。</li>
+</ul>
+<div class="admonition abstract">
+<p class="admonition-title">Linux Bridge + VLAN = 二层交换机</p>
+</div>
 <div class="admonition quote">
 <p class="admonition-title">已读</p>
 <ul>
-<li>9</li>
-<li>10</li>
-<li>11</li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587920&amp;idx=1&amp;sn=79332fb8fd8370b8d6b7d9728c383008&amp;chksm=8d3081c9ba4708df9fcff17839e3c0fbb53a82298799c15ee45889f830a0087a46672505f115&amp;scene=21#wechat_redirect">Linux 如何实现 VLAN - 每天5分钟玩转 OpenStack（12）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587914&amp;idx=1&amp;sn=9a584117a38f8b8ef525c3cae109d0c8&amp;chksm=8d3081d3ba4708c56d86224450f47eb8611714ef1b441afe275fc169671bdc6d9ae0494921ff&amp;scene=21#wechat_redirect">动手实践 Linux VLAN - 每天5分钟玩转 OpenStack（13）</a></li>
 </ul>
 </div>
                 

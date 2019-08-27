@@ -1423,6 +1423,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pip" title="配置pip源" class="md-nav__link">
+    配置pip源
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#start" title="Start" class="md-nav__link">
     Start
   </a>
@@ -3472,6 +3479,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pip" title="配置pip源" class="md-nav__link">
+    配置pip源
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#start" title="Start" class="md-nav__link">
     Start
   </a>
@@ -3545,6 +3559,19 @@ Python <span class="m">3</span>.7.2
 </pre></div>
 </td></tr></table>
 Done!</p>
+<h2 id="pip">配置pip源<a class="headerlink" href="#pip" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ vim ~/.pip/pip.conf
+<span class="o">[</span>global<span class="o">]</span>
+index-url <span class="o">=</span> http://mirrors.aliyun.com/pypi/simple/
+<span class="o">[</span>install<span class="o">]</span>
+trusted-host<span class="o">=</span>mirrors.aliyun.com
+</pre></div>
+</td></tr></table>
+
 <h2 id="start">Start<a class="headerlink" href="#start" title="Permanent link">&para;</a></h2>
 <ul>
 <li>解释型语言</li>
