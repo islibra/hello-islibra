@@ -619,6 +619,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#neutron-server" title="Neutron Server" class="md-nav__link">
+    Neutron Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ml2-core-plugin" title="ML2 Core Plugin" class="md-nav__link">
+    ML2 Core Plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-plugin-agent" title="Service Plugin / Agent" class="md-nav__link">
+    Service Plugin / Agent
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3563,6 +3584,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#neutron-server" title="Neutron Server" class="md-nav__link">
+    Neutron Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ml2-core-plugin" title="ML2 Core Plugin" class="md-nav__link">
+    ML2 Core Plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-plugin-agent" title="Service Plugin / Agent" class="md-nav__link">
+    Service Plugin / Agent
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3672,22 +3714,16 @@ nova-其他子服务和rabbitmq, mysql安装在控制节点上。</p>
 <h3 id="_1">组件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p><strong>neutron server:</strong> 对外提供API，接收请求，调用plugin处理请求。<br />
-<img alt="" src="../assets/markdown-img-paste-20190827220833661.png" /></p>
-<ul>
-<li>Core API: 对外提供管理network, subnet, port的RESTful API</li>
-<li>Extension API: 对外提供管理router, load balance, firewall的RESTful API</li>
-<li>Common Service: 认证和校验API请求</li>
-<li>Neutron Core: 核心处理程序, 调用plugin</li>
-<li>Core Plugin API: Core通过该API调用plugin</li>
-<li>Extension Plugin API: Core通过该API调用plugin</li>
-</ul>
+<p><strong>neutron server:</strong> 对外提供API，接收请求，调用plugin处理请求。</p>
+<div class="admonition note">
+<p class="admonition-title">API可以提供给Scripts, Horizon, Nova使用</p>
+</div>
 </li>
 <li>
 <p><strong>neutron plugins:</strong> 处理server请求，维护逻辑网络状态，调用agent。</p>
 <div class="admonition tip">
 <p class="admonition-title">保存网络配置到数据库</p>
-<p>Neutron实现了ML2(Modular Layer 2) plugin, 对数据库访问功能进行抽象和封装, 因此provider无需再开发自己的plugin, 只需要针对ML2开发driver即可</p>
+<p>Neutron实现了<a href="#ml2-core-plugin">ML2(Modular Layer 2)</a> plugin, 对数据库访问功能进行抽象和封装, 因此provider无需再开发自己的plugin, 只需要针对ML2开发driver即可</p>
 </div>
 <ol>
 <li>core plugin: 维护network, subnet, port, 对应linux bridge, OVS</li>
@@ -3718,7 +3754,7 @@ nova-其他子服务和rabbitmq, mysql安装在控制节点上。</p>
 </li>
 </ul>
 <blockquote>
-<p>plugin, agent, provider配套使用</p>
+<p>provider, agent, plugin配套使用</p>
 </blockquote>
 <h4 id="vlan100network">流程示例: 创建一个VLAN=100的network<a class="headerlink" href="#vlan100network" title="Permanent link">&para;</a></h4>
 <blockquote>
@@ -3729,6 +3765,46 @@ nova-其他子服务和rabbitmq, mysql安装在控制节点上。</p>
 <li>plugin将要创建的network信息（名称，VLAN ID...）保存到数据库，通过queue通知运行在各节点上的Agent</li>
 <li>agent在节点的物理网卡上创建虚拟VLAN网卡如eth0.100，并创建bridge如brqxxx桥接VLAN设备</li>
 </ol>
+<h4 id="neutron-server">Neutron Server<a class="headerlink" href="#neutron-server" title="Permanent link">&para;</a></h4>
+<p><img alt="" src="../assets/markdown-img-paste-20190827220833661.png" /></p>
+<ul>
+<li>Core API: 对外提供管理network, subnet, port的RESTful API</li>
+<li>Extension API: 对外提供管理router, load balance, firewall的RESTful API</li>
+<li>Common Service: 认证和校验API请求</li>
+<li>Neutron Core: 核心处理程序, 调用plugin</li>
+<li>Core Plugin API: Core通过该API调用plugin</li>
+<li>Extension Plugin API: Core通过该API调用plugin</li>
+</ul>
+<h4 id="ml2-core-plugin">ML2 Core Plugin<a class="headerlink" href="#ml2-core-plugin" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>提供一个框架, 支持不同agent</p>
+</blockquote>
+<ul>
+<li>type driver: 网络类型, 如: Local, Flat, VLAN, VxLAN, GRE</li>
+<li>mechansim driver: 访问机制, 如: LinuxBridge, OpenvSwitch, L2Population(优化和限制overlay网络中的广播流量)<ul>
+<li>Agent-based: linux bridge, open vswitch</li>
+<li>Controller-based: OpenDaylight, VMWare NSX</li>
+<li>基于物理交换机: Cisco Nexus, Arista, Mellanox</li>
+</ul>
+</li>
+</ul>
+<h4 id="service-plugin-agent">Service Plugin / Agent<a class="headerlink" href="#service-plugin-agent" title="Permanent link">&para;</a></h4>
+<p><img alt="" src="../assets/markdown-img-paste-20190828211942703.png" /></p>
+<ul>
+<li>DHCP: dhcp agent通过dnsmasq实现</li>
+<li>Routing: l3 agent通过IPtables实现, 创建router, 为subnet之间提供路由</li>
+<li>Firewall: l3 agent通过IPtables实现<ul>
+<li>在router上配置防火墙策略, 保护所有network</li>
+<li>Security Group: 在instance上配置安全策略, 保护单个instance</li>
+</ul>
+</li>
+<li>Load Balance: 通过HAProxy实现, 为多个instance提供load balance服务</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">metadata-agent</p>
+<p>提供给instance在启动时, 通过dhcp-agent, l3-agent访问nova-metadata-api获取hostname, ip, public key等</p>
+</div>
+<p><img alt="" src="../assets/markdown-img-paste-20190828214757833.png" /></p>
 <h3 id="_2">部署<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p>各服务的各组件都可以部署到不同的物理节点上。</p>
@@ -3759,7 +3835,12 @@ nova-其他子服务和rabbitmq, mysql安装在控制节点上。</p>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587909&amp;idx=1&amp;sn=b1297dc5cb49323a36a367122c1b1c4f&amp;chksm=8d3081dcba4708ca61eacafb9d312e8278cbe380a00f01cc8f7cdba0bc1da1797f90df133051&amp;scene=21#wechat_redirect">OpenStack 架构 - 每天5分钟玩转 OpenStack（15）</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587691&amp;idx=1&amp;sn=c71b110dade71c3e120ec6b2389b3e33&amp;chksm=8d3080f2ba4709e44eb08c55223e141f7ed0e069ebd6f770b7770665e00ff72d48ce41596a0b&amp;scene=21#wechat_redirect">Neutron 架构 - 每天5分钟玩转 OpenStack（67）</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587687&amp;idx=1&amp;sn=adf2078fa91f552a23dd406bf9c0d30d&amp;chksm=8d3080feba4709e8fca066ec1371c51f9b3a89229cfeb81f886e6895f0c2509a29e840ab6d19&amp;scene=21#wechat_redirect">Neutron 物理部署方案 - 每天5分钟玩转 OpenStack（68）</a></li>
-<li>未读完<a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587683&amp;idx=1&amp;sn=3c5cadd759831abf596d53859cb64b9d&amp;chksm=8d3080faba4709ec386d03890f7ccec74a9adfb69a943466626428b237d4a3929e372496e8db&amp;scene=21#wechat_redirect">理解 Neutron Server 分层模型 - 每天5分钟玩转 OpenStack（69）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587683&amp;idx=1&amp;sn=3c5cadd759831abf596d53859cb64b9d&amp;chksm=8d3080faba4709ec386d03890f7ccec74a9adfb69a943466626428b237d4a3929e372496e8db&amp;scene=21#wechat_redirect">理解 Neutron Server 分层模型 - 每天5分钟玩转 OpenStack（69）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587682&amp;idx=1&amp;sn=bd57acc0560ce9bcdcc7781ed24067df&amp;chksm=8d3080fbba4709ed1dd5ba820daa2c845d1aff1d4cd5670b74337df386f3fbf2544ab5fb65c0&amp;scene=21#wechat_redirect">Neutron 如何支持多种 network provider - 每天5分钟玩转 OpenStack（70）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587678&amp;idx=1&amp;sn=5c0b42594613c75ecc58161e9839957e&amp;chksm=8d3080c7ba4709d1693f6f4e7051e7fbbb4dde00e850c12a197ad5630587dc6427b80ed637ac&amp;scene=21#wechat_redirect">详解 ML2 Core Plugin（I） - 每天5分钟玩转 OpenStack（71）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587674&amp;idx=1&amp;sn=b07b9d76cb035885b81495c68fc71deb&amp;chksm=8d3080c3ba4709d5ca82824e2ec341a76cf5c709fa9a8bd0a74c349a1efa2784f4a7923df20e&amp;scene=21#wechat_redirect">详解 ML2 Core Plugin（II） - 每天5分钟玩转 OpenStack（72）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587670&amp;idx=1&amp;sn=0e1f5e078b9f323f3ad3cff4a9095f4b&amp;chksm=8d3080cfba4709d9f8356bca2cc39663e151e78b9d3656261131cbcedbd8bdcc5e31c0cbf110&amp;scene=21#wechat_redirect">Service Plugin / Agent - 每天5分钟玩转 OpenStack（73）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587669&amp;idx=1&amp;sn=4054e2008bc1ec5d52d809fe68ee09b9&amp;chksm=8d3080ccba4709da29d47860a9651e90253b1194187a1c46b8f4e440a9b5613a8e4eabbe7cba&amp;scene=21#wechat_redirect">两张图总结 Neutron 架构 - 每天5分钟玩转 OpenStack（74）</a></li>
 </ul>
 </div>
                 

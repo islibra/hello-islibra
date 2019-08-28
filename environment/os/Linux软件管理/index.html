@@ -3839,9 +3839,63 @@ $ tar zcvf FileName.tar.tgz FileName  <span class="c1">#压缩</span>
 </td></tr></table>
 
 <h3 id="12-zip">12. zip<a class="headerlink" href="#12-zip" title="Permanent link">&para;</a></h3>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ unzip FileName.zip  <span class="c1">#解压</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ unzip FileName.zip  <span class="c1">#解压</span>
 $ zip FileName.zip -r DirName  <span class="c1">#压缩</span>
+
+<span class="c1"># 将当前目录下的文件压缩并设置密码</span>
+$ ll
+total <span class="m">30208</span>
+drwxr-xr-x  <span class="m">2</span> root root     <span class="m">4096</span> Aug <span class="m">28</span> <span class="m">11</span>:50 ./
+drwxr-xr-x <span class="m">10</span> root root     <span class="m">4096</span> Aug <span class="m">28</span> <span class="m">11</span>:48 ../
+-rw-r--r--  <span class="m">1</span> root root <span class="m">30883840</span> Aug <span class="m">28</span> <span class="m">11</span>:50 br.tar
+-rw-r--r--  <span class="m">1</span> root root      <span class="m">876</span> Aug <span class="m">28</span> <span class="m">11</span>:49 run.sh
+$ zip scan.zip -re ./*
+Enter password:
+Verify password:
+  adding: br.tar <span class="o">(</span>deflated <span class="m">92</span>%<span class="o">)</span>
+  adding: run.sh <span class="o">(</span>deflated <span class="m">52</span>%<span class="o">)</span>
+$ ll
+total <span class="m">32536</span>
+drwxr-xr-x  <span class="m">2</span> root root     <span class="m">4096</span> Aug <span class="m">28</span> <span class="m">13</span>:49 ./
+drwxr-xr-x <span class="m">10</span> root root     <span class="m">4096</span> Aug <span class="m">28</span> <span class="m">11</span>:48 ../
+-rw-r--r--  <span class="m">1</span> root root <span class="m">30883840</span> Aug <span class="m">28</span> <span class="m">11</span>:50 br.tar
+-rw-r--r--  <span class="m">1</span> root root      <span class="m">876</span> Aug <span class="m">28</span> <span class="m">11</span>:49 run.sh
+-rw-r--r--  <span class="m">1</span> root root  <span class="m">2379589</span> Aug <span class="m">28</span> <span class="m">13</span>:49 scan.zip
+$ vim scan.zip
+<span class="s2">&quot; zip.vim version v27</span>
+<span class="s2">&quot;</span> Browsing zipfile /home/islibra/scan.zip
+<span class="s2">&quot; Select a file with cursor and press ENTER</span>
+
+<span class="s2">br.tar</span>
+<span class="s2">run.sh</span>
 </pre></div>
 </td></tr></table>
 
