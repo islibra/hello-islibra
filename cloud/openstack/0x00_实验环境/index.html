@@ -3648,8 +3648,9 @@
 </div>
 <h2 id="_2">网络规划<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Management + API Network: OpenStack内部各服务之间通信。</li>
-<li>VM(Tenant) Network: 租户创建的VM使用的网络。</li>
+<li>Management Network: OpenStack内部各服务之间通信。</li>
+<li>API Network: 各组件向用户暴露API(endpoints), 管理员也通过API网络SSH管理各个节点</li>
+<li>VM(Tenant) Network: instance之间通信, 由Neutron配置和管理, 类型包括local, flat, vlan, vxlan, gre。</li>
 <li>External Network: neutron通过L3服务让VM租户内部私有网络能够访问到外网。</li>
 </ul>
 <h2 id="_3">安装操作系统<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
@@ -3976,6 +3977,17 @@ SPICE_REPO=http://git.trystack.cn/git/spice/spice-html5.git
 </pre></div>
 </td></tr></table></div>
 </div>
+<ul>
+<li>neutron</li>
+<li>q-svc</li>
+<li>q-apt: core agent: linux bridge agent, open vswitch agent</li>
+<li>q-dhcp: dhcp agent</li>
+<li>q-l3: l3 agent</li>
+<li>q-meta: metadata agent</li>
+<li>q-lbaas: load balance agent</li>
+<li>q-fwaas: firewall</li>
+<li>q-vpn: vpn agent</li>
+</ul>
 </details>
 </li>
 <li>
@@ -4007,7 +4019,7 @@ No matching distribution found for wrapt===1.11.2 (from -c https://releases.open
     git clone<br />
     stack.sh</li>
 <li>./stack.sh:kill_spinner:431<br />
-    在local.conf中加入enable_service placement-api</li>
+    <mark class="critic">在local.conf中加入enable_service placement-api</mark></li>
 </ol>
 </details>
 </li>
@@ -4034,6 +4046,8 @@ No matching distribution found for wrapt===1.11.2 (from -c https://releases.open
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587901&amp;idx=1&amp;sn=21a38340604708a11f1d203b5500ccfb&amp;chksm=8d3081a4ba4708b292d285cddf18455870a28a2a7585b73d21507529e71fcc8c683a8c0169c2&amp;scene=21#wechat_redirect">搭建 OpenStack 实验环境 - 每天5分钟玩转 OpenStack（16）</a></li>
 <li><a href="https://mp.weixin.qq.com/s/g-bKZqRFUGXDghIfGJ16_g">视频 - 在 VirtualBox 中部署 OpenStack - 3 部署OpenStack 已完成</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587635&amp;idx=1&amp;sn=2a38f10a29c263b3d54464107e6a7a68&amp;chksm=8d3080aaba4709bcbd91f9c70cb38540e7a98f155946f4572eaf83af6b0791085a660ac04ba2&amp;scene=21#wechat_redirect">视频 - 部署 OpenStack 之 - 验证环境</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587665&amp;idx=1&amp;sn=249116c3d240b6fcf03a6b927ef416dc&amp;chksm=8d3080c8ba4709de895e84b8f5fe35fa7e537ccfb4ae765b10ac9b2de55eb13e47e5cf1b3d1e&amp;scene=21#wechat_redirect">为 Neutron 准备物理基础设施（I）- 每天5分钟玩转 OpenStack（75）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587661&amp;idx=1&amp;sn=f33f322495cac190c6574249c0797a72&amp;chksm=8d3080d4ba4709c270528ad651c1c12d0588e648a6dbea430c1ccb567230db1f1f140f1f3f26&amp;scene=21#wechat_redirect">为 Neutron 准备物理基础设施（II） - 每天5分钟玩转 OpenStack（76）</a></li>
 </ul>
 </div>
                 
