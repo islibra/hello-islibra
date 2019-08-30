@@ -3702,7 +3702,7 @@
 </ul>
 <h3 id="local-network">local network<a class="headerlink" href="#local-network" title="Permanent link">&para;</a></h3>
 <blockquote>
-<p>不会与宿主机任何物理网卡相连, 只可在连接到相同bridge的instance之间通信</p>
+<p>不会与宿主机任何物理网卡相连, 只可在 <mark class="critic">同一节点上</mark> 连接到 <mark class="critic">相同bridge</mark> 的instance之间通信</p>
 </blockquote>
 <p><img alt="" src="../assets/markdown-img-paste-20190830211012718.png" /></p>
 <ol>
@@ -3730,6 +3730,8 @@
 <li>
 <p>查看linux bridge状态: <code><mark class="critic">brctl show</mark></code>, 已创建brqXXX和tapXXX(DHCP interface)</p>
 </li>
+<li>将instance连接到local network, 查看subnet中新增一个port(IP, MAC), 并将port attach到instance</li>
+<li>VM启动时, 宿主机上的neutron-linuxbridge-agent根据port信息创建tap设备, 并连接到local bridge上, 同时该tap映射成VM的虚拟网卡VIF</li>
 </ol>
 <div class="admonition quote">
 <p class="admonition-title">已读</p>
@@ -3738,6 +3740,8 @@
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587656&amp;idx=1&amp;sn=b84065f7d5dd1ae32eacf2aad4b93156&amp;chksm=8d3080d1ba4709c7030032a386e1ffe7d0eedd377c2fa90a1b4584832c35932f5893339ec3c5&amp;scene=21#wechat_redirect">实践 Neutron 前的两个准备工作 - 每天5分钟玩转 OpenStack（78）</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587652&amp;idx=1&amp;sn=ba29d242fe90a328e3fb6011548e15bb&amp;chksm=8d3080ddba4709cb44947f2b9cd85658e37cb21803f8e05bb844de6275e0513a457596c878e2&amp;scene=21#wechat_redirect">在 ML2 中 enable local network - 每天5分钟玩转 OpenStack（79）</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587642&amp;idx=1&amp;sn=26090fbdeea9a3814574f35229715050&amp;chksm=8d3080a3ba4709b5ef186bd45dca532beae37d4a75d8cdaef0c6cd31fbaf34bb2f76fdb3b953&amp;scene=21#wechat_redirect">创建第一个 local network（II）- 每天5分钟玩转 OpenStack（81）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587630&amp;idx=1&amp;sn=4c9495f74f3360c5ef81e73af5122eec&amp;chksm=8d3080b7ba4709a13f4f78247c8ba23b6bd17963b99bf0a7165f195b36c19d3e09baa8dd8853&amp;scene=21#wechat_redirect">将 instance 连接到 first_local_net - 每天5分钟玩转 OpenStack（82）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587628&amp;idx=1&amp;sn=b9777c3c831bde12fe95cc9932750069&amp;chksm=8d3080b5ba4709a35ecc0a291a9daaee86addf4822e38340abd7d92f27a9ca860eed0b5abacf&amp;scene=21#wechat_redirect">连接第二个 insance 到 first_local_net - 每天5分钟玩转 OpenStack（83）</a></li>
 </ul>
 </div>
                 
