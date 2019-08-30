@@ -628,6 +628,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#linux-bridge" title="Linux Bridge" class="md-nav__link">
+    Linux Bridge
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="网络设备" class="md-nav__link">
+    网络设备
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-network" title="local network" class="md-nav__link">
+    local network
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -653,6 +680,18 @@
   <li class="md-nav__item">
     <a href="../Neutron_LBaaS/" title="Neutron_LBaaS" class="md-nav__link">
       Neutron_LBaaS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OVS/" title="OVS" class="md-nav__link">
+      OVS
     </a>
   </li>
 
@@ -1721,6 +1760,18 @@
   <li class="md-nav__item">
     <a href="../../../coding/springboot/aop/" title="aop" class="md-nav__link">
       aop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coding/springboot/hellospringboot/" title="hellospringboot" class="md-nav__link">
+      hellospringboot
     </a>
   </li>
 
@@ -3512,6 +3563,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#linux-bridge" title="Linux Bridge" class="md-nav__link">
+    Linux Bridge
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="网络设备" class="md-nav__link">
+    网络设备
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-network" title="local network" class="md-nav__link">
+    local network
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -3594,6 +3672,74 @@
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587708&amp;idx=1&amp;sn=f7dea80905f19bf460e1aa67c5d2453f&amp;chksm=8d3080e5ba4709f3f934ec4dd099a14f1641b0b200b2f4e2dc27ad39cbc9c58447d46436dc0d&amp;scene=21#wechat_redirect">Neutron 网络基本概念 - 每天5分钟玩转 OpenStack（66）</a></li>
 </ul>
 </details>
+<h2 id="linux-bridge">Linux Bridge<a class="headerlink" href="#linux-bridge" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>配置Neutron使用ML2作为core plugin: <code>/etc/neutron/neutron.conf</code></p>
+<p><img alt="" src="../assets/markdown-img-paste-20190830203234883.png" /></p>
+<blockquote>
+<p>控制节点和计算节点都要配置</p>
+</blockquote>
+</li>
+<li>
+<p>配置ML2使用linux-bridge mechanism driver: <code>/etc/neutron/plugins/ml2/ml2_conf.ini</code></p>
+<p><img alt="" src="../assets/markdown-img-paste-20190830203431370.png" /></p>
+<blockquote>
+<p>控制节点和计算节点都要配置; 可配置多个</p>
+</blockquote>
+</li>
+<li>
+<p>重启Neutron服务, 查看neutron-linuxbridge-agent进程: <code>$ ps -efw | grep -v grep | grep neutron-linuxbridge-agent</code></p>
+</li>
+</ol>
+<h3 id="_3">网络设备<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>tap interface: tap0...</li>
+<li>linux bridge: brqXXXX</li>
+<li>vlan interface: ethX.Y</li>
+<li>vxlan interface: vxlan-Z</li>
+<li>物理interface: ethX</li>
+</ul>
+<h3 id="local-network">local network<a class="headerlink" href="#local-network" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>不会与宿主机任何物理网卡相连, 只可在连接到相同bridge的instance之间通信</p>
+</blockquote>
+<p><img alt="" src="../assets/markdown-img-paste-20190830211012718.png" /></p>
+<ol>
+<li>
+<p>配置ML2加载local type driver: <code>/etc/neutron/plugins/ml2/ml2_conf.ini</code></p>
+<p><img alt="" src="../assets/markdown-img-paste-20190830211500364.png" /></p>
+</li>
+<li>
+<p>配置默认创建的网络类型tenant_network_types, <span class="critic comment">可以指定多种, 按优先级排序</span></p>
+</li>
+<li>重启Neutron服务</li>
+<li>
+<p>通过Web GUI创建local network</p>
+<ul>
+<li>Project - Network - Networks</li>
+<li>Admin - Networks</li>
+</ul>
+<div class="admonition todo">
+<p class="admonition-title">在环境中实操</p>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587643&amp;idx=1&amp;sn=7ad568889d9f44c77d7c8e45a8fb33ff&amp;chksm=8d3080a2ba4709b4d4f26cf38f65fda3a250f2b3eebc4bb1b7d50828107f9c80cc67055cce1a&amp;scene=21#wechat_redirect">创建第一个 local network（I） - 每天5分钟玩转 OpenStack（80）</a></li>
+</ul>
+</div>
+</li>
+<li>
+<p>查看linux bridge状态: <code><mark class="critic">brctl show</mark></code>, 已创建brqXXX和tapXXX(DHCP interface)</p>
+</li>
+</ol>
+<div class="admonition quote">
+<p class="admonition-title">已读</p>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587658&amp;idx=1&amp;sn=ba38096b11bd93a7fa596cd1a1696d82&amp;chksm=8d3080d3ba4709c5f492c01d7e150ad9e738b1058a9d1c2671cd04fcb56a6244832485590ab8&amp;scene=21#wechat_redirect">配置 linux-bridge mechanism driver - 每天5分钟玩转 OpenStack（77）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587656&amp;idx=1&amp;sn=b84065f7d5dd1ae32eacf2aad4b93156&amp;chksm=8d3080d1ba4709c7030032a386e1ffe7d0eedd377c2fa90a1b4584832c35932f5893339ec3c5&amp;scene=21#wechat_redirect">实践 Neutron 前的两个准备工作 - 每天5分钟玩转 OpenStack（78）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587652&amp;idx=1&amp;sn=ba29d242fe90a328e3fb6011548e15bb&amp;chksm=8d3080ddba4709cb44947f2b9cd85658e37cb21803f8e05bb844de6275e0513a457596c878e2&amp;scene=21#wechat_redirect">在 ML2 中 enable local network - 每天5分钟玩转 OpenStack（79）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587642&amp;idx=1&amp;sn=26090fbdeea9a3814574f35229715050&amp;chksm=8d3080a3ba4709b5ef186bd45dca532beae37d4a75d8cdaef0c6cd31fbaf34bb2f76fdb3b953&amp;scene=21#wechat_redirect">创建第一个 local network（II）- 每天5分钟玩转 OpenStack（81）</a></li>
+</ul>
+</div>
                 
                   
                 

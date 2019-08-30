@@ -581,6 +581,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../cloud/openstack/OVS/" title="OVS" class="md-nav__link">
+      OVS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../cloud/openstack/VxLAN/" title="VxLAN" class="md-nav__link">
       VxLAN
     </a>
@@ -1639,6 +1651,18 @@
   <li class="md-nav__item">
     <a href="../../../coding/springboot/aop/" title="aop" class="md-nav__link">
       aop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coding/springboot/hellospringboot/" title="hellospringboot" class="md-nav__link">
+      hellospringboot
     </a>
   </li>
 
@@ -3532,22 +3556,45 @@
 </ol>
 </div>
 <h2 id="grep">grep<a class="headerlink" href="#grep" title="Permanent link">&para;</a></h2>
-<p>在每个FILE或标准输入中查找PATTERN.</p>
-<div class="admonition example">
-<p class="admonition-title">Demo</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>grep -i <span class="s1">&#39;hello world&#39;</span> first.java second.properties
+<p>在每个file或标准输入中查找pattern</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 基本用法</span>
+cat filename.xxx <span class="p">|</span> grep xxx
+grep xxx filename.xxx
+
+<span class="c1"># -i --ignore-case 忽略大小写</span>
+<span class="c1"># -C 显示上下文number行</span>
+<span class="c1"># 查找多个文件</span>
+grep -i <span class="s1">&#39;hello world&#39;</span> -C number first.java second.properties
+
+<span class="c1"># 查找多个关键词</span>
+cat filename.xxx <span class="p">|</span> grep -E <span class="s1">&#39;123|abc&#39;</span>
+cat filename.xxx <span class="p">|</span> egrep <span class="s1">&#39;123|abc&#39;</span>
+
+<span class="c1"># 过滤关键词 -v --invert-match 查找不匹配的行</span>
+ps -efw <span class="p">|</span> grep -v grep <span class="p">|</span> grep java
+
+<span class="c1"># -e --regexp=PATTERN 使用正则表达式</span>
+cat filename.xxx <span class="p">|</span> grep -e <span class="s1">&#39;xxx.*yyy&#39;</span>
 </pre></div>
 </td></tr></table>
 
-<div class="admonition note">
-<p class="admonition-title">参数</p>
-<ul>
-<li>-e --regexp=PATTERN 使用正则表达式</li>
-<li>-i --ignore-case 忽略大小写</li>
-<li>-v --invert-match 查找不匹配的行</li>
-</ul>
-</div>
-</div>
 <h2 id="awk">awk<a class="headerlink" href="#awk" title="Permanent link">&para;</a></h2>
 <p>命令格式：<code>awk [-F field-separator] 'commands' input-file(s)</code></p>
 <div class="admonition note">
