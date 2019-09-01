@@ -1169,6 +1169,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../coding/java/hellojava/" title="hellojava" class="md-nav__link">
+      hellojava
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../coding/java/jar/" title="jar" class="md-nav__link">
       jar
     </a>
@@ -2693,6 +2705,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../macOS_NTFS/" title="macOS_NTFS" class="md-nav__link">
+      macOS_NTFS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../sudoers文件/" title="sudoers文件" class="md-nav__link">
       sudoers文件
     </a>
@@ -3784,9 +3808,43 @@ rpm -ivh xxx.rpm
 
 <h2 id="_1">压缩解压文件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h3 id="1-tar">1. tar<a class="headerlink" href="#1-tar" title="Permanent link">&para;</a></h3>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ tar xvf FileName.tar  <span class="c1">#解包</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ tar xvf FileName.tar  <span class="c1">#解包</span>
 $ tar cvf FileName.tar DirName  <span class="c1">#打包（注：tar是打包，不是压缩！）</span>
+
+<span class="c1"># 解压到指定目录</span>
+<span class="c1"># 0. 已存在文件</span>
+$ cat /etc/hackpasswd
+important file
+<span class="c1"># 1. 创建文件</span>
+root@SZX1000451827:/home/hacker# vim hackpasswd
+you are hacked!
+<span class="c1"># 2. 将文件打包</span>
+root@SZX1000451827:/home/hacker# tar -cvf hack.tar hackpasswd
+hackpasswd
+<span class="c1"># 3. 解压到指定目录</span>
+root@SZX1000451827:/home/hacker# tar -C /etc -xvf hack.tar
+hackpasswd
+<span class="c1"># 4. 查看原文件已被替换</span>
+root@SZX1000451827:/home/hacker# cat /etc/hackpasswd
+you are hacked!
 </pre></div>
 </td></tr></table>
 
