@@ -4564,6 +4564,65 @@
 <h3 id="-_1">$-死循环<a class="headerlink" href="#-_1" title="Permanent link">&para;</a></h3>
 <h2 id="_17">内存<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
 <h3 id="0">申请内存前对大小校验, 防止为0, 负, 过多申请<a class="headerlink" href="#0" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">申请0, 负都不会导致程序崩溃, 但要注意是否引用空指针</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="c1">// 测试两个无符号数相加赋值给有符号数, 申请内存</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// unsigned int x = 2147483647;</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">4294967295</span><span class="p">;</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">);</span>
+    <span class="c1">// z is -2147483648</span>
+    <span class="c1">// z is 0</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;z is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>
+    <span class="c1">// 负数申请不到内存, 返回NULL</span>
+    <span class="c1">// 0申请成功</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">z</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">str</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;success</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">// str is (null)</span>
+    <span class="c1">// str is</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;str is %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">str</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;str is not NULL&quot;</span><span class="p">);</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+</div>
 <h3 id="_18">判断内存申请是否成功<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
 <h2 id="_19">文件<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
 <h3 id="_20">创建文件时指定访问权限<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
