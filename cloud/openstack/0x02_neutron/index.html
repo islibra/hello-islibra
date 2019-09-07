@@ -650,6 +650,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#flat-network" title="flat network" class="md-nav__link">
+    flat network
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dhcp" title="DHCP" class="md-nav__link">
+    DHCP
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux-network-namespace" title="Linux Network Namespace" class="md-nav__link">
+    Linux Network Namespace
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -748,8 +775,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../常用命令/" title="常用命令" class="md-nav__link">
-      常用命令
+    <a href="../openstack常用命令/" title="openstack常用命令" class="md-nav__link">
+      openstack常用命令
     </a>
   </li>
 
@@ -1132,6 +1159,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../coding/java/0x00_hellojava/" title="0x00_hellojava" class="md-nav__link">
+      0x00_hellojava
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coding/java/0x01_编译运行/" title="0x01_编译运行" class="md-nav__link">
+      0x01_编译运行
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../coding/java/AIO/" title="AIO" class="md-nav__link">
       AIO
     </a>
@@ -1302,30 +1353,6 @@
   <li class="md-nav__item">
     <a href="../../../coding/java/SSL/" title="SSL" class="md-nav__link">
       SSL
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../coding/java/hellojava/" title="hellojava" class="md-nav__link">
-      hellojava
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../coding/java/jar/" title="jar" class="md-nav__link">
-      jar
     </a>
   </li>
 
@@ -2716,6 +2743,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../environment/os/screen/" title="screen" class="md-nav__link">
+      screen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../environment/os/sudoers文件/" title="sudoers文件" class="md-nav__link">
       sudoers文件
     </a>
@@ -3141,8 +3180,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../security/google_search/" title="Google search" class="md-nav__link">
-      Google search
+    <a href="../../../security/google_search/" title="google_search" class="md-nav__link">
+      google_search
     </a>
   </li>
 
@@ -3679,6 +3718,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#flat-network" title="flat network" class="md-nav__link">
+    flat network
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dhcp" title="DHCP" class="md-nav__link">
+    DHCP
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux-network-namespace" title="Linux Network Namespace" class="md-nav__link">
+    Linux Network Namespace
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3805,6 +3871,7 @@
 <li>
 <p>配置Neutron使用ML2作为core plugin: <code>/etc/neutron/neutron.conf</code></p>
 <p><img alt="" src="../assets/markdown-img-paste-20190830203234883.png" /></p>
+<p><img alt="" src="../assets/markdown-img-paste-20190907143228340.png" /></p>
 <blockquote>
 <p>控制节点和计算节点都要配置</p>
 </blockquote>
@@ -3812,12 +3879,14 @@
 <li>
 <p>配置ML2使用linux-bridge mechanism driver: <code>/etc/neutron/plugins/ml2/ml2_conf.ini</code></p>
 <p><img alt="" src="../assets/markdown-img-paste-20190830203431370.png" /></p>
+<p><img alt="" src="../assets/markdown-img-paste-20190907143502557.png" /></p>
 <blockquote>
 <p>控制节点和计算节点都要配置; 可配置多个</p>
 </blockquote>
 </li>
 <li>
 <p>重启Neutron服务, 查看neutron-linuxbridge-agent进程: <code>$ ps -efw | grep -v grep | grep neutron-linuxbridge-agent</code></p>
+<p><img alt="" src="../assets/markdown-img-paste-20190907144933739.png" /></p>
 </li>
 </ol>
 <h3 id="_3">网络设备<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
@@ -3837,6 +3906,7 @@
 <li>
 <p>配置ML2加载local type driver: <code>/etc/neutron/plugins/ml2/ml2_conf.ini</code></p>
 <p><img alt="" src="../assets/markdown-img-paste-20190830211500364.png" /></p>
+<p><img alt="" src="../assets/markdown-img-paste-20190907145638458.png" /></p>
 </li>
 <li>
 <p>配置默认创建的网络类型tenant_network_types, <span class="critic comment">可以指定多种, 按优先级排序</span></p>
@@ -3854,30 +3924,230 @@
 </ul>
 </li>
 </ul>
-<div class="admonition todo">
-<p class="admonition-title">在环境中实操</p>
+</li>
+<li>
+<p>ifconfig -a查看网络接口</p>
 <ul>
-<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587643&amp;idx=1&amp;sn=7ad568889d9f44c77d7c8e45a8fb33ff&amp;chksm=8d3080a2ba4709b4d4f26cf38f65fda3a250f2b3eebc4bb1b7d50828107f9c80cc67055cce1a&amp;scene=21#wechat_redirect">创建第一个 local network（I） - 每天5分钟玩转 OpenStack（80）</a></li>
+<li>lo</li>
+<li>enp0s3</li>
+<li>enp0s8</li>
+<li>enp0s9</li>
+<li>brqa2fc38ff-53</li>
+<li>tapcdee5c64-7d</li>
+<li>tapef270cce-79</li>
+<li>virbr0</li>
+<li>virbr0-nic</li>
+<li>br-ex</li>
 </ul>
-</div>
 </li>
 <li>
 <p>查看linux bridge状态: <code><mark class="critic">brctl show</mark></code>, 已创建brqXXX和tapXXX(DHCP interface)</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ brctl show
+bridge name     bridge id               STP enabled     interfaces
+brqa2fc38ff-53  <span class="m">8000</span>.7e759c59ff32       no              tapcdee5c64-7d
+                                                        tapef270cce-79
+virbr0          <span class="m">8000</span>.525400c2314c       yes             virbr0-nic
+</pre></div>
+</td></tr></table>
+
 </li>
-<li>将instance连接到local network, 查看subnet中新增一个port(IP, MAC), 并将port attach到instance</li>
-<li>VM启动时, 宿主机上的neutron-linuxbridge-agent根据port信息创建tap设备, 并连接到local bridge上, 同时该tap映射成VM的虚拟网卡VIF</li>
+<li>
+<p>将instance连接到local network, 查看subnet中新增一个port(IP, MAC), 并将port attach到instance</p>
+<p><img alt="" src="../assets/markdown-img-paste-20190907163941152.png" /></p>
+</li>
+<li>
+<p>VM启动时, 宿主机上的neutron-linuxbridge-agent根据port信息创建tap设备, 并连接到local bridge上, 同时该tap映射成VM的虚拟网卡VIF</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ virsh list --all
+ Id    Name                           State
+----------------------------------------------------
+ <span class="m">1</span>     instance-00000001              running
+
+$ virsh domiflist instance-00000001
+Interface  Type       Source     Model       MAC
+-------------------------------------------------------
+tapcdee5c64-7d bridge     brqa2fc38ff-53 virtio      fa:16:3e:ac:08:2f
+</pre></div>
+</td></tr></table>
+
+</li>
 </ol>
+<h3 id="flat-network">flat network<a class="headerlink" href="#flat-network" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">不带tag的网络, Linux Bridge与物理网卡连接, 每个flat <mark class="critic">独占一个网卡</mark></p>
+</div>
+<p><img alt="" src="../assets/markdown-img-paste-2019090716575104.png" /></p>
+<ol>
+<li>
+<p>配置租户网络类型</p>
+<p><img alt="" src="../assets/markdown-img-paste-20190907170833760.png" /></p>
+</li>
+<li>
+<p>配置flat网络与物理网卡的对应关系</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>[ml2_type_flat]
+flat_networks = default[,flat2]
+
+[linux_bridge]
+physical_interface_mappings = default:enp0s8[,flat2:eth2]
+</pre></div>
+</td></tr></table>
+
+</li>
+<li>
+<p>创建flat网络和子网</p>
+<p><img alt="" src="../assets/markdown-img-paste-20190907173531148.png" /></p>
+<p><img alt="" src="../assets/markdown-img-paste-20190907173745232.png" /></p>
+<p><img alt="" src="../assets/markdown-img-paste-20190907174017111.png" /></p>
+<p><img alt="" src="../assets/markdown-img-paste-20190907174055833.png" /></p>
+<p><img alt="" src="../assets/markdown-img-paste-20190907174204764.png" /></p>
+</li>
+<li>
+<p>ifconfig查看新增加<code>brq9b013c6f-5d</code>和<code>tapd6de222a-99</code></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ brctl show
+bridge name     bridge id               STP enabled     interfaces
+<span class="hll">brq9b013c6f-5d          <span class="m">8000</span>.080027f23a45       no      enp0s8
+</span><span class="hll">                                                        tapd6de222a-99
+</span>brqa2fc38ff-53          <span class="m">8000</span>.7e759c59ff32       no      tapcdee5c64-7d
+                                                        tapef270cce-79
+virbr0          <span class="m">8000</span>.525400c2314c       yes             virbr0-nic
+</pre></div>
+</td></tr></table>
+
+</li>
+<li>
+<p>部署instance</p>
+<p><img alt="" src="../assets/markdown-img-paste-20190907193213782.png" /></p>
+<p><img alt="" src="../assets/markdown-img-paste-20190907193255582.png" /></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ brctl show
+bridge name     bridge id               STP enabled     interfaces
+br-ex           <span class="m">8000</span>.000000000000       no
+brq9b013c6f-5d          <span class="m">8000</span>.080027f23a45       no              enp0s8
+                                                        tap45bde37b-49
+                                                        tap5464cea7-97
+                                                        tapd4231a4e-d5
+                                                        tapd6de222a-99
+virbr0          <span class="m">8000</span>.525400c2314c       yes             virbr0-nic
+</pre></div>
+</td></tr></table>
+
+</li>
+</ol>
+<blockquote>
+<p>控制节点和计算节点上的网桥名称相同</p>
+</blockquote>
 <div class="admonition quote">
 <p class="admonition-title">已读</p>
 <ul>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587658&amp;idx=1&amp;sn=ba38096b11bd93a7fa596cd1a1696d82&amp;chksm=8d3080d3ba4709c5f492c01d7e150ad9e738b1058a9d1c2671cd04fcb56a6244832485590ab8&amp;scene=21#wechat_redirect">配置 linux-bridge mechanism driver - 每天5分钟玩转 OpenStack（77）</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587656&amp;idx=1&amp;sn=b84065f7d5dd1ae32eacf2aad4b93156&amp;chksm=8d3080d1ba4709c7030032a386e1ffe7d0eedd377c2fa90a1b4584832c35932f5893339ec3c5&amp;scene=21#wechat_redirect">实践 Neutron 前的两个准备工作 - 每天5分钟玩转 OpenStack（78）</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587652&amp;idx=1&amp;sn=ba29d242fe90a328e3fb6011548e15bb&amp;chksm=8d3080ddba4709cb44947f2b9cd85658e37cb21803f8e05bb844de6275e0513a457596c878e2&amp;scene=21#wechat_redirect">在 ML2 中 enable local network - 每天5分钟玩转 OpenStack（79）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587643&amp;idx=1&amp;sn=7ad568889d9f44c77d7c8e45a8fb33ff&amp;chksm=8d3080a2ba4709b4d4f26cf38f65fda3a250f2b3eebc4bb1b7d50828107f9c80cc67055cce1a&amp;scene=21#wechat_redirect">创建第一个 local network（I） - 每天5分钟玩转 OpenStack（80）</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587642&amp;idx=1&amp;sn=26090fbdeea9a3814574f35229715050&amp;chksm=8d3080a3ba4709b5ef186bd45dca532beae37d4a75d8cdaef0c6cd31fbaf34bb2f76fdb3b953&amp;scene=21#wechat_redirect">创建第一个 local network（II）- 每天5分钟玩转 OpenStack（81）</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587630&amp;idx=1&amp;sn=4c9495f74f3360c5ef81e73af5122eec&amp;chksm=8d3080b7ba4709a13f4f78247c8ba23b6bd17963b99bf0a7165f195b36c19d3e09baa8dd8853&amp;scene=21#wechat_redirect">将 instance 连接到 first_local_net - 每天5分钟玩转 OpenStack（82）</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587628&amp;idx=1&amp;sn=b9777c3c831bde12fe95cc9932750069&amp;chksm=8d3080b5ba4709a35ecc0a291a9daaee86addf4822e38340abd7d92f27a9ca860eed0b5abacf&amp;scene=21#wechat_redirect">连接第二个 insance 到 first_local_net - 每天5分钟玩转 OpenStack（83）</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587624&amp;idx=1&amp;sn=66b9ce938085f8553809d3a22a91eac2&amp;chksm=8d3080b1ba4709a75948b8955e019c292383d48200568d4d68e6fc684e0dfe65b76dc9936ce9&amp;scene=21#wechat_redirect">创建第二个 local network - 每天5分钟玩转 OpenStack（84）</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587620&amp;idx=1&amp;sn=70df7f16556e3463476a3ddd0134eb1b&amp;chksm=8d3080bdba4709abe01f33aecf317a8e14b750342a17264966f59c6ab38e58a2b1e46d2cf50c&amp;scene=21#wechat_redirect">将 instance 连接到 second_local_net - 每天5分钟玩转 OpenStack（85）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587616&amp;idx=1&amp;sn=82b34a5dd13596d86db062efab6ef279&amp;chksm=8d3080b9ba4709af68582130b1c0e693653a96a7d61926912260a44b7021ee6b38f423029c91&amp;scene=21#wechat_redirect">flat network 原理与配置 - 每天5分钟玩转 OpenStack（86）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587615&amp;idx=1&amp;sn=544293b740f93b7e862a62810035ea23&amp;chksm=8d308086ba4709900bb5087a438336dd6e8388ef35f1fd752695b54d33e626f64690bd818304&amp;scene=21#wechat_redirect">创建 flat network - 每天5分钟玩转 OpenStack（87）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587611&amp;idx=1&amp;sn=1ef6ccab139e541ffc65d1c3a0c6ec11&amp;chksm=8d308082ba47099463fcf359c0f315dccf41e4d165644f58192b3eed9255d04296862f5312e3&amp;scene=21#wechat_redirect">将 instance 连接到 flat_net - 每天5分钟玩转 OpenStack（88）</a></li>
+</ul>
+</div>
+<h2 id="dhcp">DHCP<a class="headerlink" href="#dhcp" title="Permanent link">&para;</a></h2>
+<p>配置文件: <code>/etc/neutron/dhcp_agent.ini</code></p>
+<p><img alt="" src="../assets/markdown-img-paste-20190907195504922.png" /></p>
+<blockquote>
+<p>使用linux bridge连接DHCP namespace interface</p>
+</blockquote>
+<p><img alt="" src="../assets/markdown-img-paste-20190907200055413.png" /></p>
+<p>当创建network并在subnet上enable DHCP时, 网络节点上的DHCP agent会启动dnsmasq进程(与network一对一, 对应配置目录<code>/opt/stack/data/neutron/dhcp/{ID}</code>)</p>
+<ul>
+<li>host: instance与IP/MAC对应关系</li>
+<li>interface: 绑定的tap设备</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ <span class="nb">pwd</span>
+/opt/stack/data/neutron/dhcp/9b013c6f-5d60-45a4-b6b7-b6db3ae59f5e
+
+$ ll
+total <span class="m">32</span>
+drwxr-xr-x <span class="m">2</span> stack  stack   <span class="m">4096</span> Sep  <span class="m">7</span> <span class="m">12</span>:14 ./
+drwxr-xr-x <span class="m">3</span> stack  stack   <span class="m">4096</span> Sep  <span class="m">7</span> <span class="m">11</span>:42 ../
+-rw-r--r-- <span class="m">1</span> stack  stack    <span class="m">256</span> Sep  <span class="m">7</span> <span class="m">11</span>:42 addn_hosts
+-rw-r--r-- <span class="m">1</span> stack  stack    <span class="m">256</span> Sep  <span class="m">7</span> <span class="m">11</span>:42 host
+-rw-r--r-- <span class="m">1</span> stack  stack     <span class="m">14</span> Sep  <span class="m">7</span> <span class="m">11</span>:42 interface
+-rw-r--r-- <span class="m">1</span> stack  stack    <span class="m">248</span> Sep  <span class="m">7</span> <span class="m">11</span>:42 leases
+-rw-r--r-- <span class="m">1</span> stack  stack     <span class="m">33</span> Sep  <span class="m">7</span> <span class="m">11</span>:42 opts
+-rw-r--r-- <span class="m">1</span> nobody nogroup    <span class="m">6</span> Sep  <span class="m">7</span> <span class="m">11</span>:42 pid
+
+$ cat host
+fa:16:3e:71:e7:90,host-172-16-1-105.openstacklocal,172.16.1.105
+fa:16:3e:c5:68:c4,host-172-16-1-108.openstacklocal,172.16.1.108
+fa:16:3e:03:30:92,host-172-16-1-104.openstacklocal,172.16.1.104
+fa:16:3e:eb:45:03,host-172-16-1-101.openstacklocal,172.16.1.101
+
+$ cat interface
+ns-d6de222a-99
+</pre></div>
+</td></tr></table>
+
+<blockquote>
+<p>dnsmasq是一个提供DHCP和DNS服务的开源软件</p>
+</blockquote>
+<h3 id="linux-network-namespace">Linux Network Namespace<a class="headerlink" href="#linux-network-namespace" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="../assets/markdown-img-paste-20190907204212100.png" /></p>
+<div class="admonition quote">
+<p class="admonition-title">已读</p>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587607&amp;idx=1&amp;sn=6eaeb88edd1f82fe03c69c78ca4d4455&amp;chksm=8d30808eba470998dcdd9e8f66b492215ec054d89dcbf0b43e52064aa54d0b9ac83c36cce5ff&amp;scene=21#wechat_redirect">配置 DHCP 服务 - 每天5分钟玩转 OpenStack（89）</a></li>
 </ul>
 </div>
 <h2 id="open-vswitch">Open vSwitch<a class="headerlink" href="#open-vswitch" title="Permanent link">&para;</a></h2>

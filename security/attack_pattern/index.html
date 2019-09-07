@@ -605,8 +605,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../cloud/openstack/常用命令/" title="常用命令" class="md-nav__link">
-      常用命令
+    <a href="../../cloud/openstack/openstack常用命令/" title="openstack常用命令" class="md-nav__link">
+      openstack常用命令
     </a>
   </li>
 
@@ -989,6 +989,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../../coding/java/0x00_hellojava/" title="0x00_hellojava" class="md-nav__link">
+      0x00_hellojava
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../coding/java/0x01_编译运行/" title="0x01_编译运行" class="md-nav__link">
+      0x01_编译运行
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../coding/java/AIO/" title="AIO" class="md-nav__link">
       AIO
     </a>
@@ -1159,30 +1183,6 @@
   <li class="md-nav__item">
     <a href="../../coding/java/SSL/" title="SSL" class="md-nav__link">
       SSL
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../coding/java/hellojava/" title="hellojava" class="md-nav__link">
-      hellojava
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../coding/java/jar/" title="jar" class="md-nav__link">
-      jar
     </a>
   </li>
 
@@ -2573,6 +2573,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../environment/os/screen/" title="screen" class="md-nav__link">
+      screen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../environment/os/sudoers文件/" title="sudoers文件" class="md-nav__link">
       sudoers文件
     </a>
@@ -3138,8 +3150,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#java" title="Java" class="md-nav__link">
+    Java
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#python" title="Python格式化字符串漏洞" class="md-nav__link">
     Python格式化字符串漏洞
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go" title="Go" class="md-nav__link">
+    Go
   </a>
   
 </li>
@@ -3192,8 +3218,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../google_search/" title="Google search" class="md-nav__link">
-      Google search
+    <a href="../google_search/" title="google_search" class="md-nav__link">
+      google_search
     </a>
   </li>
 
@@ -3791,8 +3817,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#java" title="Java" class="md-nav__link">
+    Java
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#python" title="Python格式化字符串漏洞" class="md-nav__link">
     Python格式化字符串漏洞
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go" title="Go" class="md-nav__link">
+    Go
   </a>
   
 </li>
@@ -4275,8 +4315,62 @@
 <details class="quote" open="open"><summary>参考链接</summary><p><a href="https://mp.weixin.qq.com/s/hdOnO-tSGkQp0Wq3wcsIkw">彻底干掉恶心的 SQL 注入漏洞， 一网打尽！</a></p>
 </details>
 <h2 id="_4">命令注入<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="java">Java<a class="headerlink" href="#java" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OSi</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span>
+    <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Start&quot;</span><span class="o">);</span>
+
+        <span class="n">String</span> <span class="n">cmd</span> <span class="o">=</span> <span class="s">&quot;mkdir ddd;id&gt;hack.txt&quot;</span><span class="o">;</span>
+        <span class="c1">//String[] cmds = cmd.split(&quot; &quot;);</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="c1">// 关注cmd是否 <mark class="critic">完全可控</mark></span>
+            <span class="c1">// Runtime.getRuntime().exec(cmd);</span>
+            <span class="c1">// 关注String[] <mark class="critic">第一个元素</mark> 是否可控或为 <mark class="critic">/bin/sh</mark></span>
+            <span class="n">Runtime</span><span class="o">.</span><span class="na">getRuntime</span><span class="o">().</span><span class="na">exec</span><span class="o">(</span><span class="k">new</span> <span class="n">String</span><span class="o">[]{</span><span class="s">&quot;/bin/sh&quot;</span><span class="o">,</span> <span class="s">&quot;-c&quot;</span><span class="o">,</span> <span class="n">cmd</span><span class="o">});</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;End&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
+
+<div class="admonition success">
+<p class="admonition-title">如果传入String[]且第一个元素不是<code>/bin/sh</code>, 则不存在命令注入</p>
+</div>
 <h3 id="python">Python格式化字符串漏洞<a class="headerlink" href="#python" title="Permanent link">&para;</a></h3>
-<p>参见: <a href="../../coding/python/0x01_datatype/#_3">格式化字符串</a></p>
+<div class="admonition quote">
+<p class="admonition-title"><a href="../../coding/python/0x01_datatype/#_3">格式化字符串</a></p>
+</div>
+<h3 id="go">Go<a class="headerlink" href="#go" title="Permanent link">&para;</a></h3>
+<div class="admonition quote">
+<p class="admonition-title"><a href="../../coding/go/go%E8%AF%AD%E8%A8%80%E5%AE%89%E5%85%A8%E7%BC%96%E7%A8%8B/#os">OS命令注入</a></p>
+</div>
 <h2 id="dos">DoS<a class="headerlink" href="#dos" title="Permanent link">&para;</a></h2>
 <h3 id="zip">zip<a class="headerlink" href="#zip" title="Permanent link">&para;</a></h3>
 <ol>
@@ -4340,13 +4434,13 @@
           </a>
         
         
-          <a href="../google_search/" title="Google search" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../google_search/" title="google_search" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                Google search
+                google_search
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
