@@ -657,6 +657,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#vlan-network" title="vlan network" class="md-nav__link">
+    vlan network
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -721,6 +728,13 @@
           <li class="md-nav__item">
   <a href="#flat-network_1" title="flat network" class="md-nav__link">
     flat network
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlan-network_1" title="vlan network" class="md-nav__link">
+    vlan network
   </a>
   
 </li>
@@ -3739,6 +3753,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#vlan-network" title="vlan network" class="md-nav__link">
+    vlan network
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3803,6 +3824,13 @@
           <li class="md-nav__item">
   <a href="#flat-network_1" title="flat network" class="md-nav__link">
     flat network
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlan-network_1" title="vlan network" class="md-nav__link">
+    vlan network
   </a>
   
 </li>
@@ -4109,6 +4137,51 @@ virbr0          <span class="m">8000</span>.525400c2314c       yes             v
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587611&amp;idx=1&amp;sn=1ef6ccab139e541ffc65d1c3a0c6ec11&amp;chksm=8d308082ba47099463fcf359c0f315dccf41e4d165644f58192b3eed9255d04296862f5312e3&amp;scene=21#wechat_redirect">将 instance 连接到 flat_net - 每天5分钟玩转 OpenStack（88）</a></li>
 </ul>
 </div>
+<h3 id="vlan-network">vlan network<a class="headerlink" href="#vlan-network" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="../assets/markdown-img-paste-20190910202753854.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">与eth1相连的物理交换机要设置成trunk口</p>
+</div>
+<ol>
+<li>
+<p>指定租户创建的VLAN ID的范围: <code>/etc/neutron/plugins/ml2/ml2_conf.ini</code></p>
+<p><img alt="" src="../assets/markdown-img-paste-2019091020364500.png" /></p>
+<p><img alt="" src="../assets/markdown-img-paste-20190910203656507.png" /></p>
+<blockquote>
+<p>admin可以创建的范围为1~4094</p>
+</blockquote>
+</li>
+<li>
+<p>指定VLAN与物理网卡的对应关系:</p>
+<p><img alt="" src="../assets/markdown-img-paste-20190910203933552.png" /></p>
+</li>
+<li>
+<p>重启neutron服务</p>
+</li>
+<li>
+<p>通过Web GUI创建vlan network</p>
+<div class="admonition todo">
+<p class="admonition-title"><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587586&amp;idx=1&amp;sn=a1ff8cb71db1f0a30cdaad5064ac85c9&amp;chksm=8d30809bba47098d817148b72bc24c11aae7ed89091c3407e7f54b9d5b61ee1fcdc48ce75a80&amp;scene=21#wechat_redirect">创建第一个 vlan network "vlan100" - 每天5分钟玩转 OpenStack（94）</a></p>
+</div>
+<ol>
+<li>设置Segmentation ID(VLAN ID)为100</li>
+</ol>
+</li>
+<li>
+<p>查看linux bridge状态: <code><mark class="critic">brctl show</mark></code>, 已创建brqXXX和tapXXX(DHCP interface), 并挂载 <strong>eth1.100</strong></p>
+</li>
+<li>launch新的instance VM1到vlan100, 创建tap并连接到brq</li>
+</ol>
+<div class="admonition quote">
+<p class="admonition-title">已读</p>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587595&amp;idx=1&amp;sn=cd0ff4a2323bb9f65834ed06c5553188&amp;chksm=8d308092ba470984e9815952cab4bfedfd1d264ed6b5ca54d403bb675f82ca5244ce2a2ca638&amp;scene=21#wechat_redirect">Neutron Vlan Network 原理- 每天5分钟玩转 OpenStack（92）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587591&amp;idx=1&amp;sn=9b5ebb0f7df1da373ad9b98fb3a46306&amp;chksm=8d30809eba470988e1c64866f1744ab1440d09fe253ccc3a72b5bffa717b02d281c829b9a7d1&amp;scene=21#wechat_redirect">在 ML2 中配置 Vlan Network- 每天5分钟玩转 OpenStack（93）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587582&amp;idx=1&amp;sn=6a77496d39cbbe8915b9fc0e38c504be&amp;chksm=8d308067ba470971d85e02e513f703dec40b957fc7a069d1361f64da1d33f14a49e25e0cd5c9&amp;scene=21#wechat_redirect">将 instance 连接到 vlan100 - 每天5分钟玩转 OpenStack（95）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587578&amp;idx=1&amp;sn=6721332ab7a4dfe351ad7e0e1add72b9&amp;chksm=8d308063ba470975a3017252c468c5a349cbc45e71d37600154d17bd596e814bc4abd9773e44&amp;scene=21#wechat_redirect">创建第二个 vlan network "vlan101" - 每天5分钟玩转 OpenStack（96）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587577&amp;idx=1&amp;sn=b90e048c6161db19266d1d3d0791d6c5&amp;chksm=8d308060ba47097626aa4c69c6001cc983ca82d401661d762ab32ef40632b3b40a8edc761183&amp;scene=21#wechat_redirect">将 instance 连接到 vlan101 - 每天5分钟玩转 OpenStack（97）</a></li>
+</ul>
+</div>
 <h2 id="dhcp">DHCP<a class="headerlink" href="#dhcp" title="Permanent link">&para;</a></h2>
 <p>配置文件: <code>/etc/neutron/dhcp_agent.ini</code></p>
 <p><img alt="" src="../assets/markdown-img-paste-20190907195504922.png" /></p>
@@ -4325,6 +4398,93 @@ ns-d6de222a-99
 <ul>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587441&amp;idx=1&amp;sn=07c374282798e5736fdd34a8b07f871e&amp;chksm=8d308fe8ba4706fe448452964a8dcfe3b2613a85e5a519a8be2625df5e98a3e3075bc06e8191&amp;scene=21#wechat_redirect">在 ML2 中配置 OVS flat network - 每天5分钟玩转 OpenStack（133）</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587433&amp;idx=1&amp;sn=783d9b6dc86dd25f6cdc39e74cdd463b&amp;chksm=8d308ff0ba4706e69819902df1bc2f38e738cc886c19330fd9311e5b572d9f72c1ab284fed9a&amp;scene=21#wechat_redirect">部署 instance 到 OVS flat network - 每天5分钟玩转 OpenStack（135）</a></li>
+</ul>
+</div>
+<h3 id="vlan-network_1">vlan network<a class="headerlink" href="#vlan-network_1" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">与eth1相连的物理交换机要设置成trunk口</p>
+</div>
+<ol>
+<li>
+<p>指定租户创建的VLAN ID的范围: <code>/etc/neutron/plugins/ml2/ml2_conf.ini</code></p>
+<p><img alt="" src="../assets/markdown-img-paste-20190910211614370.png" /></p>
+<p><img alt="" src="../assets/markdown-img-paste-20190910211624592.png" /></p>
+<blockquote>
+<p>admin可以创建的范围为1~4094</p>
+</blockquote>
+</li>
+<li>
+<p>创建ovs bridge br-eth1, 并将物理网卡eth1桥接在br-eth1上:</p>
+<p><img alt="" src="../assets/markdown-img-paste-20190909205550754.png" /></p>
+</li>
+<li>
+<p>指定VLAN与物理网卡的对应关系:</p>
+<p><img alt="" src="../assets/markdown-img-paste-20190910211707261.png" /></p>
+</li>
+<li>
+<p>重启neutron服务</p>
+</li>
+<li>
+<p>通过Web GUI创建vlan network</p>
+<div class="admonition todo">
+<p class="admonition-title"><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587425&amp;idx=1&amp;sn=7296aac3972e9ea08442a52dca6bb56b&amp;chksm=8d308ff8ba4706eee983b3473a5f51f3ace27d11c3c2928a46b030e890f4c7c26f0830c1b099&amp;scene=21#wechat_redirect">创建 OVS vlan100 netwrok - 每天5分钟玩转 OpenStack（137）</a></p>
+</div>
+<ol>
+<li>设置Segmentation ID(VLAN ID)为100</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">同时创建了flow rule</p>
+</div>
+</li>
+<li>
+<p>查看ovs bridge状态: <code><mark class="critic">ovs-vsctl show</mark></code>, 已将tapXXX(DHCP interface)挂载到br-int, 并创建br-eth1和patch port, 挂载eth1</p>
+<p><img alt="" src="../assets/markdown-img-paste-20190910212421325.png" /></p>
+</li>
+<li>
+<p>launch新的instance VM1到vlan100, 创建brq和veth pair, 并挂载tap</p>
+<p><img alt="" src="../assets/markdown-img-paste-20190910213055547.png" /></p>
+<p><img alt="" src="../assets/markdown-img-paste-20190910213103734.png" /></p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">OVS通过flow rule指定如何对进出br-int的数据进行转发, 实现VLAN</p>
+</div>
+<ol>
+<li>
+<p>查看flow rule: <code><mark class="critic">ovs-ofctl dump-flow {bridge}</mark></code></p>
+<ul>
+<li>priority: OVS应用规则的优先级</li>
+<li>
+<p>in_port: OVS端口内部编号, 查看方式: <code><mark class="critic">ovs-ofctl show {bridge}</mark></code></p>
+<p><img alt="" src="../assets/markdown-img-paste-20190910215849129.png" /></p>
+</li>
+<li>
+<p>dl_vlan: 原始VLAN ID</p>
+</li>
+<li>actions: 对数据包进行的操作</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span># 从该网桥的phy-br-eth1(in_port=2)接收进来的包
+# 如果VLAN ID是1, 将其改为100
+priority=4,in_port=2,dl_vlan=1 actions=mod_vlan_vid:100,NORMAL
+priority=4,in_port=2,dl_vlan=5 actions=mod_vlan_vid:101,NORMAL
+</pre></div>
+</td></tr></table>
+
+<div class="admonition abstact">
+<p class="admonition-title">内部的tag由phy-br-eth1通过br-eth1传出到eth1时, 转换为VLAN ID; 外部的VLAN ID由int-br-eth1通过br-int传入到qvo时, 转换为tag</p>
+</div>
+</li>
+</ol>
+<div class="admonition quote">
+<p class="admonition-title">已读</p>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587430&amp;idx=1&amp;sn=954fb4c3f47b5c47bc6bd0ca1a78d844&amp;chksm=8d308fffba4706e955a23eec259e7a04ce68f8722bffa63d1825be20a91cff7e3e4daae7451b&amp;scene=21#wechat_redirect">在 ML2 中配置 OVS vlan network - 每天5分钟玩转 OpenStack（136）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587415&amp;idx=1&amp;sn=d3005225a4b0609f6bf183e49c0a6cd7&amp;chksm=8d308fceba4706d83401795aa257badf8f115762355ccd382cd5b0c0e6c8934efa126746def9&amp;scene=21#wechat_redirect">部署 instance 到 OVS vlan100 - 每天5分钟玩转 OpenStack（138）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587406&amp;idx=1&amp;sn=2bb8bb839ff304502417a5a96db512af&amp;chksm=8d308fd7ba4706c1e8e563a1d285010e7a9222f0621a78f1e06c06db54c2eebcf106afb47024&amp;scene=21#wechat_redirect">创建 OVS vlan101 并部署 instance - 每天5分钟玩转 OpenStack（139）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587413&amp;idx=1&amp;sn=6d37c19f126980a25782aae6d0e75029&amp;chksm=8d308fccba4706da8307f984beab0fb41d3dfdcfe8661bebd2a7764b4c05b2a35e8f032e0216&amp;scene=21#wechat_redirect">分析 OVS 如何实现 vlan 隔离 - 每天5分钟玩转 OpenStack（140）</a></li>
 </ul>
 </div>
                 
