@@ -573,6 +573,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../0x03_neutron_Routing/" title="0x03_neutron_Routing" class="md-nav__link">
+      0x03_neutron_Routing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../Neutron_LBaaS/" title="Neutron_LBaaS" class="md-nav__link">
       Neutron_LBaaS
     </a>
@@ -700,18 +712,6 @@
   <li class="md-nav__item">
     <a href="../虚拟化/" title="虚拟化" class="md-nav__link">
       虚拟化
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../路由Routing/" title="路由Routing" class="md-nav__link">
-      路由Routing
     </a>
   </li>
 
@@ -2522,8 +2522,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../environment/os/Linux网络管理_DNS/" title="Linux网络管理_DNS" class="md-nav__link">
-      Linux网络管理_DNS
+    <a href="../../../environment/os/Linux网络_ip_ifconfig_route_DNS/" title="Linux网络_ip_ifconfig_route_DNS" class="md-nav__link">
+      Linux网络_ip_ifconfig_route_DNS
     </a>
   </li>
 
@@ -3609,8 +3609,14 @@
                 
                 <h1 id="ovs">OVS<a class="headerlink" href="#ovs" title="Permanent link">&para;</a></h1>
 <p>Open vSwitch</p>
-<details class="note"><summary>名词解释</summary><ul>
-<li>NIC: 网卡</li>
+<details class="note" open="open"><summary>名词解释</summary><ul>
+<li>NIC: 逻辑网卡</li>
+<li>
+<p>eth: 物理网卡</p>
+<blockquote>
+<p>查看nic与eth对应关系，eth属于哪个NUMA：<code>sudo cat /usr/bin/ports_info</code></p>
+</blockquote>
+</li>
 <li>
 <p>TAP/TUN: Linux内核实现的一对虚拟网络设备, TAP工作在二层, TUN工作在三层。虚拟机的vNIC与TAP相连, 相当于物理机NIC连接eth。</p>
 <blockquote>

@@ -573,6 +573,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../0x03_neutron_Routing/" title="0x03_neutron_Routing" class="md-nav__link">
+      0x03_neutron_Routing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../Neutron_LBaaS/" title="Neutron_LBaaS" class="md-nav__link">
       Neutron_LBaaS
     </a>
@@ -720,18 +732,6 @@
   <li class="md-nav__item">
     <a href="../虚拟化/" title="虚拟化" class="md-nav__link">
       虚拟化
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../路由Routing/" title="路由Routing" class="md-nav__link">
-      路由Routing
     </a>
   </li>
 
@@ -2542,8 +2542,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../environment/os/Linux网络管理_DNS/" title="Linux网络管理_DNS" class="md-nav__link">
-      Linux网络管理_DNS
+    <a href="../../../environment/os/Linux网络_ip_ifconfig_route_DNS/" title="Linux网络_ip_ifconfig_route_DNS" class="md-nav__link">
+      Linux网络_ip_ifconfig_route_DNS
     </a>
   </li>
 
@@ -3649,14 +3649,25 @@
                 
                 <h1 id="openstack">openstack常用命令<a class="headerlink" href="#openstack" title="Permanent link">&para;</a></h1>
 <h2 id="_1">查看版本<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ cat /etc/*version
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ openstack --version
+$ cat /etc/*version
 </pre></div>
 </td></tr></table>
 
 <h2 id="_2">查看资源<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li>CPU: <code>lscpu</code>, <code>Numactl -H</code></li>
-<li>内存: <code>virsh capabilities</code></li>
+<li>
+<p>CPU: <code>lscpu</code>, <code>numactl -H | --hard | --hardware</code></p>
+<ul>
+<li>NUMA nodes: 物理CPU个数</li>
+<li>Cores per socket: 每个CPU核心数</li>
+<li>Thread per core: 每个core超线程数</li>
+</ul>
+</li>
+<li>
+<p>内存: <code>virsh capabilities</code></p>
+</li>
 <li>资源隔离: <code>cat /opt/fusionplatform/data/cps_config/res_info.json</code><ul>
 <li><code>cps hostcfg-add --type resgrp-define xxx</code></li>
 <li><code>cps hostcfg-item-update ...</code></li>
@@ -3702,6 +3713,10 @@
 </li>
 </ul>
 <h2 id="_6">命令行<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li>查看agent列表：<code><mark class="critic">neutron agent-list</mark></code></li>
+<li>查看router列表：<code><mark class="critic">neutron router-list</mark></code></li>
+</ul>
 <div class="admonition quote">
 <p class="admonition-title"><a href="https://docs.openstack.org/operations-guide/ops-lay-of-the-land.html#command-line-tools">Command-Line Tools</a></p>
 </div>
