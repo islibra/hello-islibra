@@ -2520,6 +2520,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#ip" title="ip" class="md-nav__link">
+    ip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ifconfig" title="ifconfig" class="md-nav__link">
     ifconfig
   </a>
@@ -2543,6 +2550,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iptables" title="iptables" class="md-nav__link">
+    iptables
+  </a>
   
 </li>
       
@@ -2577,13 +2591,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ip" title="设置某IP禁止访问" class="md-nav__link">
-    设置某IP禁止访问
-  </a>
   
 </li>
       
@@ -3691,6 +3698,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#ip" title="ip" class="md-nav__link">
+    ip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ifconfig" title="ifconfig" class="md-nav__link">
     ifconfig
   </a>
@@ -3714,6 +3728,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iptables" title="iptables" class="md-nav__link">
+    iptables
+  </a>
   
 </li>
       
@@ -3751,13 +3772,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#ip" title="设置某IP禁止访问" class="md-nav__link">
-    设置某IP禁止访问
-  </a>
-  
-</li>
-      
       
       
       
@@ -3784,6 +3798,7 @@
                 
                 
                 <h1 id="linux_ip_ifconfig_route_dns">Linux网络_ip_ifconfig_route_DNS<a class="headerlink" href="#linux_ip_ifconfig_route_dns" title="Permanent link">&para;</a></h1>
+<h2 id="ip">ip<a class="headerlink" href="#ip" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -3902,6 +3917,27 @@ sysctl -p
 </pre></div>
 </td></tr></table>
 
+<h2 id="iptables">iptables<a class="headerlink" href="#iptables" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 查看SNAT规则</span>
+$ iptables -t nat -S
+
+<span class="c1"># 设置某IP禁止访问</span>
+$ iptables -A INPUT -s <span class="m">10</span>.0.0.1/32 -j DROP  <span class="c1">#增加防火墙规则</span>
+$ iptables -A OUTPUT -d <span class="m">10</span>.0.0.1/32 -j DROP
+$ iptables -L INPUT -n --line-numbers  <span class="c1">#带行号显示防火墙INPUT规则</span>
+$ iptables -D INPUT <span class="m">2</span>  <span class="c1">#通过行号删除防火墙规则</span>
+$ iptables -D OUTPUT <span class="m">3</span>
+</pre></div>
+</td></tr></table>
+
 <h2 id="dns">设置DNS<a class="headerlink" href="#dns" title="Permanent link">&para;</a></h2>
 <h3 id="0x00_hosts">0x00_本地hosts<a class="headerlink" href="#0x00_hosts" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -3967,18 +4003,6 @@ service network restart
 
 <details class="tip" open="open"><summary>系统解析优先级</summary><p>本地hosts  &gt;  网卡配置  &gt;  系统DNS配置</p>
 </details>
-<h2 id="ip">设置某IP禁止访问<a class="headerlink" href="#ip" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>iptables -A INPUT -s <span class="m">10</span>.0.0.1/32 -j DROP  <span class="c1">#增加防火墙规则</span>
-iptables -A OUTPUT -d <span class="m">10</span>.0.0.1/32 -j DROP
-iptables -L INPUT -n --line-numbers  <span class="c1">#带行号显示防火墙INPUT规则</span>
-iptables -D INPUT <span class="m">2</span>  <span class="c1">#通过行号删除防火墙规则</span>
-iptables -D OUTPUT <span class="m">3</span>
-</pre></div>
-</td></tr></table>
                 
                   
                 
