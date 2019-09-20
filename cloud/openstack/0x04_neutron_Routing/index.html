@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://islibra.github.io/hello-islibra/cloud/openstack/0x03_neutron_Routing/">
+        <link rel="canonical" href="https://islibra.github.io/hello-islibra/cloud/openstack/0x04_neutron_Routing/">
       
       
         <meta name="author" content="李晓龙">
@@ -40,7 +40,7 @@
     
     
       
-        <title>0x03_neutron_Routing - islibra</title>
+        <title>0x04_neutron_Routing - islibra</title>
       
     
     
@@ -108,7 +108,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#0x03_neutron_routing" tabindex="1" class="md-skip">
+      <a href="#0x04_neutron_routing" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -133,7 +133,7 @@
               islibra
             </span>
             <span class="md-header-nav__topic">
-              0x03_neutron_Routing
+              0x04_neutron_Routing
             </span>
           
         </div>
@@ -549,8 +549,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../0x00_实验环境/" title="0x00_实验环境" class="md-nav__link">
-      0x00_实验环境
+    <a href="../0x00_网络虚拟化/" title="0x00_网络虚拟化" class="md-nav__link">
+      0x00_网络虚拟化
     </a>
   </li>
 
@@ -561,8 +561,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../0x01_架构/" title="0x01_架构" class="md-nav__link">
-      0x01_架构
+    <a href="../0x01_实验环境/" title="0x01_实验环境" class="md-nav__link">
+      0x01_实验环境
     </a>
   </li>
 
@@ -573,8 +573,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../0x02_neutron/" title="0x02_neutron" class="md-nav__link">
-      0x02_neutron
+    <a href="../0x02_架构/" title="0x02_架构" class="md-nav__link">
+      0x02_架构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../0x03_neutron/" title="0x03_neutron" class="md-nav__link">
+      0x03_neutron
     </a>
   </li>
 
@@ -594,11 +606,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        0x03_neutron_Routing
+        0x04_neutron_Routing
       </label>
     
-    <a href="./" title="0x03_neutron_Routing" class="md-nav__link md-nav__link--active">
-      0x03_neutron_Routing
+    <a href="./" title="0x04_neutron_Routing" class="md-nav__link md-nav__link--active">
+      0x04_neutron_Routing
     </a>
     
       
@@ -633,8 +645,22 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#floating-ip" title="floating IP" class="md-nav__link">
+    floating IP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ovs" title="OVS实现原理" class="md-nav__link">
     OVS实现原理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="访问外网" class="md-nav__link">
+    访问外网
   </a>
   
 </li>
@@ -712,18 +738,6 @@
   <li class="md-nav__item">
     <a href="../大页内存/" title="大页内存" class="md-nav__link">
       大页内存
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../网络虚拟化/" title="网络虚拟化" class="md-nav__link">
-      网络虚拟化
     </a>
   </li>
 
@@ -3684,8 +3698,22 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#floating-ip" title="floating IP" class="md-nav__link">
+    floating IP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ovs" title="OVS实现原理" class="md-nav__link">
     OVS实现原理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="访问外网" class="md-nav__link">
+    访问外网
   </a>
   
 </li>
@@ -3712,10 +3740,10 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/islibra/wiki/blob/master/docs/cloud/openstack/0x03_neutron_Routing.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/islibra/wiki/blob/master/docs/cloud/openstack/0x04_neutron_Routing.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="0x03_neutron_routing">0x03_neutron_Routing<a class="headerlink" href="#0x03_neutron_routing" title="Permanent link">&para;</a></h1>
+                <h1 id="0x04_neutron_routing">0x04_neutron_Routing<a class="headerlink" href="#0x04_neutron_routing" title="Permanent link">&para;</a></h1>
 <p><img alt="" src="../assets/markdown-img-paste-20190911203222811.png" /></p>
 <p>不同VLAN之间通过router连通, 路由上配置多个VLAN的网关地址。</p>
 <h2 id="kvm-l3-agent">KVM实现 - L3 agent<a class="headerlink" href="#kvm-l3-agent" title="Permanent link">&para;</a></h2>
@@ -3873,6 +3901,44 @@ qr-xxx
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587547&amp;idx=1&amp;sn=437882d6c5c24929d0455e41c0b4a226&amp;chksm=8d308042ba470954a45fb20f9cfc3245a94e91a0816238dd54097838eabbbaa148cfc162d436&amp;scene=21#wechat_redirect">外网访问原理分析 - 每天5分钟玩转 OpenStack（105）</a></li>
 </ul>
 </div>
+<h2 id="floating-ip">floating IP<a class="headerlink" href="#floating-ip" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>通过webUI创建Floating IPs</p>
+<div class="admonition todo">
+<p class="admonition-title"><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587542&amp;idx=1&amp;sn=4d209648987ab21349d8ca93af1e370e&amp;chksm=8d30804fba4709599201f35102648fbaaa3165a220fa5a9bccb97d3c633162f9074f7df472c5&amp;scene=21#wechat_redirect">创建 floating IP - 每天5分钟玩转 OpenStack（106）</a></p>
+</div>
+</li>
+<li>
+<p>在ext_net中Allocate IP, 并Associate到VM</p>
+</li>
+<li>
+<p>在namespace中查看router的interface qgxxx添加floating IP</p>
+<p><img alt="" src="../assets/markdown-img-paste-20190920205611722.png" /></p>
+</li>
+<li>
+<p>在namespace中查看iptables中的NAT规则</p>
+<p><img alt="" src="../assets/markdown-img-paste-20190920210013417.png" /></p>
+<ol>
+<li>如果目的地址是10.10.10.3, DNAT为172.16.101.3</li>
+<li>如果源地址是172.16.101.3, SNAT为10.10.10.3</li>
+</ol>
+</li>
+<li>
+<p>tcpdump验证</p>
+<p><img alt="" src="../assets/markdown-img-paste-20190920210356600.png" /></p>
+<p><img alt="" src="../assets/markdown-img-paste-20190920210407913.png" /></p>
+</li>
+</ol>
+<div class="admonition abstract">
+<p class="admonition-title">在 <mark class="critic">router</mark> 的 <mark class="critic">interface</mark> 上设置 <mark class="critic">floating IP</mark>, 并通过 <mark class="critic">iptables</mark> 配置 <mark class="critic">NAT</mark></p>
+</div>
+<div class="admonition quote">
+<p class="admonition-title">已读</p>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587539&amp;idx=1&amp;sn=b41b18336c593b143e7495660fa2f086&amp;chksm=8d30804aba47095c5ab109d963c7cc88a024c6aed8a75105e32db3e3d5cea846a878b6f12a31&amp;scene=21#wechat_redirect">floating IP 原理分析 - 每天5分钟玩转 OpenStack（107）</a></li>
+</ul>
+</div>
 <h2 id="ovs">OVS实现原理<a class="headerlink" href="#ovs" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="../assets/markdown-img-paste-20190917210347122.png" /></p>
 <ol>
@@ -3890,6 +3956,69 @@ qr-xxx
 <ul>
 <li><a href="http://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587417&amp;idx=1&amp;sn=fb9f549de4b0cc4923187b06b8cfbc3f&amp;chksm=8d308fc0ba4706d60d81ef74e2ef8a09879544af0bcb9ceb24871a1e3affe446bd4c026f523e&amp;scene=21#wechat_redirect">用虚拟 router 连通 subnet - 每天5分钟玩转 OpenStack（141）</a></li>
 <li><a href="http://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587424&amp;idx=1&amp;sn=f7654df4df8652a07f044531abe3b44c&amp;chksm=8d308ff9ba4706efac361c6ced0923b611333a52df92520f5be4c5386d67da08a6f54b4b613c&amp;scene=21#wechat_redirect">Neutron Router 工作原理 - 每天5分钟玩转 OpenStack（142）</a></li>
+</ul>
+</div>
+<h2 id="_2">访问外网<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>将eth2挂到br-ex上</p>
+<p><img alt="" src="../assets/markdown-img-paste-20190920213507293.png" /></p>
+</li>
+<li>
+<p>配置外部网络与网桥的映射: <code>/etc/neutron/plugins/ml2/ml2_conf.ini</code></p>
+<ul>
+<li>
+<p>flat</p>
+<p><img alt="" src="../assets/markdown-img-paste-20190920213602564.png" /></p>
+</li>
+<li>
+<p>vlan</p>
+<p><img alt="" src="../assets/markdown-img-paste-20190920213613497.png" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>重启neutron</p>
+</li>
+<li>
+<p>通过webUI创建ext_net</p>
+<div class="admonition todo">
+<p class="admonition-title"><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587429&amp;idx=1&amp;sn=820d3ea92d3bef94fd98679904ae14d7&amp;chksm=8d308ffcba4706ea268a5fb36b42e9f40cbc884dcc9f7a4b1316c1cfd6065954cb600d3afa26&amp;scene=21#wechat_redirect">创建 OVS 外部网络 ext_net - 每天5分钟玩转 OpenStack（144）</a></p>
+</div>
+<ol>
+<li>勾选 <strong>外部网络</strong></li>
+<li>填写 <strong>Gateway IP</strong></li>
+<li>禁用DHCP</li>
+</ol>
+</li>
+<li>
+<p>执行<code>ovs-vsctl show</code>查看已创建patch port连接br-int和br-ex</p>
+<p><img alt="" src="../assets/markdown-img-paste-2019092021455538.png" /></p>
+</li>
+<li>
+<p>将router Set Gateway为ext_net</p>
+<ul>
+<li>
+<p>br-ex自动增加port qgxxx</p>
+<p><img alt="" src="../assets/markdown-img-paste-20190920215614345.png" /></p>
+</li>
+<li>
+<p>namespace中的router自动增加interface qgxxx, IP来自于ext_net</p>
+<p><img alt="" src="../assets/markdown-img-paste-20190920215702542.png" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>namespace路由表中默认网关指向qgxxx</p>
+<p><img alt="" src="../assets/markdown-img-paste-20190920215832744.png" /></p>
+</li>
+</ol>
+<p><img alt="" src="../assets/markdown-img-paste-20190920220018466.png" /></p>
+<div class="admonition quote">
+<p class="admonition-title">已读</p>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587427&amp;idx=1&amp;sn=6719232c78d0763c88aedf9b57fdbc46&amp;chksm=8d308ffaba4706ecf4e63f553b66eb269b3e617f2d3e6cac07c05951aec75b3be38211245410&amp;scene=21#wechat_redirect">访问 Neutron 外部网络 - 每天5分钟玩转 OpenStack（143）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587432&amp;idx=1&amp;sn=cd9b8bcad85e7caecec1f53d6b283ca6&amp;chksm=8d308ff1ba4706e7e444ac29d3c570b336cb11ab626430188658500efb90e5d5ba94f6690e1a&amp;scene=21#wechat_redirect">将 ext_net 连接到 router - 每天5分钟玩转 OpenStack（145）</a></li>
 </ul>
 </div>
                 
@@ -3934,7 +4063,7 @@ qr-xxx
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../0x02_neutron/" title="0x02_neutron" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../0x03_neutron/" title="0x03_neutron" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -3943,7 +4072,7 @@ qr-xxx
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                0x02_neutron
+                0x03_neutron
               </span>
             </div>
           </a>
