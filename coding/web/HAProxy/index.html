@@ -3765,7 +3765,7 @@ $ make install <span class="nv">PREFIX</span><span class="o">=</span>/opt/haprox
 global <span class="c1">#全局属性</span>
     daemon  <span class="c1">#以daemon方式在后台运行</span>
     maxconn <span class="m">256</span>  <span class="c1">#最大同时256连接</span>
-    pidfile /home/ha/haproxy/conf/haproxy.pid  <span class="c1">#指定保存HAProxy进程号的文件</span>
+    pidfile /opt/haproxy/conf/haproxy.pid  <span class="c1">#指定保存HAProxy进程号的文件</span>
 
 defaults <span class="c1">#默认参数</span>
     mode http  <span class="c1">#http模式</span>
@@ -3779,6 +3779,138 @@ frontend http-in <span class="c1">#前端服务http-in</span>
 
 backend servers <span class="c1">#后端服务servers</span>
     server server1 <span class="m">127</span>.0.0.1:8000 maxconn <span class="m">32</span>  <span class="c1">#backend servers中只有一个后端服务，名字叫server1，起在本机的8000端口，HAProxy同时最多向这个服务发起32个连接</span>
+</pre></div>
+</td></tr></table>
+
+</li>
+<li>
+<p>将HAProxy注册为服务</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ vim /etc/init.d/haproxy
+<span class="c1">#! /bin/sh</span>
+<span class="nb">set</span> -e
+
+<span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/opt/haproxy/sbin
+<span class="nv">PROGDIR</span><span class="o">=</span>/opt/haproxy
+<span class="nv">PROGNAME</span><span class="o">=</span>haproxy
+<span class="nv">DAEMON</span><span class="o">=</span><span class="nv">$PROGDIR</span>/sbin/<span class="nv">$PROGNAME</span>
+<span class="nv">CONFIG</span><span class="o">=</span><span class="nv">$PROGDIR</span>/conf/<span class="nv">$PROGNAME</span>.cfg
+<span class="nv">PIDFILE</span><span class="o">=</span><span class="nv">$PROGDIR</span>/conf/<span class="nv">$PROGNAME</span>.pid
+<span class="nv">DESC</span><span class="o">=</span><span class="s2">&quot;HAProxy daemon&quot;</span>
+<span class="nv">SCRIPTNAME</span><span class="o">=</span>/etc/init.d/<span class="nv">$PROGNAME</span>
+
+<span class="c1"># Gracefully exit if the package has been removed.</span>
+<span class="nb">test</span> -x <span class="nv">$DAEMON</span> <span class="o">||</span> <span class="nb">exit</span> <span class="m">0</span>
+
+start<span class="o">()</span>
+<span class="o">{</span>
+       <span class="nb">echo</span> -e <span class="s2">&quot;Starting </span><span class="nv">$DESC</span><span class="s2">: </span><span class="nv">$PROGNAME</span><span class="s2">\n&quot;</span>
+       <span class="nv">$DAEMON</span> -f <span class="nv">$CONFIG</span>
+       <span class="nb">echo</span> <span class="s2">&quot;.&quot;</span>
+<span class="o">}</span>
+
+stop<span class="o">()</span>
+<span class="o">{</span>
+       <span class="nb">echo</span> -e <span class="s2">&quot;Stopping </span><span class="nv">$DESC</span><span class="s2">: </span><span class="nv">$PROGNAME</span><span class="s2">\n&quot;</span>
+       <span class="nv">haproxy_pid</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>cat <span class="nv">$PIDFILE</span><span class="k">)</span><span class="s2">&quot;</span>
+       <span class="nb">kill</span> <span class="nv">$haproxy_pid</span>
+       <span class="nb">echo</span> <span class="s2">&quot;.&quot;</span>
+<span class="o">}</span>
+
+restart<span class="o">()</span>
+<span class="o">{</span>
+       <span class="nb">echo</span> -e <span class="s2">&quot;Restarting </span><span class="nv">$DESC</span><span class="s2">: </span><span class="nv">$PROGNAME</span><span class="s2">\n&quot;</span>
+       <span class="nv">$DAEMON</span> -f <span class="nv">$CONFIG</span> -p <span class="nv">$PIDFILE</span> -sf <span class="k">$(</span>cat <span class="nv">$PIDFILE</span><span class="k">)</span>
+       <span class="nb">echo</span> <span class="s2">&quot;.&quot;</span>
+<span class="o">}</span>
+
+<span class="k">case</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> in
+ start<span class="o">)</span>
+       start
+       <span class="p">;;</span>
+ stop<span class="o">)</span>
+       stop
+       <span class="p">;;</span>
+ restart<span class="o">)</span>
+       restart
+       <span class="p">;;</span>
+ *<span class="o">)</span>
+       <span class="nb">echo</span> <span class="s2">&quot;Usage: </span><span class="nv">$SCRIPTNAME</span><span class="s2"> {start|stop|restart}&quot;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
+       <span class="nb">exit</span> <span class="m">1</span>
+       <span class="p">;;</span>
+<span class="k">esac</span>
+
+<span class="nb">exit</span> <span class="m">0</span>
+</pre></div>
+</td></tr></table>
+
+</li>
+<li>
+<p>启动, 停止, 重启服务</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> /opt/haproxy/sbin
+$ ./haproxy -f ../conf/haproxy.cfg
+
+$ service haproxy start
+$ service haproxy stop
+$ service haproxy restart
 </pre></div>
 </td></tr></table>
 
