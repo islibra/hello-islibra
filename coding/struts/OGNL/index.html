@@ -2334,15 +2334,27 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../../design/algorithm/backgroud/" title="backgroud" class="md-nav__link">
+      backgroud
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4-1" type="checkbox" id="nav-4-4-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4-2" type="checkbox" id="nav-4-4-2">
     
-    <label class="md-nav__link" for="nav-4-4-1">
+    <label class="md-nav__link" for="nav-4-4-2">
       Search
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-4-4-1">
+      <label class="md-nav__title" for="nav-4-4-2">
         Search
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2372,13 +2384,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4-2" type="checkbox" id="nav-4-4-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4-3" type="checkbox" id="nav-4-4-3">
     
-    <label class="md-nav__link" for="nav-4-4-2">
+    <label class="md-nav__link" for="nav-4-4-3">
       Sort
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-4-4-2">
+      <label class="md-nav__title" for="nav-4-4-3">
         Sort
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2424,6 +2436,18 @@
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../design/data_structure/array_list/" title="array_list" class="md-nav__link">
+      array_list
+    </a>
+  </li>
+
         
           
           
@@ -4024,7 +4048,13 @@
 24
 25
 26
-27</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.xxx</span><span class="o">;</span>
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.xxx</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">ognl.Ognl</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">ognl.OgnlContext</span><span class="o">;</span>
@@ -4036,6 +4066,12 @@
         <span class="c1">// 1. 创建一个Ognl上下文对象</span>
         <span class="n">OgnlContext</span> <span class="n">context</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OgnlContext</span><span class="o">();</span>
 
+        <span class="c1">// 存放数据</span>
+        <span class="n">context</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;cn&quot;</span><span class="o">,</span> <span class="s">&quot;China&quot;</span><span class="o">);</span>
+        <span class="c1">// 获取数据</span>
+        <span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span><span class="n">context</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;cn&quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">value</span><span class="o">);</span>
+
         <span class="c1">// 2. 创建ROOT对象</span>
         <span class="n">Object</span> <span class="n">rootObject</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="o">();</span>
 
@@ -4045,7 +4081,7 @@
             <span class="n">Object</span> <span class="n">expression</span> <span class="o">=</span> <span class="n">ognl</span><span class="o">.</span><span class="na">Ognl</span><span class="o">.</span><span class="na">parseExpression</span><span class="o">(</span><span class="n">exp</span><span class="o">);</span>
 
             <span class="c1">// 4. 获取表达式的值, 取根元素不用#号, 取非根元素要使用#</span>
-            <span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">Ognl</span><span class="o">.</span><span class="na">getValue</span><span class="o">(</span><span class="n">expression</span><span class="o">,</span> <span class="n">context</span><span class="o">,</span> <span class="n">rootObject</span><span class="o">).</span><span class="na">toString</span><span class="o">();</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">Ognl</span><span class="o">.</span><span class="na">getValue</span><span class="o">(</span><span class="n">expression</span><span class="o">,</span> <span class="n">context</span><span class="o">,</span> <span class="n">rootObject</span><span class="o">).</span><span class="na">toString</span><span class="o">();</span>
         <span class="o">}</span><span class="k">catch</span> <span class="o">(</span><span class="n">OgnlException</span> <span class="n">e</span><span class="o">){</span>
             <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
         <span class="o">}</span>

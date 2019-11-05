@@ -2275,18 +2275,30 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../../backgroud/" title="backgroud" class="md-nav__link">
+      backgroud
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4-1" type="checkbox" id="nav-4-4-1" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4-2" type="checkbox" id="nav-4-4-2" checked>
     
-    <label class="md-nav__link" for="nav-4-4-1">
+    <label class="md-nav__link" for="nav-4-4-2">
       Search
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-4-4-1">
+      <label class="md-nav__title" for="nav-4-4-2">
         Search
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2367,13 +2379,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4-2" type="checkbox" id="nav-4-4-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4-3" type="checkbox" id="nav-4-4-3">
     
-    <label class="md-nav__link" for="nav-4-4-2">
+    <label class="md-nav__link" for="nav-4-4-3">
       Sort
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-4-4-2">
+      <label class="md-nav__title" for="nav-4-4-3">
         Sort
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2419,6 +2431,18 @@
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../data_structure/array_list/" title="array_list" class="md-nav__link">
+      array_list
+    </a>
+  </li>
+
         
           
           
@@ -3898,17 +3922,6 @@
 <p class="admonition-title">典型应用: 在<mark class="critic">有序</mark>的<mark class="critic">数组(随机访问)</mark>中查找</p>
 </div>
 <p>时间复杂度: O(log<sub>2</sub>n)</p>
-<div class="admonition note">
-<p class="admonition-title">时间复杂度: 大O表示法, O表示运行时间的<mark class="critic">增速</mark>，代表<mark class="critic">最糟情况下运行时间</mark></p>
-<ul>
-<li>O(1), 常量级</li>
-<li>O(logn), 对数级: 二分查找</li>
-<li>O(n), 线性级: 简单查找</li>
-<li>O(nlogn): 快速排序</li>
-<li>O(n<sup>2</sup>), 指数级: 选择排序</li>
-<li>O(n!), 阶乘级: 旅行商问题</li>
-</ul>
-</div>
 <h2 id="_1">代码示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
@@ -4027,7 +4040,10 @@
 </td></tr></table></div>
 </div>
 <h2 id="leetcode">LeetCode<a class="headerlink" href="#leetcode" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">35. 搜索插入位置</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -4173,7 +4189,187 @@
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-</td></tr></table>
+</td></tr></table></div>
+<input name="__tabs_2" type="radio" id="__tab_2_1" />
+<label for="__tab_2_1">29. 两数相除</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">search</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * 29. 两数相除</span>
+<span class="cm"> * &lt;p&gt;</span>
+<span class="cm"> * 给定两个整数，被除数 dividend 和除数 divisor。将两数相除，要求不使用乘法、除法和 mod 运算符。</span>
+<span class="cm"> * &lt;p&gt;</span>
+<span class="cm"> * 返回被除数 dividend 除以除数 divisor 得到的商。</span>
+<span class="cm"> * &lt;p&gt;</span>
+<span class="cm"> * 示例 1:</span>
+<span class="cm"> * 输入: dividend = 10, divisor = 3</span>
+<span class="cm"> * 输出: 3</span>
+<span class="cm"> * &lt;p&gt;</span>
+<span class="cm"> * 示例 2:</span>
+<span class="cm"> * 输入: dividend = 7, divisor = -3</span>
+<span class="cm"> * 输出: -2</span>
+<span class="cm"> * &lt;p&gt;</span>
+<span class="cm"> * 示例 3:</span>
+<span class="cm"> * 输入: dividend = -2147483648, divisor = -1</span>
+<span class="cm"> * 输出: 2147483647</span>
+<span class="cm"> * &lt;p&gt;</span>
+<span class="cm"> * 示例 4:</span>
+<span class="cm"> * 输入: dividend = -2147483648, divisor = 1</span>
+<span class="cm"> * 输出: -2147483648</span>
+<span class="cm"> * &lt;p&gt;</span>
+<span class="cm"> * 示例 5:</span>
+<span class="cm"> * 输入: dividend = -2147483648, divisor = 2</span>
+<span class="cm"> * 输出: -1073741824</span>
+<span class="cm"> * &lt;p&gt;</span>
+<span class="cm"> * 说明:</span>
+<span class="cm"> * 被除数和除数均为 32 位有符号整数。</span>
+<span class="cm"> * 除数不为 0。</span>
+<span class="cm"> * 假设我们的环境只能存储 32 位有符号整数，其数值范围是 [−231,  231 − 1]。</span>
+<span class="cm"> * 本题中，如果除法结果溢出，则返回 231 − 1。</span>
+<span class="cm"> * &lt;p&gt;</span>
+<span class="cm"> * 链接：https://leetcode-cn.com/problems/divide-two-integers</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Divide</span> <span class="o">{</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * 求商即求被除数中包含多少个除数</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param dividend 被除数</span>
+<span class="cm">     * @param divisor  除数</span>
+<span class="cm">     * @return 商</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">divide</span><span class="o">(</span><span class="kt">int</span> <span class="n">dividend</span><span class="o">,</span> <span class="kt">int</span> <span class="n">divisor</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// 特殊情况处理</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">dividend</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span> <span class="o">==</span> <span class="n">dividend</span> <span class="o">&amp;&amp;</span> <span class="n">divisor</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// 先去掉符号, 注意先转换类型再计算</span>
+        <span class="kt">long</span> <span class="n">absDividend</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">((</span><span class="kt">long</span><span class="o">)</span> <span class="n">dividend</span><span class="o">);</span>
+        <span class="kt">long</span> <span class="n">absDivisor</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">((</span><span class="kt">long</span><span class="o">)</span> <span class="n">divisor</span><span class="o">);</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">31</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+            <span class="c1">// 除以2^n^, 结果大于等于除数, 说明至少包含2^n^个除数</span>
+<span class="hll">            <span class="k">if</span> <span class="o">((</span><span class="n">absDividend</span> <span class="o">&gt;&gt;</span> <span class="n">i</span><span class="o">)</span> <span class="o">&gt;=</span> <span class="n">absDivisor</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="hll">                <span class="n">result</span> <span class="o">+=</span> <span class="o">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="o">);</span>
+</span><span class="hll">                <span class="n">absDividend</span> <span class="o">-=</span> <span class="o">(</span><span class="n">absDivisor</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="o">);</span>
+</span>            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// 使用按位异或计算两数符号是否相同</span>
+<span class="hll">        <span class="kt">boolean</span> <span class="n">negative</span> <span class="o">=</span> <span class="o">(</span><span class="n">dividend</span> <span class="o">^</span> <span class="n">divisor</span><span class="o">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">;</span>
+</span>        <span class="k">return</span> <span class="n">negative</span> <span class="o">?</span> <span class="o">-</span><span class="n">result</span> <span class="o">:</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+        <span class="n">Scanner</span> <span class="n">cin</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">,</span> <span class="s">&quot;utf-8&quot;</span><span class="o">);</span>
+        <span class="n">String</span><span class="o">[]</span> <span class="n">inputStrList</span> <span class="o">=</span> <span class="n">cin</span><span class="o">.</span><span class="na">nextLine</span><span class="o">().</span><span class="na">split</span><span class="o">(</span><span class="s">&quot;,&quot;</span><span class="o">);</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">inputList</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
+        <span class="n">inputList</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">inputStrList</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+        <span class="n">inputList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">inputStrList</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+
+        <span class="n">Divide</span> <span class="n">d</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Divide</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">d</span><span class="o">.</span><span class="na">divide</span><span class="o">(</span><span class="n">inputList</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">inputList</span><span class="o">[</span><span class="mi">1</span><span class="o">]));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
                 
                   
                 
@@ -4216,7 +4412,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../../正则表达式/" title="正则表达式" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../backgroud/" title="backgroud" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -4225,7 +4421,7 @@
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                正则表达式
+                backgroud
               </span>
             </div>
           </a>
