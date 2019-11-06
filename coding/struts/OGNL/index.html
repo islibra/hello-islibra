@@ -2491,8 +2491,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../design/data_structure/查找排序/" title="数据结构" class="md-nav__link">
-      数据结构
+    <a href="../../../design/data_structure/查找排序/" title="选择排序" class="md-nav__link">
+      选择排序
     </a>
   </li>
 
@@ -3949,80 +3949,11 @@
 <li>包: <code>package ognl;</code></li>
 <li>类: <code>public class OgnlContext implements <mark class="critic">Map</mark></code></li>
 </ul>
+<h2 id="_2">使用步骤<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
-<label for="__tab_1_0">getValue</label>
+<label for="__tab_1_0">OgnlDemo.java</label>
 <div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.huawei</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">ognl.Ognl</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">ognl.OgnlContext</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">ognl.OgnlException</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OgnlDemo</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">OgnlException</span> <span class="o">{</span>
-        <span class="c1">//创建一个Ognl上下文对象</span>
-        <span class="n">OgnlContext</span> <span class="n">context</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OgnlContext</span><span class="o">();</span>
-        <span class="c1">//@[类全名(包括包路径)]@[方法名|值名]</span>
-        <span class="n">Ognl</span><span class="o">.</span><span class="na">getValue</span><span class="o">(</span><span class="s">&quot;@java.lang.Runtime@getRuntime().exec(&#39;calc.exe&#39;)&quot;</span><span class="o">,</span> <span class="n">context</span><span class="o">,</span> <span class="n">context</span><span class="o">.</span><span class="na">getRoot</span><span class="o">());</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</pre></div>
-</td></tr></table></div>
-<input name="__tabs_1" type="radio" id="__tab_1_1" />
-<label for="__tab_1_1">setValue</label>
-<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.huawei</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">ognl.Ognl</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">ognl.OgnlContext</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">ognl.OgnlException</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OgnlDemo</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">OgnlException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
-        <span class="c1">//创建一个Ognl上下文对象</span>
-        <span class="n">OgnlContext</span> <span class="n">context</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OgnlContext</span><span class="o">();</span>
-        <span class="c1">//@[类全名(包括包路径)]@[方法名|值名]</span>
-        <span class="n">Ognl</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="n">Runtime</span><span class="o">.</span><span class="na">getRuntime</span><span class="o">().</span><span class="na">exec</span><span class="o">(</span><span class="s">&quot;calc.exe&quot;</span><span class="o">),</span> <span class="n">context</span><span class="o">,</span><span class="n">context</span><span class="o">.</span><span class="na">getRoot</span><span class="o">());</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</pre></div>
-</td></tr></table></div>
-</div>
-<h2 id="_2">使用步骤<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -4054,7 +3985,40 @@
 30
 31
 32
-33</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.xxx</span><span class="o">;</span>
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.xxx</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">ognl.Ognl</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">ognl.OgnlContext</span><span class="o">;</span>
@@ -4064,13 +4028,46 @@
 
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
         <span class="c1">// 1. 创建一个Ognl上下文对象</span>
-        <span class="n">OgnlContext</span> <span class="n">context</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OgnlContext</span><span class="o">();</span>
-
+<span class="hll">        <span class="n">OgnlContext</span> <span class="n">context</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OgnlContext</span><span class="o">();</span>
+</span>
         <span class="c1">// 存放数据</span>
         <span class="n">context</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;cn&quot;</span><span class="o">,</span> <span class="s">&quot;China&quot;</span><span class="o">);</span>
         <span class="c1">// 获取数据</span>
         <span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span><span class="n">context</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;cn&quot;</span><span class="o">);</span>
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">value</span><span class="o">);</span>
+
+        <span class="c1">// 存放对象</span>
+        <span class="n">User</span> <span class="n">u</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
+        <span class="n">u</span><span class="o">.</span><span class="na">setID</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+        <span class="n">u</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;Amanda&quot;</span><span class="o">);</span>
+        <span class="n">context</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;user&quot;</span><span class="o">,</span> <span class="n">u</span><span class="o">);</span>
+        <span class="c1">// 获取对象</span>
+        <span class="n">Object</span> <span class="n">o</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;user&quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">o</span><span class="o">);</span>
+
+        <span class="c1">// 使用OGNL表达式获取对象属性, 如使用标签&lt;s:a value=&quot;#user.ID&quot;&gt;取值</span>
+        <span class="c1">// 构建表达式</span>
+<span class="hll">        <span class="n">Object</span> <span class="n">exp</span> <span class="o">=</span> <span class="n">Ognl</span><span class="o">.</span><span class="na">parseExpression</span><span class="o">(</span><span class="s">&quot;#user.ID&quot;</span><span class="o">);</span>
+</span>        <span class="c1">// 解析表达式</span>
+<span class="hll">        <span class="n">Object</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Ognl</span><span class="o">.</span><span class="na">getValue</span><span class="o">(</span><span class="n">exp</span><span class="o">,</span> <span class="n">context</span><span class="o">,</span> <span class="n">context</span><span class="o">.</span><span class="na">getRoot</span><span class="o">());</span>
+</span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">v</span><span class="o">);</span>
+
+        <span class="c1">// 获取根元素</span>
+        <span class="n">User</span> <span class="n">u2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
+        <span class="n">u2</span><span class="o">.</span><span class="na">setID</span><span class="o">(</span><span class="mi">99</span><span class="o">);</span>
+        <span class="n">u2</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;Bob&quot;</span><span class="o">);</span>
+        <span class="n">context</span><span class="o">.</span><span class="na">setRoot</span><span class="o">(</span><span class="n">u2</span><span class="o">);</span>
+<span class="hll">        <span class="n">Object</span> <span class="n">exp2</span> <span class="o">=</span> <span class="n">Ognl</span><span class="o">.</span><span class="na">parseExpression</span><span class="o">(</span><span class="s">&quot;ID&quot;</span><span class="o">);</span>
+</span>        <span class="n">Object</span> <span class="n">v2</span> <span class="o">=</span> <span class="n">Ognl</span><span class="o">.</span><span class="na">getValue</span><span class="o">(</span><span class="n">exp2</span><span class="o">,</span> <span class="n">context</span><span class="o">,</span> <span class="n">context</span><span class="o">.</span><span class="na">getRoot</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">v2</span><span class="o">);</span>
+
+        <span class="c1">// 调用类静态方法, @[类全名(包括包路径)]@[方法名|属性名]</span>
+<span class="hll">        <span class="n">Object</span> <span class="n">exp3</span> <span class="o">=</span> <span class="n">Ognl</span><span class="o">.</span><span class="na">parseExpression</span><span class="o">(</span><span class="s">&quot;@Math@floor(10.9)&quot;</span><span class="o">);</span>
+</span>        <span class="n">Object</span> <span class="n">v3</span> <span class="o">=</span> <span class="n">Ognl</span><span class="o">.</span><span class="na">getValue</span><span class="o">(</span><span class="n">exp3</span><span class="o">,</span> <span class="n">context</span><span class="o">,</span> <span class="n">context</span><span class="o">.</span><span class="na">getRoot</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">v3</span><span class="o">);</span>
+
+        <span class="c1">//Ognl.getValue(&quot;@java.lang.Runtime@getRuntime().exec(&#39;calc.exe&#39;)&quot;, context, context.getRoot());</span>
+        <span class="c1">//Ognl.setValue(Runtime.getRuntime().exec(&quot;calc.exe&quot;), context, context.getRoot());</span>
 
         <span class="c1">// 2. 创建ROOT对象</span>
         <span class="n">Object</span> <span class="n">rootObject</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="o">();</span>
@@ -4088,8 +4085,73 @@
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-</td></tr></table>
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">User.java</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.xxx</span><span class="o">;</span>
 
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="o">{</span>
+
+    <span class="kt">int</span> <span class="n">ID</span><span class="o">;</span>
+    <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getID</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">ID</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setID</span><span class="o">(</span><span class="kt">int</span> <span class="n">ID</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">ID</span> <span class="o">=</span> <span class="n">ID</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">&quot;User{&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;ID=&quot;</span> <span class="o">+</span> <span class="n">ID</span> <span class="o">+</span>
+                <span class="s">&quot;, name=&#39;&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="sc">&#39;\&#39;&#39;</span> <span class="o">+</span>
+                <span class="sc">&#39;}&#39;</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
 <div class="admonition quote">
 <p class="admonition-title">参考链接: <a href="https://www.cnblogs.com/cenyu/p/6233942.html">Ognl表达式基本原理和使用方法</a></p>
 </div>

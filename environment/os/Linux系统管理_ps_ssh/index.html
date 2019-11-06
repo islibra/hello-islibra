@@ -2429,8 +2429,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../design/data_structure/查找排序/" title="数据结构" class="md-nav__link">
-      数据结构
+    <a href="../../../design/data_structure/查找排序/" title="选择排序" class="md-nav__link">
+      选择排序
     </a>
   </li>
 
@@ -2744,14 +2744,41 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="重启服务" class="md-nav__link">
+  <a href="#_2" title="定时任务" class="md-nav__link">
+    定时任务
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etccrontab" title="/etc/crontab" class="md-nav__link">
+    /etc/crontab
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#varspoolcron" title="/var/spool/cron" class="md-nav__link">
+    /var/spool/cron
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="重启服务" class="md-nav__link">
     重启服务
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="关机" class="md-nav__link">
+  <a href="#_4" title="关机" class="md-nav__link">
     关机
   </a>
   
@@ -2808,6 +2835,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sftp" title="sftp" class="md-nav__link">
+    sftp
+  </a>
   
 </li>
       
@@ -3971,14 +4005,41 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="重启服务" class="md-nav__link">
+  <a href="#_2" title="定时任务" class="md-nav__link">
+    定时任务
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etccrontab" title="/etc/crontab" class="md-nav__link">
+    /etc/crontab
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#varspoolcron" title="/var/spool/cron" class="md-nav__link">
+    /var/spool/cron
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="重启服务" class="md-nav__link">
     重启服务
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="关机" class="md-nav__link">
+  <a href="#_4" title="关机" class="md-nav__link">
     关机
   </a>
   
@@ -4038,6 +4099,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sftp" title="sftp" class="md-nav__link">
+    sftp
+  </a>
+  
+</li>
+      
       
       
       
@@ -4076,7 +4144,32 @@
 <li>-p {PID1} {PID2}, 查询指定进程ID</li>
 <li>-u {UID1},{UID2} 查询指定用户</li>
 </ul>
-<h2 id="_2">重启服务<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">定时任务<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>星号（<code>*</code>）：代表所有可能的值，例如month字段如果是星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。</li>
+<li>逗号（,）：可以用逗号隔开的值指定一个列表范围，例如，“1,2,5,7,8,9”</li>
+<li>中杠（-）：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”</li>
+<li>正斜线（/）：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。同时正斜线可以和星号一起使用，例如*/10，如果用在minute字段，表示每十分钟执行一次。</li>
+</ul>
+<h3 id="etccrontab">/etc/crontab<a class="headerlink" href="#etccrontab" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> .---------------- minute (0 - 59)
+ |  .------------- hour (0 - 23)
+ |  |  .---------- day of month (1 - 31)
+ |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+ |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+ |  |  |  |  |
+ *  *  *  *  * user-name command
+</pre></div>
+</td></tr></table>
+
+<h3 id="varspoolcron">/var/spool/cron<a class="headerlink" href="#varspoolcron" title="Permanent link">&para;</a></h3>
+<h2 id="_3">重启服务<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -4091,7 +4184,7 @@ systemctl <span class="nb">enable</span> xxx
 </pre></div>
 </td></tr></table>
 
-<h2 id="_3">关机<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">关机<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>shutdown -h now  <span class="c1"># 将系统服务停掉后立刻关机</span>
 </pre></div>
 </td></tr></table>
@@ -4140,6 +4233,24 @@ ClientAliveCountMax 0  #服务器发出请求后客户端没有响应的最大�
 </td></tr></table>
 
 <p>参考：<a href="https://www.cnblogs.com/enjoycode/p/5022607.html">https://www.cnblogs.com/enjoycode/p/5022607.html</a></p>
+<h2 id="sftp">sftp<a class="headerlink" href="#sftp" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ sftp -oPort<span class="o">=</span><span class="m">22</span> username@x.x.x.x
+username@x.x.x.x<span class="err">&#39;</span>s password:
+Connected to x.x.x.x.
+sftp&gt; ls -al
+drwxr-xr-x    <span class="m">3</span> <span class="m">0</span>        <span class="m">0</span>            <span class="m">4096</span> Oct <span class="m">12</span> <span class="m">04</span>:17 .
+drwxr-xr-x    <span class="m">3</span> <span class="m">0</span>        <span class="m">0</span>            <span class="m">4096</span> Oct <span class="m">12</span> <span class="m">04</span>:17 ..
+drwxr-x---    <span class="m">2</span> <span class="m">1001</span>     <span class="m">1002</span>         <span class="m">4096</span> Oct <span class="m">12</span> <span class="m">06</span>:07 <span class="nb">dirs</span>
+sftp&gt;
+</pre></div>
+</td></tr></table>
                 
                   
                 
