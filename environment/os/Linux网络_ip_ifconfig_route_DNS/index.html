@@ -1217,6 +1217,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../coding/java/NTPClient/" title="NTPClient" class="md-nav__link">
+      NTPClient
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../coding/java/Netty/" title="Netty" class="md-nav__link">
       Netty
     </a>
@@ -1231,6 +1243,18 @@
   <li class="md-nav__item">
     <a href="../../../coding/java/SSL/" title="SSL" class="md-nav__link">
       SSL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coding/java/UDP/" title="UDP" class="md-nav__link">
+      UDP
     </a>
   </li>
 
@@ -2821,6 +2845,19 @@
     iptables
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="工作机制" class="md-nav__link">
+    工作机制
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -4070,6 +4107,19 @@
     iptables
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="工作机制" class="md-nav__link">
+    工作机制
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -4294,15 +4344,30 @@ sysctl -p
 </td></tr></table>
 
 <h2 id="iptables_1">iptables<a class="headerlink" href="#iptables_1" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 查看SNAT规则</span>
+<h3 id="_5">工作机制<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>规则链名包括(也被称为五个钩子函数（hook functions）)：</p>
+<ul>
+<li><strong>INPUT链</strong> ：处理输入数据包。</li>
+<li><strong>OUTPUT链</strong> ：处理输出数据包。</li>
+<li><strong>FORWARD链</strong> ：处理转发数据包。</li>
+<li><strong>PREROUTING链</strong> ：用于目标地址转换（DNAT）。</li>
+<li><strong>POSTOUTING链</strong> ：用于源地址转换（SNAT）。</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 查看防火墙规则</span>
+$ iptables -nvL
+
+<span class="c1"># 查看SNAT规则</span>
 $ iptables -t nat -S
 
 <span class="c1"># 设置某IP禁止访问</span>

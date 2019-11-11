@@ -1217,6 +1217,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../coding/java/NTPClient/" title="NTPClient" class="md-nav__link">
+      NTPClient
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../coding/java/Netty/" title="Netty" class="md-nav__link">
       Netty
     </a>
@@ -1231,6 +1243,18 @@
   <li class="md-nav__item">
     <a href="../../../coding/java/SSL/" title="SSL" class="md-nav__link">
       SSL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coding/java/UDP/" title="UDP" class="md-nav__link">
+      UDP
     </a>
   </li>
 
@@ -2796,7 +2820,41 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="重启&amp;关机" class="md-nav__link">
+  <a href="#_1" title="查看端口占用及关闭方法" class="md-nav__link">
+    查看端口占用及关闭方法
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#123" title="关闭123" class="md-nav__link">
+    关闭123
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#80" title="关闭80" class="md-nav__link">
+    关闭80
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmd" title="CMD编码" class="md-nav__link">
+    CMD编码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="重启&amp;关机" class="md-nav__link">
     重启&amp;关机
   </a>
   
@@ -3870,7 +3928,41 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="重启&amp;关机" class="md-nav__link">
+  <a href="#_1" title="查看端口占用及关闭方法" class="md-nav__link">
+    查看端口占用及关闭方法
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#123" title="关闭123" class="md-nav__link">
+    关闭123
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#80" title="关闭80" class="md-nav__link">
+    关闭80
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmd" title="CMD编码" class="md-nav__link">
+    CMD编码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="重启&amp;关机" class="md-nav__link">
     重启&amp;关机
   </a>
   
@@ -3902,7 +3994,19 @@
                 
                 
                 <h1 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h1>
-<h2 id="_1">重启&amp;关机<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">查看端口占用及关闭方法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>&gt;netstat -ano | findstr &quot;80&quot;
+</pre></div>
+</td></tr></table>
+
+<h3 id="123">关闭123<a class="headerlink" href="#123" title="Permanent link">&para;</a></h3>
+<p>计算机管理 - 服务和应用程序 - 服务, 停止<code>Windows Time</code></p>
+<h3 id="80">关闭80<a class="headerlink" href="#80" title="Permanent link">&para;</a></h3>
+<p>运行 - <code>net stop http</code></p>
+<h2 id="cmd">CMD编码<a class="headerlink" href="#cmd" title="Permanent link">&para;</a></h2>
+<p>默认使用936 GBK编码</p>
+<p>修改为UTF-8编码: <code>chcp 65001</code></p>
+<h2 id="_2">重启&amp;关机<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ol>
 <li>开始菜单，输入<code>cmd</code>回车进入命令行；</li>
 <li><code>shutdown -r -t 5</code><ul>
