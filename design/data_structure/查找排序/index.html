@@ -40,7 +40,7 @@
     
     
       
-        <title>选择排序 - islibra</title>
+        <title>快速排序 - islibra</title>
       
     
     
@@ -133,7 +133,7 @@
               islibra
             </span>
             <span class="md-header-nav__topic">
-              选择排序
+              快速排序
             </span>
           
         </div>
@@ -2310,15 +2310,27 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../algorithm/recursive/" title="recursive" class="md-nav__link">
+      recursive
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4-2" type="checkbox" id="nav-4-4-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4-3" type="checkbox" id="nav-4-4-3">
     
-    <label class="md-nav__link" for="nav-4-4-2">
+    <label class="md-nav__link" for="nav-4-4-3">
       Search
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-4-4-2">
+      <label class="md-nav__title" for="nav-4-4-3">
         Search
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2348,13 +2360,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4-3" type="checkbox" id="nav-4-4-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4-4" type="checkbox" id="nav-4-4-4">
     
-    <label class="md-nav__link" for="nav-4-4-3">
+    <label class="md-nav__link" for="nav-4-4-4">
       Sort
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-4-4-3">
+      <label class="md-nav__title" for="nav-4-4-4">
         Sort
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2368,6 +2380,18 @@
   <li class="md-nav__item">
     <a href="../../algorithm/sort/0x00_bubble/" title="0x00_bubble" class="md-nav__link">
       0x00_bubble
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../algorithm/sort/0x01_select/" title="0x01_select" class="md-nav__link">
+      0x01_select
     </a>
   </li>
 
@@ -2465,8 +2489,8 @@
       
     
     
-    <a href="./" title="选择排序" class="md-nav__link md-nav__link--active">
-      选择排序
+    <a href="./" title="快速排序" class="md-nav__link md-nav__link--active">
+      快速排序
     </a>
     
   </li>
@@ -3868,11 +3892,7 @@
                   <a href="https://github.com/islibra/wiki/blob/master/docs/design/data_structure/查找排序.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">选择排序<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>每次遍历数组选出最大，放入新的数组，O(n2)</p>
-<h1 id="_2">递归<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
-<p>关键点：跳出条件</p>
-<h1 id="_3">快速排序<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">快速排序<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>以第一个元素作为基准值，把数组划分为小于基准值和大于基准值两个子数组，递归。<br />
 - 平均复杂度O(nlogn)
 - 最坏复杂度O(n2)</p>
@@ -3887,11 +3907,11 @@
 - 缓存</p>
 <p>求hash，再对数组大小(2的幂)求余。</p>
 <p>md5固定128bit，SHA1固定160bit(20字节)</p>
-<h2 id="_4">散列冲突<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_2">散列冲突<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>需要存储的数据大于存储区域n</p>
-<h3 id="_5">开放寻址<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="_3">开放寻址<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <h4 id="on">线性探测，依次往后找，O(n)<a class="headerlink" href="#on" title="Permanent link">&para;</a></h4>
-<h3 id="_6">链表<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_4">链表<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
                 
                   
                 
