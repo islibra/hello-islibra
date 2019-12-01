@@ -40,7 +40,7 @@
     
     
       
-        <title>Linux文件系统</title>
+        <title>Linux文件系统 - islibra</title>
       
     
     
@@ -107,6 +107,10 @@
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#linux" tabindex="1" class="md-skip">
+        跳转至
+      </a>
     
     
       <header class="md-header" data-md-component="header">
@@ -2509,6 +2513,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../design/data_structure/hashtable/" title="hashtable" class="md-nav__link">
+      hashtable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../design/data_structure/red_black_tree/" title="二叉查找树" class="md-nav__link">
       二叉查找树
     </a>
@@ -2535,18 +2551,6 @@
   <li class="md-nav__item">
     <a href="../../../design/data_structure/堆/" title="堆" class="md-nav__link">
       堆
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../design/data_structure/查找排序/" title="查找排序" class="md-nav__link">
-      查找排序
     </a>
   </li>
 
@@ -2794,10 +2798,47 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Linux文件系统
+      </label>
     
     <a href="./" title="Linux文件系统" class="md-nav__link md-nav__link--active">
       Linux文件系统
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setuid" title="setuid" class="md-nav__link">
+    setuid
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -3971,6 +4012,43 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setuid" title="setuid" class="md-nav__link">
+    setuid
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -3979,9 +4057,8 @@
                   <a href="https://github.com/islibra/wiki/blob/master/docs/environment/os/Linux文件系统.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Linux文件系统</h1>
-                
-                <table>
+                <h1 id="linux">Linux文件系统<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h1>
+<table>
 <thead>
 <tr>
 <th>目录</th>
@@ -4077,6 +4154,22 @@
 </tr>
 </tbody>
 </table>
+<h2 id="setuid">setuid<a class="headerlink" href="#setuid" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ ll /etc/passwd /usr/bin/passwd
+-rw-r--r-- <span class="m">1</span> root root  <span class="m">1678</span> Jul <span class="m">11</span> <span class="m">18</span>:24 /etc/passwd
+-rwsr-xr-x <span class="m">1</span> root root <span class="m">54256</span> May <span class="m">17</span>  <span class="m">2017</span> /usr/bin/passwd*
+</pre></div>
+</td></tr></table>
+
+<p>让执行该命令的用户以该命令拥有者的权限去执行</p>
+<blockquote>
+<p>命令必须先具备x权限</p>
+</blockquote>
+<div class="admonition quote">
+<p class="admonition-title">参考链接: <a href="https://www.jianshu.com/p/70f9ea162ca9">setuid与setgid讲解</a></p>
+</div>
                 
                   
                 

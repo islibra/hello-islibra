@@ -2487,6 +2487,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" title="时间复杂度" class="md-nav__link">
+    时间复杂度
+  </a>
+  
+</li>
+      
       
       
       
@@ -2563,6 +2570,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../data_structure/hashtable/" title="hashtable" class="md-nav__link">
+      hashtable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../data_structure/red_black_tree/" title="二叉查找树" class="md-nav__link">
       二叉查找树
     </a>
@@ -2589,18 +2608,6 @@
   <li class="md-nav__item">
     <a href="../../../data_structure/堆/" title="堆" class="md-nav__link">
       堆
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../data_structure/查找排序/" title="查找排序" class="md-nav__link">
-      查找排序
     </a>
   </li>
 
@@ -4034,6 +4041,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" title="时间复杂度" class="md-nav__link">
+    时间复杂度
+  </a>
+  
+</li>
+      
       
       
       
@@ -4063,13 +4077,7 @@
 <h2 id="_1">快速排序<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li>基线条件: 数组长度为0或1</li>
-<li>
-<p>递归条件: 以第一个元素作为基准值，把数组划分为小于基准值和大于基准值两个子数组，递归。  </p>
-</li>
-<li>
-<p>平均复杂度O(nlogn)</p>
-</li>
-<li>最坏复杂度O(n2)</li>
+<li>递归条件: 以第一个元素作为基准值，把数组划分为小于基准值和大于基准值两个子数组，分治。</li>
 </ul>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -4174,6 +4182,15 @@
 <span class="o">}</span>
 </pre></div>
 </td></tr></table>
+
+<h2 id="_2">时间复杂度<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>平均复杂度O(nlogn): logn为递归调用的层数</li>
+<li>最坏复杂度O(n<sup>2</sup>): 选择的基准值不总是中间值, 无法将两个子数组平均分开, 递归调用的层数与元素个数相当</li>
+</ul>
+<blockquote>
+<p>合并排序O(nlogn)，但常量C大于快排。</p>
+</blockquote>
                 
                   
                 

