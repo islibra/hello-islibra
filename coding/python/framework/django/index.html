@@ -2861,15 +2861,27 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../../../environment/iSCSI/" title="iSCSI" class="md-nav__link">
+      iSCSI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
     
-    <label class="md-nav__link" for="nav-5-2">
+    <label class="md-nav__link" for="nav-5-3">
       Net
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-2">
+      <label class="md-nav__title" for="nav-5-3">
         Net
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2923,13 +2935,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
     
-    <label class="md-nav__link" for="nav-5-3">
+    <label class="md-nav__link" for="nav-5-4">
       Os
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-3">
+      <label class="md-nav__title" for="nav-5-4">
         Os
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3187,13 +3199,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-5" type="checkbox" id="nav-5-5">
     
-    <label class="md-nav__link" for="nav-5-4">
+    <label class="md-nav__link" for="nav-5-5">
       Tools
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-4">
+      <label class="md-nav__title" for="nav-5-5">
         Tools
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -4315,6 +4327,9 @@
 </pre></div>
 </td></tr></table>
 
+<blockquote>
+<p>在mysite/settings.py中添加<code>ALLOWED_HOSTS = ['x.x.x.x']</code></p>
+</blockquote>
 <h2 id="0x03">0x03 启动服务器<a class="headerlink" href="#0x03" title="Permanent link">&para;</a></h2>
 <p><code>python manage.py runserver [ip:port]</code></p>
 <h2 id="0x04">0x04 创建应用<a class="headerlink" href="#0x04" title="Permanent link">&para;</a></h2>
@@ -4322,14 +4337,14 @@
 <h2 id="0x05_url">0x05_URL<a class="headerlink" href="#0x05_url" title="Permanent link">&para;</a></h2>
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
-<label for="__tab_1_0">创建myapp/urls.py</label>
+<label for="__tab_1_0">mysite/urls.py</label>
 <div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
 5
 6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+<span class="kn">from</span> <span class="nn">myapp</span> <span class="kn">import</span> <span class="n">views</span>
 
 <span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">),</span>
@@ -4368,7 +4383,10 @@
 
 </div>
 <h2 id="0x06">0x06 视图<a class="headerlink" href="#0x06" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">myapp/views.py</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
@@ -4376,8 +4394,8 @@
 <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Hello, world. You&#39;re at the polls index.&quot;</span><span class="p">)</span>
 </pre></div>
-</td></tr></table>
-
+</td></tr></table></div>
+</div>
 <div class="admonition quote">
 <p class="admonition-title">中文文档</p>
 <p><a href="https://docs.djangoproject.com/zh-hans/2.2/">https://docs.djangoproject.com/zh-hans/2.2/</a></p>
@@ -4387,8 +4405,8 @@
 <p>Python内置SQLite</p>
 </blockquote>
 <div class="superfences-tabs">
-<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
-<label for="__tab_2_0">mysite/settings.py</label>
+<input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
+<label for="__tab_3_0">mysite/settings.py</label>
 <div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -4411,8 +4429,8 @@
 </div>
 <h3 id="_2">模型定义<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <div class="superfences-tabs">
-<input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
-<label for="__tab_3_0">mysite/models.py</label>
+<input name="__tabs_4" type="radio" id="__tab_4_0" checked="checked" />
+<label for="__tab_4_0">mysite/models.py</label>
 <div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3

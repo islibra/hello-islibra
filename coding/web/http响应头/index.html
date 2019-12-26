@@ -40,7 +40,7 @@
     
     
       
-        <title>http响应头</title>
+        <title>http响应头 - islibra</title>
       
     
     
@@ -108,7 +108,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#content-security-policy" tabindex="1" class="md-skip">
+      <a href="#http" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -2100,8 +2100,28 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#content-security-policy" title="Content-Security-Policy" class="md-nav__link">
+    Content-Security-Policy
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_1" title="示例代码" class="md-nav__link">
     示例代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#x-frame-options" title="X-Frame-Options" class="md-nav__link">
+    X-Frame-Options
   </a>
   
 </li>
@@ -2769,15 +2789,27 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../../environment/iSCSI/" title="iSCSI" class="md-nav__link">
+      iSCSI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
     
-    <label class="md-nav__link" for="nav-5-2">
+    <label class="md-nav__link" for="nav-5-3">
       Net
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-2">
+      <label class="md-nav__title" for="nav-5-3">
         Net
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2831,13 +2863,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
     
-    <label class="md-nav__link" for="nav-5-3">
+    <label class="md-nav__link" for="nav-5-4">
       Os
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-3">
+      <label class="md-nav__title" for="nav-5-4">
         Os
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3095,13 +3127,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-5" type="checkbox" id="nav-5-5">
     
-    <label class="md-nav__link" for="nav-5-4">
+    <label class="md-nav__link" for="nav-5-5">
       Tools
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-4">
+      <label class="md-nav__title" for="nav-5-5">
         Tools
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -4062,8 +4094,28 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#content-security-policy" title="Content-Security-Policy" class="md-nav__link">
+    Content-Security-Policy
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_1" title="示例代码" class="md-nav__link">
     示例代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#x-frame-options" title="X-Frame-Options" class="md-nav__link">
+    X-Frame-Options
   </a>
   
 </li>
@@ -4093,15 +4145,23 @@
                   <a href="https://github.com/islibra/wiki/blob/master/docs/coding/web/http响应头.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="content-security-policy">Content-Security-Policy<a class="headerlink" href="#content-security-policy" title="Permanent link">&para;</a></h1>
+                <h1 id="http">http响应头<a class="headerlink" href="#http" title="Permanent link">&para;</a></h1>
+<h2 id="content-security-policy">Content-Security-Policy<a class="headerlink" href="#content-security-policy" title="Permanent link">&para;</a></h2>
 <p>CSP，通过白名单进行资源加载限制，防止XSS攻击。</p>
-<p>默认值Content-Security-Policy: default-src 'self'</p>
-<p>特殊值<br />
-- 'unsafe-inline'：允许执行页面内嵌的&lt;script&gt;标签和事件监听函数
-- 'unsafe-eval'：允许将字符串当作代码执行，比如使用eval、setTimeout、setInterval和Function等函数。</p>
-<h2 id="_1">示例代码<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>默认值Content-Security-Policy: default-src 'self'</li>
+<li>特殊值<ul>
+<li>'unsafe-inline'：允许执行页面内嵌的&lt;script&gt;标签和事件监听函数</li>
+<li>'unsafe-eval'：允许将字符串当作代码执行，比如使用eval、setTimeout、setInterval和Function等函数。</li>
+</ul>
+</li>
+</ul>
+<h3 id="_1">示例代码<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>在web.xml中增加filter：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">web.xml</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -4133,9 +4193,10 @@
         <span class="nt">&lt;url-pattern&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
     <span class="nt">&lt;/filter-mapping&gt;</span>
 </pre></div>
-</td></tr></table>
-
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">Filter</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -4241,7 +4302,21 @@
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-</td></tr></table>
+</td></tr></table></div>
+</div>
+<h2 id="x-frame-options">X-Frame-Options<a class="headerlink" href="#x-frame-options" title="Permanent link">&para;</a></h2>
+<p>指示浏览器是否允许页面嵌套在<code>&lt;frame&gt;, &lt;iframe&gt;, &lt;embed&gt;, &lt;object&gt;</code>中, 从而避免clickjacking攻击</p>
+<blockquote>
+<p>Content-Security-Policy HTTP 头中的 frame-ancestors 指令会替代这个非标准的 header。</p>
+</blockquote>
+<ul>
+<li>X-Frame-Options: deny</li>
+<li>X-Frame-Options: sameorigin</li>
+<li>X-Frame-Options: allow-from https://example.com/</li>
+</ul>
+<div class="admonition quote">
+<p class="admonition-title">参考链接: <a href="X-Frame-Options">MDN web docs</a></p>
+</div>
                 
                   
                 
