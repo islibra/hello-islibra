@@ -2680,6 +2680,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#leetcode" title="LeetCode" class="md-nav__link">
+    LeetCode
+  </a>
+  
+</li>
+      
       
       
       
@@ -2909,6 +2916,18 @@
   <li class="md-nav__item">
     <a href="../../../environment/net/ipv6/" title="ipv6" class="md-nav__link">
       ipv6
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../environment/net/交换机/" title="交换机" class="md-nav__link">
+      交换机
     </a>
   </li>
 
@@ -4268,6 +4287,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#leetcode" title="LeetCode" class="md-nav__link">
+    LeetCode
+  </a>
+  
+</li>
+      
       
       
       
@@ -4354,6 +4380,106 @@
 <li>将数组增大一倍</li>
 <li>重新计算hash</li>
 </ol>
+<h2 id="leetcode">LeetCode<a class="headerlink" href="#leetcode" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Enumeration</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Hashtable</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * 136. 只出现一次的数字</span>
+<span class="cm"> * 给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。</span>
+<span class="cm"> *</span>
+<span class="cm"> * 说明：</span>
+<span class="cm"> * 你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</span>
+<span class="cm"> *</span>
+<span class="cm"> * 示例 1:</span>
+<span class="cm"> * 输入: [2,2,1]</span>
+<span class="cm"> * 输出: 1</span>
+<span class="cm"> *</span>
+<span class="cm"> * 示例 2:</span>
+<span class="cm"> * 输入: [4,1,2,1,2]</span>
+<span class="cm"> * 输出: 4</span>
+<span class="cm"> *</span>
+<span class="cm"> * 来源：力扣（LeetCode）</span>
+<span class="cm"> * 链接：https://leetcode-cn.com/problems/single-number</span>
+<span class="cm"> * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OnlyOneNum</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">singleNumber</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Hashtable</span> <span class="n">table</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Hashtable</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// 注意必须要使用containsKey</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">table</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">i</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">table</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">table</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="n">Enumeration</span> <span class="n">e</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="na">keys</span><span class="o">();</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">hasMoreElements</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="n">e</span><span class="o">.</span><span class="na">nextElement</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+<span class="c1">//        int[] nums = {2, 2, 1};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="n">OnlyOneNum</span> <span class="n">oon</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OnlyOneNum</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">oon</span><span class="o">.</span><span class="na">singleNumber</span><span class="o">(</span><span class="n">nums</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
                 
                   
                 
