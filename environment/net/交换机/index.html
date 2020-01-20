@@ -3007,6 +3007,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#pvid" title="PVID" class="md-nav__link">
+    PVID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_15" title="配置" class="md-nav__link">
     配置
   </a>
@@ -4453,6 +4460,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#pvid" title="PVID" class="md-nav__link">
+    PVID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_15" title="配置" class="md-nav__link">
     配置
   </a>
@@ -4514,6 +4528,11 @@
                 
                 
                 <h1 id="_1">交换机<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<ul>
+<li>接入ACC</li>
+<li>汇聚AGG</li>
+<li>核心CORE</li>
+</ul>
 <h2 id="_2">华为交换机系列<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="_3">园区网络<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <h4 id="_4">盒式<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
@@ -4611,7 +4630,21 @@ jumboframe enable 9612
 <li>Data, 46-1500bytes</li>
 <li>FCS, 4bytes</li>
 </ul>
+<h5 id="pvid">PVID<a class="headerlink" href="#pvid" title="Permanent link">&para;</a></h5>
+<p>Port VLAN ID: 端口接收到的报文不带VLAN Tag时, 默认分配的VID</p>
 <h5 id="_15">配置<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h5>
+<p>交换机的端口有三种配置模式：Access，Trunk，Hybrid。</p>
+<ol>
+<li>Access口：端口属于VLAN，VLAN ID 1~4096。直接与计算机网卡相连，流入该口的数据包都被打上VLAN TAG, 出口规则为 <strong>Untag</strong>。</li>
+<li>Trunk口：允许多个VLAN数据通过，通过时不更换VLAN标签，出口规则为 <strong>Tag</strong>。交换机之间级联。</li>
+<li>
+<p>Hybrid口: 既可以连接用户主机, 又可以连接其他交换机接口。出口规则可以为 <strong>Tag</strong> 或 <strong>Untag</strong>。</p>
+<blockquote>
+<p>在发送报文时，Hybrid接口可以允许多个VLAN的报文发送时不打标签。而Trunk口只允许缺省VLAN的报文发送时不打标签。</p>
+</blockquote>
+</li>
+</ol>
+<hr />
 <ul>
 <li>查看VLAN配置: <code>dis vlan</code>, 默认为1</li>
 <li>批量创建: <code>vlan batch 2 to 100</code></li>
