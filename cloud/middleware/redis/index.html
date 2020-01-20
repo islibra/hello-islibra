@@ -633,6 +633,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_4" title="持久化" class="md-nav__link">
+    持久化
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rdb" title="RDB" class="md-nav__link">
+    RDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aof" title="AOF" class="md-nav__link">
+    AOF
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#maven" title="Maven依赖" class="md-nav__link">
     Maven依赖
   </a>
@@ -648,7 +675,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" title="认证" class="md-nav__link">
+  <a href="#_5" title="认证" class="md-nav__link">
     认证
   </a>
   
@@ -660,7 +687,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="集群调用" class="md-nav__link">
+  <a href="#_6" title="集群调用" class="md-nav__link">
     集群调用
   </a>
   
@@ -668,7 +695,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" title="认证" class="md-nav__link">
+  <a href="#_7" title="认证" class="md-nav__link">
     认证
   </a>
   
@@ -1100,6 +1127,18 @@
   <li class="md-nav__item">
     <a href="../../../coding/db/spring_mybatis/" title="spring_mybatis" class="md-nav__link">
       spring_mybatis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coding/db/事务/" title="事务" class="md-nav__link">
+      事务
     </a>
   </li>
 
@@ -1563,6 +1602,18 @@
   <li class="md-nav__item">
     <a href="../../../coding/java/lib/Hashtable/" title="Hashtable" class="md-nav__link">
       Hashtable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coding/java/lib/Queue/" title="Queue" class="md-nav__link">
+      Queue
     </a>
   </li>
 
@@ -2611,6 +2662,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../design/algorithm/search/BFS/" title="BFS" class="md-nav__link">
+      BFS
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2778,8 +2841,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../design/data_structure/算法图解/" title="广度优先搜索解决无权图的最短路径问题" class="md-nav__link">
-      广度优先搜索解决无权图的最短路径问题
+    <a href="../../../design/data_structure/算法图解/" title="算法图解" class="md-nav__link">
+      算法图解
     </a>
   </li>
 
@@ -4288,6 +4351,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_4" title="持久化" class="md-nav__link">
+    持久化
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rdb" title="RDB" class="md-nav__link">
+    RDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aof" title="AOF" class="md-nav__link">
+    AOF
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#maven" title="Maven依赖" class="md-nav__link">
     Maven依赖
   </a>
@@ -4303,7 +4393,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" title="认证" class="md-nav__link">
+  <a href="#_5" title="认证" class="md-nav__link">
     认证
   </a>
   
@@ -4315,7 +4405,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="集群调用" class="md-nav__link">
+  <a href="#_6" title="集群调用" class="md-nav__link">
     集群调用
   </a>
   
@@ -4323,7 +4413,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" title="认证" class="md-nav__link">
+  <a href="#_7" title="认证" class="md-nav__link">
     认证
   </a>
   
@@ -4363,8 +4453,16 @@
 <p><img alt="" src="https://img.shields.io/badge/language-C-brightgreen.svg" /></p>
 <ul>
 <li>内存+持久化</li>
-<li>读110000次/s, 写81000次/s</li>
-<li>原子型操作，支持事务</li>
+<li>
+<p>读110000次/s, 写81000次/s</p>
+<blockquote>
+<p>RDS, 16U32G, 纯读40322QPS, 读写21756QPS</p>
+<p>DDM, 16U16G, 纯读40000QPS, 读写20000QPS</p>
+</blockquote>
+</li>
+<li>
+<p>原子型操作，支持事务</p>
+</li>
 </ul>
 <h2 id="_1">安装启动<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>启动: <code>redis-server /data/component/redis/redis-3.2.11/redis.conf</code>，需要改成daemonize</p>
@@ -4386,22 +4484,49 @@
 <p>HSET key field value HGET HDEL HEXSITS HGETALL HKEYS HVALUES HLEN HMGET HMSET HINCRBY</p>
 <h3 id="key">Key<a class="headerlink" href="#key" title="Permanent link">&para;</a></h3>
 <h2 id="_3">事务<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ol>
+<li>MULTI: 标记事务块开始</li>
+<li>
+<p>EXEC: 执行所有事务块内的命令</p>
+<blockquote>
+<p>如果key被WATCH, 且被改动, 则EXEC事务被打断</p>
+</blockquote>
+</li>
+<li>
+<p>DISCARD: 取消事务</p>
+</li>
+<li>WATCH: 监视key</li>
+<li>UNWATCH: 取消WATCH</li>
+</ol>
+<h2 id="_4">持久化<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="rdb">RDB<a class="headerlink" href="#rdb" title="Permanent link">&para;</a></h3>
+<p>dump快照</p>
+<ol>
+<li>save, 同步操作, 阻塞redis</li>
+<li>bgsave, 调用Linux fork(), 异步操作</li>
+<li>自动保存</li>
+</ol>
+<h3 id="aof">AOF<a class="headerlink" href="#aof" title="Permanent link">&para;</a></h3>
+<p>binlog, 每个请求记录日志</p>
+<ol>
+<li>always, 每条命令都写入缓冲区, 再fsync()写入硬盘, fsync()大于2秒AOF阻塞</li>
+<li>everysecond, 每秒进行一次fsync()</li>
+<li>no, 由操作系统决定什么时候刷新硬盘</li>
+</ol>
+<p>AOF重写减小文件体积</p>
+<ul>
+<li>bgrewriteaof(类似bgsave)</li>
+<li>AOF重写配置(类似RDB自动保存)</li>
+</ul>
+<p>通过读取服务器当前数据库状态实现</p>
 <div class="admonition quote">
 <p class="admonition-title">参考链接</p>
 <ul>
 <li><a href="https://mp.weixin.qq.com/s/TrEcIW0DIgncpdQ00hAVSw">Redis从入门到精通：初级篇</a></li>
 <li><a href="https://mp.weixin.qq.com/s/-qdjcKouRVfa5QtjCAZTMA">Redis从入门到精通：中级篇</a></li>
+<li><a href="https://mp.weixin.qq.com/s/ydFktr6TMmY3_BWjt3sIGQ">Redis 高性能缓存解密</a></li>
 </ul>
 </div>
-<p>优化
-RDB dump
-save同步
-bgsave异步fork
-AOF binlog
-always fsync大于2秒AOF阻塞
-everysecond
-no
-https://mp.weixin.qq.com/s/ydFktr6TMmY3_BWjt3sIGQ</p>
 <p>Java客户端: <a href="https://github.com/xetorthio/jedis">Jedis</a></p>
 <h2 id="maven">Maven依赖<a class="headerlink" href="#maven" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -4429,7 +4554,7 @@ https://mp.weixin.qq.com/s/ydFktr6TMmY3_BWjt3sIGQ</p>
 </pre></div>
 </td></tr></table>
 
-<h3 id="_4">认证<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="_5">认证<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -4472,7 +4597,7 @@ https://mp.weixin.qq.com/s/ydFktr6TMmY3_BWjt3sIGQ</p>
 <li>将第三方引用jar包打入代码: <code>javac -cp /root/project/lib/jedis-2.9.0.jar /root/project/src/RedisTest.java</code></li>
 <li>运行代码: <code>java -cp /root/project/lib/jedis-2.9.0.jar:/root/project/src/ RedisTest</code></li>
 </ol>
-<h2 id="_5">集群调用<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_6">集群调用<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -4485,7 +4610,7 @@ https://mp.weixin.qq.com/s/ydFktr6TMmY3_BWjt3sIGQ</p>
 </pre></div>
 </td></tr></table>
 
-<h3 id="_6">认证<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_7">认证<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3

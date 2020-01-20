@@ -953,6 +953,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../coding/db/事务/" title="事务" class="md-nav__link">
+      事务
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../coding/db/数据库中间件/" title="数据库中间件" class="md-nav__link">
       数据库中间件
     </a>
@@ -1406,6 +1418,18 @@
   <li class="md-nav__item">
     <a href="../../../coding/java/lib/Hashtable/" title="Hashtable" class="md-nav__link">
       Hashtable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coding/java/lib/Queue/" title="Queue" class="md-nav__link">
+      Queue
     </a>
   </li>
 
@@ -2456,6 +2480,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../algorithm/search/BFS/" title="BFS" class="md-nav__link">
+      BFS
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2770,8 +2806,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../算法图解/" title="广度优先搜索解决无权图的最短路径问题" class="md-nav__link">
-      广度优先搜索解决无权图的最短路径问题
+    <a href="../算法图解/" title="算法图解" class="md-nav__link">
+      算法图解
     </a>
   </li>
 
@@ -4405,7 +4441,10 @@
 <li>重新计算hash</li>
 </ol>
 <h2 id="leetcode">LeetCode<a class="headerlink" href="#leetcode" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">136. 只出现一次的数字</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -4503,7 +4542,121 @@
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-</td></tr></table>
+</td></tr></table></div>
+<input name="__tabs_2" type="radio" id="__tab_2_1" />
+<label for="__tab_2_1">202. 快乐数</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.HashSet</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * 202. 快乐数</span>
+<span class="cm"> * 编写一个算法来判断一个数是不是“快乐数”。</span>
+<span class="cm"> * 一个“快乐数”定义为：对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，然后重复这个过程直到这个数变为 1，也可能是无限循环但始终变不到 1。如果可以变为 1，那么这个数就是快乐数。</span>
+<span class="cm"> *</span>
+<span class="cm"> * 示例: </span>
+<span class="cm"> * 输入: 19</span>
+<span class="cm"> * 输出: true</span>
+<span class="cm"> *</span>
+<span class="cm"> * 解释:</span>
+<span class="cm"> * 12 + 92 = 82</span>
+<span class="cm"> * 82 + 22 = 68</span>
+<span class="cm"> * 62 + 82 = 100</span>
+<span class="cm"> * 12 + 02 + 02 = 1</span>
+<span class="cm"> *</span>
+<span class="cm"> * 来源：力扣（LeetCode）</span>
+<span class="cm"> * 链接：https://leetcode-cn.com/problems/happy-number</span>
+<span class="cm"> * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HappyNum</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compute</span><span class="o">(</span><span class="kt">int</span> <span class="n">input</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// 将数字转换成字符串</span>
+        <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">input</span><span class="o">);</span>
+        <span class="c1">// 将字符串拆分成字符数组</span>
+        <span class="kt">char</span><span class="o">[]</span> <span class="n">cArray</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
+        <span class="c1">// 将字符数组转换回数字</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">cArray</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">Character</span><span class="o">.</span><span class="na">getNumericValue</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="n">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isHappy</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">HashSet</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">();</span>
+        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">compute</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">result</span> <span class="o">!=</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">set</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">result</span><span class="o">))</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">compute</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">HappyNum</span> <span class="n">happyNum</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HappyNum</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">happyNum</span><span class="o">.</span><span class="na">isHappy</span><span class="o">(</span><span class="mi">19</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
                 
                   
                 

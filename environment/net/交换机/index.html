@@ -953,6 +953,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../coding/db/事务/" title="事务" class="md-nav__link">
+      事务
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../coding/db/数据库中间件/" title="数据库中间件" class="md-nav__link">
       数据库中间件
     </a>
@@ -1406,6 +1418,18 @@
   <li class="md-nav__item">
     <a href="../../../coding/java/lib/Hashtable/" title="Hashtable" class="md-nav__link">
       Hashtable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coding/java/lib/Queue/" title="Queue" class="md-nav__link">
+      Queue
     </a>
   </li>
 
@@ -2454,6 +2478,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../design/algorithm/search/BFS/" title="BFS" class="md-nav__link">
+      BFS
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2621,8 +2657,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../design/data_structure/算法图解/" title="广度优先搜索解决无权图的最短路径问题" class="md-nav__link">
-      广度优先搜索解决无权图的最短路径问题
+    <a href="../../../design/data_structure/算法图解/" title="算法图解" class="md-nav__link">
+      算法图解
     </a>
   </li>
 
@@ -2909,8 +2945,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#telnet" title="Telnet" class="md-nav__link">
-    Telnet
+  <a href="#telnetssh" title="Telnet/SSH" class="md-nav__link">
+    Telnet/SSH
   </a>
   
 </li>
@@ -2955,6 +2991,40 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#vlan" title="VLAN" class="md-nav__link">
+    VLAN
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" title="报文格式" class="md-nav__link">
+    报文格式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" title="配置" class="md-nav__link">
+    配置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlanif" title="VLANIF" class="md-nav__link">
+    VLANIF
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2962,6 +3032,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" title="堆叠" class="md-nav__link">
+    堆叠
+  </a>
   
 </li>
       
@@ -4314,8 +4391,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#telnet" title="Telnet" class="md-nav__link">
-    Telnet
+  <a href="#telnetssh" title="Telnet/SSH" class="md-nav__link">
+    Telnet/SSH
   </a>
   
 </li>
@@ -4360,6 +4437,40 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#vlan" title="VLAN" class="md-nav__link">
+    VLAN
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" title="报文格式" class="md-nav__link">
+    报文格式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" title="配置" class="md-nav__link">
+    配置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlanif" title="VLANIF" class="md-nav__link">
+    VLANIF
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4367,6 +4478,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" title="堆叠" class="md-nav__link">
+    堆叠
+  </a>
   
 </li>
       
@@ -4436,13 +4554,14 @@
 </td></tr></table>
 
 <p>按Enter</p>
-<h4 id="telnet">Telnet<a class="headerlink" href="#telnet" title="Permanent link">&para;</a></h4>
+<h4 id="telnetssh">Telnet/SSH<a class="headerlink" href="#telnetssh" title="Permanent link">&para;</a></h4>
 <ol>
 <li>system-view</li>
-<li>管理口配置IP</li>
+<li>管理口<code>interface ethernet 0/0/0</code>配置IP<code>ip address 10.10.10.10 24</code></li>
 <li>配置路由</li>
-<li>启用telnet</li>
-<li>aaa</li>
+<li>启用telnet: <code>telnet server enable</code>, <code>dis telnet server status</code></li>
+<li>配置<code>user-interface vty 0 4</code>的<code>user privilege level 15</code>, <code>authentication-mode aaa</code></li>
+<li>进入<code>aaa</code>视图, 创建<code>local-user xxx password irreversible-cipher/cipher xxx</code>, <code>local-user xxx privilege level 15/3</code>, <code>local-user xxx service-type telnet/ssh</code></li>
 <li>windows运行: <code>telnet x.x.x.x 23</code></li>
 </ol>
 <div class="admonition quote">
@@ -4450,11 +4569,16 @@
 </div>
 <h3 id="_10">配置<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <ul>
+<li>进入系统视图: <code>sys</code></li>
 <li>
 <p>查看接口配置</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>[HUAWEI] interface gigabitethernet 0/0/1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>[HUAWEI] interface gigabitethernet 0/0/1
 [HUAWEI-GigabitEthernet0/0/1] display this
+// 允许报文最大长度超过MTU 1500
+jumboframe enable 9612
 </pre></div>
 </td></tr></table>
 
@@ -4471,9 +4595,117 @@
 <div class="admonition quote">
 <p class="admonition-title">参考链接: <a href="https://mp.weixin.qq.com/s/Bd6Nfo5dmFgfpg9W6uGY1g">https://mp.weixin.qq.com/s/Bd6Nfo5dmFgfpg9W6uGY1g</a></p>
 </div>
+<h4 id="vlan">VLAN<a class="headerlink" href="#vlan" title="Permanent link">&para;</a></h4>
+<h5 id="_14">报文格式<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h5>
+<ul>
+<li>Destination address, 6bytes</li>
+<li>Source address, 6bytes</li>
+<li><mark class="critic">802.1Q Tag(VLAN)</mark>, 4bytes<ul>
+<li>TPID, 2bytes</li>
+<li>PRI, 3bits</li>
+<li>CFI, 1bit</li>
+<li>VID(VLAN ID), 12bits</li>
+</ul>
+</li>
+<li>Length/Type, 2bytes</li>
+<li>Data, 46-1500bytes</li>
+<li>FCS, 4bytes</li>
+</ul>
+<h5 id="_15">配置<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h5>
+<ul>
+<li>查看VLAN配置: <code>dis vlan</code>, 默认为1</li>
+<li>批量创建: <code>vlan batch 2 to 100</code></li>
+<li>
+<p>批量加入</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>[Huawei]port-group group-member GigabitEthernet 0/0/10 to GigabitEthernet 0/0/20
+[Huawei-port-group]port link-type access
+[Huawei-port-group]port default vlan 100
+</pre></div>
+</td></tr></table>
+
+</li>
+<li>
+<p>批量恢复</p>
+<ol>
+<li>Access: <code>unbo port default vlan</code></li>
+<li>
+<p>Trunk:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>undo port trunk pvid vlan
+undo port trunk allow-pass vlan all
+port trunk allow-pass vlan 1
+</pre></div>
+</td></tr></table>
+
+</li>
+<li>
+<p>Hybrid:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>undo port hybrid pvid vlan
+undo port hybrid vlan all
+port hybrid untagged vlan 1
+</pre></div>
+</td></tr></table>
+
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="vlanif">VLANIF<a class="headerlink" href="#vlanif" title="Permanent link">&para;</a></h4>
+<p>三层交换的逻辑接口, 配置IP作为用户网关</p>
+<blockquote>
+<p>只能生成直连路由, 如果跨多台三层交换机, 需配置静态路由或路由协议</p>
+</blockquote>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// 创建VLAN
+vlan batch 10 20
+// 创建三层接口
+interface Vlanif10
+// 设置网关地址
+ip address 10.1.1.1 255.255.255.0
+interface Vlanif20
+ip address 10.1.2.1 255.255.255.0
+// 将端口加入VLAN
+interface GigabitEthernet 0/0/1
+port link-type access
+port default vlan 10
+interface GigabitEthernet 0/0/2
+port link-type access
+port default vlan 20
+// 显示路由表
+dis ip routing-table
+</pre></div>
+</td></tr></table>
+
 <div class="admonition quote">
 <p class="admonition-title">总目录: <a href="http://mp.weixin.qq.com/mp/homepage?__biz=MzA3NDExMDk4Mw==&amp;hid=4&amp;sn=12f0c4888aa2635cf68d7460adcc5b86&amp;scene=18#wechat_redirect">http://mp.weixin.qq.com/mp/homepage?__biz=MzA3NDExMDk4Mw==&amp;hid=4&amp;sn=12f0c4888aa2635cf68d7460adcc5b86&amp;scene=18#wechat_redirect</a></p>
 </div>
+<h2 id="_16">堆叠<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">盒式交换机设备通常部署在网络的汇聚层和接入层。当网络的规模不断扩大时，由于其 <strong>端口数量</strong> 固定，不像框式交换机可通过扩展接口板数量扩展端口数量，因此单台设备的端口数量可能无法满足网络要求。堆叠技术通过堆叠端口和堆叠连接线将 <strong>多台</strong> 支持堆叠特性的交换机设备组合在一起，从逻辑上组合成一台交换机设备。通过组建堆叠，可以达到扩展网络能力、提高设备可靠性的目的。</p>
+</div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">[]</span>dis stack
+</pre></div>
+</td></tr></table>
                 
                   
                 

@@ -955,6 +955,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../db/事务/" title="事务" class="md-nav__link">
+      事务
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../db/数据库中间件/" title="数据库中间件" class="md-nav__link">
       数据库中间件
     </a>
@@ -1461,15 +1473,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#synchronized" title="synchronized典型用法" class="md-nav__link">
-    synchronized典型用法
+  <a href="#synchronized" title="synchronized" class="md-nav__link">
+    synchronized
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#monitor" title="Monitor机制" class="md-nav__link">
+    Monitor机制
   </a>
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
-  <a href="#lock" title="Lock典型用法" class="md-nav__link">
-    Lock典型用法
+  <a href="#lock" title="Lock" class="md-nav__link">
+    Lock
   </a>
   
 </li>
@@ -1477,6 +1502,13 @@
           <li class="md-nav__item">
   <a href="#_20" title="读写锁" class="md-nav__link">
     读写锁
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" title="锁框架" class="md-nav__link">
+    锁框架
   </a>
   
 </li>
@@ -1794,6 +1826,18 @@
   <li class="md-nav__item">
     <a href="../lib/Hashtable/" title="Hashtable" class="md-nav__link">
       Hashtable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lib/Queue/" title="Queue" class="md-nav__link">
+      Queue
     </a>
   </li>
 
@@ -2842,6 +2886,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../design/algorithm/search/BFS/" title="BFS" class="md-nav__link">
+      BFS
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -3009,8 +3065,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../design/data_structure/算法图解/" title="广度优先搜索解决无权图的最短路径问题" class="md-nav__link">
-      广度优先搜索解决无权图的最短路径问题
+    <a href="../../../design/data_structure/算法图解/" title="算法图解" class="md-nav__link">
+      算法图解
     </a>
   </li>
 
@@ -4771,15 +4827,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#synchronized" title="synchronized典型用法" class="md-nav__link">
-    synchronized典型用法
+  <a href="#synchronized" title="synchronized" class="md-nav__link">
+    synchronized
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#monitor" title="Monitor机制" class="md-nav__link">
+    Monitor机制
   </a>
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
-  <a href="#lock" title="Lock典型用法" class="md-nav__link">
-    Lock典型用法
+  <a href="#lock" title="Lock" class="md-nav__link">
+    Lock
   </a>
   
 </li>
@@ -4787,6 +4856,13 @@
           <li class="md-nav__item">
   <a href="#_20" title="读写锁" class="md-nav__link">
     读写锁
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" title="锁框架" class="md-nav__link">
+    锁框架
   </a>
   
 </li>
@@ -5457,8 +5533,22 @@
 <p class="admonition-title">参考链接: <a href="https://mp.weixin.qq.com/s/yvU3k1_CiDKBLMuelLb0cQ">漫画：什么是 volatile 关键字？</a></p>
 </div>
 <h2 id="_19">锁<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
-<p>java.util.concurrent.locks包提供的接口和类，可用来替代JDK1.5之前的synchronized和监视机制（wait(), notify(), notifyAll()）。</p>
-<h3 id="synchronized">synchronized典型用法<a class="headerlink" href="#synchronized" title="Permanent link">&para;</a></h3>
+<h3 id="synchronized">synchronized<a class="headerlink" href="#synchronized" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>同步方法，锁是当前实例对象。</p>
+<blockquote>
+<p>同步方法使用ACC_SYNCHRONIZED标记符隐式的实现。</p>
+</blockquote>
+</li>
+<li>
+<p>静态同步方法，锁是当前类的Class对象。</p>
+</li>
+<li>
+<p>同步方法块，锁是Synchonized括号里配置的对象。</p>
+<blockquote>
+<p>同步代码块采用monitorenter、monitorexit指令显式的实现。</p>
+</blockquote>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -5471,7 +5561,15 @@
 </pre></div>
 </td></tr></table>
 
-<h3 id="lock">Lock典型用法<a class="headerlink" href="#lock" title="Permanent link">&para;</a></h3>
+</li>
+</ol>
+<h4 id="monitor">Monitor机制<a class="headerlink" href="#monitor" title="Permanent link">&para;</a></h4>
+<ul>
+<li>互斥执行: synchronized</li>
+<li>协作: wait(), notify(), notifyAll()</li>
+</ul>
+<h3 id="lock">Lock<a class="headerlink" href="#lock" title="Permanent link">&para;</a></h3>
+<p>java.util.concurrent.locks包提供的接口和类，可用来替代JDK1.5之前的synchronized和Monitor机制。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -5575,6 +5673,21 @@
 </pre></div>
 </td></tr></table>
 
+<h3 id="_21">锁框架<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<p>AbstractQueuedSynchronizer(AQS)，队列同步器</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">getState</span><span class="o">()</span>
+<span class="n">setState</span><span class="o">(</span><span class="kt">int</span> <span class="n">newstate</span><span class="o">)</span>
+<span class="n">compareAndSetState</span><span class="o">(</span><span class="kt">int</span> <span class="n">expect</span><span class="o">,</span> <span class="kt">int</span> <span class="n">update</span><span class="o">)</span>
+</pre></div>
+</td></tr></table>
+
+<p>FIFO双向队列，compareAndSetTail()将未获取到锁的线程加入到尾节点</p>
+<ul>
+<li>独占式：有且只有一个线程能获取到锁，如：ReentrantLock。</li>
+<li>共享式：可以多个线程同时获取到锁，如：CountDownLatch。</li>
+</ul>
 <div class="admonition quote">
 <p class="admonition-title">参考链接: <a href="https://mp.weixin.qq.com/s/fVQZ0u6JNJ05-Dyox_lgrg">Java 中的锁原理、锁优化、CAS、AQS 详解！</a></p>
 </div>
