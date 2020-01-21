@@ -1217,18 +1217,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../coding/java/Java排序/" title="Java排序" class="md-nav__link">
-      Java排序
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../../../coding/java/Java数据类型转换/" title="Java数据类型转换" class="md-nav__link">
       Java数据类型转换
     </a>
@@ -1386,13 +1374,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-28" type="checkbox" id="nav-3-5-28">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-27" type="checkbox" id="nav-3-5-27">
     
-    <label class="md-nav__link" for="nav-3-5-28">
+    <label class="md-nav__link" for="nav-3-5-27">
       Lib
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-5-28">
+      <label class="md-nav__title" for="nav-3-5-27">
         Lib
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -4213,6 +4201,135 @@
 <div class="admonition note">
 <p class="admonition-title">时间复杂度为 <strong>O(V+E)</strong></p>
 </div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">search</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * 101. 对称二叉树</span>
+<span class="cm"> *</span>
+<span class="cm"> * [9,-42,-42,null,76,76,null,null,13,null,13]</span>
+<span class="cm"> * false</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SymmetricBinTree</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isSymmetric</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">root</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="c1">// 方法一、递归</span>
+        <span class="c1">// return isMirror(root.left, root.right);</span>
+        <span class="c1">// 方法二、BFS</span>
+        <span class="c1">// 将左右孩子加入队列</span>
+        <span class="n">Queue</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">();</span>
+        <span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
+        <span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+        <span class="k">while</span> <span class="o">(!</span><span class="n">queue</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="c1">// 获取2个元素</span>
+            <span class="n">TreeNode</span> <span class="n">f</span> <span class="o">=</span> <span class="o">(</span><span class="n">TreeNode</span><span class="o">)</span> <span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+            <span class="n">TreeNode</span> <span class="n">s</span> <span class="o">=</span> <span class="o">(</span><span class="n">TreeNode</span><span class="o">)</span> <span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">f</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">s</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">f</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">s</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">f</span><span class="o">.</span><span class="na">val</span> <span class="o">!=</span> <span class="n">s</span><span class="o">.</span><span class="na">val</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">f</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
+            <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+            <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">f</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+            <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isMirror</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">left</span><span class="o">,</span> <span class="n">TreeNode</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">left</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">right</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">left</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">right</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">left</span><span class="o">.</span><span class="na">val</span> <span class="o">==</span> <span class="n">right</span><span class="o">.</span><span class="na">val</span> <span class="o">&amp;&amp;</span> <span class="n">isMirror</span><span class="o">(</span><span class="n">left</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">right</span><span class="o">.</span><span class="na">right</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">isMirror</span><span class="o">(</span><span class="n">left</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="n">right</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+        <span class="n">TreeNode</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">root</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">root</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+        <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+        <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">SymmetricBinTree</span> <span class="n">sbt</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SymmetricBinTree</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sbt</span><span class="o">.</span><span class="na">isSymmetric</span><span class="o">(</span><span class="n">root</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
                 
                   
                 
