@@ -2535,6 +2535,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Dijkstra/" title="Dijkstra" class="md-nav__link">
+      Dijkstra
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -3542,6 +3554,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../../other/health/口罩/" title="口罩" class="md-nav__link">
+      口罩
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../../other/health/挂号/" title="挂号" class="md-nav__link">
       挂号
     </a>
@@ -4187,10 +4211,10 @@
 <li>顶点vertice</li>
 <li>边edge</li>
 </ul>
-<p>使用 <strong>散列表</strong> 存储，key为所有顶点，value为该顶点所有邻居的数组。</p>
+<p>使用 <strong>散列表</strong> 存储，key为所有顶点，value为该顶点所有邻居的 <strong>数组</strong>。</p>
 <h2 id="_2">广度优先搜索<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <div class="admonition abstract">
-<p class="admonition-title">breadth-first search(BFS), 解决 <strong>无权图</strong> 的最短路径问题, 计算A到B有几跳</p>
+<p class="admonition-title">breadth-first search(BFS), 解决 <strong>无权图</strong> 的最短路径问题, 计算A到B有几跳, <strong>最少换乘</strong></p>
 </div>
 <p>使用 <strong>队列</strong> 广度优先搜索，先将第一层放入队列，弹出第一个元素判断，再将该顶点所有邻居放入队列，若队列为空，即未找到元素。</p>
 <ul>
@@ -4264,7 +4288,30 @@
 61
 62
 63
-64</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">search</span><span class="o">;</span>
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">search</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
@@ -4272,8 +4319,31 @@
 <span class="cm">/**</span>
 <span class="cm"> * 101. 对称二叉树</span>
 <span class="cm"> *</span>
-<span class="cm"> * [9,-42,-42,null,76,76,null,null,13,null,13]</span>
-<span class="cm"> * false</span>
+<span class="cm"> * 给定一个二叉树，检查它是否是镜像对称的。</span>
+<span class="cm"> * 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</span>
+<span class="cm"> *</span>
+<span class="cm"> *     1</span>
+<span class="cm"> *    / \</span>
+<span class="cm"> *   2   2</span>
+<span class="cm"> *  / \ / \</span>
+<span class="cm"> * 3  4 4  3</span>
+<span class="cm"> *</span>
+<span class="cm"> * 但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</span>
+<span class="cm"> *</span>
+<span class="cm"> *     1</span>
+<span class="cm"> *    / \</span>
+<span class="cm"> *   2   2</span>
+<span class="cm"> *    \   \</span>
+<span class="cm"> *    3    3</span>
+<span class="cm"> *</span>
+<span class="cm"> * [9,-42,-42,null,76,76,null,null,13,null,13] &gt;&gt; false</span>
+<span class="cm"> *</span>
+<span class="cm"> * 说明:</span>
+<span class="cm"> * 如果你可以运用递归和迭代两种方法解决这个问题，会很加分。</span>
+<span class="cm"> *</span>
+<span class="cm"> * 来源：力扣（LeetCode）</span>
+<span class="cm"> * 链接：https://leetcode-cn.com/problems/symmetric-tree</span>
+<span class="cm"> * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</span>
 <span class="cm"> */</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SymmetricBinTree</span> <span class="o">{</span>
 
@@ -4293,7 +4363,7 @@
             <span class="n">TreeNode</span> <span class="n">f</span> <span class="o">=</span> <span class="o">(</span><span class="n">TreeNode</span><span class="o">)</span> <span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
             <span class="n">TreeNode</span> <span class="n">s</span> <span class="o">=</span> <span class="o">(</span><span class="n">TreeNode</span><span class="o">)</span> <span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
             <span class="k">if</span> <span class="o">(</span><span class="n">f</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">s</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+                <span class="k">continue</span><span class="o">;</span>
             <span class="o">}</span>
             <span class="k">if</span> <span class="o">(</span><span class="n">f</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">s</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">f</span><span class="o">.</span><span class="na">val</span> <span class="o">!=</span> <span class="n">s</span><span class="o">.</span><span class="na">val</span><span class="o">)</span> <span class="o">{</span>
                 <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
@@ -4387,13 +4457,13 @@
           </a>
         
         
-          <a href="../../sort/0x00_bubble/" title="0x00_bubble" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Dijkstra/" title="Dijkstra" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                0x00_bubble
+                Dijkstra
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

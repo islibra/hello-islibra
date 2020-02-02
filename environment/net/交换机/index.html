@@ -2478,6 +2478,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../design/algorithm/search/Dijkstra/" title="Dijkstra" class="md-nav__link">
+      Dijkstra
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -3018,6 +3030,19 @@
     VLANIF
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" title="多台三层交换" class="md-nav__link">
+    多台三层交换
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -3031,9 +3056,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_16" title="堆叠" class="md-nav__link">
-    堆叠
+  <a href="#intelligent-stackistack" title="堆叠Intelligent Stack(iStack)" class="md-nav__link">
+    堆叠Intelligent Stack(iStack)
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" title="应用场景" class="md-nav__link">
+    应用场景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" title="角色" class="md-nav__link">
+    角色
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" title="配置" class="md-nav__link">
+    配置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3701,6 +3753,18 @@
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../other/health/口罩/" title="口罩" class="md-nav__link">
+      口罩
+    </a>
+  </li>
+
         
           
           
@@ -4471,6 +4535,19 @@
     VLANIF
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" title="多台三层交换" class="md-nav__link">
+    多台三层交换
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -4484,9 +4561,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_16" title="堆叠" class="md-nav__link">
-    堆叠
+  <a href="#intelligent-stackistack" title="堆叠Intelligent Stack(iStack)" class="md-nav__link">
+    堆叠Intelligent Stack(iStack)
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" title="应用场景" class="md-nav__link">
+    应用场景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" title="角色" class="md-nav__link">
+    角色
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" title="配置" class="md-nav__link">
+    配置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4623,16 +4727,41 @@ jumboframe enable 9612
 <h5 id="_15">配置<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h5>
 <p>交换机的端口有三种配置模式：Access，Trunk，Hybrid。</p>
 <ol>
-<li>Access口：端口属于VLAN，VLAN ID 1~4096。直接与计算机网卡相连，流入该口的数据包都被打上VLAN TAG, 出口规则为 <strong>Untag</strong>。</li>
-<li>Trunk口：允许多个VLAN数据通过，通过时不更换VLAN标签，出口规则为 <strong>Tag</strong>。交换机之间级联。</li>
 <li>
-<p>Hybrid口: 既可以连接用户主机, 又可以连接其他交换机接口。出口规则可以为 <strong>Tag</strong> 或 <strong>Untag</strong>。</p>
+<p>Access口：端口属于VLAN，VLAN ID 1~4096。直接与计算机网卡相连。</p>
+<ul>
+<li>接收报文不带Tag：添加PVID, <ins>接收到终端发送的报文</ins></li>
+<li>接收报文带Tag：VID=PVID，接收；VID!=PVID, 丢弃</li>
+<li>发送报文: <strong>Untag</strong>, <ins>将报文发送到终端</ins></li>
+</ul>
+</li>
+<li>
+<p>Trunk口：允许多个VLAN数据通过。交换机之间级联。</p>
+<ul>
+<li>接收报文不带Tag：添加PVID</li>
+<li>接收报文带Tag：VID属于允许通过的VLAN ID，接收；VID不属于允许通过的VLAN ID, 丢弃</li>
+<li>发送报文: 不更换VLAN <strong>Tag</strong></li>
+</ul>
+</li>
+<li>
+<p>Hybrid口: 既可以连接用户主机, 又可以连接其他交换机接口。</p>
+<ul>
+<li>接收报文不带Tag：添加PVID</li>
+<li>接收报文带Tag：VID属于允许通过的VLAN ID，接收；VID不属于允许通过的VLAN ID, 丢弃</li>
+<li>发送报文:<ul>
+<li>出口规则配置为 <strong>Tag</strong>, 不更换VLAN Tag, 同 <ins>Trunk</ins></li>
+<li>出口规则配置为 <strong>Untag</strong>, 去掉Tag, 同 <ins>Access</ins></li>
+</ul>
+</li>
+</ul>
 <blockquote>
 <p>在发送报文时，Hybrid接口可以允许多个VLAN的报文发送时不打标签。而Trunk口只允许缺省VLAN的报文发送时不打标签。</p>
 </blockquote>
 </li>
 </ol>
-<hr />
+<div class="admonition quote">
+<p class="admonition-title">参考链接: <a href="https://mp.weixin.qq.com/s/ypwInF6Yk07Oe9CrxrMqFw">VLAN三个接口类型，VID/PVID傻傻搞不清楚？这篇帮你答疑解惑！</a></p>
+</div>
 <ul>
 <li>查看VLAN配置: <code>dis vlan</code>, 默认为1</li>
 <li>批量创建: <code>vlan batch 2 to 100</code></li>
@@ -4717,14 +4846,214 @@ dis ip routing-table
 </pre></div>
 </td></tr></table>
 
+<h5 id="_16">多台三层交换<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h5>
+<p>User VLAN 10 &lt;-&gt; GE0/0/1 ACC1 GE0/0/2 &lt;-&gt; GE0/0/1 AGG GE0/0/2 &lt;-&gt; GE0/0/2 CORE GE0/0/1 &lt;-&gt; GE0/0/2 ACC2 GE0/0/1 &lt;-&gt; Server VLAN20</p>
+<blockquote>
+<p>AGG和CORE为三层交换</p>
+</blockquote>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// ACC1
+vlan batch 10
+interface GigabitEthernet0/0/1
+port link-type access
+port default vlan 10
+interface GigabitEthernet0/0/2
+port link-type trunk
+port trunk allow-pass vlan 10
+// AGG
+vlan batch 10 30
+interface GigibitEthernet0/0/1
+port link-type trunk
+port trunk allow-pass vlan 10
+interface GigabitEthernet0/0/2
+port link-type trunk
+port trunk allow-pass vlan 30
+interface Vlanif10
+ip address 10.1.1.1 255.255.255.0
+interface Vlanif30
+ip address 10.10.30.1 255.255.255.0
+// 配置静态路由
+ip route-static 192.168.1.0 255.255.255.0 10.10.30.2
+// ACC2
+vlan batch 20
+interface GigabitEthernet0/0/1
+port link-type access
+port default vlan 20
+interface GigabitEthernet0/0/2
+port link-type trunk
+port trunk allow-pass vlan 20
+// CORE
+vlan batch 20 30
+interface GigabitEthernet0/0/1
+port link-type trunk
+port trunk allow-pass vlan 20
+interface GigabitEthernet0/0/2
+port link-type trunk
+port trunk allow-pass vlan 30
+interface Vlanif20
+ip address 192.168.1.1 255.255.255.0
+interface Vlanif30
+ip address 10.10.30.2 255.255.255.0
+// 配置静态路由
+ip route-static 10.1.1.0 255.255.255.0 10.10.30.1
+</pre></div>
+</td></tr></table>
+
+<div class="admonition quote">
+<p class="admonition-title">参考链接: <a href="https://mp.weixin.qq.com/s?__biz=MzA3NDExMDk4Mw==&amp;mid=206469204&amp;idx=1&amp;sn=24586bcde9c74ac47863f2db7b817aa5&amp;scene=19#wechat_redirect">【交换机在江湖】第十一章 华为VLAN通信篇</a></p>
+</div>
 <div class="admonition quote">
 <p class="admonition-title">总目录: <a href="http://mp.weixin.qq.com/mp/homepage?__biz=MzA3NDExMDk4Mw==&amp;hid=4&amp;sn=12f0c4888aa2635cf68d7460adcc5b86&amp;scene=18#wechat_redirect">http://mp.weixin.qq.com/mp/homepage?__biz=MzA3NDExMDk4Mw==&amp;hid=4&amp;sn=12f0c4888aa2635cf68d7460adcc5b86&amp;scene=18#wechat_redirect</a></p>
 </div>
-<h2 id="_16">堆叠<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<h2 id="intelligent-stackistack">堆叠Intelligent Stack(iStack)<a class="headerlink" href="#intelligent-stackistack" title="Permanent link">&para;</a></h2>
 <div class="admonition abstract">
 <p class="admonition-title">盒式交换机设备通常部署在网络的汇聚层和接入层。当网络的规模不断扩大时，由于其 <strong>端口数量</strong> 固定，不像框式交换机可通过扩展接口板数量扩展端口数量，因此单台设备的端口数量可能无法满足网络要求。堆叠技术通过堆叠端口和堆叠连接线将 <strong>多台</strong> 支持堆叠特性的交换机设备组合在一起，从逻辑上组合成一台交换机设备。通过组建堆叠，可以达到扩展网络能力、提高设备可靠性的目的。</p>
 </div>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">[]</span>dis stack
+<h3 id="_17">应用场景<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<ol>
+<li>扩展端口数量</li>
+<li>扩展带宽</li>
+<li>简化组网</li>
+<li>延长距离</li>
+</ol>
+<h3 id="_18">角色<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Master: 主交换机 x 1</li>
+<li>Standby: 备交换机 x 1</li>
+<li>Slave: 从交换机 x N</li>
+</ol>
+<h3 id="_19">配置<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sys
+// 进入堆叠视图
+stack
+// 配置堆叠成员ID
+stack member member-id renumber new-member-id <span class="o">[</span>inherit-config<span class="o">]</span>  // 继承堆叠相关配置<span class="o">(</span>优先级, 域编号, 物理成员端口配置...<span class="o">)</span>
+// 配置优先级
+stack member <span class="o">{</span>member-id <span class="p">|</span> all<span class="o">}</span> priority priority-value
+// 配置域编号
+stack member <span class="o">{</span>member-id <span class="p">|</span> all<span class="o">}</span> domain domain-id
+// 退出堆叠视图
+
+// 创建堆叠端口<span class="o">(</span>逻辑<span class="o">)</span>
+interface stack-port member-id/port-id
+// 退出堆叠端口视图
+quit
+
+// 关闭业务口
+interface interface-type interface-number
+shutdown
+quit
+
+// 将业务口加入堆叠端口, 方式一: 堆叠端口视图
+interface stack-port member-id/port-id
+port member-group interface interface-type <span class="o">{</span>interface-number1 <span class="o">[</span>to interface-number2<span class="o">]}</span> <span class="p">&amp;</span> &lt;<span class="m">1</span>-32&gt;
+quit
+// 将业务口加入堆叠端口, 方式二: 接口视图
+interface interface-type interface-number
+stack-port member-id/port-id
+quit
+
+// 开启堆叠端口中的成员端口
+interface interface-type interface-number
+undo shutdown
+quit
+
+// 提交配置
+commit
+// 保存配置, 重启生效
+save
+reboot
+
+// 查看堆叠配置
+dis stack configuration
+// 查看堆叠信息
+dis stack
 </pre></div>
 </td></tr></table>
                 
