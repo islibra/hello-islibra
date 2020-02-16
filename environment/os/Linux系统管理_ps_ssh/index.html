@@ -2490,6 +2490,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../design/algorithm/search/Greedy/" title="Greedy" class="md-nav__link">
+      Greedy
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -3085,6 +3097,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ssh_2" title="使用ssh证书登录" class="md-nav__link">
+    使用ssh证书登录
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3276,8 +3295,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../查看操作系统版本/" title="查看操作系统版本" class="md-nav__link">
-      查看操作系统版本
+    <a href="../芯片处理器与操作系统版本/" title="芯片处理器与操作系统版本" class="md-nav__link">
+      芯片处理器与操作系统版本
     </a>
   </li>
 
@@ -3556,27 +3575,15 @@
           
 
 
-  <li class="md-nav__item">
-    <a href="../../../other/芯片与处理器/" title="芯片与处理器" class="md-nav__link">
-      芯片与处理器
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-11" type="checkbox" id="nav-6-11">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-10" type="checkbox" id="nav-6-10">
     
-    <label class="md-nav__link" for="nav-6-11">
+    <label class="md-nav__link" for="nav-6-10">
       Dts
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-11">
+      <label class="md-nav__title" for="nav-6-10">
         Dts
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3642,13 +3649,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-12" type="checkbox" id="nav-6-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-11" type="checkbox" id="nav-6-11">
     
-    <label class="md-nav__link" for="nav-6-12">
+    <label class="md-nav__link" for="nav-6-11">
       Health
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-12">
+      <label class="md-nav__title" for="nav-6-11">
         Health
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -4382,6 +4389,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ssh_2" title="使用ssh证书登录" class="md-nav__link">
+    使用ssh证书登录
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4521,6 +4535,37 @@ ClientAliveCountMax 0  #服务器发出请求后客户端没有响应的最大�
 </td></tr></table>
 
 <p>参考：<a href="https://www.cnblogs.com/enjoycode/p/5022607.html">https://www.cnblogs.com/enjoycode/p/5022607.html</a></p>
+<h3 id="ssh_2">使用ssh证书登录<a class="headerlink" href="#ssh_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>客户端生成证书和私钥<code>ssh-keygen -t rsa</code>, 私钥设置口令, 生成路径: <code>C:\Users\xxx\.ssh\id_rsa, id_rsa.pub</code></li>
+<li>将公钥上传到服务器</li>
+<li>
+<p>配置sshd_config</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span># 开启证书登录
+RSAAuthentication yes
+PubkeyAuthentication yes
+# 将id_rsa.pub内容拷贝到authorized_keys
+AuthorizedKeysFile %h/.ssh/authorized_keys
+# 禁用密码登录
+PasswordAuthentication no
+</pre></div>
+</td></tr></table>
+
+</li>
+<li>
+<p>重启SSH: <code>/etc/init.d/ssh restart</code></p>
+</li>
+<li>客户端登录: <code>ssh -i /xxx/.ssh/id_rsa xxx@&lt;ssh_server_ip&gt;</code></li>
+</ol>
+<div class="admonition quote">
+<p class="admonition-title">参考链接: <a href="https://blog.csdn.net/diyxiaoshitou/article/details/52471097">id_rsa id_pub 公钥与私钥</a></p>
+</div>
 <h2 id="sftp">sftp<a class="headerlink" href="#sftp" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2

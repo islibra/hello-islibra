@@ -2573,6 +2573,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../design/algorithm/search/Greedy/" title="Greedy" class="md-nav__link">
+      Greedy
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -3196,8 +3208,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../environment/os/查看操作系统版本/" title="查看操作系统版本" class="md-nav__link">
-      查看操作系统版本
+    <a href="../../../environment/os/芯片处理器与操作系统版本/" title="芯片处理器与操作系统版本" class="md-nav__link">
+      芯片处理器与操作系统版本
     </a>
   </li>
 
@@ -3476,27 +3488,15 @@
           
 
 
-  <li class="md-nav__item">
-    <a href="../../../other/芯片与处理器/" title="芯片与处理器" class="md-nav__link">
-      芯片与处理器
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-11" type="checkbox" id="nav-6-11">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-10" type="checkbox" id="nav-6-10">
     
-    <label class="md-nav__link" for="nav-6-11">
+    <label class="md-nav__link" for="nav-6-10">
       Dts
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-11">
+      <label class="md-nav__title" for="nav-6-10">
         Dts
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3562,13 +3562,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-12" type="checkbox" id="nav-6-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-11" type="checkbox" id="nav-6-11">
     
-    <label class="md-nav__link" for="nav-6-12">
+    <label class="md-nav__link" for="nav-6-11">
       Health
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-12">
+      <label class="md-nav__title" for="nav-6-11">
         Health
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -4261,7 +4261,7 @@
                 
                 <h1 id="0x06_">0x06_模块<a class="headerlink" href="#0x06_" title="Permanent link">&para;</a></h1>
 <h2 id="_1">导入<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>文件名即模块名，通过import导入，即可使用模块名.def定义的函数。</p>
+<p>文件名即模块名，通过import导入，即可使用 <strong>模块名.def定义的函数</strong>。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -4278,7 +4278,43 @@
 14
 15
 16
-17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="ch">#!/usr/local/bin/python</span>
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="ch">#!/usr/local/bin/python</span>
 <span class="c1"># filename: func.py</span>
 <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="o">*</span><span class="n">arg</span><span class="p">):</span>
   <span class="nb">sum</span> <span class="o">=</span> <span class="n">w</span> <span class="o">+</span> <span class="n">h</span>
@@ -4288,16 +4324,55 @@
 
 
 <span class="c1">#!/usr/local/bin/python</span>
+<span class="c1"># filename: mo.py</span>
 <span class="kn">import</span> <span class="nn">func</span>
 <span class="k">print</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="n">area</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 
 
+<span class="c1"># 调用时直接导入</span>
+<span class="c1"># filename: mo.py</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">__import__</span><span class="p">(</span><span class="s1">&#39;func&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">area</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">));</span>
+
+
 <span class="c1"># 赋值给本地变量</span>
+<span class="c1"># filename: mo.py</span>
+<span class="kn">import</span> <span class="nn">func</span>
 <span class="n">localsum</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="n">area</span>
-<span class="k">print</span><span class="p">(</span><span class="n">localsum</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">localsum</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+
+
+<span class="c1"># 判断是否存在属性/方法</span>
+<span class="c1"># filename: mo.py</span>
+<span class="n">module</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s1">&#39;func&#39;</span><span class="p">)</span>
+<span class="c1"># True</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="s2">&quot;area&quot;</span><span class="p">));</span>
+<span class="c1"># 获取方法并运行</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="s2">&quot;area&quot;</span><span class="p">)(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="c1"># 设置属性</span>
+<span class="c1"># False</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">))</span>
+<span class="nb">setattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
+<span class="c1"># True</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">))</span>
+<span class="c1"># 18</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">))</span>
+
+
+<span class="c1"># 自定义模块路径</span>
+<span class="c1"># filename: /home/islibra/customPath.py</span>
+<span class="k">def</span> <span class="nf">customPrint</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;custom&quot;</span><span class="p">)</span>
+<span class="c1"># filename: /home/islibra/python/mo.py</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;/home/islibra&quot;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">customPath</span>
+<span class="n">customPath</span><span class="o">.</span><span class="n">customPrint</span><span class="p">()</span>
 </pre></div>
 </td></tr></table>
 
+<div class="admonition quote">
+<p class="admonition-title">参考链接: <a href="https://www.cnblogs.com/cenyu/p/5713686.html">Python的hasattr() getattr() setattr() 函数使用方法详解</a></p>
+</div>
 <h2 id="_2">只导入模块中的部分功能<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">func</span> <span class="kn">import</span> <span class="n">area</span>

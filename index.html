@@ -2597,6 +2597,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="design/algorithm/search/Greedy/" title="Greedy" class="md-nav__link">
+      Greedy
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -3220,8 +3232,8 @@
 
 
   <li class="md-nav__item">
-    <a href="environment/os/查看操作系统版本/" title="查看操作系统版本" class="md-nav__link">
-      查看操作系统版本
+    <a href="environment/os/芯片处理器与操作系统版本/" title="芯片处理器与操作系统版本" class="md-nav__link">
+      芯片处理器与操作系统版本
     </a>
   </li>
 
@@ -3500,27 +3512,15 @@
           
 
 
-  <li class="md-nav__item">
-    <a href="other/芯片与处理器/" title="芯片与处理器" class="md-nav__link">
-      芯片与处理器
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-11" type="checkbox" id="nav-6-11">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-10" type="checkbox" id="nav-6-10">
     
-    <label class="md-nav__link" for="nav-6-11">
+    <label class="md-nav__link" for="nav-6-10">
       Dts
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-11">
+      <label class="md-nav__title" for="nav-6-10">
         Dts
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3586,13 +3586,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-12" type="checkbox" id="nav-6-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-11" type="checkbox" id="nav-6-11">
     
-    <label class="md-nav__link" for="nav-6-12">
+    <label class="md-nav__link" for="nav-6-11">
       Health
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-12">
+      <label class="md-nav__title" for="nav-6-11">
         Health
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -4373,7 +4373,9 @@
 <li>CRUD: Create, Retrieve, Update, Delete</li>
 <li>IAM(Identity and Access Management): 认证(身份识别) + 鉴权(访问)</li>
 <li>MTU: 通道中传输的最大数据单元</li>
-<li>native: 原生的, 如native sql<ul>
+<li>
+<p>native: 原生的, 如native sql</p>
+<ul>
 <li>Cloud Native: 在云环境下构建、运行、管理软件，充分利用云基础设施（IaaS）与平台服务（PaaS）。<ul>
 <li>架构特征：（微）服务化、弹性伸缩、分布式、高可用、多租户、自动化运维。</li>
 <li>工程特征：DevOps研发模式、微服务持续交付、自动化工具链。</li>
@@ -4382,7 +4384,34 @@
 </li>
 </ul>
 </li>
+<li>
+<p>Underlay: 传统单层网络, 所有转发行为由控制器决定, 通过OpenFlow协议或BGP协议将转发表项下发给转发器</p>
+</li>
+<li>
+<p>Overlay: 在Underlay网络上叠加逻辑网络, 转发器不支持OpenFlow或BGP协议, 需要使用隧道技术, 在传统网络上通过路由协议打通各节点, 但是在服务器接入点, 采用隧道技术将数据报文进行封装或解封装</p>
+<blockquote>
+<p>具有独立的控制平面和转发平面</p>
+</blockquote>
+<ul>
+<li>
+<p>网络Overlay</p>
+<ul>
+<li>Transparent Interconnection of Lots of Links(TRILL)</li>
+<li>Network Virtualization using Generic Routing Encapsulation(NVGRE)</li>
+<li>Stateless Transport Tunneling Protocol(STT)</li>
+<li>Virtual eXtensible LAN(VxLAN)</li>
 </ul>
+</li>
+<li>
+<p>主机Overlay</p>
+</li>
+<li>混合Overlay</li>
+</ul>
+</li>
+</ul>
+<div class="admonition quote">
+<p class="admonition-title">参考链接: <a href="https://mp.weixin.qq.com/s?src=3&amp;timestamp=1581759978&amp;ver=1&amp;signature=mFSxihVY3mTo7V4YJDaCGTIL0x7hCNcYJkO8qSuYCXsSSrSSMlYzC21wbq5FDBZ7EvO2wU*ITrx60MI7pX7BxSCpHY2h1fJmeg*mpK9EUepQFtg7mDINnwCQxZLF9IuKi37xcEpGED0i7z9m9zhFG65C6VQuW*l3SZvTBXFbcmo=">数据中心网络里的Underlay和Overlay</a></p>
+</div>
 <h2 id="_10">语录<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <ul>
 <li>为什么入职拧螺丝而面试要造航母？因为航母上有颗螺丝松了，搬砖的你要快速定位到是哪颗螺丝松了。</li>

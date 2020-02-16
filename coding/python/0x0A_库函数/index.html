@@ -1807,6 +1807,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_1" title="文件与目录" class="md-nav__link">
+    文件与目录
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ctypes" title="ctypes" class="md-nav__link">
     ctypes
   </a>
@@ -1814,7 +1821,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" title="操作系统接口" class="md-nav__link">
+  <a href="#_2" title="操作系统接口" class="md-nav__link">
     操作系统接口
   </a>
   
@@ -2552,6 +2559,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../design/algorithm/search/Greedy/" title="Greedy" class="md-nav__link">
+      Greedy
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -3175,8 +3194,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../environment/os/查看操作系统版本/" title="查看操作系统版本" class="md-nav__link">
-      查看操作系统版本
+    <a href="../../../environment/os/芯片处理器与操作系统版本/" title="芯片处理器与操作系统版本" class="md-nav__link">
+      芯片处理器与操作系统版本
     </a>
   </li>
 
@@ -3455,27 +3474,15 @@
           
 
 
-  <li class="md-nav__item">
-    <a href="../../../other/芯片与处理器/" title="芯片与处理器" class="md-nav__link">
-      芯片与处理器
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-11" type="checkbox" id="nav-6-11">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-10" type="checkbox" id="nav-6-10">
     
-    <label class="md-nav__link" for="nav-6-11">
+    <label class="md-nav__link" for="nav-6-10">
       Dts
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-11">
+      <label class="md-nav__title" for="nav-6-10">
         Dts
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3541,13 +3548,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-12" type="checkbox" id="nav-6-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-11" type="checkbox" id="nav-6-11">
     
-    <label class="md-nav__link" for="nav-6-12">
+    <label class="md-nav__link" for="nav-6-11">
       Health
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-12">
+      <label class="md-nav__title" for="nav-6-11">
         Health
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -4179,6 +4186,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_1" title="文件与目录" class="md-nav__link">
+    文件与目录
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ctypes" title="ctypes" class="md-nav__link">
     ctypes
   </a>
@@ -4186,7 +4200,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" title="操作系统接口" class="md-nav__link">
+  <a href="#_2" title="操作系统接口" class="md-nav__link">
     操作系统接口
   </a>
   
@@ -4231,6 +4245,35 @@
 <span class="c1"># 十六进制</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="mh">0x2f</span><span class="p">));</span>
 <span class="o">/</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="_1">文件与目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># 当前文件名</span>
+<span class="k">print</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
+<span class="c1"># 当前文件路径</span>
+<span class="k">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+<span class="c1"># 当前工作目录</span>
+<span class="k">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+<span class="c1"># or</span>
+<span class="k">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+<span class="c1"># 切换到目录</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/tmp&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
 </pre></div>
 </td></tr></table>
 
@@ -4380,7 +4423,7 @@
 </ol>
 <details class="quote" open="open"><summary>参考链接</summary><p><a href="https://www.cnblogs.com/night-ride-depart/p/4907613.html">python ctypes 探究 ---- python 与 c 的交互</a></p>
 </details>
-<h2 id="_1">操作系统接口<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_2">操作系统接口<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -4401,15 +4444,7 @@
 18
 19
 20
-21
-22
-23
-24
-25</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>  <span class="c1"># 当前工作目录</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/tmp&#39;</span><span class="p">)</span>  <span class="c1"># 切换到目录</span>
-<span class="k">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="k">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;ls -al&#39;</span><span class="p">))</span>  <span class="c1"># 执行操作系统命令</span>
 
 
