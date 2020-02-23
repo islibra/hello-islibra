@@ -1428,6 +1428,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../coding/java/lib/Set/" title="Set" class="md-nav__link">
+      Set
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../coding/java/lib/Stack/" title="Stack" class="md-nav__link">
       Stack
     </a>
@@ -2498,6 +2510,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../algorithm/search/DynamicProgramming/" title="DynamicProgramming" class="md-nav__link">
+      DynamicProgramming
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../algorithm/search/Greedy/" title="Greedy" class="md-nav__link">
       Greedy
     </a>
@@ -2681,9 +2705,51 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        算法图解
+      </label>
+    
     <a href="./" title="算法图解" class="md-nav__link md-nav__link--active">
       算法图解
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="最长公共子串（连续）" class="md-nav__link">
+    最长公共子串（连续）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="最长公共子序列（不连续）" class="md-nav__link">
+    最长公共子序列（不连续）
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -4119,6 +4185,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="最长公共子串（连续）" class="md-nav__link">
+    最长公共子串（连续）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="最长公共子序列（不连续）" class="md-nav__link">
+    最长公共子序列（不连续）
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -4133,21 +4228,9 @@
                 
                 
                 <h1 id="_1">算法图解<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h1 id="_2">贪婪算法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
-<ul>
-<li>求解背包问题，先计算单位价值，从大到小排列</li>
-<li>解决NP完全问题如集合覆盖问题，每次寻找局部最优解</li>
-<li>旅行商问题，每次选取距离当前城市最近的解</li>
-</ul>
-<h1 id="01">动态规划解决01背包问题<a class="headerlink" href="#01" title="Permanent link">&para;</a></h1>
-<p>以重量（限制条件）为列，商品为行，计算每个单元格（价值），其中列需要划分为最小单位。</p>
-<p>计算公式：<code>cell[i][j] = cell[i-1][j] vs 当前商品价值 + cell[i-1][j-当前商品重量]</code></p>
-<blockquote>
-<p><strong>Tips:</strong> 增加商品时只需增加行</p>
-</blockquote>
-<h2 id="_3">最长公共子串（连续）<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_2">最长公共子串（连续）<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>行列值不同为0，相同为<code>cell[i-1][j-1] + 1</code></p>
-<h2 id="_4">最长公共子序列（不连续）<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_3">最长公共子序列（不连续）<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>行列值不同为上左取最大，相同为<code>cell[i-1][j-1] + 1</code></p>
 <p>应用：DNA测序，git diff，论文查重</p>
 <h1 id="kknn">K近邻KNN<a class="headerlink" href="#kknn" title="Permanent link">&para;</a></h1>
@@ -4158,7 +4241,7 @@
 <li>回归，根据K均值对分类结果预测。</li>
 </ol>
 <p>应用：OCR文字识别，语音识别，图像识别</p>
-<h1 id="_5">朴素贝叶斯分类<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<h1 id="_4">朴素贝叶斯分类<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
 <p>垃圾邮件过滤</p>
 <ol>
 <li>计算每个单词在正常邮件出现的概率，在垃圾邮件出现的概率</li>

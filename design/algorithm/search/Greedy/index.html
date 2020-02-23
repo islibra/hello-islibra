@@ -1428,6 +1428,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../../coding/java/lib/Set/" title="Set" class="md-nav__link">
+      Set
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../../coding/java/lib/Stack/" title="Stack" class="md-nav__link">
       Stack
     </a>
@@ -2500,6 +2512,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../DynamicProgramming/" title="DynamicProgramming" class="md-nav__link">
+      DynamicProgramming
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -2529,15 +2553,62 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="教室调度问题" class="md-nav__link">
-    教室调度问题
+  <a href="#_1" title="背包问题" class="md-nav__link">
+    背包问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="资源调度问题" class="md-nav__link">
+    资源调度问题
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" title="思想" class="md-nav__link">
+  <a href="#_3" title="思想" class="md-nav__link">
+    思想
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="集合覆盖问题" class="md-nav__link">
+    集合覆盖问题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="思想" class="md-nav__link">
+    思想
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="旅行商问题" class="md-nav__link">
+    旅行商问题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="思想" class="md-nav__link">
     思想
   </a>
   
@@ -4173,15 +4244,62 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="教室调度问题" class="md-nav__link">
-    教室调度问题
+  <a href="#_1" title="背包问题" class="md-nav__link">
+    背包问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="资源调度问题" class="md-nav__link">
+    资源调度问题
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" title="思想" class="md-nav__link">
+  <a href="#_3" title="思想" class="md-nav__link">
+    思想
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="集合覆盖问题" class="md-nav__link">
+    集合覆盖问题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="思想" class="md-nav__link">
+    思想
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="旅行商问题" class="md-nav__link">
+    旅行商问题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="思想" class="md-nav__link">
     思想
   </a>
   
@@ -4219,10 +4337,12 @@
                 
                 <h1 id="greedy">Greedy<a class="headerlink" href="#greedy" title="Permanent link">&para;</a></h1>
 <div class="admonition abstract">
-<p class="admonition-title">贪婪算法, 解决NP完全问题</p>
+<p class="admonition-title">贪婪算法, 解决<mark class="critic">NP完全问题</mark></p>
 </div>
-<h2 id="_1">教室调度问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>在同一间教室的一个时间段如9:00 - 12:00(<strong>限制条件</strong>), 安排尽可能多的课程</p>
+<h2 id="_1">背包问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>先计算单位价值，从大到小排列</p>
+<h2 id="_2">资源调度问题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>在同一间教室的一个时间段如9:00 - 12:00(<strong>限制条件</strong>), 安排尽可能多(<strong>期望</strong>)的课程</p>
 <ul>
 <li>美术: 9:00 - 10:00(<strong>开销</strong>)</li>
 <li>英语: 9:30 - 10:30</li>
@@ -4230,8 +4350,192 @@
 <li>计算机: 10:30 - 11:30</li>
 <li>音乐: 11:00 - 12:00</li>
 </ul>
-<h3 id="_2">思想<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>在所有剩余课程里, 找到结束最早的课程(局部最优解)</p>
+<h3 id="_3">思想<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>在所有剩余课程里, 找到结束最早的课程(<strong>局部最优解</strong>)</p>
+<h2 id="_4">集合覆盖问题<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>KONE: ID, NV, UT(<strong>覆盖范围</strong>)</li>
+<li>KTWO: WA, ID, MT</li>
+<li>KTHREE: OR, NV, CA</li>
+<li>KFOUR: NV, UT</li>
+<li>KFIVE: CA, AZ</li>
+</ul>
+<p>每个广播台覆盖的区域可能重叠，如何找出覆盖所有集合(<strong>限制条件</strong>)的最少(<strong>期望</strong>)广播台。</p>
+<h3 id="_5">思想<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>每次查找与 <strong>剩余集合</strong> <mark class="critic">交集最多</mark>的 <strong>广播台</strong>(<strong>局部最优解</strong>)</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashSet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Greedy</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 要覆盖的所有州</span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">statesNeeded</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
+        <span class="n">statesNeeded</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;mt&quot;</span><span class="o">);</span>
+        <span class="n">statesNeeded</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;wa&quot;</span><span class="o">);</span>
+        <span class="n">statesNeeded</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;or&quot;</span><span class="o">);</span>
+        <span class="n">statesNeeded</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">);</span>
+        <span class="n">statesNeeded</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;nv&quot;</span><span class="o">);</span>
+        <span class="n">statesNeeded</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;ut&quot;</span><span class="o">);</span>
+        <span class="n">statesNeeded</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;ca&quot;</span><span class="o">);</span>
+        <span class="n">statesNeeded</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;az&quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">statesNeeded</span><span class="o">);</span>
+
+        <span class="c1">// 广播台的覆盖能力</span>
+        <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span> <span class="n">stations</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">kone</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
+        <span class="n">kone</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">);</span>
+        <span class="n">kone</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;nv&quot;</span><span class="o">);</span>
+        <span class="n">kone</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;ut&quot;</span><span class="o">);</span>
+        <span class="n">stations</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;kone&quot;</span><span class="o">,</span> <span class="n">kone</span><span class="o">);</span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">ktwo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
+        <span class="n">ktwo</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;wa&quot;</span><span class="o">);</span>
+        <span class="n">ktwo</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">);</span>
+        <span class="n">ktwo</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;mt&quot;</span><span class="o">);</span>
+        <span class="n">stations</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;ktwo&quot;</span><span class="o">,</span> <span class="n">ktwo</span><span class="o">);</span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">kthree</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
+        <span class="n">kthree</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;or&quot;</span><span class="o">);</span>
+        <span class="n">kthree</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;nv&quot;</span><span class="o">);</span>
+        <span class="n">kthree</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;ca&quot;</span><span class="o">);</span>
+        <span class="n">stations</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;kthree&quot;</span><span class="o">,</span> <span class="n">kthree</span><span class="o">);</span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">kfour</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
+        <span class="n">kfour</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;nv&quot;</span><span class="o">);</span>
+        <span class="n">kfour</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;ut&quot;</span><span class="o">);</span>
+        <span class="n">stations</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;kfour&quot;</span><span class="o">,</span> <span class="n">kfour</span><span class="o">);</span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">kfive</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
+        <span class="n">kfive</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;ca&quot;</span><span class="o">);</span>
+        <span class="n">kfive</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;az&quot;</span><span class="o">);</span>
+        <span class="n">stations</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;kfive&quot;</span><span class="o">,</span> <span class="n">kfive</span><span class="o">);</span>
+
+        <span class="c1">// 最终选择的广播台</span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">finalStations</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// 贪婪算法</span>
+        <span class="k">while</span> <span class="o">(!</span><span class="n">statesNeeded</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">String</span> <span class="n">maxStation</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+            <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">statesCovered</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
+
+            <span class="c1">// 遍历所有剩余广播台</span>
+            <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">keys</span> <span class="o">=</span> <span class="n">stations</span><span class="o">.</span><span class="na">keySet</span><span class="o">();</span>
+            <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">key</span> <span class="o">:</span> <span class="n">keys</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">states</span> <span class="o">=</span> <span class="n">stations</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
+
+                <span class="c1">// 获取交集</span>
+                <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">mixed</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
+                <span class="n">mixed</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">statesNeeded</span><span class="o">);</span>
+                <span class="n">mixed</span><span class="o">.</span><span class="na">retainAll</span><span class="o">(</span><span class="n">states</span><span class="o">);</span>
+
+                <span class="c1">// 找到覆盖更多的广播台</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">mixed</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">statesCovered</span><span class="o">.</span><span class="na">size</span><span class="o">())</span> <span class="o">{</span>
+                    <span class="n">maxStation</span> <span class="o">=</span> <span class="n">key</span><span class="o">;</span>
+                    <span class="n">statesCovered</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+                    <span class="n">statesCovered</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">mixed</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+
+            <span class="n">finalStations</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">maxStation</span><span class="o">);</span>
+            <span class="n">stations</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">maxStation</span><span class="o">);</span>
+            <span class="n">statesNeeded</span><span class="o">.</span><span class="na">removeAll</span><span class="o">(</span><span class="n">statesCovered</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">finalStations</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="_6">旅行商问题<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>找出前往5个不同城市(每个城市经过且仅经过一次)的最短路径</p>
+<blockquote>
+<p>起点未知</p>
+<p>A &rarr; B != B &rarr; A</p>
+</blockquote>
+<div class="admonition abstract">
+<p class="admonition-title">时间复杂度: O(n!)</p>
+</div>
+<h3 id="_7">思想<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>随机选取一个出发城市, 每次选取距离当前城市最近的解</p>
                 
                   
                 
@@ -4274,7 +4578,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../Dijkstra/" title="Dijkstra" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../DynamicProgramming/" title="DynamicProgramming" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -4283,7 +4587,7 @@
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                Dijkstra
+                DynamicProgramming
               </span>
             </div>
           </a>
