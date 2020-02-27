@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://islibra.github.io/hello-islibra/design/algorithm/search/BFS/">
+        <link rel="canonical" href="https://islibra.github.io/hello-islibra/design/algorithm/search/0x02_Dijkstra/">
       
       
         <meta name="author" content="李晓龙">
@@ -40,7 +40,7 @@
     
     
       
-        <title>BFS - islibra</title>
+        <title>0x02_Dijkstra - islibra</title>
       
     
     
@@ -108,7 +108,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#bfs" tabindex="1" class="md-skip">
+      <a href="#0x02_dijkstra" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -133,7 +133,7 @@
               islibra
             </span>
             <span class="md-header-nav__topic">
-              BFS
+              0x02_Dijkstra
             </span>
           
         </div>
@@ -1377,10 +1377,46 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-27" type="checkbox" id="nav-3-5-27">
     
     <label class="md-nav__link" for="nav-3-5-27">
-      Lib
+      Framework
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
       <label class="md-nav__title" for="nav-3-5-27">
+        Framework
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../coding/java/framework/Restlet/" title="Restlet" class="md-nav__link">
+      Restlet
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-28" type="checkbox" id="nav-3-5-28">
+    
+    <label class="md-nav__link" for="nav-3-5-28">
+      Lib
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-5-28">
         Lib
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2488,6 +2524,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../0x01_BFS/" title="0x01_BFS" class="md-nav__link">
+      0x01_BFS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -2499,11 +2547,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        BFS
+        0x02_Dijkstra
       </label>
     
-    <a href="./" title="BFS" class="md-nav__link md-nav__link--active">
-      BFS
+    <a href="./" title="0x02_Dijkstra" class="md-nav__link md-nav__link--active">
+      0x02_Dijkstra
     </a>
     
       
@@ -2517,15 +2565,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="图" class="md-nav__link">
-    图
+  <a href="#_1" title="思想" class="md-nav__link">
+    思想
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="广度优先搜索" class="md-nav__link">
-    广度优先搜索
+  <a href="#_2" title="示例代码" class="md-nav__link">
+    示例代码
   </a>
   
 </li>
@@ -2553,8 +2601,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../Dijkstra/" title="Dijkstra" class="md-nav__link">
-      Dijkstra
+    <a href="../0x03_Greedy/" title="0x03_Greedy" class="md-nav__link">
+      0x03_Greedy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../0x05_KNN/" title="0x05_KNN" class="md-nav__link">
+      0x05_KNN
     </a>
   </li>
 
@@ -2567,18 +2627,6 @@
   <li class="md-nav__item">
     <a href="../DynamicProgramming/" title="DynamicProgramming" class="md-nav__link">
       DynamicProgramming
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Greedy/" title="Greedy" class="md-nav__link">
-      Greedy
     </a>
   </li>
 
@@ -4191,15 +4239,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="图" class="md-nav__link">
-    图
+  <a href="#_1" title="思想" class="md-nav__link">
+    思想
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="广度优先搜索" class="md-nav__link">
-    广度优先搜索
+  <a href="#_2" title="示例代码" class="md-nav__link">
+    示例代码
   </a>
   
 </li>
@@ -4226,29 +4274,90 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/islibra/wiki/blob/master/docs/design/algorithm/search/BFS.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/islibra/wiki/blob/master/docs/design/algorithm/search/0x02_Dijkstra.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="bfs">BFS<a class="headerlink" href="#bfs" title="Permanent link">&para;</a></h1>
-<h2 id="_1">图<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<ul>
-<li>顶点vertice</li>
-<li>边edge</li>
-</ul>
-<p>使用 <strong>散列表</strong> 存储，key为所有顶点，value为该顶点所有邻居的 <strong>数组</strong>。</p>
-<h2 id="_2">广度优先搜索<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+                <h1 id="0x02_dijkstra">0x02_Dijkstra<a class="headerlink" href="#0x02_dijkstra" title="Permanent link">&para;</a></h1>
 <div class="admonition abstract">
-<p class="admonition-title">breadth-first search(BFS), 解决 <strong>无权图</strong> 的最短路径问题, 计算A到B有几跳, <strong>最少换乘</strong></p>
-</div>
-<p>使用 <strong>队列</strong> 广度优先搜索，先将第一层放入队列，弹出第一个元素判断，再将该顶点所有邻居放入队列，若队列为空，即未找到元素。</p>
+<p class="admonition-title">寻找 <strong>有向带权图</strong> 的最短路径, <strong>最短时间</strong></p>
 <ul>
-<li>记录已检查过的节点，判断之前校验是否已检查过, 防止出现环</li>
-<li>每层分一个队列，以记录跳数</li>
-<li>队列中的元素为链表，连接到起点</li>
+<li>不适用于带 <strong>环</strong> 图</li>
+<li>不适用于 <strong>负权</strong> 图</li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">时间复杂度为 <strong>O(V+E)</strong></p>
 </div>
+<h2 id="_1">思想<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>使用二维散列表保存图中各节点的邻居和权重, 如</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Map m = HashMap() {
+    &quot;start&quot;: {
+        &quot;A&quot;: 6,
+        &quot;B&quot;: 2
+    },
+    &quot;A&quot;: {
+        &quot;end&quot;: 1
+    },
+    &quot;B&quot;: {
+        &quot;A&quot;: 3,
+        &quot;end&quot;: 5
+    }
+}
+</pre></div>
+</td></tr></table>
+
+</li>
+<li>
+<p>使用Map1保存起点到每个结点的开销，默认为无穷大, 如</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Map m1 = new HashMap() {
+    &quot;A&quot;: 6,
+    &quot;B&quot;: 2,
+    &quot;end&quot;: MAX
+}
+</pre></div>
+</td></tr></table>
+
+</li>
+<li>
+<p>使用Map2保存每个节点的父节点, 如</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Map m2 = new HashMap() {
+    &quot;A&quot;: &quot;start&quot;,
+    &quot;B&quot;: &quot;start&quot;,
+    &quot;end&quot;: NULL
+}
+</pre></div>
+</td></tr></table>
+
+</li>
+<li>
+<p>使用HashSet保存已处理过的节点</p>
+</li>
+<li>循环, 在开销表中只要还有要处理的节点<ol>
+<li>找到起点到各节点的最短路径，刷新最短路径节点各邻居的开销和父节点。</li>
+</ol>
+</li>
+<li>直到最短路径为终点</li>
+</ol>
+<h2 id="_2">示例代码<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -4335,91 +4444,101 @@
 84
 85
 86
-87</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">search</span><span class="o">;</span>
+87
+88
+89
+90
+91
+92</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashSet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
 
-<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Dijkstra</span> <span class="o">{</span>
 
-<span class="cm">/**</span>
-<span class="cm"> * 101. 对称二叉树</span>
-<span class="cm"> *</span>
-<span class="cm"> * 给定一个二叉树，检查它是否是镜像对称的。</span>
-<span class="cm"> * 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</span>
-<span class="cm"> *</span>
-<span class="cm"> *     1</span>
-<span class="cm"> *    / \</span>
-<span class="cm"> *   2   2</span>
-<span class="cm"> *  / \ / \</span>
-<span class="cm"> * 3  4 4  3</span>
-<span class="cm"> *</span>
-<span class="cm"> * 但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</span>
-<span class="cm"> *</span>
-<span class="cm"> *     1</span>
-<span class="cm"> *    / \</span>
-<span class="cm"> *   2   2</span>
-<span class="cm"> *    \   \</span>
-<span class="cm"> *    3    3</span>
-<span class="cm"> *</span>
-<span class="cm"> * [9,-42,-42,null,76,76,null,null,13,null,13] &gt;&gt; false</span>
-<span class="cm"> *</span>
-<span class="cm"> * 说明:</span>
-<span class="cm"> * 如果你可以运用递归和迭代两种方法解决这个问题，会很加分。</span>
-<span class="cm"> *</span>
-<span class="cm"> * 来源：力扣（LeetCode）</span>
-<span class="cm"> * 链接：https://leetcode-cn.com/problems/symmetric-tree</span>
-<span class="cm"> * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</span>
-<span class="cm"> */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SymmetricBinTree</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Set</span> <span class="n">visited</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">();</span>
 
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isSymmetric</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">root</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="c1">// 方法一、递归</span>
-        <span class="c1">// return isMirror(root.left, root.right);</span>
-        <span class="c1">// 方法二、BFS</span>
-        <span class="c1">// 将左右孩子加入队列</span>
-        <span class="n">Queue</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">();</span>
-        <span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
-        <span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
-        <span class="k">while</span> <span class="o">(!</span><span class="n">queue</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
-            <span class="c1">// 获取2个元素</span>
-            <span class="n">TreeNode</span> <span class="n">f</span> <span class="o">=</span> <span class="o">(</span><span class="n">TreeNode</span><span class="o">)</span> <span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-            <span class="n">TreeNode</span> <span class="n">s</span> <span class="o">=</span> <span class="o">(</span><span class="n">TreeNode</span><span class="o">)</span> <span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">f</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">s</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">continue</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">findShortestPath</span><span class="o">(</span><span class="n">Map</span> <span class="n">mcost</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">shortest</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">result</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="n">Set</span> <span class="n">keys</span> <span class="o">=</span> <span class="n">mcost</span><span class="o">.</span><span class="na">keySet</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">Object</span> <span class="n">key</span> <span class="o">:</span> <span class="n">keys</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">((</span><span class="n">Integer</span><span class="o">)</span> <span class="n">mcost</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">)</span> <span class="o">&lt;</span> <span class="n">shortest</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">visited</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">key</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span> <span class="n">key</span><span class="o">;</span>
+                <span class="n">shortest</span> <span class="o">=</span> <span class="o">(</span><span class="n">Integer</span><span class="o">)</span> <span class="n">mcost</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
             <span class="o">}</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">f</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">s</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">f</span><span class="o">.</span><span class="na">val</span> <span class="o">!=</span> <span class="n">s</span><span class="o">.</span><span class="na">val</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">f</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
-            <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
-            <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">f</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
-            <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
         <span class="o">}</span>
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isMirror</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">left</span><span class="o">,</span> <span class="n">TreeNode</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">left</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">right</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">Stack</span> <span class="nf">compute</span><span class="o">(</span><span class="n">Map</span> <span class="n">m</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 起点到其他各节点的开销</span>
+        <span class="n">Map</span> <span class="n">mcost</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;();</span>
+        <span class="c1">// 父节点</span>
+        <span class="n">Map</span> <span class="n">parent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;();</span>
+
+        <span class="n">Set</span> <span class="n">nodes</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="na">keySet</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">Object</span> <span class="n">o</span> <span class="o">:</span> <span class="n">nodes</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(!</span><span class="s">&quot;start&quot;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">o</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">mcost</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">o</span><span class="o">,</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">);</span>
+                <span class="n">parent</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">o</span><span class="o">,</span> <span class="s">&quot;start&quot;</span><span class="o">);</span>
+            <span class="o">}</span>
         <span class="o">}</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">left</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">right</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="n">mcost</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;end&quot;</span><span class="o">,</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">);</span>
+        <span class="n">parent</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;end&quot;</span><span class="o">,</span> <span class="s">&quot;start&quot;</span><span class="o">);</span>
+        <span class="n">Set</span> <span class="n">startnodes</span> <span class="o">=</span> <span class="o">((</span><span class="n">HashMap</span><span class="o">)</span> <span class="n">m</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;start&quot;</span><span class="o">)).</span><span class="na">keySet</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">Object</span> <span class="n">o</span> <span class="o">:</span> <span class="n">startnodes</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">mcost</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">o</span><span class="o">,</span> <span class="o">((</span><span class="n">HashMap</span><span class="o">)</span> <span class="n">m</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;start&quot;</span><span class="o">)).</span><span class="na">get</span><span class="o">(</span><span class="n">o</span><span class="o">));</span>
         <span class="o">}</span>
-        <span class="k">return</span> <span class="n">left</span><span class="o">.</span><span class="na">val</span> <span class="o">==</span> <span class="n">right</span><span class="o">.</span><span class="na">val</span> <span class="o">&amp;&amp;</span> <span class="n">isMirror</span><span class="o">(</span><span class="n">left</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">right</span><span class="o">.</span><span class="na">right</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">isMirror</span><span class="o">(</span><span class="n">left</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="n">right</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
+
+        <span class="c1">// 在开销表中找到最短路径</span>
+        <span class="n">String</span> <span class="n">key</span> <span class="o">=</span> <span class="n">findShortestPath</span><span class="o">(</span><span class="n">mcost</span><span class="o">);</span>
+        <span class="k">while</span> <span class="o">(</span><span class="kc">null</span> <span class="o">!=</span> <span class="n">key</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="s">&quot;end&quot;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">key</span><span class="o">))</span> <span class="o">{</span>
+            <span class="c1">// 更新其所有邻居及父节点</span>
+            <span class="n">Map</span> <span class="n">mm</span> <span class="o">=</span> <span class="o">(</span><span class="n">HashMap</span><span class="o">)</span> <span class="n">m</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
+            <span class="n">Set</span> <span class="n">ss</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="na">keySet</span><span class="o">();</span>
+            <span class="k">for</span> <span class="o">(</span><span class="n">Object</span> <span class="n">o</span> <span class="o">:</span> <span class="n">ss</span><span class="o">)</span> <span class="o">{</span>
+                <span class="kt">int</span> <span class="n">newcost</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="n">mcost</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">)</span> <span class="o">+</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="n">mm</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">o</span><span class="o">);</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">newcost</span> <span class="o">&lt;</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="n">mcost</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">o</span><span class="o">))</span> <span class="o">{</span>
+                    <span class="n">mcost</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">o</span><span class="o">,</span> <span class="n">newcost</span><span class="o">);</span>
+                    <span class="n">parent</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">o</span><span class="o">,</span> <span class="n">key</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="n">visited</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">findShortestPath</span><span class="o">(</span><span class="n">mcost</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="n">Stack</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">();</span>
+        <span class="n">String</span> <span class="n">p</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span> <span class="n">parent</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;end&quot;</span><span class="o">);</span>
+        <span class="k">while</span> <span class="o">(!</span><span class="s">&quot;start&quot;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">p</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">p</span><span class="o">);</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span> <span class="n">parent</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">p</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">mcost</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;end&quot;</span><span class="o">));</span>
+        <span class="k">return</span> <span class="n">stack</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
-        <span class="n">TreeNode</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">root</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">root</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-        <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-        <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="n">SymmetricBinTree</span> <span class="n">sbt</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SymmetricBinTree</span><span class="o">();</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sbt</span><span class="o">.</span><span class="na">isSymmetric</span><span class="o">(</span><span class="n">root</span><span class="o">));</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 有向无权图</span>
+        <span class="n">Map</span> <span class="n">mstart</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;();</span>
+        <span class="n">mstart</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;A&quot;</span><span class="o">,</span> <span class="mi">6</span><span class="o">);</span>
+        <span class="n">mstart</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;B&quot;</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+        <span class="n">Map</span> <span class="n">ma</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;();</span>
+        <span class="n">ma</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;end&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="n">Map</span> <span class="n">mb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;();</span>
+        <span class="n">mb</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;A&quot;</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+        <span class="n">mb</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;end&quot;</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
+        <span class="n">Map</span> <span class="n">m</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Map</span><span class="o">&gt;();</span>
+        <span class="n">m</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;start&quot;</span><span class="o">,</span> <span class="n">mstart</span><span class="o">);</span>
+        <span class="n">m</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;A&quot;</span><span class="o">,</span> <span class="n">ma</span><span class="o">);</span>
+        <span class="n">m</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;B&quot;</span><span class="o">,</span> <span class="n">mb</span><span class="o">);</span>
+
+        <span class="n">Dijkstra</span> <span class="n">d</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Dijkstra</span><span class="o">();</span>
+        <span class="n">Stack</span> <span class="n">s</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="na">compute</span><span class="o">(</span><span class="n">m</span><span class="o">);</span>
+        <span class="k">while</span> <span class="o">(!</span><span class="n">s</span><span class="o">.</span><span class="na">empty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+        <span class="o">}</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
@@ -4466,7 +4585,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../0x00_binary_search/" title="0x00_binary_search" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../0x01_BFS/" title="0x01_BFS" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -4475,19 +4594,19 @@
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                0x00_binary_search
+                0x01_BFS
               </span>
             </div>
           </a>
         
         
-          <a href="../Dijkstra/" title="Dijkstra" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../0x03_Greedy/" title="0x03_Greedy" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                Dijkstra
+                0x03_Greedy
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

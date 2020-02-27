@@ -1377,10 +1377,46 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-27" type="checkbox" id="nav-3-5-27">
     
     <label class="md-nav__link" for="nav-3-5-27">
-      Lib
+      Framework
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
       <label class="md-nav__title" for="nav-3-5-27">
+        Framework
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../coding/java/framework/Restlet/" title="Restlet" class="md-nav__link">
+      Restlet
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-28" type="checkbox" id="nav-3-5-28">
+    
+    <label class="md-nav__link" for="nav-3-5-28">
+      Lib
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-5-28">
         Lib
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2490,8 +2526,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../BFS/" title="BFS" class="md-nav__link">
-      BFS
+    <a href="../0x01_BFS/" title="0x01_BFS" class="md-nav__link">
+      0x01_BFS
     </a>
   </li>
 
@@ -2502,8 +2538,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../Dijkstra/" title="Dijkstra" class="md-nav__link">
-      Dijkstra
+    <a href="../0x02_Dijkstra/" title="0x02_Dijkstra" class="md-nav__link">
+      0x02_Dijkstra
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../0x03_Greedy/" title="0x03_Greedy" class="md-nav__link">
+      0x03_Greedy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../0x05_KNN/" title="0x05_KNN" class="md-nav__link">
+      0x05_KNN
     </a>
   </li>
 
@@ -2560,6 +2620,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" title="旅游行程最优化" class="md-nav__link">
+    旅游行程最优化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#longestcommonsubstring" title="LongestCommonSubstring最长公共子串（连续）" class="md-nav__link">
+    LongestCommonSubstring最长公共子串（连续）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#longestcommonsequence" title="LongestCommonSequence最长公共子序列（不连续）" class="md-nav__link">
+    LongestCommonSequence最长公共子序列（不连续）
+  </a>
+  
+</li>
+      
       
       
       
@@ -2574,18 +2655,6 @@
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Greedy/" title="Greedy" class="md-nav__link">
-      Greedy
-    </a>
   </li>
 
         
@@ -4216,6 +4285,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" title="旅游行程最优化" class="md-nav__link">
+    旅游行程最优化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#longestcommonsubstring" title="LongestCommonSubstring最长公共子串（连续）" class="md-nav__link">
+    LongestCommonSubstring最长公共子串（连续）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#longestcommonsequence" title="LongestCommonSequence最长公共子序列（不连续）" class="md-nav__link">
+    LongestCommonSequence最长公共子序列（不连续）
+  </a>
+  
+</li>
+      
       
       
       
@@ -4406,6 +4496,135 @@
 <span class="o">}</span>
 </pre></div>
 </td></tr></table>
+
+<h2 id="_1">旅游行程最优化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>总共7天时间(<strong>限制条件</strong>), 去评分最高(<strong>期望</strong>)的景点游玩</p>
+<ul>
+<li>威尼斯教堂, 0.5天(<strong>开销</strong>), 7分</li>
+<li>环球剧场, 0.5天, 6分</li>
+<li>国家美术馆, 1天, 9分</li>
+<li>大英博物馆, 2天, 9分</li>
+<li>圣保罗大教堂, 0.5天, 8分</li>
+</ul>
+<blockquote>
+<p>动态规划不适合解决存在依赖关系的问题</p>
+</blockquote>
+<h2 id="longestcommonsubstring">LongestCommonSubstring最长公共子串（连续）<a class="headerlink" href="#longestcommonsubstring" title="Permanent link">&para;</a></h2>
+<ul>
+<li>HISH &lt;&gt; FISH = ISH</li>
+<li>HISH &lt;&gt; VISTA = IS</li>
+</ul>
+<p>公式: 行列值不同为0，相同为<code>cell[i-1][j-1] + 1</code></p>
+<div class="admonition tip">
+<p class="admonition-title">最终答案不一定在右下角, 因此需要记录最长值</p>
+</div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestCommonSubstring</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">srcStr</span> <span class="o">=</span> <span class="s">&quot;FISH&quot;</span><span class="o">;</span>
+        <span class="c1">//String dstStr = &quot;HISH&quot;;</span>
+        <span class="c1">//String dstStr = &quot;VISTA&quot;;</span>
+        <span class="n">String</span> <span class="n">dstStr</span> <span class="o">=</span> <span class="s">&quot;HSHEL&quot;</span><span class="o">;</span>
+        <span class="kt">char</span><span class="o">[]</span> <span class="n">srcChars</span> <span class="o">=</span> <span class="n">srcStr</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
+        <span class="kt">char</span><span class="o">[]</span> <span class="n">dstChars</span> <span class="o">=</span> <span class="n">dstStr</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
+
+        <span class="c1">// 创建表格</span>
+        <span class="kt">int</span> <span class="n">column</span> <span class="o">=</span> <span class="n">srcStr</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+        <span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="n">dstStr</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">table</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">column</span><span class="o">];</span>
+
+        <span class="kt">int</span> <span class="n">maxi</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">maxj</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">maxValue</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">row</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">column</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+
+                <span class="n">table</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+                <span class="c1">// 字符相同</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">dstChars</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">srcChars</span><span class="o">[</span><span class="n">j</span><span class="o">])</span> <span class="o">{</span>
+                    <span class="c1">// 第一行或第一列</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">table</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+                    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                        <span class="n">table</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">table</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+                    <span class="o">}</span>
+
+                    <span class="k">if</span> <span class="o">(</span><span class="n">table</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">maxValue</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">maxValue</span> <span class="o">=</span> <span class="n">table</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">];</span>
+                        <span class="n">maxi</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+                        <span class="n">maxj</span> <span class="o">=</span> <span class="n">j</span><span class="o">;</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxi</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxj</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxValue</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">maxValue</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">k</span><span class="o">--)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">srcChars</span><span class="o">[</span><span class="n">maxj</span> <span class="o">-</span> <span class="n">k</span><span class="o">]);</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="longestcommonsequence">LongestCommonSequence最长公共子序列（不连续）<a class="headerlink" href="#longestcommonsequence" title="Permanent link">&para;</a></h2>
+<p>行列值不同为上左取最大，相同为<code>cell[i-1][j-1] + 1</code></p>
+<p>应用：DNA测序，git diff，论文查重</p>
                 
                   
                 
@@ -4448,7 +4667,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../Dijkstra/" title="Dijkstra" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../0x05_KNN/" title="0x05_KNN" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -4457,19 +4676,19 @@
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                Dijkstra
+                0x05_KNN
               </span>
             </div>
           </a>
         
         
-          <a href="../Greedy/" title="Greedy" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../sort/0x00_bubble/" title="0x00_bubble" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                Greedy
+                0x00_bubble
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
