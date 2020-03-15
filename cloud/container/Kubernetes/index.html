@@ -435,6 +435,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" title="常用命令" class="md-nav__link">
+    常用命令
+  </a>
+  
+</li>
+      
       
       
       
@@ -496,6 +503,18 @@
   <li class="md-nav__item">
     <a href="../k8s_rolling_update_healthcheck/" title="k8s_rolling_update_healthcheck" class="md-nav__link">
       k8s_rolling_update_healthcheck
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s_secret/" title="k8s_secret" class="md-nav__link">
+      k8s_secret
     </a>
   </li>
 
@@ -2882,6 +2901,42 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../design/leetcode/DelOneSort/" title="DelOneSort" class="md-nav__link">
+      DelOneSort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../design/leetcode/GetPathOfCapacity/" title="GetPathOfCapacity" class="md-nav__link">
+      GetPathOfCapacity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../design/leetcode/LastSubstring/" title="LastSubstring" class="md-nav__link">
+      LastSubstring
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../design/leetcode/Memory_File_System/" title="Memory_File_System" class="md-nav__link">
       Memory_File_System
     </a>
@@ -4278,6 +4333,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" title="常用命令" class="md-nav__link">
+    常用命令
+  </a>
+  
+</li>
+      
       
       
       
@@ -4356,6 +4418,7 @@
 </ul>
 <h2 id="_2">组件协作<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>kubectl &rarr; API Server &rarr; Controller Manager &rarr; Scheduler &rarr; kubelet</p>
+<h2 id="_3">常用命令<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -4371,7 +4434,13 @@
 13
 14
 15
-16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>kubectl get namespace/ns  <span class="c1">#查看namespace</span>
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 查看版本</span>
+$ kubectl version
+
+kubectl get namespace/ns  <span class="c1">#查看namespace</span>
 kubectl get node -nmynamespace  <span class="c1">#查看指定namespace节点状态</span>
 kubectl get node --all-namespaces  <span class="c1">#查看所有namespace节点状态</span>
 kubectl create -f xxx.yaml <span class="o">[</span>-nkube-system<span class="o">]</span>  <span class="c1">#根据yaml创建资源</span>

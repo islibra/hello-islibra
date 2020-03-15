@@ -431,6 +431,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../cloud/container/k8s_secret/" title="k8s_secret" class="md-nav__link">
+      k8s_secret
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2767,6 +2779,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" title="队列" class="md-nav__link">
+    队列
+  </a>
+  
+</li>
+      
       
       
       
@@ -2867,6 +2886,42 @@
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../leetcode/DelOneSort/" title="DelOneSort" class="md-nav__link">
+      DelOneSort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../leetcode/GetPathOfCapacity/" title="GetPathOfCapacity" class="md-nav__link">
+      GetPathOfCapacity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../leetcode/LastSubstring/" title="LastSubstring" class="md-nav__link">
+      LastSubstring
+    </a>
+  </li>
+
         
           
           
@@ -4262,6 +4317,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" title="队列" class="md-nav__link">
+    队列
+  </a>
+  
+</li>
+      
       
       
       
@@ -4480,6 +4542,321 @@
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">vb</span><span class="o">.</span><span class="na">isValid</span><span class="o">(</span><span class="n">s5</span><span class="o">));</span>
         <span class="n">String</span> <span class="n">s6</span> <span class="o">=</span> <span class="s">&quot;]&quot;</span><span class="o">;</span>
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">vb</span><span class="o">.</span><span class="na">isValid</span><span class="o">(</span><span class="n">s6</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="_3">队列<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * 622. 设计循环队列</span>
+<span class="cm"> * 设计你的循环队列实现。</span>
+<span class="cm"> * 循环队列是一种线性数据结构，其操作表现基于 FIFO（先进先出）原则并且队尾被连接在队首之后以形成一个循环。</span>
+<span class="cm"> * 它也被称为“环形缓冲器”。</span>
+<span class="cm"> * 循环队列的一个好处是我们可以利用这个队列之前用过的空间。</span>
+<span class="cm"> * 在一个普通队列里，一旦一个队列满了，我们就不能插入下一个元素，即使在队列前面仍有空间。</span>
+<span class="cm"> * 但是使用循环队列，我们能使用这些空间去存储新的值。</span>
+<span class="cm"> *</span>
+<span class="cm"> * 你的实现应该支持如下操作：</span>
+<span class="cm"> * MyCircularQueue(k): 构造器，设置队列长度为 k 。</span>
+<span class="cm"> * Front: 从队首获取元素。如果队列为空，返回 -1 。</span>
+<span class="cm"> * Rear: 获取队尾元素。如果队列为空，返回 -1 。</span>
+<span class="cm"> * enQueue(value): 向循环队列插入一个元素。如果成功插入则返回真。</span>
+<span class="cm"> * deQueue(): 从循环队列中删除一个元素。如果成功删除则返回真。</span>
+<span class="cm"> * isEmpty(): 检查循环队列是否为空。</span>
+<span class="cm"> * isFull(): 检查循环队列是否已满。</span>
+<span class="cm"> *  </span>
+<span class="cm"> * 提示：</span>
+<span class="cm"> * 所有的值都在 0 至 1000 的范围内；</span>
+<span class="cm"> * 操作数将在 1 至 1000 的范围内；</span>
+<span class="cm"> * 请不要使用内置的队列库。</span>
+<span class="cm"> *</span>
+<span class="cm"> * 来源：力扣（LeetCode）</span>
+<span class="cm"> * 链接：https://leetcode-cn.com/problems/design-circular-queue</span>
+<span class="cm"> * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</span>
+<span class="cm"> *</span>
+<span class="cm"> * Your MyCircularQueue object will be instantiated and called as such:</span>
+<span class="cm"> * MyCircularQueue obj = new MyCircularQueue(k);</span>
+<span class="cm"> * boolean param_1 = obj.enQueue(value);</span>
+<span class="cm"> * boolean param_2 = obj.deQueue();</span>
+<span class="cm"> * int param_3 = obj.Front();</span>
+<span class="cm"> * int param_4 = obj.Rear();</span>
+<span class="cm"> * boolean param_5 = obj.isEmpty();</span>
+<span class="cm"> * boolean param_6 = obj.isFull();</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyCircularQueue</span> <span class="o">{</span>
+
+    <span class="c1">// 循环队列</span>
+    <span class="kd">private</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">queue</span><span class="o">;</span>
+    <span class="c1">// 队列长度</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span><span class="o">;</span>
+    <span class="c1">// 是否为空</span>
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">empty</span><span class="o">;</span>
+    <span class="c1">// 是否已满</span>
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">full</span><span class="o">;</span>
+    <span class="c1">// 队首</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">front</span><span class="o">;</span>
+    <span class="c1">// 队尾</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">rear</span><span class="o">;</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Initialize your data structure here. Set the size of the queue to be k.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">MyCircularQueue</span><span class="o">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="n">k</span><span class="o">;</span>
+        <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">k</span><span class="o">];</span>
+        <span class="n">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">queue</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">empty</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="n">full</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="n">front</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="n">rear</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Insert an element into the circular queue. Return true if the operation is successful.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">enQueue</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 队列已满</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">full</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">queue</span><span class="o">[</span><span class="n">rear</span><span class="o">]</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+        <span class="n">empty</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="n">rear</span> <span class="o">=</span> <span class="o">(</span><span class="n">rear</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">%</span> <span class="n">size</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">rear</span> <span class="o">==</span> <span class="n">front</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">full</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">queue</span><span class="o">));</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Delete an element from the circular queue. Return true if the operation is successful.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">deQueue</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// 队列为空</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">empty</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">queue</span><span class="o">[</span><span class="n">front</span><span class="o">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+        <span class="n">full</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="n">front</span> <span class="o">=</span> <span class="o">(</span><span class="n">front</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">%</span> <span class="n">size</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">rear</span> <span class="o">==</span> <span class="n">front</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">empty</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">queue</span><span class="o">));</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Get the front item from the queue.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">Front</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">queue</span><span class="o">[</span><span class="n">front</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Get the last item from the queue.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">Rear</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">queue</span><span class="o">[(</span><span class="n">rear</span> <span class="o">+</span> <span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">%</span> <span class="n">size</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Checks whether the circular queue is empty or not.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">empty</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Checks whether the circular queue is full or not.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isFull</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">full</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]){</span>
+<span class="c1">//        MyCircularQueue circularQueue = new MyCircularQueue(3); // 设置长度为 3</span>
+<span class="c1">//        System.out.println(circularQueue.enQueue(1));  // 返回 true</span>
+<span class="c1">//        System.out.println(circularQueue.enQueue(2));  // 返回 true</span>
+<span class="c1">//        System.out.println(circularQueue.enQueue(3));  // 返回 true</span>
+<span class="c1">//        System.out.println(circularQueue.enQueue(4));  // 返回 false，队列已满</span>
+<span class="c1">//        System.out.println(circularQueue.Rear());  // 返回 3</span>
+<span class="c1">//        System.out.println(circularQueue.isFull());  // 返回 true</span>
+<span class="c1">//        System.out.println(circularQueue.deQueue());  // 返回 true</span>
+<span class="c1">//        System.out.println(circularQueue.enQueue(4));  // 返回 true</span>
+<span class="c1">//        System.out.println(circularQueue.Rear());  // 返回 4</span>
+
+        <span class="n">MyCircularQueue</span> <span class="n">circularQueue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyCircularQueue</span><span class="o">(</span><span class="mi">6</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">circularQueue</span><span class="o">.</span><span class="na">enQueue</span><span class="o">(</span><span class="mi">6</span><span class="o">));</span>  <span class="c1">// 返回 true</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">circularQueue</span><span class="o">.</span><span class="na">Rear</span><span class="o">());</span>  <span class="c1">// 返回 6</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">circularQueue</span><span class="o">.</span><span class="na">Rear</span><span class="o">());</span>  <span class="c1">// 返回 6</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">circularQueue</span><span class="o">.</span><span class="na">deQueue</span><span class="o">());</span>  <span class="c1">// 返回 true</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">circularQueue</span><span class="o">.</span><span class="na">enQueue</span><span class="o">(</span><span class="mi">5</span><span class="o">));</span>  <span class="c1">// 返回 true</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">circularQueue</span><span class="o">.</span><span class="na">Rear</span><span class="o">());</span>  <span class="c1">// 返回 5</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">circularQueue</span><span class="o">.</span><span class="na">deQueue</span><span class="o">());</span>  <span class="c1">// 返回 true</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">circularQueue</span><span class="o">.</span><span class="na">Front</span><span class="o">());</span>  <span class="c1">// 返回 -1</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">circularQueue</span><span class="o">.</span><span class="na">deQueue</span><span class="o">());</span>  <span class="c1">// 返回 false</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">circularQueue</span><span class="o">.</span><span class="na">deQueue</span><span class="o">());</span>  <span class="c1">// 返回 false</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">circularQueue</span><span class="o">.</span><span class="na">deQueue</span><span class="o">());</span>  <span class="c1">// 返回 false</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>

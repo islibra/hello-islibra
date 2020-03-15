@@ -431,6 +431,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cloud/container/k8s_secret/" title="k8s_secret" class="md-nav__link">
+      k8s_secret
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2806,6 +2818,42 @@
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../design/leetcode/DelOneSort/" title="DelOneSort" class="md-nav__link">
+      DelOneSort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../design/leetcode/GetPathOfCapacity/" title="GetPathOfCapacity" class="md-nav__link">
+      GetPathOfCapacity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../design/leetcode/LastSubstring/" title="LastSubstring" class="md-nav__link">
+      LastSubstring
+    </a>
+  </li>
+
         
           
           
@@ -5248,6 +5296,9 @@
                 
                 
                 <h1 id="attack_pattern">attack_pattern<a class="headerlink" href="#attack_pattern" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title"><a href="https://kennel209.gitbooks.io/owasp-testing-guide-v4/content/zh/index.html">OWASP 测试指南 4.0</a></p>
+</div>
 <h2 id="_1">特征<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li>BASE64：包含大小写字母数字+/，以%3D(==)结尾</li>
@@ -5513,9 +5564,9 @@
 </li>
 <li>
 <p>是否存在漏洞</p>
-<ul>
-<li>检查poi-x.x.jar是否为3.10.1之前的版本</li>
-</ul>
+</li>
+<li>
+<p>检查poi-x.x.jar是否为3.10.1之前的版本</p>
 </li>
 <li>
 <p>本地启动 <strong>http服务</strong>: <code>python -m http.server 8888 --bind 192.168.1.1</code></p>
@@ -6248,7 +6299,9 @@ $ perl xxx.pl
 <h4 id="python_1">Python<a class="headerlink" href="#python_1" title="Permanent link">&para;</a></h4>
 <ol>
 <li>调用<code>eval()</code>, 验证POC: <code>__import__(%27os%27).system(%27touch%20/tmp/hackkk.sh%27)</code></li>
+<li>subprocess.Popen(cmd, shell=True, ...)</li>
 <li>自定义模块路径<code>sys.path.append("xxx")</code>可控, 导入模块名称<code>__import__("xxx")</code>可控</li>
+<li>tar --to-command</li>
 </ol>
 <h5 id="_20">格式化字符串漏洞<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h5>
 <div class="admonition quote">
@@ -6331,7 +6384,7 @@ $ perl xxx.pl
 <ol>
 <li>文件名或路径可控<ul>
 <li>在路径中添加<code>../</code>, 下载敏感文件如<code>/etc/passwd</code></li>
-<li><code>/rest/v1/file/..--..--home--xxx--.ssh--id_rsa</code></li>
+<li><code>/rest/v1/file/..--..--home--xxx--.ssh--id_rsa</code>, 在代码中将<code>--</code>替换为<code>/</code></li>
 </ul>
 </li>
 <li>如果文件路径在URL中, 需要进行URL编码<code>%2e%2e%2f</code></li>
@@ -6344,8 +6397,8 @@ $ perl xxx.pl
 </ol>
 <h3 id="_25">正则表达式<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
 <ul>
-<li>使用<a href="https://regexper.com/">REGEXPER</a>解析，是否存在两层以上的循环。</li>
-<li><a href="https://jex.im/regulex/">https://jex.im/regulex/</a></li>
+<li>使用<a href="https://jex.im/regulex/">Regulex</a>解析，是否存在两层以上的循环。</li>
+<li><a href="https://regexper.com/">REGEXPER</a></li>
 </ul>
 <h3 id="json">json<a class="headerlink" href="#json" title="Permanent link">&para;</a></h3>
 <div class="admonition quote">
