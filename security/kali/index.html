@@ -389,6 +389,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../cloud/container/Kubernetes存储/" title="Kubernetes存储" class="md-nav__link">
+      Kubernetes存储
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../cloud/container/docker/" title="docker" class="md-nav__link">
       docker
     </a>
@@ -1157,6 +1169,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../coding/java/0x07_反射/" title="0x07_反射" class="md-nav__link">
+      0x07_反射
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../coding/java/Annotation/" title="Annotation" class="md-nav__link">
       Annotation
     </a>
@@ -1386,13 +1410,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-27" type="checkbox" id="nav-3-5-27">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-28" type="checkbox" id="nav-3-5-28">
     
-    <label class="md-nav__link" for="nav-3-5-27">
+    <label class="md-nav__link" for="nav-3-5-28">
       Framework
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-5-27">
+      <label class="md-nav__title" for="nav-3-5-28">
         Framework
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1422,13 +1446,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-28" type="checkbox" id="nav-3-5-28">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-29" type="checkbox" id="nav-3-5-29">
     
-    <label class="md-nav__link" for="nav-3-5-28">
+    <label class="md-nav__link" for="nav-3-5-29">
       Lib
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-5-28">
+      <label class="md-nav__title" for="nav-3-5-29">
         Lib
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2681,8 +2705,44 @@
 
 
   <li class="md-nav__item">
-    <a href="../../design/data_structure/array_list/" title="array_list" class="md-nav__link">
-      array_list
+    <a href="../../design/data_structure/0x00_array_list/" title="0x00_array_list" class="md-nav__link">
+      0x00_array_list
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../design/data_structure/0x01_stack_queue/" title="0x01_stack_queue" class="md-nav__link">
+      0x01_stack_queue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../design/data_structure/0x02_hashtable/" title="0x02_hashtable" class="md-nav__link">
+      0x02_hashtable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../design/data_structure/0x03_binary_search_tree/" title="0x03_binary_search_tree" class="md-nav__link">
+      0x03_binary_search_tree
     </a>
   </li>
 
@@ -2705,32 +2765,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../design/data_structure/hashtable/" title="hashtable" class="md-nav__link">
-      hashtable
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../design/data_structure/red_black_tree/" title="二叉查找树" class="md-nav__link">
-      二叉查找树
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../design/data_structure/stack_queue/" title="stack_queue" class="md-nav__link">
-      stack_queue
+    <a href="../../design/data_structure/red_black_tree/" title="红黑树" class="md-nav__link">
+      红黑树
     </a>
   </li>
 
@@ -4848,10 +4884,22 @@
 </ul>
 <h3 id="0x03-webhttps">0x03. 若存在Web服务器，查看https协议版本和使用的加密套件。<a class="headerlink" href="#0x03-webhttps" title="Permanent link">&para;</a></h3>
 <ol>
-<li>使用nmap查看ssl版本<code>nmap -sT -p 443 --script ssl-enum-ciphers x.x.x.x</code><br />
+<li>
+<p>openssl 1.0.2</p>
+<ul>
+<li>
+<p>Webserver: <code>echo | openssl s_client -connect x.x.x.x:port -cipher "EDH" 2&gt;/dev/null | grep -ie "Server .* key"</code></p>
+<p><code>Server Temp Key: DH, 4096 bits</code>, DH-Parameter size, <mark class="critic">需要&gt;1024</mark></p>
+<p><code>Server public key is 4096 bit</code>, RSA size</p>
+</li>
+</ul>
+</li>
+<li>
+<p>使用nmap查看ssl版本<code>nmap -sT -p 443 --script ssl-enum-ciphers x.x.x.x</code><br />
 <img alt="" src="../../img/nmap_ssl_1.png" /><br />
 <img alt="" src="../../img/nmap_ssl_2.png" /><br />
-<mark class="critic">在warnings中查看不安全选项</mark></li>
+<mark class="critic">在warnings中查看不安全选项</mark></p>
+</li>
 <li>使用<a href="https://github.com/rbsec/sslscan/releases">sslscan</a>查看 <mark class="critic">是否存在heartbleed漏洞，弱加密套件，证书信息</mark>, <code>sslscan x.x.x.x[:port]</code><br />
 <img alt="" src="../../img/sslscan_1.png" /><br />
 <img alt="" src="../../img/sslscan_2.png" /></li>
@@ -4861,6 +4909,9 @@
 </ul>
 </li>
 </ol>
+<div class="admonition quote">
+<p class="admonition-title">参考链接: <a href="http://www.hackdig.com/05/hack-22307.htm">针对TLS Logjam加密缺陷的加固方法</a></p>
+</div>
 <h3 id="0x04-f12">0x04. F12查看页面元素是否存在隐藏域。<a class="headerlink" href="#0x04-f12" title="Permanent link">&para;</a></h3>
 <p>靶机地址：<a href="http://x.x.x.x/WackoPicko/">http://x.x.x.x/WackoPicko/</a> <sup id="fnref:bwa1"><a class="footnote-ref" href="#fn:bwa1">1</a></sup></p>
 <h3 id="0x05-cookie">0x05. 尝试修改cookie。<a class="headerlink" href="#0x05-cookie" title="Permanent link">&para;</a></h3>

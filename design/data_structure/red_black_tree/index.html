@@ -40,7 +40,7 @@
     
     
       
-        <title>二叉查找树 - islibra</title>
+        <title>红黑树 - islibra</title>
       
     
     
@@ -133,7 +133,7 @@
               islibra
             </span>
             <span class="md-header-nav__topic">
-              二叉查找树
+              红黑树
             </span>
           
         </div>
@@ -379,6 +379,18 @@
   <li class="md-nav__item">
     <a href="../../../cloud/container/Kubernetes/" title="Kubernetes" class="md-nav__link">
       Kubernetes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../cloud/container/Kubernetes存储/" title="Kubernetes存储" class="md-nav__link">
+      Kubernetes存储
     </a>
   </li>
 
@@ -1157,6 +1169,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../coding/java/0x07_反射/" title="0x07_反射" class="md-nav__link">
+      0x07_反射
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../coding/java/Annotation/" title="Annotation" class="md-nav__link">
       Annotation
     </a>
@@ -1386,13 +1410,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-27" type="checkbox" id="nav-3-5-27">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-28" type="checkbox" id="nav-3-5-28">
     
-    <label class="md-nav__link" for="nav-3-5-27">
+    <label class="md-nav__link" for="nav-3-5-28">
       Framework
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-5-27">
+      <label class="md-nav__title" for="nav-3-5-28">
         Framework
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1422,13 +1446,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-28" type="checkbox" id="nav-3-5-28">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-29" type="checkbox" id="nav-3-5-29">
     
-    <label class="md-nav__link" for="nav-3-5-28">
+    <label class="md-nav__link" for="nav-3-5-29">
       Lib
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-5-28">
+      <label class="md-nav__title" for="nav-3-5-29">
         Lib
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2685,8 +2709,44 @@
 
 
   <li class="md-nav__item">
-    <a href="../array_list/" title="array_list" class="md-nav__link">
-      array_list
+    <a href="../0x00_array_list/" title="0x00_array_list" class="md-nav__link">
+      0x00_array_list
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../0x01_stack_queue/" title="0x01_stack_queue" class="md-nav__link">
+      0x01_stack_queue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../0x02_hashtable/" title="0x02_hashtable" class="md-nav__link">
+      0x02_hashtable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../0x03_binary_search_tree/" title="0x03_binary_search_tree" class="md-nav__link">
+      0x03_binary_search_tree
     </a>
   </li>
 
@@ -2707,18 +2767,6 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="../hashtable/" title="hashtable" class="md-nav__link">
-      hashtable
-    </a>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
@@ -2729,22 +2777,10 @@
       
     
     
-    <a href="./" title="二叉查找树" class="md-nav__link md-nav__link--active">
-      二叉查找树
+    <a href="./" title="红黑树" class="md-nav__link md-nav__link--active">
+      红黑树
     </a>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../stack_queue/" title="stack_queue" class="md-nav__link">
-      stack_queue
-    </a>
   </li>
 
         
@@ -4252,18 +4288,7 @@
                   <a href="https://github.com/islibra/wiki/blob/master/docs/design/data_structure/red_black_tree.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">二叉查找树<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<ul>
-<li>左子树所有结点小于等于根结点</li>
-<li>右子树所有结点大于等于根结点</li>
-</ul>
-<p>在乱序的情况下使用二分法查找，所需查找的最大次数等于二叉树的高度。</p>
-<p>在插入和删除元素的时候，无需插入后再对数组排序。</p>
-<ul>
-<li>平均情况下时间复杂度O(logn)</li>
-<li>在不平衡的最坏情况下时间复杂度为O(n)</li>
-</ul>
-<h1 id="_2">红黑树<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">红黑树<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>自平衡的二叉树，最长路径不会超过最短路径的2倍。</p>
 <ul>
 <li>根结点黑色，每个叶子结点都是黑色的NIL</li>
@@ -4314,7 +4339,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../hashtable/" title="hashtable" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../balance_tree/" title="Balance tree" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -4323,19 +4348,19 @@
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                hashtable
+                Balance tree
               </span>
             </div>
           </a>
         
         
-          <a href="../stack_queue/" title="stack_queue" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../堆/" title="堆" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                stack_queue
+                堆
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
