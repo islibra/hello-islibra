@@ -4839,6 +4839,14 @@
 <li><code>nmap -sO -A -v --reason -n -oA proto ipaddr</code></li>
 </ul>
 </div>
+<div class="admonition faq">
+<p class="admonition-title">在未安装Nmap的机器上使用IE打开xml报告</p>
+<p>拷贝Nmap安装目录下的nmap.xsl到未安装Nmap的机器上, 编辑xml报告, 修改xsl路径, 如:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">&lt;?xml-stylesheet href=&quot;file:///D:/opt/installer/Nmap/nmap.xsl&quot; type=&quot;text/xsl&quot;?&gt;</span>
+</pre></div>
+</td></tr></table>
+
+</div>
 <h3 id="ids">防火墙和IDS规避<a class="headerlink" href="#ids" title="Permanent link">&para;</a></h3>
 <ul>
 <li>数据包变换，分片-f, --mtu <val></li>

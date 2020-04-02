@@ -6972,15 +6972,32 @@ Compression: NONE
 </div>
 <h2 id="_28">安全编译选项<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h2>
 <ol>
-<li>将readelf拷贝到/usr/bin, <code>readelf -a xxx</code></li>
-<li><code>./checksec --file=xxx</code><ul>
-<li>RELRO: GOT表保护</li>
-<li>STACK CANARY: 栈保护</li>
-<li>NX: Windows平台数据执行保护(DEP)</li>
-<li>PIE: 随机化</li>
-<li>RPATH: 动态库搜索路径</li>
-<li>FORTIFY: FS</li>
-</ul>
+<li>判断二进制文件类型: <code>file xxx</code></li>
+<li>
+<p>将readelf拷贝到/usr/bin, <code>readelf -a xxx</code></p>
+<p>判断是否Go语言应用：Section to Segment mapping中包含<code>.gosymtab .gopclntab</code>字样</p>
+<div class="admonition quote">
+<p class="admonition-title">参考链接: <a href="https://www.cnxct.com/why-golang-elf-binary-file-is-large-than-c/">golang语言编译的二进制可执行文件为什么比 C 语言大</a></p>
+</div>
+</li>
+<li>
+<p><code>./checksec --file=xxx</code></p>
+<ol>
+<li>STACK CANARY: 栈保护(<strong>SP</strong>), 包含Linux内核态</li>
+<li><strong>RELRO</strong>: GOT表保护</li>
+<li><strong>BIND_NOW</strong>: 立即绑定</li>
+<li><strong>PIC</strong>: 地址无关</li>
+<li><strong>PIE</strong>: 随机化, Windows平台 <strong>DYNAMICBASE</strong></li>
+<li><strong>NX</strong>: 堆栈不可执行, Windows平台数据执行保护(<strong>DEP</strong>)</li>
+<li>Strip: 删除符号表(Linux可选, Android必选)</li>
+<li><strong>Rpath/RunPath</strong>: 动态库搜索路径(禁选)</li>
+<li>FS: Fortify Source(可选)</li>
+<li>Ftrapv: 整数溢出检查(可选)</li>
+<li>ASLR: 缓冲区溢出, Windows平台 <strong>GS</strong></li>
+<li>Visibility: (可选)</li>
+<li>Stack Check: (可选)</li>
+<li><strong>SAFESEH</strong>: Windows平台安全异常处理</li>
+</ol>
 </li>
 </ol>
                 

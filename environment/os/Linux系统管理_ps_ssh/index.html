@@ -3254,9 +3254,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ssh_2" title="使用ssh证书登录" class="md-nav__link">
-    使用ssh证书登录
+  <a href="#ssh_2" title="使用ssh公私钥对登录" class="md-nav__link">
+    使用ssh公私钥对登录
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#known_hosts" title="known_hosts" class="md-nav__link">
+    known_hosts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -4546,9 +4559,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ssh_2" title="使用ssh证书登录" class="md-nav__link">
-    使用ssh证书登录
+  <a href="#ssh_2" title="使用ssh公私钥对登录" class="md-nav__link">
+    使用ssh公私钥对登录
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#known_hosts" title="known_hosts" class="md-nav__link">
+    known_hosts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -4691,9 +4717,9 @@ ClientAliveCountMax 0  #服务器发出请求后客户端没有响应的最大�
 </td></tr></table>
 
 <p>参考：<a href="https://www.cnblogs.com/enjoycode/p/5022607.html">https://www.cnblogs.com/enjoycode/p/5022607.html</a></p>
-<h3 id="ssh_2">使用ssh证书登录<a class="headerlink" href="#ssh_2" title="Permanent link">&para;</a></h3>
+<h3 id="ssh_2">使用ssh公私钥对登录<a class="headerlink" href="#ssh_2" title="Permanent link">&para;</a></h3>
 <ol>
-<li>客户端生成证书和私钥<code>ssh-keygen -t rsa</code>, 私钥设置口令, 生成路径: <code>C:\Users\xxx\.ssh\id_rsa, id_rsa.pub</code></li>
+<li>客户端生成公私钥对<code>ssh-keygen -t rsa</code>, 私钥设置口令, 生成路径: <code>C:\Users\xxx\.ssh\id_rsa, id_rsa.pub</code></li>
 <li>将公钥上传到服务器</li>
 <li>
 <p>配置sshd_config</p>
@@ -4722,6 +4748,22 @@ PasswordAuthentication no
 <div class="admonition quote">
 <p class="admonition-title">参考链接: <a href="https://blog.csdn.net/diyxiaoshitou/article/details/52471097">id_rsa id_pub 公钥与私钥</a></p>
 </div>
+<h4 id="known_hosts">known_hosts<a class="headerlink" href="#known_hosts" title="Permanent link">&para;</a></h4>
+<p>SSH会把 <strong>访问过</strong> 的计算机的 <strong>公钥</strong> 都记录在<code>~/.ssh/known_hosts</code>中, 当下次访问相同的计算机时, OpenSSH会核对公钥, 如果公钥不同, OpenSSH会发出警告, 避免受到DNS Hijack攻击</p>
+<p>使用<code>ssh -i /xxx/.ssh/id_rsa xxx@&lt;ssh_server_ip&gt;</code>登录时, 如果存在known_hosts且文件中不包含远程机器的IP, 会登录失败</p>
+<ul>
+<li>解决方法一(临时): 删除known_hosts</li>
+<li>解决方法二: 在known_hosts中添加远程机器的IP和公钥</li>
+<li>
+<p>解决方法三(永久): 在<code>~/.ssh/config</code>中添加</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>StrictHostKeyChecking no
+UserKnownHostsFile /dev/null
+</pre></div>
+</td></tr></table>
+
+</li>
+</ul>
 <h2 id="sftp">sftp<a class="headerlink" href="#sftp" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2

@@ -4427,20 +4427,28 @@
 15
 16
 17
-18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 基本用法</span>
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 基本用法</span>
 cat filename.xxx <span class="p">|</span> grep xxx
 grep xxx filename.xxx
 
-<span class="c1"># -i --ignore-case 忽略大小写</span>
+<span class="c1"># -n 显示行号</span>
+
+<span class="c1"># -i 忽略大小写</span>
 <span class="c1"># -C 显示上下文number行</span>
 <span class="c1"># 查找多个文件</span>
 grep -i <span class="s1">&#39;hello world&#39;</span> -C number first.java second.properties
+
+<span class="c1"># -r 目录级联查询</span>
 
 <span class="c1"># 查找多个关键词</span>
 cat filename.xxx <span class="p">|</span> grep -E <span class="s1">&#39;123|abc&#39;</span>
 cat filename.xxx <span class="p">|</span> egrep <span class="s1">&#39;123|abc&#39;</span>
 
-<span class="c1"># 过滤关键词 -v --invert-match 查找不匹配的行</span>
+<span class="c1"># 过滤关键词 -v 查找不匹配的行</span>
 ps -efw <span class="p">|</span> grep -v grep <span class="p">|</span> grep java
 
 <span class="c1"># -e --regexp=PATTERN 使用正则表达式</span>

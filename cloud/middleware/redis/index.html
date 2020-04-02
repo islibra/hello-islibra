@@ -730,6 +730,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ha" title="高可用(HA)" class="md-nav__link">
+    高可用(HA)
+  </a>
+  
+</li>
+      
       
       
       
@@ -4592,6 +4599,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ha" title="高可用(HA)" class="md-nav__link">
+    高可用(HA)
+  </a>
+  
+</li>
+      
       
       
       
@@ -4639,6 +4653,7 @@
 <li>连接的时候直接指定密码: <code>redis-cli -h 127.0.0.1 -p 6379 -a 123456</code></li>
 <li>连接后授权: <code>redis-cli -h 127.0.0.1 -p 6379</code>，<code>auth 123456</code></li>
 </ol>
+<p>查询所有key: <code>keys *</code>, <code>keys xxx*</code></p>
 <h2 id="_2">数据类型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="string-512m">String 512M<a class="headerlink" href="#string-512m" title="Permanent link">&para;</a></h3>
 <p>SET GET MSET MGET SETEX生存时间 SETNX仅不存在时 INCR DECR INCRBY DECRBY</p>
@@ -4845,6 +4860,8 @@
 <li><code>javac -cp /root/project/lib/jedis-2.9.0.jar:/root/project/lib/commons-pool2-2.5.0.jar /root/project/src/RedisPool.java</code></li>
 <li><code>java -cp /root/project/lib/jedis-2.9.0.jar:/root/project/lib/commons-pool2-2.5.0.jar:/root/project/src/ RedisPool</code></li>
 </ol>
+<h2 id="ha">高可用(HA)<a class="headerlink" href="#ha" title="Permanent link">&para;</a></h2>
+<p>Redis-Sentinel, 独立进程, 集群部署, 监控Master-Slave集群, 发现Master宕机后自动切换(选举Master, 通知另外一个进程, 如客户端)</p>
                 
                   
                 
