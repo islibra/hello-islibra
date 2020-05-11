@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://islibra.github.io/hello-islibra/environment/os/Linux用户管理/">
+        <link rel="canonical" href="https://islibra.github.io/hello-islibra/environment/os/0x06_Linux网络_ip_ifconfig_route_DNS/">
       
       
         <meta name="author" content="李晓龙">
@@ -40,7 +40,7 @@
     
     
       
-        <title>Linux用户管理 - islibra</title>
+        <title>0x06_Linux网络_ip_ifconfig_route_DNS - islibra</title>
       
     
     
@@ -108,7 +108,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#linux" tabindex="1" class="md-skip">
+      <a href="#0x06_linux_ip_ifconfig_route_dns" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -133,7 +133,7 @@
               islibra
             </span>
             <span class="md-header-nav__topic">
-              Linux用户管理
+              0x06_Linux网络_ip_ifconfig_route_DNS
             </span>
           
         </div>
@@ -3249,8 +3249,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../0x10_Windows/" title="0x10_Windows" class="md-nav__link">
-      0x10_Windows
+    <a href="../0x01_Linux系统管理_ps_ssh/" title="0x01_Linux系统管理_ps_ssh" class="md-nav__link">
+      0x01_Linux系统管理_ps_ssh
     </a>
   </li>
 
@@ -3261,8 +3261,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../0x20_macOS软件管理/" title="0x20_macOS软件管理" class="md-nav__link">
-      0x20_macOS软件管理
+    <a href="../0x02_Linux用户管理/" title="0x02_Linux用户管理" class="md-nav__link">
+      0x02_Linux用户管理
     </a>
   </li>
 
@@ -3273,8 +3273,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Linux中sh和bash的区别/" title="Linux中sh和bash的区别" class="md-nav__link">
-      Linux中sh和bash的区别
+    <a href="../0x03_Linux磁盘管理/" title="0x03_Linux磁盘管理" class="md-nav__link">
+      0x03_Linux磁盘管理
     </a>
   </li>
 
@@ -3285,8 +3285,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../Linux文件系统/" title="Linux文件系统" class="md-nav__link">
-      Linux文件系统
+    <a href="../0x04_Linux文件系统/" title="0x04_Linux文件系统" class="md-nav__link">
+      0x04_Linux文件系统
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../0x05_Linux软件管理/" title="0x05_Linux软件管理" class="md-nav__link">
+      0x05_Linux软件管理
     </a>
   </li>
 
@@ -3306,11 +3318,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Linux用户管理
+        0x06_Linux网络_ip_ifconfig_route_DNS
       </label>
     
-    <a href="./" title="Linux用户管理" class="md-nav__link md-nav__link--active">
-      Linux用户管理
+    <a href="./" title="0x06_Linux网络_ip_ifconfig_route_DNS" class="md-nav__link md-nav__link--active">
+      0x06_Linux网络_ip_ifconfig_route_DNS
     </a>
     
       
@@ -3324,23 +3336,43 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="配置文件" class="md-nav__link">
-    配置文件
+  <a href="#ping" title="开启/禁止ping" class="md-nav__link">
+    开启/禁止ping
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#etcpasswd" title="用户/etc/passwd" class="md-nav__link">
-    用户/etc/passwd
+  <a href="#_1" title="方法一: 内核参数" class="md-nav__link">
+    方法一: 内核参数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="临时修改" class="md-nav__link">
+    临时修改
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#etcgroup" title="用户组/etc/group" class="md-nav__link">
-    用户组/etc/group
+  <a href="#_3" title="永久修改" class="md-nav__link">
+    永久修改
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iptables" title="方法二: iptables" class="md-nav__link">
+    方法二: iptables
   </a>
   
 </li>
@@ -3351,45 +3383,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="用户操作" class="md-nav__link">
-    用户操作
+  <a href="#ip" title="ip" class="md-nav__link">
+    ip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ifconfig" title="ifconfig" class="md-nav__link">
+    ifconfig
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route" title="route" class="md-nav__link">
+    route
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#0x00_" title="0x00_增加用户" class="md-nav__link">
-    0x00_增加用户
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#0x01_" title="0x01_修改用户" class="md-nav__link">
-    0x01_修改用户
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" title="修改密码" class="md-nav__link">
-    修改密码
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" title="修改用户所属组" class="md-nav__link">
-    修改用户所属组
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" title="修改用户描述信息" class="md-nav__link">
-    修改用户描述信息
+  <a href="#_4" title="开启路由转发" class="md-nav__link">
+    开启路由转发
   </a>
   
 </li>
@@ -3398,24 +3415,53 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#0x02_" title="0x02_切换用户" class="md-nav__link">
-    0x02_切换用户
+      
+        <li class="md-nav__item">
+  <a href="#iptables_1" title="iptables" class="md-nav__link">
+    iptables
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" title="更改个人资讯" class="md-nav__link">
-    更改个人资讯
+  <a href="#_5" title="工作机制" class="md-nav__link">
+    工作机制
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns" title="设置DNS" class="md-nav__link">
+    设置DNS
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0x00_hosts" title="0x00_本地hosts" class="md-nav__link">
+    0x00_本地hosts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x01_dns" title="0x01_系统DNS配置" class="md-nav__link">
+    0x01_系统DNS配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x02_" title="0x02_网卡配置文件" class="md-nav__link">
+    0x02_网卡配置文件
+  </a>
   
 </li>
         
@@ -3447,8 +3493,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Linux磁盘管理/" title="Linux磁盘管理" class="md-nav__link">
-      Linux磁盘管理
+    <a href="../0x10_Windows/" title="0x10_Windows" class="md-nav__link">
+      0x10_Windows
     </a>
   </li>
 
@@ -3459,8 +3505,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Linux系统管理_ps_ssh/" title="Linux系统管理_ps_ssh" class="md-nav__link">
-      Linux系统管理_ps_ssh
+    <a href="../0x20_macOS软件管理/" title="0x20_macOS软件管理" class="md-nav__link">
+      0x20_macOS软件管理
     </a>
   </li>
 
@@ -3471,20 +3517,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Linux网络_ip_ifconfig_route_DNS/" title="Linux网络_ip_ifconfig_route_DNS" class="md-nav__link">
-      Linux网络_ip_ifconfig_route_DNS
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Linux软件管理/" title="Linux软件管理" class="md-nav__link">
-      Linux软件管理
+    <a href="../Linux中sh和bash的区别/" title="Linux中sh和bash的区别" class="md-nav__link">
+      Linux中sh和bash的区别
     </a>
   </li>
 
@@ -4636,23 +4670,43 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="配置文件" class="md-nav__link">
-    配置文件
+  <a href="#ping" title="开启/禁止ping" class="md-nav__link">
+    开启/禁止ping
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#etcpasswd" title="用户/etc/passwd" class="md-nav__link">
-    用户/etc/passwd
+  <a href="#_1" title="方法一: 内核参数" class="md-nav__link">
+    方法一: 内核参数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="临时修改" class="md-nav__link">
+    临时修改
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#etcgroup" title="用户组/etc/group" class="md-nav__link">
-    用户组/etc/group
+  <a href="#_3" title="永久修改" class="md-nav__link">
+    永久修改
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iptables" title="方法二: iptables" class="md-nav__link">
+    方法二: iptables
   </a>
   
 </li>
@@ -4663,45 +4717,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="用户操作" class="md-nav__link">
-    用户操作
+  <a href="#ip" title="ip" class="md-nav__link">
+    ip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ifconfig" title="ifconfig" class="md-nav__link">
+    ifconfig
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route" title="route" class="md-nav__link">
+    route
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#0x00_" title="0x00_增加用户" class="md-nav__link">
-    0x00_增加用户
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#0x01_" title="0x01_修改用户" class="md-nav__link">
-    0x01_修改用户
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" title="修改密码" class="md-nav__link">
-    修改密码
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" title="修改用户所属组" class="md-nav__link">
-    修改用户所属组
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" title="修改用户描述信息" class="md-nav__link">
-    修改用户描述信息
+  <a href="#_4" title="开启路由转发" class="md-nav__link">
+    开启路由转发
   </a>
   
 </li>
@@ -4710,24 +4749,53 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#0x02_" title="0x02_切换用户" class="md-nav__link">
-    0x02_切换用户
+      
+        <li class="md-nav__item">
+  <a href="#iptables_1" title="iptables" class="md-nav__link">
+    iptables
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" title="更改个人资讯" class="md-nav__link">
-    更改个人资讯
+  <a href="#_5" title="工作机制" class="md-nav__link">
+    工作机制
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns" title="设置DNS" class="md-nav__link">
+    设置DNS
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0x00_hosts" title="0x00_本地hosts" class="md-nav__link">
+    0x00_本地hosts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x01_dns" title="0x01_系统DNS配置" class="md-nav__link">
+    0x01_系统DNS配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x02_" title="0x02_网卡配置文件" class="md-nav__link">
+    0x02_网卡配置文件
+  </a>
   
 </li>
         
@@ -4758,85 +4826,272 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/islibra/wiki/blob/master/docs/environment/os/Linux用户管理.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/islibra/wiki/blob/master/docs/environment/os/0x06_Linux网络_ip_ifconfig_route_DNS.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="linux">Linux用户管理<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h1>
-<h2 id="_1">配置文件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<h3 id="etcpasswd">用户/etc/passwd<a class="headerlink" href="#etcpasswd" title="Permanent link">&para;</a></h3>
-<p>共7个字段，以冒号分隔。</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>用户名:口令:用户标识号:组标识号:注释性描述:主目录:登录Shell
+                <h1 id="0x06_linux_ip_ifconfig_route_dns">0x06_Linux网络_ip_ifconfig_route_DNS<a class="headerlink" href="#0x06_linux_ip_ifconfig_route_dns" title="Permanent link">&para;</a></h1>
+<h2 id="ping">开启/禁止ping<a class="headerlink" href="#ping" title="Permanent link">&para;</a></h2>
+<h3 id="_1">方法一: 内核参数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h4 id="_2">临时修改<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 0 允许ping</span>
+<span class="c1"># 1 禁止ping</span>
+$ <span class="nb">echo</span> <span class="m">0</span> &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all
 </pre></div>
 </td></tr></table>
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ul>
-<li>用户标识号：是一个整数，系统内部用它来标识用户。一般情况下它与用户名是一一对应的。如果几个用户名对应的用户标识号是一样的，系统内部将把它们视为同一个用户，但是它们可以有不同的口令、不同的主目录以及不同的登录Shell等。通常用户标识号的取值范围是<code>0～65535</code>。0是超级用户root的标识号，1～99由系统保留，作为管理账号，普通用户的标识号从100开始。在Linux系统中，这个界限是500。</li>
-</ul>
-</div>
-<h3 id="etcgroup">用户组/etc/group<a class="headerlink" href="#etcgroup" title="Permanent link">&para;</a></h3>
-<h2 id="_2">用户操作<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="0x00_">0x00_增加用户<a class="headerlink" href="#0x00_" title="Permanent link">&para;</a></h3>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>useradd xxx  <span class="c1"># 添加用户xxx</span>
+<h4 id="_3">永久修改<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ vim /etc/sysctl.conf
+net.ipv4.icmp_echo_ignore_all<span class="o">=</span><span class="m">1</span>
+$ sysctl -p
 </pre></div>
 </td></tr></table>
 
-<details class="note" open="open"><summary>选项</summary><ul>
-<li><code>-r</code>, 创建一个系统帐号</li>
-<li><code>-u, --uid UID</code>, 指定新帐号的UID</li>
-<li><code>-g, --gid GROUP</code>, 指定新帐号所属的用户组名称或ID</li>
-<li><code>-m</code>, 创建用户主目录</li>
-<li><code>-s, --shell SHELL</code>, 指定新帐号登录使用的shell</li>
-</ul>
-</details>
-<h3 id="0x01_">0x01_修改用户<a class="headerlink" href="#0x01_" title="Permanent link">&para;</a></h3>
-<h4 id="_3">修改密码<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<h3 id="iptables">方法二: iptables<a class="headerlink" href="#iptables" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>passwd w3cschool  <span class="c1"># 设置w3cschool用户的密码</span>
-Enter new UNIX password:  <span class="c1"># 输入新密码，输入的密码无回显</span>
-Retype new UNIX password:  <span class="c1"># 确认密码</span>
-passwd: password updated successfully
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 禁止ping</span>
+$ iptables -A INPUT -p icmp --icmp-type <span class="m">8</span> -s <span class="m">0</span>/0 -j DROP
+
+<span class="c1"># 允许ping</span>
+$ iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+$ iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
 </pre></div>
 </td></tr></table>
 
-<h4 id="_4">修改用户所属组<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>usermod -g usergroup username
-</pre></div>
-</td></tr></table>
-
-<h4 id="_5">修改用户描述信息<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>usermod -c <span class="o">{</span>description<span class="o">}</span> xxx
-</pre></div>
-</td></tr></table>
-
-<h3 id="0x02_">0x02_切换用户<a class="headerlink" href="#0x02_" title="Permanent link">&para;</a></h3>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>whoami  <span class="c1"># 显示当前用户</span>
-<span class="nb">pwd</span>  <span class="c1"># 显示当前目录</span>
-su - root  <span class="c1"># 切换到root用户</span>
-</pre></div>
-</td></tr></table>
-
-<h4 id="_6">更改个人资讯<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<div class="admonition quote">
+<p class="admonition-title">参考链接: <a href="https://www.cnblogs.com/chenshoubiao/p/4781016.html">Linux禁止ping以及开启ping的方法</a></p>
+</div>
+<h2 id="ip">ip<a class="headerlink" href="#ip" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
 5
 6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>chfn
-Changing finger information <span class="k">for</span> root.
-Name <span class="o">[</span>root<span class="o">]</span>: hnlinux
-Office <span class="o">[]</span>: hn
-Office Phone <span class="o">[]</span>: <span class="m">888888</span>
-Home Phone <span class="o">[]</span>: <span class="m">9999999</span>
-Finger information changed.
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 显示所有网络接口及IP</span>
+$ ip a
+<span class="c1"># 显示网关, 网段</span>
+$ ip r
+
+<span class="c1"># 查看网络namespace</span>
+$ ip netns
+<span class="c1"># 进入namespace执行命令</span>
+$ ip netns <span class="nb">exec</span> <span class="o">{</span>namespace<span class="o">}</span> ip a
 </pre></div>
 </td></tr></table>
+
+<h2 id="ifconfig">ifconfig<a class="headerlink" href="#ifconfig" title="Permanent link">&para;</a></h2>
+<p>/sbin/ifconfig: 查看，配置，启用，禁用网络接口的工具。</p>
+<div class="admonition warning">
+<p class="admonition-title">通过ifconfig为网卡指定的IP地址，只是用来调试网络用的，不会更改系统关于网卡的配置文件。</p>
+</div>
+<p>语法：ifconfig 接口 IP hw MAC netmask 掩码 broadcast 广播 [up/down]</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 查看所有网络接口状态</span>
+$ ifconfig -a
+<span class="c1"># 查看特定网络接口状态</span>
+ifconfig eth0
+<span class="c1"># 启用/禁用网卡</span>
+$ ifconfig eth0 up/down
+<span class="c1"># 配置arp开启/关闭</span>
+$ ifconfig eth0 arp/-arp
+<span class="c1"># 配置IP地址，子网掩码，广播地址</span>
+$ ifconfig eth0 <span class="m">192</span>.168.1.56 netmask <span class="m">255</span>.255.255.0 broadcast <span class="m">192</span>.168.1.255
+<span class="c1"># 设置网卡MAC地址</span>
+<span class="c1"># hw后面所接的是网络接口类型：ether表示以太网，其他如ax25, ARCnet, netrom...</span>
+$ ifconfig eth1 hw ether xx:xx:xx:xx:xx:xx
+</pre></div>
+</td></tr></table>
+
+<div class="admonition quote">
+<p class="admonition-title">参考链接: <a href="https://www.cnblogs.com/JohnABC/p/5951340.html">Linux-eth0 eth0:1 和eth0.1关系、ifconfig以及虚拟IP实现介绍</a></p>
+</div>
+<h2 id="route">route<a class="headerlink" href="#route" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># Linux查看路由表</span>
+$ route
+<span class="c1"># macOS查看路由表</span>
+$ netstat -nr
+<span class="c1"># 跟踪路由</span>
+$ traceroute x.x.x.x
+<span class="c1"># 添加默认路由</span>
+$ route add default gw <span class="m">192</span>.168.1.1
+<span class="c1"># 添加到主机的路由</span>
+$ route add -host <span class="m">192</span>.168.1.2 dev eth0:0
+$ route add -host <span class="m">10</span>.20.30.148 gw <span class="m">10</span>.20.30.40
+<span class="c1"># 添加到网络的路由</span>
+$ route add -net <span class="m">10</span>.20.30.40 netmask <span class="m">255</span>.255.255.248 eth0
+$ route add -net <span class="m">10</span>.20.30.48 netmask <span class="m">255</span>.255.255.248 gw <span class="m">10</span>.20.30.41
+$ route add -net <span class="m">192</span>.168.1.0/24 eth1
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>Destination: 目标网段或主机</li>
+<li>Gateway: 网关地址，<code>*</code>表示目标是本主机所属网络，不需要路由</li>
+<li>Genmask: 网络掩码</li>
+<li>Flags<ul>
+<li>U 活动路由</li>
+<li>G 路由指向网关</li>
+<li>H 主机路由</li>
+<li>N 网络路由</li>
+</ul>
+</li>
+</ul>
+<h3 id="_4">开启路由转发<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ <span class="nb">echo</span> <span class="m">1</span> &gt; /proc/sys/net/ipv4/ip_forward
+</pre></div>
+</td></tr></table>
+
+<p>或</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 写入配置文件/etc/sysctl.conf</span>
+$ sysctl -w net.ipv4.ip_forward<span class="o">=</span><span class="m">1</span>
+<span class="c1"># 查看</span>
+$ sysctl net.ipv4.ip_forward
+<span class="c1"># 从配置文件/etc/sysctl.conf加载内核参数设置</span>
+sysctl -p
+</pre></div>
+</td></tr></table>
+
+<h2 id="iptables_1">iptables<a class="headerlink" href="#iptables_1" title="Permanent link">&para;</a></h2>
+<h3 id="_5">工作机制<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>规则链名包括(也被称为五个钩子函数（hook functions）)：</p>
+<ul>
+<li><strong>INPUT链</strong> ：处理输入数据包。</li>
+<li><strong>OUTPUT链</strong> ：处理输出数据包。</li>
+<li><strong>FORWARD链</strong> ：处理转发数据包。</li>
+<li><strong>PREROUTING链</strong> ：用于目标地址转换（DNAT）。</li>
+<li><strong>POSTOUTING链</strong> ：用于源地址转换（SNAT）。</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 查看防火墙规则</span>
+$ iptables -nvL
+
+<span class="c1"># 查看SNAT规则</span>
+$ iptables -t nat -S
+
+<span class="c1"># 设置某IP禁止访问</span>
+$ iptables -A INPUT -s <span class="m">10</span>.0.0.1/32 -j DROP  <span class="c1">#增加防火墙规则</span>
+$ iptables -A OUTPUT -d <span class="m">10</span>.0.0.1/32 -j DROP
+$ iptables -L INPUT -n --line-numbers  <span class="c1">#带行号显示防火墙INPUT规则</span>
+$ iptables -D INPUT <span class="m">2</span>  <span class="c1">#通过行号删除防火墙规则</span>
+$ iptables -D OUTPUT <span class="m">3</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="dns">设置DNS<a class="headerlink" href="#dns" title="Permanent link">&para;</a></h2>
+<h3 id="0x00_hosts">0x00_本地hosts<a class="headerlink" href="#0x00_hosts" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ vim /etc/hosts
+x.x.x.x www.xxx.com
+</pre></div>
+</td></tr></table>
+
+<h3 id="0x01_dns">0x01_系统DNS配置<a class="headerlink" href="#0x01_dns" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>添加多条DNS服务器地址</p>
+</blockquote>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ vim /etc/resolv.conf
+nameserver x.x.x.x
+</pre></div>
+</td></tr></table>
+
+<div class="admonition tip">
+<p class="admonition-title">Google提供的免费DNS服务器地址: 8.8.8.8, 8.8.4.4</p>
+</div>
+<h3 id="0x02_">0x02_网卡配置文件<a class="headerlink" href="#0x02_" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>在网卡配置文件配置了DNS，重启网络服务后，会在<code>/etc/resolv.conf</code>中自动生成DNS。</p>
+</blockquote>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">Red Hat</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ vim /etc/sysconfig/network-scripts/ifcfg-eth0
+<span class="nv">DNS1</span><span class="o">=</span><span class="s2">&quot;x.x.x.x&quot;</span>
+<span class="nv">DNS2</span><span class="o">=</span><span class="s2">&quot;y.y.y.y&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">ubuntu</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ vim /etc/network/interfaces
+auto lo
+iface lo inet loopback
+auto eth0
+iface eth0 inet static
+address x.x.x.x
+netmask <span class="m">255</span>.255.255.0
+gateway x.x.x.1
+dns-nameservers x.x.x.x y.y.y.y
+</pre></div>
+</td></tr></table></div>
+</div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># 重启网络服务</span>
+service network restart
+</pre></div>
+</td></tr></table>
+
+<details class="tip" open="open"><summary>系统解析优先级</summary><p>本地hosts  &gt;  网卡配置  &gt;  系统DNS配置</p>
+</details>
                 
                   
                 
@@ -4879,7 +5134,7 @@ Finger information changed.
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../Linux文件系统/" title="Linux文件系统" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../0x05_Linux软件管理/" title="0x05_Linux软件管理" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -4888,19 +5143,19 @@ Finger information changed.
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                Linux文件系统
+                0x05_Linux软件管理
               </span>
             </div>
           </a>
         
         
-          <a href="../Linux磁盘管理/" title="Linux磁盘管理" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../0x10_Windows/" title="0x10_Windows" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                Linux磁盘管理
+                0x10_Windows
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
