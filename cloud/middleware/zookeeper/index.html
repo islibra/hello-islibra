@@ -726,28 +726,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" title="数据存储方式" class="md-nav__link">
-    数据存储方式
+  <a href="#i" title="I. 架构" class="md-nav__link">
+    I. 架构
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#api" title="API" class="md-nav__link">
-    API
+  <a href="#i_1" title="I. 数据存储方式" class="md-nav__link">
+    I. 数据存储方式
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="集群架构" class="md-nav__link">
+  <a href="#i-api" title="I. API" class="md-nav__link">
+    I. API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i_2" title="I. 性能基线" class="md-nav__link">
+    I. 性能基线
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i_3" title="I. 可靠性" class="md-nav__link">
+    I. 可靠性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="集群架构" class="md-nav__link">
     集群架构
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="应用" class="md-nav__link">
+  <a href="#_2" title="应用" class="md-nav__link">
     应用
   </a>
   
@@ -763,14 +784,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" title="结点类型" class="md-nav__link">
+  <a href="#_3" title="结点类型" class="md-nav__link">
     结点类型
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" title="分布式锁" class="md-nav__link">
+  <a href="#_4" title="分布式锁" class="md-nav__link">
     分布式锁
   </a>
   
@@ -3576,6 +3597,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../environment/os/0x21_macOS系统管理/" title="0x21_macOS系统管理" class="md-nav__link">
+      0x21_macOS系统管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../environment/os/Linux中sh和bash的区别/" title="Linux中sh和bash的区别" class="md-nav__link">
       Linux中sh和bash的区别
     </a>
@@ -4795,28 +4828,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" title="数据存储方式" class="md-nav__link">
-    数据存储方式
+  <a href="#i" title="I. 架构" class="md-nav__link">
+    I. 架构
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#api" title="API" class="md-nav__link">
-    API
+  <a href="#i_1" title="I. 数据存储方式" class="md-nav__link">
+    I. 数据存储方式
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="集群架构" class="md-nav__link">
+  <a href="#i-api" title="I. API" class="md-nav__link">
+    I. API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i_2" title="I. 性能基线" class="md-nav__link">
+    I. 性能基线
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i_3" title="I. 可靠性" class="md-nav__link">
+    I. 可靠性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="集群架构" class="md-nav__link">
     集群架构
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="应用" class="md-nav__link">
+  <a href="#_2" title="应用" class="md-nav__link">
     应用
   </a>
   
@@ -4832,14 +4886,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" title="结点类型" class="md-nav__link">
+  <a href="#_3" title="结点类型" class="md-nav__link">
     结点类型
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" title="分布式锁" class="md-nav__link">
+  <a href="#_4" title="分布式锁" class="md-nav__link">
     分布式锁
   </a>
   
@@ -4897,18 +4951,22 @@
 <h2 id="i-quickstart">I. QuickStart<a class="headerlink" href="#i-quickstart" title="Permanent link">&para;</a></h2>
 <h3 id="ii-standalone">II. Standalone 模式<a class="headerlink" href="#ii-standalone" title="Permanent link">&para;</a></h3>
 <h4 id="iii-confzoocfg">III. 配置文件 conf/zoo.cfg<a class="headerlink" href="#iii-confzoocfg" title="Permanent link">&para;</a></h4>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span># 心跳, 超时时间为 2 倍, 单位: 毫秒
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span># 心跳, 超时时间为 2 倍, 单位: 毫秒
 tickTime=2000
 
 # 存储内存中数据库的快照和数据库更新的事务日志, 修改为 已存在的 空 目录
 dataDir=/var/lib/zookeeper
+# 为数据库事务日志使用专有的目录
+dataLogDir=/var/log/zookeeper
 
 # 客户端连接端口
 clientPort=2181
@@ -5039,6 +5097,9 @@ WatchedEvent state:SyncConnected type:NodeDataChanged path:/zk_test
 </pre></div>
 </td></tr></table>
 
+<div class="admonition warning">
+<p class="admonition-title">触发 watch 时, watch 将被删除。3.6.0 中可以设置永久递归监视。</p>
+</div>
 <div class="admonition quote">
 <p class="admonition-title">官方指导: <a href="https://zookeeper.apache.org/doc/current/zookeeperStarted.html">https://zookeeper.apache.org/doc/current/zookeeperStarted.html</a></p>
 </div>
@@ -5094,23 +5155,49 @@ clientPort=2181
 <div class="admonition quote">
 <p class="admonition-title"><a href="https://mp.weixin.qq.com/s?subscene=3&amp;__biz=MzU0MTcxMDYxNA==&amp;mid=2247484927&amp;idx=1&amp;sn=7608cf30b2124fd621250c095c36c7f8&amp;chksm=fb248586cc530c908ad8b34ca51037c5f2c0767338b6860ed9ae5314b84be96f29a24ba68ba1&amp;scene=7&amp;ascene=65&amp;devicetype=android-28&amp;version=27000f51&amp;nettype=WIFI&amp;abtest_cookie=AAACAA%3D%3D&amp;lang=zh_CN&amp;exportkey=AX3IWNSpjgoGFSs%2B%2Be29uLM%3D&amp;pass_ticket=1K02ShOaEGYDYdy3bxfJ9NUTimqiZKZaZFZbFrdn5ITp4UxAjC64%2F7w%2B2RX009bF&amp;wx_header=1">如何构建一个高可用ZooKeeper集群？</a></p>
 </div>
-<h2 id="_1">数据存储方式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>以目录方式存储数据，数据结点叫做znode。</p>
-<p>数据保存在内存中。</p>
+<h2 id="i">I. 架构<a class="headerlink" href="#i" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../assets/markdown-img-paste-20200906162737986.png" /></p>
+<p><mark class="critic">主从</mark> 结构，支持 <mark class="critic">数千</mark> 台服务器</p>
+<ul>
+<li>写：转发到主结点，同步到从结点</li>
+<li>读：任意从结点</li>
+</ul>
+<p>客户端以 TCP 方式连接到其中一台服务器, 发送请求, 获取响应, 监视数据, 发送心跳, 如果服务器中断, 则连接到其他服务器。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul>
+<li>适用于 <mark class="critic">读多写少</mark> 的场景(约10:1)</li>
+<li>只用来存储少量状态和配置信息，不适合大规模业务数据，每个结点数据在 byte 到 kilobyte 范围，<mark class="critic">最大 1M</mark>。</li>
+</ul>
+</div>
+<h2 id="i_1">I. 数据存储方式<a class="headerlink" href="#i_1" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../assets/markdown-img-paste-20200906164546668.png" /></p>
+<p>以目录方式存储数据，类似文件系统，数据结点叫做 <mark class="critic">znode</mark>，但每个节点都可以 <strong>存储数据</strong>。</p>
+<p>数据保存在 <mark class="critic">内存</mark> 中。更新日志将先序列化到磁盘, 再应用到内存。</p>
+<p>数据存储 <mark class="critic">有序</mark>, 原子, 一致, 可靠, 及时。</p>
 <div class="admonition example">
 <p class="admonition-title">Znode</p>
 <ul>
 <li>data</li>
 <li>child</li>
-<li>ACL</li>
-<li>stat元数据</li>
+<li>ACL: 每个 znode 通过访问控制列表设置权限</li>
+<li>stat<ul>
+<li>cZxid = 0x2: 创建 ID, 结点任何状态变化都会导致 ZooKeeper 事务 ID 的增加</li>
+<li>ctime = Sun Sep 06 17:31:08 CST 2020: 创建时间</li>
+<li>mZxid = 0x8: 最后一次修改 ID</li>
+<li>mtime = Sun Sep 06 21:09:21 CST 2020: 最后一次修改时间</li>
+<li>pZxid = 0x2: 子结点最后一次修改 ID</li>
+<li>cversion = 0: 子结点更改</li>
+<li>dataVersion = 4: 数据更改</li>
+<li>aclVersion = 0: ACL 更改</li>
+<li>ephemeralOwner = 0x0: 临时结点 owner 的 session ID, 非临时结点为 0</li>
+<li>dataLength = 1: 数据大小</li>
+<li>numChildren = 0: 子结点数量</li>
+</ul>
+</li>
 </ul>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>适用于读多写少的场景，只用来存储少量状态和配置信息，不适合大规模业务数据。每个结点数据最大1M。</p>
-</div>
-<h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<h2 id="i-api">I. API<a class="headerlink" href="#i-api" title="Permanent link">&para;</a></h2>
 <ul>
 <li>create</li>
 <li>delete</li>
@@ -5118,18 +5205,25 @@ clientPort=2181
 <li>getData</li>
 <li>setData</li>
 <li>getChildren</li>
+<li>sync</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
 <p>在读操作上可以设置watch，在znode上注册触发器，当数据改变时触发事件，异步通知。</p>
 </div>
-<p>客户端与zookeeper集群服务器建立TCP连接。</p>
-<h2 id="_2">集群架构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>主从结构</p>
+<h2 id="i_2">I. 性能基线<a class="headerlink" href="#i_2" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../assets/markdown-img-paste-20200906180504224.png" /></p>
 <ul>
-<li>写：主结点，同步到从结点</li>
-<li>读：任意从结点</li>
+<li>dual 2Ghz Xeon, 2 SATA 15K RPM(一个用于操作系统和内存数据库快照, 一个专用于数据库事务日志)</li>
+<li>读写比例 10:1 时性能最优, 每秒达到 14 万请求数(数据大小 1K)</li>
+<li>与服务器数量相关不大</li>
 </ul>
+<h2 id="i_3">I. 可靠性<a class="headerlink" href="#i_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>follower 可以快速恢复</li>
+<li>leader 重新选举小于 200ms</li>
+</ul>
+<h2 id="_1">集群架构<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>ZAB(ZooKeeper Atomic Broadcast)协议保证一致性，类似Paxos和Raft，单调一致性，依靠事务ID和版本号保证读写有序</p>
 <ul>
 <li>崩溃恢复<ol>
@@ -5161,7 +5255,7 @@ clientPort=2181
 </li>
 </ul>
 </div>
-<h2 id="_3">应用<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_2">应用<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li>分布式锁，类似还有<ul>
 <li>memcached add</li>
@@ -5173,14 +5267,19 @@ clientPort=2181
 <li>共享配置和状态信息，如Redis, Kafka, HBase, Hadoop</li>
 </ul>
 <h3 id="zookeeper_1">zookeeper实现分布式锁<a class="headerlink" href="#zookeeper_1" title="Permanent link">&para;</a></h3>
-<h4 id="_4">结点类型<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<h4 id="_3">结点类型<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li>持久结点persistant</li>
 <li>持久结点顺序结点persistant_sequential，根据创建时间给结点编号</li>
 <li>临时结点ephemeral，创建结点的客户端断开后结点自动删除</li>
 <li>临时顺序结点</li>
 </ul>
-<h4 id="_5">分布式锁<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>3.6.0 版本以后添加了</p>
+<ul>
+<li>容器结点</li>
+<li>TTL 结点</li>
+</ul>
+<h4 id="_4">分布式锁<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
 <ol>
 <li>获取锁：创建持久结点parentlock，创建临时顺序结点lock1，判断是第一个，获得锁，否，watch前一个结点。</li>
 <li>释放锁：<ul>
