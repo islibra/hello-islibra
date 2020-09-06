@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://islibra.github.io/hello-islibra/cloud/container/dockerfile/">
+        <link rel="canonical" href="https://islibra.github.io/hello-islibra/cloud/container/0x12_本地Registry/">
       
       
         <meta name="author" content="李晓龙">
@@ -40,7 +40,7 @@
     
     
       
-        <title>Dockerfile - islibra</title>
+        <title>0x12_本地Registry - islibra</title>
       
     
     
@@ -108,7 +108,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#dockerfile" tabindex="1" class="md-skip">
+      <a href="#0x12_registry" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -133,7 +133,7 @@
               islibra
             </span>
             <span class="md-header-nav__topic">
-              Dockerfile
+              0x12_本地Registry
             </span>
           
         </div>
@@ -441,8 +441,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../0x90_client-go/" title="[0x90_client-go](https://github.com/kubernetes/client-go)" class="md-nav__link">
-      [0x90_client-go](https://github.com/kubernetes/client-go)
+    <a href="../0x06_k8s_statefulset/" title="0x06_k8s_statefulset" class="md-nav__link">
+      0x06_k8s_statefulset
     </a>
   </li>
 
@@ -453,8 +453,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Docker_CLI/" title="Docker_CLI" class="md-nav__link">
-      Docker_CLI
+    <a href="../0x10_Docker/" title="0x10_Docker" class="md-nav__link">
+      0x10_Docker
     </a>
   </li>
 
@@ -465,20 +465,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../docker/" title="docker" class="md-nav__link">
-      docker
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../docker_cgroup/" title="docker_cgroup" class="md-nav__link">
-      docker_cgroup
+    <a href="../0x11_Dockerfile/" title="0x11_Dockerfile" class="md-nav__link">
+      0x11_Dockerfile
     </a>
   </li>
 
@@ -498,11 +486,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Dockerfile
+        0x12_本地Registry
       </label>
     
-    <a href="./" title="Dockerfile" class="md-nav__link md-nav__link--active">
-      Dockerfile
+    <a href="./" title="0x12_本地Registry" class="md-nav__link md-nav__link--active">
+      0x12_本地Registry
     </a>
     
       
@@ -516,90 +504,37 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="拷贝文件到镜像" class="md-nav__link">
-    拷贝文件到镜像
+  <a href="#docker-registry" title="拉取运行 Docker 开源的 Registry 镜像" class="md-nav__link">
+    拉取运行 Docker 开源的 Registry 镜像
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#copy" title="COPY" class="md-nav__link">
-    COPY
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add" title="ADD" class="md-nav__link">
-    ADD
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="执行命令" class="md-nav__link">
-    执行命令
+  <a href="#tag" title="给本地已存在的镜像打 Tag" class="md-nav__link">
+    给本地已存在的镜像打 Tag
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#run" title="RUN" class="md-nav__link">
-    RUN
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cmd" title="CMD" class="md-nav__link">
-    CMD
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#entrypoint" title="ENTRYPOINT" class="md-nav__link">
-    ENTRYPOINT
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="两种命令格式" class="md-nav__link">
-    两种命令格式
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#shell" title="shell" class="md-nav__link">
-    shell
+  <a href="#_1" title="上传镜像" class="md-nav__link">
+    上传镜像
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#exec" title="exec" class="md-nav__link">
-    exec
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="下载镜像" class="md-nav__link">
+    下载镜像
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#registry" title="删除本地 Registry" class="md-nav__link">
+    删除本地 Registry
+  </a>
   
 </li>
       
@@ -617,6 +552,42 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../0x90_client-go/" title="[0x90_client-go](https://github.com/kubernetes/client-go)" class="md-nav__link">
+      [0x90_client-go](https://github.com/kubernetes/client-go)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../0x91_kubernetes-sigs/" title="0x91_kubernetes-sigs" class="md-nav__link">
+      0x91_kubernetes-sigs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../docker_cgroup/" title="docker_cgroup" class="md-nav__link">
+      docker_cgroup
+    </a>
   </li>
 
         
@@ -712,6 +683,18 @@
   <li class="md-nav__item">
     <a href="../../middleware/memcached/" title="memcached" class="md-nav__link">
       memcached
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../middleware/prometheus/" title="prometheus" class="md-nav__link">
+      prometheus
     </a>
   </li>
 
@@ -931,8 +914,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../coding/compare/" title="compare" class="md-nav__link">
-      compare
+    <a href="../../../coding/yaml/" title="yaml" class="md-nav__link">
+      yaml
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coding/各语言语法对比/" title="各语言语法对比" class="md-nav__link">
+      各语言语法对比
     </a>
   </li>
 
@@ -944,13 +939,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
     
-    <label class="md-nav__link" for="nav-3-2">
+    <label class="md-nav__link" for="nav-3-3">
       C
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-2">
+      <label class="md-nav__title" for="nav-3-3">
         C
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1016,13 +1011,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
     
-    <label class="md-nav__link" for="nav-3-3">
+    <label class="md-nav__link" for="nav-3-4">
       Db
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-3">
+      <label class="md-nav__title" for="nav-3-4">
         Db
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1172,13 +1167,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
     
-    <label class="md-nav__link" for="nav-3-4">
+    <label class="md-nav__link" for="nav-3-5">
       Go
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
+      <label class="md-nav__title" for="nav-3-5">
         Go
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1220,6 +1215,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coding/go/线程/" title="线程" class="md-nav__link">
+      线程
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1232,13 +1239,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6">
     
-    <label class="md-nav__link" for="nav-3-5">
+    <label class="md-nav__link" for="nav-3-6">
       Java
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-5">
+      <label class="md-nav__title" for="nav-3-6">
         Java
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1430,6 +1437,78 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../coding/java/0x0F_JavaDoc/" title="0x0F_JavaDoc" class="md-nav__link">
+      0x0F_JavaDoc
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coding/java/0x10_SSL/" title="0x10_SSL" class="md-nav__link">
+      0x10_SSL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coding/java/0x11_JMX/" title="0x11_JMX" class="md-nav__link">
+      0x11_JMX
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coding/java/0x12_Lambda表达式/" title="0x12_Lambda表达式" class="md-nav__link">
+      0x12_Lambda表达式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coding/java/0x13_Stream/" title="0x13_Stream" class="md-nav__link">
+      0x13_Stream
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coding/java/0xFB_单元测试/" title="0xFB_单元测试" class="md-nav__link">
+      0xFB_单元测试
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../coding/java/0xFC_SQL/" title="0xFC_SQL" class="md-nav__link">
       0xFC_SQL
     </a>
@@ -1502,44 +1581,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../coding/java/Java8 Stream/" title="Java8 Stream" class="md-nav__link">
-      Java8 Stream
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../coding/java/Java单元测试/" title="Java单元测试" class="md-nav__link">
-      Java单元测试
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../../coding/java/Java读取properties配置文件/" title="Java读取properties配置文件" class="md-nav__link">
       Java读取properties配置文件
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../coding/java/Lambda表达式/" title="Lambda表达式" class="md-nav__link">
-      Lambda表达式
     </a>
   </li>
 
@@ -1564,18 +1607,6 @@
   <li class="md-nav__item">
     <a href="../../../coding/java/NTPClient/" title="NTPClient" class="md-nav__link">
       NTPClient
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../coding/java/SSL/" title="SSL" class="md-nav__link">
-      SSL
     </a>
   </li>
 
@@ -1635,17 +1666,29 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-33" type="checkbox" id="nav-3-5-33">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-6-35" type="checkbox" id="nav-3-6-35">
     
-    <label class="md-nav__link" for="nav-3-5-33">
+    <label class="md-nav__link" for="nav-3-6-35">
       Framework
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-5-33">
+      <label class="md-nav__title" for="nav-3-6-35">
         Framework
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coding/java/framework/Lombok/" title="Lombok" class="md-nav__link">
+      Lombok
+    </a>
+  </li>
+
         
           
           
@@ -1695,13 +1738,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-34" type="checkbox" id="nav-3-5-34">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-6-36" type="checkbox" id="nav-3-6-36">
     
-    <label class="md-nav__link" for="nav-3-5-34">
+    <label class="md-nav__link" for="nav-3-6-36">
       Lib
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-5-34">
+      <label class="md-nav__title" for="nav-3-6-36">
         Lib
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1820,13 +1863,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7">
     
-    <label class="md-nav__link" for="nav-3-6">
+    <label class="md-nav__link" for="nav-3-7">
       Javascript
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-6">
+      <label class="md-nav__title" for="nav-3-7">
         Javascript
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1880,13 +1923,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8" type="checkbox" id="nav-3-8">
     
-    <label class="md-nav__link" for="nav-3-7">
+    <label class="md-nav__link" for="nav-3-8">
       Julia
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-7">
+      <label class="md-nav__title" for="nav-3-8">
         Julia
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1916,13 +1959,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8" type="checkbox" id="nav-3-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-9" type="checkbox" id="nav-3-9">
     
-    <label class="md-nav__link" for="nav-3-8">
+    <label class="md-nav__link" for="nav-3-9">
       Perl
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-8">
+      <label class="md-nav__title" for="nav-3-9">
         Perl
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1952,13 +1995,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-9" type="checkbox" id="nav-3-9">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-10" type="checkbox" id="nav-3-10">
     
-    <label class="md-nav__link" for="nav-3-9">
+    <label class="md-nav__link" for="nav-3-10">
       Php
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-9">
+      <label class="md-nav__title" for="nav-3-10">
         Php
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1988,13 +2031,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-10" type="checkbox" id="nav-3-10">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-11" type="checkbox" id="nav-3-11">
     
-    <label class="md-nav__link" for="nav-3-10">
+    <label class="md-nav__link" for="nav-3-11">
       Python
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-10">
+      <label class="md-nav__title" for="nav-3-11">
         Python
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2163,13 +2206,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-10-14" type="checkbox" id="nav-3-10-14">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-11-14" type="checkbox" id="nav-3-11-14">
     
-    <label class="md-nav__link" for="nav-3-10-14">
+    <label class="md-nav__link" for="nav-3-11-14">
       Framework
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-10-14">
+      <label class="md-nav__title" for="nav-3-11-14">
         Framework
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2211,13 +2254,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-10-15" type="checkbox" id="nav-3-10-15">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-11-15" type="checkbox" id="nav-3-11-15">
     
-    <label class="md-nav__link" for="nav-3-10-15">
+    <label class="md-nav__link" for="nav-3-11-15">
       Spider
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-10-15">
+      <label class="md-nav__title" for="nav-3-11-15">
         Spider
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2264,13 +2307,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-11" type="checkbox" id="nav-3-11">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-12" type="checkbox" id="nav-3-12">
     
-    <label class="md-nav__link" for="nav-3-11">
+    <label class="md-nav__link" for="nav-3-12">
       Springboot
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-11">
+      <label class="md-nav__title" for="nav-3-12">
         Springboot
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2360,13 +2403,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-12" type="checkbox" id="nav-3-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-13" type="checkbox" id="nav-3-13">
     
-    <label class="md-nav__link" for="nav-3-12">
+    <label class="md-nav__link" for="nav-3-13">
       Struts
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-12">
+      <label class="md-nav__title" for="nav-3-13">
         Struts
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2396,13 +2439,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-13" type="checkbox" id="nav-3-13">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-14" type="checkbox" id="nav-3-14">
     
-    <label class="md-nav__link" for="nav-3-13">
+    <label class="md-nav__link" for="nav-3-14">
       Web
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-13">
+      <label class="md-nav__title" for="nav-3-14">
         Web
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2552,13 +2595,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-14" type="checkbox" id="nav-3-14">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-15" type="checkbox" id="nav-3-15">
     
-    <label class="md-nav__link" for="nav-3-14">
+    <label class="md-nav__link" for="nav-3-15">
       Writing
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-14">
+      <label class="md-nav__title" for="nav-3-15">
         Writing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2636,13 +2679,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-15" type="checkbox" id="nav-3-15">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-16" type="checkbox" id="nav-3-16">
     
-    <label class="md-nav__link" for="nav-3-15">
+    <label class="md-nav__link" for="nav-3-16">
       Xml
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-15">
+      <label class="md-nav__title" for="nav-3-16">
         Xml
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2656,42 +2699,6 @@
   <li class="md-nav__item">
     <a href="../../../coding/xml/CDATA/" title="CDATA" class="md-nav__link">
       CDATA
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-16" type="checkbox" id="nav-3-16">
-    
-    <label class="md-nav__link" for="nav-3-16">
-      Yaml
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-16">
-        Yaml
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../coding/yaml/yaml/" title="yaml" class="md-nav__link">
-      yaml
     </a>
   </li>
 
@@ -3434,6 +3441,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../environment/os/0x07_Linux图形化/" title="0x07_Linux图形化" class="md-nav__link">
+      0x07_Linux图形化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../environment/os/0x08_编辑器/" title="0x08_编辑器" class="md-nav__link">
+      0x08_编辑器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../environment/os/0x10_Windows/" title="0x10_Windows" class="md-nav__link">
       0x10_Windows
     </a>
@@ -3566,18 +3597,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../environment/os/vim/" title="vim" class="md-nav__link">
-      vim
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../../environment/os/芯片处理器与操作系统版本/" title="芯片处理器与操作系统版本" class="md-nav__link">
       芯片处理器与操作系统版本
     </a>
@@ -3616,6 +3635,30 @@
   <li class="md-nav__item">
     <a href="../../../environment/tools/Git/" title="Git" class="md-nav__link">
       Git
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../environment/tools/Gradle/" title="Gradle" class="md-nav__link">
+      Gradle
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../environment/tools/Makefile/" title="Makefile" class="md-nav__link">
+      Makefile
     </a>
   </li>
 
@@ -4611,90 +4654,37 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="拷贝文件到镜像" class="md-nav__link">
-    拷贝文件到镜像
+  <a href="#docker-registry" title="拉取运行 Docker 开源的 Registry 镜像" class="md-nav__link">
+    拉取运行 Docker 开源的 Registry 镜像
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#copy" title="COPY" class="md-nav__link">
-    COPY
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add" title="ADD" class="md-nav__link">
-    ADD
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="执行命令" class="md-nav__link">
-    执行命令
+  <a href="#tag" title="给本地已存在的镜像打 Tag" class="md-nav__link">
+    给本地已存在的镜像打 Tag
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#run" title="RUN" class="md-nav__link">
-    RUN
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cmd" title="CMD" class="md-nav__link">
-    CMD
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#entrypoint" title="ENTRYPOINT" class="md-nav__link">
-    ENTRYPOINT
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="两种命令格式" class="md-nav__link">
-    两种命令格式
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#shell" title="shell" class="md-nav__link">
-    shell
+  <a href="#_1" title="上传镜像" class="md-nav__link">
+    上传镜像
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#exec" title="exec" class="md-nav__link">
-    exec
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="下载镜像" class="md-nav__link">
+    下载镜像
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#registry" title="删除本地 Registry" class="md-nav__link">
+    删除本地 Registry
+  </a>
   
 </li>
       
@@ -4720,134 +4710,52 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/islibra/wiki/blob/master/docs/cloud/container/dockerfile.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/islibra/wiki/blob/master/docs/cloud/container/0x12_本地Registry.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="dockerfile">Dockerfile<a class="headerlink" href="#dockerfile" title="Permanent link">&para;</a></h1>
-<p><strong>FROM xxx:latest</strong> 指定base镜像</p>
-<p><strong>MAINTAINER xxx</strong> 镜像作者</p>
-<p><strong>ARG xxx=123</strong></p>
-<p><strong>ENV xxx 123</strong> 设置环境变量。运行容器的时候也生效。</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ENV MY_VERSION 1.3
-RUN apt-get install -y mypackage=$MY_VERSION
+                <h1 id="0x12_registry">0x12_本地Registry<a class="headerlink" href="#0x12_registry" title="Permanent link">&para;</a></h1>
+<p>不使用 <a href="https://hub.docker.com/">Docker Hub</a>, 搭建本地 Registry</p>
+<h2 id="docker-registry">拉取运行 Docker 开源的 Registry 镜像<a class="headerlink" href="#docker-registry" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ docker run -d -p <span class="m">5000</span>:5000 -v /myregistry:/var/lib/registry --name registry registry:2
 </pre></div>
 </td></tr></table>
 
-<h2 id="_1">拷贝文件到镜像<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<h3 id="copy">COPY<a class="headerlink" href="#copy" title="Permanent link">&para;</a></h3>
-<p><strong>COPY</strong> 将文件从build context复制到镜像</p>
-<div class="superfences-tabs">
-<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
-<label for="__tab_1_0">shell</label>
-<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>COPY src dest
-</pre></div>
-</td></tr></table></div>
-<input name="__tabs_1" type="radio" id="__tab_1_1" />
-<label for="__tab_1_1">exec</label>
-<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>COPY [&quot;src&quot;, &quot;dest&quot;]
-</pre></div>
-</td></tr></table></div>
-</div>
-<h3 id="add">ADD<a class="headerlink" href="#add" title="Permanent link">&para;</a></h3>
-<p><strong>ADD xxx /xxx/yyy</strong> 将文件从build context复制到镜像，如果src是归档文件（tar, zip, tgz, xz等），<strong>自动解压</strong> 到dest。</p>
-<hr />
-<p><strong>USER xxx</strong> 设置容器中的运行用户或UID。</p>
-<p><strong>WORKDIR "/xxx"</strong> 设置镜像中的当前工作目录。运行容器的时候，会自动进入该目录。</p>
-<h2 id="_2">执行命令<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="run">RUN<a class="headerlink" href="#run" title="Permanent link">&para;</a></h3>
-<p><strong>RUN</strong> 运行命令并 <strong>创建新的镜像层</strong>，常用于 <strong>安装应用和软件包</strong>。</p>
-<h3 id="cmd">CMD<a class="headerlink" href="#cmd" title="Permanent link">&para;</a></h3>
-<p><strong>CMD</strong> 容器启动后默认执行的命令及其参数，只有 <strong>最后一个生效</strong> <sup>推荐Exec格式</sup></p>
-<p><strong>能被docker run后面跟的命令行参数替换</strong>，如：<code>docker run -it {image} /bin/bash</code>。</p>
-<p>常用于设置 <strong>默认启动命令</strong>。</p>
-<h3 id="entrypoint">ENTRYPOINT<a class="headerlink" href="#entrypoint" title="Permanent link">&para;</a></h3>
-<p><strong>ENTRYPOINT</strong> 容器启动后默认执行的命令，只有 <strong>最后一个生效</strong>。</p>
-<p><strong>不会被忽略</strong>。</p>
-<p>Docker镜像的用途是 <strong>运行应用程序或服务</strong> 时使用。</p>
-<div class="superfences-tabs">
-<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
-<label for="__tab_2_0">exec</label>
-<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span># 可使用CMD提供额外的参数
-ENTRYPOINT [&quot;/bin/echo&quot;, &quot;Hello&quot;]
-CMD [&quot;world&quot;]
-
-# 当容器通过 docker run -it [image] 启动时，输出为：
-Hello world
-# 而如果通过 docker run -it [image] CloudMan 启动，则输出为：
-Hello CloudMan
-</pre></div>
-</td></tr></table></div>
-<input name="__tabs_2" type="radio" id="__tab_2_1" />
-<label for="__tab_2_1">shell</label>
-<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>忽略任何 CMD 或 docker run 提供的参数。
-</pre></div>
-</td></tr></table></div>
-</div>
-<h2 id="_3">两种命令格式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="shell">shell<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h3>
-<div class="superfences-tabs">
-<input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
-<label for="__tab_3_0">RUN</label>
-<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>RUN apt-get install python3
-</pre></div>
-</td></tr></table></div>
-<input name="__tabs_3" type="radio" id="__tab_3_1" />
-<label for="__tab_3_1">CMD</label>
-<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>CMD echo &quot;Hello world&quot;
-</pre></div>
-</td></tr></table></div>
-<input name="__tabs_3" type="radio" id="__tab_3_2" />
-<label for="__tab_3_2">ENTRYPOINT</label>
-<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ENTRYPOINT echo &quot;Hello world&quot;
-</pre></div>
-</td></tr></table></div>
-</div>
-<p>会被shell解析，如：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ENV name Cloud Man
-ENTRYPOINT echo &quot;Hello, $name&quot;
+<ul>
+<li>-d 后台启动容器</li>
+<li>-p 将容器的 5000 端口映射到 Host 的 5000 端口</li>
+<li>-v 将容器的 <code>/var/lib/registry</code> 目录映射到 Host 的 <code>/myregistry</code></li>
+<li>--name registry 指定容器运行名称</li>
+</ul>
+<h2 id="tag">给本地已存在的镜像打 Tag<a class="headerlink" href="#tag" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ docker image tag ubuntu:v1 localhost:5000/myfirstimage:v1
 </pre></div>
 </td></tr></table>
 
-<p>相当于</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ENV name Cloud Man
-ENTRYPOINT [&quot;/bin/sh&quot;, &quot;-c&quot;, &quot;echo Hello, $name&quot;]
+<div class="admonition tip">
+<p class="admonition-title">镜像名称由 repository 和 tag 组成, 完整格式为: [registry-host]:[port]/[username]/xxx:tag, <mark class="critic">只有 Docker Hub 上的镜像可以省略</mark> [registry-host]:[port]</p>
+</div>
+<h2 id="_1">上传镜像<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ docker push localhost:5000/myfirstimage:v1
 </pre></div>
 </td></tr></table>
 
-<h3 id="exec">exec<a class="headerlink" href="#exec" title="Permanent link">&para;</a></h3>
-<div class="superfences-tabs">
-<input name="__tabs_4" type="radio" id="__tab_4_0" checked="checked" />
-<label for="__tab_4_0">RUN</label>
-<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>RUN [&quot;apt-get&quot;, &quot;install&quot;, &quot;python3&quot;]
-</pre></div>
-</td></tr></table></div>
-<input name="__tabs_4" type="radio" id="__tab_4_1" />
-<label for="__tab_4_1">CMD</label>
-<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>CMD [&quot;/bin/echo&quot;, &quot;Hello world&quot;]
-</pre></div>
-</td></tr></table></div>
-<input name="__tabs_4" type="radio" id="__tab_4_2" />
-<label for="__tab_4_2">ENTRYPOINT</label>
-<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ENTRYPOINT [&quot;/bin/echo&quot;, &quot;Hello world&quot;]
-</pre></div>
-</td></tr></table></div>
-</div>
-<p>不会被shell解析，如：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ENV name Cloud Man
-ENTRYPOINT [&quot;/bin/echo&quot;, &quot;Hello, $name&quot;]
+<h2 id="_2">下载镜像<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ docker pull localhost:5000/myfirstimage:v1
 </pre></div>
 </td></tr></table>
+
+<h2 id="registry">删除本地 Registry<a class="headerlink" href="#registry" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ docker container stop registry <span class="o">&amp;&amp;</span> docker container rm -v registry
+</pre></div>
+</td></tr></table>
+
+<div class="admonition quote">
+<p class="admonition-title">参考链接</p>
+<ul>
+<li><a href="https://docs.docker.com/registry/">Docker Registry</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTM5MjUwMg==&amp;mid=2653587627&amp;idx=1&amp;sn=b85416005be844a921c146883ac0e6b8&amp;chksm=8d3080b2ba4709a42459bd4eb977e225e2847c7bc39888c3f6f3e2d903eaf54556518683fa57&amp;scene=21#wechat_redirect">搭建本地 Registry - 每天5分钟玩转 Docker 容器技术（20）</a></li>
+</ul>
+</div>
                 
                   
                 
@@ -4890,7 +4798,7 @@ ENTRYPOINT [&quot;/bin/echo&quot;, &quot;Hello, $name&quot;]
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../docker_cgroup/" title="docker_cgroup" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../0x11_Dockerfile/" title="0x11_Dockerfile" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -4899,19 +4807,19 @@ ENTRYPOINT [&quot;/bin/echo&quot;, &quot;Hello, $name&quot;]
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                docker_cgroup
+                0x11_Dockerfile
               </span>
             </div>
           </a>
         
         
-          <a href="../../gfw/proxy/" title="proxy" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../0x90_client-go/" title="[0x90_client-go](https://github.com/kubernetes/client-go)" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                proxy
+                [0x90_client-go](https://github.com/kubernetes/client-go)
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
